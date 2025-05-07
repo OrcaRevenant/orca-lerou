@@ -1,0 +1,43 @@
+Early Completion
+As we covered earlier in this chapter, the iterator attached to a generator supports the
+optional return(..) and throw(..) methods. Both of them have the effect of abort‐
+ing a paused generator immediately.
+Consider:
+function *foo() {
+yield 1;
+yield 2;
+yield 3;
+}
+var it = foo();
+it.next();              // { value: 1, done: false }
+it.return( 42 );        // { value: 42, done: true }
+it.next();              // { value: undefined, done: true }
+return(x) is kind of like forcing a return x to be processed at exactly that moment,
+such that you get the specified value right back. Once a generator is completed, either
+normally or early as shown, it no longer processes any code or returns any values.
+In addition to return(..) being callable manually, it’s also called automatically at the
+end of iteration by any of the ES6 constructs that consume iterators, such as the
+for..of loop and the ... spread operator.
+The purpose for this capability is so the generator can be notified if the controlling
+code is no longer going to iterate over it anymore, so that it can perhaps do any
+cleanup tasks (freeing up resources, resetting status, etc.). Identical to a normal func‐
+tion cleanup pattern, the main way to accomplish this is to use a finally clause:
+function *foo() {
+try {
+yield 1;
+yield 2;
+yield 3;
+}
+finally {
+console.log( "cleanup!" );
+}
+}
+for (var v of foo()) {
+console.log( v );
+}
+// 1 2 3
+// cleanup!
+92
+|
+Chapter 3: Organization
+www.it-ebooks.info

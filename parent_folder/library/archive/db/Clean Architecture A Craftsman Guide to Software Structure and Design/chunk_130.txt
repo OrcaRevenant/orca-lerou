@@ -1,0 +1,21 @@
+irresponsible and dependent. Its lack of dependents gives the component no
+reason not to change, and the components that it depends on may give it ample
+reason to change.
+In contrast, when the I metric is equal to 0, it means that the component is
+depended on by other components (Fan-in > 0), but does not itself depend on
+any other components (Fan-out = 0). Such a component is responsible and
+independent. It is as stable as it can get. Its dependents make it hard to change
+the component, and its has no dependencies that might force it to change.
+The SDP says that the I metric of a component should be larger than the I
+metrics of the components that it depends on. That is, I metrics should decrease
+in the direction of dependency.
+NOT ALL COMPONENTS SHOULD BE STABLE
+If all the components in a system were maximally stable, the system would be
+unchangeable. This is not a desirable situation. Indeed, we want to design our
+component structure so that some components are unstable and some are stable.
+The diagram in Figure 14.8 shows an ideal configuration for a system with three
+components.
+The changeable components are on top and depend on the stable component at
+the bottom. Putting the unstable components at the top of the diagram is a useful
+convention because any arrow that points up is violating the SDP (and, as we
+shall see later, the ADP).

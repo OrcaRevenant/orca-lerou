@@ -1,0 +1,14 @@
+It consists of the following components:
+• User: A user watches YouTube on devices such as a computer, mobile phone, or smart
+TV.
+• Load balancer: A load balancer evenly distributes requests among API servers.
+• API servers: All user requests go through API servers except video streaming.
+• Metadata DB: Video metadata are stored in Metadata DB. It is sharded and replicated to
+meet performance and high availability requirements.
+• Metadata cache: For better performance, video metadata and user objects are cached.
+• Original storage: A blob storage system is used to store original videos. A quotation in
+Wikipedia regarding blob storage shows that: “A Binary Large Object (BLOB) is a
+collection of binary data stored as a single entity in a database management system” [6].
+• Transcoding servers: Video transcoding is also called video encoding. It is the process of
+converting a video format to other formats (MPEG, HLS, etc), which provide the best
+video streams possible for different devices and bandwidth capabilities.

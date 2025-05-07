@@ -1,0 +1,46 @@
+206
+Chapter 14: Successive Reﬁnement
+I hope your initial reaction to this mass of code is “I’m certainly glad he didn’t leave it
+like that!” If you feel like this, then remember that’s how other people are going to feel
+about code that you leave in rough-draft form.
+Actually “rough draft” is probably the kindest thing you can say about this code. It’s
+clearly a work in progress. The sheer number of instance variables is daunting. The odd
+strings like “TILT,” the HashSets and TreeSets, and the try-catch-catch blocks all add up to
+a festering pile.
+I had not wanted to write a festering pile. Indeed, I was trying to keep things reason-
+ably well organized. You can probably tell that from my choice of function and variable
+names and the fact that there is a crude structure to the program. But, clearly, I had let the
+problem get away from me.
+The mess built gradually. Earlier versions had not been nearly so nasty. For example,
+Listing 14-9 shows an earlier version in which only Boolean arguments were working.
+Listing 14-9
+Args.java (Boolean only)
+package com.objectmentor.utilities.getopts;
+import java.util.*;
+public class Args {
+private String schema;
+private String[] args;
+private boolean valid;
+private Set<Character> unexpectedArguments = new TreeSet<Character>();
+private Map<Character, Boolean> booleanArgs =
+new HashMap<Character, Boolean>();
+private int numberOfArguments = 0;
+public Args(String schema, String[] args) {
+this.schema = schema;
+this.args = args;
+valid = parse();
+}
+public boolean isValid() {
+return valid;
+}
+private boolean parse() {
+if (schema.length() == 0 && args.length == 0)
+return true;
+parseSchema();
+parseArguments();
+return unexpectedArguments.size() == 0;
+}
+private boolean parseSchema() {
+for (String element : schema.split(",")) {
+parseSchemaElement(element);
+}

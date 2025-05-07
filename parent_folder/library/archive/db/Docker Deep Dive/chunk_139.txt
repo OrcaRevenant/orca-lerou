@@ -1,0 +1,7 @@
+Let’s clean-up our service.
+$ docker service rm uber-svc
+uber-svc
+Verify the uber-svc is no longer running with the docker service ls command.
+$ docker service ls
+ID  NAME  REPLICAS  IMAGE  COMMAND
+Remove the uber-net network with docker network rm uber-net.

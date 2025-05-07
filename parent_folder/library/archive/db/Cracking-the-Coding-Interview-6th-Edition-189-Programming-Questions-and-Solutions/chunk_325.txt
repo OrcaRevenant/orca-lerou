@@ -1,0 +1,78 @@
+Solutions to Chapter 7 ] Object-Oriented Design
+12
+/* Check if the spot is big enough and is available */
+13
+public boolean canFitVehicle{Vehicle vehicle) { . . . }
+14
+15
+/* Park vehicle in t h i s spot.
+*/
+16
+public boolean parkfVehicle v) { . . . >
+17
+18
+public i n t getRow() { return row; }
+19
+public int getSpotNumberQ { return spotNumber; }
+26
+21
+/* Remove vehicle from spot, and notify level that a new spot is available */
+22
+public void removeVehicleQ {
+}
+23 >
+A fult implementation of this code, including executable test code, is provided in the downloadable code
+attachment.
+7.5
+Online Book Reader: Design the data structures for an online book reader system.
+pgl27
+SOLUTION
+Since the problem doesn't describe much about the functionality, let's assume we want to design a basic
+online reading system which provides the following functionality:
+•
+User membership creation and extension.
+•
+Searching the database of books.
+•
+Reading a book.
+•
+Only one active user at a time
+•
+Only one active book by this user.
+To implement these operations we may require many other functions, like get, set, update, and so on.
+The objects required would likely include User, Book, and L i b r a r y .
+The class OnlineReaderSystern represents the body of our program. We could implement the class such
+that it stores information about all the books, deals with user management, and refreshes the display, but
+that would make this class rather hefty. Instead, we've chosen to tear off these components into L i b r a r y ,
+UserManager, and D i s p l a y classes.
+1
+public class OnlineReaderSystem {
+2
+private Library l i b r a r y ;
+3
+private UserManager userManager;
+4
+private Display display;
+5
+6
+private Book activeSook;
+7
+private User activeUser;
+3
+9
+public OnlineReaderSystem() {
+10
+UserManager = new UserManagerf);
+11
+l i b r a r y = new L i b r a r y ( ) ;
+12
+display = new Oisplay();
+13
+>
+14
+15
+public Library getLibrary() { return l i b r a r y ;
+}
+16
+public UserManager getUserManager() { return userManager; }
+CrackingTheCodinglnterview.com | 6th Edition 3 37

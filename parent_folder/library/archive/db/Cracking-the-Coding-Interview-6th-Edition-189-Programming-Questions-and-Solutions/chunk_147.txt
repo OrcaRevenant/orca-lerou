@@ -1,0 +1,42 @@
+9
+System Design and Scalability
+D
+espite how intimidating they seem, scalability questions can be among the easiest questions. There
+are no"gotchas,"no tricks, and no fancy algorithms—at least not usually. What trips up many people is
+that they believe there's something "magic" to these problems—some hidden bit of knowledge.
+It's not like that. These questions are simply designed to see how you would perform in the real world. If you
+were asked by your manager to design some system, what would you do?
+That's why you should approach it just like this. Tackle the problem by doing it just like you would at work.
+Ask questions. Engage the interviewer. Discuss the tradeoffs.
+We will touch on some key concepts in this chapter, but recognize it's not really about memorizing these
+concepts. Yes, understanding some big components of system design can be useful, but it's much more
+about the process you take. There are good solutions and bad solutions. There is no perfect solution.
+• Handling the Questions
+•
+Communicate: A key goal of system design questions is to evaluate your ability to communicate. Stay
+engaged with the interviewer. Ask them questions. Be open about the issues of your system,
+•
+Go broad first: Don't dive straight into the algorithm part or get excessively focused on one part.
+•
+Use the whiteboard: Using a whiteboard helps your interviewerfollow your proposed design. Get up to
+the whiteboard in the very beginning and use it to draw a picture of what you're proposing.
+•
+Acknowledge interviewer concerns: Your interviewer will likely jump in with concerns. Don't brush
+them off; validate them. Acknowledge the issues your interviewer points out and make changes accord-
+ingly.
+•
+Be careful about assumptions: An incorrect assumption can dramatically change the problem. For
+example, if your system produces analytics / statistics for a dataset, it matters whether those analytics
+must be totally up to date.
+•
+State your assumptions explicitly: When you do make assumptions, state them.This allows your inter-
+viewer to correct you if you're mistaken, and shows that you at least know what assumptions you're
+making.
+•
+Estimate when necessary: In many cases, you might not have the data you need. For example, if you're
+designing a web crawler, you might need to estimate how much space it will take to store all the URLs.
+You can estimate this with other data you know.
+•
+Drive: As the candidate, you should stay in the driver's seat. This doesn't mean you don't talk to your
+interviewer; in fact, you musrtalkto your interviewer. However, you should be driving through the ques-
+CrackingTheCodinglrtterview.com | 6th Edition 149

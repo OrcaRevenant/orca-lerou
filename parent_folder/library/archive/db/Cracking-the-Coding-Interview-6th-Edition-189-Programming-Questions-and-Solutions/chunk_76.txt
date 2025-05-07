@@ -1,0 +1,47 @@
+VII j Technical Questions
+•
+Error checks. Some interviewers care a lot about this, while others don't. A good compromise here is to
+add a t o d o and then just explain out loud what you'd like to test.
+•
+Use other classes/structs where appropriate, if you need to return a list of start and end points from
+a function, you could do this as a two-dimensional array, it's better though to do this as a list of
+S t a r t E n d P a i r (or possibly Range) objects. You don't necessarily have to fill in the details for the class.
+Just pretend it exists and deal with the details later if you have time.
+•
+Good variable names. Code that uses single-letter variables everywhere is difficult to read. That's not to
+say that there's anything wrong with using i and j, where appropriate (such as in a basic for-loop iter-
+ating through an array). However, be careful about where you do this. If you write something like i n t
+i = s t a r t O f C h i l d ( a r r a y ) , there might be a better name for this variable, such as s t a r t Child.
+Long variable names can also be slow to write though. A good compromise that most interviewers will
+be okay with is to abbreviate it after the first usage. You can use s t a r t C h i l d the first time, and then
+explain to your interviewer that you wilt abbreviate this as sc after this.
+The specifics of what makes good code vary between interviewers and candidates, and the problem itself.
+Focus on writing beautiful code, whatever that means to you.
+If you see something you can refactor later on, then explain this to your interviewer and decide whether or
+not it's worth the time to do so. Usually it is, but not always.
+If you get confused (which is common), go back to your example and walk through it again.
+7. Test
+You wouldn't check in code in the real world without testing it, and you shouldn't "submit"code in an inter-
+view without testing it either.
+There are smart and not-so-smart ways to test your code though.
+What many candidates do is take their earlier example and test it against their code. That might discover
+bugs, but it'll take a really long time to do so. Hand testing is very slow. If you really did use a nice, big
+example to develop your algorithm, then it'll take you a very long time to find that little off-by-one error at
+the end of your code.
+Instead, try this approach:
+1. Start with a "conceptual" test. A conceptual test means just reading and analyzing what each line of code
+does. Think about it like you're explaining the lines of code for a code reviewer, Does the code do what
+you think it should do?
+2. Weird looking code. Double check that line of code that says x = l e n g t h - 2. Investigate that for
+loop that starts at i = 1. White you undoubtedly did this for a reason, it's really easy to get it just slightly
+wrong.
+3. Hot spots. You've coded long enough to know what things are likely to cause problems. Base cases
+in recursive code. Integer division. Null nodes in binary trees. The Start and end of iteration through a
+linked list. Double check that stuff.
+4. Small test cases. This is the first time we use an actual, specific test case to test the code. Don't use that
+nice, big 8-element array from the algorithm part. Instead, use a 3 or 4 element array. It'll likely discover
+the same bugs, but it will be much faster to do so.
+5. Special cases. Test your code against null or single element values, the extreme cases, and other special
+cases.
+61
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,40 @@
+super.foo();
+console.log( "ChildA:", this.id );
+}
+}
+class ChildB extends ParentB {
+foo() {
+super.foo();
+console.log( "ChildB:", this.id );
+}
+}
+var a = new ChildA();
+a.foo();                    // ParentA: a
+// ChildA: a
+var b = new ChildB();       // ParentB: b
+b.foo();                    // ChildB: b
+All seems fairly natural and expected in this previous snippet. However, if you try to
+borrow b.foo() and use it in the context of a — by virtue of dynamic this binding,
+such borrowing is quite common and used in many different ways, including mixins
+most notably — you may find this result an ugly surprise:
+// borrow `b.foo()` to use in `a` context
+b.foo.call( a );            // ParentB: a
+// ChildB: a
+As you can see, the this.id reference was dynamically rebound so that : a is
+reported in both cases instead of : b. But b.foo()’s super.foo() reference wasn’t
+dynamically rebound, so it still reported ParentB instead of the expected ParentA.
+Because b.foo() references super, it is statically bound to the ChildB/ParentB heir‐
+archy and cannot be used against the ChildA/ParentA heirarchy. There is no ES6 sol‐
+ution to this limitation.
+super seems to work intuitively if you have a static class heirarchy with no cross-
+polination. But in all fairness, one of the main benefits of doing this-aware coding is
+exactly that sort of flexibility. Simply, class + super requires you to avoid such tech‐
+niques.
+The choice boils down to narrowing your object design to these static hierarchies —
+class, extends, and super will be quite nice — or dropping all attempts to “fake”
+classes and instead embrace dynamic and flexible classless-objects and [[Proto
+type]] delegation (see the this & Object Prototypes title of this series).
+Classes
+|
+119
+www.it-ebooks.info

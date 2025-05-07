@@ -1,0 +1,102 @@
+Solutions to Chapter 1 ] Arrays and Strings
+1
+String compress(String s t r ) {
+2
+StringBuilder compressed = new StringBuilderQ;
+3
+i n t countConsecutive = 0;
+4
+f o r ( i n t i = 0; i < s t r . l e n g t h Q ; i++) (
+5
+countConsecutive++;
+6
+7
+/* If next character is d i f f e r e n t than current, append t h i s char to r e s u l t . * /
+8
+if (i + 1 >= s t r . lengthQ |J s t r . c h a r A t ( i ) != s t r . c h a r A t ( i + 1)) {
+9
+compressed.append(str.charAt(i));
+10
+compressed.append(countConsecutive);
+11
+countConsecutive = 0;
+12
+>
+13
+>
+14
+return compressed.lengthQ < s t r . l e n g t h Q ? compressed.toStringQ : s t r ;
+15
+}
+Both of these solutions create the compressed string first and then return the shorter of the input string
+and the compressed string.
+Instead, we can check in advance. This will be more optimal in cases where we don't have a large number of
+repeating characters, ft will avoid us having to create a string that we never use. The downside of this is that
+it causes a second loop through the characters and also adds nearly duplicated code.
+1
+String compress(String s t r ) {
+2
+/* Check f i n a l length and return input s t r i n g if it would be longer. */
+3
+i n t finalLength = countCompression(str);
+4
+if (finalLength >= s t r . l e n g t h Q ) return s t r ;
+5
+6
+StringBuilder compressed = new StringBuilder(finalLength); // i n i t i a l capacity
+i n t countConsecutive = 6;
+8
+for ( i n t i = 0; i < s t r . l e n g t h Q ; i++) {
+9
+countConsecutive++;
+10
+11
+/* If next character is d i f f e r e n t than current, append t h i s char to r e s u l t . * /
+12
+if (i + 1 >= s t r . l e n g t h Q
+|| s t r . c h a r A t ( i ) != s t r . c h a r A t ( i + 1)) {
+13
+compressed.append(str.charAt(i));
+14
+compressed.append(countConsecutive);
+15
+countConsecutive = 0;
+16
+>
+17
+>
+18
+return compressed.toString();
+19
+}
+20
+21 i n t countCompression(String s t r ) {
+22
+i n t compressedLength = 0;
+23
+i n t countConsecutive = 0;
+24
+for ( i n t i = 0; i < s t r . l e n g t h Q ; i++) {
+25
+countConsecutive++;
+26
+27
+/* If next character is d i f f e r e n t than current,
+increase the l e n g t h . * /
+28
+if (i + 1 >= s t r . l e n g t h Q
+|( s t r . c h a r A t ( i ) != s t r . c h a r A t ( i + 1)) {
+29
+compressedLength += 1 + String.valueOf(countConsecutive).length();
+30
+countConsecutive = 0;
+31
+}
+32
+}
+33
+return compressedLength;
+34
+}
+206
+Cracking the Coding Interview, 6th Edition

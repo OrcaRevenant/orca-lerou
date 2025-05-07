@@ -1,0 +1,31 @@
+from code to focus on higher-level issues. They do not! Software architects are
+the best programmers, and they continue to take programming tasks, while they
+also guide the rest of the team toward a design that maximizes productivity.
+Software architects may not write as much code as other programmers do, but
+they continue to engage in programming tasks. They do this because they cannot
+do their jobs properly if they are not experiencing the problems that they are
+creating for the rest of the programmers.
+The architecture of a software system is the shape given to that system by those
+who build it. The form of that shape is in the division of that system into
+components, the arrangement of those components, and the ways in which those
+components communicate with each other.
+The purpose of that shape is to facilitate the development, deployment,
+operation, and maintenance of the software system contained within it.
+The strategy behind that facilitation is to leave as many options open as possible, for as long as
+possible.
+Perhaps this statement has surprised you. Perhaps you thought that the goal of
+software architecture was to make the system work properly. Certainly we want
+the system to work properly, and certainly the architecture of the system must
+support that as one of its highest priorities.
+However, the architecture of a system has very little bearing on whether that
+system works. There are many systems out there, with terrible architectures, that
+work just fine. Their troubles do not lie in their operation; rather, they occur in
+their deployment, maintenance, and ongoing development.
+This is not to say that architecture plays no role in supporting the proper
+behavior of the system. It certainly does, and that role is critical. But the role is
+passive and cosmetic, not active or essential. There are few, if any, behavioral
+options that the architecture of a system can leave open.
+The primary purpose of architecture is to support the life cycle of the system.
+Good architecture makes the system easy to understand, easy to develop, easy to
+maintain, and easy to deploy. The ultimate goal is to minimize the lifetime cost
+of the system and to maximize programmer productivity.

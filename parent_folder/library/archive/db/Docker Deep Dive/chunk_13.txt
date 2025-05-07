@@ -1,0 +1,25 @@
+The core Windows technologies required to implement containers are
+collectively referred to as Windows Containers. The user-space tooling to work
+with these Windows Containers is Docker. This makes the Docker experience on
+Windows almost exactly the same as Docker on Linux. This way developers and
+sysadmins familiar with the Docker toolset from the Linux platform will feel at
+home using Windows containers.
+This revision of the book includes Linux and Windows examples for almost
+every example cited.
+Windows containers vs Linux containers
+It’s vital to understand that a running container uses the kernel of the host
+machine it is running on. This means that a container designed to run on a host
+with a Windows kernel will not run on a Linux host. This means that you can
+think of it like this at a high level - Windows containers require a Windows Host,
+and Linux containers require a Linux host. However, it’s not that simple…
+At the time of writing this revision of the book, it is possible to run Linux
+containers on Windows machines. For example, Docker for Windows (a product
+offering from Docker, Inc. designed for Windows 10) can switch modes between
+Windows containers and Linux containers. This is an area that is developing fast
+and you should consult the Docker documentation for the latest.
+What about Mac containers?
+There is currently no such thing as Mac containers.
+However, you can run Linux containers on your Mac using the Docker for Mac
+product. This works by seamlessly running your containers inside of a
+lightweight Linux VM running on your Mac. It’s extremely popular with
+developers who can easily develop and test their Linux containers on their Mac.

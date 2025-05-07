@@ -1,0 +1,21 @@
+This will install and enable the Hyper-V and Containers features. Your system
+may require a restart.
+Figure 3.1
+The Containers feature is only available if you are running the summer 2016
+Windows 10 Anniversary Update (build 14393) or later.
+Once you’ve installed the Hyper-V and Containers features and restarted your
+machine, it’s time to install Docker for Windows.
+1. Head over to www.docker.com and click Get Docker from the top of the
+page. This will open a dropdown menu.
+2. Choose Windows from under the Desktop section.
+3. Click Download from Docker Store.
+4. Click one of the Get Docker download links.
+There are various stable and edge versions available. The edge version contains
+newer features but may not be as stable.
+An installer package called InstallDocker.msi will be downloaded to your
+default downloads directory.
+1. Locate and launch the InstallDocker.msi package that you just
+downloaded.
+Step through the installation wizard and provide local administrator credentials
+to complete the installation. Docker will automatically start as a system service
+and a Moby Dock whale icon will appear in the Windows notifications tray.

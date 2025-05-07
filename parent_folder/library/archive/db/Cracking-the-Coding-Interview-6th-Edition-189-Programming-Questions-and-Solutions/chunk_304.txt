@@ -1,0 +1,78 @@
+Solutions to Chapter 6 | Math and Logic Puzzles
+Mathematically
+We can work out the probability for each gender sequence,
+•
+P(G) = K . T h a t is, 50% of families will have a girl first. The others will goon to have more chiidren,
+•
+P(BG) = 7a . Of those who have a second child (which is 50%), 50% of them will have a girl the next time,
+•
+P(8BG) = Y%. Of those who have a third child (which is 25%), 50% of them will have a girl the next time.
+And so on.
+We know that every family has exactly one girl. How many boys does each family have, on average? To
+compute this, we can look at the expected value of the number of boys. The expected value of the number
+of boys is the probability of each sequence multiplied by the number of boys in that sequence.
+Sequence
+Number of Boys
+Probability
+Number of Boys* Probability
+G
+0
+1 /
+/2
+0
+BG
+1
+'A
+1/
+74
+BBG
+2
+l /
+7 3
+1/
+78
+BBBG
+3
+%/
+716
+BBBBG
+4
+&
+&
+8BBBBG
+5
+/64
+5 /
+/ M
+BBBBBBG
+6
+/12S
+V
+/II6
+Or in other words, this is the sum of i to infinity of i divided by 2\
+y -
+i
+o 2
+You probably won't know this off the top of your head, but we can try to estimate it. Let's try converting the
+above values to a common denominator of 128 (26).
+1/ _ 32/
+- 7128
+*/ - 16/
+/ 32 — 7123
+V - «/
+/» ~ /128
+J6a = ~ /'l 2 8
+3/ _ 24/
+/16 — 128
+6/ _«/
+7128 - 712a
+32 + 32 + 24 + 16 + 10 + 6
+120
+This looks like it's going to inch closer to 12Yn» (which is of course 1). This "looks like" intuition is valuable,
+but it's not exactly a mathematical concept, it's a clue though and we can turn to logic here. Should it be 1?
+Logically
+If the earlier sum is 1, this would mean that the gender ratio is even. Families contribute exactly one girl and
+on average one boy. The birth policy is therefore ineffective. Does this make sense?
+At first glance, this seems wrong. The policy is designed to favor girls as it ensures that all families have a girl.
+294
+300 Cracking the Coding Interview, 6th Edition

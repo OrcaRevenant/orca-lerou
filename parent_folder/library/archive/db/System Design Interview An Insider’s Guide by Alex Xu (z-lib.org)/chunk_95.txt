@@ -1,0 +1,17 @@
+3. When the memory cache is full or reaches a predefined threshold, data is flushed to
+SSTable [9] on disk. Note: A sorted-string table (SSTable) is a sorted list of <key, value>
+pairs. For readers interested in learning more about SStable, refer to the reference material
+[9].
+Read path
+After a read request is directed to a specific node, it first checks if data is in the memory
+cache. If so, the data is returned to the client as shown in Figure 6-20.
+If the data is not in memory, it will be retrieved from the disk instead. We need an efficient
+way to find out which SSTable contains the key. Bloom filter [10] is commonly used to solve
+this problem.
+The read path is shown in Figure 6-21 when data is not in memory.
+1. The system first checks if data is in memory. If not, go to step 2.
+2. If data is not in memory, the system checks the bloom filter.
+
+3. The bloom filter is used to figure out which SSTables might contain the key.
+4. SSTables return the result of the data set.
+5. The result of the data set is returned to the client.

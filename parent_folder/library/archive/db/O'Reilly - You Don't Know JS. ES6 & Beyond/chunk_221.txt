@@ -1,0 +1,46 @@
+There’s also a proposal for async function*, which would be
+called an “async generator”. You can both yield and await in the
+same code, and even combine those operations in the same state‐
+ment: x = await yield y. The “async generator” proposal seems
+to be more in flux — namely, its return value is not fully worked
+out yet. Some feel it should be an observable, which is kind of like
+the combination of an iterator and a promise. For now, we won’t go
+further into that topic, but stay tuned as it evolves.
+Caveats
+One unresolved point of contention with async function is that since it only returns
+a promise, there’s no way from the outside to cancel an async function instance
+that’s currently running. This can be a problem if the async operation is resource
+intensive, and you want to free up the resources as soon as you’re sure the result won’t
+be needed.
+For example:
+async function request(url) {
+var resp = await (
+new Promise( function(resolve,reject){
+var xhr = new XMLHttpRequest();
+xhr.open( "GET", url );
+xhr.onreadystatechange = function(){
+if (xhr.readyState == 4) {
+if (xhr.status == 200) {
+resolve( xhr );
+}
+else {
+reject( xhr.statusText );
+}
+}
+};
+xhr.send();
+} )
+);
+return resp.responseText;
+}
+var pr = request( "http://some.url.1" );
+pr.then(
+function fulfilled(responseText){
+// ajax success
+},
+function rejected(reason){
+// Oops, something went wrong
+210
+|
+Chapter 8: Beyond ES6
+www.it-ebooks.info

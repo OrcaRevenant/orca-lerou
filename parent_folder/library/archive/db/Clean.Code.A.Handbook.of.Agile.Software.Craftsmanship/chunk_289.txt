@@ -1,0 +1,50 @@
+259
+The JUnit Framework
+return Assert.format(message, expected, actual);
+}
+}
+private void compactExpectedAndActual() {
+findCommonPrefix();
+findCommonSuffix();
+compactExpected = compactString(expected);
+compactActual = compactString(actual);
+}
+Notice that this required us to promote compactExpected and compactActual to member
+variables. I don’t like the way that the last two lines of the new function return variables,
+but the ﬁrst two don’t. They aren’t using consistent conventions [G11]. So we should
+change findCommonPrefix and findCommonSuffix to return the preﬁx and sufﬁx values.
+private void compactExpectedAndActual() {
+prefixIndex = findCommonPrefix();
+suffixIndex = findCommonSuffix();
+compactExpected = compactString(expected);
+compactActual = compactString(actual);
+}
+private int findCommonPrefix() {
+int prefixIndex = 0;
+int end = Math.min(expected.length(), actual.length());
+for (; prefixIndex < end; prefixIndex++) {
+if (expected.charAt(prefixIndex) != actual.charAt(prefixIndex))
+break;
+}
+return prefixIndex;
+}
+private int findCommonSuffix() {
+int expectedSuffix = expected.length() - 1;
+int actualSuffix = actual.length() - 1;
+for (; actualSuffix >= prefixIndex && expectedSuffix >= prefixIndex;
+actualSuffix--, expectedSuffix--) {
+if (expected.charAt(expectedSuffix) != actual.charAt(actualSuffix))
+break;
+}
+return expected.length() - expectedSuffix;
+}
+We should also change the names of the member variables to be a little more accurate
+[N1]; after all, they are both indices.
+Careful inspection of findCommonSuffix exposes a hidden temporal coupling [G31]; it
+depends on the fact that prefixIndex is calculated by findCommonPrefix. If these two func-
+tions were called out of order, there would be a difﬁcult debugging session ahead. So, to
+expose this temporal coupling, let’s have findCommonSuffix take the prefixIndex as an
+argument.
+private void compactExpectedAndActual() {
+prefixIndex = findCommonPrefix();
+suffixIndex = findCommonSuffix(prefixIndex);

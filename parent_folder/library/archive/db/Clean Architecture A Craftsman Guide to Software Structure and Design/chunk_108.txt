@@ -1,0 +1,19 @@
+This worked fine so long as the application could fit between addresses 00008
+and 17778. But soon applications grew to be larger than the space allotted for
+them. At that point, programmers had to split their applications into two address
+segments, jumping around the function library (Figure 12.2).
+Figure 12.2 Splitting the application into two address segments
+Obviously, this was not a sustainable situation. As programmers added more
+functions to the function library, it exceeded its bounds, and they had to allocate
+more space for it (in this example, near 70008). This fragmentation of programs
+and libraries necessarily continued as computer memory grew.
+Clearly, something had to be done.
+RELOCATABILITY
+The solution was relocatable binaries. The idea behind them was very simple.
+The compiler was changed to output binary code that could be relocated in
+memory by a smart loader. The loader would be told where to load the
+relocatable code. The relocatable code was instrumented with flags that told the
+loader which parts of the loaded data had to be altered to be loaded at the
+selected address. Usually this just meant adding the starting address to any
+memory reference addresses in the binary.
+Now the programmer could tell the loader where to load the function library, and

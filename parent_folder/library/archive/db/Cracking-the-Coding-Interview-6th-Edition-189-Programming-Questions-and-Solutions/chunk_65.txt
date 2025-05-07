@@ -1,0 +1,47 @@
+VII Big O
+-> powersOf2(l2)
+-> powers0f2(6)
+-> powers0f2{3)
+-> powers0f2(l)
+-> p r i n t & return 1
+p r i n t a return 2
+p r i n t & return 4
+p r i n t & return 8
+p r i n t & return 16
+p r i n t & return 32
+The runtime, then, is the number of times we can divide 50 (or n) by 2 until we get down to the base case (1).
+As we discussed on page 44, the number of times we can halve n until we get 1 isO(log n).
+What It Means
+We can also approach the runtime by thinking about what the code is supposed to be doing. It's supposed
+to be computing the powers of 2 from 1 through n.
+Each call topowers0f2 results in exactly one number being printed and returned (excluding what happens
+in the recursive calls). So if the algorithm prints 13 values at the end, then powers0f2 was called 13 times.
+In this case, we are told that it prints al) the powers of 2 between 1 and n. Therefore, the number of times
+the function is called (which will be its runtime) must equal the number of powers of 2 between 1 and n.
+There are l o g N powers of 2 between 1 and n. Therefore, the runtime is 0 ( l o g n).
+Rate of Increase
+A final way to approach the runtime is to think about how the runtime changes as n gets bigger. After all,
+this is exactly what big 0 time means.
+If N goes from P to P+l, the number of calls to powersOfTwo might not change at all. When will the
+number of calls to powersOfTwo increase? It will increase by 1 each time n doubles in size.
+So, each time n doubles, the number of calls to powersOfTwo increases by 1. Therefore, the number of
+calls to powersOfTwo is the number of times you can double 1 until you get n. It is x in the equation 2*
+= n.
+What is x?The valueof x is l o g n. This is exactly what meant by x = l o g n.
+Therefore, the runtime i s 0 ( l o g n).
+Additional Problems
+VI. 1
+The following code computes the product of a and b.What is its runtime?
+i n t product{int a, i n t b) {
+i n t sum = 0;
+for ( i n t i = 8; i < bj i++) {
+sum += a;
+}
+return sumj
+>
+VI.2
+The following code computes ab. What is its runtime?
+i n t power(int a, i n t b) {
+i f (b < 0) {
+CrackingTheCodinglnterview.com | 6th Edition
+59

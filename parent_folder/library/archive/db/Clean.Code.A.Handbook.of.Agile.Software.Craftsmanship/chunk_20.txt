@@ -1,0 +1,43 @@
+xx
+Foreword
+Yet even in the auto industry, the bulk of the work lies not in manufacturing but in
+maintenance—or its avoidance. In software, 80% or more of what we do is quaintly called
+“maintenance”: the act of repair. Rather than embracing the typical Western focus on pro-
+ducing good software, we should be thinking more like home repairmen in the building
+industry, or auto mechanics in the automotive ﬁeld. What does Japanese management have
+to say about that?
+In about 1951, a quality approach called Total Productive Maintenance (TPM) came
+on the Japanese scene. Its focus is on maintenance rather than on production. One of the
+major pillars of TPM is the set of so-called 5S principles. 5S is a set of disciplines—and
+here I use the term “discipline” instructively. These 5S principles are in fact at the founda-
+tions of Lean—another buzzword on the Western scene, and an increasingly prominent
+buzzword in software circles. These principles are not an option. As Uncle Bob relates in
+his front matter, good software practice requires such discipline: focus, presence of mind,
+and thinking. It is not always just about doing, about pushing the factory equipment to pro-
+duce at the optimal velocity. The 5S philosophy comprises these concepts:
+• Seiri, or organization (think “sort” in English). Knowing where things are—using
+approaches such as suitable naming—is crucial. You think naming identiﬁers isn’t
+important? Read on in the following chapters.
+• Seiton, or tidiness (think “systematize” in English). There is an old American saying:
+A place for everything, and everything in its place. A piece of code should be where
+you expect to ﬁnd it—and, if not, you should re-factor to get it there.
+• Seiso, or cleaning (think “shine” in English): Keep the workplace free of hanging
+wires, grease, scraps, and waste. What do the authors here say about littering your
+code with comments and commented-out code lines that capture history or wishes for
+the future? Get rid of them.
+• Seiketsu, or standardization: The group agrees about how to keep the workplace clean.
+Do you think this book says anything about having a consistent coding style and set of
+practices within the group? Where do those standards come from? Read on.
+• Shutsuke, or discipline (self-discipline). This means having the discipline to follow the
+practices and to frequently reﬂect on one’s work and be willing to change.
+If you take up the challenge—yes, the challenge—of reading and applying this book,
+you’ll come to understand and appreciate the last point. Here, we are ﬁnally driving to the
+roots of responsible professionalism in a profession that should be concerned with the life
+cycle of a product. As we maintain automobiles and other machines under TPM, break-
+down maintenance—waiting for bugs to surface—is the exception. Instead, we go up a
+level: inspect the machines every day and ﬁx wearing parts before they break, or do the
+equivalent of the proverbial 10,000-mile oil change to forestall wear and tear. In code,
+refactor mercilessly. You can improve yet one level further, as the TPM movement inno-
+vated over 50 years ago: build machines that are more maintainable in the ﬁrst place. Mak-
+ing your code readable is as important as making it executable. The ultimate practice,
+introduced in TPM circles around 1960, is to focus on introducing entire new machines or

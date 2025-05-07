@@ -1,0 +1,27 @@
+WORK ETHIC
+21
+By the same token, there is no better way to bring new people into an organization
+than to sit down with them and show them the ropes. Professionals take personal
+responsibility for mentoring juniors. They will not let a junior flail about
+unsupervised.
+K N OW YO U R D O M AI N
+It is the responsibility of every software professional to understand the domain
+of the solutions they are programming. If you are writing an accounting system,
+you should know the accounting field. If you are writing a travel application,
+you should know the travel industry. You don’t have to be a domain expert, but
+there is a reasonable amount of due diligence that you ought to engage in.
+When starting a project in a new domain, read a book or two on the topic.
+Interview your customer and users about the foundation and basics of the
+domain. Spend some time with the experts, and try to understand their
+principles and values.
+It is the worst kind of unprofessional behavior to simply code from a spec
+without understanding why that spec makes sense to the business. Rather, you
+should know enough about the domain to be able to recognize and challenge
+specification errors.
+I D E NTI F Y WITH YO U R E M PLOYE R /CU STO M E R
+Your employer’s problems are your problems. You need to understand what
+those problems are and work toward the best solutions. As you develop a system
+you need to put yourself in your employer’s shoes and make sure that the
+features you are developing are really going to address your employer’s needs.
+It is easy for developers to identify with each other. It’s easy to fall into an us
+versus them attitude with your employer. Professionals avoid this at all costs.

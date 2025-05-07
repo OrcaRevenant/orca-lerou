@@ -1,0 +1,40 @@
+IV
+Before the Interview
+Acing an interview starts well before the interview itself—years before, in fact. The following timeline
+outlines what you should be thinking about when.
+If you're starting fate into this process, don't worry. Do as much "catching up" as you can, and then focus on
+preparation. Good luck!
+• Getting the Right Experience
+Without a great resume, there's no interview. And without great experience, there's no great resume. There-
+fore, the first step in landing an interview is getting great experience. The further in advance you can think
+about this the better.
+For current students, this may mean the following:
+•
+Take the Big Project Classes: Seek out the classes with big coding projects. This is a great way to get some-
+what practical experience before you have any formal work experience. The more relevant the project is
+to the real world, the better.
+•
+Get an Internship: Do everything you can to land an internship early in school. It will pave the way for
+even better internships before you graduate. Many of the top tech companies have internship programs
+designed especially for freshman and sophomores. You can also look at startups, which might be more
+flexible.
+•
+Starf Something: Build a project on your own time, participate in hackathons, or contribute to an open
+source project. It doesn't matter too much what it is. The important thing is that you're coding. Not only
+will this develop your technical skills and practical experience, your initiative will impress companies.
+Professionals, on the other hand, may already have the right experience to switch to their dream company.
+For instance, a Google dev probably already has sufficient experience to switch to Facebook. However, if
+you're trying to move from a lesser-known company to one of the "biggies," or from testing/IT into a dev
+role, the following advice will be useful:
+•
+Shift Work Responsibilities More Towards Coding: Without revealing to your manager that you are thinking
+of leaving, you can discuss your eagerness to take on bigger coding challenges. As much as possible,
+try to ensure that these projects are "meaty," use relevant technologies, and lend themselves well to a
+resume bullet or two. It is these coding projects that will, ideally, form the bulk of your resume,
+•
+Use Your Nights and Weekends: If you have some free time, use it to build a mobile app, a web app, or a
+piece of desktop software. Doing such projects is also a great way to get experience with new technolo-
+gies, making you more relevant to today's companies. This project work should definitely be listed on
+your resume; few things are as impressive to an Interviewer as a candidate who built something "just
+2 6
+Cracking the Coding Interview, 6th Edition

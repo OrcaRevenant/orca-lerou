@@ -1,0 +1,16 @@
+CHAPTER 7 ACCEPTANCE TESTING
+104
+contents for his manual test plan. He has an army of manual testers in off-shore
+locations that execute this plan once every six weeks. It costs him over a million
+dollars every time. He’s holding it out for me because he’s just come back from
+a meeting in which his manager has told him that they need to cut his budget
+by 50%. His question to me is, “Which half of these tests should I not run?”
+Figure 7-1 Manual test plan
+To call this a disaster would be a gross understatement. The cost of running the
+manual test plan is so enormous that they have decided to sacrifice it and
+simply live with the fact that they won’t know if half of their product works!
+Professional developers do not let this kind of situation happen. The cost of
+automating acceptance tests is so small in comparison to the cost of executing
+manual test plans that it makes no economic sense to write scripts for humans
+to execute. Professional developers take responsibility for their part in ensuring
+that acceptance tests are automated.

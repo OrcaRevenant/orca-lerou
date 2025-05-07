@@ -1,0 +1,94 @@
+Solutions to Chapter 15 | Threads and Locks
+45
+public NumberThread(boolean div3j boolean div5, int max) {
+46
+super(div3, div5, max, null);
+47
+>
+48
+49
+public void print() {
+50
+System.out.println(current);
+51
+>
+52 )
+Observe that we need to put the comparison of current and max before the if statement, to ensure the
+value wiil only get printed when current is iess than or equal to max.
+Alternatively, if we're working in a language which supports this (Java 8 and many other languages do), we
+can pass in a validate method and a print method as parameters.
+1
+int n = 100;
+2
+Thread[J threads » {
+3
+new FBThread(i -> i % 3 == 0 && i % S == 0, i -> "FizzBuzz", n),
+4
+new FBThread(i -> i % 3 == 0 && i % 5 != 0, i -> "Fizz", n),
+5
+new FBThread(i -> i % 3 != 0 && 1 % 5 == 0, i -> "Buzz", n),
+new FBThread(i -> i % 3 != 0 && i % S != 0, i -> Integer.toString(i), n)>;
+7
+for (Thread thread : threads) {
+8
+thread.start();
+9
+}
+10
+11 public class FBThread extends Thread {
+12
+private static Object lock = new Object();
+13
+protected static int current = 1;
+14
+private int max;
+15
+private Predicate<Integer> validate;
+16
+private Function<integer, String> printer;
+17
+int x = l;
+18
+19
+public FBThread(Predicate<Integer> validate,
+20
+Functionclnteger, String> printer, int max) {
+21
+this.validate = validate;
+22
+this.printer = printer;
+23
+this.max = max;
+24
+>
+25
+26
+public void run{) {
+27
+while (true) {
+28
+synchronized (lock) •{
+29
+if (current > max) {
+30
+return;
+31
+>
+32
+if (validate,test(current)) {
+33
+System.out.println(printer.apply(current));
+34
+current++;
+35
+>
+36
+)
+37
+>
+38
+}
+39 >
+There are of course many other ways of implementing this as well.
+CrackingTheCodinglrtterview.com | 6th Edition
+461

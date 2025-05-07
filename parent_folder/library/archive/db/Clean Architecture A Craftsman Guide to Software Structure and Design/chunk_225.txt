@@ -1,0 +1,10 @@
+27
+SERVICES: GREAT AND SMALL
+Service-oriented “architectures” and micro-service “architectures” have become
+very popular of late. The reasons for their current popularity include the
+following:
+• Services seem to be strongly decoupled from each other. As we shall see, this
+is only partially true.
+• Services appear to support independence of development and deployment.
+Again, as we shall see, this is only partially true.
+SERVICE ARCHITECTURE?

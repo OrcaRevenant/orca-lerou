@@ -1,0 +1,36 @@
+313
+Tests
+vis_ (for visual imaging system) are distracting and redundant. Again, today’s environ-
+ments provide all that information without having to mangle the names. Keep your
+names free of Hungarian pollution.
+N7: Names Should Describe Side-Effects
+Names should describe everything that a function, variable, or class is or does. Don’t hide
+side effects with a name. Don’t use a simple verb to describe a function that does more
+than just that simple action. For example, consider this code from TestNG:
+public ObjectOutputStream getOos() throws IOException {
+if (m_oos == null) {
+m_oos = new ObjectOutputStream(m_socket.getOutputStream());
+}
+return m_oos;
+}
+This function does a bit more than get an “oos”; it creates the “oos” if it hasn’t been cre-
+ated already. Thus, a better name might be createOrReturnOos.
+Tests
+T1: Insufﬁcient Tests
+How many tests should be in a test suite? Unfortunately, the metric many programmers use
+is “That seems like enough.” A test suite should test everything that could possibly break.
+The tests are insufﬁcient so long as there are conditions that have not been explored by the
+tests or calculations that have not been validated.
+T2: Use a Coverage Tool!
+Coverage tools reports gaps in your testing strategy. They make it easy to ﬁnd modules,
+classes, and functions that are insufﬁciently tested. Most IDEs give you a visual indication,
+marking lines that are covered in green and those that are uncovered in red. This makes it
+quick and easy to ﬁnd if or catch statements whose bodies haven’t been checked.
+T3: Don’t Skip Trivial Tests
+They are easy to write and their documentary value is higher than the cost to produce
+them.
+T4: An Ignored Test Is a Question about an Ambiguity
+Sometimes we are uncertain about a behavioral detail because the requirements are
+unclear. We can express our question about the requirements as a test that is commented
+out, or as a test that annotated with @Ignore. Which you choose depends upon whether the
+ambiguity is about something that would compile or not.

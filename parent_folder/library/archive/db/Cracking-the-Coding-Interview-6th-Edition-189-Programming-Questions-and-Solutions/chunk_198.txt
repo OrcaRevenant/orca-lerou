@@ -1,0 +1,56 @@
+Chapter 17 | Hard
+17.12 BiNode: Consider a simple data structure called BiNode, which has pointers to two other nodes,
+public class BiNode {
+public SiNode nodel, node2;
+public i n t data;
+>
+The data structure BiNode could be used to represent both a binary tree (where nodel is the left
+node and node2 is the right node) or a doubly linked list (where nodel is the previous node and
+node2 is the next node). Implement a method to convert a binary search tree (implemented with
+BiNode) into a doubly linked list. The values should be kept in order and the operation should be
+performed in place (that is, on the original data structure).
+Hints: #509, #608, #646, #680, #701 #719
+17.13 Re-Space: Oh, no! You have accidentally removed all spaces, punctuation, and capitalization in a
+lengthy document, A sentence like "I
+r e s e t t h e
+computer.
+It
+s t i l l
+d i d n ' t
+b o o t ! "
+became " i r e s e t t h e c o m p u t e r i t st i l l d i d n t b o o t " . You'll deal with the punctuation and capi-
+talization later; right now you need to re-insert the spaces. Most of the words are in a dictionary but
+a few are not. Given a dictionary (a list of strings) and the document (a string), design an algorithm
+to unconcatenate the document in a way that minimizes the number of unrecognized characters.
+EXAMPLE;
+Input:
+j e s s l o o k e d j u s t l i k e t i m h e r b r o t h e r
+Output: j e s s
+looked j u s t l i k e t u n her b r o t h e r
+(7 unrecognized characters)
+Hints: #496, #623, #656, #677, #739, #749
+17.14 Smallest K: Design an algorithm to find the smallest K numbers in an array.
+Hints: #470, #530, #552, #593, #625, #647, #661, #678
+17.15 Longest Word: Given a list of words, write a program to find the longest word made of other words
+in the list.
+EXAMPLE
+Input: c a t ,
+banana, dog,
+nana, w a l k , w a l k e r ,
+dogwalker
+Output: dogwalker
+Hints: #475, #499, #543, #589
+17.16 The Masseuse: A popular masseuse receives a sequence of back-to-back appointment requests
+and is debating which ones to accept. She needs a 15-minute break between appointments and
+therefore she cannot accept any adjacent requests. Given a sequence of back-to-back appoint-
+ment requests (all multiples of 15 minutes, none overlap, and none can be moved), find the optimal
+(highest total booked minutes) set the masseuse can honor. Return the number of minutes.
+EXAMPLE
+Input;
+{ 3 0 , 15, 60, 75, 45, 15, 15, 45}
+Output: 180 minutes
+( { 3 0 ,
+60, 45, 4 5 } ) .
+Hints: #495, #504, #516, #526, #542, #554, #562, #568, #578, #587, #607
+190
+Cracking the Coding Interview, 6th Edition

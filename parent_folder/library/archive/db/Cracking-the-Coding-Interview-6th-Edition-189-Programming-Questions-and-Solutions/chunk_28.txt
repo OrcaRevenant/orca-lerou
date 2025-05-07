@@ -1,0 +1,40 @@
+Ill I Special Situations
+Ultimately, most of these areas come back to your prior experience and your personality. Be sure to prepare
+very, very thoroughly using the interview preparation grid.
+> Startups
+The application and interview process for startups is highly variable. We can't go through every startup,
+but we can offer some general pointers. Understand, however, that the process at a specific startup might
+deviate from this.
+The Application Process
+Many startups might post job listings, but for the hottest startups, often the best way in isthrough a personal
+referral. This reference doesn't necessarily need to be a close friend or a coworker. Often just by reaching
+out and expressing your interest, you can get someone to pick up your resume to see if you're a good fit.
+Visas and Work Authorization
+Unfortunately, many smaller startups in the U.S. are not able to sponsor work visas. They hate the system
+as much you do, but you won't be able to convince them to hire you anyway. If you require a visa and wish
+to work at a startup, your best bet is to reach out to a professional recruiter who works with many startups
+{and may have a better idea of which startups will work with visa issues), or to focus your search on bigger
+startups.
+Resume Selection Factors
+Startups tend to want engineers who are not only smart and who can code, but also people who would
+work well in an entrepreneurial environment. Your resume should ideally show initiative. What sort of proj-
+ects have you started?
+Being able to "hit the ground running" is also very important; they want people who already know the
+language of the company.
+The Interview Process
+In contrast to big companies, which tend to iook mostly at your general aptitude with respect to software
+development, startups often look closely at your personality fit, skill set, and prior experience.
+•
+Personality Fit: Personality fit is typically assessed by how you interact with your interviewer. Establishing
+a friendly, engaging conversation with your interviewers is your ticket to many job offers.
+•
+Skill Set: Because startups need people who can hit the ground running, they are likely to assess your
+skills with specific programming languages. If you know a language that the startup works with, make
+sure to brush up on the details.
+•
+Experience: Startups are likely to ask you a lot of questions about your experience. Pay special attention
+to the Behavioral Questions section.
+In addition to the above areas, the coding and algorithms questions that you see in this book are also very
+common.
+18
+24 Cracking the Coding Interview, 6th Edition

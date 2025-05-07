@@ -1,0 +1,30 @@
+137
+ESTIMATION
+Yes, you got it. The chips were objects, with vtables. All functions were poly-
+mor phically deployed. And, yes, this is how I learned some of the principles of
+OOD, long before I knew what an object was.
+The benefits were enormous. Not only could we deploy individual chips, we
+could also make patches in the field by moving functions into RAM and
+rerouting the vectors. This made field debugging and hot patching much easier.
+But I digress. When Ken came to me and asked me to fix this problem he
+suggested something about pointers to functions. I spent a day or two
+formalizing the idea and then presented him with a detailed plan. He asked me
+how long it would take, and I responded that it would take me about a month.
+It took three months.
+I’ve only been drunk two times in my life, and only really drunk once. It was at
+the Teradyne Christmas party in 1978. I was 26 years old.
+The party was held at the Teradyne office, which was mostly open lab space.
+Everybody got there early, and then there was a huge blizzard that prevented the
+band and the caterer from getting there. Fortunately there was plenty of booze.
+I don’t remember much of that night. And what I do remember I wish I didn’t.
+But I will share one poignant moment with you.
+I was sitting cross-legged on the floor with Ken (my boss, who was all of 29
+years old at the time and not drunk) weeping about how long the vectorization
+job was taking me. The alcohol had released my pent up fears and insecurities
+about my estimate. I don’t think my head was in his lap, but my memory just
+isn’t very clear about that kind of detail.
+I do remember asking him if he was mad at me, and if he thought it was taking
+me too long. Although the night was a blur, his response has remained clear
+through the following decades. He said, “Yes, I think it’s taken you a long time,
+but I can see that you are working hard on it, and making good progress. It’s
+something we really need. So, no, I’m not mad.”

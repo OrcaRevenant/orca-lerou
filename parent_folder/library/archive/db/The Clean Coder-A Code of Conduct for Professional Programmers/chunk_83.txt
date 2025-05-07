@@ -1,0 +1,29 @@
+A LANGUAGE OF COMMITMENT
+51
+It wouldn’t work because I don’t really know if it can be done.
+If it can’t be done, you can still commit to actions that will bring you closer
+to the target. Finding out if it can be done can be one of the actions to
+commit to!
+Instead of committing to fix all 25 remaining bugs before the release (which
+may not be possible), you can commit to these specific actions that bring you
+closer to that goal:
+• Go through all 25 bugs and try to recreate them.
+• Sit down with the QA who found each bug to see a repro of that bug.
+• Spend all the time you have this week trying to fix each bug.
+It wouldn’t work because sometimes I just won’t make it.
+That happens. Something unexpected might happen, and that’s life. But you still
+want to live up to expectations. In that case, it’s time to change the expectations,
+as soon as possible.
+If you can’t make your commitment, the most important thing is to raise a red
+flag as soon as possible to whoever you committed to.
+The earlier you raise the flag to all stakeholders, the more likely there will be
+time for the team to stop, reassess the current actions being taken, and decide if
+something can be done or changed (in terms of priorities, for example). By
+doing this, your commitment can still be fulfilled, or you can change to a
+different commitment.
+Some examples are:
+• If you set a meeting for noon at a cafe downtown with a colleague and you
+get stuck in traffic, you doubt you’ll be able to follow through on your
+commitment to be there on time. You can call your colleague as soon as you
+realize you might be late, and let them know. Maybe you can find a closer
+place to meet, or perhaps postpone the meeting.

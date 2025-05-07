@@ -1,0 +1,34 @@
+others. None of these have been changed or augmented for full Unicode awareness, so
+you should be very careful — probably just avoid them! — on strings with astral sym‐
+bols contained.
+There are also several string methods which use regular expressions for their behav‐
+ior, like replace(..) and match(..). Thankfully, ES6 brings Unicode awareness to
+regular expressions, as we covered in “Unicode Flag” earlier in this chapter.
+OK, there we have it! JavaScript’s Unicode string support is significantly better over
+pre-ES6 (though still not perfect) with the various additions we’ve just covered.
+Unicode Identifier Names
+Unicode can also be used in identifier names (variables, properties, etc.). Prior to ES6,
+you could do this with Unicode-escapes, like:
+var \u03A9 = 42;
+// same as: var Ω = 42;
+As of ES6, you can also use the earlier explained code point escape syntax:
+var \u{2B400} = 42;
+// same as: var
+= 42;
+There’s a complex set of rules around exactly which unicode characters are allowed.
+Furthermore, some are allowed only if they’re not the first character of the identifier
+name.
+Mathias Bynens has a great post (https://mathiasbynens.be/notes/
+javascript-identifiers-es6) on all the nitty gritty details.
+The reasons for using such unusual characters in identifier names are rather rare and
+academic. You typically won’t be best served by writing code which relies on these
+esoteric capabilities.
+Symbols
+For the first time in quite awhile, a new primitive type has been added to JavaScript,
+in ES6: the symbol. Unlike the other primitive types, however, symbols don’t have a
+literal form.
+Here’s how you create a symbol:
+Symbols
+|
+67
+www.it-ebooks.info

@@ -1,0 +1,22 @@
+Step 2 - Propose high-level design and get buy-in
+This section shows the high-level design that supports various notification types: iOS push
+notification, Android push notification, SMS message, and Email. It is structured as follows:
+• Different types of notifications
+• Contact info gathering flow
+• Notification sending/receiving flow
+Different types of notifications
+We start by looking at how each notification type works at a high level.
+iOS push notification
+We primary need three components to send an iOS push notification:
+• Provider. A provider builds and sends notification requests to Apple Push Notification
+Service (APNS). To construct a push notification, the provider provides the following
+data:
+• Device token: This is a unique identifier used for sending push notifications.
+• Payload: This is a JSON dictionary that contains a notification’s payload. Here is an
+example:
+• APNS: This is a remote service provided by Apple to propagate push notifications to iOS
+devices.
+• iOS Device: It is the end client, which receives push notifications.
+Android push notification
+Android adopts a similar notification flow. Instead of using APNs, Firebase Cloud Messaging
+(FCM) is commonly used to send push notifications to android devices.

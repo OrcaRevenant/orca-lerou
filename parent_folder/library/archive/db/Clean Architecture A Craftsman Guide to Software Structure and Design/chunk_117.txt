@@ -1,0 +1,20 @@
+smaller. It is the tension between these principles that good architects seek to
+resolve.
+Figure 13.1 is a tension diagram2 that shows how the three principles of
+cohesion interact with each other. The edges of the diagram describe the cost of
+abandoning the principle on the opposite vertex.
+Figure 13.1 Cohesion principles tension diagram
+An architect who focuses on just the REP and CRP will find that too many
+components are impacted when simple changes are made. In contrast, an
+architect who focuses too strongly on the CCP and REP will cause too many
+unneeded releases to be generated.
+A good architect finds a position in that tension triangle that meets the current
+concerns of the development team, but is also aware that those concerns will
+change over time. For example, early in the development of a project, the CCP is
+much more important than the REP, because develop-ability is more important
+than reuse.
+Generally, projects tend to start on the right hand side of the triangle, where the
+only sacrifice is reuse. As the project matures, and other projects begin to draw
+from it, the project will slide over to the left. This means that the component
+structure of a project can vary with time and maturity. It has more to do with the
+way that project is developed and used, than with what the project actually does.

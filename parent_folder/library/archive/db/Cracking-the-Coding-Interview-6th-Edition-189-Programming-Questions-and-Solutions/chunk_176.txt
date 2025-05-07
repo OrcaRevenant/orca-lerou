@@ -1,0 +1,85 @@
+Chapter 14 | Databases
+7
+8
+public class Circle extends Shape {
+9
+private double rad = 5;
+19
+public void printMe() {
+11
+System.out.println("I am a circle,");
+12
+}
+13
+14
+public double computeArea() {
+15
+return rad * rad * 3.15;
+16
+}
+17
+}
+18
+19 public class Ambiguous extends Shape {
+29
+private double area = 10;
+21
+public double computeArea() {
+22
+return area;
+23
+>
+24 }
+25
+26 public class IntroductionOverriding {
+27
+public static void main(String(] args) {
+28
+Shape[] shapes = new Shape[2];
+29
+Circle circle = new CircleO;
+30
+Ambiguous ambiguous = new Ambiguous();
+31
+32
+shapes[0J = circle;
+33
+shapes[l] = ambiguous;
+34
+35
+for (Shape s : shapes) {
+36
+s.printMe();
+37
+System.out.println(s.computeArea());
+38
+}
+39
+>
+40 >
+The above code will print:
+1
+I am a circle.
+2
+78.75
+3
+I am a shape.
+4
+10.0
+Observe that C i r c l e overrode p r i n t M e ( ) , whereas Ambiguous just left this method as-is.
+• Collection Framework
+Java's collection framework is incredibly useful, and you will see it used throughout this book. Here are
+some of the most useful items:
+A r r a y L i s t : An A r r a y L i s t is a dynamically resizing array, which grows as you insert elements.
+1
+ArrayList<String> myArr = new ArrayList<String>();
+2
+myArr.add("one");
+3
+myArr.add(fttwo");
+4
+System.out.println(myArr.get(0)); /* prints <one> */
+Vector: A v e c t o r is very similar to an A r r a y L i s t , except that it is synchronized. Its syntax is almost
+identical as well.
+166
+Cracking the Coding Interview, 6th Edition

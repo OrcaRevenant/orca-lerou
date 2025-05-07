@@ -1,0 +1,66 @@
+361
+Appendix B: org.jfree.date.SerialDate
+723         }
+724         return SerialDate.addDays(adjust, base);
+725
+726     }
+727
+728     /**
+729      * Rolls the date forward to the last day of the month.
+730      *
+731      * @param base  the base date.
+732      *
+733      * @return a new serial date.
+734      */
+735     public SerialDate getEndOfCurrentMonth(final SerialDate base) {
+736         final int last = SerialDate.lastDayOfMonth(
+737             base.getMonth(), base.getYYYY()
+738         );
+739         return SerialDate.createInstance(last, base.getMonth(), base.getYYYY());
+740     }
+741
+742     /**
+743      * Returns a string corresponding to the week-in-the-month code.
+744      * <P>
+745      * Need to find a better approach.
+746      *
+747      * @param count  an integer code representing the week-in-the-month.
+748      *
+749      * @return a string corresponding to the week-in-the-month code.
+750      */
+751     public static String weekInMonthToString(final int count) {
+752
+753         switch (count) {
+754             case SerialDate.FIRST_WEEK_IN_MONTH : return "First";
+755             case SerialDate.SECOND_WEEK_IN_MONTH : return "Second";
+756             case SerialDate.THIRD_WEEK_IN_MONTH : return "Third";
+757             case SerialDate.FOURTH_WEEK_IN_MONTH : return "Fourth";
+758             case SerialDate.LAST_WEEK_IN_MONTH : return "Last";
+759             default :
+760                 return "SerialDate.weekInMonthToString(): invalid code.";
+761         }
+762
+763     }
+764
+765     /**
+766      * Returns a string representing the supplied 'relative'.
+767      * <P>
+768      * Need to find a better approach.
+769      *
+770      * @param relative  a constant representing the 'relative'.
+771      *
+772      * @return a string representing the supplied 'relative'.
+773      */
+774     public static String relativeToString(final int relative) {
+775
+776         switch (relative) {
+777             case SerialDate.PRECEDING : return "Preceding";
+778             case SerialDate.NEAREST : return "Nearest";
+779             case SerialDate.FOLLOWING : return "Following";
+780             default : return "ERROR : Relative To String";
+781         }
+782
+783     }
+784
+Listing B-1 (continued)
+SerialDate.Java

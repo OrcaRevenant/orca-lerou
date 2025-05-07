@@ -1,0 +1,13 @@
+User: The user table contains basic information about the user such as username, email,
+profile photo, etc.
+Device: Device table stores device info. Push_id is used for sending and receiving mobile
+push notifications. Please note a user can have multiple devices.
+Namespace: A namespace is the root directory of a user.
+File: File table stores everything related to the latest file.
+File_version: It stores version history of a file. Existing rows are read-only to keep the
+integrity of the file revision history.
+Block: It stores everything related to a file block. A file of any version can be reconstructed
+by joining all the blocks in the correct order.
+Upload flow
+Let us discuss what happens when a client uploads a file. To better understand the flow, we
+draw the sequence diagram as shown in Figure 15-14.

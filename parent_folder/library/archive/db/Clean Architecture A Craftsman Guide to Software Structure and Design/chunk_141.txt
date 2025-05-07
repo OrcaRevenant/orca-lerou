@@ -1,0 +1,12 @@
+15
+WHAT IS ARCHITECTURE?
+The word “architecture” conjures visions of power and mystery. It makes us
+think of weighty decisions and deep technical prowess. Software architecture is
+at the pinnacle of technical achievement. When we think of a software architect,
+we think of someone who has power, and who commands respect. What young
+aspiring software developer has not dreamed of one day becoming a software
+architect?
+But what is software architecture? What does a software architect do, and when
+does he or she do it?
+First of all, a software architect is a programmer; and continues to be a
+programmer. Never fall for the lie that suggests that software architects pull back

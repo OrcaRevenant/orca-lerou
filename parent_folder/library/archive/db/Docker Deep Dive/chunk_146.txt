@@ -1,0 +1,29 @@
+Figure 10.2
+Test the overlay network
+Now let’s test the overlay network with the ping command.
+To do this, we need to do a bit of digging around to get each container’s IP
+address.
+Run a docker network inspect to see the Subnet assigned to the overlay.
+$ docker network inspect uber-net
+[
+{
+"Name": "uber-net",
+"Id": "c740ydi1lm89khn5kd52skrd9",
+"Scope": "swarm",
+"Driver": "overlay",
+"EnableIPv6": false,
+"IPAM": {
+"Driver": "default",
+"Options": null,
+"Config": [
+{
+"Subnet": "10.0.0.0/24",
+"Gateway": "10.0.0.1"
+}
+<Snip>
+The output above shows that uber-net’s subnet is 10.0.0.0/24. Note that this
+does not match either of the physical underlay networks (172.31.1.0/24 and
+192.168.1.0/24).
+Run the following two commands on node1 and node2 to get the container ID’s
+and their IP addresses. Be sure to use the CONTAINER ID from your own lab in
+the second command.

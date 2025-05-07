@@ -1,0 +1,42 @@
+63
+Bad Comments
+Misleading Comments
+Sometimes, with all the best intentions, a programmer makes a statement in his comments
+that isn’t precise enough to be accurate. Consider for another moment the badly redundant
+but also subtly misleading comment we saw in Listing 4-1.
+Did you discover how the comment was misleading? The method does not return
+when this.closed becomes true. It returns if this.closed is true; otherwise, it waits for a
+blind time-out and then throws an exception if this.closed is still not true.
+This subtle bit of misinformation, couched in a comment that is harder to read than
+the body of the code, could cause another programmer to blithely call this function in the
+expectation that it will return as soon as this.closed becomes true. That poor programmer
+would then ﬁnd himself in a debugging session trying to ﬁgure out why his code executed
+so slowly.
+Mandated Comments
+It is just plain silly to have a rule that says that every function must have a javadoc, or
+every variable must have a comment. Comments like this just clutter up the code, propa-
+gate lies, and lend to general confusion and disorganization.
+For example, required javadocs for every function lead to abominations such as List-
+ing 4-3. This clutter adds nothing and serves only to obfuscate the code and create the
+potential for lies and misdirection.
+Journal Comments
+Sometimes people add a comment to the start of a module every time they edit it. These
+comments accumulate as a kind of journal, or log, of every change that has ever been
+made. I have seen some modules with dozens of pages of these run-on journal entries.
+Listing 4-3
+/**
+*
+* @param title The title of the CD
+* @param author The author of the CD
+* @param tracks The number of tracks on the CD
+* @param durationInMinutes The duration of the CD in minutes
+*/
+public void addCD(String title, String author,
+int tracks, int durationInMinutes) {
+CD cd = new CD();
+cd.title = title;
+cd.author = author;
+cd.tracks = tracks;
+cd.duration = duration;
+cdList.add(cd);
+}

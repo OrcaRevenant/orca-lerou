@@ -1,0 +1,13 @@
+In Figure 12-8, the client maintains a persistent WebSocket connection to a chat server for
+real-time messaging.
+• Chat servers facilitate message sending/receiving.
+• Presence servers manage online/offline status.
+• API servers handle everything including user login, signup, change profile, etc.
+• Notification servers send push notifications.
+• Finally, the key-value store is used to store chat history. When an offline user comes
+online, she will see all her previous chat history.
+Storage
+At this point, we have servers ready, services up running and third-party integrations
+complete. Deep down the technical stack is the data layer. Data layer usually requires some
+effort to get it correct. An important decision we must make is to decide on the right type of
+database to use: relational databases or NoSQL databases? To make an informed decision, we

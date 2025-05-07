@@ -1,0 +1,30 @@
+25
+SAYING NO
+We heard Frank’s wails and roars all through the building. They went on for a
+long, long time. Then Bill, and our system’s analyst Jalil, came to us and asked
+when we could have the system stable. I said, “four weeks.”
+The look on their faces was horror and then determination. “No,” they said, “it
+must be running by Friday.”
+So I said, “Look, we just barely got this system to sort-of work last week. We
+need to shake down the troubles and issues. We need four weeks.”
+But Bill and Jalil were adamant. “No, it’s really got to be Friday. Can you at
+least try?”
+Then our team leader said, “OK, we’ll try.”
+Friday was a good choice, The weekend load was a lot lower. We were able to
+find more problems and correct them before Monday came. Even so, the whole
+house of cards nearly came tumbling down again. The freeze-up problems kept
+on happening once or twice a day. There were other problems too. But
+gradually, after a few more weeks, we got the system to the point where the
+complaints died down, and normal life looked like it might actually be
+possible.
+And then, as I told you in the introduction, we all quit. And they were left with
+a real crisis on their hands. They had to hire a new batch of programmers to try
+to deal with the huge stream of issues coming from the customer.
+Who can we blame this debacle on? Clearly, Frank’s style is part of the
+problem. His intimidations made it difficult for him to hear the truth.
+Certainly Bill and Jalil should have pushed back on Frank much harder than
+they did. Certainly our team lead should not have caved in to the Friday
+demand. And certainly I should have continued to say “no” instead of getting
+in line behind our team lead.
+Professionals speak truth to power. Professionals have the courage to say no to
+their managers.

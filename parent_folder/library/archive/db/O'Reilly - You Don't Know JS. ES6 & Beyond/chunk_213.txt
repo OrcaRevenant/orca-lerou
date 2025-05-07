@@ -1,0 +1,41 @@
+If you run the previous snippet in an ES6 engine that implements TCO, you’ll get the
+3810376848.5 answer as shown. However, it’ll still fail with a RangeError in non-
+TCO engines.
+Non-TCO Optimizations
+There are other techniques to rewrite the code so that the call stack isn’t growing with
+each call.
+One such technique is called trampolining, which amounts to having each partial
+result represented as a function that either returns a another partial result function or
+the final result. Then you can simply loop until you stop getting a function, and you’ll
+have the result. Consider:
+"use strict";
+function trampoline( res ) {
+while (typeof res == "function") {
+res = res();
+}
+return res;
+}
+var foo = (function(){
+function _foo(acc,x) {
+if (x <= 1) return acc;
+return function partial(){
+return _foo( (x / 2) + acc, x - 1 );
+};
+}
+return function(x) {
+return trampoline( _foo( 1, x ) );
+};
+})();
+foo( 123456 );          // 3810376848.5
+This reworking required minimal changes to factor out the recursion into the loop in
+trampoline(..):
+1. First, we wrapped the return _foo .. line in the partial() function expres‐
+sion.
+2. Then we wrapped the _foo(1,x) call in the trampoline(..) call.
+The reason this technique doesn’t suffer the call stack limitiation is that each of those
+inner partial(..) functions is just returned back to the while loop in trampo
+line(..), which runs it and then loop iterates again. In other words, partial(..)
+202
+|
+Chapter 7: Meta Programming
+www.it-ebooks.info

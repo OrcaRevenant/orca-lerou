@@ -1,0 +1,65 @@
+377
+Appendix B: org.jfree.date.SerialDate
+191 //    assertEquals(3,stringToMonthCode("march"));
+192 //    assertEquals(4,stringToMonthCode("april"));
+193 //    assertEquals(5,stringToMonthCode("may"));
+194 //    assertEquals(6,stringToMonthCode("june"));
+195 //    assertEquals(7,stringToMonthCode("july"));
+196 //    assertEquals(8,stringToMonthCode("august"));
+197 //    assertEquals(9,stringToMonthCode("september"));
+198 //    assertEquals(10,stringToMonthCode("october"));
+199 //    assertEquals(11,stringToMonthCode("november"));
+200 //    assertEquals(12,stringToMonthCode("december"));
+201
+202 //    assertEquals(1,stringToMonthCode("JANUARY"));
+203 //    assertEquals(2,stringToMonthCode("FEBRUARY"));
+204 //    assertEquals(3,stringToMonthCode("MAR"));
+205 //    assertEquals(4,stringToMonthCode("APRIL"));
+206 //    assertEquals(5,stringToMonthCode("MAY"));
+207 //    assertEquals(6,stringToMonthCode("JUNE"));
+208 //    assertEquals(7,stringToMonthCode("JULY"));
+209 //    assertEquals(8,stringToMonthCode("AUGUST"));
+210 //    assertEquals(9,stringToMonthCode("SEPTEMBER"));
+211 //    assertEquals(10,stringToMonthCode("OCTOBER"));
+212 //    assertEquals(11,stringToMonthCode("NOVEMBER"));
+213 //    assertEquals(12,stringToMonthCode("DECEMBER"));
+214   }
+215
+216   public void testIsValidWeekInMonthCode() throws Exception {
+217     for (int w = 0; w <= 4; w++) {
+218       assertTrue(isValidWeekInMonthCode(w));
+219     }
+220     assertFalse(isValidWeekInMonthCode(5));
+221   }
+222
+223   public void testIsLeapYear() throws Exception {
+224     assertFalse(isLeapYear(1900));
+225     assertFalse(isLeapYear(1901));
+226     assertFalse(isLeapYear(1902));
+227     assertFalse(isLeapYear(1903));
+228     assertTrue(isLeapYear(1904));
+229     assertTrue(isLeapYear(1908));
+230     assertFalse(isLeapYear(1955));
+231     assertTrue(isLeapYear(1964));
+232     assertTrue(isLeapYear(1980));
+233     assertTrue(isLeapYear(2000));
+234     assertFalse(isLeapYear(2001));
+235     assertFalse(isLeapYear(2100));
+236   }
+237
+238   public void testLeapYearCount() throws Exception {
+239     assertEquals(0, leapYearCount(1900));
+240     assertEquals(0, leapYearCount(1901));
+241     assertEquals(0, leapYearCount(1902));
+242     assertEquals(0, leapYearCount(1903));
+243     assertEquals(1, leapYearCount(1904));
+244     assertEquals(1, leapYearCount(1905));
+245     assertEquals(1, leapYearCount(1906));
+246     assertEquals(1, leapYearCount(1907));
+247     assertEquals(2, leapYearCount(1908));
+248     assertEquals(24, leapYearCount(1999));
+249     assertEquals(25, leapYearCount(2001));
+250     assertEquals(49, leapYearCount(2101));
+251     assertEquals(73, leapYearCount(2201));
+Listing B-4 (continued)
+BobsSerialDateTest.java

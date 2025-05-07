@@ -1,0 +1,52 @@
+236
+Chapter 14: Successive Reﬁnement
+throw new ArgsException();
+}
+}
+public void set(String s) {
+}
+public Object get() {
+return stringValue;
+}
+}
+private class IntegerArgumentMarshaler extends ArgumentMarshaler {
+private int intValue = 0;
+public void set(Iterator<String> currentArgument) throws ArgsException {
+String parameter = null;
+try {
+parameter = currentArgument.next();
+set(parameter);
+} catch (NoSuchElementException e) {
+errorCode = ErrorCode.MISSING_INTEGER;
+throw new ArgsException();
+} catch (ArgsException e) {
+errorParameter = parameter;
+errorCode = ErrorCode.INVALID_INTEGER;
+throw e;
+}
+}
+public void set(String s) throws ArgsException {
+try {
+intValue = Integer.parseInt(s);
+} catch (NumberFormatException e) {
+throw new ArgsException();
+}
+}
+public Object get() {
+return intValue;
+}
+}
+And so the coup de grace: The type-case can be removed! Touche!
+private boolean setArgument(char argChar) throws ArgsException {
+ArgumentMarshaler m = marshalers.get(argChar);
+if (m == null)
+return false;
+try {
+m.set(currentArgument);
+return true;
+} catch (ArgsException e) {
+valid = false;
+errorArgumentId = argChar;
+throw e;
+}
+}

@@ -1,0 +1,51 @@
+203
+Args: The Rough Draft
+private boolean parseArguments() throws ArgsException {
+for (currentArgument = 0; currentArgument < args.length; currentArgument++)
+{
+String arg = args[currentArgument];
+parseArgument(arg);
+}
+return true;
+}
+private void parseArgument(String arg) throws ArgsException {
+if (arg.startsWith("-"))
+parseElements(arg);
+}
+private void parseElements(String arg) throws ArgsException {
+for (int i = 1; i < arg.length(); i++)
+parseElement(arg.charAt(i));
+}
+private void parseElement(char argChar) throws ArgsException {
+if (setArgument(argChar))
+argsFound.add(argChar);
+else {
+unexpectedArguments.add(argChar);
+errorCode = ErrorCode.UNEXPECTED_ARGUMENT;
+valid = false;
+}
+}
+private boolean setArgument(char argChar) throws ArgsException {
+if (isBooleanArg(argChar))
+setBooleanArg(argChar, true);
+else if (isStringArg(argChar))
+setStringArg(argChar);
+else if (isIntArg(argChar))
+setIntArg(argChar);
+else
+return false;
+return true;
+}
+private boolean isIntArg(char argChar) {return intArgs.containsKey(argChar);}
+private void setIntArg(char argChar) throws ArgsException {
+currentArgument++;
+String parameter = null;
+try {
+parameter = args[currentArgument];
+intArgs.put(argChar, new Integer(parameter));
+} catch (ArrayIndexOutOfBoundsException e) {
+valid = false;
+errorArgumentId = argChar;
+errorCode = ErrorCode.MISSING_INTEGER;
+Listing 14-8 (continued)
+Args.java (first draft)

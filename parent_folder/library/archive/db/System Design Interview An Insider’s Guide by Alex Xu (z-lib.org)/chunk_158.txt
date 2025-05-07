@@ -1,0 +1,23 @@
+Step 4 - Wrap up
+In this chapter, we designed a news feed system. Our design contains two flows: feed
+publishing and news feed retrieval.
+Like any system design interview questions, there is no perfect way to design a system. Every
+company has its unique constraints, and you must design a system to fit those constraints.
+Understanding the tradeoffs of your design and technology choices are important. If there are
+a few minutes left, you can talk about scalability issues. To avoid duplicated discussion, only
+high-level talking points are listed below.
+Scaling the database:
+• Vertical scaling vs Horizontal scaling
+• SQL vs NoSQL
+• Master-slave replication
+• Read replicas
+• Consistency models
+• Database sharding
+Other talking points:
+• Keep web tier stateless
+• Cache data as much as you can
+• Support multiple data centers
+• Lose couple components with message queues
+• Monitor key metrics. For instance, QPS during peak hours and latency while users
+refreshing their news feed are interesting to monitor.
+Congratulations on getting this far! Now give yourself a pat on the back. Good job!

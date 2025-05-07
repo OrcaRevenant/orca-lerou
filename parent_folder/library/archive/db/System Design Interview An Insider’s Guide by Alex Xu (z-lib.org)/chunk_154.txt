@@ -1,0 +1,32 @@
+Only users signed in with valid auth_token are allowed to make posts. The system limits the
+number of posts a user can make within a certain period, vital to prevent spam and abusive
+content.
+Fanout service
+Fanout is the process of delivering a post to all friends. Two types of fanout models are:
+fanout on write (also called push model) and fanout on read (also called pull model). Both
+models have pros and cons. We explain their workflows and explore the best approach to
+support our system.
+Fanout on write. With this approach, news feed is pre-computed during write time. A new
+post is delivered to friends’ cache immediately after it is published.
+Pros:
+• The news feed is generated in real-time and can be pushed to friends immediately.
+• Fetching news feed is fast because the news feed is pre-computed during write time.
+Cons:
+• If a user has many friends, fetching the friend list and generating news feeds for all of
+them are slow and time consuming. It is called hotkey problem.
+• For inactive users or those rarely log in, pre-computing news feeds waste computing
+resources.
+Fanout on read. The news feed is generated during read time. This is an on-demand model.
+Recent posts are pulled when a user loads her home page.
+Pros:
+• For inactive users or those who rarely log in, fanout on read works better because it will
+not waste computing resources on them.
+• Data is not pushed to friends so there is no hotkey problem.
+Cons:
+• Fetching the news feed is slow as the news feed is not pre-computed.
+We adopt a hybrid approach to get benefits of both approaches and avoid pitfalls in them.
+Since fetching the news feed fast is crucial, we use a push model for the majority of users.
+For celebrities or users who have many friends/followers, we let followers pull news content
+on-demand to avoid system overload. Consistent hashing is a useful technique to mitigate the
+hotkey problem as it helps to distribute requests/data more evenly.
+Let us take a close look at the fanout service as shown in Figure 11-5.

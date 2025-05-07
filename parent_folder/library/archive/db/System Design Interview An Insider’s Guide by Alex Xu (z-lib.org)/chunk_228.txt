@@ -1,0 +1,17 @@
+You pull an all-nighter to set up database sharding and monitor it closely. Everything works
+smoothly again. You have stopped the fire, but you are still worried about potential data
+losses in case of storage server outage. You ask around and your backend guru friend Frank
+told you that many leading companies like Netflix and Airbnb use Amazon S3 for storage.
+“Amazon Simple Storage Service (Amazon S3) is an object storage service that offers
+industry-leading scalability, data availability, security, and performance” [3]. You decide to
+do some research to see if it is a good fit.
+After a lot of reading, you gain a good understanding of the S3 storage system and decide to
+store files in S3. Amazon S3 supports same-region and cross-region replication. A region is a
+geographic area where Amazon web services (AWS) have data centers. As shown in Figure
+15-6, data can be replicated on the same-region (left side) and cross-region (right side).
+Redundant files are stored in multiple regions to guard against data loss and ensure
+availability. A bucket is like a folder in file systems.
+After putting files in S3, you can finally have a good night's sleep without worrying about
+data losses. To stop similar problems from happening in the future, you decide to do further
+research on areas you can improve. Here are a few areas you find:
+• Load balancer: Add a load balancer to distribute network traffic. A load balancer ensures

@@ -1,0 +1,86 @@
+Solutions to Chapter 1 ] Arrays and Strings
+Cs, two Ps, and one 0. That 0 would be the center of all possible palindromes.
+I
+To be more precise, strings with even length (after removing ail non-letter characters) must have
+all even counts of characters. Strings of an odd length must have exactly one character with
+an odd count. Of course, an "even" string can't have an odd number of exactly one character,
+otherwise it wouldn't be an even-length string (an odd number + many even numbers = an odd
+number). Likewise, a string with odd length can't have all characters with even counts (sum of
+evens is even). It's therefore sufficient to say that, to be a permutation of a palindrome, a string
+can have no more than one character that is odd. This will cover both the odd and the even cases.
+This leads us to our first algorithm.
+Solution #1
+Implementing this algorithm is fairly straightforward. We use a hash table to count how many times each
+character appears.Then, we iterate through the hash table and ensure that no more than one character has
+an odd count.
+1
+boolean isPermutationOfPalindrome(String phrase) {
+2
+i n t [ ] table = buildCharFrequencyTable(phrase);
+3
+return checkMaxOneOdd(table);
+4
+>
+5
+6
+/* Check that no more than one character has an odd count. */
+7
+boolean checkMaxOneOdd(int[] table) {
+8
+boolean foundOdd = f a l s e ;
+9
+for ( i n t count : table) {
+10
+if {count % 2 — 1) {
+11
+if
+(foundOdd)
+{
+12
+return f a l s e ;
+13
+>
+14
+foundOdd = true;
+15
+}
+16
+}
+17
+return true;
+18
+>
+19
+20 /•* Map each character to a number, a -> 0, b -> 1, c -> 2, etc.
+21
+* This is case insensitive. Non-letter characters map to -1. V
+22 i n t getCharNumber(Character c) {
+23
+i n t a = Character.getNurnericValue( ' a ' ) ;
+24
+i n t z = Character.getNumericValue('z');
+25
+i n t val = Character.getNumericValue(c);
+26
+i f (a <= val SS val <= z) {
+27
+return val - a;
+28
+}
+29
+return -1;
+30
+}
+31
+32 /* Count how many times each character appears, */
+33 i n t [ ] buildCharFrequencyTable(String phrase) {
+34
+i n t [ ] table = new int[Character.getNumericValue('z') •
+35
+Character.getNumericValue('a") + l ] ;
+36
+for (char c : phrase.toCharArray()) {
+37
+i n t x = getCharNumber(c);
+206
+Cracking the Coding Interview, 6th Edition

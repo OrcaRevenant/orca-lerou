@@ -1,0 +1,30 @@
+When our processor booted, it would scan each chip and load the vector table at
+the start of each chip into the RAM vectors. Then it would jump into the main
+program.
+This worked very well. Now, when we fixed a bug, or added a feature, we could
+simply recompile one or two chips, and send just those chips to the field service
+engineers.
+We had made the chips independently deployable. We had invented polymorphic
+dispatch. We had invented objects.
+This was a plugin architecture, quite literally. We plugged those chips in. We
+eventually engineered it so that a feature could be installed into our products by
+plugging the chip with that feature into one of the open chip sockets. The menu
+control would automatically appear, and the binding into the main application
+would happen automatically.
+Of course, we didn’t know about object-oriented principles at the time, and we
+knew nothing about separating user interface from business rules. But the
+rudiments were there, and they were very powerful.
+One unexpected side benefit of the approach was that we could patch the
+firmware over a dial-up connection. If we found a bug in the firmware, we could
+dial up our devices and use the on-board monitor program to alter the RAM
+vector for the faulty subroutine to point to a bit of empty RAM. Then we’d enter
+the repaired subroutine into that RAM area, by typing it in machine code, in
+hexadecimal.
+This was a great boon to our field service operation, and to our customers. If
+they had a problem, they didn’t need us to ship new chips and schedule an urgent
+field service call. The system could be patched, and a new chip could be
+installed at the next regularly scheduled maintenance visit.
+THE SERVICE AREA COMPUTER
+The 4-TEL service area computer (SAC) was based on an M365 minicomputer.
+This system communicated with all the COLTs out in the field, through either
+dedicated or dial-up modems. It would command those COLTs to measure

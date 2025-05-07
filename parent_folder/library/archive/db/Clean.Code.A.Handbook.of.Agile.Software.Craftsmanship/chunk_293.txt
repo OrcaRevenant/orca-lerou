@@ -1,0 +1,48 @@
+263
+The JUnit Framework
+cleanups we could do. But rather than drag you through the rest of the changes, I’ll just
+show you the result in Listing 15-5.
+Listing 15-5
+ComparisonCompactor.java (final)
+package junit.framework;
+public class ComparisonCompactor {
+private static final String ELLIPSIS = "...";
+private static final String DELTA_END = "]";
+private static final String DELTA_START = "[";
+private int contextLength;
+private String expected;
+private String actual;
+private int prefixLength;
+private int suffixLength;
+public ComparisonCompactor(
+int contextLength, String expected, String actual
+) {
+this.contextLength = contextLength;
+this.expected = expected;
+this.actual = actual;
+}
+public String formatCompactedComparison(String message) {
+String compactExpected = expected;
+String compactActual = actual;
+if (shouldBeCompacted()) {
+findCommonPrefixAndSuffix();
+compactExpected = compact(expected);
+compactActual = compact(actual);
+}
+return Assert.format(message, compactExpected, compactActual);
+}
+private boolean shouldBeCompacted() {
+return !shouldNotBeCompacted();
+}
+private boolean shouldNotBeCompacted() {
+return expected == null ||
+actual == null ||
+expected.equals(actual);
+}
+private void findCommonPrefixAndSuffix() {
+findCommonPrefix();
+suffixLength = 0;
+for (; !suffixOverlapsPrefix(); suffixLength++) {
+if (charFromEnd(expected, suffixLength) !=
+charFromEnd(actual, suffixLength)
+)

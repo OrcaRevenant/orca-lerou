@@ -1,0 +1,48 @@
+29
+Don’t Add Gratuitous Context
+Don’t Add Gratuitous Context
+In an imaginary application called “Gas Station Deluxe,” it is a bad idea to preﬁx every
+class with GSD. Frankly, you are working against your tools. You type G and press the com-
+pletion key and are rewarded with a mile-long list of every class in the system. Is that
+wise? Why make it hard for the IDE to help you?
+Likewise, say you invented a MailingAddress class in GSD’s accounting module, and
+you named it GSDAccountAddress. Later, you need a mailing address for your customer con-
+tact application. Do you use GSDAccountAddress? Does it sound like the right name? Ten of
+17 characters are redundant or irrelevant.
+Listing 2-2
+Variables have a context.
+public class GuessStatisticsMessage {
+private String number;
+private String verb;
+private String pluralModifier;
+public String make(char candidate, int count) {
+createPluralDependentMessageParts(count);
+return String.format(
+"There %s %s %s%s",
+verb, number, candidate, pluralModifier );
+}
+private void createPluralDependentMessageParts(int count) {
+if (count == 0) {
+thereAreNoLetters();
+} else if (count == 1) {
+thereIsOneLetter();
+} else {
+thereAreManyLetters(count);
+}
+}
+private void thereAreManyLetters(int count) {
+number = Integer.toString(count);
+verb = "are";
+pluralModifier = "s";
+}
+private void thereIsOneLetter() {
+number = "1";
+verb = "is";
+pluralModifier = "";
+}
+private void thereAreNoLetters() {
+number = "no";
+verb = "are";
+pluralModifier = "s";
+}
+}

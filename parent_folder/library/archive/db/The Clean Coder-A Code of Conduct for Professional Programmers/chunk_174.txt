@@ -1,0 +1,41 @@
+CHAPTER 10 ESTIMATION
+142
+1% chance of occurrence.2 In Peter’s case, this would be 1 day, as shown in
+Figure 10-1.
+• N: Nominal Estimate. This is the estimate with the greatest chance of success.
+If you were to draw a bar chart, it would be the highest bar, as shown in
+Figure 10-1. It is 3 days.
+• P: Pessimistic Estimate. Once again this is wildly pessimistic. It should
+include everything except hurricanes, nuclear war, stray black holes, and
+other catastrophes. Again, the math only works if this number has much less
+than a 1% chance of success. In Peter’s case this number is off the chart on
+the right. So 12 days.
+Given these three estimates, we can describe the probability distribution as
+follows:
+• μ =
++
++
+O
+N
+P
+4
+6
+μ is the expected duration of the task. In Peter’s case it is (1+12+12)/6, or
+about 4.2 days. For most tasks this will be a somewhat pessimistic number
+because the right-hand tail of the distribution is longer than the left-hand
+tail.3
+• σ = −
+P
+O
+6
+s is the standard deviation4 of the probability distribution for the task. It is a
+measure of how uncertain the task is. When this number is large, the
+uncertainty is large too. For Peter this number is (12 – 1)/6, or about 1.8 days.
+Given Peter’s estimate of 4.2/1.8, Mike understands that this task will likely be
+done within five days but might also take 6, or even 9, days to complete.
+2. The precise number for a normal distribution is 1:769, or 0.13%, or 3 sigma. Odds of one in a thousand are
+probably safe.
+3. PERT presumes that this approximates a beta distribution. This makes sense since the minimum duration
+for a task is often much more certain than the maximum. [McConnell2006] Fig. 1-3.
+4. If you don’t know what a standard deviation is, you should find a good summary of probability and statis-
+tics. The concept is not hard to understand, and it will serve you very well.

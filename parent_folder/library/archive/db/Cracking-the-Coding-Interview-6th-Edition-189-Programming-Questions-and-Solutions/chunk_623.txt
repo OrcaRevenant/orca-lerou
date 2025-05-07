@@ -1,0 +1,87 @@
+Solutions to Chapter 17 | Hard
+11
+int sum = sum(sumThrough, rowl, coll, row2, col2);
+12
+if (best == null || best.getSum() < sum) {
+13
+best = new SubMatrix(rowl, coll, row2, col2, sum);
+14
+}
+15
+}
+16
+}
+17
+}
+18
+}
+19
+return best;
+20
+}
+21
+22 lnt[][] precomputeSums(int[][] matrix) {
+23
+int[][] sumThrough = new intfmatrix.length][matrix[0],length];
+24
+for (int r = 0; r < matrix.length; r++) {
+25
+for (int c = 0; c < matrix[0].length; C++) {
+26
+int left = c > 0 ? sumThrough[r][c - 1] : 0;
+27
+int top = r > 0 ? sumThrough[r - l][c] : 0;
+28
+int overlap = r > 0 8 & c > 0 ? sumThrough[r-l][c-l] : 0;
+29
+sumThrough[r][c] = left + top - overlap + matrix[r][c]j
+30
+>
+31
+}
+32
+return sumThrough;
+33
+}
+34
+35 int sum(int[][] sumThrough, int rl, int cl, int r2, int c2) {
+36
+int topAndleft = rl > 0 &8 cl > 0 ? sumThrough[rl-l][cl-l] : 0;
+37
+int left = cl > 0 ? sumThrough[r2][cl - 1] : 0;
+38
+int top = rl > 0 ? sumThrough[rl - l][c2] : 0;
+39
+int full = sumThrough[r2][c2];
+40
+return full - left - top + topAndLeft;
+41 )
+This algorithm takes 0(N J) time, since it goes through each pair of rows and each pair of columns.
+Optimized Solution: 0(N 3)
+Believe it or not, an even more optimal solution exists. If we have R rows and C columns, we can solve it in
+0(RJC) time.
+Recall the solution to the maximum subarray problem: "Given an array of integers, find the subarray with
+the largest sum."We can find the maximum subarray in 0(N) time. We will leverage this solution for this
+problem.
+Every submatrix can be represented by a contiguous sequence of rows and a contiguous sequence of
+columns. If we were to iterate through every contiguous sequence of rows, we would then just need to find,
+for each of those, the set of columns that gives us the highest sum. That is:
+1
+maxSum = 0
+2
+foreach rowStart in rows
+3
+foreach rowEnd in rows
+4
+/* We have many possible submatrices with rowStart and rowEnd as the top and
+* bottom edges of the matrix. Find the colStart and colEnd edges that give
+6
+* the highest sum. */
+7
+maxSum = max(runningMaxSum, maxSum)
+8
+return maxSum
+Now the question Is, how do we efficiently find the "best" c o l S t a r t and c o l End?
+Picture a submatrix:
+CrackingTheCodinginterview.com | 6th Edition
+62 3

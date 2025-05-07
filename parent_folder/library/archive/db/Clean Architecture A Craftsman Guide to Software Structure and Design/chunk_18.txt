@@ -1,0 +1,23 @@
+PREFACE
+The title of this book is Clean Architecture. That’s an audacious name. Some
+would even call it arrogant. So why did I choose that title, and why did I write
+this book?
+I wrote my very first line of code in 1964, at the age of 12. The year is now
+2016, so I have been writing code for more than half a century. In that time, I
+have learned a few things about how to structure software systems—things that I
+believe others would likely find valuable.
+I learned these things by building many systems, both large and small. I have
+built small embedded systems and large batch processing systems. I have built
+real-time systems and web systems. I have built console apps, GUI apps, process
+control apps, games, accounting systems, telecommunications systems, design
+tools, drawing apps, and many, many others.
+I have built single-threaded apps, multithreaded apps, apps with few heavy-
+weight processes, apps with many light-weight processes, multiprocessor apps,
+database apps, mathematical apps, computational geometry apps, and many,
+many others.
+I’ve built a lot of apps. I’ve built a lot of systems. And from them all, and by
+taking them all into consideration, I’ve learned something startling.
+The architecture rules are the same!
+This is startling because the systems that I have built have all been so radically
+different. Why should such different systems all share similar rules of
+architecture? My conclusion is that the rules of software architecture are

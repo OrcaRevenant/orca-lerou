@@ -1,0 +1,51 @@
+209
+Args: The Rough Draft
+private Map<Character, String> stringArgs =
+new HashMap<Character, String>();
+private Set<Character> argsFound = new HashSet<Character>();
+private int currentArgument;
+private char errorArgument = '\0';
+enum ErrorCode {
+OK, MISSING_STRING}
+private ErrorCode errorCode = ErrorCode.OK;
+public Args(String schema, String[] args) throws ParseException {
+this.schema = schema;
+this.args = args;
+valid = parse();
+}
+private boolean parse() throws ParseException {
+if (schema.length() == 0 && args.length == 0)
+return true;
+parseSchema();
+parseArguments();
+return valid;
+}
+private boolean parseSchema() throws ParseException {
+for (String element : schema.split(",")) {
+if (element.length() > 0) {
+String trimmedElement = element.trim();
+parseSchemaElement(trimmedElement);
+}
+}
+return true;
+}
+private void parseSchemaElement(String element) throws ParseException {
+char elementId = element.charAt(0);
+String elementTail = element.substring(1);
+validateSchemaElementId(elementId);
+if (isBooleanSchemaElement(elementTail))
+parseBooleanSchemaElement(elementId);
+else if (isStringSchemaElement(elementTail))
+parseStringSchemaElement(elementId);
+}
+private void validateSchemaElementId(char elementId) throws ParseException {
+if (!Character.isLetter(elementId)) {
+throw new ParseException(
+"Bad character:" + elementId + "in Args format: " + schema, 0);
+}
+}
+private void parseStringSchemaElement(char elementId) {
+stringArgs.put(elementId, "");
+}
+Listing 14-10 (continued)
+Args.java (Boolean and String)

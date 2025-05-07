@@ -1,0 +1,82 @@
+Solutions to Chapter 16 | Moderate
+16
+>
+17
+18
+return null;
+19 }
+20
+21 /* Put contents of array into hash set. */
+22 HashSet<Integers getContents(int[] array) (
+23
+HashSet<Integer> set = new HashSet<Integer>();
+24
+for (int a : array) {
+25
+set.add(a);
+26
+}
+27
+return set;
+28 }
+This solution will take 0(A+B) time. This is the Best Conceivable Runtime (BCR), since we have to at least
+touch every element in the two arrays.
+Alternate Solution
+If the arrays are sorted, we can iterate through them to find an appropriate pair. This will require less space.
+1
+int[] findSwapValues(int[] arrayl, int[] array2) {
+2
+Integer target = getTarget(arrayl, array2);
+3
+if (target == null) return null;
+4
+return findDifference(arrayl, array2, target);
+5
+}
+6
+7
+int[] findDifference(int[] arrayl, int[] array2, int target) {
+8
+int a = 0;
+9
+int b = 0;
+10
+11
+while (a < arrayl.length && b < array2.length) {
+12
+int difference = arrayl[a] - array2[b];
+13
+/* Compare difference to target. If difference is too small, then make it
+14
+* bigger by moving a to a bigger value. If it is too big, then make it
+15
+* smaller by moving b to a bigger value. If i t ' s just right, return this
+16
+* pair. */
+17
+if (difference == target) {
+18
+int[] values = {arrayi[a], array2[b]>;
+19
+return values;
+20
+) else if (difference < target) {
+21
+a-M-;
+22
+} else {
+23
+b++;
+24
+}
+25
+>
+26
+27
+return null;
+28 >
+ThisalgorithmtakesO(A + B) time but requires the arrays to be sorted, if the arrays aren't sorted, we can
+still apply thisalgorithm but we'd have tosortthearraysfirst.The overall runtime would beO(A l o g A +
+B log B).
+CrackingTheCodinglnterview.com | 6th Edition
+495

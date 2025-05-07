@@ -1,0 +1,78 @@
+Solutions to Chapter 14 | Databases
+17
+18
+return maxAliveYear;
+19 >
+Note that we have passed in the values for the min year (1900) and max year {2000}. We shouldn't hard code
+these values.
+The runtime of this is 0(RP), where R is the range of years (100 in this case) and P is the number of people.
+Slightly Better Brute Force
+A slightly better way of doing this is to create an array where we track the number of people born in each
+year. Then, we iterate through the list of people and increment the array for each year they are alive.
+1
+int maxAliveYear(Person[] people, int min, int max) {
+2
+int[] years = createYearMap(people, min, max);
+3
+int best = getMaxIndex(years);
+4
+return best + min;
+5
+}
+6
+7
+I* Add each person's years to a year map. */
+8
+int[] createYearMap(Person[] people, int min, int max) {
+9
+int[] years = new int[max - min + 1];
+10
+for (Person person : people) {
+11
+incrementRange(years, person.birth - min, person.death - min);
+12
+>
+13
+return years;
+14 >
+15
+16 /* Increment array for each value between left and right. */
+17 void increraentRange(int[] values, int left, int right) {
+18
+for (int i = left; i <= right; i++) {
+19
+values[i]++;
+20
+}
+21 >
+22
+23 /* Get index of largest element in array. */
+24 int getMaxIndex(int[] values) {
+25
+int max = 0;
+26
+for (int i = 1; i < values.length; i++) {
+27
+if (values[i] > values[max]) {
+28
+max = i;
+29
+)
+30
+)
+31
+return max;
+32 >
+Be careful on the size of the array in line 9. If the range of years is 1900 to 2000 inclusive, then that's 101
+years, not 100. That is why the array has size max - min + 1.
+Let's think about the runtime by breaking this into parts.
+•
+We create an R-sized array, where R is the min and max years.
+•
+Then, for P people, we iterate through the years (Y) that the person is alive.
+•
+Then, we iterate through the R-sized array again.
+The total runtime isO(PY + R). In the worst case, Y is R and we have done no better than we did in the
+first algorithm.
+CrackingTheCodinglnterview.com \ 6th Edition
+415

@@ -1,0 +1,50 @@
+240
+Chapter 14: Successive Reﬁnement
+public class Args {
+...
+private char errorArgumentId = '\0';
+private String errorParameter = "TILT";
+private ArgsException.ErrorCode errorCode = ArgsException.ErrorCode.OK;
+private List<String> argsList;
+public Args(String schema, String[] args) throws ArgsException {
+this.schema = schema;
+argsList = Arrays.asList(args);
+valid = parse();
+}
+private boolean parse() throws ArgsException {
+if (schema.length() == 0 && argsList.size() == 0)
+return true;
+parseSchema();
+try {
+parseArguments();
+} catch (ArgsException e) {
+}
+return valid;
+}
+private boolean parseSchema() throws ArgsException {
+...
+}
+private void parseSchemaElement(String element) throws ArgsException {
+...
+else
+throw new ArgsException(
+String.format("Argument: %c has invalid format: %s.",
+elementId,elementTail));
+}
+private void validateSchemaElementId(char elementId) throws ArgsException {
+if (!Character.isLetter(elementId)) {
+throw new ArgsException(
+"Bad character:" + elementId + "in Args format: " + schema);
+}
+}
+...
+private void parseElement(char argChar) throws ArgsException {
+if (setArgument(argChar))
+argsFound.add(argChar);
+else {
+unexpectedArguments.add(argChar);
+errorCode = ArgsException.ErrorCode.UNEXPECTED_ARGUMENT;
+valid = false;
+}
+}
+...

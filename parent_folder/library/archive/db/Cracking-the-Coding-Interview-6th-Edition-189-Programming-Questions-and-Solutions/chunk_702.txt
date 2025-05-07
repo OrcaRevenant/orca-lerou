@@ -1,0 +1,80 @@
+IV | Hints for Additional Review Problems
+#682.
+17.8
+Try a recursive approach that just evaluates all possibilities.
+#683.
+17.4
+Once you've identified that the least significant bit is a 0 (or a l),you can rule out all the
+numbers without 0 as the least significant bit. How is this problem different from the
+earlier part?
+#684.
+17.23
+Start with a brute force solution. Can you try the biggest possible square first?
+#685.
+16.18
+Suppose you decide on a specific value for the "a "part of a pattern. How many possibili-
+ties are there for b?
+#686.
+17.9
+When you add x to the list of the first k values, you can add 3x, 5x, and 7x to some new
+list. How do you make this as optimal as possible? Would it make sense to keep multiple
+queues of values? Do you always need to insert 3x, 5x, and 7x? Or, perhaps sometimes
+you need to insert only 7x? You want to avoid seeing the same number twice.
+#687.
+16.19
+Try recursion to count the number of water cells.
+#688.
+16.8
+Consider dividing up a number into sequences of three digits.
+#689.
+17.19
+Part2: We could do both. If we know that a + b = 87anda * b = 962,thenwe
+can solve for a and b; a = 13andb = 74. Butthiswillalsoresult in having to multiply
+really large numbers. The product of all the numbers could be larger than 10'". Is there
+a simpler calculation you can make?
+#690.
+16.11
+Consider building a diving board. What are the choices you make?
+#691,
+17.18
+Can you precompute the next instance of a particular character from each index? Try
+using a multi-dimensional array.
+#692.
+17.1
+The carry will happen when you are doing 1 + 1 . How do you apply the carry to the
+number?
+#693.
+17.21
+As an alternative solution, think about it from the perspective of each bar. Each bar will
+have water on top of it. How much water will be on top of each bar?
+#694.
+16.2S
+Both a hash table and a doubly linked list would be useful. Can you combine the two?
+#695.
+17.23
+The biggest possible square is NxN. So if you try that square first and it works, then
+you know that you've found the best square. Otherwise, you can try the next smallest
+square.
+#696,
+17.19
+Part 2: Almost any "equation" we can come up with will work here (as long as it's not
+equivalent to a linear sum). It's just a matter of keeping this sum small.
+#697.
+16.23
+It is not possible to divide 5k evenly by 7. Does this mean that you can't implement
+r a n d 7 ( ) with rand5()?
+#698.
+16.26
+You can also maintain two stacks, one for the operators and one for the numbers. You
+push a number onto the stack every time you see it. What about the operators? When
+do you pop operators from the stack and apply them to the numbers?
+#699.
+17.8
+Another way to think about the problem is this: if you had the longest sequence ending
+at each element A[ 0] through A [n -1 ], could you use that to find the longest sequence
+ending at element A [ n - 1 ] ?
+#700.
+16,11
+Consider a recursive solution.
+680
+Cracking the Coding Interview, 6th Edition

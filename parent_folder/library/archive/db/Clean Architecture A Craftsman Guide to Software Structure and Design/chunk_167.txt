@@ -1,0 +1,31 @@
+Three months later, we reached the conclusion that the flat file solution was
+good enough; we decided to abandon the idea of MySQL altogether. We deferred
+that decision into nonexistence and never looked back.
+That would be the end of the story if it weren’t for one of our customers who
+decided that he needed to put the wiki into MySQL for his own purposes. We
+showed him the architecture of WikiPages that had allowed us to defer the
+decision. He came back a day later with the whole system working in MySQL.
+He simply wrote a MySqlWikiPage derivative and got it working.
+We used to bundle that option with FitNesse, but nobody else ever used it, so
+eventually we dropped it. Even the customer who wrote the derivative eventually
+dropped it.
+Early in the development of FitNesse, we drew a boundary line between
+business rules and databases. That line prevented the business rules from
+knowing anything at all about the database, other than the simple data access
+methods. That decision allowed us to defer the choice and implementation of the
+database for well over a year. It allowed us to try the file system option, and it
+allowed us to change direction when we saw a better solution. Yet it did not
+prevent, or even impede, moving in the original direction (MySQL) when
+someone wanted it.
+The fact that we did not have a database running for 18 months of development
+meant that, for 18 months, we did not have schema issues, query issues, database
+server issues, password issues, connection time issues, and all the other nasty
+issues that raise their ugly heads when you fire up a database. It also meant that
+all our tests ran fast, because there was no database to slow them down.
+In short, drawing the boundary lines helped us delay and defer decisions, and it
+ultimately saved us an enormous amount of time and headaches. And that’s what
+a good architecture should do.
+WHICH LINES DO YOU DRAW, AND
+WHEN DO YOU DRAW THEM?
+You draw lines between things that matter and things that don’t. The GUI
+doesn’t matter to the business rules, so there should be a line between them. The

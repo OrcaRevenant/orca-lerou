@@ -1,0 +1,41 @@
+190
+Chapter 13: Concurrency
+You can add calls to this in various places within your code:
+public synchronized String nextUrlOrNull() {
+if(hasNext()) {
+ThreadJiglePoint.jiggle();
+String url = urlGenerator.next();
+ThreadJiglePoint.jiggle();
+updateHasNext();
+ThreadJiglePoint.jiggle();
+return url;
+}
+return null;
+}
+Now you use a simple aspect that randomly selects among doing nothing, sleeping, or
+yielding.
+Or imagine that the ThreadJigglePoint class has two implementations. The ﬁrst imple-
+ments jiggle to do nothing and is used in production. The second generates a random
+number to choose between sleeping, yielding, or just falling through. If you run your tests
+a thousand times with random jiggling, you may root out some ﬂaws. If the tests pass, at
+least you can say you’ve done due diligence. Though a bit simplistic, this could be a rea-
+sonable option in lieu of a more sophisticated tool.
+There is a tool called ConTest,18 developed by IBM that does something similar, but it
+does so with quite a bit more sophistication.
+The point is to jiggle the code so that threads run in different orderings at different
+times. The combination of well-written tests and jiggling can dramatically increase the
+chance ﬁnding errors.
+Recommendation: Use jiggling strategies to ferret out errors.
+Conclusion
+Concurrent code is difﬁcult to get right. Code that is simple to follow can become night-
+marish when multiple threads and shared data get into the mix. If you are faced with writ-
+ing concurrent code, you need to write clean code with rigor or else face subtle and
+infrequent failures.
+First and foremost, follow the Single Responsibility Principle. Break your system into
+POJOs that separate thread-aware code from thread-ignorant code. Make sure when you
+are testing your thread-aware code, you are only testing it and nothing else. This suggests
+that your thread-aware code should be small and focused.
+Know the possible sources of concurrency issues: multiple threads operating on
+shared data, or using a common resource pool. Boundary cases, such as shutting down
+cleanly or ﬁnishing the iteration of a loop, can be especially thorny.
+18. http://www.alphaworks.ibm.com/tech/contest

@@ -1,0 +1,36 @@
+334
+Appendix A: Concurrency II
+The next class is the iterator that provides the contents of the pages based on an iterator of
+URLs:
+public class PageIterator {
+private PageReader reader;
+private URLIterator urls;
+public PageIterator(PageReader reader, URLIterator urls) {
+this.urls = urls;
+this.reader = reader;
+}
+public synchronized String getNextPageOrNull() {
+if (urls.hasNext())
+getPageFor(urls.next());
+else
+return null;
+}
+public String getPageFor(String url) {
+return reader.getPageFor(url);
+}
+}
+An instance of the PageIterator can be shared between many different threads, each
+one using it’s own instance of the PageReader to read and parse the pages it gets from the
+iterator.
+Notice that we’ve kept the synchronized block very small. It contains just the critical
+section deep inside the PageIterator. It is always better to synchronize as little as possible
+as opposed to synchronizing as much as possible.
+Single-Thread Calculation of Throughput
+Now lets do some simple calculations. For the purpose of argument, assume the following:
+• I/O time to retrieve a page (average): 1 second
+• Processing time to parse page (average): .5 seconds
+• I/O requires 0 percent of the CPU while processing requires 100 percent.
+For N  pages being processed by a single thread, the total execution time is 1.5 sec-
+onds * N. Figure A-1 shows a snapshot of 13 pages or about 19.5 seconds.
+Figure A-1
+Single thread

@@ -1,0 +1,37 @@
+Chapter 4 | Trees and Graphs
+One way to think about it is that a "balanced" tree really means something more like "not terribly imbal-
+anced."lt's balanced enough to ensure 0( l o g n) times for i n s e r t and f i n d , but it's not necessarily as
+balanced as it could be.
+Two common types of balanced trees are red-black trees (pg 639) and AVL trees (pg 637). These are
+discussed in more detail in the Advanced Topics section.
+Complete Binary Trees
+A complete binary tree is a binary tree in which every level of the tree is fully filled, except for perhaps the
+last level. To the extent that the last level is filled, it is filled left to right,
+not a complete binary tree
+a complete binary tree
+Full Binary Trees
+A full binary tree is a binary tree in which every node has either zero or two children. That is, no nodes have
+only one child.
+not a full binary tree
+a full binary tree
+i l O )
+i l O l
+s j
+T 2 0 )
+( 7 )
+T 2 0 )
+(12) Q j
+( 7 )
+( V )
+(7
+( 9 )
+(is)
+( 9 )
+(is)
+Perfect Binary Trees
+A perfect binary tree is one that is both full and complete. All leaf nodes will be at the same level, and this
+level has the maximum number of nodes.
+Note that perfect trees are rare in interviews and in real life, as a perfect tree must have exactly 2k - 1 nodes
+{where k is the number of levels). In an interview, do not assume a binary tree is perfect.
+102
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,113 @@
+Solutions to Chapter 7 j Object-Oriented Design
+17
+public Display getDisplayQ { return display; }
+18
+19
+public Book getActiveBookQ { return activeBook; }
+20
+public void setActiveBook(Book book) {
+21
+activeBook = book;
+22
+display.displayBook(book);
+23
+}
+24
+25
+public User getActiveUser() { return activeUser; }
+26
+public void setActiveUser(User user) {
+27
+activeUser = user;
+28
+display. displayLlser (user);
+29
+}
+30 >
+We then implement separate classes to handle the user manager, the library, and the display components.
+1
+public class Library {
+2
+private HashMap<Integer, Book> books;
+3
+4
+public Book addBook(int id, String d e t a i l s ) {
+5
+if
+(books.containsKey(id))
+{
+6
+return n u l l ;
+7
+>
+8
+Book book = new Book(idj d e t a i l s ) ;
+9
+books.put(id,
+book);
+10
+return book;
+11
+>
+12
+13
+public boolean remove(Book b) { return remove(b.getID()); }
+14
+public boolean remove(int id) {
+15
+if
+(I books.containsKey(id))
+{
+16
+return false;
+17
+>
+18
+books.remove{id);
+19
+return true;
+20
+}
+21
+22
+public Book f i n d ( i n t id) {
+23
+return books.get(id);
+24
+}
+25
+}
+26
+27
+public class UserManager {
+28
+private HashMap<Integer, User> users;
+29
+30
+public User addUser(int i d , String d e t a i l s , i n t accountType) {
+31
+if
+(users.containskey(id))
+{
+32
+return n u l l ;
+33
+}
+34
+User user = new User(id, d e t a i l s , accountType);
+35
+users.put(id,
+user);
+36
+return user;
+37
+}
+38
+39
+public User f i n d ( i n t id) { return users.get(id); }
+40
+public boolean remove(User u) { return remove(u.getID()); }
+41
+public boolean remove(int id) {
+3 1 6
+Cracking the Coding Interview, 6th Edition

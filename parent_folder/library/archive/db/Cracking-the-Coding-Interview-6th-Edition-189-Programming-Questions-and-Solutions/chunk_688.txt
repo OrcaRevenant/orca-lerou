@@ -1,0 +1,78 @@
+Ill | Hints for Knowledge-Based Questions
+#443.
+13.8
+A naive approach is to picka random subset size zand then iterate through the elements,
+putting it in the set with probability z / l i s t _ s i z e . Why would this not work?
+#444.
+14,5
+Denormalization means adding redundant data to a tabie. ft's typically used in very
+large systems. Why might this be useful?
+#445.
+12.5
+A shallow copy copies just the initial data structure. A deep copy does this, and also
+copies any underlying data. Given this, why might you use one versus the other?
+#446.
+15.5
+Would semaphores be useful here?
+#447.
+15.7
+Outline the structure for the threads without worrying about synchronizing anything.
+#448.
+13.7
+Consider how you'd implement this first without lambda expressions.
+#449.
+12.1
+If we already had the number of lines in the file, how would we do this?
+#450.
+13.8
+Pick the list of all the subsets of an n-element set. For any given item x, half of the
+subsets contain x and half do not.
+#451.
+14.4
+Describe INNER JOINs and OUTER JOINs. OUTER JOINs can have multiple types: left,
+right, and full,
+#452.
+12.2
+Be careful about the null character,
+#453.
+12.9
+What are all the different methods/operators we might want to override?
+#454.
+13.5
+What would the runtime of the common operations be?
+#455.
+14.5
+Think about the cost of joins on a large system.
+#456.
+12.6
+The keyword v o l a t i l e signals that a variable might be changed from outside of the
+program, such as by another process. Why might this be necessary?
+#457.
+13.8
+Do not pick the length of the subset in advance. You don't need to. Instead, think about
+this as picking whether each element will be put into the set.
+#458.
+15.7
+Once you get the structure of each thread done, think about what you need to synchro-
+nize.
+#459.
+12.1
+Suppose we didn't have the number of lines in the file. Is there a way we could do this
+without first counting the number of lines?
+#460.
+12.7
+What would happen if the destructor were not virtual?
+#461.
+13.7
+Break this up into two parts: filtering the countries and then getting a sum.
+#462.
+12.8
+Consider using a hash table.
+#463.
+12.4
+You should discuss vtables here.
+#464.
+13.7
+Can you do this without a f i l t e r operation?
+678
+Cracking the Coding Interview, 6th Edition

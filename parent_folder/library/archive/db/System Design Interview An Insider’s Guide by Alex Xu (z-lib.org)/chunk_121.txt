@@ -1,0 +1,10 @@
+data mining. Web mining helps to discover useful knowledge from the internet. For
+example, top financial firms use crawlers to download shareholder meetings and annual
+reports to learn key company initiatives.
+• Web monitoring. The crawlers help to monitor copyright and trademark infringements
+over the Internet. For example, Digimarc [3] utilizes crawlers to discover pirated works
+and reports.
+The complexity of developing a web crawler depends on the scale we intend to support. It
+could be either a small school project, which takes only a few hours to complete or a gigantic
+project that requires continuous improvement from a dedicated engineering team. Thus, we
+will explore the scale and features to support below.

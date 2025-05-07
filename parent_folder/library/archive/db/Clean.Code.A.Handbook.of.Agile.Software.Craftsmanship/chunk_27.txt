@@ -1,0 +1,34 @@
+xxvii
+Introduction
+heuristic or smell. We tried to understand our own reactions to the code we were reading
+and changing, and worked hard to capture why we felt what we felt and did what we did.
+The result is a knowledge base that desribes the way we think when we write, read, and
+clean code.
+This knowledge base is of limited value if you don’t do the work of carefully reading
+through the case studies in the second part of this book. In those case studies we have care-
+fully annotated each change we made with forward references to the heuristics. These for-
+ward references appear in square brackets like this: [H22]. This lets you see the context in
+which those heuristics were applied and written! It is not the heuristics themselves that are
+so valuable, it is the relationship between those heuristics and the discrete decisions we
+made while cleaning up the code in the case studies.
+To further help you with those relationships, we have placed a cross-reference at the end
+of the book that shows the page number for every forward reference. You can use it to look
+up each place where a certain heuristic was applied.
+If you read the ﬁrst and third sections and skip over the case studies, then you will
+have read yet another “feel good” book about writing good software. But if you take the
+time to work through the case studies, following every tiny step, every minute decision—if
+you put yourself in our place, and force yourself to think along the same paths that we
+thought, then you will gain a much richer understanding of those principles, patterns, prac-
+tices, and heuristics. They won’t be “feel good” knowledge any more. They’ll have been
+ground into your gut, ﬁngers, and heart. They’ll have become part of you in the same way
+that a bicycle becomes an extension of your will when you have mastered how to ride it.
+Acknowledgments
+Artwork
+Thank you to my two artists, Jeniffer Kohnke and Angela Brooks. Jennifer is responsible
+for the stunning and creative pictures at the start of each chapter and also for the portraits
+of Kent Beck, Ward Cunningham, Bjarne Stroustrup, Ron Jeffries, Grady Booch, Dave
+Thomas, Michael Feathers, and myself.
+Angela is responsible for the clever pictures that adorn the innards of each chapter.
+She has done quite a few pictures for me over the years, including many of the inside pic-
+tures in Agile Software Develpment: Principles, Patterns, and Practices. She is also my
+ﬁrstborn in whom I am well pleased.

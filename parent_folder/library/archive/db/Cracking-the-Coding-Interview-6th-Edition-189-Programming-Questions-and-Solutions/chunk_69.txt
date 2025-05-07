@@ -1,0 +1,16 @@
+VII Big O
+7. O(n), where ri is the number of nodes in the tree. The max time to find an element is the depth tree.The
+tree could be a straight list downwards and have depth n.
+8. 0 ( n ) . Without any ordering property on the nodes, we might have to search through all the nodes.
+9. 0(n 2), where n is the number of elements in the array. The first cafl to appendToNew takes 1 copy. The
+second call takes 2 copies. The third call takes 3 copies. And so on. The total time will be the sum of 1
+through n, which is 0( n 2).
+10.0(log n ) . The runtime will be the number of digits in the number. A number with d digits can have a
+value upto IB11, Ifn = 10 d,thend = l o g n. Therefore, the runtime is 0( l o g n).
+n . O ( k c k ) , where k is the length of the string and c is the number of characters in the alphabet. It takes
+0 ( c k ) time to generate each string. Then, we need to check that each of these is sorted, which takes
+0 ( k ) time.
+12.0(b l o g b + a l o g b).First, we have to sort array b, which takes 0(b l o g b) time. Then, for each
+element in a, we do binary search in 0 ( l o g b) time.The second part takes 0( a l o g b)time.
+CrackingTheCodinglnterview.com | 6th Edition
+59

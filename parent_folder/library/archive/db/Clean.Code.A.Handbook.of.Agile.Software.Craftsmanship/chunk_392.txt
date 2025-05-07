@@ -1,0 +1,67 @@
+364
+Appendix B: org.jfree.date.SerialDate
+909      * @param other  the date being compared to.
+910      *
+911      * @return the difference between this and the other date.
+912      */
+913     public abstract int compare(SerialDate other);
+914
+915     /**
+916      * Returns true if this SerialDate represents the same date as the
+917      * specified SerialDate.
+918      *
+919      * @param other  the date being compared to.
+920      *
+921      * @return <code>true</code> if this SerialDate represents the same date as
+922      *         the specified SerialDate.
+923      */
+924     public abstract boolean isOn(SerialDate other);
+925
+926     /**
+927      * Returns true if this SerialDate represents an earlier date compared to
+928      * the specified SerialDate.
+929      *
+930      * @param other  The date being compared to.
+931      *
+932      * @return <code>true</code> if this SerialDate represents an earlier date
+933      *         compared to the specified SerialDate.
+934      */
+935     public abstract boolean isBefore(SerialDate other);
+936
+937     /**
+938      * Returns true if this SerialDate represents the same date as the
+939      * specified SerialDate.
+940      *
+941      * @param other  the date being compared to.
+942      *
+943      * @return <code>true<code> if this SerialDate represents the same date
+944      *         as the specified SerialDate.
+945      */
+946     public abstract boolean isOnOrBefore(SerialDate other);
+947
+948     /**
+949      * Returns true if this SerialDate represents the same date as the
+950      * specified SerialDate.
+951      *
+952      * @param other  the date being compared to.
+953      *
+954      * @return <code>true</code> if this SerialDate represents the same date
+955      *         as the specified SerialDate.
+956      */
+957     public abstract boolean isAfter(SerialDate other);
+958
+959     /**
+960      * Returns true if this SerialDate represents the same date as the
+961      * specified SerialDate.
+962      *
+963      * @param other  the date being compared to.
+964      *
+965      * @return <code>true</code> if this SerialDate represents the same date
+966      *         as the specified SerialDate.
+967      */
+968     public abstract boolean isOnOrAfter(SerialDate other);
+969
+970     /**
+971      * Returns <code>true</code> if this {@link SerialDate} is within the
+Listing B-1 (continued)
+SerialDate.Java

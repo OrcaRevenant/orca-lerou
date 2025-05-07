@@ -1,0 +1,46 @@
+109
+Deﬁne the Normal Flow
+throw new PortDeviceFailure(e);
+}
+}
+…
+}
+Wrappers like the one we deﬁned for ACMEPort can be very useful. In fact, wrapping
+third-party APIs is a best practice. When you wrap a third-party API, you minimize your
+dependencies upon it: You can choose to move to a different library in the future without
+much penalty. Wrapping also makes it easier to mock out third-party calls when you are
+testing your own code.
+One ﬁnal advantage of wrapping is that you aren’t tied to a particular vendor’s API
+design choices. You can deﬁne an API that you feel comfortable with. In the preceding
+example, we deﬁned a single exception type for port device failure and found that we
+could write much cleaner code.
+Often a single exception class is ﬁne for a particular area of code. The information
+sent with the exception can distinguish the errors. Use different classes only if there are
+times when you want to catch one exception and allow the other one to pass through.
+Deﬁne the Normal Flow
+If you follow the advice in the preceding
+sections, you’ll end up with a good amount
+of separation between your business logic
+and your error handling. The bulk of your
+code will start to look like a clean
+unadorned algorithm. However, the pro-
+cess of doing this pushes error detection
+to the edges of your program. You wrap
+external APIs so that you can throw your
+own exceptions, and you deﬁne a handler above your code so that you can deal with any
+aborted computation. Most of the time this is a great approach, but there are some times
+when you may not want to abort.
+Let’s take a look at an example. Here is some awkward code that sums expenses in a
+billing application:
+try {
+MealExpenses expenses = expenseReportDAO.getMeals(employee.getID());
+m_total += expenses.getTotal();
+} catch(MealExpensesNotFound e) {
+m_total += getMealPerDiem();
+}
+In this business, if meals are expensed, they become part of the total. If they aren’t, the
+employee gets a meal per diem amount for that day. The exception clutters the logic.
+Wouldn’t it be better if we didn’t have to deal with the special case? If we didn’t, our code
+would look much simpler. It would look like this:
+MealExpenses expenses = expenseReportDAO.getMeals(employee.getID());
+m_total += expenses.getTotal();

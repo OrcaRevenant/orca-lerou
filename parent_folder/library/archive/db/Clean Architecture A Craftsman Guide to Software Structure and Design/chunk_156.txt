@@ -1,0 +1,31 @@
+visible and clear.
+Business rules themselves may be closely tied to the application, or they may be
+more general. For example, the validation of input fields is a business rule that is
+closely tied to the application itself. In contrast, the calculation of interest on an
+account and the counting of inventory are business rules that are more closely
+associated with the domain. These two different kinds of rules will change at
+different rates, and for different reasons—so they should be separated so that
+they can be independently changed.
+The database, the query language, and even the schema are technical details that
+have nothing to do with the business rules or the UI. They will change at rates,
+and for reasons, that are independent of other aspects of the system.
+Consequently, the architecture should separate them from the rest of the system
+so that they can be independently changed.
+Thus we find the system divided into decoupled horizontal layers—the UI,
+application-specific business rules, application-independent business rules, and
+the database, just to mention a few.
+DECOUPLING USE CASES
+What else changes for different reasons? The use cases themselves! The use case
+for adding an order to an order entry system almost certainly will change at a
+different rate, and for different reasons, than the use case that deletes an order
+from the system. Use cases are a very natural way to divide the system.
+At the same time, use cases are narrow vertical slices that cut through the
+horizontal layers of the system. Each use case uses some UI, some application-
+specific business rules, some application-independent business rules, and some
+database functionality. Thus, as we are dividing the system in to horizontal
+layers, we are also dividing the system into thin vertical use cases that cut
+through those layers.
+To achieve this decoupling, we separate the UI of the add-order use case from
+the UI of the delete-order use case. We do the same with the business rules, and
+with the database. We keep the use cases separate down the vertical height of the
+system.

@@ -1,0 +1,48 @@
+V | Behavioral Questions
+Instead, dive into the action. Where possible, breakdown the action into multiple parts. For example:"! did
+three things. First, I..."This will encourage sufficient depth.
+Think About What It Says
+Re-read the story on page 35. What personality attributes has the candidate demonstrated?
+•
+Initiative/Leadership: The candidate tried to resolve the situation by addressing it head-on.
+•
+Empathy; The candidate tried to understand what was happening to the person. The candidate also
+showed empathy in knowing what would resolve the teammate's insecurity.
+•
+Compassion: Although the teammate was harming the team, the candidate wasn't angry at the team-
+mate. His empathy led him to compassion.
+•
+Humility: The candidate was able to admit to his own flaws (not only to the teammate, but also to the
+interviewer),
+•
+Teamwork/Helpfulness: The candidate worked with the teammate to break down the project into
+manageable chunks.
+You should think about your stories from this perspective. Analyze the actions you took and how you
+reacted. What personality attributes does your reaction demonstrate?
+In many cases, the answer is"none."That usually means you need to rework how you communicate the story
+to make the attribute clearer. You don't want to explicitly say, "I did X because I have empathy," but you can
+go one step away from that. For example:
+•
+Less Clear Attribute:"! called up the client and told him what happened."
+•
+More Clear Attribute (Empathy and Courage): "I made sure to call the client myself, because I knew
+that he would appreciate hearing it directly from me,"
+If you still can't make the personality attributes clear, then you might need to come up with a new story
+entirely.
+• So, tell me about yourself...
+Many interviewers kick off the session by asking you to tell them a bit about yourself, or asking you to walk
+through your resume. This is essentially a "pitch". It's your interviewer's first impression of you, so you want
+to be sure to nail this.
+Structure
+A typical structure that works well for many people is essentially chronological, with the opening sentence
+describing their current job and the conclusion discussing their relevant and interesting hobbies outside
+of work (if any).
+1. Current Role [Headline Only): "I'm a software engineer at Microworks, where I've been leading the
+Android team for the last five years."
+2. College: My background is in computer science, I did my undergrad at Berkeley and spent a few
+summers working at startups, including one where I attempted to launch my own business,
+3. Post College & Onwards: After college, I wanted to get some exposure to larger corporations so I joined
+Amazon as a developer. It was a great experience. I learned a ton about large system design and I got to
+really drive the launch of a key part of AWS. That actually showed me that I really wanted to be in a more
+36
+Cracking the Coding Interview, 6th Edition

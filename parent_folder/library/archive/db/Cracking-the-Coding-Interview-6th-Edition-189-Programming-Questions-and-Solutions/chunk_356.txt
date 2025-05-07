@@ -1,0 +1,90 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+8.3
+Magic Index: A magic index in an array A ( l . .. n - 1 ] is defined to bean index such that A [ i ] =
+i. Given a sorted array of distinct integers, write a method to find a magic index, if one exists, in
+array A,
+FOLLOW UP
+What if the values are not distinct?
+pg ?35
+SOLUTION
+Immediately, the brute force solution should jump to mind—and there's no shame in mentioning it. We
+simply iterate through the array, looking for an element which matches this condition.
+1
+int magicSlow(int[] array) {
+2
+for (int i = 0; i < array.length; i++) {
+3
+if (array[i] == i) {
+4
+return i;
+5
+>
+6
+}
+7
+return -1;
+8
+>
+Given that the array is sorted, though, it's very likely that we're supposed to use this condition.
+We may recognize that this problem sounds a lot like the classic binary search problem. Leveraging the
+Pattern Matching approach for generating algorithms, how might we apply binary search here?
+In binary search, we find an element k by comparing it to the middle element, x, and determining if k
+would land on the left or the right side of x.
+Building off this approach, is there a way that we can look at the middle element to determine where a
+magic index might be? Let's look at a sample array:
+-40
+-20
+- 1
+1
+2
+3
+5
+7
+9
+12
+13
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+When we look at the middle element A [ 5 ] = 3, we know that the magic index must be on the right side,
+sinceA[mid]
+< raid.
+Why couldn't the magic index be on the left side? Observe that when we move from i to i - 1 , the value
+at this index must decrease by at least 1, if not more (since the array is sorted and all the elements are
+distinct). So, if the middle element is already too small to be a magic index, then when we move to the left,
+subtracting k indexes and (at least) k values, all subsequent elements will also be too small.
+We continue to apply this recursive algorithm, developing code that looks very much like binary search.
+1
+i n t magicFast(int[] array) {
+2
+return magicFast(array, 0, array.length - 1);
+3
+>
+4
+5
+i n t magicFast(int[] array, i n t s t a r t , i n t end) {
+6
+if (end < s t a r t ) {
+7
+return -1;
+3
+}
+9
+i n t mid = ( s t a r t + end) ! 2;
+10
+if (array[mid] == mid) {
+11
+return mid;
+12
+} else if (arrayfmid] > mid){
+3
+54
+Cracking the Coding Interview, 6th Edition

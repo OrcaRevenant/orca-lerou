@@ -1,0 +1,83 @@
+Solutions to Chapter 2 | Linked Lists
+Now, we simply iterate through the rest of the linked list. At each iteration, we compare the node to the top
+of the stack. If we complete the iteration without finding a difference, then the linked list is a palindrome.
+1
+boolean isPalindrome(LinkedListNode head) {
+2
+LinkedListNode f a s t = head;
+3
+LinkedListNode slow = head;
+4
+5
+Stack<lntegen> stack = new 5tack<Integer>();
+6
+7
+/* Push elements from f i r s t half of linked l i s t onto stack. When fast runner
+3
+* (which is moving at 2x speed) reaches the end of the linked l i s t , then we
+9
+* know we're at the middle */
+10
+while (fast 1= n u l l && fast.next 1= n u l l ) {
+11
+stack,push(slow.data);
+12
+slow = slow,next;
+13
+fast = f a s t . n e x t . n e x t ;
+14
+>
+15
+16
+/* Has odd number of elements, so skip the middle element */
+17
+if (fast 1= n u l l ) {
+18
+slow = slow,next;
+19
+>
+20
+21
+while (slow 1= n u l l ) {
+22
+i n t top = stack.pop().intValue();
+23
+24
+f* If values are d i f f e r e n t , then i t ' s not a palindrome */
+25
+if (top 1= slow.data) (
+26
+return f a l s e ;
+27
+}
+28
+slow = slow.next;
+29
+>
+30
+return true;
+31 >
+Solution #3: Recursive Approach
+First, a word on notation: in this solution, when we use the notation node Kx, the variable K indicates the
+value of the node data, and x (which is either f or b) indicates whether we are referring to the front node
+with that value or the back node. For example, in the below linked list, node 2b would refer to the second
+(back) node with value 2.
+Now, like many linked list problems, you can approach this problem recursively. We may have some intui-
+tive idea that we want to compare element 0 and element n - 1, element 1 and element n-2, element 2
+and element n-3, and so on, until the middle element(s). For example:
+0 ( 1 ( 2 ( 3 ) 2 ) 1 ) 0
+In order to apply this approach, we first need to know when we've reached the middle element, as this will
+form our base case. We can do this bypassing in l e n g t h - 2 for the l e n g t h each time. When the length
+equals 0 or 1, we're at the center of the linked list. This is because the length is reduced by 2 each time. Once
+we've recursed % times, l e n g t h will be down to 0.
+1
+recurse(Node n, i n t length) {
+2
+if (length == 0 || length == 1) {
+3
+return [something]; // At middle
+4
+)
+recurse(n.next, length - 2);
+Î26
+Cracking the Coding Interview, 6th Edition

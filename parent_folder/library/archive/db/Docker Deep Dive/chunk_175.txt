@@ -1,0 +1,24 @@
+Figure 11.15
+Figure 11.16 shows how DCT prevents a Docker client from pulling an image
+that has been tampered with. Figure 11.17 shows DCT preventing a client
+pulling an image that is stale.
+Figure 11.16 - Pulling an image that has been tampered with
+Figure 11.17 - Pulling a stale image
+Docker Content Trust is an important technology for helping you verify the
+images you are pulling from Docker registries. It’s simple to configure in its
+basic form, but more advanced features such as context are currently more
+complex to configure.
+Docker secrets
+Many applications need secrets. Things like passwords, TLS certificates, SSH
+keys and more.
+Prior to Docker 1.13 there was no standard way of making secrets available to
+apps in a secure way. It was common for developers to insert secrets into apps
+via plain text environment variables (we’ve all done it). This was far from ideal.
+Docker 1.13 introduced Docker Secrets, effectively making secrets first-class
+citizens in the Docker ecosystem. For example, there is a whole new docker
+secret sub-command dedicated to managing secrets. There’s also a page for
+creating and managing secrets in the Docker Universal Control Plane UI. Behind
+the scenes secrets are encrypted at rest, encrypted in-flight, mounted in in-
+memory filesystems, and only available to services/containers that have been
+explicitly granted access to them. It’s quite a comprehensive end-to-end solution.
+Figure 11.18 shows a high-level workflow:

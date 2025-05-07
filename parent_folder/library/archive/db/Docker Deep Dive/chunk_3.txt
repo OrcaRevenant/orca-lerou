@@ -1,0 +1,40 @@
+Table of Contents
+0: About the book
+What about a print (paperback) version
+Why should I read this book or care about Docker?
+Isn’t Docker just for developers?
+Should I buy the book if I’ve already watched your video training courses?
+How the book is organized
+Versions of the book
+Part 1: The big picture stuff
+1: Containers from 30,000 feet
+The bad old days
+Hello VMware!
+VMwarts
+Hello Containers!
+Linux containers
+Hello Docker!
+Windows containers
+Windows containers vs Linux containers
+What about Mac containers?
+Chapter Summary
+2: Docker
+Docker - The TLDR
+Docker, Inc.
+The Docker runtime and orchestration engine
+The Docker open-source project (Moby)
+The container ecosystem
+The Open Container Initiative (OCI)
+Chapter summary
+3: Installing Docker
+Docker for Windows (DfW)
+Docker for Mac (DfM)
+Installing Docker on Linux
+Installing Docker on Windows Server 2016
+Chapter Summary
+4: The big picture
+The Ops Perspective
+The Dev Perspective
+Chapter Summary
+Part 2: The technical stuff
+5: The Docker Engine

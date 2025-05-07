@@ -1,0 +1,92 @@
+416
+Index
+code, continued
+third-party, 114–115
+width of lines in, 85–90
+at wrong level of abstraction, 290–291
+code bases, dominated by error
+handling, 103
+code changes, comments not always
+following, 54
+code completion, automatic, 20
+code coverage analysis, 254–256
+code instrumentation, 188–190
+“code sense”, 6, 7
+code smells, listing of, 285–314
+coding standard, 299
+cohesion
+of classes, 140–141
+maintaining, 141–146
+command line arguments, 193–194
+commands, separating from queries, 45–46
+comment header standard, 55–56
+comment headers, replacing, 70
+commented-out code, 68–69, 287
+commenting style, example of bad, 71–72
+comments
+amplifying importance of
+something, 59
+bad, 59–74
+deleting, 282
+as failures, 54
+good, 55–59
+heuristics on, 286–287
+HTML, 69
+inaccurate, 54
+informative, 56
+journal, 63–64
+legal, 55–56
+mandated, 63
+misleading, 63
+mumbling, 59–60
+as a necessary evil, 53–59
+noise, 64–66
+not making up for bad code, 55
+obsolete, 286
+poorly written, 287
+proper use of, 54
+redundant, 60–62, 272, 275, 286–287
+restating the obvious, 64
+separated from code, 54
+TODO, 58–59
+too much information in, 70
+venting in, 65
+writing, 287
+“communication gap”, minimizing, 168
+Compare and Swap (CAS) operation,
+327–328
+ComparisonCompactor module, 252–265
+defactored, 256–261
+final, 263–265
+interim, 261–263
+original code, 254–256
+compiler warnings, turning off, 289
+complex code, demonstrating failures
+in, 341
+complexity, managing, 139–140
+computer science (CS) terms, using for
+names, 27
+concepts
+keeping close to each other, 80
+naming, 19
+one word per, 26
+separating at different levels, 290
+spelling similar similarly, 20
+vertical openness between, 78–79
+conceptual affinity, of code, 84
+concerns
+cross-cutting, 160–161
+separating, 154, 166, 178, 250
+concrete classes, 149
+concrete details, 149
+concrete terms, 94
+concurrency
+defense principles, 180–182
+issues, 190
+motives for adopting, 178–179
+myths and misconceptions about,
+179–180
+concurrency code
+compared to nonconcurrency-related
+code, 181
+focusing, 321

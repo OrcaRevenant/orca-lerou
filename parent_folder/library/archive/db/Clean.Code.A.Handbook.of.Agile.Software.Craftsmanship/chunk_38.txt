@@ -1,0 +1,41 @@
+8
+Chapter 1: Clean Code
+to describe the consequence of that inelegance. He uses the word “tempt.” There is a deep
+truth here. Bad code tempts the mess to grow! When others change bad code, they tend to
+make it worse.
+Pragmatic Dave Thomas and Andy Hunt said this a different way. They used the meta-
+phor of broken windows.3 A building with broken windows looks like nobody cares about
+it. So other people stop caring. They allow more windows to become broken. Eventually
+they actively break them. They despoil the facade with grafﬁti and allow garbage to col-
+lect. One broken window starts the process toward decay.
+Bjarne also mentions that error handing should be complete. This goes to the disci-
+pline of paying attention to details. Abbreviated error handling is just one way that pro-
+grammers gloss over details. Memory leaks are another, race conditions still another.
+Inconsistent naming yet another. The upshot is that clean code exhibits close attention to
+detail.
+Bjarne closes with the assertion that clean code does one thing well. It is no accident
+that there are so many principles of software design that can be boiled down to this simple
+admonition. Writer after writer has tried to communicate this thought. Bad code tries to do
+too much, it has muddled intent and ambiguity of purpose. Clean code is focused. Each
+function, each class, each module exposes a single-minded attitude that remains entirely
+undistracted, and unpolluted, by the surrounding details.
+Grady Booch, author of Object
+Oriented Analysis and Design with
+Applications
+Clean code is simple and direct. Clean code
+reads like well-written prose. Clean code never
+obscures the designer’s intent but rather is full
+of crisp abstractions and straightforward lines
+of control.
+Grady makes some of the same points as
+Bjarne, but he takes a readability perspective. I
+especially like his view that clean code should
+read like well-written prose. Think back on a
+really good book that you’ve read. Remember how the words disappeared to be replaced
+by images! It was like watching a movie, wasn’t it? Better! You saw the characters, you
+heard the sounds, you experienced the pathos and the humor.
+Reading clean code will never be quite like reading Lord of the Rings. Still, the liter-
+ary metaphor is not a bad one. Like a good novel, clean code should clearly expose the ten-
+sions in the problem to be solved. It should build those tensions to a climax and then give
+3.
+http://www.pragmaticprogrammer.com/booksellers/2004-12.html

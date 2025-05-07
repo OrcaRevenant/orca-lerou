@@ -1,0 +1,33 @@
+CHAPTER 11 PRESSURE
+150
+How do you want that doctor to behave? Do you want him to appear calm and
+collected? Do you want him issuing clear and precise orders to his support staff?
+Do you want him following his training and adhering to his disciplines?
+Or do you want him sweating and swearing? Do you want him slamming and
+throwing instruments? Do you want him blaming management for unrealistic
+expectations and continuously complaining about the time? Do you want him
+behaving like a professional, or like a typical developer?
+The professional developer is calm and decisive under pressure. As the pressure
+grows he adheres to his training and disciplines, knowing that they are the best
+way to meet the deadlines and commitments that are pressing on him.
+In 1988 I was working at Clear Communications. This was a start-up that never
+quite got started. We burned through our first round of financing and then had
+to go for a second, and then a third.
+The initial product vision sounded good, but the product architecture could
+never seem to get grounded. At first the product was both software and
+hardware. Then it became software only. The software platform changed from
+PCs to Sparcstations. The customers changed from high end to low end.
+Eventually, even the original intent of the product drifted as the company tried
+to find something that would generate revenue. In the nearly four years I spent
+there, I don’t think the company saw a penny of income.
+Needless to say, we software developers were under significant pressure. There
+were quite a few very long nights, and even longer weekends spent in the office
+at the terminal. Functions were written in C that were 3,000 lines long. There
+were arguments with shouting and name calling. There was intrigue and
+subterfuge. There were fists punched through walls, pens thrown angrily at
+whiteboards, caricatures of annoying colleagues embossed into walls with the
+tips of pencils, and there was a never ending supply of anger and stress.
+Deadlines were driven by events. Features had to be made ready for trade shows
+or customer demos. Anything a customer asked for, regardless of how silly, we’d
+have ready for the next demo. Time was always too short. Work was always
+behind. Schedules were always overwhelming.

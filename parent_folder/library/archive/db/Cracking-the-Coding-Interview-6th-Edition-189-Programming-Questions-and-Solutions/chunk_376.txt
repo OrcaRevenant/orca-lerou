@@ -1,0 +1,79 @@
+Solutions to Chapter 8 j Recursion and Dynamic Programming
+8.13
+Stack of Boxes: You have a stack of n boxes, with widths wt, heights h,, and depths dr The boxes
+cannot be rotated and can only be stacked on top of one another if each box in the stack is strictly
+larger than the box above it in width, height, and depth. Implement a method to compute the
+height of the tallest possible stack. The height of a stack is the sum of the heights of each box.
+pg 136
+SOLUTION
+To tackle this problem, we need to recognize the relationship between the different subproblems.
+Solution #1
+Imagine we had the following boxes: b^
+b 2,
+. . .,
+bn. The biggest stack that we can build with all the
+boxes equals the max of (biggest stack with bottom b , biggest stack with bottom b ; ,
+. . . , biggest stack
+with bottom bn).That is, if we experimented with each box as a bottom and built the biggest stack possible
+with each, we would find the biggest stack possible.
+But, how would we find the biggest stack with a particular bottom? Essentially the same way. We experi-
+ment with different boxes for the second level, and so on for each level.
+Of course, we only experiment with valid boxes. If b5 is bigger than b.r then there's no point in trying to
+build a stack that looks like { b j j b^ ,
+We already know b, can't be below b5.
+We can perform a small optimization here. The requirements of this problem stipulate that the lower boxes
+must be strictly greater than the higher boxes in all dimensions. Therefore, if we sort (descending order) the
+boxes on a dimension—any dimension—then we know we don't have to look backwards in the list. The
+box bj cannot be on top of box bs, since its height (or whatever dimension we sorted on) is greater than
+bs's height.
+The code below implements this algorithm recursively.
+1
+i n t createStack(ArrayList<Box> boxes) {
+2
+/* Sort in decending order by height.
+*/
+C o l l e c t i o n s . s o r t ( b o x e s , new BoxCompanator());
+4
+i n t maxHeight = 0;
+5
+f o r ( i n t i = 0; i < b o x e s . s i z e ( ) ; i++) {
+6
+i n t height = createStack(boxes,
+i ) ;
+maxHeight = Math.max(maxHeight, h e i g h t ) ;
+8
+}
+9
+return maxHeight;
+10
+}
+11
+12 i n t createStack(ArrayList<Box> boxes, i n t bottomlndex) {
+13
+Box bottom = boxes.get(bottomlndex);
+14
+i n t maxHeight = 0;
+15
+f o r ( i n t i = bottomlndex + 1; i < boxes.size(); i++) {
+16
+if
+(boxes.get(i).canBeAbove(bottom))
+{
+17
+i n t height = createStack(boxes, i ) ;
+18
+maxHeight = Math.max(height, maxHeight);
+19
+>
+20
+>
+21
+maxHeight += bottom.height;
+22
+return maxHeight;
+23 >
+24
+25
+class BoxComparator implements Comparator<8ox> {
+370
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,67 @@
+INDEX
+210
+Testing (continued)
+automation pyramid, 109–113
+component
+in testing strategy, 110–111
+tools for, 199–200
+importance of, 7–8
+integration
+in testing strategy, 111–112
+tools for, 200–201
+manual exploratory, 112–113
+structure and, 9
+system, 112
+unit
+acceptance tests and, 102–103
+in testing strategy, 110
+tools for, 198–199
+TextMate, 196
+Thomas, Dave, 84
+3 AM code, 53–54
+Time, debugging, 63
+Time management
+avoidance and, 125
+blind alleys and, 125–126
+examples of, 116
+focus and, 121–123
+meetings and, 116–121
+messes and, 126–127
+priority inversion and, 125
+recharging and, 122–123
+“tomatoes” technique for, 124
+Tiredness, 53–54
+“Tomatoes” time management
+technique, 124
+Tools, 189
+Trivariate estimates, 141
+Turnaround time, practice
+and, 82–83
+U
+UML, 201
+Uncertainty, requirements and, 91–92
+Unconventional mentoring, 179.
+see also mentoring
+Unit tests
+acceptance tests and, 102–103
+in testing strategy, 110
+tools for, 198–199
+V
+Vi, 194
+W
+Walking away, 64
+Wasa, 85–86
+Wideband delphi, 138–141
+“Wish,” 42
+Work ethic, 10–16
+collaboration and, 14
+continuous learning and, 13
+knowledge and, 11–13
+mentoring and, 14–15
+practice and, 13–14
+Worry code, 54–55
+Writer’s block, 58–60
+Y
+“Yes”
+cost of, 30–34
+learning how to say, 46–50

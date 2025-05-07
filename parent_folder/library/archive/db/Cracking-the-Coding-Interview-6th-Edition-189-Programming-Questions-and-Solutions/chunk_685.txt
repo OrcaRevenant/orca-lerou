@@ -1,0 +1,32 @@
+II | Hints for Concepts and Algorithms
+#393.
+11.6
+Have you thought about security and reliability?
+#394.
+8.11
+Try using memoization.
+#395.
+6.8
+I got 14 drops in the worst case. What did you get?
+#396.
+9.1
+There's no one right answer here. Discuss several different technical implementations.
+#397.
+6.3
+How many black squares are there on the board? How many white squares?
+#398,
+5,5
+We know that n must have only one 1 if n & ( n - 1 ) == 0. What sorts of numbers have
+only one 1 ?
+#399,
+7.10
+When you click on a blank cell, what is the algorithm to expand the neighboring cells?
+#400.
+6,5
+Once you've developed a way to solve this problem, think about it more broadly. If you
+are given a jug of size X and another jug of size Y, can you always use it to measure Z?
+#401.
+11.3
+Is it possible to test everything? How will you prioritize testing?
+CrackingTheCodinglnterview.com | 6th Edition
+6 7 5

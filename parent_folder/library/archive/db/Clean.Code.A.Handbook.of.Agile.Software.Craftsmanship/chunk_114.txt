@@ -1,0 +1,42 @@
+84
+Chapter 5: Formatting
+Conceptual Afﬁnity. Certain bits of code want
+to be near other bits. They have a certain
+conceptual afﬁnity. The stronger that afﬁnity, the
+less vertical distance there should be between
+them.
+As we have seen, this afﬁnity might be based
+on a direct dependence, such as one function call-
+ing another, or a function using a variable. But
+there are other possible causes of afﬁnity. Afﬁnity
+might be caused because a group of functions per-
+form a similar operation. Consider this snippet of
+code from Junit 4.3.1:
+public class Assert {
+static public void assertTrue(String message, boolean condition) {
+if (!condition)
+fail(message);
+}
+static public void assertTrue(boolean condition) {
+assertTrue(null, condition);
+}
+static public void assertFalse(String message, boolean condition) {
+assertTrue(message, !condition);
+}
+static public void assertFalse(boolean condition) {
+assertFalse(null, condition);
+}
+...
+These functions have a strong conceptual afﬁnity because they share a common naming
+scheme and perform variations of the same basic task. The fact that they call each other is
+secondary. Even if they didn’t, they would still want to be close together.
+Vertical Ordering
+In general we want function call dependencies to point in the downward direction. That is,
+a function that is called should be below a function that does the calling.2 This creates a
+nice ﬂow down the source code module from high level to low level.
+As in newspaper articles, we expect the most important concepts to come ﬁrst, and
+we expect them to be expressed with the least amount of polluting detail. We expect the
+low-level details to come last. This allows us to skim source ﬁles, getting the gist from the
+2.
+This is the exact opposite of languages like Pascal, C, and C++ that enforce functions to be deﬁned, or at least declared,
+before they are used.

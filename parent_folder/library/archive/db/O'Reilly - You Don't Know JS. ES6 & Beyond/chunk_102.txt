@@ -1,0 +1,38 @@
+Now, let’s answer the currently pending question, “What value should I assign to x?”
+We’ll answer it by sending a value to the next next(..) call:
+it.next( "foo" );       // { value: 2, done: false }
+Now, the x will have the value "foo", but we’ve also asked a new question, “What
+value should I assign to y?” And we answer:
+it.next( "bar" );       // { value: 3, done: false }
+Answer given, another question asked. Final answer:
+it.next( "baz" );       // "foo" "bar" "baz"
+// { value: undefined, done: true }
+Now it should be clearer how each yield .. “question” is answered by the next
+next(..) call, and so the “extra” next() call we observed is always just the initial one
+that starts everything going.
+Let’s put all those steps together:
+var it = foo();
+// start up the generator
+it.next();              // { value: 1, done: false }
+// answer first question
+it.next( "foo" );       // { value: 2, done: false }
+// answer second question
+it.next( "bar" );       // { value: 3, done: false }
+// answer third question
+it.next( "baz" );       // "foo" "bar" "baz"
+// { value: undefined, done: true }
+You can think of a generator as a producer of values, in which case each iteration is
+simply producing a value to be consumed.
+But in a more general sense, perhaps it’s appropriate to think of generators as con‐
+trolled, progressive code execution, much like the tasks queue example from the ear‐
+lier “Custom Iterators” section.
+That perspective is exactly the motivation for how we’ll revisit gen‐
+erators in Chapter 4. Specifically, there’s no reason that next(..)
+has to be called right away after the previous next(..) finishes.
+While the generator’s inner execution context is paused, the rest of
+the program continues unabated, including the ability for asyn‐
+chrony to control when the generator is resumed.
+Generators
+|
+91
+www.it-ebooks.info

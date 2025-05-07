@@ -1,0 +1,66 @@
+357
+Appendix B: org.jfree.date.SerialDate
+475      * Returns true if the supplied integer code represents a valid
+476      * week-in-the-month, and false otherwise.
+477      *
+478      * @param code  the code being checked for validity.
+479      * @return <code>true</code> if the supplied integer code represents a
+480      *         valid week-in-the-month.
+481      */
+482     public static boolean isValidWeekInMonthCode(final int code) {
+483
+484         switch(code) {
+485             case FIRST_WEEK_IN_MONTH:
+486             case SECOND_WEEK_IN_MONTH:
+487             case THIRD_WEEK_IN_MONTH:
+488             case FOURTH_WEEK_IN_MONTH:
+489             case LAST_WEEK_IN_MONTH: return true;
+490             default: return false;
+491         }
+492
+493     }
+494
+495     /**
+496      * Determines whether or not the specified year is a leap year.
+497      *
+498      * @param yyyy  the year (in the range 1900 to 9999).
+499      *
+500      * @return <code>true</code> if the specified year is a leap year.
+501      */
+502     public static boolean isLeapYear(final int yyyy) {
+503
+504         if ((yyyy % 4) != 0) {
+505             return false;
+506         }
+507         else if ((yyyy % 400) == 0) {
+508             return true;
+509         }
+510         else if ((yyyy % 100) == 0) {
+511             return false;
+512         }
+513         else {
+514             return true;
+515         }
+516
+517     }
+518
+519     /**
+520      * Returns the number of leap years from 1900 to the specified year
+521      * INCLUSIVE.
+522      * <P>
+523      * Note that 1900 is not a leap year.
+524      *
+525      * @param yyyy  the year (in the range 1900 to 9999).
+526      *
+527      * @return the number of leap years from 1900 to the specified year.
+528      */
+529     public static int leapYearCount(final int yyyy) {
+530
+531         final int leap4 = (yyyy - 1896) / 4;
+532         final int leap100 = (yyyy - 1800) / 100;
+533         final int leap400 = (yyyy - 1600) / 400;
+534         return leap4 - leap100 + leap400;
+535
+536     }
+Listing B-1 (continued)
+SerialDate.Java

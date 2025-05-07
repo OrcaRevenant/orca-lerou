@@ -1,0 +1,39 @@
+Odds are, your string value production could benefit from some abstractions if that’s
+the case.
+Expression Scope
+One quick note about the scope that is used to resolve variables in expressions. I
+mentioned earlier that an interpolated string literal is kind of like an IIFE, and it
+turns out thinking about it like that explains the scoping behavior as well.
+Consider:
+function foo(str) {
+var name = "foo";
+console.log( str );
+}
+function bar() {
+var name = "bar";
+foo( `Hello from ${name}!` );
+}
+var name = "global";
+bar();                  // "Hello from bar!"
+At the moment the \..\`` string literal is expressed, inside the bar() function, the
+scope available to it finds bar()’s name variable with value "bar". Neither the global
+name nor foo(..)’s name matter. In other words, an interpolated string literal is just
+lexically scoped where it appears, not dynamically scoped in any way.
+Tagged Template Literals
+Again, renaming the feature for sanity sake: Tagged String Literals.
+To be honest, this is one of the cooler tricks that ES6 offers. It may seem a little
+strange, and perhaps not all that generally practical at first. But once you’ve spent
+some time with it, tagged string literals may just surprise you in their usefulness.
+For example:
+function foo(strings, ...values) {
+console.log( strings );
+console.log( values );
+}
+var desc = "awesome";
+foo`Everything is ${desc}!`;
+// [ "Everything is ", "!"]
+// [ "awesome" ]
+Template Literals
+|
+43
+www.it-ebooks.info

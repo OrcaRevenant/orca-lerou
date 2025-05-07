@@ -1,0 +1,19 @@
+all the methods that U needs to use. We then make C implement this interface as
+shown in Figure 14.11. This breaks the dependency of Stable on Flexible, and
+forces both components to depend on UServer. UServer is very stable (I = 0),
+and Flexible retains its necessary instability (I = 1). All the dependencies now
+flow in the direction of decreasing I.
+Figure 14.11 C implements the interface class US
+Abstract Components
+You may find it strange that we would create a component—in this example,
+UService—that contains nothing but an interface. Such a component contains no
+executable code! It turns out, however, that this is a very common, and
+necessary, tactic when using statically typed languages like Java and C#. These
+abstract components are very stable and, therefore, are ideal targets for less
+stable components to depend on.
+When using dynamically typed languages like Ruby and Python, these abstract
+components don’t exist at all, nor do the dependencies that would have targeted
+them. Dependency structures in these languages are much simpler because
+dependency inversion does not require either the declaration or the inheritance of
+interfaces.
+THE STABLE ABSTRACTIONS

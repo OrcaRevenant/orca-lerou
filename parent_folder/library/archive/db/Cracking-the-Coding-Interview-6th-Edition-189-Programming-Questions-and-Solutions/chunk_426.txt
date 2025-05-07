@@ -1,0 +1,94 @@
+Solutions to Chapter 10 | Sorting and Searching
+2
+0
+1
+If the center element needs to be a peak, then two of those sequences work. Can we fix the other ones to
+make the center element a peak?
+Ves. We can fix this sequence by swapping the center element with the largest adjacent element.
+0
+1
+2
+->
+0
+2
+1
+0
+2
+1
+//
+peak
+1
+0
+2
+->
+1
+2
+0
+1 2
+0 / /
+peak
+2
+1
+0
+->
+1
+2
+0
+2
+0
+1
+->
+0
+2
+1
+As we noted before, if we make sure the peaks are in the right place then we know the valleys are in the
+right place,
+I
+We should be a little cautious here. Is it possible that one of these swaps could "break"an earlier
+part of the sequence that we'd already processed? This is a good thing to worry about, but it's
+not an issue here. If we're swapping m i d d l e with l e f t , then l e f t is currently a valley. M i d d l e
+is smaller than l e f t , so we're putting an even smaller element as a valley. Nothing will break.
+All is good!
+The code to implement this is below.
+1
+void s o r t V a l l e y P e a k ( i n t [ ] array) {
+2
+f o r ( i n t i = 1; i < a r r a y . l e n g t h ; i += 2) {
+i n t biggestlndex = maxIndex(array, i - 1,
+i, i + 1);
+4
+if (i
+!= biggestlndex) {
+5
+swap(array,
+i,
+biggestlndex);
+6
+}
+7
+}
+8
+>
+9
+10 i n t rrtaxlndex(int[] array, i n t a, i n t b, i n t c) {
+11
+i n t len = a r r a y , l e n g t h ;
+12
+i n t aValue = a >= 0 && a < len ? array[a] : Integer.MIN_VALUE;
+13
+i n t bvalue = b >= 0 S& b < len ? array[b] : I n t e g e r . MINVALUE;
+14
+i n t cValue = c >= 0 && c < len ? a r r a y [ c ] : Integer.MIN_VALUE;
+15
+16
+i n t max = Math,max(aValue, Math.raax(bValue, cValue));
+17
+if (aValue == max) return a;
+18
+else if (bValue == max) return b;
+19
+else return c;
+20 }
+ThisalgorithmtakesO(n) time.
+416
+Cracking the Coding Interview, 6th Edition

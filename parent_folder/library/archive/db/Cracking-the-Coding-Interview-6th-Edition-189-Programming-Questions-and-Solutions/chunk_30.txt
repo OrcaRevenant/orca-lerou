@@ -1,0 +1,40 @@
+Ill I Special Situations
+In some cases, employees who performed poorly in interviews will get contract positions for the purpose of
+"knowledge transfer."These are temporary positions with the expectation that the employee leaves at the
+termination of the contract (often six months), although sometimes the employee ends up being retained.
+In other cases, the poor performance was a result of the employee being mis-slotted. This occurs in two
+common situations:
+•
+Sometimes a startup labels someone who is not a "traditional"software engineer as a software engineer.
+This often happens with data scientists or database engineers. These people may underperform during
+the software engineer interviews, as their actual role involves other skills.
+•
+In other cases, a CEO "sells" a junior software engineer as more senior than he actually is. He underper-
+forms for the senior bar because he's being held to an unfairly high standard.
+(neither case, sometimes the employee will be re-interviewed for a more appropriate position. {Other times
+though, the employee is just out of luck.)
+tn rare cases, a CEO is able to override the decision for a particularly strong employee whose interview
+performance didn't reflect this.
+Your "best" (and worst) employees might surprise you.
+The problem-solving/algorithm interviews conducted at the top tech companies evaluate particular skills,
+which might not perfectly match what their manager evaluates in their employees.
+I've worked with many companies that are surprised at who their strongest and weakest performers are in
+interviews. That junior engineer who still has a lot to learn about professional development might turn out
+to be a great problem-solver in these interviews.
+Don't count anyone out—or in—until you've evaluated them the same way their interviewers will.
+Are employees held to the same standards as typical candidates?
+Essentially yes, although there is a bit more leeway.
+The big companies tend to take a risk-averse approach to hiring. If someone is on the fence, they often lean
+towards a no-hire.
+In the case of an acquisition, the "on the fence" employees can be pulled through by strong performance
+from the rest of the team.
+How do employees tend to react to the news of an acquisition/acquihire?
+This is a big concern for many startup CEOs and founders. Will the employees be upset about this process?
+Or, what if we get their hopes up but it doesn't happen?
+What I've seen with my clients is that the leadership is worried about this more than is necessary.
+Certainly, some employees are upset about the process. They might not be excited about joining one of the
+big companies for any number of reasons.
+Most employees, though, are cautiously optimistic about the process. They hope it goes through, but they
+know that the existence of these interviews means that it might not.
+24
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,15 @@
+Step 2 - Propose high-level design and get buy-in
+At the high-level, the system is broken down into two:
+• Data gathering service: It gathers user input queries and aggregates them in real-time.
+Real-time processing is not practical for large data sets; however, it is a good starting
+point. We will explore a more realistic solution in deep dive.
+• Query service: Given a search query or prefix, return 5 most frequently searched terms.
+Data gathering service
+Let us use a simplified example to see how data gathering service works. Assume we have a
+frequency table that stores the query string and its frequency as shown in Figure 13-2. In the
+beginning, the frequency table is empty. Later, users enter queries “twitch”, “twitter”,
+“twitter,” and “twillo” sequentially. Figure 13-2 shows how the frequency table is updated.
+Query service
+Assume we have a frequency table as shown in Table 13-1. It has two fields.
+• Query: it stores the query string.
+• Frequency: it represents the number of times a query has been searched.

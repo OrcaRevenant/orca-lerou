@@ -1,0 +1,29 @@
+microservices. We do not need to build many of these stateless services by ourselves as there
+are services in the market that can be integrated easily. The one service that we will discuss
+more in deep dive is the service discovery. Its primary job is to give the client a list of DNS
+host names of chat servers that the client could connect to.
+Stateful Service
+The only stateful service is the chat service. The service is stateful because each client
+maintains a persistent network connection to a chat server. In this service, a client normally
+does not switch to another chat server as long as the server is still available. The service
+discovery coordinates closely with the chat service to avoid server overloading. We will go
+into detail in deep dive.
+Third-party integration
+For a chat app, push notification is the most important third-party integration. It is a way to
+inform users when new messages have arrived, even when the app is not running. Proper
+integration of push notification is crucial. Refer to Chapter 10 Design a notification system
+for more information.
+Scalability
+On a small scale, all services listed above could fit in one server. Even at the scale we design
+for, it is in theory possible to fit all user connections in one modern cloud server. The number
+of concurrent connections that a server can handle will most likely be the limiting factor. In
+our scenario, at 1M concurrent users, assuming each user connection needs 10K of memory
+on the server (this is a very rough figure and very dependent on the language choice), it only
+needs about 10GB of memory to hold all the connections on one box.
+If we propose a design where everything fits in one server, this may raise a big red flag in the
+interviewer’s mind. No technologist would design such a scale in a single server. Single
+server design is a deal breaker due to many factors. The single point of failure is the biggest
+among them.
+However, it is perfectly fine to start with a single server design. Just make sure the
+interviewer knows this is a starting point. Putting everything we mentioned together, Figure
+12-8 shows the adjusted high-level design.

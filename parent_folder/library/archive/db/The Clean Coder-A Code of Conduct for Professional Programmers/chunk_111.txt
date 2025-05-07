@@ -1,0 +1,29 @@
+79
+THE THREE LAWS OF TDD
+TH E J U RY I S I N
+Since those days I’ve learned that TDD is much more than a simple trick to
+shorten my cycle time. The discipline has a whole repertoire of benefits that I’ll
+describe in the following paragraphs.
+But first I need to say this:
+• The jury is in!
+• The controversy is over.
+• GOTO is harmful.
+• And TDD works.
+Yes, there have been lots of controversial blogs and articles written about TDD
+over the years and there still are. In the early days they were serious attempts at
+critique and understanding. Nowadays, however, they are just rants. The bottom
+line is that TDD works, and everybody needs to get over it.
+I know this sounds strident and unilateral, but given the record I don’t think
+surgeons should have to defend hand-washing, and I don’t think programmers
+should have to defend TDD.
+How can you consider yourself to be a professional if you do not know that all
+your code works? How can you know all your code works if you don’t test it
+every time you make a change? How can you test it every time you make a
+change if you don’t have automated unit tests with very high coverage? How can
+you get automated unit tests with very high coverage without practicing TDD?
+That last sentence requires some elaboration. Just what is TDD?
+TH E TH R E E L AW S O F TDD
+1. You are not allowed to write any production code until you have first written
+a failing unit test.
+2. You are not allowed to write more of a unit test than is sufficient to fail—and
+not compiling is failing.

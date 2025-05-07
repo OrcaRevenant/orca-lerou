@@ -1,0 +1,79 @@
+11 Hints for Data Structures
+#63.
+3.6
+#64.
+3.3
+#65.
+2.7
+#66.
+4.9
+#67.
+2.2
+#68.
+4.12
+#69.
+2.8
+#70.
+4.8
+#71.
+2,5
+#72.
+2.3
+#73.
+4.2
+#74.
+1.8
+#75.
+4.11
+#76.
+2.7
+#77.
+4.12
+#78.
+3.2
+#79.
+4.6
+Think about bow you'd do it in reaf life. You have a list of dogs in chronological order and
+a list of cats in chronological order. What data would you need to find the oldest animal?
+How would you maintain this data?
+You will need to keep track of the size of each substack. When one stack is full, you may
+need to create a new stack.
+Observe that two intersecting linked lists will always have the same last node. Once they
+intersect, all the nodes after that will be equal.
+The relationship between the left subtree values and the right subtree values is, essen-
+tially, anything,The left subtree values could be inserted before the right subtree, or the
+reverse (right values before left), or any other ordering.
+You might find it useful to return multiple values. Some languages don't directly support
+this, but there are workarounds in essentially any language. What are some of those
+workarounds?
+To extend this to paths that start anywhere, we can just repeat this process for all nodes.
+To identify if there's a cycle, try the "runner" approach described on page 93. Have one
+pointer move faster than the other.
+In the more naive algorithm, we had one method that indicated if x is a descendent
+of n, and another method that would recurse to find the first common ancestor. This is
+repeatedly searching the same elements in a subtree. We should merge this into one
+f irstCommonAncestor function. What return values would give us the information
+we need?
+Make sure you have considered linked lists that are not the same length.
+Picture the list 1->S->9->12, Removing 9 would make it look like 1- >5- >12.You only
+have access to the 9 node. Can you make it iook like the correct answer?
+You could implement this by finding the "ideal" next element to add and repeatedly
+calling i n s e r t V a l u e . This will be a bit inefficient, as you would have to repeatedly
+traverse the tree. Try recursion instead. Can you divide this problem into subproblems?
+Can you use 0(N) additional space instead of 0(N2)? What information do you really
+need from the list of cells that are zero?
+Alternatively, you could pick a random depth to traverse to and then randomly traverse,
+stopping when you get to that depth. Think this through, though. Does this work?
+You can determine if two linked lists intersect by traversing to the end of each and
+comparing their tails.
+If you've designed the algorithm as described thus far, you'll have an 0(N
+l o g N)
+algorithm in a balanced tree. This is because there are N nodes, each of which is at depth
+0( l o g N) at worst. A node is touched once for each node above it. Therefore, the N
+nodes will be touched 0( l o g N) time. There is an optimization that will give us an
+0(N) algorithm.
+Consider having each node know the minimum of its "substack" (all the elements
+beneath it, including itself).
+Think about how an in-order traversal works and try to "reverse engineer" it.
+CrackingTheCodinglnterview.com | 6th Edition
+659

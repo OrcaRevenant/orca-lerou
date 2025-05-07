@@ -1,0 +1,93 @@
+Solutions to Chapter 7 ] Object-Oriented Design
+46
+47
+/* An employee got free. Look for a waiting call that employee can serve. Return
+48
+* true if we assigned a call, false otherwise. */
+49
+public boolean assignCall(Employee emp) { ... }
+50 >
+C a l l represents a call from a user. A call has a minimum rank and is assigned to the first employee who
+can handle it.
+1
+public class Call {
+2
+/* Minimal rank of employee who can handle this call. */
+3
+private Rank rank;
+4
+5
+/* Person who is calling. */
+6
+private Caller caller;
+7
+8
+/* Employee who is handling call. */
+9
+private Employee handler;
+10
+11
+public Call(Caller c) {
+12
+rank « Rank.Responder;
+13
+caller = c;
+14
+}
+15
+16
+/* Set employee who is handling call. */
+17
+public void setHandler(Employee e) { handler = e; >
+18
+19
+public void reply(String message) { ... }
+20
+public Rank getRank() { return rank; >
+21
+public void setRank(Rank r) { rank = r; }
+22
+public Rank incrementRank() { ... >
+23
+public void disconnect() { ... }
+24 }
+Employee is a super class for the D i r e c t o r , Manager, and Respondent classes, it is implemented as an
+abstract class since there should be no reason to instantiate an Employee type directly.
+1
+abstract class Employee {
+2
+private Call currentCall = null;
+3
+protected Rank rank;
+4
+5
+public Employee(CallHandler handler) { ... }
+6
+7
+/* start the conversation */
+8
+public void receiveCall(Call call) { ... }
+9
+10
+/* the issue is resolved, finish the call */
+11
+public void callCompleted() { ... }
+12
+13
+/* The issue has not been resolved. Escalate the call, and assign a new call to
+14
+* the employee. */
+15
+public void escalateAndReassignQ { ... }
+16
+17
+/* Assign a new call to an employee, if the employee is free. */
+18
+public boolean assignNewCall() { ... }
+19
+20
+/* Returns whether or not the employee is free. */
+21
+public boolean isFree() { return currentCall == null; }
+22
+CrackingTheCodinglnterview.com | 6th Edition 3 37

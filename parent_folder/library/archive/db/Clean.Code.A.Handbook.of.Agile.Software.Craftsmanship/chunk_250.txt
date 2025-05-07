@@ -1,0 +1,57 @@
+220
+Chapter 14: Successive Reﬁnement
+Finally, I repeated the process for integers. This was just a little more complicated
+because integers needed to be parsed, and the parse operation can throw an exception. But
+the result is better because the whole concept of NumberFormatException got buried in the
+IntegerArgumentMarshaler.
+private boolean isIntArg(char argChar) {return intArgs.containsKey(argChar);}
+private void setIntArg(char argChar) throws ArgsException {
+currentArgument++;
+String parameter = null;
+try {
+parameter = args[currentArgument];
+intArgs.get(argChar).set(parameter);
+} catch (ArrayIndexOutOfBoundsException e) {
+valid = false;
+errorArgumentId = argChar;
+errorCode = ErrorCode.MISSING_INTEGER;
+throw new ArgsException();
+} catch (ArgsException e) {
+valid = false;
+errorArgumentId = argChar;
+errorParameter = parameter;
+errorCode = ErrorCode.INVALID_INTEGER;
+throw e;
+}
+}
+...
+private void setBooleanArg(char argChar) {
+try {
+booleanArgs.get(argChar).set("true");
+} catch (ArgsException e) {
+}
+}
+...
+public int getInt(char arg) {
+Args.ArgumentMarshaler am = intArgs.get(arg);
+return am == null ? 0 : (Integer) am.get();
+}
+...
+private abstract class ArgumentMarshaler {
+public abstract void set(String s) throws ArgsException;
+public abstract Object get();
+}
+...
+private class IntegerArgumentMarshaler extends ArgumentMarshaler {
+private int intValue = 0;
+public void set(String s) throws ArgsException {
+try {
+intValue = Integer.parseInt(s);
+} catch (NumberFormatException e) {
+throw new ArgsException();
+}
+}
+public Object get() {
+return intValue;
+}
+}

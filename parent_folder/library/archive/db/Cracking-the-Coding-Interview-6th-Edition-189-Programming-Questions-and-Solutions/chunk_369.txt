@@ -1,0 +1,79 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+28
+for (Character c : map.keySetQ) {
+29
+i n t count = map.get(c);
+30
+if (count > 0) {
+31
+map.put{c,
+count - 1);
+32
+printPerms(map, p r e f i x + c, remaining - 1, r e s u l t ) ;
+33
+map.put(c,
+count);
+34
+>
+35
+}
+36 >
+In situations where the string has many duplicates, this algorithm will run a lot faster than the earlier algo-
+rithm.
+8.9
+Parens: Implement an algorithm to print all valid (i.e., properly opened and closed) combinations
+of n pairs of parentheses.
+EXAMPLE
+Input: 3
+Output: ( ( ( ) ) ) j
+( ( ) ( ) ) ,
+( ( ) ) ( ) ,
+( ) ( ( ) ) ,
+( ) ( ) ( )
+pg136
+SOLUTION
+Our first thought here might be to apply a recursive approach where we buiid the solution for f (n) by
+adding pairs of parentheses to f (n-l).That's certainly a good instinct.
+Let's consider the solution for n = 3:
+( 0 0 )
+( ( ( ) ) )
+( ) ( ( ) )
+( ( ) ) ( )
+0 0 0
+How might we build this from n = 2?
+(0)
+00
+We can do this by inserting a pair of parentheses inside every existing pair of parentheses, as well as one
+at the beginning of the string. Any other places that we could insert parentheses, such as at the end of the
+string, would reduce to the earlier cases.
+So, we have the following:
+( 0 ) -> ( ( ) ( ) ) /* inserted pair a f t e r 1st l e f t paren */
+( ( ( ) ) ) /* inserted pair a f t e r 2nd l e f t paren */
+-> 0 ( 0 ) /* inserted pair at beginning of s t r i n g */
+0 0
+- >
+( O H ) / * inserted pair a f t e r 1st l e f t paren * /
+-> 0 ( 0 ) /* inserted pair a f t e r 2nd l e f t paren */
+0 0 0
+/ * inserted pair a t beginning o f s t r i n g * /
+But wait—we have some duplicate pairs listed. The string ( ) ( ( ) ) is listed twice.
+If we're going to apply this approach, we'll need to check for duplicate values before adding a string to our
+fist.
+i
+Set<String> generateParens(int remaining) {
+2
+Set<5tring> set = new HashSet<String>();
+3
+if (remaining == 0) {
+4
+set.add(" J');
+5
+) else {
+6
+Set<String> prev = generateParens(remaining - 1);
+7
+f o r (String s t r : prev) {
+8
+f o r ( i n t i = 0; i < s t r . l e n g t h ( ) ; i++) {
+CrackingTheCodinglnterview.com [ 6th Edition
+3 S1

@@ -1,0 +1,62 @@
+Chapter 4 | Trees and Graphs
+• Binary Tree Traversal
+Prior to your interview, you should be comfortable implementing in-order, post-order, and pre-order
+traversal. The most common of these is in-order traversal.
+In-Order Traversal
+In-order traversal means to "visit" (often, print) the left branch, then the current node, and finally, the right
+branch.
+i
+void inOrderTraversal(TreeNode node) {
+2
+if (node != null) {
+3
+inOrderTraversal(node.left);
+4
+visit(node);
+5
+inOrderTraversal(node.right);
+6
+}
+7
+}
+When performed on a binary search tree, it visits the nodes in ascending order (hence the name "in-order").
+Pre-Order Traversal
+Pre-order traversal visits the current node before its child nodes (hence the name "pre-order").
+l
+void preOrderTraversal(TreeNode node) {
+2
+if (node 1= null) {
+3
+visit(node);
+4
+preOrderTraversal(node,left);
+5
+preOrderTraversal(node.right);
+6
+}
+7
+>
+In a pre-order traversal, the root is always the first node visited.
+Post-Order Traversal
+Post-order traversal visits the current node after its child nodes (hence the name "post-order").
+1
+void postOrderTraversal(TreeNocte node) (
+2
+if (node 1= null) {
+postOrderTraversal(node.left);
+4
+postOrderTraversal(node.right);
+5
+visit(node);
+6
+}
+7
+>
+In a post-order traversal, the root is always the last node visited.
+• Binary Heaps (Min-Heaps and Max-Heaps)
+We'll just discuss min-heaps here. Max-heaps are essentially equivalent, but the elements are in descending
+order rather than ascending order,
+A min-heap is a complete binary tree (that is, totally filled other than the rightmost elements on the last
+level) where each node is smaller than its children. The root, therefore, is the minimum element in the tree.
+CrackingTheCodinglnterview.com | 6th Edition
+103

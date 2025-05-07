@@ -1,0 +1,31 @@
+CHAPTER 6 PRACTICING
+90
+used TDD to write Conway’s Game of Life. They called it a “Kata” and credited
+“Pragmatic” Dave Thomas4 with the original idea.5
+Since then many programmers have adopted a martial arts metaphor for their
+practice sessions. The name Coding Dojo6 seems to have stuck. Sometimes a
+group of programmers will meet and practice together just like martial artists
+do. At other times, programmers will practice solo, again as martial artists do.
+About a year ago I was teaching a group of developers in Omaha. At lunch they
+invited me to join their Coding Dojo. I watched as twenty developers opened their
+laptops and, keystroke by keystroke, followed along with the leader who was doing
+The Bowling Game Kata.
+There are several kinds of activities that take place in a dojo. Here are a few:
+K ATA
+In martial arts, a kata is a precise set of choreographed movements that simulates
+one side of a combat. The goal, which is asymptotically approached, is perfection.
+The artist strives to teach his body to make each movement perfectly and to
+assemble those movements into fluid enactment. Well-executed kata are beautiful
+to watch.
+Beautiful though they are, the purpose of learning a kata is not to perform it on
+stage. The purpose is to train your mind and body how to react in a particular
+combat situation. The goal is to make the perfected movements automatic and
+instinctive so that they are there when you need them.
+A programming kata is a precise set of choreographed keystrokes and mouse
+movements that simulates the solving of some programming problem. You
+aren’t actually solving the problem because you already know the solution.
+Rather, you are practicing the movements and decisions involved in solving the
+problem.
+4. We use the “Pragmatic” prefix to disambiguate him from “Big” Dave Thomas from OTI.
+5. http://codekata.pragprog.com
+6. http://codingdojo.org/

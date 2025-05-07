@@ -1,0 +1,34 @@
+Dijkstra’s proclamation on harmfulness of, 28–29
+history of structured programming, 22
+removed in structured programming, 23
+Growing Object Oriented Software with Tests (Freeman & Pryce), 202
+GUI (graphical user interface). See also UI (user interface)
+decoupling business rules from, 287–289
+designing for testability, 251
+developing architects registry exam, 371–372
+input/output and boundary lines, 169–170
+plugin architecture, 170–171
+plugin argument, 172–173
+separating from business rules with boundaries, 165–169
+unit testing, 212
+web is, 288
+H
+HAL (hardware abstraction layer)
+avoid revealing hardware details to user of, 265–269
+as boundary line between software/firmware, 264
+DRY conditional compilation directives, 272
+operating system is detail and, 269–271
+Hardware
+eliminating target-hardware bottleneck with layers, 262–263
+firmware becomes obsolete through evolution of, 256
+in SAC archaeology project, 346–347
+Header files, programming to interfaces with, 272
+Hexagonal Architecture (Ports and Adapters), 202
+High-level policy
+decoupling from lower level input/output policies, 185–186
+separating details from, 140–142
+splitting data streams, 227–228
+where to place, 126
+Human resources, goal of architect to minimize, 160
+Humble Object pattern
+data mappers, 214–215

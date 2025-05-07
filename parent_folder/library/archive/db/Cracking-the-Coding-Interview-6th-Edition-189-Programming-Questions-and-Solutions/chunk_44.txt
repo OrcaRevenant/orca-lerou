@@ -1,0 +1,41 @@
+V | Behavioral Questions
+• Responding to Behavioral Questions
+Behavioral questions allow your interviewer to get to know you and your prior experience better. Remember
+the following advice when responding to questions.
+Be Specific, Not Arrogant
+Arrogance is a red flag, but you still want to make yourself sound impressive. So how do you make yourself
+sound good without being arrogant? By being specific!
+Specificity means giving just the facts and letting the interviewer derive an interpretation. For example,
+rather than saying that you "did all the hard parts,"you can instead describe the specific bits you did that
+were challenging.
+Limit Details
+When a candidate blabbers on about a problem, it's hard for an interviewer who isn't well versed in the
+subject or project to understand it.
+Stay tight on details and just state the key points. When possible, try to translate it or at least explain the
+impact. You can always offer the interviewer the opportunity to drill in further.
+I
+"By examining the most common user behavior and applying the Rabin-Karp algorithm, I
+designed a new algorithm to reduce search from 0 { n ) to 0 ( l o g n) in 90% of cases. I can go
+into more details if you'd like."
+This demonstrates the key points while letting your interviewer ask for more details if he wants to.
+Focus on Yourself, Not Your Team
+Interviews are fundamentally an individual assessment. Unfortunately, when you listen to many candidates
+(especially those in leadership roles), their answers are about "we", "us", and "the team." The interviewer
+walks away having little idea what the candidate's actual impact was and might conclude that the candi-
+date did little.
+Pay attention to your answers. Listen for how much you say "we" versus "I." Assume that every question is
+about your role, and speak to that.
+Give Structured Answers
+There are two common ways to think about structuring responses to a behavioral question: nugget first
+and S.A.R, These techniques can be used separately or together.
+Nugget First
+Nugget First means starting your response with a "nugget" that succinctly describes what your response
+will be about.
+For example:
+•
+Interviewer: "Tell me about a time you had to persuade a group of people to make a big change."
+•
+Candidate:"Sure, let me tell you about the time when I convinced my school to let undergraduates teach
+their own courses. Initially, my school had a rule where..."
+36
+Cracking the Coding Interview, 6th Edition

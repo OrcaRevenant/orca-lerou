@@ -1,0 +1,29 @@
+196
+Of course, this power comes at a cost. The learning curve is high, and project
+set-up time is not insignificant. These tools are not lightweight. They take a lot
+of computing resources to run.
+TE X TMAT E
+TextMate is powerful and lightweight. It can’t do the wonderful manipulations
+that IntelliJ and Eclipse can do. It doesn’t have the powerful lisp engine and
+library of Emacs. It doesn’t have the speed and fluidity of vi. On the other hand,
+the learning curve is small, and its operation is intuitive.
+I use TextMate from time to time, especially for the occasional C++. I would
+use Emacs for a large C++ project, but I’m too rusty to bother with Emacs for
+the short little C++ tasks I have.
+I S S U E TR AC K I N G
+At the moment I’m using Pivotal Tracker. It’s an elegant and simple system to
+use. It fits nicely with the Agile/iterative approach. It allows all the stakeholders
+and developers to communicate quickly. I’m very pleased with it.
+For very small projects, I’ve sometimes used Lighthouse. It’s very quick and easy
+to set up and use. But it doesn’t come close to the power of Tracker.
+I’ve also simply used a wiki. Wikis are fine for internal projects. They allow you
+to set up any scheme you like. You aren’t forced into a certain process or a rigid
+structure. They are very easy to understand and use.
+Sometimes the best issue-tracking system of all is a set of cards and a bulletin
+board. The bulletin board is divided into columns such as “To Do,” “In Progress,”
+and “Done.” The developers simply move the cards from one column to the next
+when appropriate. Indeed, this may be the most common issue-tracking system
+used by agile teams today.
+The recommendation I make to clients is to start with a manual system like the
+bulletin board before you purchase a tracking tool. Once you’ve mastered the
+APPENDIX A TOOLING

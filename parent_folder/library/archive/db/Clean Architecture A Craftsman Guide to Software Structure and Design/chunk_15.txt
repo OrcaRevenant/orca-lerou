@@ -1,0 +1,36 @@
+detail also contribute to a building’s architecture, but it doesn’t make sense to
+talk about physical scale in software. Software has structure—many structures
+and many kinds of structures—but its variety eclipses the range of physical
+structure found in buildings. You can even argue quite convincingly that there is
+more design activity and focus in software than in building architecture—in this
+sense, it’s not unreasonable to consider software architecture more architectural
+than building architecture!
+But physical scale is something humans understand and look for in the world.
+Although appealing and visually obvious, the boxes on a PowerPoint diagram
+are not a software system’s architecture. There’s no doubt they represent a
+particular view of an architecture, but to mistake boxes for the big picture—for
+the architecture—is to miss the big picture and the architecture: Software
+architecture doesn’t look like anything. A particular visualization is a choice, not
+a given. It is a choice founded on a further set of choices: what to include; what
+to exclude; what to emphasize by shape or color; what to de-emphasize through
+uniformity or omission. There is nothing natural or intrinsic about one view over
+another.
+Although it might not make sense to talk about physics and physical scale in
+software architecture, we do appreciate and care about certain physical
+constraints. Processor speed and network bandwidth can deliver a harsh verdict
+on a system’s performance. Memory and storage can limit the ambitions of any
+code base. Software may be such stuff as dreams are made on, but it runs in the
+physical world.
+This is the monstrosity in love, lady, that the will is infinite, and the execution confined; that the
+desire is boundless, and the act a slave to limit.
+—William Shakespeare
+The physical world is where we and our companies and our economies live. This
+gives us another calibration we can understand software architecture by, other
+less physical forces and quantities through which we can talk and reason.
+Architecture represents the significant design decisions that shape a system, where significant is
+measured by cost of change.
+—Grady Booch
+Time, money, and effort give us a sense of scale to sort between the large and the
+small, to distinguish the architectural stuff from the rest. This measure also tells
+us how we can determine whether an architecture is good or not: Not only does a
+good architecture meet the needs of its users, developers, and owners at a given

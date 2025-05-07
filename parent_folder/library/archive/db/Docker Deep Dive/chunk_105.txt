@@ -1,0 +1,33 @@
+Inspecting the Dockerfile
+Notice that the repo has a file called Dockerfile. This is the file that describes
+the application and tells Docker how to build an image from it.
+The directory that contains your application code is referred to as the build
+context. It’s a common practice to keep your Dockerfile in the root directory of
+the build context. It’s also important that Dockerfile starts with a capital “D” and
+is all one word. “dockerfile” and “Docker file” are not valid.
+Let’s look at the contents of the Dockerfile.
+$ cat Dockerfile
+FROM alpine
+LABEL maintainer="nigelpoulton@hotmail.com"
+RUN apk add --update nodejs nodejs-npm
+COPY . /src
+WORKDIR /src
+RUN npm install
+EXPOSE 8080
+ENTRYPOINT ["node", "./app.js"]
+The Dockerfile has two main purposes:
+1. To describe the application
+2. To tell Docker how to containerize the application (create an image with the
+app inside)
+Do not underestimate the impact of the Dockerfile from a documentation
+perspective. It has the ability to bridge the gap between dev and ops! It also has
+the power to speed up on-boarding of new developers etc. This is because the
+file accurately describes the application and its dependencies in an easy-to-read
+format.
+At a high-level, the example Dockerfile says: Start with the alpine image, add
+“nigelpoulton@hotmail.com” as the maintainer, install Node.js and NPM, copy
+in the application code, set the working directory, install dependencies, expose a
+network port, and set app.js as the default application to run.
+Let’s look at it in a bit more detail.
+All Dockerfiles start with the FROM instruction. This will be the base layer of the
+image, and the rest of the app will be added on top as additional layers. This

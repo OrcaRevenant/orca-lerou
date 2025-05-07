@@ -1,0 +1,54 @@
+229
+String Arguments
+public String usage() {
+if (schema.length() > 0)
+return "-[" + schema + "]";
+else
+return "";
+}
+public String errorMessage() throws Exception {
+switch (errorCode) {
+case OK:
+throw new Exception("TILT: Should not get here.");
+case UNEXPECTED_ARGUMENT:
+return unexpectedArgumentMessage();
+case MISSING_STRING:
+return String.format("Could not find string parameter for -%c.",
+errorArgumentId);
+case INVALID_INTEGER:
+return String.format("Argument -%c expects an integer but was '%s'.",
+errorArgumentId, errorParameter);
+case MISSING_INTEGER:
+return String.format("Could not find integer parameter for -%c.",
+errorArgumentId);
+}
+return "";
+}
+private String unexpectedArgumentMessage() {
+StringBuffer message = new StringBuffer("Argument(s) -");
+for (char c : unexpectedArguments) {
+message.append(c);
+}
+message.append(" unexpected.");
+return message.toString();
+}
+public boolean getBoolean(char arg) {
+Args.ArgumentMarshaler am = marshalers.get(arg);
+boolean b = false;
+try {
+b = am != null && (Boolean) am.get();
+} catch (ClassCastException e) {
+b = false;
+}
+return b;
+}
+public String getString(char arg) {
+Args.ArgumentMarshaler am = marshalers.get(arg);
+try {
+return am == null ? "" : (String) am.get();
+} catch (ClassCastException e) {
+return "";
+}
+}
+Listing 14-12 (continued)
+Args.java (After first refactoring)

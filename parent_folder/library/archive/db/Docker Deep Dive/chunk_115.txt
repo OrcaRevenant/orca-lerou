@@ -1,0 +1,41 @@
+$ cd atsea-sample-shop-app/app
+$
+$ ls -l
+total 24
+-rw-r--r-- 1 root root  682 Oct  1 22:03 Dockerfile
+-rw-r--r-- 1 root root 4365 Oct  1 22:03 pom.xml
+drwxr-xr-x 4 root root 4096 Oct  1 22:03 react-app
+drwxr-xr-x 4 root root 4096 Oct  1 22:03 src
+Perform the build (this may take several minutes to complete).
+$ docker image build -t multi:stage .
+Sending build context to Docker daemon  3.658MB
+Step 1/19 : FROM node:latest AS storefront
+latest: Pulling from library/node
+aa18ad1a0d33: Pull complete
+15a33158a136: Pull complete
+<Snip>
+Step 19/19 : CMD --spring.profiles.active=postgres
+---> Running in b4df9850f7ed
+---> 3dc0d5e6223e
+Removing intermediate container b4df9850f7ed
+Successfully built 3dc0d5e6223e
+Successfully tagged multi:stage
+Note: The multi:stage tag used in the example above is arbitrary. You can
+tag your images according to your own requirements and standards - there
+is no requirement to tag multi-stage builds the way we did in this example.
+Run a docker image ls to see the list of images pulled and created by the build
+operation.
+$ docker image ls
+REPO    TAG             IMAGE ID        CREATED        SIZE
+node    latest          9ea1c3e33a0b    4 days ago     673MB
+<none>  <none>          6598db3cefaf    3 mins ago     816MB
+maven   latest          cbf114925530    2 weeks ago    750MB
+<none>  <none>          d5b619b83d9e    1 min ago      891MB
+java    8-jdk-alpine    3fd9dd82815c    7 months ago   145MB
+multi   stage           3dc0d5e6223e    1 min ago      210MB
+The top line in the output above shows the node:latest image pulled by the
+storefront stage. The image below is the image produced by that stage (created
+by adding the code and running the npm install and build operations). Both are
+very large images with lots of build tools included.
+The 3rd and 4th lines are the images pulled and produced by the appserver
+stage. These are both large and contain lots of builds tools.

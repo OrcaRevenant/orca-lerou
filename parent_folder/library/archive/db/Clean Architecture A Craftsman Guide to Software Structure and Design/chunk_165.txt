@@ -1,0 +1,30 @@
+suppose you wanted to add the name, address, and phone number of a contact
+person to a sales record. You had to go to the ServiceRegistry and ask for the
+service ID of the ContactService. Then you had to send a CreateContact
+message to the ContactService. Of course, this message had dozens of fields
+that all had to have valid data in them—data to which the programmer had no
+access, since all the programmer had was a name, address, and phone number.
+After faking the data, the programmer had to jam the ID of the newly created
+contact into the sales record and send the UpdateContact message to the
+SaleRecordService.
+Of course, to test anything you had to fire up all the necessary services, one by
+one, and fire up the message bus, and the BPel server, and … And then, there
+were the propagation delays as these messages bounced from service to service,
+and waited in queue after queue.
+And then if you wanted to add a new feature—well, you can imagine the
+coupling between all those services, and the sheer volume of WSDLs that
+needed changing, and all the redeployments those changes necessitated …
+Hell starts to seem like a nice place by comparison.
+There’s nothing intrinsically wrong with a software system that is structured
+around services. The error at W was the premature adoption and enforcement of
+a suite of tools that promised SoA—that is, the premature adoption of a massive
+suite of domain object services. The cost of those errors was sheer person-hours
+—person-hours in droves—flushed down the SoA vortex.
+I could go on describing one architectural failure after another. But let’s talk
+about an architectural success instead.
+FITNESSE
+My Son, Micah, and I started work on FitNesse in 2001. The idea was to create
+a simple wiki that wrapped Ward Cunningham’s FIT tool for writing acceptance
+tests.
+This was back in the days before Maven “solved” the jar file problem. I was
+adamant that anything we produced should not require people to download more

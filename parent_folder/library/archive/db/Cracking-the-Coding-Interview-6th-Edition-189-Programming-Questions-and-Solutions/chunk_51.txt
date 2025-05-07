@@ -1,0 +1,74 @@
+VII Big 0
+However, just because you have n calls total doesn't mean it takes O(n) space. Consider the below func-
+tion, which adds adjacent elements between 0 and n:
+1
+int pairSumSequencefint n) { /* Ex 2.*/
+2
+i n t sum = 0;
+3
+for (int i = 0; i < n; i++) {
+4
+sum += pairSum(ij i + 1);
+5
+}
+6
+return sum;
+7
+>
+8
+9
+int pairSum(int a, int b) {
+10
+return a + b;
+11
+>
+There will be roughly O(n) calls to pairSum. However, those calls do not exist simultaneously on the call
+stack, so you only need 0 ( 1 ) space.
+> Drop the Constants
+It is very possible for 0(N) code to run faster than 0 ( 1 ) code for specific inputs. Sig 0 just describes the
+rate of increase.
+For this reason, we drop the constants in runtime. An algorithm that one might have described as 0( 2N)
+isactuallyO(N).
+Many people resist doing this. They will see code that has two (non-nested) for loops and continue this
+0(2N). They think they're being more "precise." They're not.
+Consider the below code:
+Min and Max 1
+Min and Max 2
+1
+int min » Integer.MAX_VALUE;
+1
+int min = Integer.MAX_VALUE;
+2
+int max = Integer.MIN_VALUE;
+2
+int max = Integer.MIN_VALUE;
+3
+for (int x ; array) {
+3
+for (int x : array) {
+4
+if (x < min) min = x;
+4
+if (x < min) min = x;
+5
+if (x > max) max = x;
+5
+>
+6
+}
+6
+for (int x : array) {
+7
+if (x > max) max = x;
+8
+>
+Which one is faster? The first one does one for loop and the other one does two for loops. But then, the first
+solution has two lines of code per for loop rather than one.
+If you're going to count the number of instructions, then you'd have to go to the assembly level and take
+into account that multiplication requires more instructions than addition, how the compiler would opti-
+mize something, and all sorts of other details.
+This would be horrendously complicated, so don't even start going down this road. Big O allows us to
+express how the runtime scales. We just need to accept that it doesn't mean that 0( N) is always better than
+0(NJ).
+CrackingTheCodinginterview.com 16th Edition
+J 41

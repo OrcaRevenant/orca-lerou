@@ -1,0 +1,32 @@
+CHAPTER 1 PROFESSIONALISM
+10
+other functionality of the system, but testing the routine took hours, and I
+needed to ship the software. None of the bug fixes were in the routine code, so I
+felt safe.
+Losing a nightly report was a big deal. It meant that the repairmen had less to
+do and would be overbooked later. It meant that some customers might notice a
+fault and complain. Losing a night’s worth of data is enough to get a service
+area manager to call Tom and lambaste him.
+I fired up our lab system, loaded the new software, and then started a routine. It
+took several hours but then it aborted. The routine failed. Had I run this test
+before I shipped, the service areas wouldn’t have lost data, and the service area
+managers wouldn’t be roasting Tom right now.
+I phoned Tom to tell him that I could duplicate the problem. He told me that most
+of the other customers had called him with the same complaint. Then he asked me
+when I could fix it. I told him I didn’t know, but that I was working on it. In the
+meantime I told him that the customers should go back to the old software. He
+was angry at me saying that this was a double blow to the customers since they’d
+lost a whole night’s worth of data and couldn’t use the new feature they were
+promised.
+The bug was hard to find, and testing took several hours. The first fix didn’t
+work. Nor did the second. It took me several tries, and therefore several days, to
+figure out what had gone wrong. The whole time, Tom was calling me every few
+hours asking me when I’d have this fixed. He also made sure I knew about the
+earfuls he was getting from the service area managers, and just how
+embarrassing it was for him to tell them to put the old tapes back in.
+In the end, I found the defect, shipped the new tapes, and everything went back
+to normal. Tom, who was not my boss, cooled down and we put the whole
+episode behind us. My boss came to me when it was over and said, “I bet you
+aren’t going to do that again.” I agreed.
+Upon reflection I realized that shipping without testing the routine had been
+irresponsible. The reason I neglected the test was so I could say I had shipped

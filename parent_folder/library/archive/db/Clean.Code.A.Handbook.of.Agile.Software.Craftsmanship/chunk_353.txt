@@ -1,0 +1,41 @@
+323
+Possible Paths of Execution
+For our simple case of one line of Java code, which equates to eight lines of byte-code
+and two threads, the total number of possible paths of execution is 12,870. If the type of
+lastIdUsed is a long, then every read/write becomes two operations instead of one, and the
+number of possible orderings becomes 2,704,156.
+What happens if we make one change to this method?
+public synchronized void incrementValue() {
+++lastIdUsed;
+}
+The number of possible execution pathways becomes two for two threads and N! in the
+general case.
+Digging Deeper
+What about the surprising result that two threads could both call the method once (before
+we added synchronized) and get the same numeric result? How is that possible? First
+things ﬁrst.
+What is an atomic operation? We can deﬁne an atomic operation as any operation that
+is uninterruptable. For example, in the following code, line 5, where 0 is assigned to
+lastid, is atomic because according to the Java Memory model, assignment to a 32-bit
+value is uninterruptable.
+So we want the permutations of N 1’s, N 2’s, . . . and N T’s. This is
+really just the permutations of N * T things taken N * T at a time, which is
+(N * T )!, but with all the duplicates removed. So the trick is to count the
+duplicates and subtract that from (N * T )!.
+Given two steps and two threads, how many duplicates are there? Each
+four-digit string has two 1s and two 2s. Each of those pairs could be
+swapped without changing the sense of the string. You could swap the 1s or
+the 2s both, or neither. So there are four isomorphs for each string, which
+means that there are three duplicates. So three out of four of the options are
+duplicates; alternatively one of four of the permutations are NOT dupli-
+cates. 4! * .25 = 6.  So this reasoning seems to work.
+How many duplicates are there? In the case where N = 2 and T = 2, I
+could swap the 1s, the 2s, or both. In the case where N = 2 and T = 3, I
+could swap the 1s, the 2s, the 3s, 1s and 2s, 1s and 3s, or 2s and 3s. Swap-
+ping is just the permutations of N. Let’s say there are P permutations of N.
+The number of different ways to arrange those permutations are P**T.
+So the number of possible isomorphs is N!**T. And so the number of
+paths is (T*N)!/(N!**T). Again, in our T = 2, N = 2 case we get 6 (24/4).
+For N = 2 and T = 3 we get 720/8 = 90.
+For N = 3 and T = 3 we get 9!/6^3 = 1680.
+Calculating the Possible Orderings (continued)

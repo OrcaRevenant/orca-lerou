@@ -1,0 +1,31 @@
+where to load the application. In fact, the loader would accept several binary
+inputs and simply load them in memory one right after the other, relocating them
+as it loaded them. This allowed programmers to load only those functions that
+they needed.
+The compiler was also changed to emit the names of the functions as metadata in
+the relocatable binary. If a program called a library function, the compiler would
+emit that name as an external reference. If a program defined a library function,
+the compiler would emit that name as an external definition. Then the loader
+could link the external references to the external definitions once it had
+determined where it had loaded those definitions.
+And the linking loader was born.
+LINKERS
+The linking loader allowed programmers to divide their programs up onto
+separately compilable and loadable segments. This worked well when relatively
+small programs were being linked with relatively small libraries. However, in the
+late 1960s and early 1970s, programmers got more ambitious, and their
+programs got a lot bigger.
+Eventually, the linking loaders were too slow to tolerate. Function libraries were
+stored on slow devices such a magnetic tape. Even the disks, back then, were
+quite slow. Using these relatively slow devices, the linking loaders had to read
+dozens, if not hundreds, of binary libraries to resolve the external references. As
+programs grew larger and larger, and more library functions accumulated in
+libraries, a linking loader could take more than an hour just to load the program.
+Eventually, the loading and the linking were separated into two phases.
+Programmers took the slow part—the part that did that linking—and put it into a
+separate application called the linker. The output of the linker was a linked
+relocatable that a relocating loader could load very quickly. This allowed
+programmers to prepare an executable using the slow linker, but then they could
+load it quickly, at any time.
+Then came the 1980s. Programmers were working in C or some other high-level
+language. As their ambitions grew, so did their programs. Programs that

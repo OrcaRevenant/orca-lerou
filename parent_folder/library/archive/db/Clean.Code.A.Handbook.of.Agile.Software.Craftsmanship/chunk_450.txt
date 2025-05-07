@@ -1,0 +1,86 @@
+423
+Index
+LAZY INITIALIZATION/
+EVALUATION idiom, 154
+LAZY-INITIALIZATION, 157
+Lea, Doug, 182, 342
+learning tests, 116, 118
+LeBlanc’s law, 4
+legacy code, 307
+legal comments, 55–56
+level of abstraction, 36–37
+levels of detail, 99
+lexicon, having a consistent, 26
+lines of code
+duplicating, 173
+width of, 85
+list(s)
+of arguments, 43
+meaning specific to programmers, 19
+returning a predefined immutable, 110
+literate code, 9
+literate programming, 9
+Literate Programming, 141
+livelock, 183, 338
+local comments, 69–70
+local variables, 324
+declaring, 292
+at the top of each function, 80
+lock & wait, 337, 338
+locks, introducing, 185
+log4j package, 116–118
+logical dependencies, 282, 298–299
+LOGO language, 36
+long descriptive names, 39
+long names, for long scopes, 312
+loop counters, single-letter names for, 25
+M
+magic numbers
+obscuring intent, 295
+replacing with named constants,
+300–301
+main function, moving construction to,
+155, 156
+managers, role of, 6
+mandated comments, 63
+manual control, over a serial ID, 272
+Map
+adding for ArgumentMarshaler, 221
+methods of, 114
+maps, breaking the use of, 222–223
+marshalling implementation,
+214–215
+meaningful context, 27–29
+member variables
+f prefix for, 257
+prefixing, 24
+renaming for clarity, 259
+mental mapping, avoiding, 25
+messy code. See also bad code; dirty code
+total cost of owning, 4–12
+method invocations, 324
+method names, 25
+methods
+affecting the order of execution, 188
+calling a twin with a flag, 278
+changing from static to instance, 280
+of classes, 140
+dependencies between, 329–333
+eliminating duplication between,
+173–174
+minimizing assert statements in, 176
+naming, 25
+tests exposing bugs in, 269
+minimal code, 9
+misleading comments, 63
+misplaced responsibility, 295–296, 299
+MOCK OBJECT, assigning, 155
+monadic argument, 40
+monadic forms, of arguments, 41
+monads, converting dyads into, 42
+Monte Carlo testing, 341
+Month enum, 278
+MonthConstants class, 271
+multithread aware, 332
+multithread-calculation, of throughput,
+335

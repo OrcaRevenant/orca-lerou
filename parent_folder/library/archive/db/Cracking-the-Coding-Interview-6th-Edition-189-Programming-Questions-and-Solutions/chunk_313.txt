@@ -1,0 +1,91 @@
+Solutions to Chapter 6 | Math and Logic Puzzles
+29
+if ( d i g i t s [ 3 ] == -1) { /* Day 3 d i d n ' t give new result */
+30
+!* D i g i t 2 equals d i g i t 0 or d i g i t 1. 8utj d i g i t 2, when incremented also
+31
+* matches d i g i t 0 or d i g i t 1. This means that d i g i t 0 incremented matches
+32
+* d i g i t 1, or the other way around. */
+33
+d i g i t s [ 2 ] - ( ( d i g i t s [ 0 ] + 1) % nTestStrips) == d i g i t s [ l ] ?
+34
+d i g i t s [ 0 ]
+: d i g i t s [ l ] ;
+35
+> else {
+36
+d i g i t s [ 2 ] = ( d i g i t s [ 3 ] - 1 + nTestStrips) % nTestStrips;
+37
+}
+38
+>
+39
+40
+return d i g i t s [ 0 ] * 100 + d i g i t s [ l ] * 10 + d i g i t s [ 2 ] ;
+41
+}
+42
+43 /* Run set of tests for t h i s day. */
+44 void runTestSet(ArrayList<Bottle> b o t t l e s , ArrayList<TestStrip> s t r i p s , i n t day) {
+45
+if (day > 3) return; H only works for 3 days ( d i g i t s ) + one extra
+46
+47
+f o r (Bottle b o t t l e : bottles) (
+48
+i n t index = getTestStripIndexForDay(bottle, day, s t r i p s . s i z e ( ) ) ;
+49
+TestStrip t e s t S t r i p = s t r i p s , g e t ( i n d e x ) ;
+50
+testStrip,addDropOnDay(day,
+b o t t l e ) ;
+51
+}
+52 >
+53
+54 l*i Get s t r i p that should be used on t h i s bottle on t h i s day. */
+55 i n t getTestStripIndexForDay(Bottle b o t t l e , i n t day, i n t nTestStrips) {
+56
+i n t id = b o t t l e . g e t i d ( ) ;
+57
+switch (day) {
+58
+case 0: return id /100;
+59
+case 1: return ( i d % 100) / 10;
+60
+case 2: return id % 10;
+61
+case 3: return ( i d % 16 + 1) % nTestStrips;
+62
+default: return -1;
+63
+}
+64 >
+65
+66 /* Get results that are positive f o r a particular day, excluding prior results. */
+67 i n t getPositiveOnDay(ArrayList<TestStrip> t e s t S t r i p s , i n t day,
+68
+HashSet<Integer> previousResults) {
+69
+for (TestStrip t e s t S t r i p : testStrips) {
+70
+i n t id = t e s t S t r i p , g e t l d ( ) ;
+71
+if (testStrip.isPositiveOnDay(day) &8 ipreviousResults.contains(id)) {
+72
+return t e s t S t r i p . g e t l d Q ;
+73
+}
+74
+)
+75
+return -1;
+76 >
+It will take 10 days in the worst case to get a result with this approach.
+Optimal Approach (7 days)
+We can actually optimize this siightly more, to return a result in just seven days. This is of course the
+minimum number of days possible.
+CrackingTheCodinglnterview.com ! 6th Edition
+303

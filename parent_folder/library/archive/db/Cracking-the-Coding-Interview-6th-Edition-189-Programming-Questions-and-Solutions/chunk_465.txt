@@ -1,0 +1,113 @@
+Solutions to Chapter 15 | Threads and Locks
+72
+/* Get the lock, v e r i f y i n g f i r s t that the process is r e a l l y c a l l i n g the locks in
+73
+* the order it said it would.
+*/
+74
+public Lock getLock(int ownerld, i n t resourcelO) {
+75
+LinkedList<LockNode> l i s t = lockOrder.get(ownerld);
+76
+if ( l i s t == n u l l ) return n u l l ;
+77
+78
+LockNode head = l i s t . g e t F i r s t ( ) ;
+79
+if (head.getldQ == resourcelD) {
+80
+list.removeFirst() ;
+81
+return head.getLock();
+82
+>
+83
+return n u l l ;
+84
+>
+85
+}
+86
+87
+public class LockNode {
+88
+public enum V i s i t S t a t e ( FRESH, VISITING, VISITED};
+89
+90
+private ftrrayList<LockNode> children;
+91
+private i n t lockld;
+92
+private Lock lock;
+93
+private i n t maxLocks;
+94
+95
+public LockNode(int i d , i n t max) { . . .
+}
+96
+97
+I* Doin " t h i s " to "node", checking that it doesn't create a cycle */
+98
+public void joinTo(LockNode node) { children.add(node); }
+99
+public void remove(LockNode node) { children.remove(node); }
+100
+101
+/* Check for a cycle by doing a depth-first-search. */
+102
+public boolean hasCycleCHashMapiinteger, Boolean> touchedNodes) {
+103
+V i s i t S t a t e [ ] v i s i t e d = new VisitState[maxLocks];
+104
+f o r ( i n t i = 0; i < maxLocks; i++) {
+105
+v i s i t e d [ i ] = VisitState.FRESH;
+106
+}
+107
+return hasCycle(visited, touchedNodes);
+108
+}
+109
+110
+private boolean hasCycle(VisitState[] v i s i t e d ,
+111
+HashMap<Integer, Boolean> touchedNodes) {
+112
+if
+(touchedNodes.containsKey(lockld))
+{
+113
+touchedNodes.put(lockld,
+t r u e ) ;
+114
+}
+115
+116
+if ( v i s i t e d [ l o c k I d ] == VisitState.VISITING) {
+117
+/* We looped back to t h i s node while s t i l l v i s i t i n g i t , so we know there's
+118
+* a cycle. */
+119
+return true;
+120
+} else if ( v i s i t e d [ l o c k I d ] == VisitState.FRESH) {
+121
+v i s i t e d [ l o c k I d ] = VisitState.VISITING;
+122
+f o r (LockNode n : children) {
+123
+if (n.hasCycle(visited,
+touchedNodes)) {
+124
+return t r u e ;
+125
+}
+126
+}
+127
+v i s i t e d [ l o c k i d ] = VisitState.VISITED;
+CrackingTheCodinglrtterview.com | 6th Edition
+467

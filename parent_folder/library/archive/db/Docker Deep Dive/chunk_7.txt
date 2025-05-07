@@ -1,0 +1,18 @@
+good rounded knowledge of Docker and containers. It’s only a short section and
+you should probably read it.
+The technical stuff is what the book is all about! This is where you’ll find
+everything you need to start working with Docker. It gets into the detail of
+images, containers and the increasingly important topic of orchestration. You’ll
+get the theory so that you know how it all fits together, and you’ll get commands
+and examples to show you how it all works in practice.
+Every chapter in the technical stuff section is divided into three parts:
+The TLDR
+The deep dive
+The commands
+The TLDR will give you two or three paragraphs that you can use to explain the
+topic at the coffee machine.
+The deep dive is where we explain how everything works and go through the
+examples.
+The Commands lists out all the relevant commands in an easy to read list with
+brief reminders of what each one does.
+I think you’ll love that format.

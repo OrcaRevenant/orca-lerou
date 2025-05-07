@@ -1,0 +1,65 @@
+Solutions to Chapter 4 | Trees and Graphs
+To see this, consider reconstructing a tree from its pre-order traversal (with NULL nodes indicated). For
+example: 1, 2,4, X, X, X, 3, X, X.
+The root is l,and its left node, 2, follows it. 2.left must be 4.4 must have two NULL nodes (since it is followed
+by two Xs). 4 is complete, so we move back up to its parent, 2. 2.right is another X (NULL), Vs left subtree
+is now complete, so we move to Vs right child. We place a 3 with two NULL children there. The tree is now
+complete.
+This whole process was deterministic, as it wili be on any other tree. A pre-order traversal always starts at
+the root and, from there, the path we take is entirely defined by the traversal. Therefore, two trees are iden-
+tical if they have the same pre-order traversal.
+Now consider the subtree problem. lfT2's pre-order traversal is a substring of TVs pre-order traversal, then
+T2's root element must be found in T1. If we do a pre-order traversal from this element inT1, we will foflow
+an identical path toT2's traversal. Therefore, T2 is a subtree of T1.
+Implementing this is quite straightforward. We just need to construct and compare the pre-order tra versa is,
+1
+boolean containsTree(TreeMode t l , TreeNode t2) {
+2
+StringBuilder s t r i n g l = new StringBuilderQ;
+3
+StringBuilder string2 = new StringBuilderQ;
+4
+5
+getOrderString(tl,
+s t r i n g l ) ;
+6
+get0rderString(t2,
+s t r i n g 2 ) ;
+7
+8
+return s t r i n g l . i n d e x 0 f ( s t r i n g 2 . t o S t r i n g ( ) )
+!= -1;
+9
+>
+10
+11 void getOrderString(TreeNode node, StringBuilder sb) {
+12
+if (node == n u l l ) {
+13
+sb.append("X");
+// Add n u l l indicator
+14
+return;
+15
+>
+16
+sb.append(node.data + " " ) ;
+// Add root
+17
+getOrderString(node.left,
+sb);
+// Add l e f t
+18
+getOrderString(node.right, sb); // Add r i g h t
+19
+)
+Thisapproach takesO(n + m) time and 0(n + m) space, where n and ffi are the number of nodes in Tl
+and T2, respectively. Given millions of nodes, we might want to reduce the space complexity.
+The Alternative Approach
+An alternative approach is to search through the larger tree, Tl, Each time a node in Tl matches the root
+of T2, call mate hTree. The matchTree method will compare the two subtrees to see if they are identical.
+Analyzing the runtime is somewhat complex. A naive answer would be to say that it is 0(nm) time, where
+n is the number of nodes in Tl and m is the number of nodes in T2. While this is technically correct, a little
+more thought can produce a tighter bound.
+274
+Cracking the Coding Interview, 6th Edition

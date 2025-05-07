@@ -1,0 +1,41 @@
+41
+Function Arguments
+Output arguments are harder to understand than input arguments. When we read a
+function, we are used to the idea of information going in to the function through arguments
+and out through the return value. We don’t usually expect information to be going out
+through the arguments. So output arguments often cause us to do a double-take.
+One input argument is the next best thing to no arguments. SetupTeardown-
+Includer.render(pageData) is pretty easy to understand. Clearly we are going to render the
+data in the pageData object.
+Common Monadic Forms
+There are two very common reasons to pass a single argument into a function. You may be
+asking a question about that argument, as in boolean fileExists(“MyFile”). Or you may be
+operating on that argument, transforming it into something else and returning it. For
+example,
+InputStream
+fileOpen(“MyFile”) transforms a ﬁle name String into an
+InputStream return value. These two uses are what readers expect when they see a func-
+tion. You should choose names that make the distinction clear, and always use the two
+forms in a consistent context. (See Command Query Separation below.)
+A somewhat less common, but still very useful form for a single argument function,
+is an event. In this form there is an input argument but no output argument. The overall
+program is meant to interpret the function call as an event and use the argument to alter the
+state of the system, for example, void passwordAttemptFailedNtimes(int attempts). Use
+this form with care. It should be very clear to the reader that this is an event. Choose
+names and contexts carefully.
+Try to avoid any monadic functions that don’t follow these forms, for example, void
+includeSetupPageInto(StringBuffer pageText). Using an output argument instead of a
+return value for a transformation is confusing. If a function is going to transform its input
+argument, the transformation should appear as the return value. Indeed, StringBuffer
+transform(StringBuffer in) is better than void transform-(StringBuffer out), even if the
+implementation in the ﬁrst case simply returns the input argument. At least it still follows
+the form of a transformation.
+Flag Arguments
+Flag arguments are ugly. Passing a boolean into a function is a truly terrible practice. It
+immediately complicates the signature of the method, loudly proclaiming that this function
+does more than one thing. It does one thing if the ﬂag is true and another if the ﬂag is false!
+In Listing 3-7 we had no choice because the callers were already passing that ﬂag
+in, and I wanted to limit the scope of refactoring to the function and below. Still, the
+method call render(true) is just plain confusing to a poor reader. Mousing over the call
+and seeing render(boolean isSuite) helps a little, but not that much. We should have
+split the function into two: renderForSuite() and renderForSingleTest().

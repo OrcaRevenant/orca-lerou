@@ -1,0 +1,29 @@
+Figure A.9 A Booch diagram
+The Booch notation was very powerful. It presaged notations like UML.
+ROSE had an architecture—a real architecture. It was constructed in true layers,
+and the dependencies between layers were properly controlled. The architecture
+made it releasable, developable, and independently deployable.
+Oh, it wasn’t perfect. There were a lot of things we still didn’t understand about
+architectural principles. We did not, for example, create a true plugin structure.
+We also fell for one of the most unfortunate fads of the day—we used a so-called
+object-oriented database.
+But, overall, the experience was a great one. I spent a lovely year and a half
+working with the Rational team on ROSE. This was one of the most
+intellectually stimulating experiences of my professional life.
+THE DEBATES CONTINUED
+Of course, I did not stop debating on Netnews. In fact, I drastically increased my
+network presence. I started writing articles for C++ Report. And, with Grady’s
+help, I started working on my first book: Designing Object-Oriented C++
+Applications Using the Booch Method.
+One thing bothered me. It was perverse, but it was true. No one was calling me
+“Uncle Bob.” I found that I missed it. So I made the mistake of putting “Uncle
+Bob” in my email and Netnews signatures. And the name stuck. Eventually I
+realized that it was a pretty good brand.
+... BY ANY OTHER NAME
+ROSE was a gigantic C++ application. It was composed of layers, with a strictly
+enforced dependency rule. That rule is not the rule that I have described in this
+book. We did not point our dependencies toward high-level policies. Rather, we
+pointed our dependencies in the more traditional direction of flow control. The
+GUI pointed at the representation, which pointed at the manipulation rules,
+which pointed at the database. In the end, it was this failure to direct our
+dependencies toward policy that aided the eventual demise of the product.

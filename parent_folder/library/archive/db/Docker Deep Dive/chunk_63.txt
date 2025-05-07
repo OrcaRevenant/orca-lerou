@@ -1,0 +1,29 @@
+Docker images - The deep dive
+We’ve mentioned a couple of times already that images are like stopped
+containers (or classes if you’re a developer). In fact, you can stop a container
+and create a new image from it. With this in mind, images are considered build-
+time constructs whereas containers are run-time constructs.
+Figure 6.1
+Images and containers
+Figure 6.1 shows high-level view of the relationship between images and
+containers. We use the docker container run and docker service create
+commands to start one or more containers from a single image. However, once
+you’ve started a container from an image, the two constructs become dependent
+on each other and you cannot delete the image until the last container using it
+has been stopped and destroyed. Attempting to delete an image without stopping
+and destroying all containers using it will result in the following error:
+$ docker image rm <image-name>
+Error response from daemon: conflict: unable to remove repository reference \
+"<image-name>" (must force) - container <container-id> is using its referenc\
+ed image <image-id>
+Images are usually small
+The whole purpose of a container is to run an application or service. This means
+that the image a container is created from must contain all OS and application
+files required to run the app/service. However, containers are all about being fast
+and lightweight. This means that the images they’re built from are usually small
+and stripped of all non-essential parts.
+For example, Docker images do not ship with 6 different shells for you to choose
+from - they usually ship with a single minimalist shell, or no shell at all. They
+also don’t contain a kernel - all containers running on a Docker host share access
+to the host’s kernel. For these reasons, we sometimes say images contain just
+enough operating system (usually just OS-related files and filesystem objects).

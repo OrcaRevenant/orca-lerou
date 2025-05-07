@@ -1,0 +1,91 @@
+Solutions to Chapter 17 | Hard
+2
+BiNode head, t a i l ;
+3
+4
+public NodePair(BiNode head, BiNode t a i l )
+{
+5
+this.head = head;
+6
+t h i s . t a i l = t a i l ;
+7
+>
+8
+>
+9
+10 public NodePair convert{BiNode root) {
+11
+if (root == n u l l ) return n u l l ;
+12
+13
+NodePair p a r t i = convert(root.nodel);
+14
+NodePair part2 = convert(root.node2);
+15
+16
+if ( p a r t i != n u l l ) {
+17
+c o n c a t ( p a r t l . t a i l ,
+r o o t ) ;
+18
+>
+19
+29
+if (part2 1- n u l l ) {
+21
+concat(root,
+part2.head);
+22
+}
+23
+24
+return new NodePair(partl == n u l l ? root : parti.head,
+25
+part2 == n u l l ? root : p a r t 2 . t a i l ) ;
+26
+}
+27
+28 public s t a t i c void concat(BiNode x, BiNode y) {
+29
+x.node2 = y;
+30
+y.nodel = x;
+31 >
+The above code still converts the BiNode data structure in place. We're just using NodePair as a way to
+return additional data. We could have alternatively used a two-element BiNode array to fulfil! the same
+purposes, but it looks a bit messier (and we like clean code, especially in an interview).
+It'd be nice, though, if we could do this without these extra data structures—and we can.
+Solution #2: Retrieving the Tail
+Instead of returning the head and tail of the linked list with NodePair, we can return just the head, and
+then we can use the head to find the tail of the linked list.
+1
+BiNode convert(SiNode root) {
+2
+if (root == n u l l ) return n u l l ;
+3
+4
+BiNode p a r t i = convert(root.nodel);
+5
+BiNode part2 = convert(root.node2);
+6
+7
+if ( p a r t i 1= n u l l ) {
+8
+c o n c a t ( g e t T a i l ( p a r t l ) ,
+r o o t ) ;
+9
+}
+10
+11
+if (part2 != n u l l ) {
+12
+concat(root,
+part2);
+13
+>
+14
+15
+return p a r t i == n u l l ? root : p a r t i ;
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

@@ -1,0 +1,20 @@
+Two issues in the basic approach
+The consistent hashing algorithm was introduced by Karger et al. at MIT [1]. The basic steps
+are:
+• Map servers and keys on to the ring using a uniformly distributed hash function.
+• To find out which server a key is mapped to, go clockwise from the key position until the
+first server on the ring is found.
+Two problems are identified with this approach. First, it is impossible to keep the same size
+of partitions on the ring for all servers considering a server can be added or removed. A
+partition is the hash space between adjacent servers. It is possible that the size of the
+partitions on the ring assigned to each server is very small or fairly large. In Figure 5-10, if s1
+is removed, s2’s partition (highlighted with the bidirectional arrows) is twice as large as s0
+and s3’s partition.
+
+Second, it is possible to have a non-uniform key distribution on the ring. For instance, if
+servers are mapped to positions listed in Figure 5-11, most of the keys are stored on server 2.
+However, server 1 and server 3 have no data.
+A technique called virtual nodes or replicas is used to solve these problems.
+Virtual nodes
+A virtual node refers to the real node, and each server is represented by multiple virtual nodes
+on the ring. In Figure 5-12, both server 0 and server 1 have 3 virtual nodes. The 3 is

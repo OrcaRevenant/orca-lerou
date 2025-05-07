@@ -1,0 +1,81 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+6
+i f (len == 0) {
+7
+result.add('"J)i II Be sure to return empty string!
+8
+return result;
+9
+}
+10
+11
+12
+for (int i = 0; i < len; i++) {
+13
+/* Remove char i and find permutations of remaining chars.*/
+14
+String before = remainder,substring(0, i);
+15
+String after = remainder,substring(i + 1, len);
+16
+ArrayListcString> partials = getPerms(before + after);
+17
+18
+/* Prepend char i to each permutation.*/
+19
+for {String s : partials) {
+20
+result.add(remainder.charAt(i) + s);
+21
+}
+22
+}
+23
+24
+return result;
+25 }
+Alternatively, instead of passing the permutations back up the stack, we can push the prefix down the stack.
+When we get to the bottom (base case), p r e f i x holds a full permutation.
+1 ArrayListcString> getPerms(String str) {
+2
+ArrayList<String> result = new ArrayList<String>();
+3
+getPerms(tr", str, result);
+4
+return result;
+5
+}
+6
+7
+void getPerms(String prefix, String remainder, ArrayList<String> result) {
+8
+if (remainder.lengthQ == 0) result.add(prefix);
+9
+10
+int len = remainder,length{);
+11
+for (int i = 0; i < len; i++) {
+12
+String before = remainder.substring(0, i);
+13
+String after = remainder,substring(i + 1, len);
+14
+char c = remainder.charAt(i);
+15
+getPerms(prefix + c, before + after, result);
+16
+}
+17 >
+For a discussion of the runtime of this algorithm, see Example 12 on page 51,
+8.8
+Permutations with Duplicates: Write a method to compute all permutations of a string whose
+characters are not necessarily unique. The list of permutations should not have duplicates.
+pg 135
+SOLUTION
+This is very similar to the previous problem, except that now we could potentially have duplicate characters
+in the word.
+One simple way of handling this problem is to do the same work to check if a permutation has been created
+before and then, if not, add it to the list. A simple hash table will do the trick here. This solution will take
+0 ( n ! ) time in the worst case (and, in fact, In ail cases).
+CrackingTheCodinglnterview.com [ 6th Edition
+3 S1

@@ -1,0 +1,88 @@
+Solutions to Chapter 3 j Stacks and Queues
+4
+public i n t pop() { . . • }
+5
+>
+We know that push () should behave identically to a single stack, which means that we need push () to
+call push ( ) on the last stack in the array of stacks. We have to be a bit careful here though: if the last stack
+is at capacity, we need to create a new stack. Our code should look something like this:
+1
+void pushfint v) {
+2
+Stack l a s t = getLastStackQ;
+3
+if ( l a s t != n u l l && 1 l a s t . i s F u l l Q ) { U add to l a s t stack
+4
+lsst.push(v);
+5
+} else { // must create new stack
+6
+Stack stack = new Stack(capacity);
+stack,push(v);
+8
+stacks.add(stack);
+9
+}
+10
+}
+What shouid pop( } do? It should behave similarly to push() in that it should operate on the last stack. If
+the last stack is empty (after popping), then we should remove the stack from the list of stacks.
+1
+i n t pop() {
+2
+Stack l a s t = getLastStackQ;
+3
+if ( l a s t == n u l l ) throw new EmptyStackExceptionQ;
+4
+i n t v = l a s t . p o p ( ) ;
+5
+if ( l a s t . s i z e =•= 0) stacks.remove(stacks.size() - 1);
+6
+return v;
+7
+}
+Follow Up: Implement popAt(int Index)
+This is a bit trickier to implement, but we can imagine a "rollover" system. If we pop an element from stack
+1, we need to remove the bottom of stack 2 and push it onto stack 1. We then need to rollover from stack 3
+to stack 2, stack 4 to stack 3, etc.
+You could make an argument that, rather than "rolling over," we should be okay with some stacks not
+being at full capacity. This would improve the time complexity (by a fair amount, with a large number of
+elements), but it might get us into tricky situations later on if someone assumes that all stacks (other than
+the last) operate at full capacity. There's no "right answer" here; you should discuss this trade-off with your
+interviewer.
+1
+public class SetOfStacks {
+2
+ArrayList<Stack> stacks = new ArrayList<Stack>();
+3
+public i n t capacity;
+4
+public SetOfStacks(int capacity) {
+5
+this.capacity = capacity;
+6
+}
+7
+8
+public Stack getLastStackQ {
+9
+if (stacks.size() == 0) return n u l l ;
+10
+return stacks.get(stacks.size() - 1);
+11
+}
+12
+13
+public void push(int v) { /* see e a r l i e r code */ }
+14
+public i n t pop() { /* see e a r l i e r code */ >
+15
+public boolean isEmptyQ {
+16
+Stack l a s t = getLastStackQ;
+17
+return last == n u l l || last.isEraptyQ;
+18
+)
+2 2 S
+Cracking the Coding Interview, 6th Edition

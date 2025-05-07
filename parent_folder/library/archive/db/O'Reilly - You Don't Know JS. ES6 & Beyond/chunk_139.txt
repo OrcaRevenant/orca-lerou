@@ -1,0 +1,41 @@
+A Promise can only have one of two possible resolution outcomes: fulfilled or rejec‐
+ted, with an optional single value. If a Promise is fulfilled, the final value is called a
+fulfillment. If it’s rejected, the final value is called a reason (as in, a “reason for rejec‐
+tion”). Promises can only be resolved (fulfillment or rejection) once. Any further
+attempts to fulfill or reject are simply ignored. Thus, once a promise is resolved, it’s an
+immutable value that cannot be changed.
+Clearly, there’s several different ways to think about what a Promise is. No single per‐
+spective is fully sufficient, but rather each provides a separate aspect of the whole. The
+big takeaway is that they offer a significant improvement over callbacks-only async,
+namely that they provide order, predictability, and trustability.
+Making And Using Promises
+To construct a Promise instance, use the Promise(..) constructor:
+var p = new Promise( function(resolve,reject){
+// ..
+} );
+The two parameters provided to the Promise(..) constructor are functions, and are
+generally named resolve(..) and reject(..), respectively. They are used as:
+• If you call reject(..), the promise is rejected, and if any value is passed to
+reject(..), it is set as the reason for rejection.
+• If you call resolve(..) with no value, or any non-Promise value, the promise is
+fulfilled.
+• If you call resolve(..) and pass another promise, this promise simply adopts
+the state — whether immediate or eventual — of the passed promise (either ful‐
+fillment or rejection).
+Here’s how you’d typically use a Promise to refactor a callback-reliant function call. If
+you start out with an ajax(..) utility that expects to be able to call an error-first style
+callback:
+function ajax(url,cb) {
+// make request, eventually call `cb(..)`
+}
+// ..
+ajax( "http://some.url.1", function handler(err,contents){
+if (err) {
+// handle ajax error
+}
+else {
+// handle `contents` success
+128
+|
+Chapter 4: Async Flow Control
+www.it-ebooks.info

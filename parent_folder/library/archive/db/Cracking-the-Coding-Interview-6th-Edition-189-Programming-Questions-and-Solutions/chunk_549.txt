@@ -1,0 +1,83 @@
+Solutions to Chapter 17 | Moderate
+6
+>
+7
+return count;
+8
+}
+9
+10 /* Counts the number of '1' digits in a single number */
+11 int number0f2s(int n) {
+12
+int count = 0;
+13
+while (n > 0) {
+14
+i f (n % 10 == 2) {
+15
+count++;
+16
+}
+17
+n = n / 10;
+18
+>
+19
+return count;
+20 >
+The only interesting part is that it's probably cleaner to separate out numberOf 2s into a separate method.
+This demonstrates an eye for code cleanliness.
+Improved Solution
+Rather than looking at the problem by ranges of numbers, we can look at the problem digit by digit. Picture
+a sequence of numbers:
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+110 111 112 113 114 115 116 117 118 119
+We know that roughly one tenth of the time, the last digit will be a 2 since it happens once in any sequence
+often numbers. In fact, any digit is a 2 roughly one tenth of the time.
+We say "roughly" because there are (very common) boundary conditions. For example, between 1 and 100,
+the 10's digit is a 2 exactly Xo l h of the time. However, between 1 and 37, the 10's digit is a 2 much more
+than 1/10"' of the time.
+We can workout what exactly the ratiois by looking at thethreecases individually: d i g i t < 2 , d i g i t =
+2, and d i g i t > 2,
+Case digit < 2
+Consider the value x = 61523andd = 3, and observe that x [ d ] = 1 (that is, the dth digit of x is 1).
+There are 2s at the 3rd digit in the ranges 2000 - 2999,12000 - 12999,22000 - 22999,32000 -
+32999,42000 - 42999, and 52000 - 52999. We will not yet have hit the range 62000 - 62999, so
+there are 6000 2s total in the 3rd digit. This is the same amount as if we were just counting ail the 2s in the
+3rd digit between 1 and 60000.
+In other words, we can round down to the nearest 10d4\ and then divide by 10, to compute the number of
+2s in the dth digit,
+if x[d] < 2: count2sInRangeAtDigit(XJ d) •
+let y = round down to nearest 10"*1
+return y / 10
+CrackingTheCodinglnterview.com | 6th Edition
+495

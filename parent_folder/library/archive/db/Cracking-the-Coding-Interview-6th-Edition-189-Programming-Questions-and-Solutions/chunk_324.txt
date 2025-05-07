@@ -1,0 +1,88 @@
+Solutions to Chapter 7 j Object-Oriented Design
+The P a r k i n g L o t class is essentially a wrapper class for an array of Levels. By implementing it this way,
+we are able to separate out logic that deals with actually finding free spots and parking cars out from the
+broader actions of the P a r k i n g L o t . if we didn't do it this way, we would need to hold parking spots in
+some sort of double array (or hash table which maps from a level number to the list of spotsi. It's cleaner to
+just separate P a r k i n g L o t from Level.
+1
+public class ParkingLot {
+2
+private Levelf] levels;
+3
+private f i n a l i n t NUM_LEVELS = 5;
+4
+5
+public ParkingLotQ { . . .
+}
+6
+/* Park the vehicle In a spot (or multiple spots). Return false if f a i l e d . */
+8
+public boolean parkVehicle(Vehicle vehicle) { . . . }
+9
+}
+10
+11 /* Represents a l e v e l in a parking garage */
+12 public class Level {
+13
+private i n t f l o o r ;
+14
+private ParkingSpotf] spots;
+15
+private i n t availableSpots = 0; // number of free spots
+16
+private s t a t i c f i n a l i n t 5P0TS_PER_R0W = 10;
+17
+18
+public Level(int f i r , i n t numberSpots) { . . . }
+19
+20
+public i n t availableSpots() { return availableSpots; }
+21
+22
+/* Find a place to park t h i s vehicle. Return false if f a i l e d . */
+23
+public boolean parkVehicle(Vehicle vehicle) { . . . }
+24
+25
+/* Park a vehicle Starting at the spot spotNumberj and continuing u n t i l
+26
+* vehicle.spotsNeeded. */
+27
+private boolean parkStartingAtSpot(int num, Vehicle v) { . . . )
+28
+29
+/* Find a spot to park t h i s vehicle. Return index of spot, or -1 on f a i l u r e . */
+30
+private i n t findAvailableSpots(Vehicle vehicle) {
+. . .
+}
+31
+32
+/* When a car was removed from the spot, increment availableSpots */
+public void spotFreedQ { availableSpots++; }
+34 >
+The ParkingSpot is implemented by having just a variable which represents the size of the spot. We
+could have implemented this by having classes for LargeSpot, CompactSpot, and Motorcyc leSpot
+which inherit from ParkingSpot, but this is probably overkill. The spots probably do not have different
+behaviors, other than their sizes,
+1
+public class ParkingSpot {
+2
+private vehicle vehicle;
+3
+private VehicleSize spotSize;
+4
+private i n t row;
+5
+private i n t spotNumber;
+6
+private Level l e v e l ;
+7
+8
+public ParkingSpot(Level l v l , i n t r, i n t n, VehicleSize s) { . . . }
+9
+10
+public boolean isAvailableQ { return vehicle == n u l l ; }
+11
+3 1 4
+Cracking the Coding Interview, 6th Edition

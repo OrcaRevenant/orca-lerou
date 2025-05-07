@@ -1,0 +1,74 @@
+Solutions to Chapter 7 ] Object-Oriented Design
+involving placing pieces) and the game (which involves times, game flow, etc.). However, the drawback is
+that we are adding extra layers to our program. A function may call out to a method in Game, only to have
+it immediately call Board. We have made the choice below to keep Game and Board separate, but you
+should discuss this with your interviewer.
+Who keeps score?
+We know we should probably have some sort of score keeping for the number of black and white pieces.
+But who should maintain this information? One could make a strong argument for either Game or Board
+maintaining this information, and possibly even for Piece (in static methods). We have implemented this
+with Board holding this information, since it can be logically grouped with the board. It is updated by
+Piece or Board calling the colorChanged and colorAdded methods within Board,
+Should Game be a Singleton class?
+Implementing Game as a singleton class has the advantage of making it easy for anyone to call a method
+within Game, without having to pass around references to the Game object.
+However, making Game a singleton means it can only be instantiated once. Can we make this assumption?
+You should discuss this with your interviewer.
+One possible design for Othello is below.
+1
+public enum Direction {
+2
+left, right, up, down
+3
+>
+4
+5
+public enum Color {
+6
+White, Black
+7
+}
+8
+9
+public class Game {
+19
+private Player[] players;
+11
+private static Game instance;
+12
+private Board board;
+13
+private final int ROWS = 10;
+14
+private final int COLUMNS = 10;
+15
+16
+private Game{) {
+17
+board = new Board(ftOWS, COLUMNS);
+18
+players = new Player[2];
+19
+players[0] = new Player(Color.Black);
+20
+players[l] = new Player{Color.White);
+21
+}
+22
+23
+public static Game getlnstanceO (
+24
+if (instance == null) instance = new Game();
+25
+return instance;
+26
+)
+27
+28
+public Board getBoardf) {
+29
+return board;
+30
+}
+31 >
+CrackingTheCodinglnterview.com | 6th Edition 3 37

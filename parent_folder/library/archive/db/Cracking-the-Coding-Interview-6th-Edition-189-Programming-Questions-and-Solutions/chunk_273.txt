@@ -1,0 +1,63 @@
+Solutions to Chapter 4 | Trees and Graphs
+Here's what we mean by weaving. We are merging two arrays in all possible ways, while keeping the
+elements within each array in the same relative order.
+array1: { i , 2}
+array2: {3, 4}
+weaved: {1, 2, 3, 4 } , {1, 3, 2, 4 } , {1, 3, 4, 2},
+{3j 1, 2, 4}, {3, 1, 4, 2}, {3, 4, 1, 2}
+Note that, as long as there aren't any duplicates in the original array sets, we won't have to worry that
+weaving will create duplicates.
+The last piece to talk about here is how the weaving works. Let's think recursively about how to weave { 1 ,
+2,
+3} and { 4 ,
+5,
+6>. What are the subproblems?
+-
+Prependa 1 toallweavesof{2, 3 } a n d { 4 ,
+6}.
+*
+Prepend a 4 toall weavesof { 1 , 2, 3 } a n d { 5 , 6}.
+To implement this, we'll store each as linked lists. This will make it easy to add and remove elements. When
+we recurse, we'll push the prefixed elements down the recursion. When f i r s t or second are empty, we
+add the remainder to p r e f i x and store the result.
+It works something like this:
+weave(first, second, p r e f i x ) :
+weave({1, 2}, {3, 4>, {>)
+weave({2>, {3, 4), { 1 ) )
+weave»}, {3, 4}, {1, 2})
+{1, 2, 3, 4}
+weave({2}, {4>, {1, 3})
+weave»}, { 4 } , {1, 3, 2»
+{ l , 3, 2, 4}
+weave»2), { } , {1, 3, 4})
+{1, 3, 4, 2}
+weave»l, 2}, {4}, {3})
+weave({2}, { 4 } , {3, 1}}
+weave»}, { 4 } , {3, 1, 2})
+{3, 1, 2, 4}
+weave»2>, { } , {3, l , 4})
+{3, 1, 4, 2}
+weave»l, 2}, { } , {3, 4 »
+{3, 4, 1, 2}
+Now, let's think through the implementation of removing, say, 1 from { 1 , 2} and recursing.We need to be
+careful about modifying this list, since a later recursive call (e.g., weave({l, 2}, {4}, { 3 } ) ) might need
+the 1 still in { 1 , 2}.
+We could clone the list when we recurse, so that we only modify the recursive calls. Or, we could modify the
+list, but then "revert" the changes after we're done with recursing.
+We've chosen to implement it the latter way. Since we're keeping the same reference to f i r s t , second, and
+p r e f i x the entire way down the recursive call stack, then we'll need to clone p r e f i x just before we store
+the com pie te result.
+1
+ArrayList<LinkedList<Integer>> allSequences(TreeNode node) {
+2
+ArrayList<LinkedList<Integer>> result = new ArrayList<LinkedList<Integer>>();
+3
+4
+if (node == n u l l ) {
+5
+result.add(new
+LinkedList<Integer>());
+6
+return r e s u l t ;
+CrackingTheCodinglnterview.com | 6th Edition
+247

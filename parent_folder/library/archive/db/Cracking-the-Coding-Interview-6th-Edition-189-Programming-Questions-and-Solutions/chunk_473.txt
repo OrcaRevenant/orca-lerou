@@ -1,0 +1,67 @@
+Solutions to Chapter 16 j Moderate
+Or:y = {0 if o r i g i n a l l y same,
+1 if d i f f e r e n t }
+A { o r i g i n a l y}
+Observe that XORing a bit with 1 always flips the bit, whereas XORing with 0 will never change it.
+Therefore, if we do y = 1
+A { o r i g i n a l y } w h e n x != y, then y will be flipped and therefore have
+x's original value.
+Otherwise, if x == y, then we do y = 0
+A { o r i g i n a l y} and the value of y does not change.
+Either way, y will be equal to the original value of x.
+3. x = x
+A y
+Or:x = {0 if o r i g i n a l l y same,
+1
+if d i f f e r e n t }
+A
+{ o r i g i n a l x}
+At this point, y is equal to the original value of X. This line is essentially equivalent to the line above it,
+but for different variables.
+Ifwedox = 1
+A { o r i g i n a l x} when the valuesare different, x will beflipped.
+Ifwedox = 0
+A { o r i g i n a l x} when the values are the same, x will not be changed.
+This operation happensfor each bit. Since it correctly swaps each bit, it wilt correctly swap the entire number.
+16.2
+Word Frequencies: Design a method to find the frequency of occurrences of any given word in a
+book. What if we were running this algorithm multiple times?
+pg 181
+SOLUTION
+Let's start with the simple case.
+Solution: 5ingle Query
+In this case, we simply go through the book, word by word, and count the number of times that a word
+appears. This will take 0 ( n ) time. We know we can't do better than that since we must look at every word
+in the book.
+1
+int getFrequency(String[] book, String word) {
+2
+word = word.trimQ ,toLowerCase();
+3
+int count = 9;
+4
+for (String w : book) {
+5
+if (w,trim().toLowerCaseQ.equals(word)) {
+6
+count++;
+7
+}
+8
+}
+9
+return count;
+10
+}
+We have also converted the string to lowercase and trimmed it. You can discuss with your interviewer if this
+is necessary (or even desired).
+Solution: Repetitive Queries
+If we're doing the operation repeatedly, then we can probably afford to take some time and extra memory
+to do pre-processing on the book. We can create a hash table which maps from a word to its frequency. The
+frequency of any word can be easily looked up in 0 (1) time. The code for this is below.
+1
+HashMap<String, Integers setupDictionary(String[] book) {
+2
+HashMap<String, Integers table =
+CrackingTheCodinglnterview.com 16th Edition
+4 6 3

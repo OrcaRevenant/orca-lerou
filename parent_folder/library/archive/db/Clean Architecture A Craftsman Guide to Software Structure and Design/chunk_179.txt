@@ -1,0 +1,29 @@
+The segregation strategy between local processes is the same as for monoliths
+and binary components. Source code dependencies point in the same direction
+across the boundary, and always toward the higher-level component.
+For local processes, this means that the source code of the higher-level processes
+must not contain the names, or physical addresses, or registry lookup keys of
+lower-level processes. Remember that the architectural goal is for lower-level
+processes to be plugins to higher-level processes.
+Communication across local process boundaries involve operating system calls,
+data marshaling and decoding, and interprocess context switches, which are
+moderately expensive. Chattiness should be carefully limited.
+SERVICES
+The strongest boundary is a service. A service is a process, generally started
+from the command line or through an equivalent system call. Services do not
+depend on their physical location. Two communicating services may, or may not,
+operate in the same physical processor or multicore. The services assume that all
+communications take place over the network.
+Communications across service boundaries are very slow compared to function
+calls. Turnaround times can range from tens of milliseconds to seconds. Care
+must be taken to avoid chatting where possible. Communications at this level
+must deal with high levels of latency.
+Otherwise, the same rules apply to services as apply to local processes. Lower-
+level services should “plug in” to higher-level services. The source code of
+higher-level services must not contain any specific physical knowledge (e.g., a
+URI) of any lower-level service.
+CONCLUSION
+Most systems, other than monoliths, use more than one boundary strategy. A
+system that makes use of service boundaries may also have some local process
+boundaries. Indeed, a service is often just a facade for a set of interacting local
+processes. A service, or a local process, will almost certainly be either a

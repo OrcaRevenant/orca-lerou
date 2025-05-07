@@ -1,0 +1,107 @@
+Solutions to Chapter 16 | Moderate
+3
+private Ant ant = new Ant();
+4
+5
+public Grid() {
+6
+grid = new boolean[l][1];
+7
+}
+8
+/* Copy old values into new array, with an offset/shift applied to the row and
+10
+* columns, */
+11
+private void copyWithShift(boolean[][] oldGrid, boolean[][] newGrid,
+12
+int shiftRow, int shiftColumn) {
+13
+for (int r = 0; r < oldGrid.length; r++) {
+14
+for (int c = 0; c < oldGrid[0].length; C++) {
+15
+newGrid[r + shiftRow][c + shiftColumn] = oldGrid[r][c];
+16
+}
+17
+}
+18
+}
+19
+20
+/* Ensure that the given position will f i t on the array. If necessary, double
+21
+* the size of the matrix, copy the old values over, and adjust the ant's
+22
+* position so that i t ' s in a positive range. */
+23
+private void ensureFit(Position position) {
+24
+int shiftRow = 0;
+25
+int shiftColumn = 0;
+26
+27
+f* Calculate new number of rows. */
+28
+int numRows = grid.length;
+29
+if (position.row < 0) {
+30
+shiftRow = numRows;
+31
+numRows *= 2;
+32
+} else if (position.row >= numRows) {
+33
+numRows *= 2;
+34
+>
+35
+36
+/* Calculate new number of columns. */
+37
+int numColumns = grid[0].length;
+38
+if (position.column < 0) {
+39
+shiftColumn = numColumns;
+40
+numColumns *= 2;
+41
+} else if (position.column >= numColumns) {
+42
+numColumns *= 2;
+43
+}
+44
+45
+/* Grow array, if necessary. Shift ant's position too. */
+46
+if (numRows != grid.length || numColumns 1= grid[0].length) {
+47
+boolean[][] newGrid = new boolean[numRows][numColumns];
+48
+copyWithShift(grid, newGrid, shiftRow, shiftColumn);
+49
+ant.adjustPosition(shiftRow, shiftColumn);
+50
+grid = newGrid;
+51
+>
+52
+>
+53
+54
+/* Flip color of cells. */
+55
+private void flip(Position position) {
+56
+int row = position.row;
+57
+int column = position.column;
+58
+grid[row][column] = grid[row][column] > false : true;
+CrackingTheCodinglnterview.com | 6th Edition
+495

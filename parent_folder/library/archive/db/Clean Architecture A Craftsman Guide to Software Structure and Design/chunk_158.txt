@@ -1,0 +1,29 @@
+The third bullet was development. Clearly when components are strongly
+decoupled, the interference between teams is mitigated. If the business rules
+don’t know about the UI, then a team that focuses on the UI cannot much affect
+a team that focuses on the business rules. If the use cases themselves are
+decoupled from one another, then a team that focuses on the addOrder use case
+is not likely to interfere with a team that focuses on the deleteOrder use case.
+So long as the layers and use cases are decoupled, the architecture of the system
+will support the organization of the teams, irrespective of whether they are
+organized as feature teams, component teams, layer teams, or some other
+variation.
+INDEPENDENT DEPLOYABILITY
+The decoupling of the use cases and layers also affords a high degree of
+flexibility in deployment. Indeed, if the decoupling is done well, then it should
+be possible to hot-swap layers and use cases in running systems. Adding a new
+use case could be a simple as adding a few new jar files or services to the system
+while leaving the rest alone.
+DUPLICATION
+Architects often fall into a trap—a trap that hinges on their fear of duplication.
+Duplication is generally a bad thing in software. We don’t like duplicated code.
+When code is truly duplicated, we are honor-bound as professionals to reduce
+and eliminate it.
+But there are different kinds of duplication. There is true duplication, in which
+every change to one instance necessitates the same change to every duplicate of
+that instance. Then there is false or accidental duplication. If two apparently
+duplicated sections of code evolve along different paths—if they change at
+different rates, and for different reasons—then they are not true duplicates.
+Return to them in a few years, and you’ll find that they are very different from
+each other.
+Now imagine two use cases that have very similar screen structures. The

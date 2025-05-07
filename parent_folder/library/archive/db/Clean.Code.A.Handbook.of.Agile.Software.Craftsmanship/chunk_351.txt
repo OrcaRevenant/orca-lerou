@@ -1,0 +1,39 @@
+321
+Possible Paths of Execution
+Conclusion
+Introducing concurrency in this particular example demonstrates a way to improve the
+throughput of a system and one way of validating that throughput through a testing frame-
+work. Focusing all concurrency code into a small number of classes is an example of
+applying the Single Responsibility Principle. In the case of concurrent programming, this
+becomes especially important because of its complexity.
+Possible Paths of Execution
+Review the method incrementValue, a one-line Java method with no looping or branching:
+public class IdGenerator {
+int lastIdUsed;
+public int incrementValue() {
+return ++lastIdUsed;
+}
+}
+Ignore integer overﬂow and assume that only one thread has access to a single instance
+of IdGenerator. In this case there is a single path of execution and a single guaranteed
+result:
+• The value returned is equal to the value of lastIdUsed, both of which are one greater
+than just before calling the method.
+Listing A-1
+ExecutorClientScheduler.java
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+public class ExecutorClientScheduler implements ClientScheduler {
+Executor executor;
+public ExecutorClientScheduler(int availableThreads) {
+executor = Executors.newFixedThreadPool(availableThreads);
+}
+public void schedule(final ClientRequestProcessor requestProcessor) {
+Runnable runnable = new Runnable() {
+public void run() {
+requestProcessor.process();
+}
+};
+executor.execute(runnable);
+}
+}

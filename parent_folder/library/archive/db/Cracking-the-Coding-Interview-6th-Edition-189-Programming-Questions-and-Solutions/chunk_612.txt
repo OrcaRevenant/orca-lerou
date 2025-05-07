@@ -1,0 +1,69 @@
+Solutions to Chapter 17 j Hard
+27
+28
+29
+sum += secondTallest - histo[i];
+>
+}
+30
+31
+return sum;
+32
+>
+Yes, this really is the entire code! It is still 0(N) time, but it's a lot simpler to read and write.
+17,22 Word Transformer: Given two words of equal length that are in a dictionary, write a method to
+transform one word into another word by changing only one letter at a time. The new word you get
+in each step must be in the dictionary.
+EXAMPLE
+Input: DAMP, LIKE
+Output: DAMP -> LAMP -> LIMP -> LIME -> LIKE
+SOLUTION
+Let's start with a naive solution and then work our way to a more optimal solution.
+Brute Force
+One way of solving this problem is to just transform the words in every possible way (of course checking at
+each step to ensure each is a valid word), and then see if we can reach the final word.
+So, for example, the word b o l d would be transformed into:
+•
+a o l d , b o l d
+z o l d
+•
+bald, b b l d
+b z l d
+•
+boad, bobd, . . . , bozd
+•
+b o l a , b o l b
+bolz
+We wilt terminate {not pursue this path) if the string is not a valid word or if we've already visited this word.
+This is essentially a depth-first search where there is an "edge" between two words if they are only one edit
+apart. This means that this algorithm will not find the shortest path. It will only find a path.
+If we wanted to find the shortest path, we would want to use breadth-first search.
+1
+LinkedList<String> transform(5tring start, String stop, Stringf] words) {
+2
+MashSet<String> diet = setupDictionary(words);
+3
+HashSetcString> visited = new HashSet<5tring>();
+4
+return transform(visited, start, stop, diet);
+5
+>
+6
+7
+HashSetcString> setupDictionary(String[] words) {
+8
+HashSet<String> hash = new HashSet<String>{);
+9
+for (String word : words) {
+10
+hash.add(word.toLowerCase());
+11
+>
+12
+return hash;
+13 >
+14
+15 LinkedList<String> transform(HashSet<String> visited, String startWord,
+pg 189
+55 S
+Cracking the Coding interview, 6th Edition

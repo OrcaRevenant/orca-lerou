@@ -1,0 +1,23 @@
+Most students of software design recognize the OCP as a principle that guides
+them in the design of classes and modules. But the principle takes on even
+greater significance when we consider the level of architectural components.
+A thought experiment will make this clear.
+A THOUGHT EXPERIMENT
+Imagine, for a moment, that we have a system that displays a financial summary
+on a web page. The data on the page is scrollable, and negative numbers are
+rendered in red.
+Now imagine that the stakeholders ask that this same information be turned into
+a report to be printed on a black-and-white printer. The report should be properly
+paginated, with appropriate page headers, page footers, and column labels.
+Negative numbers should be surrounded by parentheses.
+Clearly, some new code must be written. But how much old code will have to
+change?
+A good software architecture would reduce the amount of changed code to the
+barest minimum. Ideally, zero.
+How? By properly separating the things that change for different reasons (the
+Single Responsibility Principle), and then organizing the dependencies between
+those things properly (the Dependency Inversion Principle).
+By applying the SRP, we might come up with the data-flow view shown in
+Figure 8.1. Some analysis procedure inspects the financial data and produces
+reportable data, which is then formatted appropriately by the two reporter
+processes.

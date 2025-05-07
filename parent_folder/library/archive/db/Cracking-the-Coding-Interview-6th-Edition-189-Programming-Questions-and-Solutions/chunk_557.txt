@@ -1,0 +1,105 @@
+Solutions to Chapter 17 | Moderate
+12
+ArrayList<HtWt> bestWith = n u l l ;
+13
+if (canAppend(sequence,
+value)) {
+14
+ArrayList<HtWt> sequenceWith = (ArrayList<HtWt>) sequence.clone();
+15
+sequenceWith.add(value);
+16
+bestWith = bestSeqAtIndex{array, sequenceWith, index + 1);
+17
+)
+18
+19
+ArrayList<HtWt> bestwithout = bestSeqAtlndexfarray, sequence, index + 1);
+20
+21
+if (bestWith == n u l l [| bestWithout.size() > bestWith.size()) {
+22
+return bestWithout;
+23
+> else {
+24
+return bestWith;
+25
+>
+26 >
+27
+28 boolean canAppend(ArrayList<HtWt> solution, HtWt value) {
+29
+if (solution == n u l l ) return false;
+38
+if ( s o l u t i o n . s i z e ( ) == 0) return true;
+31
+32
+HtWt last = s o l u t i o n . g e t ( s o l u t i o n . s i z e ( ) - 1);
+33
+return
+last.isBefore(value);
+34 >
+35
+36 Arraylist<HtWt> max(ArrayList<HtWt> seql, ArrayList<HtWt> seq2) {
+37
+if (seql == n u l l ) {
+38
+return seq2;
+39
+> else if (seq2 == n u l l ) {
+40
+return seql;
+41
+}
+42
+return seql.size() > seq2.size() ? seql : seq2;
+43
+}
+44
+45 public class HtWt implements Comparable<HtWt> {
+46
+private i n t height;
+47
+private i n t weight;
+48
+public HtWt(int h, i n t w) { height = h; weight = w; }
+49
+50
+public i n t compareTo(HtWt second) {
+51
+if (this.height != second.height) {
+52
+return
+((Integer)this.height).compareTo(second.height);
+53
+) else {
+54
+return
+((Integer)this.weight).compareTo(setond.weight);
+55
+>
+56
+)
+57
+58
+/* Returns true if " t h i s " should be lined up before "other". Note that i t J s
+59
+* possible that this.isBefore(other) and other.isBefore(this) are both false.
+60
+* This is d i f f e r e n t from the compareTo method, where if a < b then b > a. */
+61
+public boolean is8efore(HtWt other) {
+62
+if (height < other.height 8& weight < other.weight) {
+63
+return true;
+64
+} else {
+65
+return f a l s e ;
+66
+>
+67
+>
+CrackingTheCodinglnterview.com | 6th Edition 495

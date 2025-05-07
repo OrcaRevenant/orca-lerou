@@ -1,0 +1,40 @@
+• class Foo implies creating a (special) function of the name Foo, much like you
+did pre-ES6.
+• constructor(..) identifies the signature of that Foo(..) function, as well as its
+body contents.
+• Class methods use the same “concise method” syntax available to object literals,
+as discussed in Chapter 2. This also includes the concise generator form as dis‐
+cussed earlier in this chapter, as well as the ES5 getter/setter syntax.
+• Unlike object literals, there are no commas separating members in a class body!
+In fact, they’re not even allowed.
+The class syntax definition in the previous snippet can be roughly thought of as this
+pre-ES6 equivalent, which probably will look fairly familiar to those who’ve done
+prototype-style coding before:
+function Foo(a,b) {
+this.x = a;
+this.y = b;
+}
+Foo.prototype.gimmeXY = function() {
+return this.x * this.y;
+}
+In either the pre-ES6 form or the new ES6 class form, this “class” can now be instan‐
+tiated and used just as you’d expect:
+var f = new Foo( 5, 15 );
+f.x;                        // 5
+f.y;                        // 15
+f.gimmeXY();                // 75
+Though class Foo is much like function Foo, there are important
+differences. The Foo(..) call must be made with new — a pre-ES6
+approach of Foo.call( obj ) will not work. Also, while function
+Foo is “hoisted” (see the Scope & Closures title of this series), class
+Foo is not; the extends .. clause specifies an expression that can‐
+not be “hoisted”. So, you must declare a class before you can
+instantiate it.
+The established instanceof operator still works with ES6 classes, since class just
+creates a constructor function of the same name. However, ES6 introduces a way to
+customize how instanceof works, using Symbol.hasInstance (see “Well Known
+Symbols” in Chapter 7).
+116
+|
+Chapter 3: Organization
+www.it-ebooks.info

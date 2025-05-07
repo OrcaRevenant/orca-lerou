@@ -1,0 +1,30 @@
+FIRST, DO NO HARM
+11
+on time. It was about me saving face. I had not been concerned about the
+customer, nor about my employer. I had only been concerned about my own
+reputation. I should have taken responsibility early and told Tom that the tests
+weren’t complete and that I was not prepared to ship the software on time. That
+would have been hard, and Tom would have been upset. But no customers
+would have lost data, and no service managers would have called.
+FI R ST, DO N O HAR M
+So how do we take responsibility? There are some principles. Drawing from the
+Hippocratic oath may seem arrogant, but what better source is there? And,
+indeed, doesn’t it make sense that the first responsibility, and first goal, of an
+aspiring professional is to use his or her powers for good?
+What harm can a software developer do? From a purely software point of view,
+he or she can do harm to both the function and structure of the software. We’ll
+explore how to avoid doing just that.
+D O N O HAR M TO FU N CTI O N
+Clearly, we want our software to work. Indeed, most of us are programmers
+today because we got something to work once and we want that feeling again.
+But we aren’t the only ones who want the software to work. Our customers and
+employers want it to work too. Indeed, they are paying us to create software that
+works just the way they want it to.
+We harm the function of our software when we create bugs. Therefore, in order
+to be professional, we must not create bugs.
+“But wait!” I hear you say. “That’s not reasonable. Software is too complex to
+create without bugs.”
+Of course you are right. Software is too complex to create without bugs.
+Unfortunately that doesn’t let you off the hook. The human body is too
+complex to understand in it’s entirety, but doctors still take an oath to do no
+harm. If they don’t take themselves off a hook like that, how can we?

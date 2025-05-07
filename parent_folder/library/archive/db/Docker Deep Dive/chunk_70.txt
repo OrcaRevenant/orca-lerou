@@ -1,0 +1,40 @@
+If you are following along with Windows you can pull from the
+microsoft/nanoserver repository instead of nigelpoulton/tu-demo.
+Note: If the repository you are pulling form contains images for multiple
+architectures and platforms, such as Linux and Windows, the command is
+likely to fail.
+$ docker image pull -a nigelpoulton/tu-demo
+latest: Pulling from nigelpoulton/tu-demo
+237d5fcd25cf: Pull complete
+a3ed95caeb02: Pull complete
+<Snip>
+Digest: sha256:42e34e546cee61adb1...3a0c5b53f324a9e1c1aae451e9
+v1: Pulling from nigelpoulton/tu-demo
+237d5fcd25cf: Already exists
+a3ed95caeb02: Already exists
+<Snip>
+Digest: sha256:9ccc0c67e5c5eaae4b...624c1d5c80f2c9623cbcc9b59a
+v2: Pulling from nigelpoulton/tu-demo
+237d5fcd25cf: Already exists
+a3ed95caeb02: Already exists
+<Snip>
+Digest: sha256:d3c0d8c9d5719d31b7...9fef58a7e038cf0ef2ba5eb74c
+Status: Downloaded newer image for nigelpoulton/tu-demo
+$
+$ docker image ls
+REPOSITORY            TAG       IMAGE ID      CREATED      SIZE
+nigelpoulton/tu-demo   v2       6ac2...ad  12 months ago   211.6 MB
+nigelpoulton/tu-demo   latest   9b91...29  12 months ago   211.6 MB
+nigelpoulton/tu-demo   v1       9b91...29  12 months ago   211.6 MB
+A couple of things about what just happened in the example cited above:
+First. The command pulled three images from the repository: latest, v1, and v2.
+Second. Look closely at the IMAGE ID column in the output of the docker image
+ls command. You’ll see that there are only two unique image IDs. This is
+because only two images were actually downloaded. This in turn, is because two
+of the tags refer to the same image. Put another way… one of the images has two
+tags. If you look closely you’ll see that the v1 and latest tags have the same
+IMAGE ID. This means they’re two tags of the same image.
+This is also a perfect example of the warning we issued earlier about the latest
+tag. In this example, the latest tag refers to the same image as the v1 tag. This
+means it’s pointing to the older of the two images - not the newest! latest is an
+arbitrary tag and is not guaranteed to point to the newest image in a repository!

@@ -1,0 +1,39 @@
+270
+Chapter 16: Refactoring SerialDate
+The right algorithm is shown below:
+Finally, the tests at line 417 and line 429 can be made to pass simply by throwing an
+IllegalArgumentException instead of returning an error string from weekInMonthToString
+and relativeToString.
+With these changes all the unit tests pass, and I believe SerialDate now works. So now
+it’s time to make it “right.”
+Then Make It Right
+We are going to walk from the top to the bottom of SerialDate, improving it as we go
+along. Although you won’t see this in the discussion, I will be running all of the JCommon
+unit tests, including my improved unit test for SerialDate, after every change I make. So
+rest assured that every change you see here works for all of JCommon.
+Starting at line 1, we see a ream of comments with license information, copyrights,
+authors, and change history. I acknowledge that there are certain legalities that need to be
+addressed, and so the copyrights and licenses must stay. On the other hand, the change his-
+tory is a leftover from the 1960s. We have source code control tools that do this for us now.
+This history should be deleted [C1].
+The import list starting at line 61 could be shortened by using java.text.* and
+java.util.*. [J1]
+I wince at the HTML formatting in the Javadoc (line 67). Having a source ﬁle with
+more than one language in it troubles me. This comment has four languages in it: Java,
+English, Javadoc, and html [G1]. With that many languages in use, it’s hard to keep things
+straight. For example, the nice positioning of line 71 and line 72 are lost when the Javadoc
+is generated, and yet who wants to see <ul> and <li> in the source code? A better strategy
+might be to just surround the whole comment with <pre> so that the formatting that is
+apparent in the source code is preserved within the Javadoc.1
+Line 86 is the class declaration. Why is this class named SerialDate? What is the sig-
+niﬁcance of the world “serial”? Is it because the class is derived from Serializable? That
+doesn’t seem likely.
+int delta = targetDOW - base.getDayOfWeek();
+int positiveDelta = delta + 7;
+int adjust = positiveDelta % 7;
+if (adjust > 3)
+adjust -= 7;
+return SerialDate.addDays(adjust, base);
+1.
+An even better solution would have been for Javadoc to present all comments as preformatted, so that comments appear the
+same in both code and document.

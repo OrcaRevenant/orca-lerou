@@ -1,0 +1,36 @@
+goal of good, 4–5
+reducing volatility of interfaces, 88
+signature of a mess, 7–8
+SOLID principles of, 57–59
+for testability, 251
+Designing Object-Oriented C++ Applications Using the Booch Method, 369
+Detail
+database is. See Database is detail
+don’t reveal hardware, to user of HAL, 265–269
+framework is, 291–295
+hardware is, 263–264
+separating from policy, 140–142
+story of architectural success, 163–165
+web is, 285–289
+Developers
+decreasing productivity/increasing cost of code, 5–7
+Eisenhower’s matrix of importance vs. urgency, 17
+foolishness of overconfidence, 9–12
+preference for function vs. architecture, 15–16
+scope vs. shape in determining cost of change, 15
+signature of a mess, 8–9
+as stakeholders, 18
+Development
+impact of architecture on, 137–138
+independent. See Independent developability
+role of architecture in supporting, 149–150
+role of test to support, 250
+Device independence
+defined, 142–143
+IO device of UI as, 288–289
+junk mail example, 144–145
+physical addressing example, 145–146
+in programming, 44
+Digital revolution, and telephone companies, 352–354
+Dijkstra, Edsger Wybe
+applying discipline of proof to programming, 27

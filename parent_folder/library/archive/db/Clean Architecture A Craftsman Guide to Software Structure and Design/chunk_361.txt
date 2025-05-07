@@ -1,0 +1,34 @@
+database getaways, 214
+Presenters and Views, 212–213
+Presenters as form of, 212
+testing and architecture, 213
+understanding, 212
+Hunt the Wumpus game
+layers and boundaries. See Layers and boundaries
+Main component from, 232–237
+I
+IBM System/7, aluminum die-cast archaeology project, 338–339
+If/then/else statements, 22, 27
+Immutability, 52–54
+Implementation strategy. See Code organization
+Importance, urgency vs. Eisenhower’s matrix of, 16–17
+Incoming dependencies, stability metrics, 122–123
+Independence
+conclusion, 158
+decoupling layers, 151–152
+decoupling mode, 153
+decoupling use cases, 152
+deployment, 150
+development, 149–150
+duplication, 154–155
+independent deployability, 154
+independent developability, 153–154
+leaving options open, 150–151
+operation, 149
+overview of, 147–148
+types of decoupling modes, 155–158
+use cases, 148
+Independent components
+calculating stability metrics, 123
+understanding, 121
+Independent deployability

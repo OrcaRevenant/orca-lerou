@@ -1,0 +1,26 @@
+8: Containerizing an App
+Docker is all about taking applications and running them in containers.
+The process of taking an application and configuring it to run as a container is
+called “containerizing”. Sometimes we call it “Dockerizing”.
+In this chapter we’ll walk through the process of containerizing a simple web
+application.
+We’ll split this chapter into the usual three parts:
+The TLDR
+The deep dive
+The commands
+Let’s go containerize an app!
+
+Containerizing an App - The TLDR
+Containers are all about apps! In particular, they’re about making apps simple to
+build, ship, and run.
+The process of containerizing an app looks like this:
+1. Start with your application code.
+2. Create a Dockerfile that describes your app, its dependencies, and how to
+run it.
+3. Feed this Dockerfile into the docker image build command.
+4. Sit back while Docker builds your application into a Docker image.
+Once your app is containerized (made into a Docker image), you’re ready to ship
+it and run it as a container.
+Figure 8.1 shows the process of building, shipping, and running an app
+(apologies for the colours on the diagram).
+Figure 8.1

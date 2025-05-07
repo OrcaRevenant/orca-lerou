@@ -1,0 +1,20 @@
+A CLEAN EMBEDDED ARCHITECTURE IS A TESTABLE
+EMBEDDED ARCHITECTURE
+Let’s see how to apply some of the architectural principles to embedded software
+and firmware to help you eliminate the target-hardware bottleneck.
+Layers
+Layering comes in many flavors. Let’s start with three layers, as shown in Figure
+29.1. At the bottom, there is the hardware. As Doug warns us, due to technology
+advances and Moore’s law, the hardware will change. Parts become obsolete,
+and new parts use less power or provide better performance or are cheaper.
+Whatever the reason, as an embedded engineer, I don’t want to have a bigger job
+than is necessary when the inevitable hardware change finally happens.
+Figure 29.1 Three layers
+The separation between hardware and the rest of the system is a given—at least
+once the hardware is defined (Figure 29.2). Here is where the problems often
+begin when you are trying to pass the App-titude test. There is nothing that
+keeps hardware knowledge from polluting all the code. If you are not careful
+about where you put things and what one module is allowed to know about
+another module, the code will be very hard to change. I’m not just talking about
+when the hardware changes, but when the user asks for a change, or when a bug
+needs to be fixed.

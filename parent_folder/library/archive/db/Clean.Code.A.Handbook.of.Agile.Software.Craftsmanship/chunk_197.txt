@@ -1,0 +1,39 @@
+167
+Optimize Decision Making
+demand. It is not necessary to do a Big Design Up Front18 (BDUF). In fact, BDUF is even
+harmful because it inhibits adapting to change, due to the psychological resistance to dis-
+carding prior effort and because of the way architecture choices inﬂuence subsequent
+thinking about the design.
+Building architects have to do BDUF because it is not feasible to make radical archi-
+tectural changes to a large physical structure once construction is well underway.19
+Although software has its own physics,20 it is economically feasible to make radical
+change, if the structure of the software separates its concerns effectively.
+This means we can start a software project with a “naively simple” but nicely decou-
+pled architecture, delivering working user stories quickly, then adding more infrastructure
+as we scale up. Some of the world’s largest Web sites have achieved very high availability
+and performance, using sophisticated data caching, security, virtualization, and so forth,
+all done efﬁciently and ﬂexibly because the minimally coupled designs are appropriately
+simple at each level of abstraction and scope.
+Of course, this does not mean that we go into a project “rudderless.” We have some
+expectations of the general scope, goals, and schedule for the project, as well as the gen-
+eral structure of the resulting system. However, we must maintain the ability to change
+course in response to evolving circumstances.
+The early EJB architecture is but one of many well-known APIs that are over-engi-
+neered and that compromise separation of concerns. Even well-designed APIs can be over-
+kill when they aren’t really needed. A good API should largely disappear from view most
+of the time, so the team expends the majority of its creative efforts focused on the user sto-
+ries being implemented. If not, then the architectural constraints will inhibit the efﬁcient
+delivery of optimal value to the customer.
+To recap this long discussion,
+An optimal system architecture consists of modularized domains of concern, each of which
+is implemented with Plain Old Java (or other) Objects. The different domains are inte-
+grated together with minimally invasive Aspects or Aspect-like tools. This architecture can
+be test-driven, just like the code.
+Optimize Decision Making
+Modularity and separation of concerns make decentralized management and decision
+making possible. In a sufﬁciently large system, whether it is a city or a software project, no
+one person can make all the decisions.
+18. Not to be confused with the good practice of up-front design, BDUF is the practice of designing everything up front before
+implementing anything at all.
+19. There is still a signiﬁcant amount of iterative exploration and discussion of details, even after construction starts.
+20. The term software physics was ﬁrst used by [Kolence].

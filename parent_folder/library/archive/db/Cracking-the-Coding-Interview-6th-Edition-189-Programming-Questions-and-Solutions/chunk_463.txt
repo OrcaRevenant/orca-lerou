@@ -1,0 +1,81 @@
+Solutions to Chapter 15 | Threads and Locks
+This class will need a d e c l a r e method, which threads and processes will use to declare what order they
+will request resources in. This declare method will iterate through the declare order, adding each contig-
+uous pair of elements (v, w) to the graph. Afterwards, it will check to see if any cycles have been created. If
+any cycles have been created, it will backtrack, removing these edges from the graph, and then exit.
+We have one final component to discuss: how do we detect a cycle? We can detect a cycle by doing a
+depth-first search through each connected component (I.e., each connected part of the graph). Complex
+algorithms exist to find all the connected components of a graph, but our work in this problem does not
+require this degree of complexity.
+We know that if a cycle was created, one of our new edges must be to blame. Thus, as long as our depth-
+first search touches all of these edges at some point, then we know that we have fully searched for a cycle.
+The pseudocode for this special case cycle detection looks like this:
+1
+boolean checkForCycle(locks[] locks) {
+2
+touchedNodes = hash table(lock -> boolean)
+3
+initialize touchedNodes to false for each lock in locks
+4
+for each (lock x in process.locks) {
+5
+if (touchedNodes[x] == false) {
+6
+if (hasCycle(x, touchedNodes)) {
+7
+return true;
+8
+}
+9
+}
+10
+}
+11
+return false;
+12 >
+13
+14 boolean hasCycle(node x, touchedNodes) {
+15
+touchedNodes[r] = true;
+16
+if (x.state == VISITING) {
+17
+return true;
+18
+} else if (x.state == FRESH) {
+19
+... (see full code below)
+20
+)
+21 >
+In the above code, note that we may do several depth-first searches, but touchedNodes is only initialized
+once. We iterate until alt the values in touchedNodes are false.
+The code below provides further details. For simplicity, we assume that all locks and processes (owners) are
+ordered sequentially.
+1
+class LockFactory {
+2
+private static LockFactory instance;
+3
+4
+private int nurtiberOfLocks = 5; /* default */
+5
+private LockNode[] locks;
+6
+/* Maps from a process or owner to the order that the owner claimed it would
+8
+* call the locks in */
+9
+private HashMap<Integer, LinkedList<LockNode>> lockOrder;
+10
+11
+private LockFactory(int count) { ... }
+12
+public static LockFactory getlnstanceQ { return instance; }
+13
+14
+public static synchronized LockFactory initialize(int count) {
+15
+if (instance == null) instance = new LockFactory(count);
+CrackingTbeCoding lnterview.com 16th Edition
+4 5 3

@@ -1,0 +1,38 @@
+var it = foo();
+it.next();              // { value: 1, done: false }
+it.return( 42 );        // cleanup!
+// { value: 42, done: true }
+Do not put a yield statement inside the finally clause! It’s valid
+and legal, but it’s a really terrible idea. It acts in a sense as deferring
+the completion of the return(..) call you made, as any yield ..
+expressions in the finally clause are respected to pause and send
+messages; you don’t immediately get a completed generator as
+expected. There’s basically no good reason to opt-in to that crazy
+bad part, so avoid doing so!
+In addition to the previous snippet showing how return(..) aborts the generator
+while still triggering the finally clause, it also demonstrates that a generator pro‐
+duces a whole new iterator each time it’s called. In fact, you can use multiple iterators
+attached to the same generator concurrently:
+function *foo() {
+yield 1;
+yield 2;
+yield 3;
+}
+var it1 = foo();
+it1.next();             // { value: 1, done: false }
+it1.next();             // { value: 2, done: false }
+var it2 = foo();
+it2.next();             // { value: 1, done: false }
+it1.next();             // { value: 3, done: false }
+it2.next();             // { value: 2, done: false }
+it2.next();             // { value: 3, done: false }
+it2.next();             // { value: undefined, done: true }
+it1.next();             // { value: undefined, done: true }
+Early Abort
+Instead of calling return(..), you can call throw(..). Just like return(x) is essen‐
+tially injecting a return x into the generator at its current pause point, calling
+throw(x) is essentially like injecting a throw x at the pause point.
+Generators
+|
+93
+www.it-ebooks.info

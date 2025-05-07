@@ -1,0 +1,32 @@
+CHAPTER 4 CODING
+60
+One very late evening—or rather, one very early morning, in order to solve a
+timing problem—I had my code send a message to itself through the event
+dispatch system (we called this “sending mail”). This was the wrong solution,
+but at 3 am it looked pretty damned good. Indeed, after 18 hours of solid coding
+(not to mention the 60–70 hour weeks) it was all I could think of.
+I remember feeling so good about myself for the long hours I was working.
+I remember feeling dedicated. I remember thinking that working at 3 am is what
+serious professionals do. How wrong I was!
+That code came back to bite us over and over again. It instituted a faulty design
+structure that everyone used but consistently had to work around. It caused all
+kinds of strange timing errors and odd feedback loops. We’d get into infinite
+mail loops as one message caused another to be sent, and then another,
+infinitely. We never had time to rewrite this wad (so we thought) but we always
+seemed to have time to add another wart or patch to work around it. The cruft
+grew and grew, surrounding that 3 am code with ever more baggage and side
+effects. Years later it had become a team joke. Whenever I was tired or frustrated
+they’d say, “Look out! Bob’s about to send mail to himself!”
+The moral of this story is: Don’t write code when you are tired. Dedication and
+professionalism are more about discipline than hours. Make sure that your sleep,
+health, and lifestyle are tuned so that you can put in eight good hours per day.
+WO R RY CO D E
+Have you ever gotten into a big fight with your spouse or friend, and then tried
+to code? Did you notice that there was a background process running in your
+mind trying to resolve, or at least review the fight? Sometimes you can feel the
+stress of that background process in your chest, or in the pit of your stomach.
+It can make you feel anxious, like when you’ve had too much coffee or diet
+coke. It’s distracting.
+When I am worried about an argument with my wife, or a customer crisis, or a
+sick child, I can’t maintain focus. My concentration wavers. I find myself with
+my eyes on the screen and my fingers on the keyboard, doing nothing. Catatonic.

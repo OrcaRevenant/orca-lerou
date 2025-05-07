@@ -1,0 +1,34 @@
+isFloat( NaN );                     // false
+isFloat( Infinity );                // false
+It may seem strange, but Infinity should neither be considered an
+integer nor a float.
+ES6 also defines a Number.isSafeInteger(..) utility, which checks to make sure the
+value is both an integer and within the range of Number.MIN_SAFE_INTEGER-
+Number.MAX_SAFE_INTEGER (inclusive).
+var x = Math.pow( 2, 53 ),
+y = Math.pow( -2, 53 );
+Number.isSafeInteger( x - 1 );      // true
+Number.isSafeInteger( y + 1 );      // true
+Number.isSafeInteger( x );          // false
+Number.isSafeInteger( y );          // false
+String
+Strings already have quite a few helpers prior to ES6, but even more have been added
+to the mix.
+Unicode Functions
+“Unicode-Aware String Operations” in Chapter 2 discusses String.fromCode
+Point(..), String#codePointAt(..), and String#normalize(..) in detail. They
+have been added to improve Unicode support in JS string values.
+String.fromCodePoint( 0x1d49e );            // "𝒞"
+"ab𝒞d".codePointAt( 2 ).toString( 16 );     // "1d49e"
+The normalize(..) string prototype method is used to perform Unicode normaliza‐
+tions that either combine characters with adjacent “combining marks” or decompose
+combined characters.
+Generally, the normalization won’t create a visible effect on the contents of the string,
+but will change the contents of the string which can affect how things like the length
+property are reported, as well as how character access by position behave:
+var s1 = "e\u0301";
+s1.length;                          // 2
+168
+|
+Chapter 6: API Additions
+www.it-ebooks.info

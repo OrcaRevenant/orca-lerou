@@ -1,0 +1,22 @@
+behavior of those systems to be changed by adding new code, rather than
+changing existing code.
+• LSP: The Liskov Substitution Principle
+Barbara Liskov’s famous definition of subtypes, from 1988. In short, this
+principle says that to build software systems from interchangeable parts, those
+parts must adhere to a contract that allows those parts to be substituted one for
+another.
+• ISP: The Interface Segregation Principle
+This principle advises software designers to avoid depending on things that
+they don’t use.
+• DIP: The Dependency Inversion Principle
+The code that implements high-level policy should not depend on the code that
+implements low-level details. Rather, details should depend on policies.
+These principles have been described in detail in many different publications1
+over the years. The chapters that follow will focus on the architectural
+implications of these principles instead of repeating those detailed discussions. If
+you are not already familiar with these principles, what follows is insufficient to
+understand them in detail and you would be well advised to study them in the
+footnoted documents.
+1. For example, Agile Software Development, Principles, Patterns, and Practices, Robert C. Martin, Prentice
+Hall, 2002, http://www.butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod, and
+https://en.wikipedia.org/wiki/SOLID_(object-oriented_design) (or just google SOLID).

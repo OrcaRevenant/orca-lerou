@@ -1,0 +1,30 @@
+Confirm the service is gone with the docker service ls command.
+$ docker service ls
+ID      NAME    MODE   REPLICAS    IMAGE      PORTS
+Be careful using the docker service rm command as it deletes all tasks in a
+service without asking for confirmation.
+Now that the service is deleted from the system, let’s go and look at how to push
+rolling updates to a service.
+Rolling updates
+Pushing updates to deployed applications is a fact of life. And for the longest
+time it’s been really painful. I’ve lost more than enough weekends to major
+application updates, and I’ve no intention of going there again if I can help it.
+Well… thanks to Docker services, pushing updates to well-designed apps just
+got a whole lot easier!
+To see this, we’re going to deploy a new service. But before we do that we’re
+going to create a new overlay network for the service. This isn’t necessary, but I
+want you to see how it is done and how the service uses it.
+$ docker network create -d overlay uber-net
+43wfp6pzea470et4d57udn9ws
+This creates a new overlay network called “uber-net” that we’ll be able to
+leverage with the service we’re about to create. An overlay network essentially
+creates a new layer 2 network that we can place containers on, and all containers
+on it will be able to communicate with each other. This works even if the Docker
+hosts they’re running on are on different underlying networks. Basically, the
+overlay network creates a new layer 2 container network on top of potentially
+multiple different underlying networks.
+Figure 9.5 shows two underlay networks connected by a layer 3 router. There is
+then a single overlay network across both. Docker hosts are connected to the two
+underlay networks and containers are connected to the overlay. All containers on
+the overlay can communicate with each other even if they are running on Docker
+hosts plumbed into different underlay networks.

@@ -1,0 +1,9 @@
+monolith composed of source code components or a set of dynamically linked
+deployment components.
+This means that the boundaries in a system will often be a mixture of local
+chatty boundaries and boundaries that are more concerned with latency.
+1. Static polymorphism (e.g., generics or templates) can sometimes be a viable means of dependency
+management in monolithic systems, especially in languages like C++. However, the decoupling afforded
+by generics cannot protect you from the need for recompilation and redeployment the way dynamic
+polymorphism can.
+2. Although static polymorphism is not an option in this case.

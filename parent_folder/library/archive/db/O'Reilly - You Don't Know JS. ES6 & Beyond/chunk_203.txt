@@ -1,0 +1,48 @@
+if (Reflect.has( target, key )) {
+return Reflect.get(
+target, key, context
+);
+}
+// fake multiple `[[Prototype]]`
+else {
+for (var P of target[
+Symbol.for( "[[Prototype]]" )
+]) {
+if (Reflect.has( P, key )) {
+return Reflect.get(
+P, key, context
+);
+}
+}
+}
+}
+},
+obj3 = new Proxy(
+{
+name: "obj-3",
+baz() {
+this.foo();
+this.bar();
+}
+},
+handlers
+);
+// fake multiple `[[Prototype]]` links
+obj3[ Symbol.for( "[[Prototype]]" ) ] = [
+obj1, obj2
+];
+obj3.baz();
+// obj1.foo: obj-3
+// obj2.bar: obj-3
+As mentioned in the note after the earlier circular [[Prototype]]
+example, we didn’t implement the set(..) handler, but it would be
+necessary for a complete solution that emulates [[Set]] actions as
+normal [[Prototype]]’s behave.
+obj3 is set up to multiple-delegate to both obj1 and obj2. In obj3.baz(), the
+this.foo() call ends up pulling foo() from obj1 (first-come, first-served, even
+though there’s also a foo() on obj2). If we reordered the linkage as obj2, obj1, the
+obj2.foo() would have been found and used.
+192
+|
+Chapter 7: Meta Programming
+www.it-ebooks.info

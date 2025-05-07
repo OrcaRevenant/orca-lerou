@@ -1,0 +1,44 @@
+214
+Chapter 14: Successive Reﬁnement
+private void setBooleanArg(char argChar, boolean value) {
+booleanArgs.get(argChar).setBoolean(value);
+}
+...
+public boolean getBoolean(char arg) {
+return falseIfNull(booleanArgs.get(arg).getBoolean());
+}
+Notice how these changes are in exactly the areas that I mentioned before: the parse,
+set, and get for the argument type. Unfortunately, small as this change was, some of the
+tests started failing. If you look carefully at getBoolean, you’ll see that if you call it with
+'y,' but there is no y argument, then booleanArgs.get('y') will return null, and the func-
+tion will throw a NullPointerException. The falseIfNull function had been used to protect
+against this, but the change I made caused that function to become irrelevant.
+Incrementalism demanded that I get this working quickly before making any other
+changes. Indeed, the ﬁx was not too difﬁcult. I just had to move the check for null. It was
+no longer the boolean being null that I needed to check; it was the ArgumentMarshaller.
+First, I removed the falseIfNull call in the getBoolean function. It was useless now, so
+I also eliminated the function itself. The tests still failed in the same way, so I was conﬁ-
+dent that I hadn’t introduced any new errors.
+public boolean getBoolean(char arg) {
+return booleanArgs.get(arg).getBoolean();
+}
+Next, I split the function into two lines and put the ArgumentMarshaller into its own vari-
+able named argumentMarshaller. I didn’t care for the long variable name; it was badly
+redundant and cluttered up the function. So I shortened it to am [N5].
+public boolean getBoolean(char arg) {
+Args.ArgumentMarshaler am = booleanArgs.get(arg);
+return am.getBoolean();
+}
+And then I put in the null detection logic.
+public boolean getBoolean(char arg) {
+Args.ArgumentMarshaler am = booleanArgs.get(arg);
+return am != null && am.getBoolean();
+}
+String Arguments
+Adding String arguments was very similar to adding boolean arguments. I had to change
+the HashMap and get the parse, set, and get functions working. There shouldn’t be any sur-
+prises in what follows except, perhaps, that I seem to be putting all the marshalling imple-
+mentation in the ArgumentMarshaller base class instead of distributing it to the derivatives.
+private Map<Character, ArgumentMarshaler> stringArgs =
+new HashMap<Character, ArgumentMarshaler>();
+...

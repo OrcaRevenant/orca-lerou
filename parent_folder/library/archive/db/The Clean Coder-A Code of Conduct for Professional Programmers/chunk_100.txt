@@ -1,0 +1,34 @@
+CHAPTER 4 CODING
+68
+The circular queues in that system were just FIFO data structures, that is,
+queues. Application programs pushed characters in one end of the queue until
+the queue was full. The interrupt heads popped the characters off the other end
+of the queue when the printer is ready for them. When the queue was empty,
+the printer would stop. Our bug caused the applications to think that the queue
+was full, but caused the interrupt heads to think that the queue was empty.
+Interrupt heads run in a different “thread” than all other code. So counters and
+variables that are manipulated by both interrupt heads and other code must be
+protected from concurrent update. In our case that meant turning the
+interrupts off around any code that manipulated those three variables. By the
+time I sat down with that code I knew I was looking for someplace in the code
+that touched the variables but did not disable the interrupts first.
+Nowadays, of course, we’d use the plethora of powerful tools at our disposal to
+find all the places where the code touched those variables. Within seconds we’d
+know every line of code that touched them. Within minutes we’d know which
+did not disable the interrupts. But this was 1972, and I didn’t have any tools like
+that. What I had were my eyes.
+I pored over every page of that code, looking for the variables. Unfortunately,
+the variables were used everywhere. Nearly every page touched them in one way
+or another. Many of those references did not disable the interrupts because they
+were read-only references and therefore harmless. The problem was, in that
+particular assembler there was no good way to know if a reference was read-
+only without following the logic of the code. Any time a variable was read, it
+might later be updated and stored. And if that happened while the interrupts
+were enabled, the variables could get corrupted.
+It took me days of intense study, but in the end I found it. There, in the middle
+of the code, was one place where one of the three variables was being updated
+while the interrupts were enabled.
+I did the math. The vulnerability was about two microseconds long. There were
+a dozen terminals all running at 30 cps, so an interrupt every 3 ms or so. Given
+the size of the supervisor, and the clock rate of the CPU, we’d expect a freeze-up
+from this vulnerability one or two times a day. Bingo!

@@ -1,0 +1,90 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+39
+public void moveDisks(int n, Tower destination, Tower buffer) {
+40
+if (n > 0) {
+41
+moveDisks(n - 1, buffer, destination);
+42
+nnoveTopTo( destination);
+43
+buffer.ffloveDisks(n - 1, destination, this);
+44
+}
+45
+}
+46 >
+Implementing the towers as their own objects is not strictly necessary, but it does help to make the code
+cleaner in some respects.
+8,7
+Permutations without Dups; Write a method to compute ail permutations of a string of unique
+characters,
+pg 135
+SOLUTION
+Like in many recursive problems, the Base Case and Build approach will be useful. Assume we have a string S
+represented by the characters a ^ . . . an.
+Approach t: Building from permutations of first n-1 characters.
+Base Case: permutations of first character substring
+The only permutation of a is the string ar So:
+P(a.) « a!
+Case:permutations of a^a2
+P{a,a,) = a1a2 and a^
+Case: permutations ofa:a;a3
+p f a ^ a , ) - a ^ j , a,a,a2, a^a.a,, a ^ a ^ ^ a ^ j , a3a2a,,
+Case: permutations ofa1a1a3a4
+This is the first interesting case. How can we generate permutations of a1aiaJa4 from a ^ a , ?
+Each permutation of a ^ a ^ represents an ordering of a ^ a , . For example, a?a4a.a? represents the order
+a j a i a r
+Therefore, if we took all the permutations of a a;a and added a4 into all possible locations, we would get all
+permutations of a1aIa3a4.
+a i a ; 3 ;
+a+ ai ai a3 J
+a i a i a i a 3 )
+a i a i a i a j j
+a i a ï a s a
+i
+a i a î a î
+- >
+a* ai a3 ai» a a a a ,
+l t l l '
+ai a, a4 a;J
+ai a3 ai aa
+a ;a.a } - >
+a j a a a i a 2 '
+a3aia4a3J
+a) a
+1
+a? a4
+W
+î
+- >
+a a a a ,
+i r i
+3' a a a a .
+r i a ! '
+a2 ai a3 a
+1
+a2a5a;
+- > W f t *
+a2aaaia13
+3
+a2a3aia4
+a 3 a i a i
+- >
+a i a 5 a j a i J
+a 3 a 2 a A >
+a 3 a j a î a j
+We can now implement this algorithm recursively.
+1
+ArrayList<String> getPerms(String str) {
+2
+if (str == null) return null;
+3
+4
+ArrayList<String> permutations = new ArrayList<String>();
+5
+if (str.length() == 0) { // base case
+6
+permutations. add('"');
+CrackingTheCodinglnterview.com [ 6th Edition
+3 S1

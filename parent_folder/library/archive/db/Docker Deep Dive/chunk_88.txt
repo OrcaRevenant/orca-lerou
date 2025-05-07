@@ -1,0 +1,37 @@
+If your user account is already a member of the local docker group then the
+problem might be that the Docker daemon isn’t running. To check the status of
+the Docker daemon run one of the following commands depending on your
+Docker host’s operating system.
+//Run this command on Linux systems not using Systemd
+$ service docker status
+docker start/running, process 29393
+//Run this command on Linux systems that are using Systemd
+$ systemctl is-active docker
+active
+//Run this command on Windows Server 2016 systems from a PowerShell window
+> Get-Service docker
+Status    Name      DisplayName
+------    ----      -----------
+Running   Docker    docker
+Assuming the Docker daemon is running you’re fine to continue.
+Starting a simple container
+The simplest way to start a container is with the docker container run
+command.
+The command below starts a simple container that will run a containerized
+version of Ubuntu Linux.
+$ docker container run -it ubuntu:latest /bin/bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+952132ac251a: Pull complete
+82659f8f1b76: Pull complete
+c19118ca682d: Pull complete
+8296858250fe: Pull complete
+24e0251a0e2c: Pull complete
+Digest: sha256:f4691c96e6bbaa99d9...e95a60369c506dd6e6f6ab
+Status: Downloaded newer image for ubuntu:latest
+root@3027eb644874:/#
+A Windows example could be
+docker container run -it microsoft/powershell:nanoserver PowerShell.exe
+The format of the command is essentially docker container run -<options>
+<image>:<tag> <command>.
+Let’s break the command down a bit.

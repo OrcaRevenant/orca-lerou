@@ -1,0 +1,58 @@
+IV | Before the Interview
+> Preparation Map
+The following map should give you an idea of how to tackle the interview preparation process. One of the
+key takeaways here is that it's not just about interview questions. Do projects and write code, too!
+1 +Years
+(before interview)
+Build projects outside
+of school/work.
+Learn multiple
+programming
+languages.
+Students: find intern-
+ship and take classes
+with large projects.
+Build website / port-
+folio showcasing your
+experience.
+Expand Network.
+Professionals: focus
+work on "meaty"
+projects.
+Continue to work on
+projects. Try to add on
+one more project.
+Read intro sections
+of CtCI (Cracking the
+Coding Interview).
+Make target list of
+preferred companies.
+Create draft of resume
+and send it out for a
+resume review.
+Learn and master
+BigO.
+Implement data struc-
+tures and algorithms
+from scratch.
+Form mock interview
+group with friends to
+interview each other.
+Do several mock inter-
+views.
+Do mini-projects to
+solidify understanding
+of key concepts.
+Continue to practice
+interview questions.
+Create list to track
+mistakes you've made
+solving problems.
+Begin applying to
+companies.
+Review/update
+resume.
+Create interview prep
+grid (pg 32).
+3 0
+Cracking the Coding Interview, 6th Edition

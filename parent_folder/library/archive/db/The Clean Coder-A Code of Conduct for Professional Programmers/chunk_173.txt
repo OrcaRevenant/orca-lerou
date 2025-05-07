@@ -1,0 +1,29 @@
+PERT
+141
+Mike: “OK, Peter, but can you try to make it no more than six days?”
+Mike’s plea sounds innocent enough, and Mike certainly has no ill intentions.
+But what, exactly, is Mike asking Peter to do? What does it mean to “try”?
+We talked about this before, back in Chapter 2. The word try is a loaded term. If
+Peter agrees to “try” then he is committing to six days. There’s no other way to
+interpret it. Agreeing to try is agreeing to succeed.
+What other interpretation could there be? What is it, precisely, that Peter is
+going to do in order to “try”? Is he going to work more than eight hours? That’s
+clearly implied. Is he going to work weekends? Yes, that’s implied too. Will he
+skip family vacations? Yes, that also part of the implication. All of those things
+are part of “trying.” If Peter doesn’t do those things, then Mike could accuse
+him of not trying hard enough.
+Professionals draw a clear distinction between estimates and commitments.
+They do not commit unless they know for certain they will succeed. They are
+careful not to make any implied commitments. They communicate the proba-
+bility distribution of their estimates as clearly as possible, so that managers can
+make appropriate plans.
+PERT
+In 1957, the Program Evaluation and Review Technique (PERT) was created to
+support the U.S. Navy’s Polaris submarine project. One of the elements of PERT is
+the way that estimates are calculated. The scheme provides a very simple, but very
+effective way to convert estimates into probability distributions suitable for managers.
+When you estimate a task, you provide three numbers. This is called trivariate
+analysis:
+• O: Optimistic Estimate. This number is wildly optimistic. You could only
+get the task done this quickly if absolutely everything went right. Indeed,
+in order for the math to work this number should have much less than a

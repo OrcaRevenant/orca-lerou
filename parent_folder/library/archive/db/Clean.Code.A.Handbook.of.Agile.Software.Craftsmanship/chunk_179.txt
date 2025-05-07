@@ -1,0 +1,41 @@
+149
+Organizing for Change
+The code in each class becomes excruciatingly simple. Our required comprehension
+time to understand any class decreases to almost nothing. The risk that one function could
+break another becomes vanishingly small. From a test standpoint, it becomes an easier
+task to prove all bits of logic in this solution, as the classes are all isolated from one
+another.
+Equally important, when it’s time to add the update statements, none of the existing
+classes need change! We code the logic to build update statements in a new subclass of Sql
+named UpdateSql. No other code in the system will break because of this change.
+Our restructured Sql logic represents the best of all worlds. It supports the SRP. It also
+supports another key OO class design principle known as the Open-Closed Principle, or
+OCP:4 Classes should be open for extension but closed for modiﬁcation. Our restructured
+Sql class is open to allow new functionality via subclassing, but we can make this change
+while keeping every other class closed. We simply drop our UpdateSql class in place.
+We want to structure our systems so that we muck with as little as possible when we
+update them with new or changed features. In an ideal system, we incorporate new fea-
+tures by extending the system, not by making modiﬁcations to existing code.
+Isolating from Change
+Needs will change, therefore code will change. We learned in OO 101 that there are con-
+crete classes, which contain implementation details (code), and abstract classes, which
+represent concepts only. A client class depending upon concrete details is at risk when
+those details change. We can introduce interfaces and abstract classes to help isolate the
+impact of those details.
+Dependencies upon concrete details create challenges for testing our system. If we’re
+building a Portfolio class and it depends upon an external TokyoStockExchange API to
+derive the portfolio’s value, our test cases are impacted by the volatility of such a lookup.
+It’s hard to write a test when we get a different answer every ﬁve minutes!
+Instead of designing Portfolio so that it directly depends upon TokyoStockExchange,
+we create an interface, StockExchange, that declares a single method:
+public interface StockExchange {
+Money currentPrice(String symbol);
+}
+public class ColumnList {
+public ColumnList(Column[] columns)
+public String generate()
+}
+4.
+[PPP].
+Listing 10-10 (continued)
+A set of closed classes

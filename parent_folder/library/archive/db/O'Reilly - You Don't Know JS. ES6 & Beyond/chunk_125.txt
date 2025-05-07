@@ -1,0 +1,41 @@
+Reflect.Loader.import( "foo" ) // returns a promise for `"foo"`
+.then( function(foo){
+foo.bar();
+} );
+The Reflect.Loader.import(..) utility imports the entire module onto the named
+parameter (as a namespace), just like the import * as foo .. namespace import we
+discussed earlier.
+The Reflect.Loader.import(..) utility returns a promise that is
+fulfilled once the module is ready. To import multiple modules, you
+can compose promises from multiple Reflect.Loader.import(..)
+calls using Promise.all([ .. ]). For more information about
+promises, see “Promises” in Chapter 4.
+You can also use Reflect.Loader.import(..) in a real module to dynamically/
+conditionally load a module, where import itself would not work. You might for
+instance choose to load a module containing a polyfill for some ES7+ feature if a fea‐
+ture test reveals it’s not defined by the current engine.
+For performance reasons, you’ll want to avoid dynamic loading whenever possible, as
+it hampers the ability of the JS engine to fire off early fetches from its static analysis.
+Customized Loading
+Another use for directly interacting with the module loader is if you want to custom‐
+ize its behavior through configuration or even redefinition.
+At the time of this writing, there’s a polyfill for the module loader API being devel‐
+oped (https://github.com/ModuleLoader/es6-module-loader). While details are scarce
+and highly subject to change, we can take a glimpse at what possibilities may eventu‐
+ally land.
+The Reflect.Loader.import(..) call may support a second argument for specifying
+various options to customize the import/load task. For example:
+Reflect.Loader.import( "foo", { address: "/path/to/foo.js" } )
+.then( function(foo){
+// ..
+} )
+It’s also expected that a customization will be provided (through some means) for
+hooking into the process of loading a module, where a translation/transpilation could
+occur after load but before the engine compiles the module.
+For example, you could load something that’s not already an ES6-compliant module
+format (e.g., CoffeeScript, TypeScript, CommonJS, AMD). Your translation step
+could then convert it to an ES6-compliant module for the engine to then process.
+114
+|
+Chapter 3: Organization
+www.it-ebooks.info

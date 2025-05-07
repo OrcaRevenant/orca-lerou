@@ -1,0 +1,21 @@
+Figure 18.2 Crossing the boundary against the flow of control
+Even in a monolithic, statically linked executable, this kind of disciplined
+partitioning can greatly aid the job of developing, testing, and deploying the
+project. Teams can work independently of each other on their own components
+without treading on each other’s toes. High-level components remain
+independent of lower-level details.
+Communications between components in a monolith are very fast and
+inexpensive. They are typically just function calls. Consequently,
+communications across source-level decoupled boundaries can be very chatty.
+Since the deployment of monoliths usually requires compilation and static
+linking, components in these systems are typically delivered as source code.
+DEPLOYMENT COMPONENTS
+The simplest physical representation of an architectural boundary is a
+dynamically linked library like a .Net DLL, a Java jar file, a Ruby Gem, or a
+UNIX shared library. Deployment does not involve compilation. Instead, the
+components are delivered in binary, or some equivalent deployable form. This is
+the deployment-level decoupling mode. The act of deployment is simply the
+gathering of these deployable units together in some convenient form, such as a
+WAR file, or even just a directory.
+With that one exception, deployment-level components are the same as
+monoliths. The functions generally all exist in the same processor and address

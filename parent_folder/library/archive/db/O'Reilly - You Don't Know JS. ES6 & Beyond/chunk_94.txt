@@ -1,0 +1,36 @@
+x;                      // 1
+y;                      // 2
+z;                      // 3
+w;                      // [4,5]
+Generators
+All functions run-to-completion, right? That is, once a function starts running, it fin‐
+ishes before anything else can interrupt.
+Or, so it’s been for the whole history of JavaScript up to this point. As of ES6, a new
+somewhat exotic form of function is being introduced, called a generator. A generator
+can pause itself in mid-execution, and can be resumed either right away or at a later
+time. So, it clearly does not hold the run-to-completion guarantee that normal func‐
+tions do.
+Moreover, each pause/resume cycle in mid-execution is an opportunity for two-way
+message passing, where the generator can return a value, and the controlling code
+that resumes it can send a value back in.
+As with iterators in the previous section, there are multiple ways to think about what
+a generator is, or rather what it’s most useful for. There’s no one right answer, but we’ll
+try to consider several angles.
+See the Async & Performance title of this series for more informa‐
+tion about generators, and also see Chapter 4 of this title.
+Syntax
+The generator function is declared with this new syntax:
+function *foo() {
+// ..
+}
+The position of the * is not functionally relevant. The same declaration could be writ‐
+ten as any of the following:
+function *foo()  { .. }
+function* foo()  { .. }
+function * foo() { .. }
+function*foo()   { .. }
+..
+Generators
+|
+83
+www.it-ebooks.info

@@ -1,0 +1,14 @@
+Step 3 - Design deep dive
+In the high-level design, we discussed various options to design a unique ID generator in
+distributed systems. We settle on an approach that is based on the Twitter snowflake ID
+generator. Let us dive deep into the design. To refresh our memory, the design diagram is
+relisted below.
+Datacenter IDs and machine IDs are chosen at the startup time, generally fixed once the
+system is up running. Any changes in datacenter IDs and machine IDs require careful review
+since an accidental change in those values can lead to ID conflicts. Timestamp and sequence
+numbers are generated when the ID generator is running.
+Timestamp
+The most important 41 bits make up the timestamp section. As timestamps grow with time,
+IDs are sortable by time. Figure 7-7 shows an example of how binary representation is
+converted to UTC. You can also convert UTC back to binary representation using a similar
+method.

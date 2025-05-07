@@ -1,0 +1,34 @@
+Chapter 16 | Moderate
+16.22 Langton's Ant: An ant is sitting on an infinite grid of white and biack squares. It initially faces right.
+At each step, it does the following:
+(1) At a white square, flip the coior of the square, turn 90 degrees right (clockwise), and move forward
+one unit,
+(2) At a black square, flip the color of the square, turn 90 degrees left (counter-clockwise), and move
+forward one unit.
+Write a program to simulate the first K moves that the ant makes and print the final board as a grid.
+Note that you are not provided with the data structure to represent the grid. This is something you
+must design yourself. The only input to your method is K. You should print the final grid and return
+nothing.The method signature might be something like v o i d printKMoves( i n t K).
+Hints: It474, #481, #533, #540, #559, #570, #599, #616, #627
+16.23 Rand? from Rand5: Implement a method rand7() given rand5( ).That is, given a method that
+generates a random number between 0 and 4 (inclusive), write a method that generates a random
+number between 0 and 6 (inclusive).
+Hints; #505, #574, #637, #668, #697, #720
+16.24 Pairs with Sum: Design an algorithm to find all pairs of integers within an array which sum to a
+specified value.
+Hints: #548, #597, #644, #673
+16.25 LRU Cache: Design and build a "least recently used" cache, which evicts the least recently used
+item. The cache should map from keys to values (allowing you to insert and retrieve a value associ-
+ated with a particular key) and be initialized with a max size. When it is full, it should evict the least
+recently used item.
+Hints: #524, #630, #694
+16.26 Calculator: Given an arithmetic equation consisting of positive integers, +, -, * and / (no paren-
+theses), compute the result.
+EXAMPLE
+Input;
+2*3+5/6*3+15
+Output:
+23.5
+Hints: #521, #624, #665, #698
+CrackingTheCodinglnterview.com j 6th Edition
+183

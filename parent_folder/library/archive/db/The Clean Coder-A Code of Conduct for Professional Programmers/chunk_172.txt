@@ -1,0 +1,38 @@
+CHAPTER 10 ESTIMATION
+140
+Should Mike be worried about this? Of course! Murphy1 will have his way with
+Peter, so some things are probably going to go wrong.
+I M PLI E D CO M M ITM E NT S
+So now Mike has a problem. He’s uncertain about the time it will take Peter to
+get the task done. To minimize that uncertainty he may ask Peter for a
+commitment. This is something the Peter is in no position to give.
+Mike: “Peter, can you give me a hard date when you’ll be done?”
+Peter: “No, Mike. Like I said, it’ll probably be done in three, maybe four,
+days.”
+Mike: “Can we say four then?”
+Peter: “No, it could be five or six.”
+So far, everyone is behaving fairly. Mike has asked for a commitment and Peter
+has carefully declined to give him one. So Mike tries a different tack:
+1. Murphy’s Law holds that if anything can go wrong, it will go wrong.
+Figure 10-1 Probability distribution
+50%
+45%
+40%
+35%
+30%
+25%
+20%
+15%
+10%
+5%
+0%
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11

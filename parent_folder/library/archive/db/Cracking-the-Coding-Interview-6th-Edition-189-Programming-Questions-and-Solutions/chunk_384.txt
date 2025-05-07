@@ -1,0 +1,47 @@
+Solutions to Chapter 9 j System Design and Scalability
+•
+We can add new data to the XML file by adding additional nodes.This would not break the client's parser
+(provided they have implemented their parser in a reasonable way).
+•
+Since the data is being stored as XML files, we can use existing toots for backing up the data. We don't
+need to implement our own backup tool.
+The disadvantages may include:
+•
+This solution sends the clients all the information, even if they only want part of it. It is inefficient in that
+way.
+•
+Performing any queries on the data requires parsing the entire file.
+Regardless of which solution we use for data storage, we could provide a web service (e.g., SOAP) for client
+data access. This adds a layer to our work, but it can provide additional security, and it may even make it
+easier for ciients to integrate the system.
+However—and this is a pro and a con—clients will be limited to grabbing the data only how we expect or
+want them to. By contrast, in a pure SQL implementation, clients could query for the highest stock price,
+even if this wasn't a procedure we "expected" them to need.
+So which one of these would we use? There's no clear answer. The pure text file solution is probably a
+bad choice, but you can make a compelling argument for the SQL or XML solution, with or without a web
+service.
+The goal of a question tike this is not to see if you get the "correct" answer (there is no single correct answer).
+Rather, it's to see how you design a system, and how you evaluate trade-offs.
+9,2
+Social Network: How would you design the data structures for a very large social network like
+Facebook or Linkedln? Describe how you would design an algorithm to show the shortest path
+between two people (e.g., Me -> Bob-> Susan -> Jason-> You),
+pg14S
+SOLUTION
+A good way to approach this problem is to remove some of the constraints and solve it for that situation
+first.
+Step 1: Simplify the Problem—Forget About the Millions of Users
+First, let's forget that we're dealing with millions of users. Design this for the simple case.
+We can construct a graph by treating each person as a node and letting an edge between two nodes indi-
+cate that the two users are friends.
+)fl wanted to find the path between two people, I could start with one person and do a simple breadth-first
+search.
+Why wouldn't a depth-first search work well? First, depth-first search would just find a path. It wouldn't
+necessarityfind the shortest path. Second, even if we just needed any path, it would be very inefficient. Two
+users might be only one degree of separation apart, but I could search millions of nodes in their "subtrees"
+before finding this relatively immediate connection.
+Alternatively, I could do what's called a bidirectional breadth-first search. This means doing two breadth-
+first searches, one from the source and one from the destination. When the searches collide, we know we've
+found a path.
+394
+Cracking the Coding Interview, 6th Edition

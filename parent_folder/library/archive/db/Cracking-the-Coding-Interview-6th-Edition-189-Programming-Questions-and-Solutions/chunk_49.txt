@@ -1,0 +1,38 @@
+VII Big 0
+No matter how big the constant is and how slow the linear increase is, linear will at some point surpass
+constant.
+0(1)
+There are many more runtimes than this. Some of the most common ones are 0( l o g N),0(N l o g N),
+0(N), O(N^) and 0(2 N). There's no fixed list of possible runtimes, though.
+You can also have multiple variables in your runtime. For example, the time to paint a fence that's w meters
+wide and h meters high could be described as 0(wh). If you needed p layers of paint, then you could say
+that the timeisO(whp).
+Big O, Big Theta, and Big Omega
+If you've never covered big 0 in an academic setting, you can probably skip this subsection. It might
+confuse you more than it helps. This "FYI" is mostly here to clear up ambiguity in wording for people who
+have learned big 0 before, so that they don't say, "But I thought big 0 meant..."
+Academics use big 0, big 0 (theta), and big Q (omega) to describe runtimes.
+•
+0 (big O): In academia, big 0 describes an upper bound on the time. An algorithm that prints all the
+values in an array could be described asO(N), but it could also be described as O f N ^ J . O ^ ) , or 0(2 N)
+(or many other big 0 times). The algorithm is at least as fast as each of these; therefore they are upper
+bounds on the runtime. This is similar to a less-than-or-equai-to relationship. If Bob is X years old (t'H
+assume no one lives past age 130), then you could say X < 130. It would also be correct to say that
+X < l,0@0orX < 1,008,660. It's technically true (although not terribly useful). Likewise, a simple
+algorithm to print the values in an array isO(N) as well asO(M3) or any runtime bigger than 0(N).
+*
+Q (big omega): In academia, 0 is the equivalent concept but for lower bound. Printing the values in
+an array is fl(N) as well as fi(log M) and Q ( l ) . After all, you know that it won't be faster than those
+runtimes.
+•
+0 (big theta): In academia, 0 means both 0 and fi. That is, an algorithm is 0 (N) if it is both 0( N) and
+0(N). 0 gives a tight bound on runtime.
+In industry (and therefore in interviews), people seem to have merged© and 0 together. Industry's meaning
+of big 0 is closer to what academics mean by 0, in that it would be seen as incorrect to describe printing an
+array as 0(N ?). Industry would just say this is 0(N).
+For this book, we will use big 0 in the way that industry tends to use it; By always trying to offer the tightest
+description of the runtime.
+Best Case, Worst Case, and Expected Case
+We can actually describe our runtime for an algorithm in three different ways.
+CrackingTheCodinglnterview.com | 6th Edition
+51

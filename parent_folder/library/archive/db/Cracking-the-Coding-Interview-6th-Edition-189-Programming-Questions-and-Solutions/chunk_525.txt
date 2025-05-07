@@ -1,0 +1,86 @@
+Solutions to Chapter 16 | Moderate
+O r i e n t a t i o n is also its own enum, with a few useful functions.
+1
+public enum Orientation {
+2
+left, up, right, down;
+3
+4
+public Orientation getTurnfboolean clockwise) {
+5
+if (this == left) {
+6
+return clockwise ? up : down;
+7
+} else if (this == up) {
+8
+return clockwise ? right : left;
+9
+> else if (this == right) {
+10
+return clockwise f down : up;
+11
+> else { // down
+12
+return clockwise ? left : right;
+13
+}
+14
+}
+15
+16
+^Override
+17
+public String toString() {
+18
+if (this == left) {
+19
+return "\u2190";
+29
+) else if (this == up) {
+21
+return "\u2191'J;
+22
+> else if (this == right) {
+23
+return "\u2192";
+24
+} else { // down
+25
+return ff\u2l93";
+26
+>
+27
+)
+28
+}
+We've also put P o s i t i o n into its own simple class. We could just as easily track the row and column sepa-
+rately.
+1
+public class Position {
+2
+public int row;
+3
+public int column;
+4
+5
+public Positionfint row, int column) {
+6
+this.row = row;
+this.column = column;
+8
+>
+9
+>
+This works, but it's actually more complicated than is necessary.
+Solution #3: HashSet
+Although it may seem "obvious" that we would use a matrix to represent a grid, it's actually easier not to do
+that. All we actually need is a list of the white squares (as well as the ant's location and orientation).
+We can do this by using a HashSet of the white squares. If a position is in the hash set, then the square is
+white. Otherwise, it is black.
+The one tricky bit is how to print the board. Where do we start printing? Where do we end?
+Since we will need to print a grid, we can track what should be top-left and bottom-right corner of the grid.
+Each time the ant moves, we compare the ant's position to the most top-left position and most bottom-
+right position, updating them if necessary.
+CrackingTheCodinglnterview.com | 6th Edition
+495

@@ -1,0 +1,94 @@
+Solutions to Chapter 4 | Trees and Graphs
+3
+calls commonAnc(node 5, node 5, node 7)
+// --> 5
+4
+c a l l s commonAnc(node 8, node 5, node 7)
+// --> n u l l
+In other words, when we call commonAncestor on the right subtree, the code will return node 5, just as
+it should. The problem is that, in finding the common ancestor of p and q, the calling function can't distin-
+guish between the two cases:
+•
+Case 1: p is a child of q (or, q is a child of p)
+•
+Case 2: p is in the tree and q is not (or, q is in the tree and p is not)
+In either of these cases, commonAncestor will return p. In the first case, this is the correct return value, but
+in the second case, the return value should be n u l l .
+We somehow need to distinguish between these two cases, and this is what the code below does. This
+code solves the problem by returning two values: the node itself and a flag indicating whether this node is
+actually the common ancestor.
+1
+class Result {
+2
+public TreeNode node;
+3
+public boolean isAncestor;
+4
+public Result(TreeNode n, boolean isAnc) {
+5
+node = n;
+6
+isAncestor « IsAnc;
+7
+>
+8
+>
+9
+10 TreeNode commonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+11
+Result r = commonAncestorHelper(root, p, q);
+12
+if
+(r.isAncestor)
+{
+13
+return r.node;
+14
+>
+15
+return n u l l ;
+16 >
+17
+18 Result commonAncHelper(TreeNode root, TreeNode p, TreeNode q) {
+19
+if (root == n u l l ) return new Result(nullj f a l s e ) ;
+20
+21
+if (root == p && root == q) {
+22
+return new Resultfroot, t r u e ) ;
+23
+>
+24
+25
+Result rx = commonAncHelper(root.left, p, q);
+26
+if (rx.isAncestor) { // Found common ancestor
+27
+return rx;
+28
+>
+29
+30
+Result ry = commonAncHelper(root.right, p, q);
+31
+if (ry.isAncestor) { // Found common ancestor
+32
+return r y ;
+33
+}
+34
+35
+if (rx.node 1= n u l l && ry.node 1= n u l l ) {
+36
+return new Result(root, t r u e ) ; // This is the common ancestor
+37
+} else if (root == p |i root == q) {
+38
+/* If we're currently at p or q, and we also found one of those nodes in a
+39
+* subtree, then t h i s is t r u l y an ancestor and the f l a g should be true. */
+40
+boolean isAncestor = rx.node 1= n u l l || ry.node != n u l l ;
+CrackingTheCodinglnterview.com | 6th Edition
+247

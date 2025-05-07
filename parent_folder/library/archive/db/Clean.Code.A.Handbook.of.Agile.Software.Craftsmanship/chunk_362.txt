@@ -1,0 +1,41 @@
+332
+Appendix A: Concurrency II
+Of course sometimes they worked on the weekends, and we didn’t. So we added a
+function to the scheduler that checked all the ring buffers once per minute and reset any
+that were both empty and full. This caused the displays to unclog before the Local could
+even get on the phone.
+It was several more weeks of poring over page after page of monolithic assembly lan-
+guage code before we found the culprit. We had done the math and calculated that the fre-
+quency of the lock-ups was consistent with a single unprotected use of the ring buffer. So
+all we had to do was ﬁnd that one faulty usage. Unfortunately, this was so very long ago
+that we didn’t have search tools or cross references or any other kind of automated help.
+We simply had to pore over listings.
+I learned an important lesson that cold Chicago winter of 1971. Client-based locking
+really blows.
+Server-Based Locking
+The duplication can be removed by making the following changes to IntegerIterator:
+public class IntegerIteratorServerLocked {
+private Integer nextValue = 0;
+public synchronized Integer getNextOrNull() {
+if (nextValue < 100000)
+return nextValue++;
+else
+return null;
+}
+}
+And the client code changes as well:
+while (true) {
+Integer nextValue = iterator.getNextOrNull();
+if (next == null)
+break;
+// do something with nextValue
+}
+In this case we actually change the API of our class to be multithread aware.3 The client
+needs to perform a null check instead of checking hasNext().
+In general you should prefer server-based locking for these reasons:
+• It reduces repeated code—Client-based locking forces each client to lock the server
+properly. By putting the locking code into the server, clients are free to use the object
+and not worry about writing additional locking code.
+3.
+In fact, the Iterator interface is inherently not thread-safe. It was never designed to be used by multiple threads, so this
+should come as no surprise.

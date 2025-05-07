@@ -1,0 +1,37 @@
+45
+Command Query Separation
+Output Arguments
+Arguments are most naturally interpreted as inputs to a function. If you have been pro-
+gramming for more than a few years, I’m sure you’ve done a double-take on an argument
+that was actually an output rather than an input. For example:
+appendFooter(s);
+Does this function append s as the footer to something? Or does it append some footer
+to s? Is s an input or an output? It doesn’t take long to look at the function signature
+and see:
+public void appendFooter(StringBuffer report)
+This clariﬁes the issue, but only at the expense of checking the declaration of the function.
+Anything that forces you to check the function signature is equivalent to a double-take. It’s
+a cognitive break and should be avoided.
+In the days before object oriented programming it was sometimes necessary to have
+output arguments. However, much of the need for output arguments disappears in OO lan-
+guages because this is intended to act as an output argument. In other words, it would be
+better for appendFooter to be invoked as
+report.appendFooter();
+In general output arguments should be avoided. If your function must change the state
+of something, have it change the state of its owning object.
+Command Query Separation
+Functions should either do something or answer something, but not both. Either your
+function should change the state of an object, or it should return some information about
+that object. Doing both often leads to confusion. Consider, for example, the following
+function:
+public boolean set(String attribute, String value);
+This function sets the value of a named attribute and returns true if it is successful and
+false if no such attribute exists. This leads to odd statements like this:
+if (set("username", "unclebob"))...
+Imagine this from the point of view of the reader. What does it mean? Is it asking whether
+the “username” attribute was previously set to “unclebob”? Or is it asking whether the
+“username” attribute was successfully set to “unclebob”? It’s hard to infer the meaning from
+the call because it’s not clear whether the word “set” is a verb or an adjective.
+The author intended set to be a verb, but in the context of the if statement it feels like
+an adjective. So the statement reads as “If the username attribute was previously set to
+unclebob” and not “set the username attribute to unclebob and if that worked then. . . .” We

@@ -1,0 +1,51 @@
+VII j Technical Questions
+I
+What's the relationship between the Best Conceivable Runtime and Best Case Runtime? Nothing
+at all! The Best Conceivable Runtime is for a problem and is largely a function of the inputs and
+outputs. It has no particular connection to a specific algorithm. In fact, if you compute the
+Best Conceivable Runtime by thinking about what your algorithm does, you're probably doing
+something wrong. The Best Case Runtime is for a specific algorithm (and is a mostly useless
+value).
+Note that the best conceivable runtime is not necessarily achievable. It says only that you can't do better
+than it.
+An Example of How to Use BCR
+Question: Given two sorted arrays, find the number of elements in common. The arrays are the same length
+and each has all distinct elements.
+Let's start with a good example. We'll underline the elements in common.
+A: 13
+27
+35 40 49 55 59
+B: 17 35
+39 40 55 58 60
+A brute force algorithm for this problem is to start with each element in A and search for it in 8. This takes
+0(N ?) time since for each of N elements in A, we need to do an 0(N) search in B,
+The BCRisO(N), because we know we will have to look at each element at least once and there are 2N total
+elements. (If we skipped an element, then the value of that element could change the result. For example,
+if we never looked at the last value in B, then that 60 could be a 59.)
+Let's think about where we are right now. We have an 0(N ;) algorithm and we want to do better than
+that—potentially, but not necessarily, as fast as O(N).
+Brute Force:
+0(NJ)
+Optimal Algorithm:
+?
+BCR:
+0(N)
+What is between O(N') and 0{N)? Lots of things. Infinite things actually. We could theoretically have an
+algorithm that's 0(N
+l o g ( l o g ( l o g ( l o g ( N ) ) ) ) ) . However, both in interviews and in real life, that
+runtime doesn't come up a whole lot.
+I
+Try to remember this for your interview because it throws a lot of people off. Runtime is not a
+multiple choice question. Yes, it's very common to have a runtime that's O ( l o g N),0(N),0(N
+l o g N), 0(N J) or 0(2 N). But you shouldn't assume that something has a particular runtime by
+sheer process of elimination. In fact, those times when you're confused about the runtime and
+so you want to take a guess—those are the times when you're most likely to have a non-obvious
+and less common runtime. Maybe the runtime is 0(N2K), where N is the size of the array and K is
+the number of pairs. Derive, don't guess.
+Most likely, we're driving towards an 0(N) algorithm or an 0(N l o g N) algorithm. What does that tell us?
+lfweimagineourcurrentalgorithm'sruntimeasO(N x N), then getting toO{N) orO(N x l o g N) might
+mean reducing that second O(N) in the equation t o O ( l ) o r O ( l o g N).
+I
+This is one way that BCR can be useful. We can use the runtimes to get a"hint"for what we need
+to reduce.
+CrackingTheCgdinglnterview.com ] 6th Edition 81

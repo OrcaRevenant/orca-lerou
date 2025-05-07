@@ -1,0 +1,46 @@
+217
+String Arguments
+With all the marshalling moved to the ArgumentMarshaler, I started pushing functional-
+ity into the derivatives. The ﬁrst step was to move the setBoolean function into the
+BooleanArgumentMarshaller and make sure it got called correctly. So I created an abstract
+set method.
+private abstract class ArgumentMarshaler {
+protected boolean booleanValue = false;
+private String stringValue;
+private int integerValue;
+public void setBoolean(boolean value) {
+booleanValue = value;
+}
+public boolean getBoolean() {
+return booleanValue;
+}
+public void setString(String s) {
+stringValue = s;
+}
+public String getString() {
+return stringValue == null ? "" : stringValue;
+}
+public void setInteger(int i) {
+integerValue = i;
+}
+public int getInteger() {
+return integerValue;
+}
+public abstract void set(String s);
+}
+Then I implemented the set method in BooleanArgumentMarshaller.
+private class BooleanArgumentMarshaler extends ArgumentMarshaler {
+public void set(String s) {
+booleanValue = true;
+}
+}
+And ﬁnally I replaced the call to setBoolean with a call to set.
+private void setBooleanArg(char argChar, boolean value) {
+booleanArgs.get(argChar).set("true");
+}
+The tests all still passed. Because this change caused set to be deployed to the Boolean-
+ArgumentMarshaler, I removed the setBoolean method from the ArgumentMarshaler base
+class.
+Notice that the abstract set function takes a String argument, but the implementation
+in the BooleanArgumentMarshaller does not use it. I put that argument in there because I
+knew that the StringArgumentMarshaller and IntegerArgumentMarshaller would use it.

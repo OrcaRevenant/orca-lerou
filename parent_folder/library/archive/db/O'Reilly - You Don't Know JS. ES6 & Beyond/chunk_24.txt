@@ -1,0 +1,38 @@
+There’s some rumored assumptions that a const likely will be more optimizable for
+the JS engine than a let or var would be, since the engine knows the variable will
+never change so it can eliminate some possible tracking.
+Whether that is the case or just our own fantasies and intuitions, the much more
+important decision to make is if you intend constant behavior or not. Don’t just use
+const on variables that otherwise don’t obviously appear to be treated as constants in
+the code, as that will just lead to more confusion.
+Spread / Rest
+ES6 introduces a new ... operator that’s typically referred to as the spread or rest
+operator, depending on where/how it’s used. Let’s take a look:
+function foo(x,y,z) {
+console.log( x, y, z );
+}
+foo( ...[1,2,3] );              // 1 2 3
+When ... is used in front of an array (actually, any iterable, which we cover in Chap‐
+ter 3), it acts to “spread” it out into its individual values.
+You’ll typically see that usage as is shown in that previous snippet, when spreading
+out an array as a set of arguments to a function call. In this usage, ... acts to give us a
+simpler syntactic replacement for the apply(..) method, which we would typically
+have used pre-ES6 as:
+foo.apply( null, [1,2,3] );     // 1 2 3
+But ... can be used to spread out/expand a value in other contexts as well, such as
+inside another array declaration:
+var a = [2,3,4];
+var b = [ 1, ...a, 5 ];
+console.log( b );                   // [1,2,3,4,5]
+In this usage, ... is basically replacing concat(..), as the above behaves like [1].con
+cat( a, [5] ).
+The other common usage of ... can be seen as almost the opposite; instead of
+spreading a value out, the ... gathers a set of values together into an array. Consider:
+function foo(x, y, ...z) {
+console.log( x, y, z );
+}
+foo( 1, 2, 3, 4, 5 );           // 1 2 [3,4,5]
+Spread / Rest
+|
+13
+www.it-ebooks.info

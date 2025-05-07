@@ -1,0 +1,44 @@
+Solutions to Chapter 9 j System Design and Scalability
+that items accessed very frequency {or very recently) will be quickly accessible. Since documents cannot be
+edited, we will not need to worry about invalidating this cache.
+We should also potentially consider sharding the database. We can shard it using some mapping from the
+URL {for example, the URL's hash code modulo some integer), which will allow us to quickiy locate the data-
+base which contains this file.
+In fact, we could even take this a step further. We could skip the database entirely and just let a hash of the
+URL indicate which server contains the document. The URL itself could reflect the location of the document.
+One potential issue from this is that if we need to add servers, it could be difficult to redistribute the docu-
+ments.
+Generating URLs
+We have not yet discussed how to actually generate the URLs. We probably do not want a monotonically
+increasing integer value, as this would be easy for a user to "guess." We want URLs to be difficult to access
+without being provided the link.
+One simple path is to generate a random GU1D (e.g., 5d50e8ac-57cb-4a0d-8661-bcdee2548979). This is a
+128-bit value that, while not strictly guaranteed to be unique, has low enough odds of a collision that we
+can treat it as unique. The drawback of this plan is that such a URL is not very,,pretty"to the user.Wecouid
+hash it to a smaller value, but then that increases the odds of collision.
+We could do something very similar, though. We could just generate a 10-character sequence of tetters
+and numbers, which gives us 36'° possible strings. Even with a billion URLs, the odds of a collision on any
+specific URL are very low.
+I
+This is not to say that the odds of a collision over the whole system are low. They are not. Any one
+specific URL is unlikely to collide. However, after storing a billion URLs, we are very likely to have
+a collision at some point.
+Assuming that we aren't okay with periodic (even if unusual) data loss, we'll need to handle these collisions.
+We can either check the datastore to see if the URL exists yet or, if the URL maps to a specific server, just
+detect whether a file already exists at the destination.
+When a collision occurs, we can just generate a new URL. With 3610 possible URLs, collisions would be rare
+enough that the lazy approach here (detect collisions and retry) is sufficient.
+Analytics
+The final component to discuss is the analytics piece. We probably want to display the number of visits, and
+possibly break this down by location or time.
+We have two options here;
+*
+Store the raw data from each visit,
+•
+Store j ust the data we know we'l I use (number of visits, etc.).
+You can discuss this with your interviewer, but it probably makes sense to store the raw data. We never
+know what features we'll add to the analytics down the road. The raw data allows us flexibility.
+This does not mean that the raw data needs to be easily searchable or even accessible. We can just store a
+log of each visit in a file, and back this up to other servers.
+394
+Cracking the Coding Interview, 6th Edition

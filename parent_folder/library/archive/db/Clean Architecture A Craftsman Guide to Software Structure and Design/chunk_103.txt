@@ -1,0 +1,12 @@
+the main function would instantiate the ServiceFactoryImpl and place that
+instance in a global variable of type ServiceFactory. The Application would
+then access the factory through that global variable.
+CONCLUSION
+As we move forward in this book and cover higher-level architectural principles,
+the DIP will show up again and again. It will be the most visible organizing
+principle in our architecture diagrams. The curved line in Figure 11.1 will
+become the architectural boundaries in later chapters. The way the dependencies
+cross that curved line in one direction, and toward more abstract entities, will
+become a new rule that we will call the Dependency Rule.
+1. In other words, the function that is invoked by the operating system when the application is first started
+up.

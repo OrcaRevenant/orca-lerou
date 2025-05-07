@@ -1,0 +1,36 @@
+if there were no disks, 280–281
+overview of, 277–278
+performance, 281
+relational databases, 278
+why database systems are so prevalent, 279–280
+DCI system architecture, 202
+Deadlocks, from mutable variables, 52
+Decoupling
+as fallacy of services, 240–241
+independent deployment, 154, 241
+independent development, 153–154, 241
+kitty problem example, 242–243
+layers, 151–152
+modes, 153, 155–158
+OO approach for cross-cutting concerns, 244–245
+purpose of testing API, 252–253
+source code dependencies, 319
+use cases, 152
+DeMarco, Tom, 29
+Dependencies
+ADP. See ADP (Acyclic Dependencies Principle)
+architectural framework for policy, 184
+calculating stability metrics, 123
+case study. See Video sales case study
+Common Reuse Principle and, 107–108
+DIP. See DIP (Dependency Inversion Principle)
+in Laser Trim archaeology project, 338
+managing undesirable, 89–90
+OCP example, 72
+in package by layer, 304–306, 310–311
+software destroyed by unmanaged, 256
+stable. See SDP (Stable Dependencies Principle)
+transitive, 75
+understanding component, 121
+in Union Accounting archaeology project, 333–334
+Dependency graph, 115–118

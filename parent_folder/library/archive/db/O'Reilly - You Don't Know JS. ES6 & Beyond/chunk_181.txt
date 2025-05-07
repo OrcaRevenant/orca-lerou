@@ -1,0 +1,36 @@
+var palindrome = "step on no pets";
+palindrome.startsWith( "step on" ); // true
+palindrome.startsWith( "on", 5 );   // true
+palindrome.endsWith( "no pets" );   // true
+palindrome.endsWith( "no", 10 );    // true
+palindrome.includes( "on" );        // true
+palindrome.includes( "on", 6 );     // false
+For all the string search/inspection methods, if you look for an empty string "", it will
+either be found at the beginning or the end of the string.
+These methods will not by default accept a regular expression for
+the search string. See “Regular Expression Symbols” in Chapter 7
+for information about disabling the isRegExp check that is per‐
+formed on this first argument.
+Review
+ES6 adds many extra API helpers on the various built-in native objects:
+• Array adds of(..) and from(..) static functions, as well as prototype functions
+like copyWithin(..) and fill(..).
+• Object adds static functions like is(..) and assign(..).
+• Math adds static functions like acosh(..) and clz32(..).
+• Number adds static properties like Number.EPSILON, as well as static functions like
+Number.isFinite(..).
+• String
+adds
+static
+functions
+like
+String.fromCodePoint(..)
+and
+String.raw(..), as well as prototype functions like repeat(..) and
+includes(..).
+Most of these additions can be polyfilled (see ES6 Shim), and were inspired by utilit‐
+ies in common JS libraries/frameworks.
+170
+|
+Chapter 6: API Additions
+www.it-ebooks.info

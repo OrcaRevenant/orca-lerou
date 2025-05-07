@@ -1,0 +1,33 @@
+xx
+PREFACE
+external fuel tank. The bottom of the main liquid hydrogen tank burst, igniting
+the fuel and driving the tank forward to smash into the liquid oxygen tank
+above it. At the same time the SRB detached from its aft strut and rotated
+around its forward strut. Its nose punctured the liquid oxygen tank. These
+aberrant force vectors caused the entire craft, moving well above mach 1.5, to
+rotate against the airstream. Aerodynamic forces quickly tore everything to
+shreds.
+Between the circular segments of the SRB there were two concentric synthetic
+rubber O-rings. When the segments were bolted together the O-rings were
+compressed, forming a tight seal that the exhaust gasses should not have been
+able to penetrate.
+But on the evening before the launch, the temperature on the launch pad got
+down to 17°F, 23 degrees below the O-rings’ minimum specified temperature
+and 33 degrees lower than any previous launch. As a result, the O-rings grew
+too stiff to properly block the hot gasses. Upon ignition of the SRB there was a
+pressure pulse as the hot gasses rapidly accumulated. The segments of the
+booster ballooned outward and relaxed the compression on the O-rings. The
+stiffness of the O-rings prevented them from keeping the seal tight, so some
+of the hot gasses leaked through and vaporized the O-rings across 70 degrees
+of arc.
+The engineers at Morton Thiokol who designed the SRB had known that there
+were problems with the O-rings, and they had reported those problems to
+managers at Morton Thiokol and NASA seven years earlier. Indeed, the O-rings
+from previous launches had been damaged in similar ways, though not enough
+to be catastrophic. The coldest launch had experienced the most damage. The
+engineers had designed a repair for the problem, but implementation of that
+repair had been long delayed.
+The engineers suspected that the O-rings stiffened when cold. They also knew
+that temperatures for the Challenger launch were colder than any previous
+launch and well below the red-line. In short, the engineers knew that the risk
+was too high. The engineers acted on that knowledge. They wrote memos

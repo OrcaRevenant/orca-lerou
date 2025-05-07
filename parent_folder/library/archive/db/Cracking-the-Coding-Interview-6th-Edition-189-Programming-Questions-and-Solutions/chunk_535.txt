@@ -1,0 +1,66 @@
+Solutions to Chapter 537 | Moderate
+Solution #1
+We can still process the equation from left to right; we just have to be a little smarter about how we do it.
+Multiplication and division need to be grouped together such that whenever we see those operations, we
+perform them immediately on the surrounding terms.
+For example, suppose we have this expression:
+2 - 6 - 7*8/2 + 5
+It'sfineto compute 2-6 immediately and store it into a r e s u l t variable. But, when we see 7* (something),
+we know we need to fully process that term before adding it to the result.
+We can do this by reading left to right and maintaining two variables.
+* The first is processing, which maintains the result of the current cluster of terms (both the operator
+and the value). In the case of addition and subtraction, the cluster will be just the current term. In the
+case of multiplication and division, it will be the full sequence (until you get to the next addition or
+subtraction).
+•
+The second is the r e s u l t variable. If the next term is an addition or subtraction (or there is no next
+term), then processing is applied to r e s u l t .
+On the above example, we would do the following:
+1. Read +2. Apply it to processing. Apply processing to r e s u l t . Clear processing.
+processing = {+, 2} --> null
+result = 0
+- - > 2
+2. Read -6, Apply it to processing. Apply processing to r e s u l t . Clear processing.
+processing = {-, 6) --> null
+result = 2
+--> -4
+3. Read -7. Apply it to processing. Observe next sign is a *. Continue,
+processing =
+7}
+result = -4
+4. Read *8. Apply it to processing. Observe next sign is a/.Continue.
+processing =
+56}
+result = -4
+5. Read /2. Apply it to processing. Observe next sign is a +, which terminates this multiplication and
+division cluster. Apply processing to r e s u l t . Clear processing.
+processing =• {-, 28}
+--> null
+result = -4
+--> -32
+6. Read +5. Apply it to processing. Apply processing to r e s u l t . Clear processing,
+processing = {+, 5} --> n u l l
+result = -32
+—> -27
+The code below implements this algorithm.
+1
+/* Compute the result of the arithmetic sequence. This works by reading left to
+2
+* right and applying each term to a result. When we see a multiplication or
+3
+* division, we instead apply this sequence to a temporary variable. */
+4
+double compute(String sequence) {
+5
+ArrayList<Term> terms = Term.parseTermSequence(sequence);
+6
+if (terms == null) return Integer.MIN_VALUE;
+7
+8
+double result = 0;
+9
+Term processing = null;
+10
+for (int i = 0; i < terms.sizeQ; i++) {
+CrackingTheCodinglnterview.com | 6th Edition
+495

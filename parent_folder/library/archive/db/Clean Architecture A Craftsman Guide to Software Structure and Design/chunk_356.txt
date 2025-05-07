@@ -1,0 +1,36 @@
+discovery of structured programming, 22
+history of, 26
+proclamation on goto statements, 28–29
+on testing, 31
+DIP (Dependency Inversion Principle)
+breaking cycle of components, 117–118
+conclusion, 91
+concrete components, 91
+crossing circle boundaries, 206
+defined, 59
+drawing boundary lines, 173
+Entities without knowledge of use cases as, 193
+factories, 89–90
+in good software architecture, 71
+not all components should be stable, 125
+overview of, 87–88
+stable abstractions, 88–89
+Stable Abstractions Principle, 127
+Directed acyclic graph. See DAGs (directed acyclic graphs)
+Directional control, Open-Closed Principle, 74
+Disks
+if there were no, 280–281
+prevalence of database systems due to, 279–280
+in Union Accounting archaeology project, 326–330
+Dispatch code, service area computer project, 345
+Display local unit/display remote unit (DLU/DRU) archaeology project,
+354–356
+DLU/DRU (display local unit/display remote unit), archaeology project,
+354–356
+Do/while/until statements, 22, 27
+Don’t Repeat Yourself (DRY) principle, conditional compilation directives, 272
+Drawing lines. See Boundaries
+Drivers, Dependency Rule, 205
+DRY (Don’t Repeat Yourself) principle, conditional compilation directives, 272
+DSL (domain-specific data-driven language), Laser Trim archaeology project,
+337

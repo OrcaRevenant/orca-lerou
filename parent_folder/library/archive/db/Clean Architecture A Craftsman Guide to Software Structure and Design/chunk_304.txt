@@ -1,0 +1,22 @@
+Then the supervisor would swap the application out, and swap a new application
+in. The supervisor would continue to dribble out the contents of the terminal
+buffer at 30 cps until it was nearly empty. Then it would swap the application
+back in to fill the buffer again.
+Figure A.7 The system architecture
+There are two boundaries in this system. The first is the character output
+boundary. The applications had no idea that their output was going to a 30-cps
+terminal. Indeed, the character output was entirely abstract from the applications’
+point of view. The applications simply passed strings to the supervisor, and the
+supervisor took care of loading the buffers, sending the characters to the
+terminals, and swapping the applications in and out of memory.
+This boundary was dependency normal—that is, dependencies pointed with the
+flow of control. The applications had compile-time dependencies on the
+supervisor, and the flow of control passed from the applications to the
+supervisor. The boundary prevented the applications from knowing which kind
+of device the output was going to.
+The second boundary was dependency inverted. The supervisor could start the
+applications, but had no compile-time dependencies upon them. The flow of
+control passed from the supervisor to the applications. The polymorphic
+interface that inverted the dependency was simply this: Every application was
+started by jumping to the exact same memory address within the overlay area.
+The boundary prevented the supervisor from knowing anything about the

@@ -1,0 +1,11 @@
+to get into unnecessary details. For example, talking about the EdgeRank algorithm of
+Facebook feed ranking in detail is not ideal during a system design interview as this takes
+much precious time and does not prove your ability in designing a scalable system.
+Example
+At this point, we have discussed the high-level design for a news feed system, and the
+interviewer is happy with your proposal. Next, we will investigate two of the most important
+use cases:
+1. Feed publishing
+2. News feed retrieval
+Figure 3-3 and Figure 3-4 show the detailed design for the two use cases, which will be
+explained in detail in Chapter 11.

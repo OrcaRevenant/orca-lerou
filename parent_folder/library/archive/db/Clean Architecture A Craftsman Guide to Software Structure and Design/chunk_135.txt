@@ -1,0 +1,11 @@
+Figure 14.12 The I/A graph
+Not all components fall into one of these two positions, because components
+often have degrees of abstraction and stability. For example, it is very common
+for one abstract class to derive from another abstract class. The derivative is an
+abstraction that has a dependency. Thus, though it is maximally abstract, it will
+not be maximally stable. Its dependency will decrease its stability.
+Since we cannot enforce a rule that all components sit at either (0, 1) or (1, 0),
+we must assume that there is a locus of points on the A/I graph that defines
+reasonable positions for components. We can infer what that locus is by finding
+the areas where components should not be—in other words, by determining the
+zones of exclusion (Figure 11.13).

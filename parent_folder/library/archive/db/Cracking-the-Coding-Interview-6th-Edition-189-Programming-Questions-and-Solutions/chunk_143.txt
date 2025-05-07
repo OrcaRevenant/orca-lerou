@@ -1,0 +1,57 @@
+Chapter 8 | Recursion and Dynamic Programming
+Top-Down Dynamic Programming (or Memoization)
+Study the recursion tree. Where do you see identical nodes?
+There are lots of identical nodes. For example, f i b ( 3 ) appears twice and fib(2) appears three times. Why
+should we recompute these from scratch each time?
+Infact,whenwecallfib{n),we shouldn't have to do much more than 0 ( n ) calls, since there's only 0 ( n )
+possible values we can throw at f i b . Each time we compute f i b ( i ) , we should just cache this result and
+use it later.
+This is exactly what memoization is.
+With just a small modification, we can tweak this function to run in 0 ( n ) time. We simply cache the results
+of f i b o n a c c i ( i ) between calls.
+1
+i n t f i b o n a c c i f i n t n) {
+2
+return fibonacci(nj new i n t [ n + 1 ] ) ;
+3
+}
+4
+5
+i n t f i b o n a c c i ( i n t i, i n t [ ] memo) {
+6
+if (i == 0 |t i == 1) return i;
+7
+8
+if (memo[i] == 0) {
+9
+memo[i) = f i b o n a c c i ( i - l, memo) + f i b o n a c c i ( i - 2, memo);
+10
+>
+11
+return memo[i];
+12
+}
+While the first recursive function may take over a minute to generate the 50th Fibonacci number on a
+typical computer, the dynamic programming method can generate the 10,000th Fibonacci number in just
+fractions of a millisecond, {Of course, with this exact code, the i n t would have overflowed very early on.)
+Now, if we draw the recursion tree, it looks something like this (the black boxes represent cached calls that
+returned immediately):
+^ ^ - f i b ( S ) ^ ^
+[fib(3) I
+Ifibfsyi
+fib(l)
+fib(l)
+fib(0)
+How many nodes are in this tree now? We might notice that the tree now just shoots straight down, to a
+depth of roughly n. Each node of those nodes has one other child, resulting in roughly 2n children in the
+tree.This gives us a runtime ofO(n).
+Often it can be useful to picture the recursion tree as something like this:
+•fib(5)
+ifibtlTl
+i W z T l
+f i b ( l )
+fib(l)
+fib(e)
+This isnotactually how the recursion occurred. However, by expanding the further up nodes rather than the
+CrackingTheCodinglnterview.com ] 6th Edition
+133

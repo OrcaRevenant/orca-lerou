@@ -1,0 +1,34 @@
+55
+Good Comments
+Comments Do Not Make Up for Bad Code
+One of the more common motivations for writing comments is bad code. We write a mod-
+ule and we know it is confusing and disorganized. We know it’s a mess. So we say to our-
+selves, “Ooh, I’d better comment that!” No! You’d better clean it!
+Clear and expressive code with few comments is far superior to cluttered and complex
+code with lots of comments. Rather than spend your time writing the comments that
+explain the mess you’ve made, spend it cleaning that mess.
+Explain Yourself in Code
+There are certainly times when code makes a poor vehicle for explanation. Unfortunately,
+many programmers have taken this to mean that code is seldom, if ever, a good means for
+explanation. This is patently false. Which would you rather see? This:
+// Check to see if the employee is eligible for full benefits
+if ((employee.flags & HOURLY_FLAG) &&
+(employee.age > 65))
+Or this?
+if (employee.isEligibleForFullBenefits())
+It takes only a few seconds of thought to explain most of your intent in code. In many
+cases it’s simply a matter of creating a function that says the same thing as the comment
+you want to write.
+Good Comments
+Some comments are necessary or beneﬁcial. We’ll look at a few that I consider worthy of
+the bits they consume. Keep in mind, however, that the only truly good comment is the
+comment you found a way not to write.
+Legal Comments
+Sometimes our corporate coding standards force us to write certain comments for legal
+reasons. For example, copyright and authorship statements are necessary and reasonable
+things to put into a comment at the start of each source ﬁle.
+Here, for example, is the standard comment header that we put at the beginning of
+every source ﬁle in FitNesse. I am happy to say that our IDE hides this comment from act-
+ing as clutter by automatically collapsing it.
+// Copyright (C) 2003,2004,2005 by Object Mentor, Inc. All rights reserved.
+// Released under the terms of the GNU General Public License version 2 or later.

@@ -1,0 +1,26 @@
+THE TEST AUTOMATION PYRAMID
+117
+Component tests are written by QA and Business with assistance from develop-
+ment. They are composed in a component-testing environment such as FitNesse,
+JBehave, or Cucumber. (GUI components are tested with GUI testing environ-
+ments such as Selenium or Watir.) The intent is that the business should be able
+to read and interpret these tests, if not author them.
+Component tests cover roughly half the system. They are directed more towards
+happy-path situations and very obvious corner, boundary, and alternate-path
+cases. The vast majority of unhappy-path cases are covered by unit tests and are
+meaningless at the level of component tests.
+I NTEG R ATI O N TE ST S
+These tests only have meaning for larger systems that have many components.
+As shown in Figure 8-3, these tests assemble groups of components and test
+how well they communicate with each other. The other components of the
+system are decoupled as usual with appropriate mocks and test-doubles.
+Integration tests are choreography tests. They do not test business rules. Rather,
+they test how well the assembly of components dances together. They are
+plumbing tests that make sure that the components are properly connected and
+can clearly communicate with each other.
+Figure 8-3 Integration test
+Component
+Component
+Integration test
+Component
+Component

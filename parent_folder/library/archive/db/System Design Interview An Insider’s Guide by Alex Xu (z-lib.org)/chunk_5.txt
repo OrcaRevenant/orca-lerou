@@ -1,0 +1,7 @@
+Single server setup
+A journey of a thousand miles begins with a single step, and building a complex system is no
+different. To start with something simple, everything is running on a single server. Figure 1-1
+shows the illustration of a single server setup where everything is running on one server: web
+app, database, cache, etc.
+To understand this setup, it is helpful to investigate the request flow and traffic source. Let us
+first look at the request flow (Figure 1-2).

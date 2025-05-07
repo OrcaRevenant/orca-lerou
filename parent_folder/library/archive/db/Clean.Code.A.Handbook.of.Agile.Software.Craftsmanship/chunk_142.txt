@@ -1,0 +1,37 @@
+112
+Chapter 7: Error Handling
+public double xProjection(Point p1, Point p2) {
+if (p1 == null || p2 == null) {
+throw InvalidArgumentException(
+"Invalid argument for MetricsCalculator.xProjection");
+}
+return (p2.x – p1.x) * 1.5;
+}
+}
+Is this better? It might be a little better than a null pointer exception, but remember, we
+have to deﬁne a handler for InvalidArgumentException. What should the handler do? Is
+there any good course of action?
+There is another alternative. We could use a set of assertions:
+public class MetricsCalculator
+{
+public double xProjection(Point p1, Point p2) {
+assert p1 != null : "p1 should not be null";
+assert p2 != null : "p2 should not be null";
+return (p2.x – p1.x) * 1.5;
+}
+}
+It’s good documentation, but it doesn’t solve the problem. If someone passes null, we’ll
+still have a runtime error.
+In most programming languages there is no good way to deal with a null that is
+passed by a caller accidentally. Because this is the case, the rational approach is to forbid
+passing null by default. When you do, you can code with the knowledge that a null in an
+argument list is an indication of a problem, and end up with far fewer careless mistakes.
+Conclusion
+Clean code is readable, but it must also be robust. These are not conﬂicting goals. We can
+write robust clean code if we see error handling as a separate concern, something that is
+viewable independently of our main logic. To the degree that we are able to do that, we can
+reason about it independently, and we can make great strides in the maintainability of our
+code.
+Bibliography
+[Martin]:  Agile Software Development: Principles, Patterns, and Practices, Robert C.
+Martin, Prentice Hall, 2002.

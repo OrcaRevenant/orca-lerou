@@ -1,0 +1,85 @@
+II | Hints for Concepts and Algorithms
+#372.
+5.5
+When you do a binary subtraction, you flip the rightmost Osto a 1, stopping when you
+get to a 1 {which is also flipped). Everything (all the 1 s and Os) on the left will stay put.
+#373.
+8.4
+You can also do this by mapping each subset to a binary number. The i t h bit could
+represent a "boolean" flag for whether an element is in the set.
+#374.
+6.8
+Let X be the first drop of Egg 1. This means that Egg 2 would do X - 1 drops if Egg 1
+broke. We want to try to keep the sum of Egg 1 and Egg 2 s drops as constant as possible. If
+Egg 1 breaks on the second drop, then we want Egg 2 to do X - 2 drops. If Egg 1 breaks
+on the third drop, then we want Egg 2 to do X - 3 drops. This keeps the sum of Egg 1 and
+Egg 2 fairly constant, What is X?
+#375.
+5.4
+Get Next: We can shrink the number by moving all the Is to the right of the flipped bit
+as far right as possible (removing a 1 in the process).
+#376.
+10,10
+Would it work well to use a binary search tree?
+#377.
+7.10
+To place the bombs randomly on the board: Think about the algorithm to shuffle a deck
+of cards. Can you apply a similar technique?
+#378.
+8.13
+Alternatively, we can think about the repeated choices as: Does the first box go on the
+stack? Does the second box go on the stack? And so on.
+#379.
+6,5
+If you fill the S-quart jug and then use it to fill the 3-quart jug, you'll have two quarts
+left in the 5-quart jug. You can either keep those two quarts where they are, or you can
+dump the contents of the smaller jug and pour the two quarts in there,
+#380.
+8.11
+Analyze your algorithm. Is there any repeated work? Can you optimize this?
+#381.
+5.8
+When you're drawing a long line, you'll have entire bytes that will become a sequence of
+Is. Can you set this all at once?
+#382.
+8.10
+You can implement this using depth-first search (or breadth-first search). Each adjacent
+pixel of the "right" color is a connected edge.
+#383.
+5.5
+Picture n and n - l . T o subtract 1 from n, you flipped the rightmost 1 to a 0 and all the 0s
+on its right to 1s. If n & n - 1 == 0, then there are no Is to the left of the first 1. What
+does that mean about n?
+#384.
+5.8
+What about the start and end of the line? Do you need to set those pixels individually,
+or can you set them all at once?
+#385.
+9.1
+Think about this as a real-world application. What are the different factors you would
+need to consider?
+#386.
+7.10
+How do you count the number of bombs neighboring a cell? Will you iterate through all
+cells?
+#387.
+6.1
+You should be able to have an equation that tells you the heavy bottle based on the
+weight.
+#388.
+8.2
+Think again about the efficiency of your algorithm. Can you optimize it?
+#389.
+7.9
+The r o t a t e ( ) method should be able to run in 0 ( 1 ) time.
+#390.
+5.4
+Get Previous: Once you've solved Get Next, try to invert the logic for Get Previous.
+#391.
+5.8
+Does your code handle the case when xl and x2 are in the same byte?
+#392.
+10,10
+Consider a binary search tree where each node stores some additional data.
+6 6 4
+Cracking the Coding interview, 6th Edition

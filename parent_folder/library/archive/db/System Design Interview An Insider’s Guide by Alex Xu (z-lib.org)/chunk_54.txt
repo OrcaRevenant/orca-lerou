@@ -1,0 +1,27 @@
+• A new request arrives at 1:00:30, the timestamp 1:00:30 is inserted into the log. After the
+insertion, the log size is 2, not larger than the allowed count. Thus, the request is allowed.
+• A new request arrives at 1:00:50, and the timestamp is inserted into the log. After the
+insertion, the log size is 3, larger than the allowed size 2. Therefore, this request is rejected
+even though the timestamp remains in the log.
+• A new request arrives at 1:01:40. Requests in the range [1:00:40,1:01:40) are within the
+latest time frame, but requests sent before 1:00:40 are outdated. Two outdated timestamps,
+1:00:01 and 1:00:30, are removed from the log. After the remove operation, the log size
+becomes 2; therefore, the request is accepted.
+Pros:
+• Rate limiting implemented by this algorithm is very accurate. In any rolling window,
+requests will not exceed the rate limit.
+Cons:
+• The algorithm consumes a lot of memory because even if a request is rejected, its
+timestamp might still be stored in memory.
+Sliding window counter algorithm
+The sliding window counter algorithm is a hybrid approach that combines the fixed window
+counter and sliding window log. The algorithm can be implemented by two different
+approaches. We will explain one implementation in this section and provide reference for the
+other implementation at the end of the section. Figure 4-11 illustrates how this algorithm
+works.
+Assume the rate limiter allows a maximum of 7 requests per minute, and there are 5 requests
+in the previous minute and 3 in the current minute. For a new request that arrives at a 30%
+position in the current minute, the number of requests in the rolling window is calculated
+using the following formula:
+• Requests in current window + requests in the previous window * overlap percentage of
+the rolling window and previous window

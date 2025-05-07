@@ -1,0 +1,69 @@
+374
+Appendix B: org.jfree.date.SerialDate
+Listing B-4
+BobsSerialDateTest.java
+1 package org.jfree.date.junit;
+2
+3 import junit.framework.TestCase;
+4 import org.jfree.date.*;
+5 import static org.jfree.date.SerialDate.*;
+6
+7 import java.util.*;
+8
+9 public class BobsSerialDateTest extends TestCase {
+10
+11   public void testIsValidWeekdayCode() throws Exception {
+12     for (int day = 1; day <= 7; day++)
+13       assertTrue(isValidWeekdayCode(day));
+14     assertFalse(isValidWeekdayCode(0));
+15     assertFalse(isValidWeekdayCode(8));
+16   }
+17
+18   public void testStringToWeekdayCode() throws Exception {
+19
+20     assertEquals(-1, stringToWeekdayCode("Hello"));
+21     assertEquals(MONDAY, stringToWeekdayCode("Monday"));
+22     assertEquals(MONDAY, stringToWeekdayCode("Mon"));
+23 //todo    assertEquals(MONDAY,stringToWeekdayCode("monday"));
+24 //    assertEquals(MONDAY,stringToWeekdayCode("MONDAY"));
+25 //    assertEquals(MONDAY, stringToWeekdayCode("mon"));
+26
+27     assertEquals(TUESDAY, stringToWeekdayCode("Tuesday"));
+28     assertEquals(TUESDAY, stringToWeekdayCode("Tue"));
+29 //    assertEquals(TUESDAY,stringToWeekdayCode("tuesday"));
+30 //    assertEquals(TUESDAY,stringToWeekdayCode("TUESDAY"));
+31 //    assertEquals(TUESDAY, stringToWeekdayCode("tue"));
+32 //    assertEquals(TUESDAY, stringToWeekdayCode("tues"));
+33
+34     assertEquals(WEDNESDAY, stringToWeekdayCode("Wednesday"));
+35     assertEquals(WEDNESDAY, stringToWeekdayCode("Wed"));
+36 //    assertEquals(WEDNESDAY,stringToWeekdayCode("wednesday"));
+37 //    assertEquals(WEDNESDAY,stringToWeekdayCode("WEDNESDAY"));
+38 //    assertEquals(WEDNESDAY, stringToWeekdayCode("wed"));
+39
+40     assertEquals(THURSDAY, stringToWeekdayCode("Thursday"));
+41     assertEquals(THURSDAY, stringToWeekdayCode("Thu"));
+42 //    assertEquals(THURSDAY,stringToWeekdayCode("thursday"));
+43 //    assertEquals(THURSDAY,stringToWeekdayCode("THURSDAY"));
+44 //    assertEquals(THURSDAY, stringToWeekdayCode("thu"));
+45 //    assertEquals(THURSDAY, stringToWeekdayCode("thurs"));
+46
+47     assertEquals(FRIDAY, stringToWeekdayCode("Friday"));
+48     assertEquals(FRIDAY, stringToWeekdayCode("Fri"));
+49 //    assertEquals(FRIDAY,stringToWeekdayCode("friday"));
+50 //    assertEquals(FRIDAY,stringToWeekdayCode("FRIDAY"));
+51 //    assertEquals(FRIDAY, stringToWeekdayCode("fri"));
+52
+53     assertEquals(SATURDAY, stringToWeekdayCode("Saturday"));
+54     assertEquals(SATURDAY, stringToWeekdayCode("Sat"));
+55 //    assertEquals(SATURDAY,stringToWeekdayCode("saturday"));
+56 //    assertEquals(SATURDAY,stringToWeekdayCode("SATURDAY"));
+57 //    assertEquals(SATURDAY, stringToWeekdayCode("sat"));
+58
+59     assertEquals(SUNDAY, stringToWeekdayCode("Sunday"));
+60     assertEquals(SUNDAY, stringToWeekdayCode("Sun"));
+61 //    assertEquals(SUNDAY,stringToWeekdayCode("sunday"));
+62 //    assertEquals(SUNDAY,stringToWeekdayCode("SUNDAY"));
+63 //    assertEquals(SUNDAY, stringToWeekdayCode("sun"));
+64   }
+65

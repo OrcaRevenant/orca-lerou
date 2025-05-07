@@ -1,0 +1,26 @@
+A BOUT TH I S BOO K
+This book is about software professionalism. It contains a lot of pragmatic
+advice in an attempt to answer questions, such as
+• What is a software professional?
+• How does a professional behave?
+• How does a professional deal with conflict, tight schedules, and unreasonable
+managers?
+• When, and how, should a professional say “no”?
+• How does a professional deal with pressure?
+But hiding within the pragmatic advice in this book you will find an attitude
+struggling to break through. It is an attitude of honesty, of honor, of self-
+respect, and of pride. It is a willingness to accept the dire responsibility of being
+a craftsman and an engineer. That responsibility includes working well and
+working clean. It includes communicating well and estimating faithfully. It
+includes managing your time and facing difficult risk-reward decisions.
+But that responsibility includes one other thing—one frightening thing. As an
+engineer, you have a depth of knowledge about your systems and projects that
+no managers can possibly have. With that knowledge comes the responsibility
+to act.
+B I B LI OG R APH Y
+[McConnell87]: Malcolm McConnell, Challenger ‘A Major Malfunction’, New
+York, NY: Simon & Schuster, 1987
+[Wiki-Challenger]: “Space Shuttle Challenger disaster,”
+http://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster
+PREFACE
+xxii

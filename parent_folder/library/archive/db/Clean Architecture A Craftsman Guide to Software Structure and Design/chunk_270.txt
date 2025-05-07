@@ -1,0 +1,22 @@
+components that plug in to your core code, following the Dependency Rule.
+For example, maybe you like Spring. Spring is a good dependency injection
+framework. Maybe you use Spring to auto-wire your dependencies. That’s fine,
+but you should not sprinkle @autowired annotations all throughout your business
+objects. Your business objects should not know about Spring.
+Instead, you can use Spring to inject dependencies into your Main component.
+It’s OK for Main to know about Spring since Main is the dirtiest, lowest-level
+component in the architecture.
+I NOW PRONOUNCE YOU …
+There are some frameworks that you simply must marry. If you are using C++,
+for example, you will likely have to marry STL—it’s hard to avoid. If you are
+using Java, you will almost certainly have to marry the standard library.
+That’s normal—but it should still be a decision. You must understand that when
+you marry a framework to your application, you will be stuck with that
+framework for the rest of the life cycle of that application. For better or for
+worse, in sickness and in health, for richer, for poorer, forsaking all others, you
+will be using that framework. This is not a commitment to be entered into lightly.
+CONCLUSION
+When faced with a framework, try not to marry it right away. See if there aren’t
+ways to date it for a while before you take the plunge. Keep the framework
+behind an architectural boundary if at all possible, for as long as possible.
+Perhaps you can find a way to get the milk without buying the cow.

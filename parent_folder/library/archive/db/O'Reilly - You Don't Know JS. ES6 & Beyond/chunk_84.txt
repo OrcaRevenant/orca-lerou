@@ -1,0 +1,25 @@
+CHAPTER 3
+Organization
+Some of the most important changes in ES6 involve improved support for the pat‐
+terns we already commonly use to organize JavaScript functionality. This chapter will
+explore Iterators, Generators, Modules, and Classes.
+Iterators
+An iterator is a structured pattern for pulling information from a source in one-at-a-
+time fashion. This pattern has been around programming for a long time. And to be
+sure, JS developers have been ad hoc designing and implementing iterators in JS pro‐
+grams since before anyone can remember, so it’s not at all a new topic.
+What ES6 has done is introduce an implicit standardized interface for iterators. Many
+of the built in data structures in JavaScript will now expose an iterator implementing
+this standard. And you can also construct your own iterators adhering to the same
+standard, for maximal interoperability.
+Iterators are a way of organizing ordered, sequential, pull-based consumption of data.
+For example, you may implement a utility that produces a new unique identifier each
+time it’s requested. Or you may produce an infinite series of values that rotate
+through a fixed list, in round-robin fashion. Or you could attach an iterator to a data‐
+base query result to pull out new rows one at a time.
+Though not as common a usage of iterators to this point in JS, iterators can also be
+thought of as controlling behavior one step at a time. This can be illustrated quite
+clearly when considering generators (see “Generators” later in this chapter), though
+you can certainly do the same without generators.
+73
+www.it-ebooks.info

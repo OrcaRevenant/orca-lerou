@@ -1,0 +1,43 @@
+Chapter 9 | System Design and Scalability
+tion. Ask questions. Be open about tradeoffs. Continue to go deeper. Continue to make improvements.
+These questions are largely about the process rather than the ultimate design.
+• Design: Step-By-Step
+If your manager asked you to design a system such as TinyURL, you probably wouldn't just say, "Okay", then
+lock yourself in your office to design it by yourself. You would probably have a lot more questions before
+you do it. This is the way you should handle it in an interview.
+Step 1:Scope the Problem
+You can't design a system if you don't know what you're designing. Scoping the problem is important
+because you want to ensure that you're building what the interviewer wants and because this might be
+something that interviewer is specifically evaluating.
+If you're asked something such as "Design TinyURL", you'll want to understand what exactly you need to
+implement. Will people be able to specify their own short URLs? Or will it all be auto-generated? Will you
+need to keep track of any stats on the clicks? Should the URLs stay alive forever, or do they have a timeout?
+These are questions that must be answered before going further.
+Make a list here as well of the major features or use cases. For example, for TinyURL, it might be:
+•
+Shortening a URL to a TinyURL.
+-
+Analytics for a URL.
+•
+Retrieving the URL associated with a TinyURL.
+•
+User accounts and link management.
+Step 2: Make Reasonable Assumptions
+It's okay to make some assumptions (when necessary), but they should be reasonable. For example, it
+would not be reasonable to assume that your system only needs to process 100 users per day, or to assume
+that you have infinite memory available.
+However, it might be reasonable to design for a max of one million new URLs per day. Making this assump-
+tion can help you calculate how much data your system might need to store.
+Some assumptions might take some "product sense" (which is not a bad thing). For example, is it okay for
+the data to be stale by a max of ten minutes? That all depends. If it takes 10 minutes for a just-entered URL
+to work, that's a deal-breaking issue. People usually want these URLs to be active immediately. However, if
+the statistics are ten minutes out of date, that might be okay. Talk to your interviewer about these sorts of
+assumptions.
+Step 3: Draw the Major Components
+Get up out of that chair and go to the whiteboard. Draw a diagram of the major components. You might
+have something like a frontend server (or set of servers) that pull data from the backend's data store. You
+might have another set of servers that crawl the internet for some data, and another set that process
+analytics. Draw a picture of what this system might look like.
+Walk through your system from end-to-end to provide a flow. A user enters a new URL. Then what?
+1Ï8
+Cracking the Coding Interview, 6th Edition

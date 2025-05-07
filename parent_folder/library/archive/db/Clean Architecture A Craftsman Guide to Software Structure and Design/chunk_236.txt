@@ -1,0 +1,30 @@
+It is not the role of this book to get embroiled in that particular debate, and
+fortunately it isn’t necessary. From an architectural point of view, all tests are the
+same. Whether they are the tiny little tests created by TDD, or large FitNesse,
+Cucumber, SpecFlow, or JBehave tests, they are architecturally equivalent.
+Tests, by their very nature, follow the Dependency Rule; they are very detailed
+and concrete; and they always depend inward toward the code being tested. In
+fact, you can think of the tests as the outermost circle in the architecture.
+Nothing within the system depends on the tests, and the tests always depend
+inward on the components of the system.
+Tests are also independently deployable. In fact, most of the time they are
+deployed in test systems, rather than in production systems. So, even in systems
+where independent deployment is not otherwise necessary, the tests will still be
+independently deployed.
+Tests are the most isolated system component. They are not necessary for system
+operation. No user depends on them. Their role is to support development, not
+operation. And yet, they are no less a system component than any other. In fact,
+in many ways they represent the model that all other system components should
+follow.
+DESIGN FOR TESTABILITY
+The extreme isolation of the tests, combined with the fact that they are not
+usually deployed, often causes developers to think that tests fall outside of the
+design of the system. This is a catastrophic point of view. Tests that are not well
+integrated into the design of the system tend to be fragile, and they make the
+system rigid and difficult to change.
+The issue, of course, is coupling. Tests that are strongly coupled to the system
+must change along with the system. Even the most trivial change to a system
+component can cause many coupled tests to break or require changes.
+This situation can become acute. Changes to common system components can
+cause hundreds, or even thousands, of tests to break. This is known as the
+Fragile Tests Problem.

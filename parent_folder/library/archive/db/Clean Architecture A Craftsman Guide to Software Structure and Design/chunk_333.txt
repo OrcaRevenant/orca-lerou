@@ -1,0 +1,31 @@
+email and Netnews (an early social network where people discussed interesting
+issues).
+Second, Sun released a C++ compiler. I had been interested in C++ and OO
+since 1983, but compilers were difficult to come by. So when the opportunity
+presented itself, I changed languages right away. I left the 3000-line C functions
+behind, and started to write C++ code at Clear. And I learned …
+I read books. Of course, I read The C++ Programming Language and The
+Annotated C++ Reference Manual (The ARM) by Bjarne Stroustrup. I read
+Rebecca Wirfs-Brock’s lovely book on responsibility-driven design: Designing
+Object Oriented Software. I read OOA and OOD and OOP by Peter Coad. I read
+Smalltalk-80 by Adele Goldberg. I read Advanced C++ Programming Styles and
+Idioms by James O. Coplien. But perhaps most significantly of all, I read Object
+Oriented Design with Applications by Grady Booch.
+What a name! Grady Booch. How could anyone forget a name like that. What’s
+more, he was the Chief Scientist at a company called Rational! How I wanted to
+be a Chief Scientist! And so I read his book. And I learned, and I learned, and I
+learned …
+As I learned, I also began debating on Netnews, the way people now debate on
+Facebook. My debates were about C++ and OO. For two years, I relieved the
+frustrations that were building at work by debating with hundreds of folks on
+Usenet about the best language features and the best principles of design. After a
+while, I even started making a certain amount of sense.
+It was in one of those debates that the foundations of the SOLID principles were
+laid.
+And all that debating, and perhaps even some of the sense, got me noticed …
+UNCLE BOB
+One of the engineers at Clear was a young fellow by the name of Billy Vogel.
+Billy gave nicknames to everyone. He called me Uncle Bob. I suspect, despite
+my name being Bob, that he was making an offhand reference to J. R. “Bob”
+Dobbs (see https://en.wikipedia.org/wiki/File:Bobdobbs.png).
+At first I tolerated it. But as the months went by, his incessant chattering of

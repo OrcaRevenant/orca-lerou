@@ -1,0 +1,30 @@
+WHAT TDD IS NOT
+83
+laws tell you to write a unit test that fails because that code doesn’t exist! This
+means you have to test the code that you are about to write.
+The problem with testing code is that you have to isolate that code. It is often
+difficult to test a function if that function calls other functions. To write that
+test you’ve got to figure out some way to decouple the function from all the
+others. In other words, the need to test first forces you to think about good
+design.
+If you don’t write your tests first, there is no force preventing you from coupling
+the functions together into an untestable mass. If you write your tests later, you
+may be able to test the inputs and the outputs of the total mass, but it will
+probably be quite difficult to test the individual functions.
+Therefore, following the three laws, and writing your tests first, creates a force
+that drives you to a better decoupled design. What professional would not
+employ tools that drove them toward better designs?
+“But I can write my tests later,” you say. No, you can’t. Not really. Oh, you can
+write some tests later. You can even approach high coverage later if you are careful
+to measure it. But the tests you write after the fact are defense. The tests you write
+first are offense. After-the-fact tests are written by someone who is already vested
+in the code and already knows how the problem was solved. There’s just no way
+those tests can be anywhere near as incisive as tests written first.
+TH E PRO F E S S I O N A L O PTION
+The upshot of all this is that TDD is the professional option. It is a discipline
+that enhances certainty, courage, defect reduction, documentation, and design.
+With all that going for it, it could be considered unprofessional not to use it.
+WHAT TDD I S N OT
+For all its good points, TDD is not a religion or a magic formula. Following the
+three laws does not guarantee any of these benefits. You can still write bad code
+even if you write your tests first. Indeed, you can write bad tests.

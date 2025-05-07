@@ -1,0 +1,38 @@
+keys[0] === x;                  // true
+vals[0];                        // "foo"
+keys[1] === y;                  // true
+vals[1];                        // "bar"
+Of course, you wouldn’t want to manage those parallel arrays yourself, so you could
+define a data structure with methods that automatically do the management under
+the covers. Besides having to do that work yourself, the main drawback is that access
+is no longer O(1) time-complexity, but instead is O(n).
+But as of ES6, there’s no longer any need to do this! Just use Map(..):
+var m = new Map();
+var x = { id: 1 },
+y = { id: 2 };
+m.set( x, "foo" );
+m.set( y, "bar" );
+m.get( x );                     // "foo"
+m.get( y );                     // "bar"
+The only drawback is that you can’t use the [ ] bracket access syntax for setting and
+retrieving values. But get(..) and set(..) work perfectly suitably instead.
+To delete an element from a map, don’t use the delete operator, but instead use the
+delete(..) method:
+m.set( x, "foo" );
+m.set( y, "bar" );
+m.delete( y );
+You can clear the entire map’s contents with clear().
+To get the length of a map (that is, the number of keys), use the size property (not
+length):
+m.set( x, "foo" );
+m.set( y, "bar" );
+m.size;                         // 2
+The Map(..) constructor can also receive an iterable (see “Iterators” in Chapter 3),
+which must produce a list of arrays, where the first item in each array is the key and
+the second item is the value. This format for iteration is identical to that produced by
+the entries() method, explained in the next section. That makes it easy to make a
+copy of a map:
+144
+|
+Chapter 5: Collections
+www.it-ebooks.info

@@ -1,0 +1,33 @@
+Installing Docker on Linux is the most common installation type and it’s
+surprisingly easy. The most common difficulty is the slight variations between
+Linux distros such as Ubuntu vs CentOS. The example we’ll use in this section
+is based on Ubuntu Linux, but should work on upstream and downstream forks.
+It should also work on CentOS and its upstream and downstream forks. It makes
+absolutely no difference if your Linux machine is a physical server in your own
+data center, on the other side of the planet in a public cloud, or a VM on your
+laptop. The only requirements are that the machine be running Linux and has
+access to https://get.docker.com.
+The first thing you need to decide before you install Docker on Linux is which
+edition to install. There are currently two editions:
+Community Edition (CE)
+Enterprise Edition (EE)
+Docker CE is free and is the version we will be demonstrating here. Docker EE
+is the same as CE but comes with commercial support and access to other
+Docker products such as Docker Trusted Registry and Universal Control Plane.
+In the examples below we’ll use the wget command to call a shell script that
+installs Docker CE. For information on other ways to install Docker on Linux go
+to https://www.docker.com and click on Get Docker.
+Note: You should ensure that your system is up-to-date with the latest
+packages and security patches before continuing.
+1. Open a new shell on your Linux machine.
+2. Use wget to retrieve and run the Docker install script from
+https://get.docker.com and pipe it through your shell.
+$ wget -qO- https://get.docker.com/ | sh
+modprobe: FATAL: Module aufs not found /lib/modules/4.4.0-36-generic
++ sh -c 'sleep 3; yum -y -q install docker-engine'
+<Snip>
+If you would like to use Docker as a non-root user, you should
+now consider adding your user to the "docker" group with
+something like:
+sudo usermod -aG docker your-user
+Remember that you will have to log out and back in...

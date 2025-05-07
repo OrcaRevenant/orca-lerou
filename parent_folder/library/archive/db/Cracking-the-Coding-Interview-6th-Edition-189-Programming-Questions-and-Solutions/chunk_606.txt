@@ -1,0 +1,46 @@
+Solutions to Chapter 17 j Hard
+32
+if (maxHeap.size() == minHeap.size()) i
+33
+return ((double)minHeap.peek()+(double)maxHeap.peek()) / 2;
+34
+> else {
+/* If maxHeap and minHeap are of d i f f e r e n t sizes, then maxHeap must have one
+36
+* extra element. Return maxHeap's top element.*/
+37
+return maxHeap.peek();
+38
+>
+39
+}
+17.21 Volume of Histogram: imagine a histogram (bar graph). Design an algorithm to compute the
+volume of water it could hold if someone poured water across the top. You can assume that each
+histogram bar has width 1.
+EXAMPLE
+Input: { 0 , 0, 4, 0, 0, 6, 0, 0, 3, 0,
+5, 0, 1, 01 0, 0}
+( B l a c k bars are the h i s t o g r a m .
+Gray i s w a t e r . )
+0 0 4 0 0 6 0 0 3 0 5 0 1 0 0 0
+Output: 26
+pg 189
+SOLUTION
+This is a difficult problem, so let's come up with a good example to help us solve it.
+0 0 4 0 0 6 0 0 3 0 8 0 2 0 5 2 0 3 0 0
+We should study this example to see what we can learn from it. What exactly dictates how big those gray
+areas are?
+Solution #1
+Let's look at the tallest bar, which has size 8. What role does that bar play? It plays an important role for
+being the highest, but it actually wouldn't matter if that bar instead had height 100. It wouldn't affect the
+volume.
+The tallest bar forms a barrier for water on its left and right. But the volume of water is actually controlled
+by the next highest bar on the left and right.
+•
+Water on immediate left of tallest bar: The next tallest bar on the left has height 6. We can fill up the
+area in between with water, but we have to deduct the height of each histogram between the tallest and
+next tallest, Thisgivesa volumeon the immediateleftof: ( 6 - 0 ) + ( 6 - 0 ) + ( 6 - 3 ) + ( 6 - 0 ) = 21.
+•
+Water on immediate right of tallest bar: The next tallest bar on the right has height 5. We can now
+55 S
+Cracking the Coding interview, 6th Edition

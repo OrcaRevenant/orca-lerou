@@ -1,0 +1,94 @@
+Solutions to Chapter 16 | Moderate
+Then, we do a similar thing on the right side. The value max equals 12, So, we begin with the start of the
+right subsequence (value 6) and move to the right. We compare the max of 12 to 6, then 7, then 16. When
+reach 16, we know that no elements smaller than 12 could be after it (since it's an increasing subsequence).
+Thus, the middle of the array could now be sorted to make the entire array sorted.
+The following code implements this algorithm.
+1
+void findUnsortedSequence(int[] array) {
+2
+// find l e f t subsequence
+3
+int end_left = findEndOfLeftSubsequence(array);
+4
+if (end_left >= array.length - 1) return; // Already sorted
+5
+6
+// find right subsequence
+7
+int start_right = findStartOfRightSubsequence(array);
+8
+9
+I I get min and max
+10
+int max_index = end_left; // max of l e f t side
+11
+int min_index = start^right; II min of right side
+12
+for (int i » end_left + 1; i < start_right; i++) {
+13
+if (array[i] < array[min_index]) min_index = i;
+14
+if (array[i] > array[max_index]) max_index = i;
+15
+>
+16
+17
+II slide l e f t until less than array[min_index]
+18
+int left„index = shrinkLeft(array, min_index, e n d j e f t ) ;
+19
+20
+II slide right until greater than array[max_index]
+21
+int right_index = shrinkRight(array, max_indexj start_right);
+22
+23
+System.out.print In(left_index + " " + right_index);
+24 >
+25
+26 int findEndOfleftSubsequence(int[] array) {
+27
+for (int i = 1; i < array.length; i++) {
+28
+if (array[i] < array[i - 1 ] ) return i - 1;
+29
+>
+30
+return array.length - 1;
+31
+)
+32
+33 int findStartOfRightSubsequence(int[] array) {
+34
+for (int i " array.length - 2; i >= 0; i - - ) {
+35
+if (array[i] > array[i + 1 ] ) return i + 1;
+36
+>
+37
+return 0;
+38
+}
+39
+40 int shrinkLeft(int[] array, int min_index, int start) {
+41
+int comp = array[min_index];
+42
+for (int i * start - 1; i >= 0; i - - ) {
+43
+if (array[i] <= comp) return i + 1;
+44
+}
+45
+return 0;
+46
+}
+47
+48 int shrinkRight(int[] array, int max_index, int start) {
+49
+int comp = array[max_index];
+50
+for (int i = start; i < array.length; i++) {
+CrackingTheCodinglnterview.com | 6th Edition
+495

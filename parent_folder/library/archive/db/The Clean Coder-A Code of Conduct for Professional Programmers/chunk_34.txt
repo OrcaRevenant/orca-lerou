@@ -1,0 +1,32 @@
+2
+PRE-REQUISITE INTRODUCTION
+programmers and I’ve worked with slugs.2 I’ve worked on high-tech cutting-
+edge embedded software/hardware systems, and I’ve worked on corporate
+payroll systems. I’ve programmed in COBOL, FORTRAN, BAL, PDP-8, PDP-11,
+C, C++, Java, Ruby, Smalltalk, and a plethora of other languages and systems.
+I’ve worked with untrustworthy paycheck thieves, and I’ve worked with
+consummate professionals. It is that last classification that is the topic of this
+book.
+In the pages of this book I will try to define what it means to be a professional
+programmer. I will describe the attitudes, disciplines, and actions that I consider
+to be essentially professional.
+How do I know what these attitudes, disciplines, and actions are? Because I had
+to learn them the hard way. You see, when I got my first job as a programmer,
+professional was the last word you’d have used to describe me.
+The year was 1969. I was 17. My father had badgered a local business named
+ASC into hiring me as a temporary part-time programmer. (Yes, my father
+could do things like that. I once watched him walk out in front of a speeding
+car with his hand out commanding it to “Stop!” The car stopped. Nobody said
+“no” to my Dad.) The company put me to work in the room where all the IBM
+computer manuals were kept. They had me put years and years of updates into
+the manuals. It was here that I first saw the phrase: “This page intentionally left
+blank.”
+After a couple of days of updating manuals, my supervisor asked me to write a
+simple Easycoder3 program. I was thrilled to be asked. I’d never written a
+program for a real computer before. I had, however, inhaled the Autocoder
+books, and had a vague notion of how to begin.
+The program was simply to read records from a tape, and replace the IDs of
+those records with new IDs. The new IDs started at 1 and were incremented by
+2. A technical term of unknown origins.
+3. Easycoder was the assembler for the Honeywell H200 computer, which was similar to
+Autocoder for the IBM 1401 computer.

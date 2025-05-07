@@ -1,0 +1,106 @@
+Solutions to Chapter 17 j Hard
+12
+new HashMapdnteger, Queue<Integer>>();
+13
+for ( i n t s : small) {
+14
+Queue<Integer» queue = new LinkedList<Integer>();
+15
+itemLocations.put(s,
+queue);
+16
+}
+17
+18
+/* Walk through big array, adding the item locations to hash map */
+19
+for ( i n t i = 0; i < big.length; i++) {
+20
+Queue<Integer> queue = i t e m l o c a t i o n s . g e t ( b i g [ i ] ) ;
+21
+if (queue != n u l l ) {
+22
+queue.add(i);
+23
+}
+24
+}
+25
+26
+ArrayList<Queue<Integer>> allLocations = new ArrayList<Queue<Integer>>();
+27
+allLocations .addAll(itemLocat ions. values ( ) ) ;
+28
+return allLocations;
+29 >
+30
+31 Range getShortestClosure(ArrayList<Queue<Integer>> l i s t s ) {
+32
+PriorityQueue<HeapNode> minHeap = new PriorityQueue<HeapNode>();
+33
+i n t max = Integer.MIN_VALUE;
+34
+35
+/* Insert min element from each l i s t . */
+36
+f o r ( i n t i = 0; i < l i s t s . s i z e ( ) ; i++) {
+37
+i n t head = l i s t s . g e t ( i ) . r e m o v e ( ) ;
+38
+minHeap.add(new HeapNode(head, i ) ) ;
+39
+max = Math.max(max, head);
+40
+)
+41
+42
+i n t min = minHeap.peek().locationWithinList;
+43
+i n t bestRangeMin = min;
+44
+i n t bestRangeMax = max;
+45
+46
+while (true) {
+47
+/* Remove min node. */
+48
+HeapNode n = minHeap.poll();
+49
+Queue<Integer> l i s t = l i s t s . g e t ( n . l i s t l d ) ;
+50
+51
+/* Compare range to best range. */
+52
+min = n.locationWithinList;
+53
+if (max - min < bestRangeMax - bestRangeMin) {
+54
+bestRangeMax = max;
+55
+bestRangeMin = min;
+56
+}
+57
+58
+/* If there are no more elements, then there's no more subsequences and we
+59
+* can break. »/
+60
+if ( l i s t . s i z e ( ) == 0) {
+61
+break;
+62
+>
+63
+64
+/* Add new head of l i s t to heap. */
+65
+n.locationWithinList = list.remove();
+66
+minHeap.add(n);
+67
+max = Math.max(max, n.locationWithinList);
+55
+S
+Cracking the Coding interview, 6th Edition

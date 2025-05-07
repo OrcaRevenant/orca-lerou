@@ -1,0 +1,66 @@
+378
+Appendix B: org.jfree.date.SerialDate
+252     assertEquals(97, leapYearCount(2301));
+253     assertEquals(122, leapYearCount(2401));
+254   }
+255
+256   public void testLastDayOfMonth() throws Exception {
+257     assertEquals(31, lastDayOfMonth(JANUARY, 1901));
+258     assertEquals(28, lastDayOfMonth(FEBRUARY, 1901));
+259     assertEquals(31, lastDayOfMonth(MARCH, 1901));
+260     assertEquals(30, lastDayOfMonth(APRIL, 1901));
+261     assertEquals(31, lastDayOfMonth(MAY, 1901));
+262     assertEquals(30, lastDayOfMonth(JUNE, 1901));
+263     assertEquals(31, lastDayOfMonth(JULY, 1901));
+264     assertEquals(31, lastDayOfMonth(AUGUST, 1901));
+265     assertEquals(30, lastDayOfMonth(SEPTEMBER, 1901));
+266     assertEquals(31, lastDayOfMonth(OCTOBER, 1901));
+267     assertEquals(30, lastDayOfMonth(NOVEMBER, 1901));
+268     assertEquals(31, lastDayOfMonth(DECEMBER, 1901));
+269     assertEquals(29, lastDayOfMonth(FEBRUARY, 1904));
+270   }
+271
+272   public void testAddDays() throws Exception {
+273     SerialDate newYears = d(1, JANUARY, 1900);
+274     assertEquals(d(2, JANUARY, 1900), addDays(1, newYears));
+275     assertEquals(d(1, FEBRUARY, 1900), addDays(31, newYears));
+276     assertEquals(d(1, JANUARY, 1901), addDays(365, newYears));
+277     assertEquals(d(31, DECEMBER, 1904), addDays(5 * 365, newYears));
+278   }
+279
+280   private static SpreadsheetDate d(int day, int month, int year) {return new
+SpreadsheetDate(day, month, year);}
+281
+282   public void testAddMonths() throws Exception {
+283     assertEquals(d(1, FEBRUARY, 1900), addMonths(1, d(1, JANUARY, 1900)));
+284     assertEquals(d(28, FEBRUARY, 1900), addMonths(1, d(31, JANUARY, 1900)));
+285     assertEquals(d(28, FEBRUARY, 1900), addMonths(1, d(30, JANUARY, 1900)));
+286     assertEquals(d(28, FEBRUARY, 1900), addMonths(1, d(29, JANUARY, 1900)));
+287     assertEquals(d(28, FEBRUARY, 1900), addMonths(1, d(28, JANUARY, 1900)));
+288     assertEquals(d(27, FEBRUARY, 1900), addMonths(1, d(27, JANUARY, 1900)));
+289
+290     assertEquals(d(30, JUNE, 1900), addMonths(5, d(31, JANUARY, 1900)));
+291     assertEquals(d(30, JUNE, 1901), addMonths(17, d(31, JANUARY, 1900)));
+292
+293     assertEquals(d(29, FEBRUARY, 1904), addMonths(49, d(31, JANUARY, 1900)));
+294
+295   }
+296
+297   public void testAddYears() throws Exception {
+298     assertEquals(d(1, JANUARY, 1901), addYears(1, d(1, JANUARY, 1900)));
+299     assertEquals(d(28, FEBRUARY, 1905), addYears(1, d(29, FEBRUARY, 1904)));
+300     assertEquals(d(28, FEBRUARY, 1905), addYears(1, d(28, FEBRUARY, 1904)));
+301     assertEquals(d(28, FEBRUARY, 1904), addYears(1, d(28, FEBRUARY, 1903)));
+302   }
+303
+304   public void testGetPreviousDayOfWeek() throws Exception {
+305     assertEquals(d(24, FEBRUARY, 2006), getPreviousDayOfWeek(FRIDAY, d(1, MARCH, 2006)));
+306     assertEquals(d(22, FEBRUARY, 2006), getPreviousDayOfWeek(WEDNESDAY, d(1, MARCH, 2006)));
+307     assertEquals(d(29, FEBRUARY, 2004), getPreviousDayOfWeek(SUNDAY, d(3, MARCH, 2004)));
+308     assertEquals(d(29, DECEMBER, 2004), getPreviousDayOfWeek(WEDNESDAY, d(5, JANUARY, 2005)));
+309
+310     try {
+311       getPreviousDayOfWeek(-1, d(1, JANUARY, 2006));
+312       fail("Invalid day of week code should throw exception");
+Listing B-4 (continued)
+BobsSerialDateTest.java

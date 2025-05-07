@@ -1,0 +1,30 @@
+194
+Notice also that you can’t see a true main line. That’s because there isn’t one.
+When you use git there’s no such thing as a central repository, or a main line.
+Every developer keeps his or her own copy of the entire history of the project on
+their local machine. They check in and out of that local copy, and then merge it
+with others as needed.
+It’s true that I keep a special golden repository into which I push all the releases
+and interim builds. But to call this repository the main line would be missing
+the point. It’s really just a convenient snapshot of the whole history that every
+developer maintains locally.
+If you don’t understand this, that’s OK. git is something of a mind bender at
+first. You have to get used to how it works. But I’ll tell you this: git, and tools
+like it, are what the future of source code control looks like.
+IDE / E D ITO R
+As developers, we spend most of our time reading and editing code. The tools
+we use for this purpose have changed greatly over the decades. Some are
+immensely powerful, and some are little changed since the ’70s.
+VI
+You’d think that the days of using vi as the primary development editor
+would be long over. There are tools nowadays that far outclass vi, and other
+simple text editors like it. But the truth is that vi has enjoyed a significant
+resurgence in popularity due to its simplicity, ease of use, speed, and
+flexibility. Vi might not be as powerful as Emacs, or eclipse, but it’s still a fast
+and powerful editor.
+Having said that, I’m not a power vi user any more. There was a day when I was
+known as a vi “god,” but those days are long gone. I use vi from time to time if I
+need to do a quick edit of a text file. I have even used it recently to make a quick
+change to a Java source file in a remote environment. But the amount of true
+coding I have done in vi in the last 10 years is vanishingly small.
+APPENDIX A TOOLING

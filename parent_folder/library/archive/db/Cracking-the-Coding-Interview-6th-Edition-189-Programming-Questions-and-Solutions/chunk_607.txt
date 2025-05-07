@@ -1,0 +1,67 @@
+Solutions to Chapter 17 | Hard
+compute the volume: ( 5 - 0 ) + ( 5 - 2 ) + ( 5 - 0 ) = 13.
+This just tells us part of the volume.
+0 0 4 0 0 6 0 0 3 0 8 0 2 0 5 2 0 3 6 0
+What about the rest?
+We have essentially two subgraphs, one on the left and one on the right. To find the volume there, we
+repeat a very similar process.
+1. Find the max, (Actually, this is given to us.The highest on the left subgraph is the right border (6) and the
+highest on the right subgraph is the left border (S).)
+2. Find the second tallest in each subgraph. In the left subgraph, this is 4. In the right subgraph, this is 3.
+3. Compute the volume between the tallest and the second tallest.
+4. Recurse on the edge of the graph.
+The code below implements this algorithm.
+1
+i n t computeHistogramVolume(intn histogram) {
+2
+i n t s t a r t = 0;
+3
+i n t end = histogram.length - 1;
+4
+5
+i n t max = find!ndexOfMax(histogram, s t a r t , end);
+6
+i n t leftVolume =
+subgraphVolume(histogram, s t a r t , max, t r u e ) ;
+i n t rightvolume = subgraphVolume(histogram, max, end, f a l s e ) ;
+8
+9
+return leftVolume + rightvolume;
+10 }
+11
+12 /* Compute the volume of a subgraph of the histogram. One max is at either s t a r t
+13
+* or end (depending on i s L e f t ) . Find second t a l l e s t , then compute volume between
+14
+* t a l l e s t and second t a l l e s t . Then compute volume of subgraph. */
+15 i n t subgraphVolume(int[] histogram, i n t s t a r t , i n t end, boolean i s l e f t ) {
+16
+if ( s t a r t >= end) return 0;
+17
+i n t sum = 0;
+18
+if ( i s L e f t )
+{
+19
+i n t max = findIndexOfMax(histogram, s t a r t , end - 1);
+20
+sum += borderedVolume(histogram, max, end);
+21
+sum += subgraphVolume(histogram, s t a r t , max, i s L e f t ) ;
+22
+} else (
+23
+i n t max = findIndexOfMax(histogram, s t a r t + 1, end);
+24
+sum += borderedVolumefhistogram, s t a r t , max);
+25
+sum += subgraphvolume(histogram, max, end, i s L e f t ) ;
+26
+}
+27
+28
+return sum;
+29
+)
+30
+CrackingTheCodinglnterview.com | 6th Edition S 3 7

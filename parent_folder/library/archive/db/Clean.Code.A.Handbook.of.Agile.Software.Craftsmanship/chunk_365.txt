@@ -1,0 +1,20 @@
+335
+Deadlock
+Multithread Calculation of Throughput
+If it is possible to retrieve pages in any order and process the pages independently, then it
+is possible to use multiple threads to increase throughput. What happens if we use three
+threads? How many pages can we acquire in the same time?
+As you can see in Figure A-2, the multithreaded solution allows the process-bound
+parsing of the pages to overlap with the I/O-bound reading of the pages. In an idealized
+world this means that the processor is fully utilized. Each one-second page read is over-
+lapped with two parses. Thus, we can process two pages per second, which is three times
+the throughput of the single-threaded solution.
+Deadlock
+Imagine a Web application with two shared resource pools of some ﬁnite size:
+• A pool of database connections for local work in process storage
+• A pool of MQ connections to a master repository
+Assume there are two operations in this application, create and update:
+• Create—Acquire connection to master repository and database. Talk to service master
+repository and then store work in local work in process database.
+Figure A-2
+Three concurrent threads

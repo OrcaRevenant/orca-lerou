@@ -1,0 +1,68 @@
+XI, Advanced Topics
+Let's do some math. Assume c = log 0kandy = log ak.
+log tk = c --> b; = k
+II This is the d e f i n i t i o n of log.
+l o g j b ' ) = iogxk
+// Take log of both sides of bc = k.
+c log^b = logsk
+II Rules of logs. You can move out the exponents,
+c =
+l o g k =
+/log.*»
+// Dividing above expression and substituting c.
+Therefore, if we want to convert l o g ; p to log l f l, we just do this:
+,
+"
+l o g p
+l o g l o p = T o g T l 0
+Takeaway: Logs of different bases are only off by a constant factor. For this reason, we largely ignore what
+the base of a log within a big O expression. It doesn't matter since we drop constants anyway.
+Permutations
+How many ways are there of rearranging a string of n unique characters? Well, you have n options for what
+to put in the first characters, then n -1 options for what to put in the second slot (one option is taken), then
+n -2 options for what to put in the third slot, and so on. Therefore, the total number of strings is n!.
+n! = rt * n - 1 * n - 2 * n - 3 * . . . * 1
+What if you were forming a k-length string (with ail unique characters) from n total unique characters? You
+can follow similar logic, but you'd just stop your selection/multiplication earlier,
+n !
+( n - k ) !
+Combinations
+=
+n * n - l * n - 2 * n - 3 *
+. . .
+* n - k + l
+Suppose you have a set of n distinct characters. How many ways are there of selecting k characters into
+a new set (where order doesn't matter)? That is, how many k-sized subsets are there out of n distinct
+elements?This is what the expression n-choose-k means, which isoften written ( ^ J,
+Imagine we made a list of all the sets by first writing all k-length substrings and then taking out the dupli-
+cates.
+From the above Permutations section, we'd have "Vtn-k) i k-length substrings.
+Since each k-sized subset can be rearranged k 1 unique ways into a string, each subset will be duplicated k!
+times in this list of substrings. Therefore, we need to divide by k ! to take out these duplicates.
+f n
+_ i _
+1 k / " k !
+. *
+n !
+n !
+k !
+( n - k ) !
+k ! ( n - k ) !
+Proof by Induction
+Induction is a way of proving something to be true. It is closely related to recursion. It takes the following
+form.
+Task: Prove statement P{k) is trueforall k >= b.
+*
+Base Case: Prove the statement is trueforP(b).Thisis usually just a matter of plugging in numbers.
+•
+Assumption: Assume the statement is true for P(n).
+*
+Inductive Step: Prove that if the statement is true for P{n), then it's true for P(n+1).
+This is like dominoes. If the first domino falls, and one domino always knocks over the next one, then all the
+dominoes must fall.
+Let's use this to prove that there are 2" subsets of an n-element set.
+•
+Definitions: letS = { a ^ a 2, a 3,
+aj be then-element set.
+CrackingTheCodinginterview.com | 6th Edition
+639

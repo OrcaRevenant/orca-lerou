@@ -1,0 +1,31 @@
+CHAPTER 7 ACCEPTANCE TESTING
+110
+despite these changes. Therefore, when writing acceptance tests for a GUI you
+take advantage of the underlying abstractions that don’t change very frequently.
+For example, there may be several buttons on a page. Rather than creating tests
+that click on those buttons based on their positions on the page, you may be
+able to click on them based on their names. Better yet, perhaps they each have
+a unique ID that you can use. It is much better to write a test that selects the
+button whose ID is ok_button than it is to select the button in column 3 of row
+4 of the control grid.
+Testing through the Right Interface
+Better still is to write tests that invoke the features of the underlying system
+through a real API rather than through the GUI. This API should be the same
+API used by the GUI. This is nothing new. Design experts have been telling us
+for decades to separate our GUIs from our business rules.
+Testing through the GUI is always problematic unless you are testing just the
+GUI. The reason is that the GUI is likely to change, making the tests very fragile.
+When every GUI change breaks a thousand tests, you are either going to start
+throwing the tests away or you are going to stop changing the GUI. Neither of
+those are good options. So write your business rule tests to go through an API
+just below the GUI.
+Some acceptance tests specify the behavior of the GUI itself. These tests must go
+through the GUI. However, these tests do not test business rules and therefore
+don’t require the business rules to be connected to the GUI. Therefore, it is a
+good idea to decouple the GUI and the business rules and replace the business
+rules with stubs while testing the GUI itself.
+Keep the GUI tests to a minimum. They are fragile, because the GUI is volatile.
+The more GUI tests you have the less likely you are to keep them.
+CO NTI N U O U S I NTEG R ATI O N
+Make sure that all your unit tests and acceptance tests are run several times per
+day in a continuous integration system. This system should be triggered by your

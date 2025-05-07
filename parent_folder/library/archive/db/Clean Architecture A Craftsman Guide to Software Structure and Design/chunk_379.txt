@@ -1,0 +1,34 @@
+Unit testing
+creating testable architecture, 198
+effect of cycle in component dependency graph, 116–117
+via Humble Object pattern, 212
+UNIX, IO device driver functions, 41–44
+Upgrades, risks of frameworks, 293
+Urgency, Eisenhower’s matrix of importance vs., 16–17
+Use cases
+architecture must support, 148
+business rules for, 191–194
+clean architecture scenario, 207–208
+coupling to premature decisions with, 160
+creating testable architecture, 198
+crossing circle boundaries, 206
+decoupling, 152
+decoupling mode, 153
+Dependency Rule for, 204
+duplication of, 155
+good architecture centered on, 196, 197
+independent developability and, 154
+video sales case study, 298–300
+User interface
+GUI. See GUI (graphical user interface)
+UI. See UI (user interface)
+Utility library, Zone of Pain, 129
+Uucp connection, 366
+V
+Values, software system
+architecture (structure), 14–15
+behavior, 14
+Eisenhower’s matrix of importance vs. urgency, 16–17
+fighting for seniority of architecture, 18
+function vs. architecture, 15–16
+overview of, 14

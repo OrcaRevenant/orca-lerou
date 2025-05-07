@@ -1,0 +1,38 @@
+Classes
+From nearly the beginning of JavaScript, syntax and development patterns have all
+strived (read: struggled) to put on a facade of supporting class-oriented development.
+With things like new and instanceof and a .constructor property, who couldn’t
+help but be intrigued that JS had classes hidden somewhere inside its prototype sys‐
+tem?
+Of course, JS “classes” aren’t nearly the same as traditional classical classes. The differ‐
+ences are well documented, so I won’t belabor that point any further here.
+To learn more about the patterns used in JS to fake “classes”, and an
+alternate view of prototypes called “delegation”, see the second half
+of the this & Object Prototypes title of this series.
+class
+Even though JS’s prototype mechanism doesn’t work like traditional classes, that
+doesn’t stop the strong tide of demand on the language to extend the syntactic sugar
+so that expressing “classes” looks more like real classes. Enter the ES6 class keyword
+and its associated mechanism.
+This feature is the result of a highly contentious and drawn out debate, and represents
+a smaller subset compromise from several strongly-opposed views on how to
+approach JS classes. Most developers who want full classes in JS will find parts of the
+new syntax quite inviting, but will find important bits still missing. Don’t worry,
+though. TC39 is already working on additional features to augment classes in the
+post-ES6 timeframe.
+At the heart of the new ES6 class mechanism is the class keyword, which identifies a
+block where the contents define the members of a function’s prototype. Consider:
+class Foo {
+constructor(a,b) {
+this.x = a;
+this.y = b;
+}
+gimmeXY() {
+return this.x * this.y;
+}
+}
+Some things to note:
+Classes
+|
+115
+www.it-ebooks.info

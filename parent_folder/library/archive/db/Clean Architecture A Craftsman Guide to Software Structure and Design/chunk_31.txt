@@ -1,0 +1,19 @@
+Figure 1.5 Monthly development payroll by release
+Release 1 was delivered with a monthly payroll of a few hundred thousand
+dollars. The second release cost a few hundred thousand more. By the eighth
+release monthly payroll was $20 million, and climbing.
+Just this chart alone is scary. Clearly something startling is happening. One
+hopes that revenues are outpacing costs and therefore justifying the expense. But
+no matter how you look at this curve, it’s cause for concern.
+But now compare the curve in Figure 1.5 with the lines of code written per
+release in Figure 1.2. That initial few hundred thousand dollars per month
+bought a lot of functionality—but the final $20 million bought almost nothing!
+Any CFO would look at these two graphs and know that immediate action is
+necessary to stave off disaster.
+But which action can be taken? What has gone wrong? What has caused this
+incredible decline in productivity? What can executives do, other than to stamp
+their feet and rage at the developers?
+WHAT WENT WRONG?
+Nearly 2600 years ago, Aesop told the story of the Tortoise and the Hare. The
+moral of that story has been stated many times in many different ways:
+• “Slow and steady wins the race.”

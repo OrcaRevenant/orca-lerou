@@ -1,0 +1,14 @@
+Docker overlay networking - The commands
+docker network create is the command that we use to create a new
+container network. The -d flag lets you specify the driver to use, and the
+most common driver is the overlay driver. However, you can also specify
+so-called remote drivers from 3rd parties. The control plane is encrypted by
+default. To encrypt the data plane just add the -o encrypted flag.
+docker network ls lists all of the container networks visible to a Docker
+host. Docker hosts running in swarm mode only see overlay networks if
+they are hosting containers running on that particular network. This helps
+reduce the amount network-related gossiping between nodes.
+docker network inspect shows you detailed information about a
+particular container network. This includes scope, driver, IPv6, subnet
+configuration, VXLAN network ID, and encryption state.
+docker network rm deletes a network

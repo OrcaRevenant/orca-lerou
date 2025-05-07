@@ -1,0 +1,25 @@
+Step 4 - Wrap up
+After you finish the deep dive, your interviewer might ask you some follow up questions.
+Interviewer: How do you extend your design to support multiple languages?
+To support other non-English queries, we store Unicode characters in trie nodes. If you are
+not familiar with Unicode, here is the definition: “an encoding standard covers all the
+characters for all the writing systems of the world, modern and ancient” [5].
+Interviewer: What if top search queries in one country are different from others?
+In this case, we might build different tries for different countries. To improve the response
+time, we can store tries in CDNs.
+Interviewer: How can we support the trending (real-time) search queries?
+Assuming a news event breaks out, a search query suddenly becomes popular. Our original
+design will not work because:
+• Offline workers are not scheduled to update the trie yet because this is scheduled to run
+on weekly basis.
+• Even if it is scheduled, it takes too long to build the trie.
+Building a real-time search autocomplete is complicated and is beyond the scope of this book
+so we will only give a few ideas:
+• Reduce the working data set by sharding.
+• Change the ranking model and assign more weight to recent search queries.
+• Data may come as streams, so we do not have access to all the data at once. Streaming
+data means data is generated continuously. Stream processing requires a different set of
+systems: Apache Hadoop MapReduce [6], Apache Spark Streaming [7], Apache Storm
+[8], Apache Kafka [9], etc. Because all those topics require specific domain knowledge,
+we are not going into detail here.
+Congratulations on getting this far! Now give yourself a pat on the back. Good job!

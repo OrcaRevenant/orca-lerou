@@ -1,0 +1,36 @@
+3. Click through the wizard until you get to the Features page.
+4. Make sure that the Containers feature is checked and complete the wizard.
+This may require a system restart.
+Now that the Windows Containers feature is installed you can install Docker.
+We’ll use PowerShell to do this.
+1. Open a new PowerShell Administrator terminal.
+2. Use the following command to install the Docker-Microsoft package
+management provider.
+> Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
+Accept the NuGet provider install if prompted.
+3. Install Docker.
+> Install-Package -Name docker -ProviderName DockerMsftProvider
+Select A to confirm package installation and suppress any further prompts.
+Once the installation is complete you will get a summary as shown below.
+Name      Version       Source           Summary
+----      -------       ------           -------
+Docker    17.03.1-ee    DockerDefault    Contains Docker EE...
+4. Restart your system
+Docker is now installed and you can start deploying containers. The following
+two commands are good ways to verify that the installation succeeded.
+> docker version
+Client:
+Version:      17.03.1-ee-3
+API version:  1.27
+Go version:   go1.7.5
+Git commit:   3fcee33
+Built:        Thu Mar 30 19:31:22 2017
+OS/Arch:      windows/amd64
+Server:
+Version:      17.03.1-ee-3
+API version:  1.27 (minimum version 1.24)
+Go version:   go1.7.5
+Git commit:   3fcee33
+Built:        Thu Mar 30 19:31:22 2017
+OS/Arch:      windows/amd64
+Experimental: false

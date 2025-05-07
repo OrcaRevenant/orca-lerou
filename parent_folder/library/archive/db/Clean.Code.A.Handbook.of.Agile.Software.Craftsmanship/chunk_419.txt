@@ -1,0 +1,66 @@
+391
+Appendix B: org.jfree.date.SerialDate
+63      */
+64     private int dayOfWeek;
+65
+66     /** Specifies which day of the week (PRECEDING, NEAREST or FOLLOWING). */
+67     private int relative;
+68
+69     /**
+70      * Default constructor - builds a rule for the Monday following 1 January.
+71      */
+72     public RelativeDayOfWeekRule() {
+73         this(new DayAndMonthRule(), SerialDate.MONDAY, SerialDate.FOLLOWING);
+74     }
+75
+76     /**
+77      * Standard constructor - builds rule based on the supplied sub-rule.
+78      *
+79      * @param subrule  the rule that determines the reference date.
+80      * @param dayOfWeek  the day-of-the-week relative to the reference date.
+81      * @param relative  indicates *which* day-of-the-week (preceding, nearest
+82      *                  or following).
+83      */
+84     public RelativeDayOfWeekRule(final AnnualDateRule subrule,
+85             final int dayOfWeek, final int relative) {
+86         this.subrule = subrule;
+87         this.dayOfWeek = dayOfWeek;
+88         this.relative = relative;
+89     }
+90
+91     /**
+92      * Returns the sub-rule (also called the reference rule).
+93      *
+94      * @return The annual date rule that determines the reference date for this
+95      *         rule.
+96      */
+97     public AnnualDateRule getSubrule() {
+98         return this.subrule;
+99     }
+100
+101     /**
+102      * Sets the sub-rule.
+103      *
+104      * @param subrule  the annual date rule that determines the reference date
+105      *                 for this rule.
+106      */
+107     public void setSubrule(final AnnualDateRule subrule) {
+108         this.subrule = subrule;
+109     }
+110
+111     /**
+112      * Returns the day-of-the-week for this rule.
+113      *
+114      * @return the day-of-the-week for this rule.
+115      */
+116     public int getDayOfWeek() {
+117         return this.dayOfWeek;
+118     }
+119
+120     /**
+121      * Sets the day-of-the-week for this rule.
+122      *
+123      * @param dayOfWeek  the day-of-the-week (SerialDate.MONDAY,
+124      *                   SerialDate.TUESDAY, and so on).
+Listing B-6 (continued)
+RelativeDayOfWeekRule.java

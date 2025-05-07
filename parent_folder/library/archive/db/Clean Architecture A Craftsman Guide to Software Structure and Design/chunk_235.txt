@@ -1,0 +1,10 @@
+28
+THE TEST BOUNDARY
+Yes, that’s right: The tests are part of the system, and they participate in the
+architecture just like every other part of the system does. In some ways, that
+participation is pretty normal. In other ways, it can be pretty unique.
+TESTS AS SYSTEM COMPONENTS
+There is a great deal of confusion about tests. Are they part of the system? Are
+they separate from the system? Which kinds of tests are there? Are unit tests and
+integration tests different things? What about acceptance tests, functional tests,
+Cucumber tests, TDD tests, BDD tests, component tests, and so on?

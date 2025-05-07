@@ -1,0 +1,27 @@
+The upload flow is updated as follows:
+1. The client makes a HTTP request to API servers to fetch the pre-signed URL, which
+gives the access permission to the object identified in the URL. The term pre-signed URL
+is used by uploading files to Amazon S3. Other cloud service providers might use a
+different name. For instance, Microsoft Azure blob storage supports the same feature, but
+call it “Shared Access Signature” [10].
+2. API servers respond with a pre-signed URL.
+3. Once the client receives the response, it uploads the video using the pre-signed URL.
+Safety optimization: protect your videos
+Many content makers are reluctant to post videos online because they fear their original
+videos will be stolen. To protect copyrighted videos, we can adopt one of the following three
+safety options:
+• Digital rights management (DRM) systems: Three major DRM systems are Apple
+FairPlay, Google Widevine, and Microsoft PlayReady.
+• AES encryption: You can encrypt a video and configure an authorization policy. The
+encrypted video will be decrypted upon playback. This ensures that only authorized users
+can watch an encrypted video.
+• Visual watermarking: This is an image overlay on top of your video that contains
+identifying information for your video. It can be your company logo or company name.
+Cost-saving optimization
+CDN is a crucial component of our system. It ensures fast video delivery on a global scale.
+However, from the back of the envelope calculation, we know CDN is expensive, especially
+when the data size is large. How can we reduce the cost?
+Previous research shows that YouTube video streams follow long-tail distribution [11] [12].
+It means a few popular videos are accessed frequently but many others have few or no
+viewers. Based on this observation, we implement a few optimizations:
+1. Only serve the most popular videos from CDN and other videos from our high capacity

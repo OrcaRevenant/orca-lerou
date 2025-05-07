@@ -1,0 +1,21 @@
+are the directed edges.
+Figure 14.1 Typical component diagram
+Notice one more thing: Regardless of which component you begin at, it is
+impossible to follow the dependency relationships and wind up back at that
+component. This structure has no cycles. It is a directed acyclic graph (DAG).
+Now consider what happens when the team responsible for Presenters makes a
+new release of their component. It is easy to find out who is affected by this
+release; you just follow the dependency arrows backward. Thus View and Main
+will both be affected. The developers currently working on those components
+will have to decide when they should integrate their work with the new release
+of Presenters.
+Notice also that when Main is released, it has utterly no effect on any of the other
+components in the system. They don’t know about Main, and they don’t care
+when it changes. This is nice. It means that the impact of releasing Main is
+relatively small.
+When the developers working on the Presenters component would like to run a
+test of that component, they just need to build their version of Presenters with
+the versions of the Interactors and Entities components that they are
+currently using. None of the other components in the system need be involved.
+This is nice. It means that the developers working on Presenters have relatively
+little work to do to set up a test, and that they have relatively few variables to

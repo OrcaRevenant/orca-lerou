@@ -1,0 +1,47 @@
+Chapter 16 | Moderate
+16.14 Best Line: Given a two-dimensional graph with points on it, find a line which passes the most
+number of points.
+Hints: #49], #520, #529, #563
+16.15 Master Mind: The Game of Master Mind is played as follows:
+The computer has four slots, and each slot will contain a ball that is red (ft), yellow (V), green (G) or
+blue (B). For example, the computer might have RGGB (Slot #1 is red, Slots #2 and #3 are green. Slot
+#4 is blue).
+You, the user, are trying to guess the solution. You might, for example, guess YRGB.
+When you guess the correct color for the correct slot, you get a "hit." If you guess a color that exists
+but is in the wrong slot, you get a "pseudo-hit." Mote that a slot that is a hit can never count as a
+pseudo-hit.
+For example, if the actual solution is RGBY and you guess GGRR, you have one hit and one pseudo-hit.
+Write a method that, given a guess and a solution, returns the number of hits and pseudo-hits.
+Hints: #639, #730
+16.16 Sub Sort: Given an array of integers, write a method to find indices m and n such that if you sorted
+elements m through n, the entire array would be sorted. Minimize n - m (that is, find the smallest
+such sequence).
+EXAMPLE
+Input: lj 2, 4j 7, 10, 11, 1, 12, 6,
+7, 16,
+18,
+19
+Output: ( 3 ,
+9)
+Hints: #482, #553, #667, #708, #735, #746
+16.17 Contiguous Sequence: You are given an array of integers (both positive and negative). Find the
+contiguous sequence with the largest sum. Return the sum.
+EXAMPLE
+Input:2,
+- 8 ,
+3,
+-2, 4,
+-10
+Output: 5 ( i . e . ,
+{ 3 ,
+-2,
+4 } )
+Hints: #53#551, #567, #594, #614
+16.18 Pattern Matching: You are given two strings, p a t t e r n and value.The p a t t e r n string consists of
+just the letters a and b, describing a pattern within a string. For example, the string c a t c a t g o c a t g o
+matches the pattern aabab (where cat is a and go is b). It also matches patterns like a, ab, and b.
+Write a method to determine if v a l u e matches p a t t e r n .
+Hints: #63 1, #643, #653, #663, #685, #718, #727
+pg 4i"J
+CrackingTheCodinglnterview.com j 6th Edition
+1 8 3

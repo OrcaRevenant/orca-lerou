@@ -1,0 +1,25 @@
+VLJ Big 0
+• Drop the Non-Dominant Terms
+What do you do about ari expression such as 0(N3 + N)?That second N isn't exactly a constant. But it's
+not especially important.
+We already said that we drop constants.Therefore, 0(NJ + N2) would be 0 (N?)- If we don't care about that
+latter NJ term, why would we care about N? We don't.
+You should drop the non-dominant terms,
+•
+0(N2 + N) becomesO(Nz).
+•
+0(N + l o g N) becomesO(M).
+•
+0(5*2 N + ie00N100) becomes 0(2 S).
+We might still have a sum in a runtime. For example, the expression 0(B ? + A) cannot be reduced (without
+some special knowledge of A and B).
+The following graph depicts the rate of increase for some of the common big 0 times.
+As you can see, Otx 2) is much worse than 0 ( x ) , but it's not nearly as bad as 0(2") o r 0 ( x ! } . There are lots
+of runtimes worse thanO(x !) too, suchas0(x*) or 0(2* * x ! ) .
+• Multi-Part Algorithms: Add vs. Multiply
+Suppose you have an algorithm that has two steps. When do you multiply the runtimes and when do you
+add them?
+This is a common source of confusion for candidates.
+O(log x)
+26
+Cracking the Coding Interview, 6th Edition

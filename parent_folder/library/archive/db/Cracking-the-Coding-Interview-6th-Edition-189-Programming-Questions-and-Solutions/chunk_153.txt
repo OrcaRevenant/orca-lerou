@@ -1,0 +1,41 @@
+Chapter 9 [ System Design and Scalability
+• There is no "perfect" system.
+There is no single design for TinyURL or Google Maps or any other system that works perfectly {although
+there are a great number that would work terribly). There are always tradeoffs. Two people could have
+substantially different designs for a system, with both being excellent given different assumptions.
+Your goal in these problems is to be able to understand use cases, scope a problem, make reasonable
+assumptions, create a solid design based on those assumptions, and be open about the weaknesses of your
+design. Do not expect something perfect.
+> Example Problem
+Given a list of mil lions of documents, how would you find all documents that contain a list of words? The words
+can appear in any order, but they must be complete words. That is, "book" does not match "bookkeeper"
+Before we start solving the problem, we need to understand whether this is a one time only operation, or if
+thisf indWords procedure will be called repeatedly. Let's assume that we will be calling findWords many
+times for the same set of documents, and, therefore, we can accept the burden of pre-processing.
+Step 1
+The first step is to pretend we just have a few dozen documents. How would we implement f indWords in
+this case? (Tip: stop here and try to solve this yourself before reading on.)
+One way to do this is to pre-process each document and create a hash table index. This hash table would
+map from a word to a list of the documents that contain that word.
+"books" -> {doc2j doc3, doc6j doc8>
+"many"
+-> {docl, doc3j doc7, doc8, doc9)
+To search for "many books,"we would simply do an intersection on the values for"books"and "many" and
+return { d o c 3 , doc8} as the result.
+Step 2
+Now go back to the original problem. What problems are introduced with millions of documents? For
+starters, we probably need to divide up the documents across many machines. Also, depending on a variety
+of factors, such as the number of possible words and the repetition of words in a document, we may not be
+able to fit the full hash table on one machine. Let's assume that this is the case.
+This division introduces the following key concerns:
+1. How will we divide up our hash table? We could divide it up by keyword, such that a given machine
+contains the full document list for a given word. Or, we could divide by document, such that a machine
+contains the keyword mapping for only a subset of the documents.
+2. Once we decide how to divide up the data, we may need to process a document on one machine and
+push the results off to other machines. What does this process look like? (Note: if we divide the hash
+table by document, this step may not be necessary.)
+3. We will need a way of knowing which machine holds a piece of data. What does this lookup table look
+like, and where is it stored?
+These are just three concerns. There may be many others.
+CrackingTheCodinglnterview.com | 6th Edition
+143

@@ -1,0 +1,24 @@
+XI, Advanced Topics
+Case 2: U is black.
+We'll need to considerthe configurations (left vs. right child) of N and U. In each case, our goal is to fix up
+the red violation (red on top of red) without:
+»
+Messing up the ordering of the binary search tree.
+»
+Introducing a black violation (more black nodes on one path than another).
+If we can do this, we're good. In each of the cases below, the red violation is fixed with rotations that
+maintain the node ordering.
+Further, the below rotations maintain the exact number of black nodes in each path through the affected
+portion of the tree that were in place beforehand. The children of the rotating section are either NULL
+leaves or subtrees that remain internally unchanged.
+Case A: N and P are both left children.
+We resolve the red violation with the rotation of N, P, and G and the associated recoloring shown below.
+If you picture thein-order traversal, youcan see the rotation maintains the nodeordering (a <= N < =
+b <= P <= c <= G <= U). The tree maintains the same, equal number of black nodes in the path
+down to each subtree a, b, c, and U (which may all be NULL).
+Cose B:Pis a left child, and N is a right child.
+The rotations in Case B resolve the red violation and maintain thein-order property: a <= P <= b < =
+N <= c <= G <= U. Again, the count of the blacknodes remains constant in each path down to the
+leaves (or subtrees).
+CrackingTheCodinginterview.com | 6th Edition
+639

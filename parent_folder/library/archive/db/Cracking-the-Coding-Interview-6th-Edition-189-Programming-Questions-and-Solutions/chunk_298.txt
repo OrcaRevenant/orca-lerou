@@ -1,0 +1,33 @@
+Solutions to Chapter 5 | Bit Manipulation
+25
+byte mask = (byte) (startjnask & endjnask);
+26
+screen[(width / 8) * y + ( x l / 8)] |= mask;
+27
+} else {
+28
+if ( s t a r t _ o f f s e t !« 6) {
+29
+i n t byte_number « (width / 8) * y + f i r s t _ f u l l _ b y t e - 1;
+30
+screen[byte^number]
+|= start_mask;
+31
+}
+32
+if (end^offset != 7) {
+33
+i n t byte_number = (width / 8) * y + l a s t _ f u l l _ b y t e + 1;
+34
+screen [byte_nuniber]
+|= endjnask;
+35
+}
+36
+>
+37 >
+Be careful on this problem; there are a lot of "gotchas"and special cases. For example, you need to consider
+the case where xl and x2 are in the same byte. Only the most careful candidates can implement this code
+bug-free.
+288
+Cracking the Coding Interview, 6th Edition

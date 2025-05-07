@@ -1,0 +1,70 @@
+Solutions to Chapter 9 | System Design and Scalability
+Database Writes are Very Frequent
+Even with this change, we'll still be hitting the database very frequently. With the amount of purchases that
+could come in every second, we'll probably want to batch up the database writes.
+Instead of immediately committing each purchase to the database, we could store purchases in some sort
+of in-memory cache (as well as to a log file as a backup). Periodically, we'll process the log / cache data,
+gather the totals, and update the database,
+I
+We should quickly think about whether or not it's feasible to hold this in memory, if there are 10
+million products in the system, can we store each (along with a count) in a hash table? Yes. If each
+product ID is four bytes {which is big enough to hold up to 4 billion unique IDs) and each count
+is four bytes (more than enough), then such a hash table woufd only take about 40 megabytes.
+Even with some additional overhead and substantial system growth, we would stilt be able to fit
+this all in memory.
+After updating the database, we can re-run the sales rank data.
+We need to be a bit careful here, though. If we process one product's logs before another's, and re-run the
+stats in between, we could create a bias in the data (since we're including a larger timespan for one product
+than its "competing" product).
+We can resolve this by either ensuring that the sales rank doesn't run until all the stored data is processed
+{difficult to do when more and more purchases are coming in), or by dividing up the in-memory cache by
+some time period. If we update the database for alt the stored data up to a particular moment in time, this
+ensures that the database will not have biases.
+Joins are Expensive
+We have potentially tens of thousands of product categories. For each category, we'll need to first pull the
+data for its items (possibly through an expensive join) and then sort those.
+Alternatively, we could just do one join of products and categories, such that each product will be listed
+once per category. Then, if we sorted that on category and then product ID, we could just walk the results
+to get the sales rank for each category.
+Prod ID Category
+Total
+Sun
+Mon
+Tues
+Wed
+Thürs
+Fri
+Sat
+1423
+sportseq
+13
+4
+1
+4
+19
+322
+32
+232
+1423
+safety
+13
+4
+1
+4
+19
+322
+32
+232
+Rather than running thousands of queries (one for each category), we could sort the data on the category
+first and then the sales volume. Then, if we walked those results, we would get the sales rank for each
+category. We would also need to do one sort of the entire table on just sales number, to get the overall rank.
+We could also just keep the data in a table like this from the beginning, rather than doing joins. This would
+require us to update multiple rows for each product.
+Database Queries Might Still Be Expensive
+Alternatively, if the queries and writes get very expensive, we could consider forgoing a database entirely
+and just using log files. This would allow us to take advantage of something like MapReduce.
+Under this system, we would write a purchase to a simple text file with the product ID and time stamp. Each
+category has its own directory, and each purchase gets written to all the categories associated with that
+product.
+CrackingTheCodinginterview.com | 6th Edition
+Î75

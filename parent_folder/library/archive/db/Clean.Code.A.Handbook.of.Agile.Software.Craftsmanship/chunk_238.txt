@@ -1,0 +1,46 @@
+208
+Chapter 14: Successive Reﬁnement
+Although you can ﬁnd plenty to complain about in this code, it’s really not that bad.
+It’s compact and simple and easy to understand. However, within this code it is easy to see
+the seeds of the later festering pile. It’s quite clear how this grew into the latter mess.
+Notice that the latter mess has only two more argument types than this: String and
+integer. The addition of just two more argument types had a massively negative impact on
+the code. It converted it from something that would have been reasonably maintainable
+into something that I would expect to become riddled with bugs and warts.
+I added the two argument types incrementally. First, I added the String argument,
+which yielded this:
+else
+return "";
+}
+public String errorMessage() {
+if (unexpectedArguments.size() > 0) {
+return unexpectedArgumentMessage();
+} else
+return "";
+}
+private String unexpectedArgumentMessage() {
+StringBuffer message = new StringBuffer("Argument(s) -");
+for (char c : unexpectedArguments) {
+message.append(c);
+}
+message.append(" unexpected.");
+return message.toString();
+}
+public boolean getBoolean(char arg) {
+return booleanArgs.get(arg);
+}
+}
+Listing 14-10
+Args.java (Boolean and String)
+package com.objectmentor.utilities.getopts;
+import java.text.ParseException;
+import java.util.*;
+public class Args {
+private String schema;
+private String[] args;
+private boolean valid = true;
+private Set<Character> unexpectedArguments = new TreeSet<Character>();
+private Map<Character, Boolean> booleanArgs =
+new HashMap<Character, Boolean>();
+Listing 14-9 (continued)
+Args.java (Boolean only)

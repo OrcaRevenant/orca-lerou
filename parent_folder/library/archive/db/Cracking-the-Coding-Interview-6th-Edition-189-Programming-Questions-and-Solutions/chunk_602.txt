@@ -1,0 +1,73 @@
+Solutions to Chapter 17 j Hard
+•
+Reversible? Let's think about this. If we compare what our product is to what it would have been
+without a number removed, can we find the missing number? Sure. We just divide f u l l _ p r o d u c t by
+a c t u a l _ p r o d u c t . T h i s will tell us which number was missing from a c t u a l _ p r o d u c t .
+There's just one issue: this product is really, really, really big. If n is 20, the product will be somewhere around
+2,000,000,000,000,000,000,
+We can still approach it this way, but we'll need to use the B i g l n t e g e r class.
+1
+i n t missingOne(int[]
+array) {
+2
+Biglnteger f u i l P r o d u c t = productToN(array.length + 1);
+3
+4
+Biglnteger actualProduct = new B i g l n t e g e r ( " l " ) ;
+5
+f o r ( i n t i = 0; i < a r r a y . l e n g t h ; i++) {
+6
+Biglnteger value = new B i g l n t e g e r ( a r r a y [ i ] + " " ) ;
+7
+actualProduct = a c t u a l P r o d u c t . m u l t i p l y ( v a l u e ) ;
+8
+}
+9
+10
+Biglnteger missingNutnber = f u i l P r o d u c t . d i v i d e ( a c t u a l P r o d u c t ) ;
+11
+r e t u r n
+Integer.parseInt(missingNumber.toString());
+12 >
+13
+14 Biglnteger productToN(int n) {
+15
+Biglnteger f u i l P r o d u c t = new B i g l n t e g e r ( " l " ) ;
+16
+f o r ( i n t i = 2; i <= n; i++) {
+17
+f u i l P r o d u c t = f u i l P r o d u c t . m u l t i p l y ( n e w B i g l n t e g e r ( i + ' " ' ) ) ;
+18
+)
+19
+return f u i l P r o d u c t ;
+20 )
+There's no need for all of this, though. We can use the sum instead.lt too will be unique.
+Doing the sum has another benefit: there is already a closed form expression to compute the sum of
+numbers between 1 and n.Thisis
+a
+.
+I
+Most candidates probably won't remember the expression for the sum of numbers between 1
+and n, and that's okay. Your interviewer might, however, ask you to derive it. Here's how to think
+about that: youcan pair up thelowand high valuesin the sequence of 0 + 1 + 2 + 3 + . . .
++ n t o g e t : ( 0 , n) + ( 1 , n - 1 ) + ( 2 , n - 3 ) , and so on, Each of those pairs has a sum of n
+and there are J!i3_ pairs. But what if n is even, such that
+is not an integer? In this case, pair
+n{n+l)
+up low and high values to get /i pairs with sum n+1. Either way, the math works out to — \ — .
+Switching to a sum will delay the overflow issue substantially, but it won't wholly prevent it. You should
+discuss the issue with your interviewer to see how he/she would like you to handle it. Just mentioning it is
+plenty sufficient for many interviewers.
+Part 2: Find Two Missing Numbers
+This is substantially more difficult. Let's start with what our earlier approaches will tell us when we have two
+missing numbers.
+•
+Sum: Using this approach will give us the sum of the two values that are missing,
+•
+Product: Using this approach will give us the product of the two values that are missing.
+Unfortunately, knowing the sum isn't enough, if, for example, the sum is 10, that could correspond to (1, 9),
+(2,8), and a handful of other pairs. The same could be said for the product.
+55
+S
+Cracking the Coding interview, 6th Edition

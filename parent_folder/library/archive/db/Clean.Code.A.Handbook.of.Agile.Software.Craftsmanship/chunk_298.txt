@@ -1,0 +1,42 @@
+268
+Chapter 16: Refactoring SerialDate
+This is not an activity of malice. Nor do I think that I am so much better than David
+that I somehow have a right to pass judgment on his code. Indeed, if you were to ﬁnd some
+of my code, I’m sure you could ﬁnd plenty of things to complain about.
+No, this is not an activity of nastiness or arrogance. What I am about to do is nothing
+more and nothing less than a professional review. It is something that we should all be
+comfortable doing. And it is something we should welcome when it is done for us. It is
+only through critiques like these that we will learn. Doctors do it. Pilots do it. Lawyers do
+it. And we programmers need to learn how to do it too.
+One more thing about David Gilbert: David is more than just a good programmer.
+David had the courage and good will to offer his code to the community at large for free.
+He placed it out in the open for all to see and invited public usage and public scrutiny. This
+was well done!
+SerialDate (Listing B-1, page 349) is a class that represents a date in Java. Why have
+a class that represents a date, when Java already has
+java.util.Date
+and
+java.util.Calendar, and others? The author wrote this class in response to a pain that I
+have often felt myself. The comment in his opening Javadoc (line 67) explains it well. We
+could quibble about his intention, but I have certainly had to deal with this issue, and I
+welcome a class that is about dates instead of times.
+First, Make It Work
+There are some unit tests in a class named SerialDateTests (Listing B-2, page 366). The
+tests all pass. Unfortunately a quick inspection of the tests shows that they don’t test every-
+thing [T1]. For example, doing a “Find Usages” search on the method MonthCodeToQuarter
+(line 334) indicates that it is not used [F4]. Therefore, the unit tests don’t test it.
+So I ﬁred up Clover to see what the unit tests covered and what they didn’t. Clover
+reported that the unit tests executed only 91 of the 185 executable statements in SerialDate
+(~50 percent) [T2]. The coverage map looks like a patchwork quilt, with big gobs of unex-
+ecuted code littered all through the class.
+It was my goal to completely understand and also refactor this class. I couldn’t do that
+without much greater test coverage. So I wrote my own suite of completely independent
+unit tests (Listing B-4, page 374).
+As you look through these tests, you will note that many of them are commented out.
+These tests didn’t pass. They represent behavior that I think SerialDate should have. So as
+I refactor SerialDate, I’ll be working to make these tests pass too.
+Even with some of the tests commented out, Clover reports that the new unit tests are
+executing 170 (92 percent) out of the 185 executable statements. This is pretty good, and I
+think we’ll be able to get this number higher.
+The ﬁrst few commented-out tests (lines 23-63) were a bit of conceit on my part. The
+program was not designed to pass these tests, but the behavior seemed obvious [G2] to me.

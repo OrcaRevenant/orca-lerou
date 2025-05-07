@@ -1,0 +1,30 @@
+DEVELOPMENT
+A software system that is hard to develop is not likely to have a long and healthy
+lifetime. So the architecture of a system should make that system easy to
+develop, for the team(s) who develop it.
+Different team structures imply different architectural decisions. On the one
+hand, a small team of five developers can quite effectively work together to
+develop a monolithic system without well-defined components or interfaces. In
+fact, such a team would likely find the strictures of an architecture something of
+an impediment during the early days of development. This is likely the reason
+why so many systems lack good architecture: They were begun with none,
+because the team was small and did not want the impediment of a superstructure.
+On the other hand, a system being developed by five different teams, each of
+which includes seven developers, cannot make progress unless the system is
+divided into well-defined components with reliably stable interfaces. If no other
+factors are considered, the architecture of that system will likely evolve into five
+components—one for each team.
+Such a component-per-team architecture is not likely to be the best architecture
+for deployment, operation, and maintenance of the system. Nevertheless, it is the
+architecture that a group of teams will gravitate toward if they are driven solely
+by development schedule.
+DEPLOYMENT
+To be effective, a software system must be deployable. The higher the cost of
+deployment, the less useful the system is. A goal of a software architecture, then,
+should be to make a system that can be easily deployed with a single action.
+Unfortunately, deployment strategy is seldom considered during initial
+development. This leads to architectures that may make the system easy to
+develop, but leave it very difficult to deploy.
+For example, in the early development of a system, the developers may decide to
+use a “micro-service architecture.” They may find that this approach makes the
+system very easy to develop since the component boundaries are very firm and

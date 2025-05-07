@@ -1,0 +1,9 @@
+6
+FUNCTIONAL PROGRAMMING
+In many ways, the concepts of functional programming predate programming
+itself. This paradigm is strongly based on the l-calculus invented by Alonzo
+Church in the 1930s.
+SQUARES OF INTEGERS
+To explain what functional programming is, it’s best to examine some examples.
+Let’s investigate a simple problem: printing the squares of the first 25 integers.
+In a language like Java, we might write the following:

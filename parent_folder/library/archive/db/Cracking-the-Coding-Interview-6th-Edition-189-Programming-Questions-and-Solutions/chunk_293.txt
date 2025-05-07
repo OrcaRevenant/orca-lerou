@@ -1,0 +1,139 @@
+Solutions to Chapter 5 j Bit Manipulation
+27
+return n;
+28
+>
+Bit Manipulation Approach for Get Previous Number
+To implement getPrev, we follow a very similar approach.
+1. Compute c0 and c l . Note that cl is the number of trailing ones, and c0 is the size of the block of zeros
+immediately to the left of the trailing ones.
+2. Flip the rightmost non-traiiing one to a zero. This will be at position p = cl + c0.
+3. Clear all bits to the right of bit p.
+4. Insertcl + 1 ones immediately to the right of position p.
+Note that Step 2 sets bit p to a zero and Step 3 sets bits 0 through p - 1 to a zero. Wec3n merge these steps,
+Let's walk through this with an example.
+Step 1: Initial Number, p = 7. cl = 2. C0 = 5.
+1
+0
+0
+1
+1
+1
+1
+0
+0
+0
+0
+0
+1
+1
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+Steps 2 & 3: Clear bits 0 through p.
+1
+0
+0
+1
+1
+1
+0
+0
+0
+0
+0
+0
+0
+0
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+We can do this as follows:
+i n t a = ~0j
+II Sequence of Is
+i n t b = a << (p + 1);
+// Sequence of is followed by p + 1 2eros.
+n &= b;
+II Clears b i t s 0 through p.
+Steps 4: Insert cl
++
+1 ones immediately to the right of position p.
+1
+0
+0
+1
+1
+1
+0
+1
+1
+1
+0
+0
+0
+0
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+Note that since p = cl + c 0 , t h e ( c l + 1) ones will be followed by (c0 - 1) zeros.
+We can do this as follows:
+i n t a = 1 << ( c l + 1);
+// 0s with 1 at position ( c l + l)
+i n t b = a - 1;
+II 0s followed by cl + 1 ones
+i n t c = b << (C0 - 1);
+// cl+1 ones followed by c 0 - l zeros,
+n J= c;
+The code to implement this is below.
+1
+i n t getPrev(int n) {
+2
+i n t temp = n;
+3
+i n t c0 = 0;
+4
+i n t c l = 0;
+5
+while (temp & l == 1) {
+6
+cl++;
+7
+temp >>= 1;
+8
+>
+9
+CrackingTheCodinginterview.com | 6th Edition
+279

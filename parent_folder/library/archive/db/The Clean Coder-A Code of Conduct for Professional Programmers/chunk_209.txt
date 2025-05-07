@@ -1,0 +1,33 @@
+CHAPTER 14 MENTORING, APPRENTICESHIP, AND CRAFTSMANSHIP
+178
+I remember at one point sitting in the math lab watching one of the teachers
+struggle to get a program working. He was trying to type two numbers in
+decimal on the attached teletype, and then print out the sum. Anyone who has
+tried to write a program like this in machine language on a mini-computer
+knows that it is far from trivial. You have to read in the characters, convert them
+to digits, then to binary, add them, convert back to decimal and encode back
+into characters. And, believe me, it’s a lot worse when you are entering the
+program in binary through the front panel!
+I watched as he put a halt into his program and then ran it until it stopped.
+(Oh! That’s a good idea!) This primitive breakpoint allowed him to examine the
+contents of the registers to see what his program had done. I remember him
+muttering, “Wow, that was fast!” Boy, do I have news for him!
+I had no idea what his algorithm was. That kind of programming was still magic
+to me. And he never spoke to me while I watched over his shoulder. Indeed,
+nobody talked to me about this computer. I think they considered me a nuisance
+to be ignored, fluttering around the math lab like a moth. Suffice it to say that
+neither the student nor the teachers had developed a high degree of social skill.
+In the end he got his program working. It was amazing to watch. He’d slowly
+type in the two numbers because, despite his earlier protestation, that computer
+was not fast (think of reading consecutive words from a spinning drum in
+1967). When he hit return after the second number, the computer blinked
+ferociously for a bit and then started to print the result. It took about one
+second per digit. It printed all but the last digit, blinked even more ferociously
+for five seconds, and then printed the final digit and halted.
+Why that pause before the last digit? I never found out. But it made me realize that
+the approach to a problem can have a profound effect on the user. Even though the
+program produced the correct answer, there was still something wrong with it.
+This was mentoring. Certainly it was not the kind of mentoring I could have
+hoped for. It would have been nice if one of those teachers had taken me under
+his wing and worked with me. But it didn’t matter, because I was observing
+them and learning at a furious pace.

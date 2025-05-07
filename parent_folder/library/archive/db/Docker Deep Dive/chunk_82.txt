@@ -1,0 +1,25 @@
+Docker containers - The TLDR
+A container is the runtime instance of an image. In the same way that we can
+start a virtual machine (VM) from a virtual machine template, we start one or
+more containers from a single image. The big difference between a VM and a
+container is that containers are faster and more lightweight - instead of running a
+full-blown OS like a VM, containers share the OS/kernel with the host they’re
+running on.
+Figure 7.1 shows a single Docker image being used to start multiple Docker
+containers.
+Figure 7.1
+The simplest way to start a container is with the docker container run
+command. The command can take a lot of arguments, but in its most basic form
+you tell it an image to use and a command to run: docker container run
+<image> <command>. This next command will start an Ubuntu Linux container
+running the Bash shell: docker container run -it ubuntu /bin/bash. To
+start a Windows container running PowerShell you could do docker container
+run -it microsoft/powershell:nanoserver PowerShell.exe.
+The -it flags used in the commands above will connect your current terminal
+window to the container’s shell.
+Containers run until the program they are executing exits. In the two examples
+above, the Linux container will exit when the Bash shell exits, and the Windows
+container will exit when the PowerShell process terminates.
+A really simple way to demonstrate this is to start a new container and tell it to
+run the sleep command for 10 seconds. The container will start, run for 10
+seconds and exit. If you run the following command from a Linux host (or

@@ -1,0 +1,21 @@
+The preprocessor has 4 responsibilities:
+1. Video splitting. Video stream is split or further split into smaller Group of Pictures (GOP)
+alignment. GOP is a group/chunk of frames arranged in a specific order. Each chunk is an
+independently playable unit, usually a few seconds in length.
+2. Some old mobile devices or browsers might not support video splitting. Preprocessor split
+videos by GOP alignment for old clients.
+3. DAG generation. The processor generates DAG based on configuration files client
+programmers write. Figure 14-12 is a simplified DAG representation which has 2 nodes and
+1 edge:
+This DAG representation is generated from the two configuration files below (Figure 14-13):
+4. Cache data. The preprocessor is a cache for segmented videos. For better reliability, the
+preprocessor stores GOPs and metadata in temporary storage. If video encoding fails, the
+system could use persisted data for retry operations.
+DAG scheduler
+
+The DAG scheduler splits a DAG graph into stages of tasks and puts them in the task queue
+in the resource manager. Figure 14-15 shows an example of how the DAG scheduler works.
+As shown in Figure 14-15, the original video is split into three stages: Stage 1: video, audio,
+and metadata. The video file is further split into two tasks in stage 2: video encoding and
+thumbnail. The audio file requires audio encoding as part of the stage 2 tasks.
+Resource manager

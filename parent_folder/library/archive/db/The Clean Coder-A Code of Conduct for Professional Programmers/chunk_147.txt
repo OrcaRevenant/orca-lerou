@@ -1,0 +1,30 @@
+THE TEST AUTOMATION PYRAMID
+115
+back to development and business. In this role QA is not interpreting the
+requirements. Rather, they are identifying the actual behaviors of the system.
+TH E TE ST AUTO MATI O N P YR AM I D
+Professional developers employ the discipline of Test Driven Development
+to create unit tests. Professional development teams use acceptance tests to
+specify their system, and continuous integration (Chapter 7, page 110) to
+prevent regression. But these tests are only part of the story. As good as it is to
+have a suite of unit and acceptance tests, we also need higher-level tests to
+ensure that QA finds nothing. Figure 8-1 shows the Test Automation Pyramid,2
+a graphical depiction of the kinds of tests that a professional development
+organization needs.
+2. [COHN09] pp. 311–312
+Figure 8-1 The test automation pyramid
+100%
+XUnit
+50%
+20%
+10%
+gui
+api
+api
+5%
+M
+Exploratory
+System tests
+Integration tests
+Component tests
+Unit tests

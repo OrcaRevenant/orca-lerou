@@ -1,0 +1,49 @@
+Chapter 9 [ System Design and Scalability
+*
+Vertical Partitioning: This is basically partitioning by feature. For example, if you were building a social
+network, you might have one partition for tables relating to profiles, another one for messages, and so
+on. One drawback of this is that if one of these tables gets very large, you might need to repartition that
+database (possibly using a different partitioning scheme).
+*
+Key-Based (or Hash-Based) Partitioning: This uses some part of the data (for example an ID) to parti-
+tion it, Avery simple way to do this is to allocate N servers and put the data on mod ( k e y , n). One issue
+with this is that the number of servers you have is effectively fixed. Adding additional servers means
+reallocating all the data—a very expensive task.
+*
+Directory-Based Partitioning: In this scheme, you maintain a lookup table for where the data can be
+found. This makes it relatively easy to add additional servers, but it comes with two major drawbacks.
+First, the lookup table can be a single point of failure. Second, constantly accessing this table impacts
+performance.
+Many architectures actually end up using multiple partitioning schemes.
+Caching
+An in-memory cache can deliver very rapid results. It is a simple key-value pairing and typically sits between
+your application layer and your data store.
+When an application requests a piece ofinformation, it first tries the cache. If the cache does not contain the
+key, it will then look up the data in the data store. (At this point, the data might—or might not—be stored
+in the data store.)
+When you cache, you might cache a query and its results directly. Or, alternatively, you can cache the specific
+object (for example, a rendered version of a part of the website, or a list of the most recent blog posts).
+Asynchronous Processing & Queues
+Slow operations should ideally be done asynchronously. Otherwise, a user might get stuck waiting and
+waiting for a process to complete.
+In some cases, we can do this in advance (i.e., we can pre-process). For example, we might have a queue of
+jobs to be done that update some part of the website. If we were running a forum, one of these jobs might
+be to re-render a page that lists the most popular posts and the number of comments. That list might end
+up being slightly out of date, but that's perhaps okay. It's better than a user stuck waiting on the website
+to load simply because someone added a new comment and invalidated the cached version of this page.
+In other cases, we might tell the user to wait and notify them when the process is done. You've probably
+seen this on websites before. Perhaps you enabled some new part of a website and it says it needs a few
+minutes to import your data, but you'll get a notification when it's done.
+Networking Metrics
+Some of the most important metrics around networking include:
+*
+Bandwidth: This is the maximum amount of data that can be transferred in a unit of time. It is typically
+expressed in bits per second (or some similar ways, such as gigabytes per second),
+*
+Throughput: Whereas bandwidth is the maximum data that can be transferred in a unit of time,
+throughput is the actual amount of data that is transferred.
+*
+Latency:This is how long it takes data to go from one end to the other. That is, it is the delay between the
+sender sending information (even a very small chunk of data) and the receiver receiving it,
+CrackingTheCodinglnterview.com | 6th Edition
+141

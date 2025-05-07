@@ -1,0 +1,103 @@
+Solutions to Chapter 16 | Moderate
+The code below implements this algorithm.
+1
+public enum Operator {
+2
+ADD, SUBTRACT, MULTIPLY, DIVIDE, BLANK
+3
+}
+4
+5
+double compute(String sequence) {
+6
+Stack<Double> numberStack = new Stack<Double>()j
+7
+5tack<0perator> operatorStack = new Stack<Operator>();
+3
+9
+for (int i a 0; i < sequence.length(); i++) {
+10
+try {
+11
+/* Get number and push, */
+12
+int value = parseNextNumber(sequence, i ) ;
+13
+numberStack,push((double) value);
+14
+15
+/* Move to the operator, */
+16
+i += Integer.toString(value).length();
+17
+if (i >= sequence.length()) {
+18
+break;
+19
+>
+20
+21
+/* Get operator, collapse top as needed, push operator. */
+22
+Operator op = parseNextOperator(sequence, i);
+23
+collapseTop(op, numberStack, operatorStack);
+24
+operatorStack.push(op);
+25
+} catch (NumberFormatException ex) {
+26
+return Integer.MIN_VALUE;
+27
+}
+28
+}
+29
+30
+/* Do final collapse. */
+31
+collapseTop(Operator.BLANK, numberStack, operatorStack);
+32
+if (numberStack.size() == 1 8& operatorStack.size() == 0) {
+33
+return numberStack.pop();
+34
+)
+35
+return 0;
+36 }
+37
+38 /* Collapse top until priority(futureTop) > priority(top). Collapsing means to pop
+39
+* the top 2 numbers and apply the operator popped from the top of the operator
+46
+* stack, and then push that onto the numbers stack.*/
+41 void collapseTop(Operator futureTop, Stack<Double> numberStack,
+42
+Stack<Operator> operatorStack) {
+43
+while (operatorStack,size() >= 1 && numberStack,size() >= 2) {
+44
+if (priorityOfOperator(futureTop) <=
+45
+priorityOfOperator(operatorStack.peek())) {
+46
+double second = numberStack.pop();
+47
+double f i r s t = numberStack.pop();
+48
+Operator op = operatorStack.pop();
+49
+double collapsed = applyOp(first, op, second);
+50
+numberStack.push(collapsed);
+51
+} else {
+52
+break;
+53
+}
+54
+}
+492
+Cracking the Coding Interview, 6th Edition

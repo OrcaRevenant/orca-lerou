@@ -1,0 +1,20 @@
+xxiii
+AC KNOWLE DG M E NTS
+My career has been a series of collaborations and schemes. Though I’ve had
+many private dreams and aspirations, I always seemed to find someone to share
+them with. In that sense I feel a bit like the Sith, “Always two there are.”
+The first collaboration that I could consider professional was with John
+Marchese at the age of 13. He and I schemed about building computers
+together. I was the brains and he was the brawn. I showed him where to solder a
+wire and he soldered it. I showed him where to mount a relay and he mounted
+it. It was a load of fun, and we spent hundreds of hours at it. In fact, we built
+quite a few very impressive-looking objects with relays, buttons, lights, even
+Teletypes! Of course, none of them actually did anything, but they were very
+impressive and we worked very hard on them. To John: Thank you!
+In my freshman year of high school I met Tim Conrad in my German class.
+Tim was smart. When we teamed up to build a computer, he was the brains and
+I was the brawn. He taught me electronics and gave me my first introduction to
+a PDP-8. He and I actually built a working electronic 18-bit binary calculator
+out of basic components. It could add, subtract, multiply, and divide. It took us
+a year of weekends and all of spring, summer, and Christmas breaks. We worked
+furiously on it. In the end, it worked very nicely. To Tim: Thank you!

@@ -1,0 +1,15 @@
+storage, so the dependencies have to be properly directed following the
+Dependency Rule, as shown in Figure 25.2.
+Figure 25.2 Following the Dependency Rule
+CLEAN ARCHITECTURE?
+It should be clear that we could easily apply the clean architecture approach in
+this context,1 with all the use cases, boundaries, entities, and corresponding data
+structures. But have we really found all the significant architectural boundaries?
+For example, language is not the only axis of change for the UI. We also might
+want to vary the mechanism by which we communicate the text. For example,
+we might want to use a normal shell window, or text messages, or a chat
+application. There are many different possibilities.
+That means that there is a potential architectural boundary defined by this axis of
+change. Perhaps we should construct an API that crosses that boundary and
+isolates the language from the communications mechanism; that idea is
+illustrated in Figure 25.3.

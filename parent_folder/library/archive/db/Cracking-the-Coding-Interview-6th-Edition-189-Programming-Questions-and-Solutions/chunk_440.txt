@@ -1,0 +1,63 @@
+Solutions to Chapter 15 | Threads and Locks
+44
+45
+46
+47
+48
+delete r e f ;
+free(ref_count);
+ref = NULL;
+ref^count = NULL;
+}
+49
+>
+50
+51
+T * r e f ;
+52
+unsigned * ref_count;
+53
+>;
+The code for this problem is complicated, and you probabiy wouldn't be expected to complete it flawlessly.
+12.10 Malloc: Write an aligned malloc and free function that supports allocating memory such that the
+memory address returned is divisible by a specific power of two.
+EXAMPLE
+a l i g n _ m a l l o c (1000,128) will return a memory address that is a multiple of 128 and that points
+to memory of size 1000 bytes.
+a l i g n e d _ f r e e f ) will free memory allocated by s l i g n malloc.
+Typically, with malloc, we do not have control over where the memory is allocated within the heap. We
+just get a pointer to a block of memory which could start at any memory address within the heap.
+We need to work with these constraints by requesting enough memory that we can return a memory
+address which is divisible by the desired value.
+Suppose we are requesting a 100-byte chunk of memory, and we want it to start at a memory address
+that is a multiple of 16. How much extra memory would we need to allocate to ensure that we can do so?
+We would need to allocate an extra 15 bytes. With these 15 bytes, plus another 100 bytes right after that
+sequence, we know that we would have a memory address divisible by 16 with space for 100 bytes.
+We could then do something like:
+1
+void* alignedjnalloc(size_t required_bytes, size_t alignment) {
+2
+i n t o f f s e t = alignment - 1;
+3
+void* p = (void*) malloc(required_bytes + o f f s e t ) ;
+4
+void* q = (void*) ( ( ( s i z e _ t ) ( p ) + o f f s e t ) & "(alignment - 1 ) ) ;
+5
+return q;
+Line 4 is a bit tricky, so let's discuss it. Suppose a l i g n m e n t is 16. We know that one of the first 16 memory
+address in theblockat p must be divisible by 16. With (p + 15) & 11
+10000 we advance as need to
+thisaddress.ANDingthelastfourbitsofp + 15 with0000guarantees thatthisnewvaluewillbedivisible
+by 16 {either at the original p or in one of the following 15 addresses).
+This solution is almost perfect, except for one big issue: how do we free the memory?
+We've allocated an extra 15 bytes, in the above example, and we need to free them when we free the "real"
+memory.
+We can do this by storing, in this "extra" memory, the address of where the full memory block begins. We
+will store this immediately before the aligned memory block. Of course, this means that we now need to
+allocate even more extra memory to ensure that we have enough space to store this pointer.
+420
+Cracking the Coding interview, 6th Edition
+pg 164
+SOLUTION
+6
+>

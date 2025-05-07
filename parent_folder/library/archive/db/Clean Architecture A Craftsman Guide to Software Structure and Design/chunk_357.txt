@@ -1,0 +1,35 @@
+Duplication
+accidental, 63–65
+true vs. accidental, 154–155
+Dynamic polymorphism, 177–178, 206
+Dynamically linked libraries, as architectural boundaries, 178–179
+Dynamically typed languages
+DIP and, 88
+ISP and, 85
+E
+Editing, Laser Trim archaeology project, 336
+Educational Testing Service (ETS), 370–372
+Eisenhower, matrix of importance vs. urgency, 16–17
+Embedded architecture. See Clean embedded architecture
+Encapsulation
+in defining OOP, 35–37
+organization vs., 316–319
+overuse of public and, 316
+Entities
+business rules and, 190–191
+clean architecture scenario, 207–208
+creating testable architecture, 198
+Dependency Rule for, 204
+risks of frameworks, 293
+use cases vs., 191–193
+Enumeration, Dijkstra’s proof for sequence/selection, 28
+EPROM (Erasable Programmable Read-Only Memory) chips, 4-TEL
+archaeology project, 341–343
+ER (Electronic Receptionist)
+archaeology project, 359–361
+Craft Dispatch System was, 362–364
+ETS (Educational Testing Service), 370–372
+Europe, redesigning SAC for US and, 347–348
+Event sourcing, storing transactions, 54–55
+Executables
+deployment of monoliths, 176–178

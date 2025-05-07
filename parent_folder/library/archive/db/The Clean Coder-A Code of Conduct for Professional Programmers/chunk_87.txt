@@ -1,0 +1,33 @@
+LEARNING HOW TO SAY “YES”
+55
+This is where the professional draws the line. First of all, Peter is just wrong
+about his suppositions. He won’t get done faster if he doesn’t write his tests. He
+won’t get done faster if he doesn’t refactor. He won’t get done faster if he omits
+the full regression suite. Years of experience have taught us that breaking
+disciplines only slows us down.
+But secondly, as a professional he has a responsibility to maintain certain
+standards. His code needs to be tested, and needs to have tests. His code
+needs to be clean. And he has to be sure he hasn’t broken anything else in
+the system.
+Peter, as a professional, has already made a commitment to maintain these
+standards. All other commitments he makes should be subordinate to that. So
+this whole line of reasoning needs to aborted.
+Peter:
+“No, Marge, there’s really no way I can be certain about any date
+before Tuesday. I’m sorry if that messes up your schedule, but it’s
+just the reality we’re faced with.”
+Marge:  “Damn. I was really counting on bringing this one in sooner.
+You’re sure?”
+Peter:
+“I’m sure that it might be as late as Tuesday, yes.”
+Marge: “OK, I guess I’ll go talk to Willy to see if he can rearrange his schedule.”
+In this case Marge accepted Peter’s answer and started hunting for other
+options. But what if all Marge’s options have been exhausted? What if Peter
+were the last hope?
+Marge:  “Peter, look, I know this is a huge imposition, but I really need you
+to find a way to get this all done by Monday morning. It’s really
+critical. Isn’t there something you can do?”
+So now Peter starts to think about working some significant overtime, and
+probably most of the weekend. He needs to be very honest with himself about
+his stamina and reserves. It’s easy to say you’ll get a lot done on the weekends,
+it’s a lot harder to actually muster enough energy to do high-quality work.

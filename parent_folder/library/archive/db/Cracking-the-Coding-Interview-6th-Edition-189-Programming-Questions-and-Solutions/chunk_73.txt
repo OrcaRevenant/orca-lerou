@@ -1,0 +1,41 @@
+VII j Technical Questions
+We'll go through this flowchart in more detail.
+What to Expect
+Interviews are supposed to be difficult. If you don't get every—or any—answer immediately, that's okay!
+That's the normal experience, and it's not bad.
+Listen for guidance from the interviewer.The interviewer might take a more active or less active roie in your
+problem solving. The level of interviewer participation depends on your performance, the difficulty of the
+question, what the interviewer is looking for, and the interviewer's own personality.
+When you're given a problem (or when you're practicing), work your way through it using the approach
+below.
+1. Listen Carefully
+You've likely heard this advice before, but I'm saying something a bit more than the standard "make sure
+you hear the problem correctly"advice.
+Yes, you do want to listen to the problem and make sure you heard it correctly. You do want to ask questions
+about anything you're unsure about.
+But I'm saying something more than that.
+Listen carefully to the problem, and be sure that you've mentally recorded any unique information in the
+problem.
+For example, suppose a question starts with one of the following lines. It's reasonable to assume that the
+information is there for a reason.
+•
+"Given two arrays that are sorted, find..."
+You probably need to know that the data is sorted. The optimal algorithm for the sorted situation is
+probably different than the optimal algorithm for the unsorted situation.
+•
+"Design an algorithm to be run repeatedly on a server that..."
+The server/to-be-run-repeatedly situation is different from the run-once situation. Perhaps this means
+that you cache data? Or perhaps it justifies some reasonable precomputation on the initial dataset?
+It's unlikely (although not impossible) that your interviewer would give you this information if it didn't affect
+the algorithm.
+Many candidates will hear the problem correctly. But ten minutes into developing an algorithm, some of
+the key details of the problem have been forgotten. Now they are in a situation where they actually can't
+solve the problem optimally.
+Your first algorithm doesn't need to use the information. But if you find yourself stuck, or you're still working
+to develop something more optimal, ask yourself if you've used all the information in the problem.
+You might even find it useful to write the pertinent information on the whiteboard.
+2, Draw an Example
+An example can dramatically improve your ability to solve an interview question, and yet so many candi-
+dates just try to solve the question in their heads.
+CrackingTheCgdinglnterview.com ] 6th Edition
+81

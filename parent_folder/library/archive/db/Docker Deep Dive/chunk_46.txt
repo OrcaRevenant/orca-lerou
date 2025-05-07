@@ -1,0 +1,35 @@
+The Dev Perspective
+Containers are all about the apps!
+In this section we’ll clone an app from a Git repo, inspect its Dockerfile,
+containerize it, and run it as a container.
+The Linux app can be located from: https://github.com/nigelpoulton/psweb.git
+The Windows app can be located from: https://github.com/nigelpoulton/dotnet-
+docker-samples.git
+The rest of this section will walk you through the Linux example. However, both
+examples are containerizing simple web apps so the process is the same. Where
+there are differences in the Windows example we will highlight them to help you
+follow along.
+Run all of the following commands from a terminal on your Docker host.
+Clone the repo locally. This will pull the application code to your local Docker
+host ready for you to containerize it.
+Be sure to substitute the repo below with the Windows repo if you are following
+along with the Windows example.
+$ git clone https://github.com/nigelpoulton/psweb.git
+Cloning into 'psweb'...
+remote: Counting objects: 15, done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 15 (delta 2), reused 15 (delta 2), pack-reused 0
+Unpacking objects: 100% (15/15), done.
+Checking connectivity... done.
+Change directory into the cloned repo’s directory and list the contents of the
+directory.
+$ cd psweb
+$ ls -l
+total 28
+-rw-rw-r-- 1 ubuntu ubuntu  341 Sep 29 12:15 app.js
+-rw-rw-r-- 1 ubuntu ubuntu  216 Sep 29 12:15 circle.yml
+-rw-rw-r-- 1 ubuntu ubuntu  338 Sep 29 12:15 Dockerfile
+-rw-rw-r-- 1 ubuntu ubuntu  421 Sep 29 12:15 package.json
+-rw-rw-r-- 1 ubuntu ubuntu  370 Sep 29 12:15 README.md
+drwxrwxr-x 2 ubuntu ubuntu 4096 Sep 29 12:15 test
+drwxrwxr-x 2 ubuntu ubuntu 4096 Sep 29 12:15 views

@@ -1,0 +1,32 @@
+188
+APPENDIX A TOOLING
+Logically, the tapes were subdivided into files. You could have as many files on a
+tape as would fit. To find a file you loaded the tape and then skipped forward
+one file at a time until you found the one you wanted. We kept a listing of the
+source code directory on the wall so that we would know how many files to skip
+before we got to the one we wanted.
+There was a master 100' copy of the source code tape on a shelf in the lab. It was
+labeled Master. When we wanted to edit a file we loaded the Master source
+tape into one drive and a 10' blank into another. We’d skip through the Master
+until we got to the file we needed. Then we’d copy that file onto the scratch tape.
+Then we’d “rewind” both tapes and put the Master back on the shelf.
+There was a special directory listing of the Master on a bulletin board in the lab.
+Once we had made the copies of the files we needed to edit, we’d put a colored
+pin on the board next to the name of that file. That’s how we checked files out!
+We edited the tapes on a screen. Our text editor, ED-402, was actually very
+good. It was very similar to vi. We would read a “page” from tape, edit the
+contents, and then write that page out and read the next one. A page was
+typically 50 lines of code. You could not look ahead on the tape to see the pages
+that were coming, and you could not look back on the tape to see the pages you
+had edited. So we used listings.
+Indeed, we would mark up our listings with all the changes we wanted to make,
+and then we’d edit the files according to our markups. Nobody wrote or
+modified code at the terminal! That was suicide.
+Once the changes were made to all the files we needed to edit, we’d merge those
+files with the master to create a working tape. This is the tape we’d use to run
+our compiles and tests.
+Once we were done testing and were sure our changes worked, we’d look at the
+board. If there were no new pins on the board we’d simply relabel our working
+tape as Master and pull our pins off the board. If there were new pins on the
+board we’d remove our pins and hand our working tape to the person whose
+pins were still on the board. They’d have to do the merge.

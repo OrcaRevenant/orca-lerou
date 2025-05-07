@@ -1,0 +1,18 @@
+Block servers allow us to save network traffic by providing delta sync and compression.
+High consistency requirement
+Our system requires strong consistency by default. It is unacceptable for a file to be shown
+differently by different clients at the same time. The system needs to provide strong
+consistency for metadata cache and database layers.
+Memory caches adopt an eventual consistency model by default, which means different
+replicas might have different data. To achieve strong consistency, we must ensure the
+following:
+• Data in cache replicas and the master is consistent.
+• Invalidate caches on database write to ensure cache and database hold the same value.
+Achieving strong consistency in a relational database is easy because it maintains the ACID
+(Atomicity, Consistency, Isolation, Durability) properties [9]. However, NoSQL databases do
+not support ACID properties by default. ACID properties must be programmatically
+incorporated in synchronization logic. In our design, we choose relational databases because
+the ACID is natively supported.
+Metadata database
+Figure 15-13 shows the database schema design. Please note this is a highly simplified
+version as it only includes the most important tables and interesting fields.

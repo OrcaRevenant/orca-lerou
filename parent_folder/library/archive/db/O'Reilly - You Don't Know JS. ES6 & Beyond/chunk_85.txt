@@ -1,0 +1,38 @@
+Interfaces
+At the time of this writing, ES6 section 25.1.1.2 (https://people.mozilla.org/~joren
+dorff/es6-draft.html#sec-iterator-interface) details the Iterator interface as having the
+following requirement:
+Iterator [required]
+next() {method}: retrieves next IteratorResult
+There are two optional members which some iterators are extended with:
+Iterator [optional]
+return() {method}: stops iterator and returns IteratorResult
+throw() {method}: signals error and returns IteratorResult
+The IteratorResult interface is specified as:
+IteratorResult
+value {property}: current iteration value or final return value
+(optional if `undefined`)
+done {property}: boolean, indicates completion status
+I call these interfaces implicit not because they’re not explicitly
+called out in the specification — they are! — but because they’re not
+exposed as direct objects accessible to code. JavaScript does not, in
+ES6, support any notion of “interfaces”, so adherence for your own
+code is purely conventional. However, wherever JS expects an itera‐
+tor — a for..of loop, for instance — what you provide must
+adhere to these interfaces or the code will fail.
+There’s also an Iterable interface, which describes objects that must be able to pro‐
+duce iterators:
+Iterable
+@@iterator() {method}: produces an Iterator
+If you recall from “Built-in Symbols” in Chapter 2, @@iterator is the special built-in
+symbol representing the method that can produce iterator(s) for the object.
+IteratorResult
+The IteratorResult interface specifies that the return value from any iterator opera‐
+tion will be an object of the form:
+{ value: .. , done: true / false }
+Built-in iterators will always return values of this form, but it is of course allowed that
+more properties be present on the return value, as necessary.
+74
+|
+Chapter 3: Organization
+www.it-ebooks.info

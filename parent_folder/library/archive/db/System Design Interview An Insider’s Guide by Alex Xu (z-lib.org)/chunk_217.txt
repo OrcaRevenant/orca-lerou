@@ -1,0 +1,10 @@
+14-26. Let us use an example to explain how message queues make the system more loosely
+coupled.
+• Before the message queue is introduced, the encoding module must wait for the output of
+the download module.
+• After the message queue is introduced, the encoding module does not need to wait for the
+output of the download module anymore. If there are events in the message queue, the
+encoding module can execute those jobs in parallel.
+Safety optimization: pre-signed upload URL
+Safety is one of the most important aspects of any product. To ensure only authorized users
+upload videos to the right location, we introduce pre-signed URLs as shown in Figure 14-27.

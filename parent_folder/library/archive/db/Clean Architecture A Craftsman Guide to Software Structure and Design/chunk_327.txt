@@ -1,0 +1,28 @@
+So, we hired a third party to maintain UNIFY for us, based on a maintenance
+contract. And, of course, the maintenance rates went up year after year after
+year.
+VRS CONCLUSION
+This is one of the ways that I learned that databases are details that should be
+isolated from the overall business purpose of the system. This is also one of the
+reasons that I don’t like strongly coupling to third-party software systems.
+THE ELECTRONIC RECEPTIONIST
+In 1983, our company sat at the confluence of computer systems,
+telecommunications systems, and voice systems. Our CEO thought this might be
+a fertile position from which to develop new products. To address this goal, he
+commissioned a team of three (which included me) to conceive, design, and
+implement a new product for the company.
+It didn’t take us long to come up with The Electronic Receptionist (ER).
+The idea was simple. When you called a company, ER would answer and ask
+you who you wanted to speak with. You would use touch tones to spell the name
+of that person, and ER would then connect you. The users of ER could dial in
+and, by using simple touch-tone commands, tell it which phone number the
+desired person could be reached at, anywhere in the world. In fact, the system
+could list several alternate numbers.
+When you called ER and dialed RMART (my code), ER would call the first
+number on my list. If I failed to answer and identify myself, it would call the
+next number, and the next. If I still wasn’t reached, ER would record a message
+from the caller.
+ER would then, periodically, try to find me to deliver that message, and any
+other message left for me by anyone else.
+This was the first voice mail system ever, and we11 held the patent to it.
+We built all the hardware for this system—the computer board, the memory

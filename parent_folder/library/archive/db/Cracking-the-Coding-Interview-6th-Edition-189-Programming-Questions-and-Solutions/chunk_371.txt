@@ -1,0 +1,70 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+Because we insert left and right parentheses at each index in the string, and we never repeat an index, each
+string is guaranteed to be unique.
+8.10
+Paint Fill: Implement the "paint fiil"function that one might see on many image editing programs.
+That is, given a screen (represented by a two-dimensional array of colors), a point, and a new color,
+fill in the surrounding area until the color changes from the original color.
+pg 136
+SOLUTION
+First, let's visualize how this method works. When we call p a i n t F i l l (i.e., "click" paint fill in the image
+editing application) on, say, a green pixel, we want to "bleed" outwards. Pixel by pixel, we expand outwards
+by calling p a i n t F i l l on the surrounding pixel. When we hit a pixel that is not green, we stop.
+We can implement this algorithm recursively:
+1
+enum Color { Black, White, Red, Yellow, Green }
+2
+3
+boolean P a i n t F i l l ( C o l o r [ ] [ ] screen,
+i n t r, i n t c, Color ncolor) {
+4
+if ( s c r e e n [ r ] [ c ] == ncolor) return f a l s e ;
+5
+return P a i n t F i l l ( s c r e e n , r, c,
+s c r e e n [ r ] [ c ] , n c o l o r ) ;
+6
+}
+7
+8
+boolean P a i n t F i l l ( C o l o r [ ] [ ] screen,
+i n t r, i n t c, Color ocolor. Color ncolor) {
+9
+if (r < 0 |I r >= screen.length 11 c < 0 11 c >= screen[0].length) {
+10
+return f a l s e ;
+11
+>
+12
+13
+if ( s c r e e n [ r ] [ c ] == ocolor) I
+14
+s c r e e n [ r ] [ c ] = ncolor;
+15
+P a i n t F i l l ( s c r e e n , r - 1, c, ocolor. n c o l o r ) ; II
+up
+16
+P a i n t F i l l ( s c r e e n , r + 1, C, ocolor. n c o l o r ) ; II
+down
+17
+P a i n t F i l l ( s c r e e n , r, c - 1, ocolor, n c o l o r ) ; II
+l e f t
+18
+P a i n t F i l l ( s c r e e n , r, c +
+ocolor. n c o l o r ) ; II
+r i g h t
+19
+>
+20
+return t r u e ;
+21
+}
+If you used the variable names x and y to implement this, be careful about the ordering of the variables in
+s c r e e n [ y ] [ x ] . Because x represents the horizontal axis (that is, it's left to right), it actually corresponds
+to the column number, not the row number. The value of y equals the number of rows. This is a very easy
+place to make a mistake in an interview, as well as in your daily coding. It's typically clearer to use row and
+column instead, as we've done here.
+Does this algorithm seem familiar? It should! This is essentially depth-first search on a graph. At each pixel,
+we are searching outwards to each surrounding pixel. We stop once we've fully traversed all the surrounding
+pixels of this color.
+We could alternatively implement this using breadth-first search.
+CrackingTheCodinglnterview.com [ 6th Edition 3 S1

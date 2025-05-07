@@ -1,0 +1,9 @@
+Huge thanks to my wife and kids for putting up with a geek in the house who
+genuinely thinks he’s a bunch of software running inside of a container on top of
+midrange biological hardware. It can’t be easy living with me!
+Massive thanks as well to everyone who watches my Pluralsight videos. I love
+connecting with you and really appreciate all the feedback I’ve gotten over the
+years. This was one of the major reasons I decided to write this book! I hope it’ll
+be an amazing tool to help you drive your careers even further forward.
+One final word to all you 'old dogs' out there... get ready to learn some new
+tricks!

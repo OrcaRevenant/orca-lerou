@@ -1,0 +1,15 @@
+image would now have three layers as shown in Figure 6.5 (remember this is an
+over-simplified example for demonstration purposes).
+Figure 6.5
+It’s important to understand that as additional layers are added, the image
+becomes the combination of all layers. Take a simple example of two layers as
+shown in Figure 6.6. Each layer has 3 files, but the overall image has 6 files as it
+is the combination of both layers.
+Figure 6.6
+We’ve shown the image layers in Figure 6.6 in a slightly different way to
+previous figures. This is just to make showing files easier.
+In the slightly more complex example of the three-layered image in Figure 6.7,
+the overall image only presents 6 files in the unified view. This is because file 7
+in the top layer is an updated version of file 5 directly below (inline). In this
+situation, the file in the higher layer obscures the file directly below it. This
+allows updated versions of files to be added as new layers to the image.

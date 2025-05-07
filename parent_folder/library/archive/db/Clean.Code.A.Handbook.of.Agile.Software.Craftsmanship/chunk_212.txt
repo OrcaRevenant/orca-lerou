@@ -1,0 +1,34 @@
+182
+Chapter 13: Concurrency
+If there is an easy way to avoid sharing objects, the resulting code will be far less likely
+to cause problems. You might be concerned about the cost of all the extra object creation. It is
+worth experimenting to ﬁnd out if this is in fact a problem. However, if using copies of
+objects allows the code to avoid synchronizing, the savings in avoiding the intrinsic lock will
+likely make up for the additional creation and garbage collection overhead.
+Corollary: Threads Should Be as Independent as Possible
+Consider writing your threaded code such that each thread exists in its own world, sharing
+no data with any other thread. Each thread processes one client request, with all of its
+required data coming from an unshared source and stored as local variables. This makes
+each of those threads behave as if it were the only thread in the world and there were no
+synchronization requirements.
+For example, classes that subclass from HttpServlet receive all of their information
+as parameters passed in to the doGet and doPost methods. This makes each Servlet act
+as if it has its own machine. So long as the code in the Servlet uses only local variables,
+there is no chance that the Servlet will cause synchronization problems. Of course,
+most applications using Servlets eventually run into shared resources such as database
+connections.
+Recommendation: Attempt to partition data into independent subsets than can be
+operated on by independent threads, possibly in different processors.
+Know Your Library
+Java 5 offers many improvements for concurrent development over previous versions. There
+are several things to consider when writing threaded code in Java 5:
+• Use the provided thread-safe collections.
+• Use the executor framework for executing unrelated tasks.
+• Use nonblocking solutions when possible.
+• Several library classes are not thread safe.
+Thread-Safe Collections
+When Java was young, Doug Lea wrote the seminal book8 Concurrent Programming in
+Java. Along with the book he developed several thread-safe collections, which later
+became part of the JDK in the java.util.concurrent package. The collections in that pack-
+age are safe for multithreaded situations and they perform well. In fact, the
+8. [Lea99].

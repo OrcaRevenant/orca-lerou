@@ -1,0 +1,44 @@
+341
+Testing Multithreaded Code
+This test certainly sets up the conditions for a concurrent update problem. However,
+the problem occurs so infrequently that the vast majority of times this test won’t detect it.
+Indeed, to truly detect the problem we need to set the number of iterations to over one
+million. Even then, in ten executions with a loop count of 1,000,000, the problem occurred
+only once. That means we probably ought to set the iteration count to well over one hun-
+dred million to get reliable failures. How long are we prepared to wait?
+Even if we tuned the test to get reliable failures on one machine, we’ll probably have
+to retune the test with different values to demonstrate the failure on another machine,
+operating system, or version of the JVM.
+And this is a simple problem. If we cannot demonstrate broken code easily with this
+problem, how will we ever detect truly complex problems?
+So what approaches can we take to demonstrate this simple failure? And, more impor-
+tantly, how can we write tests that will demonstrate failures in more complex code? How
+will we be able to discover if our code has failures when we do not know where to look?
+Here are a few ideas:
+• Monte Carlo Testing. Make tests ﬂexible, so they can be tuned. Then run the test over
+and over—say on a test server—randomly changing the tuning values. If the tests ever
+fail, the code is broken. Make sure to start writing those tests early so a continuous
+integration server starts running them soon. By the way, make sure you carefully log
+the conditions under which the test failed.
+• Run the test on every one of the target deployment platforms. Repeatedly. Continu-
+ously. The longer the tests run without failure, the more likely that
+– The production code is correct or
+– The tests aren’t adequate to expose problems.
+• Run the tests on a machine with varying loads. If you can simulate loads close to a
+production environment, do so.
+24–25
+Make our two threads eligible to run.
+26–27
+Wait for both threads to ﬁnish before we check the results.
+29
+Record the actual ﬁnal value.
+31–32
+Did our endingId differ from what we expected? If so, return end the test—
+we’ve proven that the code is broken. If not, try again.
+35
+If we got to here, our test was unable to prove the production code was bro-
+ken in a “reasonable” amount of time; our code has failed. Either the code
+is not broken or we didn’t run enough iterations to get the failure condition
+to occur.
+Line
+Description

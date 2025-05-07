@@ -1,0 +1,39 @@
+307
+Java
+have to ﬁnd every instance of a.getB().getC() and convert it to a.getB().getQ().getC().
+This is how architectures become rigid. Too many modules know too much about the
+architecture.
+Rather we want our immediate collaborators to offer all the services we need. We
+should not have to roam through the object graph of the system, hunting for the method we
+want to call. Rather we should simply be able to say:
+myCollaborator.doSomething().
+Java
+J1: Avoid Long Import Lists by Using Wildcards
+If you use two or more classes from a package, then import the whole package with
+import package.*;
+Long lists of imports are daunting to the reader. We don’t want to clutter up the tops of our
+modules with 80 lines of imports. Rather we want the imports to be a concise statement
+about which packages we collaborate with.
+Speciﬁc imports are hard dependencies, whereas wildcard imports are not. If you spe-
+ciﬁcally import a class, then that class must exist. But if you import a package with a wild-
+card, no particular classes need to exist. The import statement simply adds the package to
+the search path when hunting for names. So no true dependency is created by such
+imports, and they therefore serve to keep our modules less coupled.
+There are times when the long list of speciﬁc imports can be useful. For example, if
+you are dealing with legacy code and you want to ﬁnd out what classes you need to build
+mocks and stubs for, you can walk down the list of speciﬁc imports to ﬁnd out the true
+qualiﬁed names of all those classes and then put the appropriate stubs in place. However,
+this use for speciﬁc imports is very rare. Furthermore, most modern IDEs will allow you
+to convert the wildcarded imports to a list of speciﬁc imports with a single command. So
+even in the legacy case it’s better to import wildcards.
+Wildcard imports can sometimes cause name conﬂicts and ambiguities. Two classes
+with the same name, but in different packages, will need to be speciﬁcally imported, or at
+least speciﬁcally qualiﬁed when used. This can be a nuisance but is rare enough that using
+wildcard imports is still generally better than speciﬁc imports.
+J2: Don’t Inherit Constants
+I have seen this several times and it always makes me grimace. A programmer puts some
+constants in an interface and then gains access to those constants by inheriting that inter-
+face. Take a look at the following code:
+public class HourlyEmployee extends Employee {
+private int tenthsWorked;
+private double hourlyRate;

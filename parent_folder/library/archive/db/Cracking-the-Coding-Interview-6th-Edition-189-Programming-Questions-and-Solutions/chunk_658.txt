@@ -1,0 +1,96 @@
+XI. Code Library
+10
+11
+public void insertInOrder(int d) {
+12
+if (d <= data) {
+13
+if (left == null) {
+14
+setl_eftchild(new TreeNode(d));
+15
+> else {
+16
+left.insertlnOrder(d);
+17
+>
+IB
+) else {
+19
+if (right == null) {
+20
+setRightChild(new TreeNode(d));
+21
+) else {
+22
+right.insertInOrder(d);
+23
+}
+24
+)
+25
+size++;
+26
+>
+27
+28
+public int size() {
+29
+return size;
+30
+}
+31
+32
+public TreeNode find(int d) {
+33
+if (d == data) {
+34
+return this;
+35
+> else if (d <= data) {
+36
+return left != null ? left.find(d) : null;
+37
+) else if (d > data) {
+38
+return right != null ? right.find(d) : null;
+39
+>
+40
+return null;
+41
+>
+42
+43
+public void setleftChild(ireeNode left) {
+44
+this.left = left;
+45
+if (left != null) {
+46
+left.parent = this;
+47
+>
+48
+>
+49
+50
+public void setRightChild(TreeNode right) {
+51
+this.right = right;
+52
+if (right != null) {
+53
+right.parent = this;
+54
+>
+55
+}
+56
+57 >
+This tree is implemented to be a binary search tree. However, you can use it for other purposes. You would
+just need to use the set L e f t C h i l d / s e t R i g h t C h i l d methods, or the l e f t and r i g h t child variables.
+For this reason, we have kept these methods and variables p u b l i c . We need this sort of access for many
+problems.
+648
+Cracking the Coding Interview, 6th Edition

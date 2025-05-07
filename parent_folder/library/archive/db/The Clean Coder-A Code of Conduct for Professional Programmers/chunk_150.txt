@@ -1,0 +1,31 @@
+CHAPTER 8 TESTING STRATEGIES
+118
+Integration tests are typically written by the system architects, or lead designers,
+of the system. The tests ensure that the architectural structure of the system is
+sound. It is at this level that we might see performance and throughput tests.
+Integration tests are typically written in the same language and environment
+as component tests. They are typically not executed as part of the Continuous
+Integration suite, because they often have longer runtimes. Instead, these tests
+are run periodically (nightly, weekly, etc.) as deemed necessary by their
+authors.
+SYSTE M TE ST S
+These are automated tests that execute against the entire integrated system.
+They are the ultimate integration tests. They do not test business rules directly.
+Rather, they test that the system has been wired together correctly and its parts
+interoperate according to plan. We would expect to see throughput and
+performance tests in this suite.
+These tests are written by the system architects and technical leads. Typically
+they are written in the same language and environment as integration tests for
+the UI. They are executed relatively infrequently depending on their duration,
+but the more frequently the better.
+System tests cover perhaps 10% of the system. This is because their intent is not
+to ensure correct system behavior, but correct system construction. The correct
+behavior of the underlying code and components have already been ascertained
+by the lower layers of the pyramid.
+MAN UAL E XPLO R ATO RY TE ST S
+This is where humans put their hands on the keyboards and their eyes on the
+screens. These tests are not automated, nor are they scripted. The intent of these
+tests is to explore the system for unexpected behaviors while confirming expected
+behaviors. Toward that end we need human brains, with human creativity,
+working to investigate and explore the system. Creating a written test plan for
+this kind of testing defeats the purpose.

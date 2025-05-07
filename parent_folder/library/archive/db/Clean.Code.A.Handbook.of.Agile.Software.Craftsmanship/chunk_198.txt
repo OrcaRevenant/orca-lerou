@@ -1,0 +1,36 @@
+168
+Chapter 11: Systems
+We all know it is best to give responsibilities to the most qualiﬁed persons. We often
+forget that it is also best to postpone decisions until the last possible moment. This isn’t
+lazy or irresponsible; it lets us make informed choices with the best possible information.
+A premature decision is a decision made with suboptimal knowledge. We will have that
+much less customer feedback, mental reﬂection on the project, and experience with our
+implementation choices if we decide too soon.
+The agility provided by a POJO system with modularized concerns allows us to make opti-
+mal, just-in-time decisions, based on the most recent knowledge. The complexity of these
+decisions is also reduced.
+Use Standards Wisely, When They Add Demonstrable Value
+Building construction is a marvel to watch because of the pace at which new buildings are
+built (even in the dead of winter) and because of the extraordinary designs that are possi-
+ble with today’s technology. Construction is a mature industry with highly optimized parts,
+methods, and standards that have evolved under pressure for centuries.
+Many teams used the EJB2 architecture because it was a standard, even when lighter-
+weight and more straightforward designs would have been sufﬁcient. I have seen teams
+become obsessed with various strongly hyped standards and lose focus on implementing
+value for their customers.
+Standards make it easier to reuse ideas and components, recruit people with relevant expe-
+rience, encapsulate good ideas, and wire components together. However, the process of
+creating standards can sometimes take too long for industry to wait, and some standards
+lose touch with the real needs of the adopters they are intended to serve.
+Systems Need Domain-Speciﬁc Languages
+Building construction, like most domains, has developed a rich language with a vocabu-
+lary, idioms, and patterns21 that convey essential information clearly and concisely. In soft-
+ware, there has been renewed interest recently in creating Domain-Speciﬁc Languages
+(DSLs),22 which are separate, small scripting languages or APIs in standard languages that
+permit code to be written so that it reads like a structured form of prose that a domain
+expert might write.
+A good DSL minimizes the “communication gap” between a domain concept and the
+code that implements it, just as agile practices optimize the communications within a
+team and with the project’s stakeholders. If you are implementing domain logic in the
+21. The work of [Alexander] has been particularly inﬂuential on the software community.
+22. See, for example, [DSL]. [JMock] is a good example of a Java API that creates a DSL.

@@ -1,0 +1,70 @@
+Solutions to Chapter 14 | Databases
+Consider the following two arrays:
+A: {1, 2, 11, IS)
+6: {4, 12, 19, 23, 127, 235}
+Try the following approach:
+1. Suppose a pointer a points to the beginning of A and a pointer b points to the beginning of B. The
+current difference between a and b is 3, Store this as the min.
+2. How can we (potentially) make this difference smaller? Well, the value at b is bigger than the value at a,
+so moving b will only make the difference larger. Therefore, we want to move a.
+3. Now a points to 2 and b (stilt) points to 4. This difference is 2, so we should update min. Move a, since
+it is smaller.
+4. Now a points to 11 and b points to 4. Move b.
+5. Now a points to 11 and b points to 12. Update min to 1. Move b.
+And soon.
+1
+i n t findSmallestDifference(int[] arrayl,
+i n t [ ] array2) {
+2
+A r r a y s . s o r t ( a r r a y l ) ;
+3
+Arrays.sort(array2);
+4
+i n t a = 6;
+5
+i n t b = 0;
+6
+i n t difference = Integer.MAX_VALUEj
+7
+while (a < arrayl.length && b < array2.length) {
+8
+if (Math.abs(arrayl[a] - array2[b}) < difference) {
+9
+difference = Math.abs(arrayl[a] - array2[b]);
+10
+}
+11
+12
+/* Move smaller value. */
+13
+if ( a r r a y l [ a ] < array2[b]) {
+14
+a++;
+15
+} else {
+16
+b++;
+17
+>
+18
+}
+19
+return difference;
+20 )
+This algorithm takesO(A l o g A + B l o g 8) time to sort and 0(A + B) time to find the minimum
+difference.Therefore,theoverallruntimeisO(A l o g A + B l o g B).
+16.7
+Number Max: Write a method that finds the maximum of two numbers. You should not use if-else
+or any other comparison operator,
+pg 181
+SOLUTION
+A common way of implementing a max function is to look at the sign of a - b. In this case, we can't use a
+comparison operator on this sign, but we can use multiplication.
+Let k equal the sign of a - b such that if a - b >= 0, then k is 1. Else, k = 0. Let q be the inverse of k.
+We can then implement the code as follows:
+1
+/* Flips a l to a 0 and a 0 to a i */
+2
+i n t f l i p ( i n t b i t ) {
+CrackingTheCodinglnterview.com \ 6th Edition
+415

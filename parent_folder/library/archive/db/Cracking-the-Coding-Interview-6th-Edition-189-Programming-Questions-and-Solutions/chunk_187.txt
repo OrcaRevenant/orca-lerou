@@ -1,0 +1,92 @@
+Chapter 15 | Threads and Locks
+9
+16
+public void run() {
+11
+myObj.foo(name);
+12
+>
+IB
+>
+14
+15 public class MyObject {
+16
+public synchronized void foo(String name) {
+17
+t r y {
+IS
+System.out.println("Thread " + name + " . f o o ( ) : s t a r t i n g " ) ;
+19
+Thread.sleep(3000);
+20
+System.out.println( f rThread J' + name + t r . f o o ( ) : ending");
+21
+> catch (InterruptedException exc) {
+22
+System.out.println("Thread " + name + ": i n t e r r u p t e d . " ) ;
+23
+>
+24
+>
+25 >
+Can two instances of MyClass call f o o at the same time? It depends. If they have the same instance of
+MyObject, then no. But, if they hold different references, then the answer is yes.
+1
+/* Difference references - both threads can c a l l MyObject.foo() */
+2
+MyObject o b j l = new MyObject();
+3
+MyObject obj2 = new MyObject();
+4
+MyClass threadl = new MyClass(objl, " 1 " ) ;
+5
+MyClass thread2 = new MyClass(obj2, "2");
+6
+t h r e a d l . s t a r t ( ) ;
+7
+t h r e a d 2 . s t a r t ( )
+8
+9
+/* Same reference to obj. Only one w i l l be allowed to c a l l foo,
+10
+* and the other w i l l be forced to wait. */
+11 MyObject obj = new MyObjectQ;
+12 MyClass threadl = new MyClass(objj " 1 " ) ;
+13 MyClass thread2 = new HyClassiobj, " 2 " ) ;
+14
+t h r e a d l . s t a r t ( )
+15
+t h r e a d 2 . s t a r t ( )
+Static methods synchronize on the dais lock. The two threads above could not simultaneously execute
+synchronized static methods on the same class, even if one is calling f o o and the other is calling bar.
+1
+public class MyClass extends Thread
+{
+2
+3
+public void run() {
+4
+if
+(name.equals("1"))
+Myobject.foo(name);
+b
+else if (name.equals("2")) MyObject.bar(name);
+6
+>
+?
+}
+8
+9
+public class MyObject {
+10
+public s t a t i c synchronized void foo(String name) { /* same as before */ }
+11
+public s t a t i c synchronized void bar(String name) { /* same as foo */ }
+12 >
+If you run this code, you will see the following printed:
+Thread i . f o o ( ) : s t a r t i n g
+Thread l . f o o ( ) : ending
+Thread 2 . b a r ( ) : s t a r t i n g
+Thread 2 . b a r ( ) : ending
+CrackingTheCodinglnterview.com \ 6th Edition
+175

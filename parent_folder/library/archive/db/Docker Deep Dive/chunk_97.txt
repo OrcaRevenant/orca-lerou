@@ -1,0 +1,28 @@
+This example threw a few more arguments at the docker container run
+command, so let’s take a quick look at them.
+We know docker container run starts a new container. But this time we give it
+the -d flag instead of -it. -d tells the container to run in the background rather
+than attaching to your terminal in the foreground. The “d” stands for daemon
+mode, and -d and -it are mutually exclusive. This means you can’t use both on
+the same container.
+After that, we name the container and then give it -p 80:8080. The -p flag maps
+ports on the Docker host to ports inside the container. This time we’re mapping
+port 80 on the Docker host to port 8080 inside the container. This means that
+traffic hitting the Docker host on port 80 will be directed to port 8080 inside of
+the container. It just so happens that the image we’re using for this container
+defines a web service that listens on port 8080. This means our container will
+come up running a web server listening on port 8080.
+Finally we tell it which image to use: nigelpoulton/pluralsight-docker-ci.
+This image is not kept up-to-date and will contain security vulnerabilities!
+Running a docker container ls command will show the container as running
+and show the ports that are mapped. It’s important to know that port mappings
+are expressed as host-port:container-port.
+$ docker container ls
+CONTAINER ID  COMMAND        STATUS       PORTS               NAMES
+6efa1838cd51  /bin/sh -c...  Up 2 mins  0.0.0.0:80->8080/tcp  webserver
+Note: We’ve removed some of the columns from the output above to help
+with readability.
+Now that the container is running and ports are mapped, we can connect to the
+container by pointing a web browser at the IP address or DNS name of the
+Docker host on port 80. Figure 7.4 shows the web page that is being served up
+by the container.

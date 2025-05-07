@@ -1,0 +1,6 @@
+Write path
+Figure 6-19 explains what happens after a write request is directed to a specific node. Please
+note the proposed designs for write/read paths are primary based on the architecture of
+Cassandra [8].
+1. The write request is persisted on a commit log file.
+2. Data is saved in the memory cache.

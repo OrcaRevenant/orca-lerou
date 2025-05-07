@@ -1,0 +1,97 @@
+Solutions to Chapter 10 | Sorting and Searching
+In A r r a y 2, we can see that since 50 > 20, the right half must be ordered normally. We turn to the middle
+(20) and right (40) element to check if 5 would fall between them. The value 5 would not; therefore, we
+search the left half.
+The tricky condition is if the left and the middle are identical, as in the example array { 2 ,
+2,
+2,
+3,
+4,
+2}. In this case, we can check if the rightmost element is different. If it is, we can search just the right side.
+Otherwise, we have no choice but to search both halves.
+1
+i n t search(int a [ ] , i n t l e f t , i n t r i g h t , i n t x) {
+2
+i n t mid = ( l e f t + r i g h t ) / 2;
+3
+if (x == a[mid]) { // Found element
+4
+return mid;
+5
+}
+6
+if ( r i g h t < l e f t ) {
+7
+return - 1 ;
+8
+}
+9
+10
+/* Either the l e f t or r i g h t h a l f must be normally ordered. Find out which side
+11
+* is normally ordered, and then use the normally ordered h a l f to f i g u r e out
+12
+* which side to search to f i n d x.
+*/
+13
+if ( a [ l e f t ] < a[midj) { // L e f t is normally ordered.
+14
+if (x >= a [ l e f t ] && x < a[mid]) {
+15
+return search(a, l e f t , mid - 1, x ) ; // Search l e f t
+16
+> else {
+17
+return search(a, mid + 1, r i g h t , x ) ; // Search r i g h t
+18
+}
+19
+} else if (a[mid] < a [ l e f t ] ) { // Right is normally ordered.
+20
+if (x > a[mid] && x <= a [ r i g h t ] ) {
+21
+return search(a, mid + 1, r i g h t , x ) ; // Search r i g h t
+22
+) else {
+23
+return search(a, l e f t , mid - 1, x ) ; // Search l e f t
+24
+}
+25
+} else if ( a [ l e f t ] == a[mid]) { // Left or r i g h t half is a l l repeats
+26
+if (a[mid]
+1= a f r i g h t ] ) { H If r i g h t is d i f f e r e n t ,
+search it
+27
+return search(a, mid + 1, r i g h t , x ) ; // search r i g h t
+28
+} else { II Else, we have to search both halves
+29
+i n t r e s u l t = search(a, l e f t , mid - 1, x ) ; // Search l e f t
+36
+if ( r e s u l t == -1)
+{
+31
+return search(a, mid + 1, r i g h t , x ) ; H Search r i g h t
+32
+> else {
+33
+return r e s u l t ;
+34
+}
+35
+>
+36
+}
+37
+r e t u r n -1;
+38 >
+This code will run in 0 ( l o g n) if all the elements are unique. However, with many duplicates, the algo-
+rithm is actually 0(n),This is because with many duplicates, we will often have to search both the left and
+right sides of the array (or subarrays).
+Note that while this problem is not conceptually very complex, it is actually very difficult to implement flaw-
+lessly. Don't feel bad if you had trouble implementing it without a few bugs. Because of the ease of making
+off-by-one and other minor errors, you should make sure to test your code very thoroughly.
+CrackingTheCodinglnterview.com | 6th Edition
+397

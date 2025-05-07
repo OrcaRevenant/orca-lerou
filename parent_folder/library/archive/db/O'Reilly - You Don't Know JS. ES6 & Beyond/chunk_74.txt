@@ -1,0 +1,40 @@
+basically two specially calculated Unicode-escaped characters side-by-side, which JS
+interprets together as a single astral character:
+var gclef = "\uD834\uDD1E";
+console.log( gclef );           // "𝄞"
+As of ES6, we now have a new form for Unicode escaping (in strings and regular
+expressions), called Unicode code point escaping:
+var gclef = "\u{1D11E}";
+console.log( gclef );           // "𝄞"
+As you can see, the difference is the presence of the { } in the escape sequence, which
+allows it to contain any number of hexadecimal characters. Since you only need six to
+represent the highest possible code point value in Unicode (i.e. 0x10FFFF) this is
+plenty.
+Unicode-Aware String Operations
+By default, JavaScript string operations and methods are not sensitive to astral sym‐
+bols in string values. So, they treat each BMP character individually, even the two sur‐
+rogate halves that make up an otherwise single astral character. Consider:
+var snowman = "☃";
+snowman.length;                 // 1
+var gclef = "𝄞";
+gclef.length;                   // 2
+So, how do we accurately calculate the length of such a string? In this scenario, this
+trick will work:
+var gclef = "𝄞";
+[...gclef].length;              // 1
+Array.from( gclef ).length;     // 1
+Recall from the "for..of Loops” section earlier in this chapter that ES6 strings have
+built-in iterators. This iterator happens to be Unicode-aware, meaning it will auto‐
+matically output an astral symbol as a single value. We take advantage of that using
+the ... spread operator in an array literal, which creates an array of the string’s sym‐
+bols. Then we just inspect the length of that resultant array. ES6’s Array.from(..)
+does basically the same thing as [...XYZ], but we’ll cover that utility in detail in
+Chapter 6.
+It should be noted that constructing and exhausting an iterator just
+to get the length of a string is quite expensive on performance, rela‐
+tively speaking, compared to what a theoretically optimized native
+utility/property would do.
+Unicode
+|
+63
+www.it-ebooks.info

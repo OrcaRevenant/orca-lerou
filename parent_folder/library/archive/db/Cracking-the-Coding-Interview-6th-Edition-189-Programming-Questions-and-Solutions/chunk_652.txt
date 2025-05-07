@@ -1,0 +1,24 @@
+XI. Advanced Topics
+Case C:Nand Pare both right children.
+This is a mirror image of case A,
+Case D: N is a left child, and P is a right child.
+This is 3 mirror image of case B.
+In each of Case 2's subcases, the middle element by value of N, P, and G is rotated to become the root of
+what was G's subtree, and that element and G swap colors.
+That said, do not try to just memorize these cases. Rather, study why they work. How does each one ensure
+no red violations, no black violations, and no violations of the binary search tree property?
+> MapReduce
+MapReduce is used widely in system design to process large amounts of data. As its name suggests, a
+MapReduce program requires you to write a Map step and a Reduce step.The rest is handled by the system.
+1. The system splits up the data across different machines,
+2. Each machine starts running the user-provided Map program.
+3. The Map program takes some data and emits a <key, value> pair.
+4. The system-provided S h u f f l e process reorganizes the data so that all <key, value> pairs associated
+with a given key go to the same machine, to be processed by Reduce.
+5. The user-provided Reduce program takes a key and a set of associated values and "reduces" them in
+someway, emitting a new key and value. The results of this might be fed back into the Reduce program
+for more reducing.
+The typical example of using MapReduce—basically the "Hello World" of MapReduce—is counting the
+freq uency of words within a set of documents.
+6î0
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,39 @@
+it.next();      // { value: "e", done: false }
+..
+ES6 also includes several new data structures, called Collections (see Chapter 5).
+These collections are not only iterables themselves, but they also provide API
+method(s) to generate an iterator, such as:
+var m = new Map();
+m.set( "foo", 42 );
+m.set( { cool: true }, "hello world" );
+var it1 = m[Symbol.iterator]();
+var it2 = m.entries();
+it1.next();     // { value: [ "foo", 42 ], done: false }
+it2.next();     // { value: [ "foo", 42 ], done: false }
+..
+The next(..) method of an iterator can optionally take one or more arguments. The
+built-in iterators mostly do not exercise this capability, though a generator’s iterator
+definitely does (see “Generators” later in this chapter).
+By general convention, including all the built-in iterators, calling next(..) on an
+iterator that’s already been exhausted is not an error, but will simply continue to
+return the result { value: undefined, done: true }.
+Optional: return(..) and throw(..)
+The optional methods on the iterator interface — return(..) and throw(..) — are
+not implemented on most of the built-in iterators. However, they definitely do mean
+something in the context of generators, so see “Generators” for more specific infor‐
+mation.
+return(..) is defined as sending a signal to an iterator that the consuming code is
+complete and will not be pulling any more values from it. This signal can be used to
+notify the producer (the iterator responding to next(..) calls) to perform any
+cleanup it may need to do, such as releasing/closing network, database, or file handle
+resources, etc.
+If an iterator has a return(..) present and any condition occurs which can automati‐
+cally be interpreted as abnormal or early termination of consuming the iterator,
+return(..) will automatically be called. You can call return(..) manually as well.
+return(..) will return an IteratorResult object just like next(..) does. In general,
+the optional value you send to return(..) would be sent back as value in this Itera
+torResult, though there are nuanced cases where that might not be true.
+76
+|
+Chapter 3: Organization
+www.it-ebooks.info

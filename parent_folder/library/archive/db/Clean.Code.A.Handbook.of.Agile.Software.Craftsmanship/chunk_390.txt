@@ -1,0 +1,66 @@
+362
+Appendix B: org.jfree.date.SerialDate
+785     /**
+786      * Factory method that returns an instance of some concrete subclass of
+787      * {@link SerialDate}.
+788      *
+789      * @param day  the day (1-31).
+790      * @param month  the month (1-12).
+791      * @param yyyy  the year (in the range 1900 to 9999).
+792      *
+793      * @return An instance of {@link SerialDate}.
+794      */
+795     public static SerialDate createInstance(final int day, final int month,
+796                                             final int yyyy) {
+797         return new SpreadsheetDate(day, month, yyyy);
+798     }
+799
+800     /**
+801      * Factory method that returns an instance of some concrete subclass of
+802      * {@link SerialDate}.
+803      *
+804      * @param serial  the serial number for the day (1 January 1900 = 2).
+805      *
+806      * @return a instance of SerialDate.
+807      */
+808     public static SerialDate createInstance(final int serial) {
+809         return new SpreadsheetDate(serial);
+810     }
+811
+812     /**
+813      * Factory method that returns an instance of a subclass of SerialDate.
+814      *
+815      * @param date  A Java date object.
+816      *
+817      * @return a instance of SerialDate.
+818      */
+819     public static SerialDate createInstance(final java.util.Date date) {
+820
+821         final GregorianCalendar calendar = new GregorianCalendar();
+822         calendar.setTime(date);
+823         return new SpreadsheetDate(calendar.get(Calendar.DATE),
+824                                    calendar.get(Calendar.MONTH) + 1,
+825                                    calendar.get(Calendar.YEAR));
+826
+827     }
+828
+829     /**
+830      * Returns the serial number for the date, where 1 January 1900 = 2 (this
+831      * corresponds, almost, to the numbering system used in Microsoft Excel for
+832      * Windows and Lotus 1-2-3).
+833      *
+834      * @return the serial number for the date.
+835      */
+836     public abstract int toSerial();
+837
+838     /**
+839      * Returns a java.util.Date.  Since java.util.Date has more precision than
+840      * SerialDate, we need to define a convention for the 'time of day'.
+841      *
+842      * @return this as <code>java.util.Date</code>.
+843      */
+844     public abstract java.util.Date toDate();
+845
+846     /**
+Listing B-1 (continued)
+SerialDate.Java

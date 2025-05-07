@@ -1,0 +1,82 @@
+Solutions to Chapter 16 | Moderate
+2
+Integer target = getTarget(array1, array2);
+3
+if (target == null) return null;
+4
+5
+for (int one : arrayl) {
+6
+for (int two : array2) {
+7
+if (one - two == target) {
+8
+int[] values = (one, two};
+9
+return values;
+10
+}
+11
+}
+12
+}
+13
+14
+return null;
+15 }
+16
+17 Integer getTarget(int[] arrayl, int[] array2) {
+18
+int suml = sura(arrayl);
+19
+int sum2 = sum(array2);
+28
+21
+if ((suml - sum2) % 2 != 0) return null;
+22
+return (suml - sum2) / 2;
+23 }
+We've used an I n t e g e r (a boxed data type) as the return value for getTarget. This allows us to distin-
+guish an"error"case.
+This algorithm takes O(AB) time.
+Optimal Solution
+This problem reduces to finding a pair of values that have a particular difference. With that in mind, let's
+revisit what the brute force does.
+In the brute force, we're looping through A and then, for each element, looking for an element in B which
+gives us the "right"difference. If the value in A is 5 and the target is 3, then we must be looking for the value
+2. That's the only value that could fulfill the goal.
+That is, rather than writing one - two == t a r g e t , we could have written two == one - t a r g e t .
+How can we more quickly find an element in B that equals one - t a r g e t ?
+We can do this very quickly with a hash table. We just throw all the elements in B into a hash table. Then,
+iterate through A and look for the appropriate element in B.
+1
+int[] findSwapValues(int[] arrayl, int[] array2) {
+2
+Integer target = getTarget(arrayl, array2);
+3
+if (target == null) return null;
+4
+return findDifference(arrayl, array2, target);
+5
+}
+6
+7
+/* Find a pair of values with a specific difference, */
+8
+int[] findDifference(int[] arrayl, int[J array2, int target) {
+9
+HashSet<lnteger> contents2 = getContents(array2);
+10
+for (int one : arrayl) {
+11
+int two = one - target;
+12
+if (contents2.contains(two)) {
+13
+int[] values = {one, two};
+14
+return values;
+15
+}
+510
+492 Cracking the Coding Interview, 6th Edition

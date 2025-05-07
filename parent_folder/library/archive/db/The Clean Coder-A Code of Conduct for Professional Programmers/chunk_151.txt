@@ -1,0 +1,21 @@
+119
+BIBLIOGRAPHY
+Some teams will have specialists do this work. Other teams will simply declare a
+day or two of “bug hunting” in which as many people as possible, including
+managers, secretaries, programmers, testers, and tech writers, “bang” on the
+system to see if they can make it break.
+The goal is not coverage. We are not going to prove out every business rule and
+every execution pathway with these tests. Rather, the goal is to ensure that the
+system behaves well under human operation and to creatively find as many
+“peculiarities” as possible.
+CO N C LU S I O N
+TDD is a powerful discipline, and Acceptance Tests are valuable ways to express
+and enforce requirements. But they are only part of a total testing strategy. To
+make good on the goal that “QA should find nothing,” development teams need
+to work hand in hand with QA to create a hierarchy of unit, component, inte-
+gration, system, and exploratory tests. These tests should be run as frequently as
+possible to provide maximum feedback and to ensure that the system remains
+continuously clean.
+B I B LI OG R APH Y
+[COHN09]: Mike Cohn, Succeeding with Agile, Boston, MA: Addison-Wesley,
+2009.

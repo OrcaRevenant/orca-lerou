@@ -1,0 +1,28 @@
+Solutions to Chapter 14 | Databases
+14.7
+Design Grade Database: Imagine a simple database storing information for students' grades.
+Design what this database might look like and provide a SQL query to return a list of the honor roll
+students (top 10%), sorted by their grade point average,
+pg!73
+SOLUTION
+In a simplistic database, we'll have at least three objects; Students, Courses, and CourseEnrollment.
+Students will have at least a student name and ID and will likely have other personal information.
+Courses will contain the course nameand ID and will likely contain the course description, professor, and
+other information. CourseEnrollfnent will pair Students and Courses and will also contain a field for
+CourseGrade.
+Students
+StudentID
+int
+StudentName
+varchar(iee)
+Address
+varchar(500)
+Courses
+CourselD
+int
+CourseName
+varchar(100)
+ProfessorlD
+int
+CrackingTheCoding Interview.com 16th Edition
+44S

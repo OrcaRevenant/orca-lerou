@@ -1,0 +1,101 @@
+Solutions to Chapter 6 | Math and Logic Puzzles
+If we can't assume this, we can implement a fail-safe. If we have just one test strip remaining, we start doing
+one bottle at a time: test a bottle, wait a week, test another bottle. This approach will take at most 28 days.
+Optimized Approach (10 days)
+As noted in the beginning of the solution, it might be more optimal to run multiple tests at once.
+if we divide the bottles up into 10 groups (with bottles 0-99 going to strip 0, bottles 100-199 going to strip
+1, bottles 200 - 299 going to strip 2, and so on), then day 7 wifl reveal the first digit of the bottle number. A
+positive result on strip i at day 7 shows that the first digit (100's digit) of the bottle number is i.
+Dividing the bottles in a different way can reveal the second or third digit. We just need to run these tests
+on different days so that we don't confuse the results.
+Day 0 -> 7
+Day 1 -> 8
+Day 2 -> 9
+Strip 0
+Oxx
+xOx
+xxO
+Strip 1
+1xx
+x1x
+xx1
+Strip 2
+2xx
+x2x
+xx2
+Strip 3
+3xx
+x3x
+xx3
+Strip 4
+4xx
+x4x
+xx4
+Strip 5
+5xx
+x5x
+xx5
+Strip 6
+6xx
+x6x
+xx6
+Strip 7
+7xx
+x7x
+xx7
+Strip 8
+8xx
+x8x
+xx8
+Strip?
+9xx
+x9x
+xx9
+For example, if day 7 showed a positive result on strip 4, day 8 showed a positive result on strip 3, and day 9
+showed a positive result on strip 8, then this would map to bottle #438.
+This mostly works, except for one edge case: what happens if the poisoned bottle has a duplicate digit? For
+example, bottle #882 or bottle #383.
+In fact, these cases are quite different. If day 8 doesn't have any "new" positive results, then we can conclude
+that digit 2 equals digit 1.
+The bigger issue is what happens if day 9 doesn't have any new positive results. In this case, all we know is
+that digit 3 equais either digit 1 or digit 2. We could not distinguish between bottle #383 and bottle #388.
+They will both have the same pattern of test results.
+We will need to run one additional test. We could run this at the end to clear up ambiguity, but we can also
+run it at day 3, just incase there's any ambiguity. Al! we need to do is shift the final digit so that it winds up
+in a different place than day 2's results.
+Day 0 -> 7
+Day 1 -> 8
+Day 2 -> 9
+Day 3 -> 10
+Strip 0
+Oxx
+xOx
+xxO
+xx9
+Strip 1
+Ixx
+xlx
+XX1
+xxO
+Strip 2
+2 xx
+x2x
+xx 2
+xx 1
+Strip 3
+3 xx
+x3x
+xx 3
+xx2
+Strip 4
+4xx
+x4x
+xx4
+xx3
+Strip 5
+5 xx
+x5x
+xx S
+xx4
+CrackingTheCodinglnterview.com ! 6th Edition
+301

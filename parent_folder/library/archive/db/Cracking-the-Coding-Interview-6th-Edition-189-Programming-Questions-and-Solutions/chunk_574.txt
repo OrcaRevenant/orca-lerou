@@ -1,0 +1,93 @@
+Solutions to Chapter 17 j Hard
+After we choose the first space, we can recursively pick the second space, then the third space, and so on,
+until we are done with the string.
+We take the best (fewest invalid characters) out of all these choices and return.
+What should the function return? We need both the number of invalid characters in the recursive path as
+well as the actual parsing. Therefore, we just return both by using a custom-built ParseResult class.
+1
+String bestSplit(HashSet<String> dictionary. String sentence) {
+2
+ParseResult r = s p l i t ( d i c t i o n a r y , sentence, 0 ) ;
+3
+return r ™ n u l l ? n u l l : r.parsed;
+4
+}
+5
+6
+ParseResult split(HashSet<String> dictionary, String sentence, i n t s t a r t ) {
+7
+if ( s t a r t >= sentence.lengthQ) {
+8
+return new ParseResult(0, " " ) ;
+9
+>
+16
+11
+i n t bestlnvalid = Integer.MAX_VALUE;
+12
+String bestParsing = n u l l ;
+13
+String p a r t i a l =
+14
+i n t index = s t a r t ;
+15
+while (index < sentence.lengthQ) {
+16
+char c = sentence.charAt(index);
+17
+p a r t i a l += c;
+18
+i n t i n v a l i d = dictionary, contains ( p a r t i a l ) ? 0 : p a r t i a l . lengthQ;
+19
+if ( i n v a l i d < bestlnvalid) { // Short c i r c u i t
+20
+/* Recurse, putting a space a f t e r t h i s character. If t h i s is better than
+21
+* the current best option, replace the best option. */
+22
+ParseResult result = s p l i t ( d i c t i o n a r y , sentence, index + 1);
+23
+if ( i n v a l i d + r e s u l t . i n v a l i d < bestlnvalid) {
+24
+bestlnvalid = i n v a l i d + r e s u l t . i n v a l i d ;
+25
+bestParsing = p a r t i a l + " " + result.parsed;
+26
+if (bestlnvalid == 0) break; // Short c i r c u i t
+27
+}
+28
+>
+29
+30
+index++;
+31
+>
+32
+return new ParseResult(bestlnvalid, bestParsing);
+33
+}
+34
+35 public class ParseResult {
+36
+public i n t i n v a l i d = Integer.MAX_VALUE;
+37
+public String parsed = "
+38
+public ParseResult(int inv. String p) {
+39
+i n v a l i d = inv;
+40
+parsed = p;
+41
+}
+42 >
+We've applied two short circuits here.
+•
+Line 22: if the number of current invalid characters exceeds the best known one, then we know this
+recursive path will not be ideal. There's no point in even taking it.
+•
+Line 30: If we have a path with zero invalid characters, then we know we can't do better than this. We
+might as well accept this path.
+55 S
+Cracking the Coding interview, 6th Edition

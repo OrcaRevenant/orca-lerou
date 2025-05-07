@@ -1,0 +1,66 @@
+Solutions to Chapter 17 j Hard
+55
+sum += subgraphVolume(histogram, max, end, i s L e f t ) ;
+56
+>
+57
+58
+return sum;
+59 >
+60
+61 /* Compute volume between s t a r t and end. Assumes that t a l l e s t bar is at start and
+62
+* second t a l l e s t is at end. */
+63 i n t borderedVolume(HistogramData[] data, i n t s t a r t , i n t end) {
+64
+if ( s t a r t >= end) return 0;
+65
+66
+i n t min = Math.min(data[start].getHeight(), data[end].getHeight());
+67
+i n t sum = 0;
+68
+for ( i n t i = s t a r t + 1; i < end; i++) {
+69
+sum += min - d a t a [ i ] .getHeightQ;
+70
+)
+71
+return sum;
+72 >
+73
+74 public class HistogramData {
+75
+private i n t height;
+76
+private i n t leftMaxlndex = - 1 ;
+77
+private i n t rightMaxlndex = -1;
+78
+79
+public HistogramData(int v) { height = v; >
+80
+public i n t getHeight() { return height; }
+81
+public i n t getLeftMaxlndex() { return leftMaxlndex; }
+82
+public void setLeftMaxlndex(int idx) { leftMaxlndex = idx; };
+83
+public i n t getfiightMaxlndex() { return rightMaxlndex; )
+84
+public void setRightMaxIndex(int idx) { rightMaxlndex = idx; };
+85
+}
+This algorithm takes O(N) time. Since we have to look at every bar, we cannot do better than this.
+Solution #3 (Optimized & Simplified)
+While we can't make the solution faster in terms of big 0, we can make it much, much simpler. Let's look at
+an example again in light of what we've just learned about potential algorithms.
+0 0 4 9 0 6 0 0 3 0 8 0 2 0 5 2 0 3 0 0
+As we've seen, the volume of water in a particular area is determined by the tallest bar to the left and to
+the right (specifically, by the shorter of the two tallest bars on the left and the tallest bar on the right). For
+example, water fills in the area between the bar with height 6 and the bar with height 8, up to a height of 6.
+It's the second tallest, therefore, that determines the height
+The total volume of water is the volume of water above each histogram bar. Can we efficiently compute
+how much water is above each histogram bar?
+55 S
+Cracking the Coding interview, 6th Edition

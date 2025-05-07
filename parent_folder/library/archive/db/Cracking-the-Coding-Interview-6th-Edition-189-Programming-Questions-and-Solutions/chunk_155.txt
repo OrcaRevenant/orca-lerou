@@ -1,0 +1,42 @@
+Chapter 9 [ System Design and Scalability
+9.2
+Social Network: How would you design the data structures for a very large social network like Face-
+book or Linkedln? Describe how you would design an algorithm to show the shortest path between
+two people (e.g.. Me -> Bob -> Susan -> Jason -> You).
+Hints: #270, #285, #304, #321
+9.3
+Web Crawler: If you were designing a web crawler, how would you avoid getting into infinite loops?
+Hints: #334, #353, #365
+9.4
+Duplicate URLs: You have 10 billion URLs. How do you detect the duplicate documents? In this
+case, assume "duplicate" means that the URLs are identical.
+Hints: #326, #347
+pg 380
+9.5
+Cache: Imagine a web server for a simplified search engine. This system has 100 machines to
+respond to search queries, which may then call out using processSearch( s t r i n g query) to
+another cluster of machines to actually get the result.The machine which responds to a given query
+is chosen at random, so you cannot guarantee that the same machine will always respond to the
+same request. The method processSearch is very expensive. Design a caching mechanism for
+the most recent queries. Be sure to explain how you would update the cache when data changes.
+Hints: #259, #274, #293, #311
+9.6
+Sales Rank: A large eCommerce company wishes to list the best-setling products, overall and by
+category. For example, one product might be the #1056th best-selling product overall but the #13th
+best-selling product under "Sports Equipment" and the #24th best-seiling product under "Safety."
+Describe how you would design this system.
+Hints: 0142, #158, #176, #189, #208, #223, #236, #244
+9.7
+Personal Financial Manager: Explain how you would design a personal financial manager (like
+Mint.com). This system would connect to your bank accounts, analyze your spending habits, and
+make recommendations.
+Hints: #162, #180, #199, #212, #247, #276
+pg 38£
+9.8
+Pastebin: Design a system like Pastebin, where a user can enter a piece of text and get a randomly
+generated URL to access it.
+Hints:#165, #184, #206, #232
+Additional Questions: Object-Oriented Design (#7.7)
+Hints start on page 662.
+CrackingTheCodinglnterview.com | 6th Edition
+145

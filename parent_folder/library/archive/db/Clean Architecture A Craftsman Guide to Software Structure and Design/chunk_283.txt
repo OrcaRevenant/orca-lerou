@@ -1,0 +1,6 @@
+Figure 34.4 View orders use case
+It’s also worth pointing out that this is a simplified version of what the UML
+class diagram might look like, because it’s missing things like interactors and
+objects to marshal the data across the dependency boundaries.
+PACKAGE BY COMPONENT
+Although I agree wholeheartedly with the discussions about SOLID, REP, CCP,

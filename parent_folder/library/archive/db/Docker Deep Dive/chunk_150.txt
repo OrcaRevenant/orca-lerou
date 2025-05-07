@@ -1,0 +1,33 @@
+Figure 10.4
+The beauty of VXLAN is that it’s an encapsulation technology that existing
+routers and network infrastructure just see as regular IP/UDP packets and handle
+without issue.
+To create the virtual Layer 2 overlay network a VXLAN tunnel is created
+through the underlying Layer 3 IP infrastructure. You might hear the term
+underlay network used to refer to the underlying Layer 3 infrastructure.
+Each end of the VXLAN tunnel is terminated by a VXLAN Tunnel Endpoint
+(VTEP). It’s this VTEP that performs the encapsulation/de-encapsulation and
+other magic required to make all of this work. See Figure 10.5.
+Figure 10.5
+Walk through our two-container example
+
+In the example we built earlier, we had two hosts connected via an IP network.
+Each host ran a single container, and we created a single VXLAN overlay
+network for the containers to connect to.
+To accomplish this, a new network namespace was created on each host. A
+network namespace is like a container, but instead of running an application it
+runs an isolated network stack - one that’s sandboxed from the network stack on
+the host itself.
+A virtual switch (a.k.a. virtual bridge) called Br0 is created inside the network
+namespace. A VTEP is also created with one end plumbed into the Br0 virtual
+switch, and the other end plumbed into the host network stack. The end in the
+host network stack gets an IP address on the underlay network the host is
+connected to and is bound to a UDP socket on port 4789. The two VTEPs on
+each host create the overlay via a VXLAN tunnel as seen in Figure 10.6.
+Figure 10.6
+This is essentially the VXLAN overlay network created and ready for use.
+Each container then gets its own virtual Ethernet (veth) adapter that is also
+plumbed into the local Br0 virtual switch. The topology now looks like Figure
+10.7, and it should be getting easier to see how the two containers can
+communicate over the VXLAN overlay network despite their hosts being on two
+separate networks.

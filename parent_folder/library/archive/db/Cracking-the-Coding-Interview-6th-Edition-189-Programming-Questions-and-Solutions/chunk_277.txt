@@ -1,0 +1,76 @@
+Solutions to Chapter 4 | Trees and Graphs
+We do not actually call matchTree on every node in T l . Rather, we call it k times, where k is the number
+ofoccurrencesofT2's root in Tl.The runtime is closerto 0 ( r + km).
+In fact, even that overstates the runtime. Even if the root were identical, we exit mat chTree when we find
+a difference between Tl and T2. We therefore probably do not actually look at m nodes on each call of
+matchTree.
+The code below implements this algorithm.
+1
+boolean containsTree(TreeNode t l , TreeNode t2) {
+2
+if (t2 == n u l l ) return true; // The empty tree is always a subtree
+3
+return subTree(tl, t 2 ) ;
+4
+}
+5
+6
+boolean subTree(TreeNode r l , TreeNode r2) {
+7
+if ( r l == n u l l ) {
+8
+return f a l s e ; // big tree empty & subtree s t i l l not found.
+9
+> else if ( r l . d a t a «« r2.data 8& matchTree(rl, r2)) {
+10
+return true;
+11
+>
+12
+return s u b T r e e ( r l . l e f t , r2)
+|| subTree(rl.right, r 2 ) ;
+13
+}
+14
+15 boolean matchTree(TreeNode r l , TreeNode r2) (
+16
+if ( r l == n u l l &S r2 == n u l l ) {
+17
+return true; II nothing l e f t in the subtree
+18
+) else if ( r l == n u l l || r2 == n u l l ) {
+19
+return false; II exactly tree is empty, therefore trees don't match
+20
+) else if ( r l . d a t a 1= r2.data) {
+21
+return f a l s e ;
+II data doesn't match
+22
+> else {
+23
+return matchTree(rl.left, r 2 . 1 e f t ) && matchTree(rl.right, r 2 . r i g h t ) ;
+24
+}
+25 >
+When might the simple solution be better, and when might the alternative approach be better? This is a
+great conversation to have with your interviewer. Here are a few thoughts on that matter:
+1. The simple solution takes 0(n + m) memory,The alternative solution takes O ( l o g ( n ) + l o g ( m ) )
+memory. Remember: memory usage can be a very big deal when it comes to scalability.
+2. The simple solution is 0 ( n + m) time and the alternative solution has a worst case time of 0( nm).
+However, the worst case time can be deceiving; we need to look deeper than that.
+3. A slightly tighter bound on the runtime, asexplained earlier, is 0(n + km),wherek is the number of
+occurrences of T2's root in Tl. Let's suppose the node data for Tl and T2 were random numbers picked
+between 0 and p. The value of k would be approximately /' p .Why? Because each of n nodes in Tl has
+a y? chance of equaling the root, so approximately % nodes in Tl should equal T2. r o o t . So, let's
+say p = 1060,n = 1000000 and ill = 100.We would do somewhere around 1,100,000 node checks
+( 1 1 0 0 0 9 0
+=
+1 0 0 0 0 0 0 + ) •
+4. More complex mathematics and assumptions could get us an even tighter bound. We assumed in #3
+above that if we call matchTree, we would end up traversing all m nodes of T2. It's far more likely,
+though, that we will find a difference very early on in the tree and will then exit early.
+In summary, the alternative approach is certainty more optimal in terms of space and is likely more optimal
+in terms of time as well. It ail depends on what assumptions you make and whether you prioritize reducing
+CrackingTheCodinglnterview.com | 6th Edition
+247

@@ -1,0 +1,79 @@
+INDEX
+208
+Meetings (continued)
+demo, 120
+goals in, 118
+iteration planning, 119
+iteration retrospective, 120
+leaving, 118
+stand-up, 119
+time management and, 116–121
+Mentoring, 14–15, 69–70, 174–180
+Merciless refactoring, 9
+Messes, 126–127, 146
+Methods, 12
+Model Driven Architecture (MDA),
+201–203
+Muscle focus, 123
+Music, 57
+N
+“Need,” 42
+Negotiation, acceptance tests and,
+101–102
+Nominal estimate, 136
+Nonprofessional, 2
+O
+Open source, 87
+Optimistic estimate, 135–136
+Optimistic locking, 190
+Outcomes, best-possible, 20–23
+Overtime, 66
+Owned code, 157
+Ownership, collective, 157–158
+P
+Pacing, 63–64
+Pairing, 58, 148–149, 158
+Panic, 147–148
+Passion, 154
+Passive aggression, 28–30, 101–102
+People, programmers vs., 153–158
+Personal issues, 54–55
+PERT (Program Evaluation and
+Review Technique), 135–138
+Pessimistic estimate, 136
+Pessimistic locking, 190
+Physical activity, 123
+Planning Poker, 139–140
+Practice
+background on, 80–83
+ethics, 87
+experience and, 87
+turnaround time and, 82–83
+work ethic and, 13–14
+Precision, premature, in
+requirements, 91–92
+Preparedness, 52–55
+Pressure
+avoiding, 145–147
+cleanliness and, 146
+commitments and, 146
+communication and, 148
+handling, 147–149
+help and, 148–149
+messes and, 146
+panic and, 147–148
+Priority inversion, 125
+Probability, 133
+Professionalism, 2
+Programmers
+employers vs., 153–156
+people vs., 153–158
+programmers vs., 157
+Proposal, project, 31–32
+Q
+Quality assurance (QA)
+automated, 8
+as bug catchers, 6
+as characterizers, 108–109
+ideal of, as finding no problems,
+108–109

@@ -1,0 +1,24 @@
+INDEX
+Numbers
+3DBB shared memory system, Craft Dispatch System archaeology project, 363
+4-TEL, archaeology projects
+BOSS, 351–352
+C language, 349–351
+DLU/DRU, 354–356
+overview of, 339–344
+pCCU, 352–354
+SAC (service area computer), 344–349
+VRS, 357–359
+8085 computer, archaeological projects
+4-TEL, 341
+BOSS, 351
+C language and, 349–351
+DLU/DRU, 356
+8086 Intel microcomputer, SAC archaeology project, 347–348
+A
+Abstract classes
+conclusion, 132
+Dependency Inversion Principle and, 87
+leftover in Zone of Uselessness, 129–130
+placing high-level policy, 126–128
+services in Java as set of, 246

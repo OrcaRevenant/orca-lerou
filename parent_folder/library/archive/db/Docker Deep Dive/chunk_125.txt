@@ -1,0 +1,38 @@
+--token SWMTKN-1-0uahebax...c87tu8dx2c \
+10.0.0.1:2377
+$ docker swarm join-token manager
+To add a manager to this swarm, run the following command:
+docker swarm join \
+--token SWMTKN-1-0uahebax...ue4hv6ps3p \
+10.0.0.1:2377
+Notice that the commands to join a worker and a manager are identical
+apart from the join tokens (SWMTKN...). This means that whether a node
+joins as a worker or a manager depends entirely on which token you use
+when joining it. You should also protect your join tokens as these are all
+that is required to join a node to a Swarm.
+4. Log on to wrk1 and join it to the swarm using the docker swarm join
+command with the token used for joining workers.
+$ docker swarm join \
+--token SWMTKN-1-0uahebax...c87tu8dx2c \
+10.0.0.1:2377 \
+--advertise-addr 10.0.0.4:2377 \
+--listen-addr 10.0.0.4:2377
+This node joined a swarm as a worker.
+I’ve manually added the --advertise-addr, and --listen-addr flags as I
+consider it best practice to be as specific as possible when it comes to
+network configuration.
+5. Repeat the previous step on wrk2 and wrk3 to join them to the swarm as
+workers. Make sure you use wrk2 and wrk3’s own IP addresses for the --
+advertise-addr and --listen-addr flags.
+6. Log on to mgr2 and join it to the swarm as a manager using the docker
+swarm join command with the token used for joining managers.
+$ docker swarm join \
+--token SWMTKN-1-0uahebax...ue4hv6ps3p \
+10.0.0.1:2377 \
+--advertise-addr 10.0.0.2:2377 \
+--listen-addr 10.0.0.1:2377
+This node joined a swarm as a manager.
+7. Repeat the previous step on mgr3 remembering to use mgr3’s IP address
+for the advertise-addr and --listen-addr flags.
+8. List the nodes in the swarm by running docker node ls from any of the
+manager nodes in the swarm.

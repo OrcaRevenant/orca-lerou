@@ -1,0 +1,38 @@
+36
+Chapter 3: Functions
+So which is it? Is the function doing one thing or three things? Notice that the three
+steps of the function are one level of abstraction below the stated name of the function. We
+can describe the function by describing it as a brief TO4 paragraph:
+TO RenderPageWithSetupsAndTeardowns, we check to see whether the page is a test page
+and if so, we include the setups and teardowns. In either case we render the page in
+HTML.
+If a function does only those steps that are one level below the stated name of the
+function, then the function is doing one thing. After all, the reason we write functions is to
+decompose a larger concept (in other words, the name of the function) into a set of steps at
+the next level of abstraction.
+It should be very clear that Listing 3-1 contains steps at many different levels of
+abstraction. So it is clearly doing more than one thing. Even Listing 3-2 has two levels of
+abstraction, as proved by our ability to shrink it down. But it would be very hard to mean-
+ingfully shrink Listing 3-3. We could extract the if statement into a function named
+includeSetupsAndTeardownsIfTestPage, but that simply restates the code without changing
+the level of abstraction.
+So, another way to know that a function is doing more than “one thing” is if you can
+extract another function from it with a name that is not merely a restatement of its imple-
+mentation [G34].
+Sections within Functions
+Look at Listing 4-7 on page 71. Notice that the generatePrimes function is divided into
+sections such as declarations, initializations, and sieve. This is an obvious symptom of
+doing more than one thing. Functions that do one thing cannot be reasonably divided into
+sections.
+One Level of Abstraction per Function
+In order to make sure our functions are doing “one thing,” we need to make sure that the
+statements within our function are all at the same level of abstraction. It is easy to see how
+Listing 3-1 violates this rule. There are concepts in there that are at a very high level of
+abstraction, such as getHtml(); others that are at an intermediate level of abstraction, such
+as: String pagePathName = PathParser.render(pagePath); and still others that are remark-
+ably low level, such as: .append("\n").
+Mixing levels of abstraction within a function is always confusing. Readers may not
+be able to tell whether a particular expression is an essential concept or a detail. Worse,
+4.
+The LOGO language used the keyword “TO” in the same way that Ruby and Python use “def.” So every function began with
+the word “TO.” This had an interesting effect on the way functions were designed.

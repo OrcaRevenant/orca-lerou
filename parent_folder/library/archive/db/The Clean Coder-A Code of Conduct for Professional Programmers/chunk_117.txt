@@ -1,0 +1,8 @@
+85
+6
+PR ACTICING
+All professionals practice their art by engaging in skill-sharpening exercises.
+Musicians rehearse scales. Football players run through tires. Doctors practice
+sutures and surgical techniques. Lawyers practice arguments. Soldiers rehearse
+missions. When performance matters, professionals practice. This chapter is all
+about the ways in which programmers can practice their art.

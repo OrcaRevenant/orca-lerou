@@ -1,0 +1,40 @@
+Another way of thinking about class, which I find more convenient, is as a macro
+that is used to automatically populate a prototype object. Optionally, it also wires up
+the [[Prototype]] relationship if using extends (see the next section).
+An ES6 class isn’t really an entity itself, but a meta concept that wraps around other
+concrete entities like functions and properties and ties them together.
+In addition to the declaration form, a class can also be an expres‐
+sion, as in: var x = class Y { .. }. This is primarily useful for
+passing a class definition (technically, the constructor itself) as a
+function argument or assigning it to an object property.
+extends and super
+ES6 classes also have syntax sugar for establishing the [[Prototype]] delegation link
+between two function prototypes — commonly mislabeled “inheritance” or confus‐
+ingly labeled “prototype inheritance" — using the class-oriented familiar terminology
+extends:
+class Bar extends Foo {
+constructor(a,b,c) {
+super( a, b );
+this.z = c;
+}
+gimmeXYZ() {
+return super.gimmeXY() * this.z;
+}
+}
+var b = new Bar( 5, 15, 25 );
+b.x;                        // 5
+b.y;                        // 15
+b.z;                        // 25
+b.gimmeXYZ();               // 1875
+A significant new addition is super, which is actually something not directly possible
+(without some unfortunate hack tradeoffs). In the constructor, super automatically
+refers to the “parent constructor”, which in the previous example is Foo(..). In a
+method, it refers to the “parent object”, such that you can then make a property/
+method access off it, such as super.gimmeXY().
+Bar extends Foo of course means to link the [[Prototype]] of Bar.prototype to
+Foo.prototype. So, super in a method like gimmeXYZ() specifically means Foo.proto
+type, whereas super means Foo when used in the Bar constructor.
+Classes
+|
+117
+www.it-ebooks.info

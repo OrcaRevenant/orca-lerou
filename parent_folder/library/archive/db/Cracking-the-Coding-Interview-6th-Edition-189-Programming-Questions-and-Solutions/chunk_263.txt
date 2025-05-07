@@ -1,0 +1,100 @@
+Solutions to Chapter 4 ] Trees and Graphs
+42
+/* Remove myself as a dependency. */
+43
+ArrayList<Project> children = current,getChildren();
+44
+f o r (Project child : children) {
+45
+child.decrementDependencies();
+46
+}
+47
+48
+/* Add children that have no one depending on them. */
+49
+endOfList = addNonDependent(order, children, endOfList);
+50
+toBeProcessed++;
+51
+}
+52
+53
+return order;
+54 >
+55
+56 /* A helper function to insert projects with zero dependencies into the order
+57
+* array, s t a r t i n g at index o f f s e t . */
+58 i n t addNonDependent(Project[] order, ArrayList<Project> projects, i n t o f f s e t ) {
+59
+for (Project project : projects) {
+60
+if (project.getNumberDependenciesQ == 0) {
+61
+o r d e r [ o f f s e t ] = project;
+62
+offset++;
+63
+}
+64
+)
+65
+return o f f s e t ;
+66
+}
+67
+68 public class Graph {
+69
+private ArrayList<Project> nodes = new ArrayList<Project>();
+70
+private HashMap<String, Project> map = new HashMap<String> Project>{);
+71
+72
+public Project getOrCreateNode(String name) {
+73
+if {!map.containsKey(name))
+{
+74
+Project node = new Project(name);
+75
+nodes.add(node);
+76
+map.put(name, node);
+77
+>
+78
+79
+return map.get(name);
+80
+}
+81
+82
+public void addEdge(String startMame, String endName) {
+83
+Project s t a r t = getOrCreateNode(startName);
+84
+Project end = getOrCreateNode(endName);
+85
+start.addNeighbor(end);
+86
+>
+87
+88
+public ArrayList<Project> getNodes() { return nodes; }
+89 >
+90
+91 public class Project {
+92
+private ArrayList<Project> children = new ArrayList<Project>();
+93
+private HashMapcString, Project> map = new HashMapcString, Project>();
+94
+private String name;
+95
+private i n t dependencies = 0;
+96
+97
+public Project(String n) { name = n; }
+CrackingTheCodinglnterview.com 16th Edition
+2 5 3

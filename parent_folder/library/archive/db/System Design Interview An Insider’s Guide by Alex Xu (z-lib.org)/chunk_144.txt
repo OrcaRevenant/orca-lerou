@@ -1,0 +1,32 @@
+The best way to go through the above diagram is from left to right:
+Service 1 to N: They represent different services that send notifications via APIs provided by
+notification servers.
+Notification servers: They provide the following functionalities:
+• Provide APIs for services to send notifications. Those APIs are only accessible internally
+or by verified clients to prevent spams.
+• Carry out basic validations to verify emails, phone numbers, etc.
+• Query the database or cache to fetch data needed to render a notification.
+• Put notification data to message queues for parallel processing.
+Here is an example of the API to send an email:
+POST https://api.example.com/v/sms/send
+Request body
+
+Cache: User info, device info, notification templates are cached.
+DB: It stores data about user, notification, settings, etc.
+Message queues: They remove dependencies between components. Message queues serve as
+buffers when high volumes of notifications are to be sent out. Each notification type is
+assigned with a distinct message queue so an outage in one third-party service will not affect
+other notification types.
+Workers: Workers are a list of servers that pull notification events from message queues and
+send them to the corresponding third-party services.
+Third-party services: Already explained in the initial design.
+iOS, Android, SMS, Email: Already explained in the initial design.
+Next, let us examine how every component works together to send a notification:
+1. A service calls APIs provided by notification servers to send notifications.
+2. Notification servers fetch metadata such as user info, device token, and notification
+setting from the cache or database.
+3. A notification event is sent to the corresponding queue for processing. For instance, an
+iOS push notification event is sent to the iOS PN queue.
+4. Workers pull notification events from message queues.
+5. Workers send notifications to third party services.
+6. Third-party services send notifications to user devices.

@@ -1,0 +1,22 @@
+Let’s put some flesh on these bones. Let’s assume that the game is the venerable
+Hunt the Wumpus adventure game from 1972. This text-based game uses very
+simple commands like GO EAST and SHOOT WEST. The player enters a
+command, and the computer responds with what the player sees, smells, hears,
+and experiences. The player is hunting for a Wumpus in a system of caverns, and
+must avoid traps, pits, and other dangers lying in wait. If you are interested, the
+rules of the game are easy to find on the web.
+Let’s assume that we’ll keep the text-based UI, but decouple it from the game
+rules so that our version can use different languages in different markets. The
+game rules will communicate with the UI component using a language-
+independent API, and the UI will translate the API into the appropriate human
+language.
+If the source code dependencies are properly managed, as shown in Figure 25.1,
+then any number of UI components can reuse the same game rules. The game
+rules do not know, nor do they care, which human language is being used.
+Figure 25.1 Any number of UI components can reuse the game rules
+Let’s also assume that the state of the game is maintained on some persistent
+store—perhaps in flash, or perhaps in the cloud, or maybe just in RAM. In any
+of those cases, we don’t want the game rules to know the details. So, again, we’ll
+create an API that the game rules can use to communicate with the data storage
+component.
+We don’t want the game rules to know anything about the different kinds of data

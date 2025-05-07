@@ -1,0 +1,21 @@
+Figure 19.2 Class diagram showing a better architecture for the system
+ConsoleReader and ConsoleWriter are shown here as classes. They are low
+level because they are close to the inputs and outputs.
+Note how this structure decouples the high-level encryption policy from the
+lower-level input/output policies. This makes the encryption policy usable in a
+wide range of contexts. When changes are made to the input and output policies,
+they are not likely to affect the encryption policy.
+Recall that policies are grouped into components based on the way that they
+change. Policies that change for the same reasons and at the same times are
+grouped together by the SRP and CCP. Higher-level policies—those that are
+farthest from the inputs and outputs—tend to change less frequently, and for
+more important reasons, than lower-level policies. Lower-level policies—those
+that are closest to the inputs and outputs—tend to change frequently, and with
+more urgency, but for less important reasons.
+For example, even in the trivial example of the encryption program, it is far
+more likely that the IO devices will change than that the encryption algorithm
+will change. If the encryption algorithm does change, it will likely be for a more
+substantive reason than a change to one of the IO devices.
+Keeping these policies separate, with all source code dependencies pointing in
+the direction of the higher-level policies, reduces the impact of change. Trivial
+but urgent changes at the lowest levels of the system have little or no impact on

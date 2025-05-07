@@ -1,0 +1,85 @@
+426
+Index
+private functions, 292
+private method behavior, 147
+problem domain names, 27
+procedural code, 97
+procedural shape example, 95–96
+procedures, compared to objects, 101
+process function, repartitioning, 319–320
+process method, I/O bound, 319
+processes, competing for resources, 184
+processor bound, code as, 318
+producer consumer execution model, 184
+producer threads, 184
+production environment, 127–130
+productivity, decreased by messy code, 4
+professional programmer, 25
+professional review, of code, 268
+programmers
+as authors, 13–14
+conundrum faced by, 6
+responsibility  for messes, 5–6
+unprofessional, 5–6
+programming
+defined, 2
+structured, 48–49
+programs, getting them to work, 201
+pronounceable names, 21–22
+protected variables, avoiding, 80
+proxies, drawbacks of, 163
+public APIs, javadocs in, 59
+puns, avoiding, 26–27
+PUTFIELD instruction, as atomic, 325
+Q
+queries, separating from commands, 45–46
+R
+random jiggling, tests running, 190
+range, including end-point dates in, 276
+readability
+of clean tests, 124
+of code, 76
+Dave Thomas on, 9
+improving using generics, 115
+readability perspective, 8
+readers
+of code, 13–14
+continuous, 184
+readers-writers execution model, 184
+reading
+clean code, 8
+code from top to bottom, 37
+versus writing, 14
+reboots, as a lock up solution, 331
+recommendations, in this book, 13
+redesign, demanded by the team, 5
+redundancy, of noise words, 21
+redundant comments, 60–62, 272, 275,
+286–287
+ReentrantLock class, 183
+refactored programs, as longer, 146
+refactoring
+Args, 212
+code incrementally, 172
+as an iterative process, 265
+putting things in to take out, 233
+test code, 127
+Refactoring (Fowler), 285
+renaming, fear of, 30
+repeatability, of concurrency bugs, 180
+repeatable tests, 132
+requirements, specifying, 2
+resetId, byte-code generated for, 324–325
+resources
+bound, 183
+processes competing for, 184
+threads agreeing on a global ordering
+of, 338
+responsibilities
+counting in classes, 136
+definition of, 138
+identifying, 139
+misplaced, 295–296, 299
+splitting a program into main, 146
+return codes, using exceptions instead,
+103–105

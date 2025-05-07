@@ -1,0 +1,33 @@
+TAKING RESPONSIBILITY
+9
+In 1979 I was working for a company named Teradyne. I was the “responsible
+engineer” for the software that controlled a mini- and microcomputer-based
+system that measured the quality of telephone lines. The central mini-computer
+was connected via 300-baud dedicated or dial-up phone lines to dozens of
+satellite micro-computers that controlled the measurement hardware. The code
+was all written in assembler.
+Our customers were the service managers of major telephone companies. Each
+had the responsibility for 100,000 telephone lines or more. My system helped
+these service area managers find and repair malfunctions and problems in the
+telephone lines before their customers noticed them. This reduced the customer
+complaint rates that the public utility commissions measured and used to
+regulate the rates that the telephone companies could charge. In short, these
+systems were incredibly important.
+Every night these systems ran through a “nightly routine” in which the central
+mini-computer told each of the satellite micro-computers to test every
+telephone line under their control. Each morning the central computer would
+pull back the list of faulty lines, along with their failing characteristics. The
+service area managers would use this report to schedule repairmen to fix the
+faults before the customers could complain.
+On one occasion I shipped a new release to several dozen customers. “Ship” is
+exactly the right word. I wrote the software onto tapes and shipped those tapes
+to the customers. The customers loaded the tapes and then rebooted the
+systems.
+The new release fixed some minor defects and added a new feature that our
+customers had been demanding. We had told them we would provide that new
+feature by a certain date. I barely managed to overnight the tapes so that they’d
+arrive on the promised date.
+Two days later I got a call from our field service manager, Tom. He told me that
+several customers had complained that the “nightly routine” had not completed,
+and that they had gotten no reports. My heart sank because in order to ship the
+software on time, I had neglected to test the routine. I had tested much of the

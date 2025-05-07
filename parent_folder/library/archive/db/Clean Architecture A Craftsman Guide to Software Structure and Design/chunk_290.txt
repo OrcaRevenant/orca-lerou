@@ -1,0 +1,26 @@
+ENCAPSULATION
+Looking at this issue another way, if you make all types in your Java application
+public, the packages are simply an organization mechanism (a grouping, like
+folders), rather than being used for encapsulation. Since public types can be used
+from anywhere in a code base, you can effectively ignore the packages because
+they provide very little real value. The net result is that if you ignore the
+packages (because they don’t provide any means of encapsulation and hiding), it
+doesn’t really matter which architectural style you’re aspiring to create. If we
+look back at the example UML diagrams, the Java packages become an
+irrelevant detail if all of the types are marked as public. In essence, all four
+architectural approaches presented earlier in this chapter are exactly the same
+when we overuse this designation (Figure 34.7).
+Take a close look at the arrows between each of the types in Figure 34.7:
+They’re all identical regardless of which architectural approach you’re trying to
+adopt. Conceptually the approaches are very different, but syntactically they are
+identical. Furthermore, you could argue that when you make all of the types
+public, what you really have are just four ways to describe a traditional
+horizontally layered architecture. This is a neat trick, and of course nobody
+would ever make all of their Java types public. Except when they do. And I’ve
+seen it.
+The access modifiers in Java are not perfect,8 but ignoring them is just asking for
+trouble. The way Java types are placed into packages can actually make a huge
+difference to how accessible (or inaccessible) those types can be when Java’s
+access modifiers are applied appropriately. If I bring the packages back and mark
+(by graphically fading) those types where the access modifier can be made more
+restrictive, the picture becomes pretty interesting (Figure 34.8).

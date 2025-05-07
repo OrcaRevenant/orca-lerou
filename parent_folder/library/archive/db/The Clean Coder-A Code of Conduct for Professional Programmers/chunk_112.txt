@@ -1,0 +1,32 @@
+CHAPTER 5 TEST DRIVEN DEVELOPMENT
+80
+3. You are not allowed to write more production code that is sufficient to pass
+the currently failing unit test.
+These three laws lock you into a cycle that is, perhaps, thirty seconds long. You
+begin by writing a small portion of a unit test. But within a few seconds you
+must mention the name of some class or function you have not written yet,
+thereby causing the unit test to fail to compile. So you must write production
+code that makes the test compile. But you can’t write any more than that, so you
+start writing more unit test code.
+Round and round the cycle you go. Adding a bit to the test code. Adding a bit to the
+production code. The two code streams grow simultaneously into complementary
+components. The tests fit the production code like an antibody fits an antigen.
+TH E L ITAN Y O F B E N E F IT S
+Certainty
+If you adopt TDD as a professional discipline, then you will write dozens of
+tests every day, hundreds of tests every week, and thousands of tests every year.
+And you will keep all those tests on hand and run them any time you make any
+changes to the code.
+I am the primary author and maintainer of FitNesse,2 a Java-based acceptance
+testing tool. As of this writing FitNesse is 64,000 lines of code, of which 28,000
+are contained in just over 2,200 individual unit tests. These tests cover at least
+90% of the production code3 and take about 90 seconds to run.
+Whenever I make a change to any part of FitNesse, I simply run the unit tests. If
+they pass, I am nearly certain that the change I made didn’t break anything.
+How certain is “nearly certain”? Certain enough to ship!
+The QA process for FitNesse is the command: ant release. That command
+builds FitNesse from scratch and then runs all the unit and acceptance tests.
+If those tests all pass, I ship it.
+2. http://fitnesse.org
+3. Ninety percent is a minimum. The number is actually larger than that. The exact amount is hard to
+calculate because the coverage tools can’t see code that runs in external processes or in catch blocks.

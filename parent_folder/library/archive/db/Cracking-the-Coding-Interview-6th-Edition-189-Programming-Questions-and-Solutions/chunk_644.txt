@@ -1,0 +1,36 @@
+XI. Advanced Topics
+Assume we are trying to find the shortest path from a to i. We'll use Dijkstra's algorithm to find the shortest
+path from a to all other nodes, from which we will dearly have the shortest path from a to i.
+We first initialize several variables:
+•
+path_weight [node]: maps from each node to the total weight of the shortest path. All values are
+initialized to infinity, except for p a t h _ w e i g h t [ a ] which is initialized to 0.
+•
+p r e v i o u s [node]: maps from each node to the previous node in the (current) shortest path.
+•
+remaining: a priority queue of all nodes in the graph, where each node's priority is defined by its
+path_weight.
+Once we've initialized these values, we can start adjusting the values of path_weight.
+I
+A (min) priority queue is an abstract data type that—at least in this case—supports insertion of
+an object and key, removing the object with the minimum key, and decreasing a key. (Think of
+it like a typical queue, except that, instead of removing the oldest item, it removes the item with
+the lowest or highest priority.) It is an abstract data type because it is defined by its behavior (its
+operations). Its underlying implementation can vary. You could implement a priority queue with
+an array or a min (or max) heap (or many other data structures).
+We iterate through the nodes in r e m a i n i n g (until remaining is empty), doing the following:
+1. Select the node in r e m a i n i n g with the lowest value in path_weight. Call this node n.
+2. For each adjacent node, compare path__weight [ x ] (which is the weight of the current shortest path
+from a to x) to path_weight [ n ] + edge_weight[ ( n , x)].That is, could we get a path from a to
+x with lower weight by going through n instead of our current path? If so, update path_weight and
+p r e v i o u s ,
+3. Remove n from remaining.
+When r e m a i n i n g is empty, then path_weight stores the weight of the current shortest path from a to
+each node. We can reconstruct this path by tracing through p r e v i o u s .
+Let's walk through this on the above graph.
+1. The first value of n is a. We look at its adjacent nodes (b, c, and e), update the values of pat h_weight
+(to 5,3, and 2) and p r e v i o u s (to a) and then remove a from remaining.
+2. Then, we go to the next smallest node, which is e. We previously updated path_weight [ e ] to be 2. Its
+adjacent nodes are h and i, so we update path_weight (to 6 and 9) and p r e v i o u s for both of those.
+6î0
+Cracking the Coding Interview, 6th Edition

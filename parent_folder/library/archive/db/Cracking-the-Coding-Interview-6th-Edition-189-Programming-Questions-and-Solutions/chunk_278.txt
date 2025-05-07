@@ -1,0 +1,35 @@
+Solutions to Chapter 4 | Trees and Graphs
+the average case runtime at the expense of the worst case runtime. This is an excellent point to make to
+your interviewer.
+4.11
+Random Node: You are implementing a binary search tree class from scratch, which, in addition
+to i n s e r t , f i n d , and d e l e t e , has a method getRandomNode() which returns a random node
+from the tree. All nodes should be equally likely to be chosen. Design and implement an algorithm
+for get RandomNode, and explain how you would implement the rest of the methods.
+pglll
+SOLUTION
+Let's draw an example.
+We're going to explore many solutions until we get to an optimal one that works.
+One thing we should realize here is that the question was phrased in a very interesting way.The interviewer
+did not simply say, "Design an algorithm to return a random node from a binary tree."We were told that this
+is a ciass that we're building from scratch. There is a reason the question was phrased that way. We probably
+need access to some part of the internals of the data structure.
+Option #1 [Slow & Working]
+One solution is to copy all the nodes to an array and return a random element in the array. This solution will
+take O(N) time and O(N) space, where N is the number of nodes in the tree.
+We can guess our interviewer is probably looking for something more optimal, since this is a little too
+straightforward (and should make us wonder why the interviewer gave us a binary tree, since we don't
+need that information).
+We should keep in mind as we develop this solution that we probably need to know something about the
+internals of the tree. Otherwise, the question probably wouldn't specify that we're developing the tree class
+from scratch.
+Option #2 [Slow & Working]
+Returning to our original solution of copying the nodes to an array, we can explore a solution where we
+maintain an array at all times that lists ail the nodes in the tree. The problem is that we'll need to remove
+nodes from this array as we delete them from the tree, and that will take 0(N) time.
+Option #3 (Slow & Working]
+We could label all the nodes with an index from 1 to N and label them in binary search tree order (that
+is, according to its inorder traversal). Then, when we call getRandomMode, we generate a random index
+between 1 and N, If we apply the label correctly, we can use a binary search tree search to find this index.
+274
+Cracking the Coding Interview, 6th Edition

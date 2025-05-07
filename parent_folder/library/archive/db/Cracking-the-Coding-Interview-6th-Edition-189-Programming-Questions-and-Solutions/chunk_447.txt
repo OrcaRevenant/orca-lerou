@@ -1,0 +1,65 @@
+Solutions to Chapter 14 | Databases
+1
+void insertAndPrint(AbstractMap<lnteger, Strings map) {
+2
+intf] array = {1, -1, 0};
+3
+for (int x : array) {
+4
+map.put(x, Integer.toString(x));
+5
+>
+6
+for (int k : map.keySetQ) {
+8
+System.out.print(k +
+")j
+9
+}
+10 >
+The output for each will look like the results below.
+HashMap
+LinkedHashMap
+TreeMap
+(any ordering)
+{1, -1, 0}
+{-1, 0, 1}
+Very important: The output of LinkedHashMap and TreeMap must look like the above. For HashMap,
+the output was, in my own tests, { 0 , 1,
+-1}, but it could beany ordering. There is no guarantee on the
+ordering.
+When might you need ordering in real life?
+•
+Suppose you were creating a mapping of names to Person objects. You might want to periodically
+output the people in alphabetical order by name. A TreeMap lets you do this.
+•
+A TreeMap also offers a way to, given a name, output the next 10 people. This could be useful for a
+"More"function in many applications.
+•
+A LinkedHashMap is useful whenever you need the ordering of keys to match the ordering of inser-
+tion. This might be useful in a caching situation, when you want to delete the oldest item.
+Generally, unless there is a reason not to, you would use HashMap, That is, if you need to get the keys back
+in insertion order, then use LinkedHashMap. If you need to get the keys back in their true/natural order,
+then use TreeMap. Otherwise, HashMap is probably best. It is typically faster and requires less overhead.
+13.6
+Object Reflection: Explain what object reflection is in Java and why it is useful.
+pg J 68
+SOLUTION
+Object Reflection is a feature in Java that provides a way to get reflective information about Java classes and
+objects, and perform operations such as:
+1. Getting information about the methods and fields present inside the class at runtime.
+2. Creating a new instance of a class.
+3. Getting and setting the object fields directly by getting field reference, regardless of what the access
+modifier is.
+The code below offers an example of object reflection.
+1
+/* Parameters */
+2
+Object[] doubleArgs = new Object[] { 4.2, 3.9 };
+3
+4
+/* Get class */
+5
+Class rectangleDe-Finition = Class.forName("MyProj.Rectangle");
+6
+CrackingTheCodinglnterview.com \ 6th Edition 415

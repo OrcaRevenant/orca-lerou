@@ -1,0 +1,30 @@
+COMPONENT TESTING TOOLS
+199
+4. The tool should discourage individual test cases from communicating with
+each other. JUnit does this by creating a new instance of the test class for each
+test method, thereby preventing the tests from using instance variables to
+communicate with each other. Other tools will run the test methods in random
+order so that you can’t depend on one test preceding another. Whatever the
+mechanism, the tool should help you keep your tests independent from each
+other. Dependent tests are a deep trap that you don’t want to fall into.
+5. The tool should make it very easy to write tests. JUnit does this by supplying a
+convenient API for making assertions. It also uses reflection and Java attributes
+to distinguish test functions from normal functions. This allows a good IDE to
+automatically identify all your tests, eliminating the hassle of wiring up suites
+and creating error-prone lists of tests.
+CO M PON E NT TE STI N G TOO L S
+These tools are for testing components at the API level. Their role is to make
+sure that the behavior of a component is specified in a language that the
+business and QA people can understand. Indeed, the ideal case is when business
+analysts and QA can write that specification using the tool.
+TH E D E F I N ITI O N O F DON E
+More than any other tool, component testing tools are the means by which we
+specify what done means. When business analysts and QA collaborate to create a
+specification that defines the behavior of a component, and when that
+specification can be executed as a suite of tests that pass or fail, then done takes
+on a very unambiguous meaning: “All Tests Pass.”
+FITN E S S E
+My favorite component testing tool is FitNesse. I wrote a large part of it, and
+I am the primary committer. So it’s my baby.
+FitNesse is a wiki-based system that allows business analysts and QA specialists
+to write tests in a very simple tabular format. These tables are similar to Parnas

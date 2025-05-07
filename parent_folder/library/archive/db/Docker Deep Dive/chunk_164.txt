@@ -1,0 +1,22 @@
+$ docker swarm init
+Swarm initialized: current node (7xam...662z) is now a manager.
+To add a worker to this swarm, run the following command:
+docker swarm join --token \
+SWMTKN-1-1dmtwu...r17stb-ehp8g...hw738q 172.31.5.251:2377
+To add a manager to this swarm, run 'docker swarm join-token manager'
+and follow the instructions.
+That’s it! That is literally all you need to do to configure a secure Swarm!
+You now have a single-node secure Swarm. “mgr1” is configured as the first
+manager of the Swarm and also as the root CA. The Swarm has been given a
+cryptographic ID and “mgr1” has issued itself with a client certificate that
+identifies it as a manager in the Swarm. Certificate rotation has been configured
+with the default value of 90 days and a cluster config database has been
+configured and encrypted. A set of secure tokens have also been created so that
+new managers and new workers can be joined to the Swarm. And all of this with
+a single command!
+Figure 11.7 shows how the lab looks now.
+Figure 11.7
+Now let’s join “mgr2” as an additional manager.
+Joining new managers to a Swarm is a two-step process. In the first step you’ll
+extract the token required to join new managers to the Swarm. In the second step
+you’ll run a docker swarm join command on “mgr2”. As long as you include

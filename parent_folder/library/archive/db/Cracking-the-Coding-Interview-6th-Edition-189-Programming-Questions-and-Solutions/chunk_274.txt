@@ -1,0 +1,100 @@
+Solutions to Chapter 4 | Trees and Graphs
+7
+>
+8
+9
+LinkedList<Integer> p r e f i x = new Linkedi_ist<Integer>();
+10
+prefix.add(node.data);
+11
+12
+/* Recurse on l e f t and r i g h t subtrees. */
+13
+ArrayList<LinkedList<lnteger>> leftSeq = allSequences(node.left);
+14
+ArrayList<LinkedList<Integer>> rightSeq = allSequences(node.right);
+15
+16
+/* Weave together each l i s t from the l e f t and r i g h t sides. */
+17
+f o r (LinkedList<Integer> l e f t : leftSeq) {
+18
+f o r (LinkedList<Integer> r i g h t : rightSeq) {
+19
+ArrayList<LinkedList<Integer>> weaved =
+20
+new Arrayi_ist<Linkedl_ist<lnteger>>();
+21
+weavel_ists(left, r i g h t , weaved, p r e f i x ) ;
+22
+result.addAll(weaved);
+23
+>
+24
+>
+25
+return r e s u l t ;
+26 >
+27
+28 /* Weave l i s t s together in a l l possible ways. This algorithm works by removing the
+29
+* head from one l i s t , recursing, and then doing the same thing with the other
+30
+* l i s t . */
+31 void weaveLists(LinkedList<Integer> f i r s t ,
+LinkedList<Integer> second.
+32
+ArrayList<LinkedList<Integer>> results,
+LinkedList<Integer> p r e f i x ) {
+33
+/* One l i s t is empty. Add remainder to [a cloned] prefix and store r e s u l t . */
+34
+if { f i r s t . s i z e ( ) == 0 || second.size{) == 0) {
+35
+LlnkedList<Integer> result « (LinkedList<Integer>) p r e f i x . c l o n e ( ) ;
+36
+r e s u l t . a d d A l l ( f i r s t ) ;
+37
+result.addAll{second);
+38
+r e s u l t s , a d d ( r e s u l t ) ;
+39
+return;
+40
+}
+41
+42
+/* Recurse with head of f i r s t added to the p r e f i x . Removing the head w i l l damage
+43
+* f i r s t , so w e ' l l need to put it back where we found it afterwards. */
+44
+i n t headFirst = f i r s t . r e m o v e F i r s t Q ;
+45
+prefix.addLast(headFirst);
+46
+weaveLists{first, second, results, p r e f i x ) ;
+47
+prefix.removeLast();
+48
+f i r s t . a d d F i r s t ( h e a d F i r s t ) ;
+49
+50
+/* Do the same thing with second, damaging and then restoring the l i s t . * /
+51
+i n t headSecond = second.removeFirstf);
+52
+prefix.addLast(headSecond);
+53
+w e a v e l i s t s ( f i r s t , second, results, p r e f i x ) ;
+54
+prefix.removeLast();
+55
+second,addFirst(headSecond);
+56 >
+Some people struggle with this problem because there are two different recursive algorithms that must be
+designed and implemented. They get confused with how the algorithms should interact with each other
+and they try to juggie both in their heads.
+If this sounds like you, try this: trust and focus. Trust that one method does the right thing when imple-
+menting an independent method, and focus on the one thing that this independent method needs to do.
+274
+Cracking the Coding Interview, 6th Edition

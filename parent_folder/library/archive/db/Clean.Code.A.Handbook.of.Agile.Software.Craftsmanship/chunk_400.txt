@@ -1,0 +1,64 @@
+372
+Appendix B: org.jfree.date.SerialDate
+Listing B-3
+MonthConstants.java
+1 /* ========================================================================
+2  * JCommon : a free general purpose class library for the Java(tm) platform
+3  * ========================================================================
+4  *
+5  * (C) Copyright 2000-2005, by Object Refinery Limited and Contributors.
+6  *
+7  * Project Info:  http://www.jfree.org/jcommon/index.html
+8  *
+9  * This library is free software; you can redistribute it and/or modify it
+10  * under the terms of the GNU Lesser General Public License as published by
+11  * the Free Software Foundation; either version 2.1 of the License, or
+12  * (at your option) any later version.
+13  *
+14  * This library is distributed in the hope that it will be useful, but
+15  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+16  * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public
+17  * License for more details.
+18  *
+19  * You should have received a copy of the GNU Lesser General Public
+20  * License along with this library; if not, write to the Free Software
+21  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,
+22  * USA.
+23  *
+24  * [Java is a trademark or registered trademark of Sun Microsystems, Inc.
+25  * in the United States and other countries.]
+26  *
+27  * -------------------
+28  * MonthConstants.java
+29  * -------------------
+30  * (C) Copyright 2002, 2003, by Object Refinery Limited.
+31  *
+32  * Original Author:  David Gilbert (for Object Refinery Limited);
+33  * Contributor(s):   -;
+34  *
+35  * $Id: MonthConstants.java,v 1.4 2005/11/16 15:58:40 taqua Exp $
+36  *
+37  * Changes
+38  * -------
+39  * 29-May-2002 : Version 1 (code moved from SerialDate class) (DG);
+40  *
+41  */
+42
+43 package org.jfree.date;
+44
+45 /**
+46  * Useful constants for months.  Note that these are NOT equivalent to the
+47  * constants defined by java.util.Calendar (where JANUARY=0 and DECEMBER=11).
+48  * <P>
+49  * Used by the SerialDate and RegularTimePeriod classes.
+50  *
+51  * @author David Gilbert
+52  */
+53 public interface MonthConstants {
+54
+55     /** Constant for January. */
+56     public static final int JANUARY = 1;
+57
+58     /** Constant for February. */
+59     public static final int FEBRUARY = 2;
+60

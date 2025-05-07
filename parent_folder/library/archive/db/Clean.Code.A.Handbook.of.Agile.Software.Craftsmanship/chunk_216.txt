@@ -1,0 +1,38 @@
+186
+Chapter 13: Concurrency
+Writing Correct Shut-Down Code Is Hard
+Writing a system that is meant to stay live and run forever is different from writing some-
+thing that works for awhile and then shuts down gracefully.
+Graceful shutdown can be hard to get correct. Common problems involve deadlock,15
+with threads waiting for a signal to continue that never comes.
+For example, imagine a system with a parent thread that spawns several child threads
+and then waits for them all to ﬁnish before it releases its resources and shuts down. What if
+one of the spawned threads is deadlocked? The parent will wait forever, and the system
+will never shut down.
+Or consider a similar system that has been instructed to shut down. The parent tells all
+the spawned children to abandon their tasks and ﬁnish. But what if two of the children
+were operating as a producer/consumer pair. Suppose the producer receives the signal
+from the parent and quickly shuts down. The consumer might have been expecting a mes-
+sage from the producer and be blocked in a state where it cannot receive the shutdown sig-
+nal. It could get stuck waiting for the producer and never ﬁnish, preventing the parent from
+ﬁnishing as well.
+Situations like this are not at all uncommon. So if you must write concurrent code that
+involves shutting down gracefully, expect to spend much of your time getting the shut-
+down to happen correctly.
+Recommendation: Think about shut-down early and get it working early. It’s going to
+take longer than you expect. Review existing algorithms because this is probably harder
+than you think.
+Testing Threaded Code
+Proving that code is correct is impractical. Testing does not guarantee correctness. How-
+ever, good testing can minimize risk. This is all true in a single-threaded solution. As soon
+as there are two or more threads using the same code and working with shared data, things
+get substantially more complex.
+Recommendation: Write tests that have the potential to expose problems and then
+run them frequently, with different programatic conﬁgurations and system conﬁgurations
+and load. If tests ever fail, track down the failure. Don’t ignore a failure just because the
+tests pass on a subsequent run.
+That is a whole lot to take into consideration. Here are a few more ﬁne-grained
+recommendations:
+• Treat spurious failures as candidate threading issues.
+• Get your nonthreaded code working ﬁrst.
+15. See “Deadlock” on page 335.

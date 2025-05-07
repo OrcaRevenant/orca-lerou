@@ -1,0 +1,14 @@
+In long polling, a client holds the connection open until there are actually new messages
+available or a timeout threshold has been reached. Once the client receives new messages, it
+immediately sends another request to the server, restarting the process. Long polling has a
+few drawbacks:
+• Sender and receiver may not connect to the same chat server. HTTP based servers are
+usually stateless. If you use round robin for load balancing, the server that receives the
+message might not have a long-polling connection with the client who receives the
+message.
+• A server has no good way to tell if a client is disconnected.
+• It is inefficient. If a user does not chat much, long polling still makes periodic
+connections after timeouts.
+WebSocket
+WebSocket is the most common solution for sending asynchronous updates from server to
+client. Figure 12-5 shows how it works.

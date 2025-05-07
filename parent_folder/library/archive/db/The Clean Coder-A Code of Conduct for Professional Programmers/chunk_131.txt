@@ -1,0 +1,31 @@
+COMMUNICATING REQUIREMENTS
+99
+It may be perfectly clear to them in their context, but mean something
+completely different to the programmer who reads it. This kind of contextual
+ambiguity can also occur when customers and programmers are speaking face
+to face.
+Sam (stakeholder): “OK, now these log files need to be backed up.”
+Paula: “OK, how often?”
+Sam: “Daily.”
+Paula: “Right. And where do you want it saved?”
+Sam: “What do you mean?”
+Paula: “Do you want me to save it a particular sub-directory?”
+Sam: “Yes, that’d be good.”
+Paula: “What shall we call it?”
+Sam: “How about ‘backup’?”
+Paula: “Sure, that’d be fine. So we’ll write the log file into the backup
+directory every day. What time?”
+Sam: “Every day.”
+Paula: “No, I mean what time of day do you want it written?”
+Sam: “Any time.”
+Paula: “Noon?”
+Sam: “No, not during trading hours. Midnight would be better.”
+Paula: “OK, midnight then.”
+Sam: “Great, thanks!”
+Paula: “Always a pleasure.”
+Later, Paula is telling her teammate Peter about the task.
+Paula: “OK, we need to copy the log file into a sub-directory named
+backup every night at midnight.”
+Peter: “OK, what file name should we use?”
+Paula: “log.backup ought to do it.”
+Peter: “You got it.”

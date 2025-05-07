@@ -1,0 +1,181 @@
+Solutions to Chapter 17 | Hard
+31
+i n t [ ] g e t C l o s u r e s ( i n t [ ] [ ] nextElements) {
+i n t [ ] maxMextElement = new int[nextElements[0].length];
+33
+for ( i n t 1 = 0 ; i < nextElements[0].length; i++) {
+34
+maxNextElement[i] = getClosureForlndex(nextElements, i ) ;
+35
+>
+36
+return maxNextElement;
+37 >
+38
+39 /* Given an index and the table of next elements, f i n d the closure f o r t h i s index
+40
+* (which w i l l be the rain of t h i s column). */
+41 i n t getClosureForlndex(int[][] nextElements, i n t index) {
+42
+i n t max = -1;
+43
+f o r ( i n t i = 0; i < nextElements.length; i++) {
+44
+if (nextElements[i][index] •« -1) {
+45
+return -1;
+46
+}
+47
+max = Math.max(max, nextElements[i][index]);
+48
+)
+49
+return max;
+50
+}
+51
+52 f* Get shortest closure.
+*/
+53 Range getShortestClosure(int[] closures) {
+54
+i n t bestStart = -1;
+55
+i n t bestEnd = -1;
+56
+f o r ( i n t i = 0; i < closures.length; i++) {
+57
+if ( c l o s u r e s [ i ] == -1) {
+58
+break;
+59
+}
+60
+i n t current = closures[i] - i;
+61
+if (bestStart == -1 || current < bestEnd - bestStart) {
+62
+bestStart = i;
+63
+bestEnd = c l o s u r e s [ i ] ;
+64
+}
+65
+>
+66
+return new Range(best5tart, bestEnd);
+67 >
+This algorithm will potentially take 0( SB) time, where B is the length of b i g S t r i n g and S is the length of
+smallString.This is because we do S sweeps through the array to build up the next occurrences table
+and each sweep takes 0(B) time.
+It uses 0(SB) space.
+More Optimized
+While our solution is fairly optimal, we can reduce the space usage. Remember the table we created:
+value
+7
+S
+9
+0
+2
+1
+3
+S
+7
+9
+1
+1
+5
+8
+8
+9
+7
+index
+0
+1
+I
+3
+4
+S
+6
+7
+6
+9
+10
+11
+12
+13
+14
+15
+16
+next 1
+5
+S
+S
+S
+S
+S
+10
+10 ie
+10
+10
+11
+X
+X
+X
+X
+X
+next S
+1
+1
+7
+7
+7
+7
+7
+7
+12
+12
+12
+12
+12
+X
+X
+X
+X
+next 9
+2
+2
+2
+9
+9
+9
+9
+9
+9
+9
+15
+15
+15
+15
+15
+15
+X
+closure
+5
+5
+7
+9
+9
+9
+10 10
+12
+12
+15
+15
+X
+X
+X
+X
+X
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

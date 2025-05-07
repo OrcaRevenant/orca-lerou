@@ -1,0 +1,37 @@
+Manually assigning indexed values from an array or properties from an object can be
+thought of as structured assignment. To put this into ES6 terms, it’s called destructur‐
+ing assignment.
+Specifically, ES6 introduces dedicated syntax for array destructuring and object
+destructuring, which eliminates the need for the tmp variable in the previous snippets,
+making them much cleaner. Consider:
+var [ a, b, c ] = foo();
+var { x: x, y: y, z: z } = bar();
+console.log( a, b, c );             // 1 2 3
+console.log( x, y, z );             // 4 5 6
+You’re likely more used to seeing syntax like [a,b,c] on the righthand side of an =
+assignment, as the value being assigned.
+Destructuring symmetrically flips that pattern, so that [a,b,c] on the lefthand side of
+the = assignment is treated as a kind of “pattern” for decomposing the righthand side
+array value into separate variable assignments.
+Similarly, { x: x, y: y, z: z } specifies a “pattern” to decompose the object value
+from bar() into separate variable assignments.
+Object Property Assignment Pattern
+Let’s dig into that { x: x, .. } syntax from the previous snippet. If the property
+name being matched is the same as the variable you want to declare, you can actually
+shorten the syntax:
+var { x, y, z } = bar();
+console.log( x, y, z );             // 4 5 6
+Cool, huh!?
+But is { x, .. } leaving off the x: part or leaving off the : x part? As we’ll see
+shortly, we’re actually leaving off the x: part when we use the shorter syntax. That
+may not seem like an important detail, but you’ll understand its importance.
+If you can write the shorter form, why would you ever write out the longer form?
+Because that longer form actually allows you to assign a property to a different vari‐
+able name, which can sometimes be quite useful:
+var { x: bam, y: baz, z: bap } = bar();
+console.log( bam, baz, bap );       // 4 5 6
+console.log( x, y, z );             // ReferenceError
+20
+|
+Chapter 2: Syntax
+www.it-ebooks.info

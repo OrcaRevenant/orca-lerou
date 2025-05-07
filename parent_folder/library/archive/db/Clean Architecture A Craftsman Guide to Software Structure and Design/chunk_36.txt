@@ -1,0 +1,30 @@
+requirements document. Then we write the code that causes the stakeholder’s
+machines to satisfy those requirements.
+When the machine violates those requirements, programmers get their debuggers
+out and fix the problem.
+Many programmers believe that is the entirety of their job. They believe their job
+is to make the machine implement the requirements and to fix any bugs. They
+are sadly mistaken.
+ARCHITECTURE
+The second value of software has to do with the word “software”—a compound
+word composed of “soft” and “ware.” The word “ware” means “product”; the
+word “soft”… Well, that’s where the second value lies.
+Software was invented to be “soft.” It was intended to be a way to easily change
+the behavior of machines. If we’d wanted the behavior of machines to be hard to
+change, we would have called it hardware.
+To fulfill its purpose, software must be soft—that is, it must be easy to change.
+When the stakeholders change their minds about a feature, that change should be
+simple and easy to make. The difficulty in making such a change should be
+proportional only to the scope of the change, and not to the shape of the change.
+It is this difference between scope and shape that often drives the growth in
+software development costs. It is the reason that costs grow out of proportion to
+the size of the requested changes. It is the reason that the first year of
+development is much cheaper than the second, and the second year is much
+cheaper than the third.
+From the stakeholders’ point of view, they are simply providing a stream of
+changes of roughly similar scope. From the developers’ point of view, the
+stakeholders are giving them a stream of jigsaw puzzle pieces that they must fit
+into a puzzle of ever-increasing complexity. Each new request is harder to fit
+than the last, because the shape of the system does not match the shape of the
+request.
+I’m using the word “shape” here in a unconventional way, but I think the

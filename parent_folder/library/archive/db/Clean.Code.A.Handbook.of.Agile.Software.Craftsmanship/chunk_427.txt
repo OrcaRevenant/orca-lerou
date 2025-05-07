@@ -1,0 +1,30 @@
+399
+Appendix B: org.jfree.date.SerialDate
+Listing B-10
+DateInterval.java (Final)
+1 package org.jfree.date;
+2
+3 public enum DateInterval {
+4   OPEN {
+5     public boolean isIn(int d, int left, int right) {
+6       return d > left && d < right;
+7     }
+8   },
+9   CLOSED_LEFT {
+10     public boolean isIn(int d, int left, int right) {
+11       return d >= left && d < right;
+12     }
+13   },
+14   CLOSED_RIGHT {
+15     public boolean isIn(int d, int left, int right) {
+16       return d > left && d <= right;
+17     }
+18   },
+19   CLOSED {
+20     public boolean isIn(int d, int left, int right) {
+21       return d >= left && d <= right;
+22     }
+23   };
+24
+25   public abstract boolean isIn(int d, int left, int right);
+26 }

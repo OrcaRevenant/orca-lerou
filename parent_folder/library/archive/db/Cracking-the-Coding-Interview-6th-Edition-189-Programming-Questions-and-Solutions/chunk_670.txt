@@ -1,0 +1,75 @@
+11 Hints for Data Structures
+#109.
+2.S
+For the follow-up question: The issue is that when the linked lists aren't the same length.
+the head of one linked list might represent the 1000's place while the other represents
+the 10's place. What if you made them the same length? Is there a way to modify the
+linked list to do that, without changing the value it represents?
+#110.
+1.6
+Be careful that you aren't repeatedly concatenating strings together. This can be very
+inefficient.
+#111.
+2.7
+If the two linked lists were the same length, you could traverse forward in each until you
+found an element in common. Now, how do you adjust this for lists of different lengths?
+#112.
+4.11
+The reason that the earlier solution (picking a random number between 1 and 3} doesn't
+work is that the probabilities for the nodes won't be equal. For example, the root will be
+returned with probability
+, even if there are 50+ nodes in the tree. Clearly, not all the
+nodes have probability Ys, so these nodes won't have equal probability. We can resolve
+this one issue by picking a random number between 1 and s i 2 e _ o f _ t r e e instead.
+This only resolves the issue for the root, though. What about the rest of the nodes?
+#113.
+4.S
+Rather than validating the current node's value against l e f t T r e e . m a x and
+r i g h t T r e e . min, can we flip around the logic? Validate the left tree's nodes to ensure
+that they are smaller than cur-rent .value.
+#114.
+3.4
+We can remove the oldest item from a stack by repeatedly removing the newest item
+[inserting those into the temporary stack) until we get down to one element. Then, after
+we've retrieved the newest item, putting all the elements back. The issue with this is
+that doing several pops in a row will require 0(N) work each time. Can we optimize for
+scenarios where we might do several pops in a row?
+#115.
+4.12
+Once you've solidified the algorithm to find all contiguous subarrays in an array with a
+given sum, try to apply this to a tree. Remember that as you're traversing and modifying
+the hash table, you may need to "reverse the damage" to the hash table as you traverse
+back up.
+#116.
+4,2
+Imagine we had a c r e a t e M i n i m a l T r e e method that returns a minimal tree for a
+given array {but for some strange reason doesn't operate on the root of the tree). Could
+you use this to operate on the root of the tree? Could you write the base case for the
+function? Great! Then that's basically the entire function.
+#117.
+1.1
+Could a bit vector be useful?
+#118.
+1.3
+You might find you need to know the number of spaces. Can you just count them?
+#119.
+4.11
+The issue with the earlier solution is that there could be more nodes on one side of a
+node than the other. So, we need to weight the probability of going left and right based
+on the number of nodes on each side. How does this work, exactly? How can we know
+the number of nodes?
+#120.
+2.7
+Try using the difference between the lengths of the two linked lists.
+#121.
+1.4
+What characteristics would a string that is a permutation of a palindrome have?
+#122.
+1,2
+Could a hash table be useful?
+#123.
+4.3
+A bash table or array that maps from level number to nodes at that level might also be
+useful.
+654
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,41 @@
+doesn’t recursively call itself, it just returns another function. The stack depth remains
+constant, so it can run as long as it needs to.
+Trampolining expressed in this way uses the closure that the inner partial() func‐
+tion has over the x and acc variables to keep the state from iteration to iteration. The
+advantage is that the looping logic is pulled out into a reusable trampoline(..) util‐
+ity function, which many libraries provide versions of. You can reuse trampo
+line(..) multiple times in your program with different trampolined algorithms.
+Of course, if you really wanted to deeply optimize (and the reusability wasn’t a con‐
+cern), you could discard the closure state and inline the state tracking of acc into just
+one function’s scope along with a loop. This technique is generally called recursion
+unrolling:
+"use strict";
+function foo(x) {
+var acc = 1;
+while (x > 1) {
+acc = (x / 2) + acc;
+x = x - 1;
+}
+return acc;
+}
+foo( 123456 );          // 3810376848.5
+This expression of the algorithm is simpler to read, and will likely perform the best
+(strictly speaking) of the various forms we’ve explored. That may seem like a clear
+winner, and you may wonder why you would ever try the other approaches.
+There are some reasons why you might not want to always manually unroll your
+recursions:
+• Instead of factoring out the trampolining (loop) logic for reusability, we’ve
+inlined it. This works great when there’s only one example to consider, but as
+soon as you have a half dozen or more of these in your program, there’s a good
+chance you’ll want some reusabilty to keep things manageable.
+• The example here is deliberately simple enough to illustrate the different forms.
+In practice, there are many more complications in recursion algorithms, such as
+mutual recursion (more than just one function calling itself).
+The farther you go down this rabbit hole, the more manual and intricate the unrolling
+optimizations are. You’ll quickly lose all the perceived value of readability. The pri‐
+mary advantage of recursion, even in the proper tail call form, is that it preserves the
+algorithm readability, and offloads the performance optimization to the engine.
+Tail Call Optimization (TCO)
+|
+203
+www.it-ebooks.info

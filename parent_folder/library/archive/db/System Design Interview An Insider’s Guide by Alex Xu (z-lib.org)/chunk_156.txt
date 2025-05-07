@@ -1,0 +1,4 @@
+Newsfeed retrieval deep dive
+Figure 11-7 illustrates the detailed design for news feed retrieval.
+As shown in Figure 11-7, media content (images, videos, etc.) are stored in CDN for fast
+retrieval. Let us look at how a client retrieves news feed.

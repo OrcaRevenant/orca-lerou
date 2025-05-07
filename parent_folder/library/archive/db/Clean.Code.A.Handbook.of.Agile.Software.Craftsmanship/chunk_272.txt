@@ -1,0 +1,49 @@
+242
+Chapter 14: Successive Reﬁnement
+public Object get() {
+return doubleValue;
+}
+}
+}
+This is nice. Now the only exception thrown by Args is ArgsException. Moving
+ArgsException into its own module means that we can move a lot of the miscellaneous
+error support code into that module and out of the Args module. It provides a natural and
+obvious place to put all that code and will really help us clean up the Args module going
+forward.
+So now we have completely separated the exception and error code from the Args
+module. (See Listing 14-13 through Listing 14-16.) This was achieved through a series of
+about 30 tiny steps, keeping the tests passing between each step.
+Listing 14-13
+ArgsTest.java
+package com.objectmentor.utilities.args;
+import junit.framework.TestCase;
+public class ArgsTest extends TestCase {
+public void testCreateWithNoSchemaOrArguments() throws Exception {
+Args args = new Args("", new String[0]);
+assertEquals(0, args.cardinality());
+}
+public void testWithNoSchemaButWithOneArgument() throws Exception {
+try {
+new Args("", new String[]{"-x"});
+fail();
+} catch (ArgsException e) {
+assertEquals(ArgsException.ErrorCode.UNEXPECTED_ARGUMENT,
+e.getErrorCode());
+assertEquals('x', e.getErrorArgumentId());
+}
+}
+public void testWithNoSchemaButWithMultipleArguments() throws Exception {
+try {
+new Args("", new String[]{"-x", "-y"});
+fail();
+} catch (ArgsException e) {
+assertEquals(ArgsException.ErrorCode.UNEXPECTED_ARGUMENT,
+e.getErrorCode());
+assertEquals('x', e.getErrorArgumentId());
+}
+}
+public void testNonLetterSchema() throws Exception {
+try {
+new Args("*", new String[]{});
+fail("Args constructor should have thrown exception");
+} catch (ArgsException e) {

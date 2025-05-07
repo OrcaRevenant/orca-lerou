@@ -1,0 +1,76 @@
+Solutions to Chapter 8 j Recursion and Dynamic Programming
+Then, we choose whether or not to put box 1 in the stack. Take one recursive path with box 1 at the bottom
+and one path without box 1. Return the better of the two options.
+We will again use memoization to cache the height of the tallest stack with a particular bottom.
+1
+i n t createStack(ArrayList<Box> boxes) {
+2
+C o l l e c t i o n s . s o r t ( b o x e s ,
+new BoxComparatorQ);
+3
+i n t [J stackMap = new i n t [ b o x e s . s i z e ( ) ] ;
+4
+return createStack(boxes, n u l l , 0, stackMap);
+5
+>
+6
+7
+i n t createStack(ArrayList<Box> boxes, Box bottom, i n t o f f s e t , i n t [ ] stackMap) {
+8
+if ( o f f s e t >= boxes.size()) return 9; // Base case
+9
+10
+I* height with t h i s bottom */
+11
+Box newBottom = b o x e s . g e t ( o f f s e t ) ;
+12
+i n t heightWithBottom = 0;
+13
+if (bottom == n u l l ||
+newBottom.canBeAbove(bottom)) {
+14
+if (stackMap[offset] == 0) {
+15
+stackMap[offset] = createStack(boxes, newBottom, o f f s e t + 1, stackMap);
+16
+stackMap[offset] += newBottom,height;
+>
+18
+heightWithBottom = stackMap[offset];
+19
+>
+20
+21
+/* without t h i s bottom */
+22
+i n t heightwithoutBottom = create5tack(boxes, bottom, o f f s e t + 1, stackMap);
+23
+24
+/* Return b e t t e r of two options.
+*/
+25
+return Math.max(heightWithBottom,
+heightWithoutSottom);
+26
+}
+Again, pay close attention to when you recall and insert values into the hash table. It's typically best if these
+are symmetric, as they are in lines 15 and 16-18,
+8.14
+Boolean Evaluation: Given a boolean expression consisting of the symbols 0 (false), 1 (true), &
+(AND), j (OR), and A (XOFt), and a desired boolean result value r e s u l t , implement a function to
+count the number of ways of parenthesizing the expression such that it evaluates to r e s u l t . The
+expression should be fully parenthesized (e.g., ( 0 ) A (1 ))butnotextraneousiy (e.g., ( ( ( 0 ) ) A ( 1 ) ) ) .
+EXAMPLE
+c o u n t E v a l ( " l A 0 | 0 | l " , f a l s e ) -> 2
+countEval("0S0&0Sl Al|0", t r u e ) -> 10
+pg 136
+SOLUTION
+As in other recursive problems, the key to this problem is to figure out the relationship between a problem
+and its subproblems.
+Brute Force
+Consider an expression like 0 A 0 & 0 A l | l and the target result t r u e . How can we break down
+c o u n t E v a l ( 0 A 0 & 0 A l [ 1 ,
+t r u e ) into smaller problems?
+We could just essentially iterate through each possible place to put a parenthesis.
+168
+370 Cracking the Coding Interview, 6th Edition

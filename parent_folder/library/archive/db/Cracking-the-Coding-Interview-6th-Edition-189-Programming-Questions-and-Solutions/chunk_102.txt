@@ -1,0 +1,50 @@
+2
+Linked Lists
+A
+linked list is a data structure that represents a sequence of nodes. In a singly linked list, each node
+points to the next node in the linked list. A doubly linked list gives each node pointers to both the next
+node and the previous node.
+The following diagram depicts a doubly linked list:
+Unlike an array, a linked list does not provide constant time access to a particular "index" within the list.
+This means that if you'd like to find the Kth element in the list, you will need to iterate through K elements.
+The benefit of a linked list is that you can add and remove items from the beginning of the list in constant
+time. For specific applications, this can be useful.
+> Creating a Linked List
+The code below implements a very basic singly linked list.
+1
+class Node {
+2
+Node next = null;
+3
+int data;
+4
+5
+public Node(int d) {
+6
+data = d;
+7
+}
+8
+9
+void appendToTail(int d) {
+16
+Node end = new Node(d);
+11
+Node n = this;
+12
+while {n.next 1= null) {
+13
+n = n.next;
+14
+>
+15
+n.next = end;
+16
+>
+17 >
+In this implementation, we don't have a L i n k e d L i s t data structure. We access the linked list through a
+reference to the head Node of the linked list. When you implement the linked list this way, you need to be
+a bit careful. What if multiple objects need a reference to the linked list, and then the head of the linked list
+changes? Some objects might still be pointing to the old head.
+ÎOO
+Cracking the Coding Interview, 6th Edition

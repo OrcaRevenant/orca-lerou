@@ -1,0 +1,9 @@
+16
+INDEPENDENCE
+As we previously stated, a good architecture must support:
+• The use cases and operation of the system.
+• The maintenance of the system.
+• The development of the system.
+• The deployment of the system.
+USE CASES
+The first bullet—use cases—means that the architecture of the system must

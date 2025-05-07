@@ -1,0 +1,51 @@
+Solutions to Chapter 9 | System Design and Scalability
+9.5
+Cache: Imagine a web server for a simplified search engine. This system has 100 machines to
+respond to search queries, which may then call out using p r o c e s s S e a r c h ( s t r i n g
+q u e r y )
+to another cluster of machines to actually get the result. The machine which responds to a given
+query is chosen at random, so you cannot guarantee that the same machine will always respond to
+the same request. The method processSearchis very expensive. Design a caching mechanism
+to cache the results of the most recent queries. Be sure to explain how you would update the cache
+when data changes.
+pg 145
+SOLUTION
+Before getting into the design of this system, we first have to understand what the question means. Many of
+the details are somewhat ambiguous, as is expected in questions like this. We will make reasonable assump-
+tions for the purposes of this solution, but you should discuss these details—in depth—with your inter-
+viewer.
+Assumptions
+Here area few of the assumptions we make for this solution. Depending on the design of your system and
+how you approach the problem, you may make other assumptions. Remember that while some approaches
+are better than others, there is no one "correct" approach.
+•
+Other than calling out to processSearch as necessary, all query processing happens on the initial
+machine that was called.
+•
+The number of queries we wish to cache is large (millions).
+•
+Calling between machines is relatively quick.
+•
+The result for a given query is an ordered list of URLs, each of which has an associated 50 character title
+and 200 character summary,
+•
+The most popular queries are extremely popular, such that they would always appear in the cache.
+Again, these aren't the only valid assumptions. This is just one reasonable set of assumptions.
+System Requirements
+When designing the cache, we know we'll need to support two primary functions:
+•
+Efficient lookups given a key.
+•
+Expiration of old data so that it can be replaced with new data.
+In addition, we must also handle updating or clearing the cache when the results for a query change.
+Because some queries are very common and may permanently reside in the cache, we cannot just wait for
+the cache to naturally expire.
+Step 1: Design a Cache for a Single System
+A good way to approach this problem is to start by designing it for a single machine. So, how would you
+create a data structure that enables you to easily purge old data and also efficiently look up a value based
+on a key?
+•
+A linked list would allow easy purging of old data, by moving "fresh" items to the front. We could imple-
+ment it to remove the last element of the linked list when the list exceeds a certain size.
+CrackingTheCodinginterview.com
+| 6th Edition Î75

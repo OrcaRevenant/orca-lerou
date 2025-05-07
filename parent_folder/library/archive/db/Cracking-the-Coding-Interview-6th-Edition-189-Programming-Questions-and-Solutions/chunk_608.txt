@@ -1,0 +1,65 @@
+Solutions to Chapter 17 j Hard
+31 /* Find t a l l e s t bar in histogram between s t a r t and end, */
+32 i n t findlndexOfMax(int[] histogram, int s t a r t , i n t end) {
+33
+i n t indexOfMax = s t a r t ;
+34
+f o r ( i n t i = s t a r t + 1; i <= end; i++) {
+35
+if (histogram[i] > histogramfindexOfMax]) {
+36
+indexOfMax = i;
+37
+>
+38
+}
+39
+return indexOfMax;
+40
+}
+41
+42 /* Compute volume between s t a r t and end. Assumes that t a l l e s t bar is at s t a r t and
+43
+* second t a l l e s t is at end. */
+44 i n t borderedVolume(int[] histogram, int s t a r t , i n t end) {
+45
+if ( s t a r t >= end) return 0;
+46
+47
+i n t min = Math.min(histogram[start], histogramfend]);
+48
+i n t sum = 0;
+49
+f o r ( i n t i * s t a r t + 1; i < end; i++) {
+50
+sum += min - histogram[i];
+51
+>
+52
+return sum;
+53
+}
+This algorithm takes 0(N J) time in the worst case, where N is the number of bars in the histogram. This is
+because we have to repeatedly scan the histogram to find the max height.
+Solution #2 (Optimized)
+To optimize the previous algorithm, let's think about the exact cause of the inefficiency of the prior algo-
+rithm. The root cause is the perpetual calls to f i n d l n d e x O f Max. This suggests that it should be our focus
+for optimizing.
+One thing we should notice is that we don't pass in arbitrary ranges into the f indlndexOfMax function.
+It's actually always finding the max from one point to an edge (either the right edge or the left edge). Is
+there a quicker way we could know what the max height is from a given point to each edge?
+Yes. We could precompute this information in O(N) time.
+In two sweeps through the histogram (one moving right to left and the other moving left to right), we can
+create a table that tells us, from any index i, the location of the max index on the right and the max index
+on the left.
+ill*.
+INDEX:
+0 1 2 3 4 5 6 7 8 9
+HEIGHT:
+3 1 4 0 0 6 0 3 0 2
+INDEX LEFT MAX: 0 0 2 2 2 5 5 5 5 5
+INDEX RIGHT MAX: 5 5 5 5 5 5 7 7 9 9
+The rest of the algorithm precedes essentially the same way.
+55
+S
+Cracking the Coding interview, 6th Edition

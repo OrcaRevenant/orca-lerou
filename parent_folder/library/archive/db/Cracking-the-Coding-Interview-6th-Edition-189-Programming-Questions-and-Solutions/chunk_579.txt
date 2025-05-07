@@ -1,0 +1,103 @@
+Solutions to Chapter 17 | Hard
+6
+i n t threshold = rank(array, k - 1);
+7
+i n t [ ] smallest = new i n t [ k ] ;
+8
+i n t count = 0;
+9
+for ( i n t a : array) {
+10
+if {a <= threshold) {
+11
+smallest[count] = a;
+12
+count++;
+13
+>
+14
+>
+15
+return smallest;
+16 >
+17
+18 /* Get element with rank. */
+19 i n t r a n k ( i n t [ ] array,
+i n t rank) {
+20
+return rank(array, 0, array.length - 1, rank);
+21
+}
+22
+23 /* Get element with rank between l e f t and r i g h t indices. */
+24 i n t r a n k ( i n t [ ] array, i n t l e f t , i n t r i g h t , i n t rank) {
+25
+i n t pivot = array[randomIntInRange(left, r i g h t ) ] ;
+26
+i n t leftEnd = p a r t i t i o n ( a r r a y , l e f t , r i g h t , p i v o t ) ;
+27
+i n t l e f t S i z e = leftEnd - l e f t + 1;
+28
+if (rank == l e f t S i z e - 1) {
+29
+return max(array, l e f t , leftEnd);
+30
+} else if (rank < l e f t S i z e ) {
+31
+return rank(array, l e f t , leftEnd, rank);
+32
+} else {
+33
+return rank(array, leftEnd + 1, r i g h t , rank - l e f t S i z e ) ;
+34
+>
+35 >
+36
+37 /* P a r t i t i o n array around pivot such that a l l elements <= pivot come before a l l
+38
+* elements > pivot. */
+39 i n t p a r t i t i o n ( i n t [ ] array, i n t l e f t ,
+i n t r i g h t , i n t pivot) {
+40
+while ( l e f t <= r i g h t ) {
+41
+if ( a r r a y [ l e f t ] > pivot) {
+42
+/* l e f t is bigger than pivot. Swap it to the r i g h t side, where we know it
+43
+* should be. */
+44
+swap(array, l e f t , r i g h t ) ;
+45
+r i g h t - - ;
+46
+} else if ( a r r a y f r i g h t ] <= pivot) {
+47
+/* Right is smaller than the pivot. Swap it to the l e f t side, where we know
+48
+* it should be. */
+49
+swap(array,
+l e f t , r i g h t ) ;
+50
+l e f t + + ;
+51
+) else {
+52
+/* Left and r i g h t are in correct places. Expand both sides. */
+53
+l e f t + + ;
+54
+r i g h t - - ;
+55
+)
+56
+>
+57
+return l e f t - 1;
+58 >
+59
+60 /* Get random integer w i t h i n range, inclusive. */
+61 i n t randomint!nRange(int min, i n t max) {
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

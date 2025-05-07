@@ -1,0 +1,11 @@
+Package by Layer
+Package by Feature
+Ports and Adapters
+Package by Component
+The Devil Is in the Implementation Details
+Organization versus Encapsulation
+Other Decoupling Modes
+Conclusion: The Missing Advice
+PART VII Appendix
+Appendix A Architecture Archaeology
+Index

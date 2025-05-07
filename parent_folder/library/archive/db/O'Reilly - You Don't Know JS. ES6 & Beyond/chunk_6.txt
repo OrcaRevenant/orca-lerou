@@ -1,0 +1,42 @@
+class                                                                                                                            115
+extends and super                                                                                                     117
+new.target                                                                                                                  122
+static                                                                                                                          122
+Review                                                                                                                             124
+4. Async Flow Control. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  127
+Promises                                                                                                                          127
+Making And Using Promises                                                                                    128
+Thenables                                                                                                                    131
+Promise API                                                                                                                131
+Generators + Promises                                                                                                  134
+Review                                                                                                                             136
+5. Collections. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  139
+Typed Arrays                                                                                                                  139
+Endianness                                                                                                                  140
+Multiple Views                                                                                                            141
+Typed Array Constructors                                                                                        142
+Maps                                                                                                                                 143
+Map Values                                                                                                                  145
+Map Keys                                                                                                                     146
+WeakMaps                                                                                                                       146
+Sets                                                                                                                                   147
+Set Iterators                                                                                                                 148
+WeakSets                                                                                                                         149
+Review                                                                                                                             149
+6. API Additions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  151
+Array                                                                                                                                151
+Array.of(..) Static Function                                                                                  151
+Array.from(..) Static Function                                                                              153
+Creating Arrays And Subtypes                                                                                 155
+copyWithin(..) Prototype Method                                                                        156
+fill(..) Prototype Method                                                                                    157
+find(..) Prototype Method                                                                                    157
+findIndex(..) Prototype Method                                                                          159
+entries(), values(), keys() Prototype Methods                                               160
+Object                                                                                                                              161
+Object.is(..) Static Function                                                                                161
+Object.getOwnPropertySymbols(..) Static Function                                        161
+Table of Contents
+|
+v
+www.it-ebooks.info

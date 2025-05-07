@@ -1,0 +1,44 @@
+54
+Chapter 4: Comments
+we had the talent to subtly wield those languages to express our intent, we would not need
+comments very much—perhaps not at all.
+The proper use of comments is to compensate for our failure to express ourself in
+code. Note that I used the word failure. I meant it. Comments are always failures. We must
+have them because we cannot always ﬁgure out how to express ourselves without them,
+but their use is not a cause for celebration.
+So when you ﬁnd yourself in a position where you need to write a comment, think it
+through and see whether there isn’t some way to turn the tables and express yourself in
+code. Every time you express yourself in code, you should pat yourself on the back. Every
+time you write a comment, you should grimace and feel the failure of your ability of
+expression.
+Why am I so down on comments? Because they lie. Not always, and not intentionally,
+but too often. The older a comment is, and the farther away it is from the code it describes,
+the more likely it is to be just plain wrong. The reason is simple. Programmers can’t realis-
+tically maintain them.
+Code changes and evolves. Chunks of it move from here to there. Those chunks bifur-
+cate and reproduce and come together again to form chimeras. Unfortunately the com-
+ments don’t always follow them—can’t always follow them. And all too often the
+comments get separated from the code they describe and become orphaned blurbs of ever-
+decreasing accuracy. For example, look what has happened to this comment and the line it
+was intended to describe:
+MockRequest request;
+private final String HTTP_DATE_REGEXP =
+"[SMTWF][a-z]{2}\\,\\s[0-9]{2}\\s[JFMASOND][a-z]{2}\\s"+
+"[0-9]{4}\\s[0-9]{2}\\:[0-9]{2}\\:[0-9]{2}\\sGMT";
+private Response response;
+private FitNesseContext context;
+private FileResponder responder;
+private Locale saveLocale;
+// Example: "Tue, 02 Apr 2003 22:18:49 GMT"
+Other instance variables that were probably added later were interposed between the
+HTTP_DATE_REGEXP constant and it’s explanatory comment.
+It is possible to make the point that programmers should be disciplined enough to
+keep the comments in a high state of repair, relevance, and accuracy. I agree, they should.
+But I would rather that energy go toward making the code so clear and expressive that it
+does not need the comments in the ﬁrst place.
+Inaccurate comments are far worse than no comments at all. They delude and mislead.
+They set expectations that will never be fulﬁlled. They lay down old rules that need not, or
+should not, be followed any longer.
+Truth can only be found in one place: the code. Only the code can truly tell you what
+it does. It is the only source of truly accurate information. Therefore, though comments are
+sometimes necessary, we will expend signiﬁcant energy to minimize them.

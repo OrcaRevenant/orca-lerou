@@ -1,0 +1,35 @@
+XI
+Advanced Topics
+W
+hen writing the 6th edition, I had a number of debates about what should and shouldn't be included.
+Red-black trees? Dijkstra's algorithm? Topological sort?
+On one hand, I'd had a number of requests to include these topics. Some people insisted that these topics
+are asked "all the time" (in which case, they have a very different idea of what this phrase means!).There was
+clearly a desire—at least from some people-—to include them. And learning more can't hurt, right?
+On the other hand, I know these topics to be rarely asked. It happens, of course. Interviewers are individuals
+and might have their own ideas of what is"fairgame"or"reievant"for an interview. But it's rare. When it does
+come up, if you don't know the topic, it's unlikely to be a big red flag.
+I
+Admittedly, as an interviewer, I have asked candidates questions where the solution was essen-
+tially an application of one of these algorithms. On the rare occasions that a candidate already
+knew the algorithm, they did not benefit from this knowledge (nor were they hurt by it). I want
+to evaluate your ability to solve a problem you haven't seen before. So, I'll take into account
+whether you know the underlying algorithm in advance.
+I believe in giving people a fair expectation of the interview, not scaring people into excess studying. I also
+have no interest in making the book more "advanced" so as to help book sales, at the expense of your time
+and energy. That's not fair or right to do to you.
+(Additionally, I didn't want to give interviewers—who I know to be reading this—the impression that they
+can or should be covering these more advanced topics. Interviewers: If you ask about these topics, you're
+testing knowledge of algorithms. You're just going to wind up eliminating a lot of perfectly smart people.)
+But there are many borderline "important" topics. They're not often asked, but sometimes they are,
+Ultimately, I decided to leave the decision in your hands. After all, you know better than I do how thorough
+you want to be in your preparation. If you want to do an extra thorough job, read this. If you just love
+learning data structures and algorithms, read this. If you want to see new ways of approaching problems,
+read this.
+But if you're pressed for time, this studying isn't a super high priority.
+• Useful Math
+Here's some math that can be useful in some questions. There are more formal proofs that you can look
+up online, but we'll focus here on giving you the intuition behind them. You can think of these as informal
+proofs.
+CrackingTfieCodinglnterview.com 16th Edition
+6 2 9

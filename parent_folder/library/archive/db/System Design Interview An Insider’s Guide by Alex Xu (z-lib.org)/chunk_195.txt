@@ -1,0 +1,16 @@
+1. A search query is sent to the load balancer.
+2. The load balancer routes the request to API servers.
+3. API servers get trie data from Trie Cache and construct autocomplete suggestions for
+the client.
+4. In case the data is not in Trie Cache, we replenish data back to the cache. This way, all
+subsequent requests for the same prefix are returned from the cache. A cache miss can
+happen when a cache server is out of memory or offline.
+Query service requires lightning-fast speed. We propose the following optimizations:
+• AJAX request. For web applications, browsers usually send AJAX requests to fetch
+autocomplete results. The main benefit of AJAX is that sending/receiving a
+request/response does not refresh the whole web page.
+• Browser caching. For many applications, autocomplete search suggestions may not
+change much within a short time. Thus, autocomplete suggestions can be saved in browser
+cache to allow subsequent requests to get results from the cache directly. Google search
+engine uses the same cache mechanism. Figure 13-12 shows the response header when
+you type “system design interview” on the Google search engine. As you can see, Google

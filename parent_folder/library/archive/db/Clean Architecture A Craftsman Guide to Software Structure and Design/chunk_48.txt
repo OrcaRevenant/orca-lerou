@@ -1,0 +1,30 @@
+quite challenging.
+During his investigation, Dijkstra discovered that certain uses of goto statements
+prevent modules from being decomposed recursively into smaller and smaller
+units, thereby preventing use of the divide-and-conquer approach necessary for
+reasonable proofs.
+Other uses of goto, however, did not have this problem. Dijkstra realized that
+these “good” uses of goto corresponded to simple selection and iteration control
+structures such as if/then/else and do/while. Modules that used only those
+kinds of control structures could be recursively subdivided into provable units.
+Dijkstra knew that those control structures, when combined with sequential
+execution, were special. They had been identified two years before by Böhm and
+Jacopini, who proved that all programs can be constructed from just three
+structures: sequence, selection, and iteration.
+This discovery was remarkable: The very control structures that made a module
+provable were the same minimum set of control structures from which all
+programs can be built. Thus structured programming was born.
+Dijkstra showed that sequential statements could be proved correct through
+simple enumeration. The technique mathematically traced the inputs of the
+sequence to the outputs of the sequence. This approach was no different from
+any normal mathematical proof.
+Dijkstra tackled selection through reapplication of enumeration. Each path
+through the selection was enumerated. If both paths eventually produced
+appropriate mathematical results, then the proof was solid.
+Iteration was a bit different. To prove an iteration correct, Dijkstra had to use
+induction. He proved the case for 1 by enumeration. Then he proved the case
+that if N was assumed correct, N + 1 was correct, again by enumeration. He also
+proved the starting and ending criteria of the iteration by enumeration.
+Such proofs were laborious and complex—but they were proofs. With their
+development, the idea that a Euclidean hierarchy of theorems could be
+constructed seemed reachable.

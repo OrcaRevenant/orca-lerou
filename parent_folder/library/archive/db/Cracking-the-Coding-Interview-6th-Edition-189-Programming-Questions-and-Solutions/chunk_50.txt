@@ -1,0 +1,60 @@
+VI I Big O
+Let's look at this from the perspective of quicksort. Quick sort picks a random element as a "pivot"and then
+swaps values in the array such that the elements less than pivot appear before elements greater than pivot.
+This gives a "partial sorf'Then it recursively sorts the left and right sides using a similar process.
+•
+Best Case: If all elements are equal, then quick sort will, on average, just traverse through the array once.
+This is 0(N). (This actually depends slightly on the implementation of quick sort. There are implementa-
+tions, though, that will run very quickly on a sorted array.)
+•
+Worst Case: What if we get really unlucky and the pivot is repeatedly the biggest element in the array?
+(Actually, this can easily happen. If the pivot is chosen to be the first element in the subarray and the
+array is sorted in reverse order, we'll have this situation.) In this case, our recursion doesn't divide the
+array in half and recurse on each half. It just shrinks the subarray by one element. This will degenerate
+to anO(N^) runtime.
+•
+Expected Case: Usually, though, these wonderful or terrible situations won't happen. Sure, sometimes
+the pivot will be very low or very high, but it won't happen over and over again. We can expect a runtime
+o f 0 ( N
+l o g N).
+We rarely ever discuss best case time complexity, because it's not a very useful concept. After all, we could
+take essentially any algorithm, special case some input, and then get an 0 ( 1 ) time in the best case.
+For many—probably most—algorithms, the worst case and the expected case are the same. Sometimes
+they're different, though, and we need to describe both of the runtimes.
+What is the relationship between best/worst/expected case and big O/theta/omega?
+It's easy for candidates to muddle these concepts (probably because both have some concepts of "higher"
+"lower"and "exactly right"), but there is no particular relationship between the concepts.
+Best, worst, and expected cases describe the big 0 (or big theta) time for particular inputs or scenarios.
+Big 0, big omega, and big theta describe the upper, lower, and tight bounds for the runtime.
+• Space Complexity
+Time is not the only thing that matters in an algorithm. We might also care about the amount of memory—
+or space—required by an algorithm.
+Space complexity is a parallel concept to time complexity. If we need to create an array of size n, this will
+require 0 ( n ) space. If we need a two-dimensional array of size nxn, this will require 0 ( n * ) space.
+Stack space in recursive calls counts, too. For example.code like this would take 0( n) time and 0( n) space.
+1
+int sum(int n) { /* Ex l . V
+2
+if (n <= 0) {
+3
+return &;
+4
+>
+5
+return n + sum(n-l);
+6
+}
+Each call adds a level to the stack.
+1
+sum(4)
+2
+-> sum(3)
+3
+-> sum(2)
+4
+sum(l)
+5
+-> sum(0)
+Each of these calls is added to the call stack and takes up actual memory.
+40
+SI Cracking the Coding Interview, 6th Edition

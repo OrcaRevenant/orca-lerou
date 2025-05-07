@@ -1,0 +1,13 @@
+Click here to view code image
+URI
+Dispatch Format
+Acme.com /pickupAddress/%s/pickupTime/%s/dest/%s
+*.*
+/pickupAddress/%s/pickupTime/%s/destination/%s
+And so our architect has had to add a significant and complex mechanism to deal
+with the fact that the interfaces of the restful services are not all substitutable.
+CONCLUSION
+The LSP can, and should, be extended to the level of architecture. A simple
+violation of substitutability, can cause a system’s architecture to be polluted with
+a significant amount of extra mechanisms.
+1. Barbara Liskov, “Data Abstraction and Hierarchy,” SIGPLAN Notices 23, 5 (May 1988).

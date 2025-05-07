@@ -1,0 +1,36 @@
+source code dependencies. See Source code dependencies
+Code organization
+conclusion, 321
+devil is in the details, 315–316
+other decoupling modes, 319–320
+overview of, 303–304
+package by component, 310–315
+package by feature, 306–307
+package by layer, 304–306
+ports and adapters, 308–310
+vs. encapsulation, 316–319
+Cohesion, Single Responsibility Principle, 63
+COLTs (central office line testers)
+in 4-TEL archaeology project, 340–344
+pCCU archaeology project, 352–354
+in service area computer archaeology project, 344–349
+Common Closure Principle. See CCP (Common Closure Principle)
+Common Reuse Principle. See CRP (Common Reuse Principle)
+Communications
+across deployment component boundaries, 179
+across local process boundaries, 180
+across service boundaries, 180–181
+across source-level decoupled boundaries, 178
+Conway’s law, 149
+as function calls between components in monoliths, 178
+in types of decoupling modes, 155–157
+Compare and swap algorithm, 54
+Compiled languages, 96
+Compilers
+enforce architectural principles with, 319
+location of source code, 97–98
+relocatable binaries, 99–100
+Component architecture, video sales case study, 300–302
+Component-based systems
+building scalable, 241
+designing services using SOLID, 245–246

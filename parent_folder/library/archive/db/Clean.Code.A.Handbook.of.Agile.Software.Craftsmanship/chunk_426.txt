@@ -1,0 +1,58 @@
+398
+Appendix B: org.jfree.date.SerialDate
+Listing B-9
+Day.java (Final)
+1 package org.jfree.date;
+2
+3 import java.util.Calendar;
+4 import java.text.DateFormatSymbols;
+5
+6 public enum Day {
+7   MONDAY(Calendar.MONDAY),
+8   TUESDAY(Calendar.TUESDAY),
+9   WEDNESDAY(Calendar.WEDNESDAY),
+10   THURSDAY(Calendar.THURSDAY),
+11   FRIDAY(Calendar.FRIDAY),
+12   SATURDAY(Calendar.SATURDAY),
+13   SUNDAY(Calendar.SUNDAY);
+14
+15   private final int index;
+16   private static DateFormatSymbols dateSymbols = new DateFormatSymbols();
+17
+18   Day(int day) {
+19     index = day;
+20   }
+21
+22   public static Day fromInt(int index) throws IllegalArgumentException {
+23     for (Day d : Day.values())
+24       if (d.index == index)
+25         return d;
+26     throw new IllegalArgumentException(
+27       String.format("Illegal day index: %d.", index));
+28   }
+29
+30   public static Day parse(String s) throws IllegalArgumentException {
+31     String[] shortWeekdayNames =
+32       dateSymbols.getShortWeekdays();
+33     String[] weekDayNames =
+34       dateSymbols.getWeekdays();
+35
+36     s = s.trim();
+37     for (Day day : Day.values()) {
+38       if (s.equalsIgnoreCase(shortWeekdayNames[day.index]) ||
+39           s.equalsIgnoreCase(weekDayNames[day.index])) {
+40         return day;
+41       }
+42     }
+43     throw new IllegalArgumentException(
+44       String.format("%s is not a valid weekday string", s));
+45   }
+46
+47   public String toString() {
+48     return dateSymbols.getWeekdays()[index];
+49   }
+50
+51   public int toInt() {
+52     return index;
+53   }
+54 }

@@ -1,0 +1,66 @@
+395
+Appendix B: org.jfree.date.SerialDate
+92         day = lastDayOfMonth;
+93     return day;
+94   }
+95
+96   public DayDate getPreviousDayOfWeek(Day targetDayOfWeek) {
+97     int offsetToTarget = targetDayOfWeek.toInt() - getDayOfWeek().toInt();
+98     if (offsetToTarget >= 0)
+99       offsetToTarget -= 7;
+100     return plusDays(offsetToTarget);
+101   }
+102
+103   public DayDate getFollowingDayOfWeek(Day targetDayOfWeek) {
+104     int offsetToTarget = targetDayOfWeek.toInt() - getDayOfWeek().toInt();
+105     if (offsetToTarget <= 0)
+106       offsetToTarget += 7;
+107     return plusDays(offsetToTarget);
+108   }
+109
+110   public DayDate getNearestDayOfWeek(Day targetDayOfWeek) {
+111     int offsetToThisWeeksTarget = targetDayOfWeek.toInt() - getDayOfWeek().toInt();
+112     int offsetToFutureTarget = (offsetToThisWeeksTarget + 7) % 7;
+113     int offsetToPreviousTarget = offsetToFutureTarget - 7;
+114
+115     if (offsetToFutureTarget > 3)
+116       return plusDays(offsetToPreviousTarget);
+117     else
+118       return plusDays(offsetToFutureTarget);
+119   }
+120
+121   public DayDate getEndOfMonth() {
+122     Month month = getMonth();
+123     int year = getYear();
+124     int lastDay = DateUtil.lastDayOfMonth(month, year);
+125     return DayDateFactory.makeDate(lastDay, month, year);
+126   }
+127
+128   public Date toDate() {
+129     final Calendar calendar = Calendar.getInstance();
+130     int ordinalMonth = getMonth().toInt() - Month.JANUARY.toInt();
+131     calendar.set(getYear(), ordinalMonth, getDayOfMonth(), 0, 0, 0);
+132     return calendar.getTime();
+133   }
+134
+135   public String toString() {
+136     return String.format("%02d-%s-%d", getDayOfMonth(), getMonth(), getYear());
+137   }
+138
+139   public Day getDayOfWeek() {
+140     Day startingDay = getDayOfWeekForOrdinalZero();
+141     int startingOffset = startingDay.toInt() - Day.SUNDAY.toInt();
+142     int ordinalOfDayOfWeek = (getOrdinalDay() + startingOffset) % 7;
+143     return Day.fromInt(ordinalOfDayOfWeek + Day.SUNDAY.toInt());
+144   }
+145
+146   public int daysSince(DayDate date) {
+147     return getOrdinalDay() - date.getOrdinalDay();
+148   }
+149
+150   public boolean isOn(DayDate other) {
+151     return getOrdinalDay() == other.getOrdinalDay();
+152   }
+153
+Listing B-7 (continued)
+DayDate.java (Final)

@@ -1,0 +1,75 @@
+Solutions to Chapter 17 | Hard
+12
+public int size() { return words == null ? 0 : words.size(); }
+13 >
+Strictly speaking, we don't need any of this. However, readability is important, and it's a lot easier to read
+ArrayList<Docurnent> than A r r a y L i s t < A r r a y L i s t < I n t e g e r > > .
+Doing this sort of thing not only shows good coding style, it also makes your life in an interview a lot easier.
+You have to write a lot less. (You probably would not define the entire Document class, unless you had extra
+time or your interviewer asked you to.)
+1
+HashMap<DocPair, Double> computeSimilarities(ArrayList<Document> documents) {
+2
+HashMapcDocPair, Double; similarities = new HashMap<DocPair, Double>();
+3
+for (int i = 0; i < documents.size(); i++) {
+4
+for (int j = i + 1; j < documents.size(); j++) {
+5
+Document docl = documents.get(i);
+6
+Document doc2 = documents.get(j);
+7
+double sim • compute5imilarity(docl, doc2);
+8
+if (sim > 0) {
+9
+DocPair pair = new DocPair(docl.getId(), doc2.getId());
+10
+similarities.put(pair, sim);
+11
+)
+12
+>
+13
+>
+14
+return similarities;
+15 }
+16
+17 double computeSimilarity(Document docl. Document doc2) {
+18
+int intersection = 0;
+19
+HashSet<Integer> setl = new HashSet<Integer>();
+20
+setl.addAll(docl.getWords());
+21
+22
+for (int word : doc2.getWords()) {
+23
+if (setl.contains(word)) {
+24
+intersection++;
+25
+}
+26
+>
+27
+28
+double union = docl.sizeQ t doc2.size() - intersection;
+29
+return intersection / union;
+30 )
+Observe what's happening on line 28. Why did we make union a double, when it's obviously an i n t e g e r ?
+We did this to avoid an integer division bug. If we didn't do this, the division would "round" down to an
+integer. This would mean that the similarity would almost always return 0, Oops!
+Slightly Better Brute Force (Alternate)
+If the documents were sorted, you could compute the intersection between two documents by walking
+through them in sorted order, much like you would when doing a sorted merge of two arrays.
+This would take 0(A + B) time. This is the same time as our current algorithm, but less space. Doing this
+on D documents with W words each would take 0(D ; W) time.
+Since we don't know that the arraysare sorted, wecould first sort them.This would take 0(D * W l o g W)
+time.The full runtime then is 0(D * W l o g W + D2W).
+614
+Cracking the Coding Interview, 6th Edition

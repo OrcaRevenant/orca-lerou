@@ -1,0 +1,50 @@
+tySymbols(..). See the “Property Enumeration Order” section for information
+about the order of keys.
+• Reflect.enumerate(..): returns an iterator that produces the set of all non-
+symbol keys (owned and “inherited”) that are enumerable (see the this & Object
+Prototypes title of this series). Essentially, this set of keys is the same as those pro‐
+cessed by a for..in loop. See the “Property Enumeration Order” section for
+information about the order of keys.
+• Reflect.has(..): essentially the same as the in operator for checking if a prop‐
+erty
+is
+on
+an
+object
+or
+its
+[[Prototype]]
+chain.
+For
+example,
+Reflect.has(o,"foo") essentially performs "foo" in o.
+Function calls and constructor invocations can be performed manually, separate of
+the normal syntax (e.g., (..) and new) using these utilities:
+• Reflect.apply(..): For example, Reflect.apply(foo,thisObj,[42,"bar"])
+calls the foo(..) function with thisObj as its this, and passes in the 42 and
+"bar" arguments.
+• Reflect.construct(..): For example, Reflect.construct(foo,[42,"bar"])
+essentially calls new foo(42,"bar").
+Object property access, setting, and deletion can be performed manually using these
+utilities:
+• Reflect.get(..): For example, Reflect.get(o,"foo") retrieves o.foo.
+• Reflect.set(..): For example, Reflect.set(o,"foo",42) essentially performs
+o.foo = 42.
+• Reflect.deleteProperty(..):
+For
+example,
+Reflect.deleteProp
+erty(o,"foo") essentially performs delete o.foo.
+The meta programming capabilities of Reflect give you programmtic equivalents to
+emulate various syntactic features, exposing previously hidden-only abstract opera‐
+tions. For example, you can use these capabilities to extend features and APIs for
+domain specific languages (DSLs).
+Property Ordering
+Prior to ES6, the order used to list an object’s keys/properties was implementation
+dependent and undefined by the specification. Generally, most engines have enumer‐
+ated them in creation order, though developers have been strongly encouraged not to
+ever rely on this ordering.
+194
+|
+Chapter 7: Meta Programming
+www.it-ebooks.info

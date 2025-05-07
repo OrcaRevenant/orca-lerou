@@ -1,0 +1,71 @@
+VI j Big 0
+» 1 + 2 + 3 + . . . + H - l
+= sum of 1 through N-l
+T h e s u m o f l t h r o u g h N - l i s
+(see "Sum of Integers 1 through N" on page 630), so the runtime will
+be 0(N J).
+WhatltMeans
+Alternatively, we can figure out the runtime by thinking about what the code "means." It iterates through
+each pair of values for { i ,
+j) where j is bigger than i.
+Thereare N1 total pairs. Roughly half of those wil! have i < j and the remaining half will have i > j.This
+code goes through roughly w/2 pairs so it does O f f ^ ) work.
+Visualizing What It Does
+The code iterates through the following ( i ,
+j ) p a i r s w h e n N = 8:
+{0, 1) (0, 2) (0, 3) (0, 4) (0j 5) <0, 6) {0, 7)
+(1, 2) (1, 3) (1, 4) (1, 5) {1, 6) (1, 7)
+(2j 3) (2, 4) (2j 5) (2j 6) (2, 7)
+(3j 4) (3j S) (3, 6) (3, 7)
+(4, 5) <4, 6) (4, 7)
+(5, 6) (5j 7)
+(6, 7)
+This looks like half of an NxN matrix, which has size (roughly)
+Therefore, it takes 0(N 2) time.
+Average Work
+We know that the outer loop runs N times. How much work does the inner loop do? It varies across itera-
+tions, but we can think about the average iteration.
+What is the average value of lj
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+10? The average value will be in the
+middle, so it will be roughly 5. (We could give a more precise answer, of course, but we don't need to for
+big 0.)
+What about for 1, 2, 3,
+.
+N?Theaverage value in this sequence is N/2.
+Therefore, since the inner loop does Yi work on average and it is run N times, the total work is V i ' which
+isO(N;).
+Example 4
+This is similar to the above, but now we have two different arrays.
+1
+void printUnorderedPairs(int[] arrayA, int[] arrayB) {
+2
+for (int i = 0; i < arrayA.length; i++) {
+3
+for (int j = 0; j < arrayB.length; j++) {
+4
+if (arrayA[i] < arrayS[j]) {
+5
+System.out.println(arrayA[i] +
++ arrayBfj]);
+6
+>
+7
+>
+8
+>
+9
+>
+We can break up this analysis. The if-statement within j's for loop is 0 ( 1 ) time since it's just a sequence of
+constant-time statements.
+We now have this:
+1
+void printUnorderedPairs(int[] arrayA, int[] arrayB) {
+CrackingTheCodinglnterview.com j 6th Edition
+47

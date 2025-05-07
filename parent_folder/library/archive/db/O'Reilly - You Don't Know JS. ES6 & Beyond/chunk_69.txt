@@ -1,0 +1,39 @@
+expression I constructed captures all of that in each main match, and then I use a
+matching group ( ) so that the stuff I really care about it separated out for conve‐
+nience.
+After the first match ("1. foo "), the lastIndex is 7, which is already the position
+needed to start the next match, for "2. bar ", and so on.
+If you’re going to use y sticky mode for repeated matches, you’ll probably want to
+look for opportunities to have lastIndex automatically positioned as we’ve just
+demonstrated.
+Sticky versus Global
+Some readers may be aware that you can emulate something like this lastIndex-
+relative matching with the g global match flag and the exec(..) method, as so:
+var re = /o+./g,        // <-- look, `g`!
+str = "foot book more";
+re.exec( str );         // ["oot"]
+re.lastIndex;           // 4
+re.exec( str );         // ["ook"]
+re.lastIndex;           // 9
+re.exec( str );         // ["or"]
+re.lastIndex;           // 13
+re.exec( str );         // null -- no more matches!
+re.lastIndex;           // 0 -- starts over now!
+While it’s true that g pattern matches with exec(..) start their matching from lastIn
+dex’s current value, and also update lastIndex after each match (or failure), this is
+not the same thing as y’s behavior.
+Notice in the previous snippet that "ook", located at position 6, was matched and
+found by the second exec(..) call, even though at the time, lastIndex was 4 (from
+the end of the previous match). Why? Because as we said earlier, non-sticky matches
+are free to move ahead in their matching. A sticky mode expression would have failed
+here, because it would not be allowed to move ahead.
+In addition to perhaps undesired move-ahead matching behavior, another downside
+to just using g instead of y is that g changes the behavior of some matching methods,
+like str.match(re).
+Consider:
+var re = /o+./g,        // <-- look, `g`!
+str = "foot book more";
+58
+|
+Chapter 2: Syntax
+www.it-ebooks.info

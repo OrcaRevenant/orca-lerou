@@ -1,0 +1,38 @@
+foo( 0, 42 );           // 42
+foo( undefined, 6 );    // 17
+Of course, that means that any value except undefined can be directly passed in, but
+undefined will be assumed to be, “I didn’t pass this in.” That works great unless you
+actually need to be able to pass undefined in.
+In that case, you could test to see if the argument is actually omitted, by it actually not
+being present in the arguments array, perhaps like this:
+function foo(x,y) {
+x = (0 in arguments) ? x : 11;
+y = (1 in arguments) ? y : 31;
+console.log( x + y );
+}
+foo( 5 );               // 36
+foo( 5, undefined );    // NaN
+But how would you omit the first x argument without the ability to pass in any kind
+of value (not even undefined) that signals, “I’m omitting this argument.”?
+foo(,5) is tempting, but it’s invalid syntax. foo.apply(null,[,5]) seems like it
+should do the trick, but apply(..)’s quirks here mean that the arguments are treated
+as [undefined,5], which of course doesn’t omit.
+If you investigate further, you’ll find you can only omit arguments on the end (i.e.,
+righthand side) by simply passing fewer arguments than “expected”, but you cannot
+omit arguments in the middle or at the beginning of the arguments list. It’s just not
+possible.
+There’s a principle applied to JavaScript’s design here which is important to remem‐
+ber: `undefined` means missing. That is, there’s no difference between undefined and
+missing, at least as far as function arguments go.
+There are, confusingly, other places in JS where this particular
+design principle doesn’t apply, such as for arrays with empty slots.
+See the Types & Grammar title of this series for more information.
+With all this mind, we can now examine a nice helpful syntax added as of ES6 to
+streamline the assignment of default values to missing arguments:
+function foo(x = 11, y = 31) {
+console.log( x + y );
+}
+16
+|
+Chapter 2: Syntax
+www.it-ebooks.info

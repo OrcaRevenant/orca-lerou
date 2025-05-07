@@ -1,0 +1,50 @@
+Chapter 16 | Moderate
+16.19 Pond Sizes: You have an integer matrix representing a plot of land, where the value at that loca-
+tion represents the height above sea level. A value of zero indicates water. A pond is a region of
+water connected vertically, horizontally, or diagonally. The size of the pond is the total number of
+connected water cells. Write a method to compute the sizes of all ponds in the matrix.
+EXAMPLE
+Input:
+6 2 1 0
+e 1 e 1
+1 1 0
+1
+0 1 0 1
+Output: 2,4,1 (in any order)
+Hints: #674, §687, #706, J;723
+16.20 T9: On old cell phones, users typed on a numeric keypad and the phone would provide a list of
+words that matched these numbers. Each digit mapped to a set of 0 - 4 letters. Implement an algo-
+rithm to return a list of matching words, given a sequence of digits. You are provided a list of valid
+words (provided in whatever data structure you'd like). The mapping is shown in the diagram below:
+1
+2
+3
+abc
+def
+4
+S
+6
+ghi
+jkl
+mno
+7
+8
+9
+pqrs
+tuv
+wxyz
+0
+EXAMPLE
+Input:
+8733
+Output:
+t r e e , used
+Hints: #471, #487, #654, #703, #726, #744
+16.21 Sum Swap: Given two arrays of integers, find a pair of values (one value from each array) that you
+can swap to give the two arrays the same sum.
+EXAMPLE
+Input:{4,1,2,1,1, 2}and [3,6, 3,3}
+Output: {1, 3}
+Hints: #545, #557, #564, #571, #583, #592, #602, #606, #635
+1 8 4
+Cracking the Coding Interview, 6th Edition

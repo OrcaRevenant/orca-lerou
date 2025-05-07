@@ -1,0 +1,15 @@
+8. Beyond ES6. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  207
+`async function`s                                                                                                           208
+Caveats                                                                                                                         210
+Object.observe(..)                                                                                                    211
+Custom Change Events                                                                                             213
+Ending Observation                                                                                                   214
+Exponentiation Operator                                                                                              214
+Objects Properties and ...                                                                                           215
+Array#includes(..)                                                                                                    215
+SIMD                                                                                                                               216
+Review                                                                                                                             217
+Table of Contents
+|
+vii
+www.it-ebooks.info

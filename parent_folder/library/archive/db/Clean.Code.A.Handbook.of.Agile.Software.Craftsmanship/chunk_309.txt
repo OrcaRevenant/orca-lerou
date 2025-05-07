@@ -1,0 +1,42 @@
+279
+Then Make It Right
+The isLeapYear method (lines 495–517) can be made a bit more expressive [G16].
+The next function, leapYearCount (lines 519–536) doesn’t really belong in DayDate.
+Nobody calls it except for two methods in SpreadsheetDate. So I pushed it down [G6].
+The lastDayOfMonth function (lines 538–560) makes use of the LAST_DAY_OF_MONTH
+array. This array really belongs in the Month enum [G17], so I moved it there. I also simpli-
+ﬁed the function and made it a bit more expressive [G16].
+Now things start to get a bit more interesting. The next function is addDays (lines 562–
+576). First of all, because this function operates on the variables of DayDate, it should not
+be static [G18]. So I changed it to an instance method. Second, it calls the function
+toSerial. This function should be renamed toOrdinal [N1]. Finally, the method can be
+simpliﬁed.
+The same goes for addMonths (lines 578–602). It should be an instance method [G18].
+The algorithm is a bit complicated, so I used EXPLAINING TEMPORARY VARIABLES8 [G19]
+to make it more transparent. I also renamed the method getYYY to getYear [N1].
+private boolean matches(String s) {
+return s.equalsIgnoreCase(toString()) ||
+s.equalsIgnoreCase(toShortString());
+}
+public static boolean isLeapYear(int year) {
+boolean fourth = year % 4 == 0;
+boolean hundredth = year % 100 == 0;
+boolean fourHundredth = year % 400 == 0;
+return fourth && (!hundredth || fourHundredth);
+}
+public static int lastDayOfMonth(Month month, int year) {
+if (month == Month.FEBRUARY && isLeapYear(year))
+return month.lastDay() + 1;
+else
+return month.lastDay();
+}
+public DayDate addDays(int days) {
+return DayDateFactory.makeDate(toOrdinal() + days);
+}
+8.
+[Beck97].
+public DayDate addMonths(int months) {
+int thisMonthAsOrdinal = 12 * getYear() + getMonth().index - 1;
+int resultMonthAsOrdinal = thisMonthAsOrdinal + months;
+int resultYear = resultMonthAsOrdinal / 12;
+Month resultMonth = Month.make(resultMonthAsOrdinal % 12 + 1);

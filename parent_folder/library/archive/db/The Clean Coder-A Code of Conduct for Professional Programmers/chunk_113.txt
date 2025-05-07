@@ -1,0 +1,31 @@
+THE THREE LAWS OF TDD
+81
+Defect Injection Rate
+Now, FitNesse is not a mission-critical application. If there’s a bug, nobody
+dies, and nobody loses millions of dollars. So I can afford to ship based on
+nothing but passing tests. On the other hand, FitNesse has thousands of users,
+and despite the addition of 20,000 new lines of code last year, my bug list only
+has 17 bugs on it (many of which are cosmetic in nature). So I know my defect
+injection rate is very low.
+This is not an isolated effect. There have been several reports4 and studies5 that
+describe significant defect reduction. From IBM, to Microsoft, from Sabre to
+Symantec, company after company and team after team have experienced defect
+reductions of 2X, 5X, and even 10X. These are numbers that no professional
+should ignore.
+Courage
+Why don’t you fix bad code when you see it? Your first reaction upon seeing a
+messy function is “This is a mess, it needs to be cleaned.” Your second reaction
+is “I’m not touching it!” Why? Because you know that if you touch it you risk
+breaking it; and if you break it, it becomes yours.
+But what if you could be sure that your cleaning did not break anything? What
+if you had the kind of certainty that I just mentioned? What if you could click a
+button and know within 90 seconds that your changes had broken nothing, and
+had only done good?
+This is one of the most powerful benefits of TDD. When you have a suite of
+tests that you trust, then you lose all fear of making changes. When you see bad
+code, you simply clean it on the spot. The code becomes clay that you can safely
+sculpt into simple and pleasing structures.
+When programmers lose the fear of cleaning, they clean! And clean code is
+easier to understand, easier to change, and easier to extend. Defects become
+4. http://www.objectmentor.com/omSolutions/agile_customers.html
+5. [Maximilien], [George2003], [Janzen2005], [Nagappan2008]

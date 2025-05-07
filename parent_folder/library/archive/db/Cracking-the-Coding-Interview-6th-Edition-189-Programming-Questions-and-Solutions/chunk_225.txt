@@ -1,0 +1,85 @@
+Solutions to Chapter 2 | Linked Lists
+12
+value += 12.data;
+13
+>
+14
+15
+result.data = value % 10; /* Second d i g i t of number */
+16
+17
+/* Recurse */
+18
+if (11 != n u l l || 12 {= n u l l ) {
+19
+LinkedListNode more = a d d L i s t s ( l l == n u l l ? n u l l : 11.next,
+20
+12 == n u l l ? n u l l : 12.next,
+21
+value >= 10 ? l : 0);
+22
+result.setNext(more);
+23
+}
+24
+return r e s u l t ;
+25
+}
+In implementing this code, we must be careful to handle the condition when one linked list is shorter than
+another. We don't want to get a null pointer exception.
+Follow Up
+Part B is conceptually the same (recurse, carry the excess), but has some additional complications when it
+comes to implementation:
+1. One list may be shorter than the other, and we cannot handle this"on the fly"For example, suppose we
+were adding (1 -> 2 ->3->4)and (5->6-> 7). We need to know that the 5 should be "matched" with the
+2, not the 1. We can accomplish this by comparing the lengths of the lists in the beginning and padding
+the shorter list with zeros.
+2. In the first part, successive results were added to the tail (i.e., passed forward). This meant that the recur-
+sive call would be passed the carry, and would return the result (which is then appended to the tail). In
+this case, however, results are added to the head (i.e., passed backward). The recursive call must return
+the result, as before, as well as the carry. This is not terribly challenging to implement, but it is more
+cumbersome. We can solve this issue by creating a wrapper class called Partial Sum.
+The code below implements this algorithm.
+1
+class PartialSum {
+2
+public LinkedListNode sum = n u l l ;
+3
+public i n t carry = 0;
+4
+}
+5
+6
+LinkedListNode addLists(LinkedListNode 11, LinkedListNode 12) {
+7
+i n t l e n l = l e n g t h ( l l ) ;
+8
+i n t len2 = length(12);
+9
+10
+/* Pad the shorter l i s t with zeros - see note (1) */
+11
+if ( l e n l < len2) {
+12
+11 = p a d L i s t ( l l , len2 - l e n l ) ;
+13
+) else {
+14
+12 = padList(12j l e n l - len2);
+15
+}
+16
+17
+/* Add
+l i s t s v
+18
+PartialSum sum = addListsHelper(ll, 12);
+19
+20
+{* if there was a carry value l e f t over, insert t h i s at the front of the l i s t .
+21
+* Otherwise, j u s t return the linked l i s t . */
+22
+if (sum.carry == 0) {
+CrackingTheCodinglnterview.com | 6th Edition
+22 3

@@ -1,0 +1,35 @@
+Consider:
+var s = new Set();
+var x = { id: 1 },
+y = { id: 2 };
+s.add( x ).add( y ).add( x );
+s.size;                         // 2
+s.delete( y );
+s.size;                         // 1
+s.clear();
+s.size;                         // 0
+A set doesn’t need a get(..) because you don’t retrieve a value from a set, but rather
+test if it is present or not, using has(..):
+var s = new Set();
+var x = { id: 1 },
+y = { id: 2 };
+s.add( x );
+s.has( x );                     // true
+s.has( y );                     // false
+The comparison of set values is done with an algorithm almost
+identical to Object.is(..) (see Chapter 6), except that -0 and 0
+are treated as the same rather than distinct.
+Set Iterators
+Sets have the same iterator methods as maps. Their behavior is different for sets, but
+symmetric with the behavior of map iterators. Consider:
+var s = new Set();
+var x = { id: 1 },
+y = { id: 2 };
+s.add( x ).add( y );
+var keys = [ ...s.keys() ],
+vals = [ ...s.values() ],
+entries = [ ...s.entries() ];
+148
+|
+Chapter 5: Collections
+www.it-ebooks.info

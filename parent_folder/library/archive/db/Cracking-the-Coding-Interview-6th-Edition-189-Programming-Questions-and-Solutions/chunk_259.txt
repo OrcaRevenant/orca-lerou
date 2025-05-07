@@ -1,0 +1,82 @@
+Solutions to Chapter 4 | Trees and Graphs
+The pseudocode looks like this:
+l
+Node inorderSucc(Node n) {
+2
+if (n has a r i g h t subtree) {
+3
+return leftmost c h i l d of r i g h t subtree
+4
+} else {
+5
+while (n is a r i g h t child of n.parent) {
+6
+n = n.parent; // Go up
+7
+}
+8
+return n.parent; II Parent has not been traversed
+9
+}
+10
+>
+But wait—what if we traverse all the way up the tree before finding a left child? This will happen only when
+we hit the very end of the in-order traversal. That is, if we're already on the far right of the tree, then there is
+no in-order successor. We should return n u l l .
+The code below implements this algorithm (and properly handles the null case),
+i
+TreeNode inorderSucc(TreeNode n) {
+2
+if (n == n u l l ) return n u l l ;
+3
+4
+I* Found r i g h t children -> return leftmost node of r i g h t subtree. */
+5
+if ( n . r i g h t 1= n u l l ) {
+6
+return
+l e f t M o s t C h i l d ( n . r i g h t ) ;
+7
+} else {
+8
+TreeNode q = n;
+9
+TreeNode x = q.parent;
+19
+II Go up u n t i l we're on l e f t instead of r i g h t
+11
+while (x 1= n u l l && x . l e f t 1= q) {
+12
+q = x;
+13
+x = x.parent;
+14
+}
+15
+return x;
+16
+}
+17
+}
+18
+19
+TreeNode leftMostChild(TreeNode n) {
+20
+if (n == n u l l ) {
+21
+return n u l l ;
+22
+)
+23
+while ( n . l e f t != n u l l ) {
+24
+n » n . l e f t ;
+25
+}
+26
+return n;
+27 >
+This is not the most algorithmicalty complex problem in the world, but it can be tricky to code perfectly. In
+a problem like this, it's useful to sketch out pseudocode to carefully outline the different cases.
+CrackingTheCodinglnterview.com | 6th Edition
+247

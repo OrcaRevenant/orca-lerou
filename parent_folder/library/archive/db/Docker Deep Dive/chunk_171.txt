@@ -1,0 +1,23 @@
+The cluster store is becoming a critical component of many Docker platform
+technologies. For example, Docker networking and Docker secrets both leverage
+the cluster store. This is one of the reasons that Swarm Mode is so important to
+the future of Docker - many parts of the Docker platform already leverage the
+cluster store and more will leverage it in the future. The moral of the story… if
+you’re not running in Swarm Mode you’ll be limited as to what other Docker
+features you can use.
+The day-to-day maintenance of the cluster store is taken care of automatically by
+Docker. However, in production environments you should have strong backup
+and recovery solutions in place for it.
+That’s enough for now about Swarm Mode security.
+Detecting vulnerabilities with Docker Security Scanning
+The ability to quickly identify code vulnerabilities is vital. Docker Security
+Scanning makes detecting known vulnerabilities in Docker images really simple.
+Note: At the time of writing, Docker Security Scanning is available for
+private repositories on Docker Hub. It is also available as part of the Docker
+Enterprise Edition on premises solution. All official Docker images are
+scanned and scan reports are available in their repos.
+Docker Security Scanning performs binary-level scans of Docker images and
+checks the software in them against databases of known vulnerabilities (CVE
+databases). After the scan is performed a detailed report is made available.
+Open a web browser to https://hub.docker.com and search for the Alpine image.
+Figure 11.11 shows the Tags tab of the Alpine image repo.

@@ -1,0 +1,28 @@
+A LANGUAGE OF COMMITMENT
+47
+it.” But no. He put the burden back on me. And it was a burden I was ambivalent
+about. After all, I was a software guy, not a money guy. I wanted to work on the
+ER project, not be responsible for profit and loss. But I didn’t want to show my
+ambivalence. So I thanked him and left his office with these words:
+“Thanks Russ. I’m committed . . . I guess.”
+With that, let me introduce you to Roy Osherove, who will tell you just how
+pathetic that statement was.
+A L A N G UAG E O F CO M M ITM E NT
+By Roy Osherove
+Say. Mean. Do.
+There are three parts to making a commitment.
+1. You say you’ll do it.
+2. You mean it.
+3. You actually do it.
+But how often do we encounter other people (not ourselves, of course!) who
+never go all the way with these three stages?
+• You ask the IT guy why the network is so slow and he says “Yeah. We really
+need to get some new routers.” And you know nothing will ever happen in
+that category.
+• You ask a team member to run some manual tests before checking in the
+source code, and he replies, “Sure. I hope to get to it by the end of the day.”
+And somehow you feel that you’ll need to ask tomorrow if any testing really
+took place before check-in.
+• Your boss wanders into the room and mumbles, “we have to move faster.”
+And you know he really means YOU have to move faster. He’s not going to do
+anything about it.

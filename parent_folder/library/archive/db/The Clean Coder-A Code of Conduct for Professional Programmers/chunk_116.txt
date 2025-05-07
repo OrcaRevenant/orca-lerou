@@ -1,0 +1,21 @@
+CHAPTER 5 TEST DRIVEN DEVELOPMENT
+84
+By the same token, there are times when following the three laws is simply
+impractical or inappropriate. These situations are rare, but they exist. No
+professional developer should ever follow a discipline when that discipline does
+more harm than good.
+B I B LI OG R APH Y
+[Maximilien]:  E. Michael Maximilien, Laurie Williams, “Assessing Test-Driven
+Development at IBM,” http://collaboration.csc.ncsu.edu/laurie/Papers/
+MAXIMILIEN_WILLIAMS.PDF
+[George2003]: B. George, and L. Williams, “An Initial Investigation of Test-
+Driven Development in Industry,” http://collaboration.csc.ncsu.edu/laurie/
+Papers/TDDpaperv8.pdf
+[Janzen2005]: D. Janzen and H. Saiedian, “Test-driven development concepts,
+taxonomy, and future direction,” IEEE Computer, Volume 38, Issue 9,
+pp. 43–50.
+[Nagappan2008]: Nachiappan Nagappan, E. Michael Maximilien, Thirumalesh
+Bhat, and Laurie Williams, “Realizing quality improvement through test
+driven development: results and experiences of four industrial teams,”
+Springer Science + Business Media, LLC 2008: http://research.microsoft.
+com/en-us/projects/esm/nagappan_tdd.pdf

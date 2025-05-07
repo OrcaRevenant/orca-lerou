@@ -1,0 +1,41 @@
+Now, we need some inner variable to keep track of where we are in the steps of our
+“generator’s” logic. We’ll call it state. There will be three states: 0 initially, 1 while
+waiting to fulfill the yield expression, and 2 once the generator is complete.
+Each time next(..) is called, we need to process the next step, and then increment
+state. For convenience, we’ll put each step into a case clause of a switch statement,
+and we’ll hold that in an inner function called nextState(..) that next(..) can call.
+Also, since x is a variable across the overall scope of the “generator”, it needs to live
+outside the nextState(..) function.
+Here it is all together (obviously somewhat simplified, to keep the conceptual illustra‐
+tion clearer):
+function foo() {
+function nextState(v) {
+switch (state) {
+case 0:
+state++;
+// the `yield` expression
+return 42;
+case 1:
+state++;
+// `yield` expression fulfilled
+x = v;
+console.log( x );
+// the implicit `return`
+return undefined;
+// no need to handle state `2`
+}
+}
+var state = 0, x;
+return {
+next: function(v) {
+var ret = nextState( v );
+return { value: ret, done: (state == 2) };
+}
+// we'll skip `return(..)` and `throw(..)`
+};
+}
+And finally, let’s test our pre-ES6 “generator”:
+Generators
+|
+97
+www.it-ebooks.info

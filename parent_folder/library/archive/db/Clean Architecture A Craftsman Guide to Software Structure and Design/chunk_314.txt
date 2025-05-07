@@ -1,0 +1,30 @@
+telephone lines, would receive back the raw results, and would then perform a
+complex analysis of those results to identify and locate any faults.
+DISPATCH DETERMINATION
+One of the economic foundations for this system was based on the correct
+allocation of repair craftsmen. Repair craft were separated, by union rules, into
+three categories: central office, cable, and drop. CO craftsmen fixed problems
+inside the central office. Cable craftsmen fixed problems in the cable plant that
+connected the CO to the customer. Drop craftsmen fixed problems inside the
+customer’s premises, and in the lines connecting the external cable to that
+premises (the “drop”).
+When a customer complained about a problem, our system could diagnose that
+problem and determine which kind of craftsman to dispatch. This saved the
+phone companies lots of money because incorrect dispatches meant delays for
+the customer and wasted trips for the craftsmen.
+The code that made this dispatch determination was designed and written by
+someone who was very bright, but a terrible communicator. The process of
+writing the code has been described as “Three weeks of staring at the ceiling and
+two days of code pouring out of every orifice of his body—after which he quit.”
+Nobody understood this code. Every time we tried to add a feature or fix a
+defect, we broke it in some way. And since it was upon this code that one of the
+primary economic benefits our system rested, every new defect was deeply
+embarrassing to the company.
+In the end, our management simply told us to lock that code down and never
+modify it. That code became officially rigid.
+This experience impressed upon me the value of good, clean code.
+ARCHITECTURE
+The system was written in 1976 in M365 assembler. It was a single, monolithic
+program of roughly 60,000 lines. The operating system was a home-grown,
+nonpreemptive, task-switcher based on polling. We called it MPS for
+multiprocessing system. The M365 computer had no built-in stack, so task-

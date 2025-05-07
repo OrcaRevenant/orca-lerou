@@ -1,0 +1,40 @@
+11
+Testing
+B
+efore you flip past this chapter saying, "but I'm not a tester,"stop and think.Testing is an important task
+for a software engineer, and for this reason, testing questions may come up during your interview. Of
+course, if you are applying for Testing roles (or Software Engineer in Test), then that's all the more reason
+why you need to pay attention.
+Testing problems usually fall under one of four categories: (1) Test a real world object (like a pen); (2)
+Test a piece of software; (3) Write test code for a function; (4) Troubieshoot an existing issue. We II cover
+approaches for each of these four types.
+Remember that all four types require you to not make an assumption that the input or the user will play
+nice. Expect abuse and plan for it.
+• What the Interviewer Is Looking For
+At their surface, testing questions seem like they're just about coming up with an extensive list of test cases.
+And to some extent, that's right. You do need to come up with a reasonable list of test cases.
+But in addition, interviewers want to test the following:
+*
+Big Picture Understanding: Are you a person who understands what the software is really about? Can
+you prioritize test cases properly? For example, suppose you're asked to test an e-commerce system like
+Amazon. It's great to make sure that the product images appear in the right place, but it's even more
+important that payments work reliably, products are added to the shipment queue, and customers are
+never double charged,
+*
+Knowing How the Pieces Fit Together: Do you understand how software works, and how it might fit into
+a greater ecosystem? Suppose you're asked to test Google Spreadsheets. It's important that you test
+opening, saving, and editing documents. 8ut, Google Spreadsheets is part of a larger ecosystem. You
+need to test integration with Gmail, with plug-ins, and with other components.
+•
+Organization: Do you approach the problem in a structured manner, or do you just spout off anything
+that comes to your head? Some candidates, when asked to come up with test cases for a camera, will
+just state anything and everything that comes to their head. A good candidate will breakdown the parts
+into categories like Taking Photos, Image Management, Settings, and so on. This structured approach
+will also help you to do a more thorough job creating the test cases.
+•
+Practicality: Can you actually create reasonable testing plans? For example, if a user reports that the
+software crashes when they open a specific image, and you just tell them to reinstall the software, that's
+typically not very practical. Your testing plans need to be feasible and realistic for a company to imple-
+ment.
+1S 2
+Cracking the Coding Interview, 6th Edition

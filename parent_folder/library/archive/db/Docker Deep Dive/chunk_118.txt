@@ -1,0 +1,17 @@
+Chapter summary
+In this chapter we learned how to containerize (Dockerize) an application.
+We pulled some application code from a remote Git repo. The repo included the
+application code, as well as a Dockerfile containing instructions on how to build
+the application into an image. We learned the basics of the how Dockerfiles
+work, and fed one into a docker image build command to create a new image.
+Once the image was created, we started a container form it and tested it worked
+with a web browser.
+After that, we saw how multi-stage builds give us a simple way to build and ship
+smaller images to our production environments.
+We also learned that the Dockerfile is a great tool for documenting an app. As
+such, it can speed-up the on-boarding of new developers and bridge the divide
+between developers and operations staff!
+Although the examples cited was a Linux-based example, the process for
+containerizing Windows apps is the same: Start with your app code, create a
+Dockerfile describing the app, build the image with docker image build. Job
+done!

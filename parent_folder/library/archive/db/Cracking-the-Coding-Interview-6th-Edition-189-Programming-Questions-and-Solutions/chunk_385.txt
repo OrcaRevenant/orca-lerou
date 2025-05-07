@@ -1,0 +1,117 @@
+Solutions to Chapter 9 | System Design and Scalability
+In the implementation, we'll use two classes to help us. BFSData holds the data we need for a breadth-first
+search, such as the i s V i s i t e d hash table and the t o V i s i t queue, PathNode will represent the path as
+we're searching it, storing each Person and the p r e v i o u s N o d e we visited in this path.
+1
+LinkedList<Person> findPathBiBFS(HashMap<Integer, Person> people, i n t source,
+2
+i n t d e s t i n a t i o n )
+{
+BFSData sourceData = new BFSData(people.get(source));
+4
+BFSData destData = new 8FSData(people.get(destination));
+5
+6
+while ( I sourceData. isFinished ( ) S& I destData. i s f i n i s h e d Q ) {
+7
+/* Search out from source. */
+8
+Person c o l l i s i o n = searchLevel(people, sourceData, destData);
+9
+if ( c o l l i s i o n 1= n u l l ) {
+10
+return mergePaths(sourceData,
+destData,
+c o l l i s i o n . g e t l D Q ) ;
+11
+}
+12
+13
+/* Search out from d e s t i n a t i o n . */
+14
+c o l l i s i o n = searchLevel(people, destData, sourceData);
+15
+if ( c o l l i s i o n 1= n u l l ) {
+16
+return mergePaths(sourceData,
+destData,
+c o l l i s i o n . g e t l D Q ) ;
+17
+>
+18
+}
+19
+r e t u r n n u l l ;
+20
+>
+21
+22 /* Search one l e v e l and return c o l l i s i o n ,
+if any. */
+23 Person searchLevel(HashMap<Integer, Person> people, BFSData primary,
+24
+BFSData secondary) {
+25
+/* We only want to search one l e v e l at a time. Count how many nodes are
+26
+* c u r r e n t l y in the primary's l e v e l and only do that many nodes. W e ' l l continue
+27
+* to add nodes to the end. */
+28
+i n t count = p r i m a r y , t o V i s i t . s i z e ( ) ;
+29
+f o r ( i n t i = 0; i < count; i++) {
+30
+/* P u l l out f i r s t node.
+*/
+31
+PathNode pathNode = p r i m a r y . t o V i s i t . p o l l ( ) ;
+32
+i n t personld = pathNode.getPerson(),getID();
+33
+34
+/* Check if i t ' s already been v i s i t e d .
+*/
+35
+if
+(secondary.visited.containsKey(personld))
+{
+36
+r e t u r n pathNode.getPerson();
+37
+>
+38
+39
+/* Add f r i e n d s to queue.
+*/
+40
+Person person = pathNode.getPerson();
+41
+ArrayList<Integer> f r i e n d s = person.getFriendsf);
+42
+f o r ( i n t f r i e n d l d : f r i e n d s ) {
+43
+if
+( ' p r i m a r y . v i s i t e d . c o n t a i n s K e y ( f r i e n d l d ) )
+{
+44
+Person f r i e n d = p e o p l e , g e t ( f r i e n d l d ) ;
+45
+PathNode next = new PathNode(friend, pathNode);
+46
+p r i m a r y . v i s i t e d . p u t ( f r i e n d l d ,
+next);
+47
+p r i m a r y . t o V i s i t . a d d ( n e x t ) ;
+48
+}
+49
+>
+50
+>
+51
+r e t u r n n u l l ;
+52
+}
+53
+CrackingTheCodinginterview.com | 6th Edition
+Î75

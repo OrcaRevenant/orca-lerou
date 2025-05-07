@@ -1,0 +1,12 @@
+CHAPTER 12 COLLABORATION
+166
+CO N C LU S I O N
+Perhaps we didn’t get into programming to work with people. Tough luck for
+us. Programming is all about working with people. We need to work with our
+business, and we need to work with each other.
+I know, I know. Wouldn’t it be great if they just shut us into a room with six
+massive screens, a T3 pipe, a parallel array of superfast processors, unlimited
+ram and disk, and a never-ending supply of diet cola and spicy corn chips? Alas,
+it is not to be. If we really want to spend our days programming, we are going
+to have to learn to talk to—people.1
+1. A reference to the last word in the movie Soylent Green.

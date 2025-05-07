@@ -1,0 +1,43 @@
+80
+Chapter 5: Formatting
+Vertical Distance
+Have you ever chased your tail through a class, hopping from one function to the next,
+scrolling up and down the source ﬁle, trying to divine how the functions relate and
+operate, only to get lost in a rat’s nest of confusion? Have you ever hunted up the chain of
+inheritance for the deﬁnition of a variable or function? This is frustrating because you are
+trying to understand what the system does, but you are spending your time and mental
+energy on trying to locate and remember where the pieces are.
+Concepts that are closely related should be kept vertically close to each other [G10].
+Clearly this rule doesn’t work for concepts that belong in separate ﬁles. But then closely
+related concepts should not be separated into different ﬁles unless you have a very good
+reason. Indeed, this is one of the reasons that protected variables should be avoided.
+For those concepts that are so closely related that they belong in the same source ﬁle,
+their vertical separation should be a measure of how important each is to the understand-
+ability of the other. We want to avoid forcing our readers to hop around through our source
+ﬁles and classes.
+Variable Declarations. Variables should be declared as close to their usage as possi-
+ble. Because our functions are very short, local variables should appear a the top of each
+function, as in this longish function from Junit4.3.1.
+private static void readPreferences() {
+InputStream is= null;
+try {
+is= new FileInputStream(getPreferencesFile());
+setPreferences(new Properties(getPreferences()));
+getPreferences().load(is);
+} catch (IOException e) {
+try {
+if (is != null)
+is.close();
+} catch (IOException e1) {
+}
+}
+}
+Control variables for loops should usually be declared within the loop statement, as in this
+cute little function from the same source.
+Listing 5-4
+public class ReporterConfig {
+private String m_className;
+private List<Property> m_properties = new ArrayList<Property>();
+public void addProperty(Property property) {
+m_properties.add(property);
+}

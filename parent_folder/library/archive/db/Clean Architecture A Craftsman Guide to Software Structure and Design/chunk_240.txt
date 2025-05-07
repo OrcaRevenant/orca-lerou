@@ -1,0 +1,32 @@
+is continually evolving and being improved. At the same time, features are added
+to the new “software,” and it continually grows in complexity.
+I’d like to add to Doug’s statement:
+Although software does not wear out, it can be destroyed from within by unmanaged dependencies
+on firmware and hardware.
+It is not uncommon for embedded software to be denied a potentially long life
+due to being infected with dependencies on hardware.
+I like Doug’s definition of firmware, but let’s see which other definitions are out
+there. I found these alternatives:
+• “Firmware is held in non-volatile memory devices such as ROM, EPROM, or
+flash memory.” (https://en.wikipedia.org/wiki/Firmware)
+• “Firmware is a software program or set of instructions programmed on a
+hardware device.” (https://techterms.com/definition/firmware)
+• “Firmware is software that is embedded in a piece of hardware.”
+(https://www.lifewire.com/what-is-firmware-2625881)
+• Firmware is “Software (programs or data) that has been written onto read-only
+memory (ROM).” (http://www.webopedia.com/TERM/F/firmware.html)
+Doug’s statement makes me realize that these accepted definitions of firmware
+are wrong, or at least obsolete. Firmware does not mean code lives in ROM. It’s
+not firmware because of where it is stored; rather, it is firmware because of what
+it depends on and how hard it is to change as hardware evolves. Hardware does
+evolve (pause and look at your for phone for evidence), so we should structure
+our embedded code with that reality in mind.
+I have nothing against firmware, or firmware engineers (I’ve been known to
+write some firmware myself). But what we really need is less firmware and more
+software. Actually, I am disappointed that firmware engineers write so much
+firmware!
+Non-embedded engineers also write firmware! You non-embedded developers
+essentially write firmware whenever you bury SQL in your code or when you
+spread platform dependencies throughout your code. Android app developers
+write firmware when they don’t separate their business logic from the Android
+API.

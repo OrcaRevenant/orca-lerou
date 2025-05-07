@@ -1,0 +1,93 @@
+II | Hints for Concepts and Algorithms
+#234,
+8.5
+If there's duplicated work across different recursive calls, can you cache it?
+#235.
+10.7
+Would a bit vector help?
+#236.
+9.6
+Where would it be appropriate to cache data or queue up tasks?
+#237.
+8.1
+We multiply the values when it's "we do this then this." We add them when it's "we do
+this or this."
+#238.
+7.6
+Think about how you might record the position of a piece when you find it. Should it be
+stored by row and location?
+#239,
+6.2
+To calculate the probability of winning the second game, start with calculating the
+probability of making the first hoop, the second hoop, and not the third hoop.
+#240.
+8.3
+Can you solve the problem in 0(log N)?
+#241.
+6.10
+Solution 3: Think about each test strip as being a binary indicator for poisoned vs. non-
+poisoned.
+#242.
+5.4
+Get Next: If you flipa 1 to a 0 and a 0 to a 1, it wili get bigger if the 0->1 bit is more signifi-
+cant than the 1 ->0 bit. How can you use this to create the next biggest number (with the
+same number of 1s)?
+#243,
+8.9
+Alternatively, we could think about doing this by moving through the string and adding
+left and right parens at each step. Will this eliminate duplicates? How do we know if we
+can add a left or right paren?
+#244.
+9.6
+Depending on what assumptions you made, you might even be abie to do without a
+database at all. What would this mean? Would it be a good idea?
+#245.
+7.7
+This is a good problem to think about the major system components or technologies
+that would be useful,
+#246.
+8.5
+If you're doing 9*7 (both odd numbers), then you couid do 4*7 and 5*7.
+#247.
+9.7
+Try to reduce unnecessary database queries. If you don't need to permanently store the
+data in the database, you might not need it in the database at all,
+#248,
+5.7
+Can you create a number that represents just the even bits? Then can you shift the even
+bits over by one?
+#249.
+6.10
+Solution 3: If each test strip is a binary indicator, can we map, integer keys to a set of 10
+binary indicators such that each key has a unique configuration (mapping)?
+#250.
+8.6
+Think about moving the smallest disk from tower X=0 to tower Y=2 using tower Z=1 as
+a temporary holding spot as having a solution for f { 1 ,
+X=0, Y=2,
+2 = 1 ) . Moving
+the smallest two disks i s f ( 2 , X=0, Y=2,
+2=1). Given that you have a solution for
+f ( l ,
+X=0,
+Y=2,
+Z = l ) a n d f ( 2 J
+X=0,
+Y=2,
+Z = l ) , can you solve f ( 3 ,
+X=0,
+Y=2,
+Z=l)?
+#251.
+10.9
+Since each column is sorted, you know that the value can't be in this column if it's
+smaller than the min value in this column. What else does this tell you?
+#252,
+6.1
+What happens if you put one pill from each bottle on the scale? What if you put two pills
+from each bottle on the scaie?
+#253.
+10.11
+Do you necessarily need the arrays to be sorted? Can you do it with an unsorted array?
+CrackingTheCodinglnterview.com | 6th Edition
+675

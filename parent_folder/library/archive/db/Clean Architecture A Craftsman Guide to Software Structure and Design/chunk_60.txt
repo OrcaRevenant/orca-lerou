@@ -1,0 +1,31 @@
+Click here to view code image
+#include "file.h"
+void open(char* name, int mode) {/*...*/}
+void close() {/*...*/};
+int read() {int c;/*...*/ return c;}
+void write(char c) {/*...*/}
+void seek(long index, int mode) {/*...*/}
+struct FILE console = {open, close, read, write, seek};
+Now if STDIN is defined as a FILE*, and if it points to the console data structure,
+then getchar() might be implemented this way:
+Click here to view code image
+extern struct FILE* STDIN;
+int getchar() {
+return STDIN->read();
+}
+In other words, getchar() simply calls the function pointed to by the read
+pointer of the FILE data structure pointed to by STDIN.
+This simple trick is the basis for all polymorphism in OO. In C++, for example,
+every virtual function within a class has a pointer in a table called a vtable, and
+all calls to virtual functions go through that table. Constructors of derivatives
+simply load their versions of those functions into the vtable of the object being
+created.
+The bottom line is that polymorphism is an application of pointers to functions.
+Programmers have been using pointers to functions to achieve polymorphic
+behavior since Von Neumann architectures were first implemented in the late
+1940s. In other words, OO has provided nothing new.
+Ah, but that’s not quite correct. OO languages may not have given us
+polymorphism, but they have made it much safer and much more convenient.
+The problem with explicitly using pointers to functions to create polymorphic
+behavior is that pointers to functions are dangerous. Such use is driven by a set
+of manual conventions. You have to remember to follow the convention to

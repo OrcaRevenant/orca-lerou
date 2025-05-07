@@ -1,0 +1,50 @@
+Solutions to Chapter 7 ] Object-Oriented Design
+i i
+12
+IB
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+private TI[] litems;
+public CircularArrayIterator(CircularArray<TI> array){
+_items = array.items;
+>
+{^Override
+public boolean hasNext() {
+return _current < items.length - 1;
+>
+^Override
+public TI next() {
+_current++;
+TI item = (TI) _items[convert(_current)j;
+return item;
+)
+^Override
+public void remove() {
+throw new UnsupportedOperationException("...");
+>
+33
+}
+34 >
+In the above code, note that the first iteration of the for loop will call hasNext() and then next ( ) . Be very
+sure that your implementation will return the correct values here.
+When you get a problem like this one in an interview, there's a good chance you don't remember exactly
+what the various methods and interfaces are called. In this case, work through the problem as well as you
+can. If you can reason out what sorts of methods one might need, that alone will show a good degree of
+competency.
+CrackingTheCodinglnterview.com | 6th Edition 3 37

@@ -1,0 +1,44 @@
+269
+First, Make It Work
+I’m not sure why the testWeekdayCodeToString method was written in the ﬁrst place, but
+because it is there, it seems obvious that it should not be case sensitive. Writing these tests
+was trivial [T3]. Making them pass was even easier; I just changed lines 259 and 263 to
+use equalsIgnoreCase.
+I left the tests at line 32 and line 45 commented out because it’s not clear to me that
+the “tues” and “thurs” abbreviations ought to be supported.
+The tests on line 153 and line 154 don’t pass. Clearly, they should [G2]. We can easily
+ﬁx this, and the tests on line 163 through line 213, by making the following changes to the
+stringToMonthCode function.
+The commented test on line 318 exposes a bug in the getFollowingDayOfWeek method
+(line 672). December 25th, 2004, was a Saturday. The following Saturday was January 1st,
+2005. However, when we run the test, we see that getFollowingDayOfWeek returns Decem-
+ber 25th as the Saturday that follows December 25th. Clearly, this is wrong [G3],[T1]. We
+see the problem in line 685. It is a typical boundary condition error [T5]. It should read as
+follows:
+It is interesting to note that this function was the target of an earlier repair. The change
+history (line 43) shows that “bugs” were ﬁxed in getPreviousDayOfWeek, getFollowing-
+DayOfWeek, and getNearestDayOfWeek [T6].
+The testGetNearestDayOfWeek unit test (line 329), which tests the getNearestDayOfWeek
+method (line 705), did not start out as long and exhaustive as it currently is. I added a lot
+of test cases to it because my initial test cases did not all pass [T6]. You can see the pattern
+of failure by looking at which test cases are commented out. That pattern is revealing [T7].
+It shows that the algorithm fails if the nearest day is in the future. Clearly there is some
+kind of boundary condition error [T5].
+The pattern of test coverage reported by Clover is also interesting [T8]. Line 719
+never gets executed! This means that the if statement in line 718 is always false. Sure
+enough, a look at the code shows that this must be true. The adjust variable is always neg-
+ative and so cannot be greater or equal to 4. So this algorithm is just wrong.
+457         if ((result < 1) || (result > 12)) {
+result = -1;
+458             for (int i = 0; i < monthNames.length; i++) {
+459                 if (s.equalsIgnoreCase(shortMonthNames[i])) {
+460                     result = i + 1;
+461                     break;
+462                 }
+463                 if (s.equalsIgnoreCase(monthNames[i])) {
+464                     result = i + 1;
+465                     break;
+466                 }
+467             }
+468         }
+685         if (baseDOW >= targetWeekday) {

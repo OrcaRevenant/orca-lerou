@@ -1,0 +1,30 @@
+Solutions to Chapter 2 | Linked Lists
+2.7
+Intersection: Given two (singly) linked lists, determine if the two lists intersect. Return the
+intersecting node. Note that the intersection is defined based on reference, not value. That is, if the
+kth node of the first linked list is the exact same node (by reference) as the j t h node of the second
+linked list, then they are intersecting.
+pg95
+SOLUTION
+Let's draw a picture of intersecting linked lists to get a better feel for what is going on.
+Here is a picture of intersecting linked lists:
+And here is a picture of non-intersecting linked lists:
+G M I M I M i M i M i M D
+G M i M l W i M D
+We should be careful here to not inadvertently draw a special case by making the linked lists the same
+length.
+Let's first ask how we would determine if two linked lists intersect.
+Determining if there's an intersection.
+How would we detect if two linked lists intersect? One approach would be to use a hash table and just
+throw all the linked lists nodes into there. We would need to be careful to reference the linked lists by their
+memory location, not by their value.
+There's an easier way though. Observe that two intersecting linked lists will always have the same last node.
+Therefore, we can just traverse to the end of each linked list and compare the last nodes.
+How do we find where the intersection is, though?
+Finding the intersecting node.
+One thought is that we could traverse backwards through each linked list. When the linked lists "split" that's
+the intersection. Of course, you can't really traverse backwards through a singly linked list.
+If the linked lists were the same length, you could just traverse through them at the same time. When they
+collide, that's your intersection.
+CrackingTheCodinglnterview.com | 6th Edition
+22 3

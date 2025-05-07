@@ -1,0 +1,12 @@
+System Design Interview: An Insider’s Guide
+All rights reserved. This book or any portion thereof may not be reproduced or used in any
+manner whatsoever without the express written permission of the publisher except for the use
+of brief quotations in a book review.
+About the author:
+Alex Xu is an experienced software engineer and entrepreneur. Previously, he worked at
+Twitter, Apple, Zynga and Oracle. He received his M.S. from Carnegie Mellon University.
+He has a passion for designing and implementing complex systems.
+Please subscribe to our email list if you want to be notified when new chapters are available:
+https://bit.ly/3dtIcsE
+For more information, contact systemdesigninsider@gmail.com
+Editor: Paul Solomon

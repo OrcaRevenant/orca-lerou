@@ -1,0 +1,29 @@
+xvi
+FOREWORD
+You can probably guess the rest of the exchange; it sounded something like this:
+Matt: “But why? They could do this in a couple hours.”
+Joe:
+“It might take more than that.”
+Matt: “But they’ve got all weekend. Plenty of time. Let’s do this!”
+Joe:
+“Matt, these are professionals. We can’t just stare them down and
+insist they sacrifice their personal lives for our little project.”
+Matt: (pause) “. . . Joe . . . what do you think we’ve been doing to the
+engineering team for the past four months?”
+Joe:
+“Yes, but these are professionals.”
+Pause.
+Breathe.
+What. Did. Joe. Just. Say?
+At the time, I thought the technical staff were professionals, in the best sense of
+the word.
+Thinking back over it again, though, I’m not so sure.
+Let’s look at that Batman and Robin technique a second time, from a different
+perspective. I thought I was exhorting the team to its best performance, but I
+suspect Joe was playing a game, with the implicit assumption that the technical
+staff was his opponent. Think about it: Why was it necessary to run around,
+kicking over chairs and leaning on people?
+Shouldn’t we have been able to ask the staff when they would be done, get a
+firm answer, believe the answer we were given, and not be burned by that belief?
+Certainly, for professionals, we should . . . and, at the same time, we could not.
+Joe didn’t trust our answers, and felt comfortable micromanaging the tech

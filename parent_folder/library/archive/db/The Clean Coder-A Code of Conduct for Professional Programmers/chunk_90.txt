@@ -1,0 +1,31 @@
+CHAPTER 4 CODING
+58
+At first I typed quite a few in error. By the end of the evening I was typing them
+all with near perfection. I realized, during that long night, that typing blind is
+all about confidence. My fingers knew where the keys were, I just had to gain
+the confidence that I wasn’t making a mistake. One of the things that helped
+with that confidence is that I could feel when I was making an error. By the end
+of the evening, if I made a mistake, I knew it almost instantly and simply
+ejected the card without looking at it.
+Being able to sense your errors is really important. Not just in typing, but in
+everything. Having error-sense means that you very rapidly close the feedback
+loop and learn from your errors all the more quickly. I’ve studied, and mastered,
+several disciplines since that day on the 029. I’ve found that in each case that the
+key to mastery is confidence and error-sense.
+This chapter describes my personal set of rules and principles for coding. These rules
+and principles are not about my code itself; they are about my behavior, mood, and
+attitude while writing code. They describe my own mental, moral, and emotional
+context for writing code. These are the roots of my confidence and error-sense.
+You will likely not agree with everything I say here. After all, this is deeply personal
+stuff. In fact, you may violently disagree with some of my attitudes and principles.
+That’s OK—they are not intended to be absolute truths for anyone other than me.
+What they are is one man’s approach to being a professional coder.
+Perhaps, by studying and contemplating my own personal coding milieu you
+can learn to snatch the pebble from my hand.
+PR E PAR E D N E S S
+Coding is an intellectually challenging and exhausting activity. It requires a level
+of concentration and focus that few other disciplines require. The reason for
+this is that coding requires you to juggle many competing factors at once.
+1. First, your code must work. You must understand what problem you are
+solving and understand how to solve that problem. You must ensure that the
+code you write is a faithful representation of that solution. You must manage

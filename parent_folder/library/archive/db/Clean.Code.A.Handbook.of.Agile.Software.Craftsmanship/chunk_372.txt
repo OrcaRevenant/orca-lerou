@@ -1,0 +1,35 @@
+342
+Appendix A: Concurrency II
+Yet, even if you do all of these things, you still don’t stand a very good chance of ﬁnd-
+ing threading problems with your code. The most insidious problems are the ones that
+have such a small cross section that they only occur once in a billion opportunities. Such
+problems are the terror of complex systems.
+Tool Support for Testing Thread-Based Code
+IBM has created a tool called ConTest.6 It instruments classes to make it more likely that
+non-thread-safe code fails.
+We do not have any direct relationship with IBM or the team that developed ConTest.
+A colleague of ours pointed us to it. We noticed vast improvement in our ability to ﬁnd
+threading issues after a few minutes of using it.
+Here’s an outline of how to use ConTest:
+• Write tests and production code, making sure there are tests speciﬁcally designed to
+simulate multiple users under varying loads, as mentioned above.
+• Instrument test and production code with ConTest.
+• Run the tests.
+When we instrumented code with ConTest, our success rate went from roughly one fail-
+ure in ten million iterations to roughly one failure in thirty iterations. Here are the loop values
+for several runs of the test after instrumentation: 13, 23, 0, 54, 16, 14, 6, 69, 107, 49, 2. So
+clearly the instrumented classes failed much earlier and with much greater reliability.
+Conclusion
+This chapter has been a very brief sojourn through the large and treacherous territory of
+concurrent programming. We barely scratched the surface. Our emphasis here was on dis-
+ciplines to help keep concurrent code clean, but there is much more you should learn if
+you are going to be writing concurrent systems. We recommend you start with Doug Lea’s
+wonderful book Concurrent Programming in Java: Design Principles and Patterns.7
+In this chapter we talked about concurrent update, and the disciplines of clean syn-
+chronization and locking that can prevent it. We talked about how threads can enhance the
+throughput of an I/O-bound system and showed the clean techniques for achieving such
+improvements. We talked about deadlock and the disciplines for preventing it in a clean
+6.
+http://www.haifa.ibm.com/projects/veriﬁcation/contest/index.html
+7.
+See [Lea99] p. 191.

@@ -1,0 +1,41 @@
+If you compare the previous two snippet forms, they’re very similar, and in my opin‐
+ion both qualify stylistically as explicit block scoping. Unfortunately, the let (..)
+{ .. } form, the most explicit of the options, was not adopted in ES6. That may be
+revisited post-ES6, but for now the former option is our best bet, I think.
+To reinforce the implicit nature of let .. declarations, consider these usages:
+let a = 2;
+if (a > 1) {
+let b = a * 3;
+console.log( b );       // 6
+for (let i = a; i <= b; i++) {
+let j = i + 10
+console.log( j );
+}
+// 12 13 14 15 16
+let c = a + b;
+console.log( c );       // 8
+}
+Quick quiz without looking back at that snippet: which variable(s) exist only inside
+the if statement, and which variable(s) existing only inside the for loop?
+The answers: the if statement contains b and c block-scoped variables, and the for
+loop contains i and j block-scoped variables.
+Did you have to think about it for a moment? Does it surprise you that i isn’t added
+to the enclosing if statement scope? That mental pause and questioning — I call it a
+“mental tax" — comes from the fact that this let mechanism is not only new to us,
+but it’s also implicit.
+There’s also hazard in the let c = .. declaration appearing so far down in the scope.
+Unlike traditional var-declared variables, which are attached to the entire enclosing
+function scope regardless of where they appear, let declarations attach to the block
+scope but are not initialized until they appear in the block.
+Accessing a let-declared variable earlier than its let .. declaration/initialization
+causes an error, whereas with var declarations the ordering doesn’t matter (except
+stylistically).
+Consider:
+{
+console.log( a );   // undefined
+console.log( b );   // ReferenceError!
+var a;
+Block-Scoped Declarations
+|
+9
+www.it-ebooks.info

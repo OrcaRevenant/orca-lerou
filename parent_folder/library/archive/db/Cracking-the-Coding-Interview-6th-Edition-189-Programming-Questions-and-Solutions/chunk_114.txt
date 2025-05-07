@@ -1,0 +1,27 @@
+Chapter 4 | Trees and Graphs
+We have two key operations on a min-heap: i n s e r t and e x t r a c t _ m i n .
+Insert
+When we insert into a min-heap, we always start by inserting the element at the bottom. We insert at the
+rightmost spot so as to maintain the complete tree property.
+Then, we "fix" the tree by swapping the new element with its parent, until we find an appropriate spot for
+the element. We essentially bubble up the minimum element.
+Step 1: Insert 2
+Step 2: Swap 2 and 7
+Step 3: Swap 2 and 4
+This takes 0( l o g n) time, where n is the number of nodes in the heap.
+Extract Minimum Element
+Finding the minimum element of a min-heap is easy: it's always at the top. The trickier part is how to remove
+it. {In fact, this isn't that tricky.)
+First, we remove the minimum element and swap it with the last element in the heap (the bottommost,
+rightmost element). Then, we bubble down this element, swapping it with one of its children until the min-
+heap property is restored.
+Do we swap it with the left child or the right child? That depends on their values. There's no inherent
+ordering between the left and right element, but you'll need to take the smaller one in order to maintain
+the min-heap ordering.
+Step 1: Replace min with 80
+Step 2: Swap 23 and 80
+Step 3: Swap 32 and 80
+80
+This algorithm will also take 0( l o g n) time.
+102
+Cracking the Coding Interview, 6th Edition

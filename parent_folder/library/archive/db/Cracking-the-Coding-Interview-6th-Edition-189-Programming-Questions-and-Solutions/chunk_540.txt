@@ -1,0 +1,40 @@
+17
+Solutions to Hard
+17.1
+Add Without Pius: Write a function that adds two numbers. You should not use + or any arithmetic
+operators.
+pg 186
+SOLUTION
+Our first instinct in problems like these should be that we're going to have to work with bits. Why? Because
+when you take away the + sign, what other choice do we have? Plus, that's how computers do it!
+Our next thought should be to deeply understand how addition works. We can walk through an addition
+problem to see if we can understand something new—some pattern—and then see if we can replicate that
+with code.
+So let's do just that—let's walk through an addition problem. We'll work in base 10 so that it's easier to see.
+To add 759 + 674,1 would usually add d i g i t [ 0 ] from each number, carry the one, add d i g i t f l ] from
+each number, carry the one, and so on. You could take the same approach in binary: add each digit, and
+carry the one as necessary.
+Can we make this a little easier? Yes! Imagine I decided to split apart the "addition"and "carry" steps. That is,
+I do the following:
+1. Add 7S9 + 674, but "forget"to carry. I then get 323.
+2. Add 759 + 674 but only do the carrying, rather than the addition of each digit. I then get 1110.
+3. Add the result of the first two operations (recursively, using the same process described in step 1 and 2):
+1110 + 323 = 1433.
+Now, how would we do this in binary?
+1. If I add two binary numbers together, but forget to carry, the i t h bit in the sum will be 0 only if a and b
+have the same i t h bit (both 0 or both D.This is essentially an XOR.
+2. If I add two numbers together but only carry, I will have a 1 in the ith bit of the sum only if bits i - l o f
+a and b are both Is. This is an AND, shifted.
+3. Now, recurse until there's nothing to carry.
+The following code implements this algorithm.
+1
+i n t add(int a, i n t b) {
+2
+if (b == 0) return a;
+3
+i n t sura = a * b; II add without carrying
+4
+i n t carry = (a & b) <<
+// carry, but don't add
+5Î0
+Cracking the Coding Interview, 6th Edition

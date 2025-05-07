@@ -1,0 +1,41 @@
+Object.assign(..) Static Function
+Many JavaScript libraries/frameworks provide utilities for copying/mixing one
+object’s properties into another; for example: jQuery’s extend(..). There are various
+nuanced differences between these different utilities, such as whether a property with
+value undefined is ignored or not.
+ES6 adds Object.assign(..), which is a simplified version of these algorithms. The
+first argument is the target, and any other arguments passed are the sources, which
+will be processed in listed order. For each source, its enumerable and own (e.g., not
+“inherited”) keys, not symbols, are copied as if by plain = assignment.
+Object.assign(..) returns the target object.
+Consider this object setup:
+var target = {},
+o1 = { a: 1 }, o2 = { b: 2 },
+o3 = { c: 3 }, o4 = { d: 4 };
+// setup read-only property
+Object.defineProperty( o3, "e", {
+value: 5,
+enumerable: true,
+writable: false,
+configurable: false
+} );
+// setup non-enumerable property
+Object.defineProperty( o3, "f", {
+value: 6,
+enumerable: false
+} );
+o3[ Symbol( "g" ) ] = 7;
+Object.setPrototypeOf( o3, o4 );
+Only the properties a, b, c, and e will be copied to target:
+Object.assign( target, o1, o2, o3 );
+target.a;                           // 1
+target.b;                           // 2
+target.c;                           // 3
+target.e;                           // 5
+Object.getOwnPropertyDescriptor( target, "e" );
+// { value: 5, writable: true, enumerable: true,
+//   configurable: true }
+Object
+|
+163
+www.it-ebooks.info

@@ -1,0 +1,74 @@
+Chapter 5 | Bit Manipulation
+In an arithmetic right shift, we shift values to the right but fill in the new bits with the value of the sign bit.
+This has the effect of {roughly) dividing by two. It is indicated by a >> operator.
+= -75
+= -38
+What do you think these functions would do on parameters x = -93242 and count = 40?
+1
+i n t repeatedArithmeticShift(int x, i n t count) {
+2
+for ( i n t i = 0; i < count; i++) {
+3
+x >>= 1; II Arithmetic s h i f t by 1
+4
+}
+5
+return x;
+6
+}
+7
+8
+i n t repeatedLogicalShift(int x, i n t count) {
+9
+for ( i n t i = 0; i < count; i++) {
+10
+x >>>= X; H Logical s h i f t by 1
+n
+>
+12
+return x;
+13 >
+With the logical shift, we would get 0 because we are shifting a zero into the most significant bit repeatedly.
+With the arithmetic shift, we would get -1 because we are shifting a one into the most significant bit
+repeatediy. A seq uence of all 1 s i n a (signed) integer represents -1.
+> Common Bit Tasks: Getting and Setting
+The following operations are very important to know, but do not simply memorize them. Memorizing leads
+to mistakes that are impossible to recover from. Rather, understand how to implement these methods, so
+that you can implement these, and other, bit problems.
+Get Bit
+This method shifts 1 over by i bits, creating a value that looks like 00010000. By performing an AND with
+num, we clear all bits other than the bit at bit i. Finally, we compare that to 0. If that new value is not zero,
+then bit i must have a 1. Otherwise, bit i is a 0.
+1
+boolean g e t B i t ( i n t num, i n t i) {
+2
+return ((num & (1 << i ) ) != 0);
+3
+>
+Set Bit
+S e t B i t shifts 1 over by i bits, creating a value like 00910000, By performing an OR with num, only the
+value at bit i will change. All other bits of the mask are zero and will not affect num.
+1
+i n t s e t B i t ( i n t num., i n t i) {
+2
+return num | (1 << i ) ;
+3
+}
+1
+0
+1
+1
+0
+1
+0
+1
+1
+1
+0
+1
+1
+0
+I
+0
+114
+tracking the Coding Interview, 6th Edition

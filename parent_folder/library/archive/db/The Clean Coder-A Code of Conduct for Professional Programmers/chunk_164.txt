@@ -1,0 +1,28 @@
+CHAPTER 9 TIME MANAGEMENT
+132
+Professionals avoid getting so vested in an idea that they can’t abandon it and
+turn around. They keep an open mind about other ideas so that when they hit a
+dead end they still have other options.
+MAR S H E S , BOG S , SWA M P S , AN D O TH E R M E S S E S
+Worse than blind alleys are messes. Messes slow you down, but don’t stop you.
+Messes impede your progress, but you can still make progress through sheer
+brute force. Messes are worse than blind alleys because you can always see the
+way forward, and it always looks shorter than the way back (but it isn’t).
+I have seen products ruined and companies destroyed by software messes. I’ve
+seen the productivity of teams decrease from jitterbug to dirge in just a few
+months. Nothing has a more profound or long-lasting negative effect on the
+productivity of a software team than a mess. Nothing.
+The problem is that starting a mess, like going down a blind alley, is
+unavoidable. Experience and prudence can help you to avoid them, but
+eventually you will make a decision that leads to a mess.
+The progression of such a mess is insidious. You create a solution to a simple
+problem, being careful to keep the code simple and clean. As the problem grows
+in scope and complexity you extend that code base, keeping it as clean as you
+can. At some point you realize that you made a wrong design choice when you
+started, and that your code doesn’t scale well in the direction that the
+requirements are moving.
+This is the inflection point! You can still go back and fix the design. But you can
+also continue to go forward. Going back looks expensive because you’ll have to
+rework the existing code, but going back will never be easier than it is now. If
+you go forward you will drive the system into a swamp from which it may never
+escape.

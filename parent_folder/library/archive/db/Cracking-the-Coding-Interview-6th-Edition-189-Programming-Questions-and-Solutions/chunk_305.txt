@@ -1,0 +1,67 @@
+Solutions to Chapter 6 j Math and Logic Puzzles
+On the other hand, the families that keep having children contribute (potentially) multiple boys to the
+population. This could offset the impact of the "one girl" policy.
+One way to think about this is to imagine that we put all the gender sequence of each family into one giant
+string. So if family 1 has BG, family 2 has BBG, and family 3 has G, we would write BGBBGG.
+In fact, we don't really care about the groupings of families because we're concerned about the population
+as a whole. As soon as a chiid is born, we can just append its gender (B or G) to the string.
+What are the odds of the next character being a G? Weli, if the odds of having a boy and girl is the same,
+then the odds of the next character being a G is 50%.Therefore, roughly half of the string should be Gs and
+half should be Bs, giving an even gender ratio.
+This actually makes a lot of sense. Biology hasn't been changed. Half of newborn babies are girls and half are
+boys. Abiding by some rule about when to stop having children doesn't change this fact.
+Therefore, the gender ratio is 50% girls and 50% boys.
+Simulation
+We'll write this in a simple way that directly corresponds to the problem.
+1
+double runNFarailies(int n) {
+2
+i n t boys = 0;
+3
+i n t g i r l s = 0;
+4
+for ( i n t i = 0; i < n; i++) {
+5
+i n t [ ] genders = runQneFamily();
+6
+g i r l s += genders[0];
+7
+boys += gendersfl];
+S
+>
+9
+return g i r l s / (double) (boys + g i r l s ) ;
+10 }
+11
+12 i n t [ ] runOneFamilyO {
+13
+Random random = new Random();
+14
+i n t boys » 0;
+15
+i n t g i r l s = 0;
+16
+while ( g i r l s == 0) { // u n t i l we have a g i r l
+17
+if
+(random.nextBoolean())
+{ II g i r l
+18
+g i r l s += 1;
+19
+} else { U boy
+20
+boys += 1;
+21
+>
+22
+)
+23
+i n t [ ] genders = { g i r l s , boys};
+24
+return genders;
+25
+}
+Sure enough, if you run this on large values of n, you should get something very close to 0.5,
+CrackingTheCodinglnterview.com | 6th Edition
+291

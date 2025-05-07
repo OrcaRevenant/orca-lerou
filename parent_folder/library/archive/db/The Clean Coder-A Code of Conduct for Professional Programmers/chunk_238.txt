@@ -1,0 +1,76 @@
+INDEX
+207
+Expectations, commitment and, 45
+Experience, broadening, 87
+F
+Failure, degrees of, 174
+False delivery, 67
+FitNesse, 199–200
+Flexibility, 9
+Flow zone, 56–58
+Flying fingers, 139
+Focus, 121–123
+Function, in “do no harm”
+approach, 5–8
+G
+Gaillot, Emmanuel, 83
+Gelled team, 162–164
+Git, 191–194
+Goals, 20–23, 118
+Graphical user interfaces (GUIs),
+103–105
+Green Pepper, 200
+Grenning, James, 139
+GUIs, 103–105
+H
+Hard knocks, 179–180
+Help, 67–70
+giving, 68
+mentoring and, 69–70
+pressure and, 148–149
+receiving, 68–69
+“Hope,” 42
+Hoping, deadlines and, 65
+Humility, 16
+I
+IDE/editor, 194
+Identification, with employer/
+customer, 15
+Implied commitments, 134–135
+Input, creative, 59–60, 123
+Integration, continuous, 104–105
+Integration tests
+in testing strategy, 111–112
+tools for, 200–201
+IntelliJ, 195–196
+Interns, 183
+Interruptions, 57–58
+Issue tracking, 196–197
+Iteration planning meetings, 119
+Iteration retrospective meetings, 120
+J
+JBehave, 200
+Journeymen, 182–183
+K
+Kata, 84–85
+Knowledge
+of domain, 15
+minimal, 12
+work ethic and, 11–13
+L
+Lateness, 65–67
+Law of large numbers, 141
+Learning, work ethic and, 13
+“Let’s,” 42
+Lindstrom, Lowell, 140
+Locking, 190
+M
+Manual exploratory tests, in testing
+strategy, 112–113
+Masters, 182
+MDA, 201–203
+Meetings
+agenda in, 118
+arguments and disagreements in,
+120–121
+declining, 117

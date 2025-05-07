@@ -1,0 +1,29 @@
+FIRST, DO NO HARM
+13
+Every time QA, or worse a user, finds a problem, you should be surprised,
+chagrined, and determined to prevent it from happening again.
+You Must Know It Works
+How can you know your code works? That’s easy. Test it. Test it again. Test it up.
+Test it down. Test it seven ways to Sunday!
+Perhaps you are concerned that testing your code so much will take too much
+time. After all you’ve got schedules and deadlines to keep. If you spend all your
+time testing, you’ll never get anything else written. Good point! So, automate
+your tests. Write unit tests that you can execute on a moment’s notice, and run
+those tests as often as you can.
+How much of the code should be tested with these automated unit tests? Do
+I really need to answer that question? All of it! All. Of. It.
+Am I suggesting 100% test coverage? No, I’m not suggesting it. I’m demanding it.
+Every single line of code that you write should be tested. Period.
+Isn’t that unrealistic? Of course not. You only write code because you expect it
+to get executed. If you expect it to get executed, you ought to know that it
+works. The only way to know this is to test it.
+I am the primary contributor and committer for an open source project called
+FitNesse. As of this writing there are 60ksloc in FitNesse. 26 of those 60 are written
+in 2000+ unit tests. Emma reports that the coverage of those 2000 tests is ~90%.
+Why isn’t my code coverage higher? Because Emma can’t see all the lines of
+code that are being executed! I believe the coverage is much higher than that.
+Is the coverage 100%? No, 100% is an asymptote.
+But isn’t some code hard to test? Yes, but only because that code has been
+designed to be hard to test. The solution to that is to design your code to be easy
+to test. And the best way to do that is to write your tests first, before you write
+the code that passes them.

@@ -1,0 +1,72 @@
+Solutions to Chapter 7 ] Object-Oriented Design
+9
+10
+public Game(int r, int c, int b) { ... >
+11
+12
+public boolean initializeQ { ... }
+13
+public boolean startQ { ... }
+14
+private boolean playGame() { ... > //' Loops until game is over.
+15 >
+Algorithms
+This is the basic object-oriented design in our code. Our interviewer might ask us now to implement a few
+of the most interesting algorithms.
+In this case, the three interesting algorithms is the initialization (placing the bombs randomly), setting the
+values of the numbered cells, and expanding the blank region.
+Placing the Bombs
+To place the bombs, we could randomly pick a cell and then place a bomb if it's still available, and otherwise
+pick a different location for it.The problem with this is that if there are a lot of bombs, it could get very slow.
+We could end up in a situation where we repeatedly pick cells with bombs.
+To get around this, we could take an approach similar to the card deck shuffling problem (pg 531). We
+could place the K bombs in the first K cells and then shuffle all the cells around.
+Shuffling an array operates by iterating through the array from 1 = 0 through N - l . For each i, we pick a
+random index between i and N - l and swap it with that index.
+To shuffle a grid, we do a very similar thing, just converting the index into a row and column location.
+1 void shuffleBoard() {
+2
+int nCells = nRows * nColumns;
+3
+Random random = new Random();
+4
+for (int indexl = 0; indexl < nCells; indexl++) {
+5
+int index2 = indexl + random.next!nt(nCells - indexl);
+6
+if (indexl 1= index2) {
+7
+/* Get cell at indexl. */
+8
+int rowl = indexl / nColumns;
+9
+int columnl = (indexl - rowl * nColumns) % nColumns;
+16
+Cell celll = cells[rowl][columnl];
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+/* Get cell at index2. */
+int row2 = index2 / nColumns;
+int column2 = (index2 - row2 * nColumns) % nColumns;
+Cell cell2 = cells[row2][column2];
+!* Swap. */
+cells[rowl][columnl] = cell2;
+cell2.setRowAndColumn(rowlJ columnl);
+cells[row2][column2] = celll;
+celll.setRowAndColumn(row2, column2);
+22
+>
+23
+}
+24 }
+CrackingTheCodinglnterview.com | 6th Edition
+3 37

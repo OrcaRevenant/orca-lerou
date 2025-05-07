@@ -1,0 +1,9 @@
+The last line is the multi:stage image built by the final build stage in the
+Dockerfile (stage2/production). You can see that this is significantly smaller than
+the images pulled and produced by the previous stages. This is because it’s based
+off the much smaller java:8-jdk-alpine image and has only added the
+production-related app files from the previous stages.
+The net result is a small production image created by a single Dockerfile, a
+normal docker image build command, and zero additional scripting!
+Multi-stage builds were new with Docker 17.05 and are an excellent feature for
+building small production-worthy images.

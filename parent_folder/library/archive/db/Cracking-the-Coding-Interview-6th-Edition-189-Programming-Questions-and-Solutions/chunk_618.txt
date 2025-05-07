@@ -1,0 +1,71 @@
+Solutions to Chapter 17 j Hard
+lie /* HashMapListcString, lnteger> is a HashMap that maps from Strings to
+111 * ArrayLlst<lnteger>. See appendix for implementation. */
+This algorithm's runtime is a bit harder to describe since it depends on what the language looks like, as well
+as the actual source and destination words. One way of expressing it is that if each word has E words that
+are one edit away and the source and destination are distance D, the runtime is 0(ED/I),This is how much
+work each breadth-first search does.
+Of course, this is a lot of code to implement in an interview. It just wouldn't be possible. More real-
+istically, you'd leave out a lot of the details. You might write just the skeleton code of t r a n s f o r m and
+searchLevel, but leave out the rest,
+17.23 Max Square Matrix: Imagine you have a square matrix, where each cell (pixel) is either black or
+white. Design an algorithm to find the maximum subsquare such that all four borders are filled with
+black pixels.
+pg 190
+SOLUTION
+Like many problems, there's an easy way and a hard way to solve this. We'll go through both solutions.
+The'Simple" Solution: 0(N 4)
+We know that the biggest possible square has a length of size N, and there is only one possible square of
+size NxN.We can easily check for that square and return if we find it.
+If we do not find a square of sizeNxN, we can try the next best thing: ( N - l ) x ( N - l ) . We iterate through
+all squares of this size and return the first one we find. We then do the same for N-2, N-3, and so on. Since
+we are searching progressively smaller squares, we know that the first square we find is the biggest.
+Our code works as follows:
+1
+Subsquare f i n d S q u a r e ( i n t [ ] [ ] matrix) {
+2
+for (int i = matrix.length; i >= 1; i--) {
+3
+Subsquare square
+findSquareWithSize(matrix, i);
+4
+if (square 1= null) return square;
+5
+>
+fj
+return null;
+7
+>
+8
+9
+Subsquare findSquareWithSize(int[][] matrix, int squareSize) {
+10
+/* On an edge of length N, there are (N - sz + 1) squares of length sz. */
+11
+int count = matrix.length - squareSize + 1;
+12
+13
+/* Iterate through all squares with side length squareSize. *!
+14
+for (int row = 0; row < count; row++) {
+15
+for (int col = 0; col < count; col++) {
+16
+if (isSquare(matrix, row, col, squareSize)) {
+17
+return new Subsquare(row, col, squareSize);
+18
+}
+19
+}
+20
+>
+21
+return null;
+22
+)
+23
+24 boolean isSquare(int[][j matrix, int row, int col, int size) {
+55
+S
+Cracking the Coding interview, 6th Edition

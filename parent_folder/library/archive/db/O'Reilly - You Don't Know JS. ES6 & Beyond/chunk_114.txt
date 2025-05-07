@@ -1,0 +1,38 @@
+Modules do still have access to window and all the “globals” that
+hang off it, just not as lexical top-level scope. However, you really
+should stay away from the globals in your modules if at all possible.
+You can also “rename” (aka alias) a module member during named export:
+function foo() { .. }
+export { foo as bar };
+When this module is imported, only the bar member name is available to import; foo
+stays hidden inside the module.
+Module exports are not just normal assignments of values or references, as you’re
+accustomed to with the = assignment operator. Actually, when you export something,
+you’re exporting a binding (kinda like a pointer) to that thing (variable, etc).
+That means that if you change the value inside your module of an variable you
+already exported a binding to, even if it’s already been imported (see the next section),
+the imported binding will resolve to the current value.
+Consider:
+var awesome = 42;
+export { awesome };
+// later
+awesome = 100;
+When this module is imported, regardless of before or after the awesome = 100 set‐
+ting, once that assignment has happened, the imported binding the resolves the 100
+value, not 42.
+That’s because the binding is in essence a reference to, or a pointer to, the awesome
+variable itself, rather than a copy of its value. This is a mostly unprecedented concept
+for JS introduced with ES6 module bindings.
+Though you can clearly use export multiple times inside a module’s definition, ES6
+definitely prefers the approach that a module has a single export, which is known as a
+default export. In the words of some members of the TC39 committee, you’re “rewar‐
+ded with simpler import syntax” if you follow that pattern, and conversely need more
+verbose syntax if you don’t.
+A default export sets a particular exported binding to be the default when importing
+the module. The name of the binding is literally default. As you’ll see later, when
+importing module bindings you can also rename them, as you commonly will with a
+default export.
+Modules
+|
+103
+www.it-ebooks.info

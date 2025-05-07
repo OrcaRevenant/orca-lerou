@@ -1,0 +1,54 @@
+340
+Appendix A: Concurrency II
+12:         Runnable runnable = new Runnable() {
+13:             public void run() {
+14:                 classWithThreadingProblem.takeNextId();
+15:             }
+16:         };
+17:
+18:         for (int i = 0; i < 50000; ++i) {
+19:             int startingId = classWithThreadingProblem.lastId;
+20:             int expectedResult = 2 + startingId;
+21:
+22:             Thread t1 = new Thread(runnable);
+23:             Thread t2 = new Thread(runnable);
+24:             t1.start();
+25:             t2.start();
+26:             t1.join();
+27:             t2.join();
+28:
+29:             int endingId = classWithThreadingProblem.lastId;
+30:
+31:             if (endingId != expectedResult)
+32:                 return;
+33:         }
+34:
+35:         fail("Should have exposed a threading issue but it did not.");
+36:     }
+37: }
+Line
+Description
+10
+Create a single instance of ClassWithThreadingProblem. Note, we must use
+the ﬁnal keyword because we use it below in an anonymous inner class.
+12–16
+Create an anonymous inner class that uses the single instance of
+ClassWithThreadingProblem.
+18
+Run this code “enough” times to demonstrate that the code failed, but not
+so much that the test “takes too long.” This is a balancing act; we don’t
+want to wait too long to demonstrate failure. Picking this number is hard—
+although later we’ll see that we can greatly reduce this number.
+19
+Remember the starting value. This test is trying to prove that the code in
+ClassWithThreadingProblem is broken. If this test passes, it proved that the
+code was broken. If this test fails, the test was unable to prove that the code
+is broken.
+20
+We expect the ﬁnal value to be two more than the current value.
+22–23
+Create two threads, both of which use the object we created in lines 12–16.
+This gives us the potential of two threads trying to use our single instance
+of ClassWithThreadingProblem and interfering with each other.
+Listing A-2 (continued)
+ClassWithThreadingProblemTest.java

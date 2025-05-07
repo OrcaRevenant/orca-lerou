@@ -1,0 +1,83 @@
+Solutions to Chapter 255 | Stacks and Queues
+14
+}
+Although this code does not seem especially complex, it can be very easy to make little off-by-one errors.
+Be sure to test these parts of the code very thoroughly.
+4.3
+List of Depths: Given a binary tree, design an algorithm which creates a linked list of all the nodes
+at each depth (e.g., if you have a tree with depth D, you'lf have D linked lists).
+pg 109
+SOLUTION
+Though we might think at first glance that this problem requires a level-by-1 eve I traversal, this isn't actually
+necessary. We can traverse the graph any way that we'd like, provided we know which level we're on as we
+do so.
+We can implement a simple modification of the pre-order traversal algorithm, where we pass in l e v e l +
+1 to the next recursive call. The code below provides an implementation using depth-first search.
+1
+void createLevelLinkedList(TreeNode root, ArrayList<LinkedList<TreeNode>> l i s t s ,
+2
+i n t level) {
+3
+if (root == n u l l ) return; // base case
+4
+5
+LinkedList<TreeNode> l i s t = n u l l ;
+6
+if ( l i s t s . s i z e ( ) == level) { II Level not contained in l i s t
+7
+l i s t = new LinkedList<TreeNode>();
+8
+/* Levels are always traversed in order. So, if t h i s is the f i r s t time we've
+9
+* v i s i t e d level i, we must have seen levels 0 through i - 1. We can
+10
+* therefore safely add the level at the end. */
+11
+l i s t s . a d d ( l i s t ) ;
+12
+) else {
+13
+l i s t = l i s t s . g e t ( l e v e l ) ;
+14
+)
+15
+l i s t . a d d ( r o o t ) ;
+16
+createLevelLinkedList(root.left, l i s t s , level + 1);
+17
+createLevelLinkedList(root.right, l i s t s , level + 1);
+18
+}
+19
+20 ArrayList<LinkedList<TreeNode>> createLevelLinkedList(TreeMode root) {
+21
+ArrayList<LinkedList<TreeNode>> l i s t s = new ArrayList<LinkedList;<TreeNode>>();
+22
+createLevelLinkedList(root,
+l i s t s , 0);
+23
+return l i s t s ;
+24
+}
+Alternatively, we can also implement a modification of breadth-first search. With this implementation, we
+want to iterate through the root first, then level 2, then level 3, and soon.
+With each level i, we will have already fully visited all nodes on level i - l.Tbis means that to get which
+nodes are on level i, we can simply look at all children of the nodes of level i - 1.
+The code below implements this algorithm.
+1
+ArrayList<LinkedList<TreeNode>> createLevelLinkedList(TreeNode root) {
+2
+ArrayList<LinkedList<TreeNode>> result = new ArrayHst<LinkedList<TreeNode>>();
+3
+/*
+r f V i s i t " the root */
+4
+LinkedList<TreeNode> current = new LinkedList<TreeNode>();
+5
+if (root 1= n u l l ) {
+6
+current.add(root);
+7
+}
+CrackingTheCodinglnterview.com ] 6th Edition
+239

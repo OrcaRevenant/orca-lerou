@@ -1,0 +1,41 @@
+130
+Chapter 9: Unit Tests
+That is the nature of the dual standard. There are things that you might never do in a
+production environment that are perfectly ﬁne in a test environment. Usually they involve
+issues of memory or CPU efﬁciency. But they never involve issues of cleanliness.
+One Assert per Test
+There is a school of thought4 that says that every test function in a JUnit test should have one
+and only one assert statement. This rule may seem draconian, but the advantage can be seen
+in Listing 9-5. Those tests come to a single conclusion that is quick and easy to understand.
+But what about Listing 9-2? It seems unreasonable that we could somehow easily
+merge the assertion that the output is XML and that it contains certain substrings. How-
+ever, we can break the test into two separate tests, each with its own particular assertion, as
+shown in Listing 9-7.
+Notice that I have changed the names of the functions to use the common given-when-
+then5 convention. This makes the tests even easier to read. Unfortunately, splitting the tests
+as shown results in a lot of duplicate code.
+We can eliminate the duplication by using the TEMPLATE METHOD6 pattern and putting
+the given/when parts in the base class, and the then parts in different derivatives. Or we could
+create a completely separate test class and put the given and when parts in the @Before func-
+tion, and the when parts in each @Test function. But this seems like too much mechanism for
+such a minor issue. In the end, I prefer the multiple asserts in Listing 9-2.
+4.
+See Dave Astel’s blog entry: http://www.artima.com/weblogs/viewpost.jsp?thread=35578
+Listing 9-7
+SerializedPageResponderTest.java (Single Assert)
+public void testGetPageHierarchyAsXml() throws Exception {
+givenPages("PageOne", "PageOne.ChildOne", "PageTwo");
+whenRequestIsIssued("root", "type:pages");
+thenResponseShouldBeXML();
+}
+public void testGetPageHierarchyHasRightTags() throws Exception {
+givenPages("PageOne", "PageOne.ChildOne", "PageTwo");
+whenRequestIsIssued("root", "type:pages");
+thenResponseShouldContain(
+"<name>PageOne</name>", "<name>PageTwo</name>", "<name>ChildOne</name>"
+);
+}
+5.
+[RSpec].
+6.
+[GOF].

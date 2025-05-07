@@ -1,0 +1,37 @@
+Notice in the output above that the OS/Arch: for the Server component is
+showing as linux/amd64. This is because the server portion of the Docker
+Engine (a.k.a. the “daemon”) is running inside of the Linux VM we mentioned
+earlier. The Client component is a native Mac application and runs directly on
+the Mac OS Darwin kernel (OS/Arch: darwin/amd64).
+Also note that the system is running the experimental version (Experimental:
+true) of Docker. This is because the system is running the edge version which
+comes with experimental features turned on.
+Run some more Docker commands.
+$ docker info
+Containers: 0
+Running: 0
+Paused: 0
+Stopped: 0
+Images: 0
+Server Version: 17.05.0-ce
+<Snip>
+Registry: https://index.docker.io/v1/
+Experimental: true
+Insecure Registries:
+127.0.0.0/8
+Live Restore Enabled: false
+Docker for Mac installs the Docker Engine (client and daemon), Docker
+Compose, and Docker machine and the Notary command line. The following
+three commands show you how to verify that all of these components installed
+successfully and find out which versions you have.
+$  docker --version
+Docker version 17.05.0-ce, build 89658be
+$  docker-compose --version
+docker-compose version 1.13.0, build 1719ceb
+$  docker-machine --version
+docker-machine version 0.11.0, build 5b27455
+$ notary version
+notary
+Version:    0.4.3
+Git commit: 9211198
+Installing Docker on Linux

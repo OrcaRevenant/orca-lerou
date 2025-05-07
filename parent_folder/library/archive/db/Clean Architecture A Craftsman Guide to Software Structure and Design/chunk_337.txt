@@ -1,0 +1,33 @@
+under contract with the National Council of Architects Registry Board (NCARB)
+to conduct the registration exams for new architect candidates.
+Anyone desiring to be a registered architect (the kind who design buildings) in
+the United States or Canada must pass the registration exam. This exam involved
+having the candidate solve a number of architectural problems involving
+building design. The candidate might be given a set of requirements for a public
+library, or a restaurant, or a church, and then asked to draw the appropriate
+architectural diagrams.
+The results would be collected and saved until such time as a group of senior
+architects could be gathered together as jurors, to score the submissions. These
+gatherings were big, expensive events and were the source of much ambiguity
+and delay.
+NCARB wanted to automate the process by having the candidates take the
+exams using a computer, and then have another computer do the evaluation and
+scoring. NCARB asked ETS to develop that software, and ETS hired me to
+gather a team of developers to produce the product.
+ETS had broken the problem down into 18 individual test vignettes. Each would
+require a CAD-like GUI application that the candidate would use to express his
+or her solution. A separate scoring application would take in the solutions and
+produce scores.
+My partner, Jim Newkirk, and I realized that these 36 applications had vast
+amounts of similarity. The 18 GUI apps all used similar gestures and
+mechanisms. The 18 scoring applications all used the same mathematical
+techniques. Given these shared elements, Jim and I were determined to develop a
+reusable framework for all 36 applications. Indeed, we sold this idea to ETS by
+saying that we’d spend a long time working on the first application, but then the
+rest would just pop out every few weeks.
+At this point you should be face-palming or banging your head on this book.
+Those of you who are old enough may remember the “reuse” promise of OO. We
+were all convinced, back then, that if you just wrote good clean object-oriented
+C++ code, you would just naturally produce lots and lots of reusable code.
+So we set about to write the first application—which was the most complicated
+of the batch. It was called Vignette Grande.

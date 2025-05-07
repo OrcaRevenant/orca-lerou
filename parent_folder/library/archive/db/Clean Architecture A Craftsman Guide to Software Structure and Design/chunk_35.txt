@@ -1,0 +1,11 @@
+2
+A TALE OF TWO VALUES
+Every software system provides two different values to the stakeholders:
+behavior and structure. Software developers are responsible for ensuring that
+both those values remain high. Unfortunately, they often focus on one to the
+exclusion of the other. Even more unfortunately, they often focus on the lesser of
+the two values, leaving the software system eventually valueless.
+BEHAVIOR
+The first value of software is its behavior. Programmers are hired to make
+machines behave in a way that makes or saves money for the stakeholders. We
+do this by helping the stakeholders develop a functional specification, or

@@ -1,0 +1,31 @@
+4
+PRE-REQUISITE INTRODUCTION
+The next day I got my deck back. It was wrapped in a listing of the results of the
+run and kept together with a rubber band. (We used lots of rubber bands in
+those days!)
+I opened the listing and saw that my compile had failed. The error messages in
+the listing were very difficult for me to understand, so I took it to my
+supervisor. He looked it over, mumbled under his breath, made some quick
+notes on the listing, grabbed my deck and then told me to follow him.
+He took me up to the keypunch room and sat at a vacant keypunch machine.
+One by one he corrected the cards that were in error, and added one or two
+other cards. He quickly explained what he was doing, but it all went by like a
+flash.
+He took the new deck up to the computer room and knocked at the door. He
+said some magic words to one of the operators, and then walked into the
+computer room behind him. He beckoned for me to follow. The operator set up
+the tape drives and loaded the deck while we watched. The tapes spun, the
+printer chattered, and then it was over. The program had worked.
+The next day my supervisor thanked me for my help, and terminated my
+employment. Apparently ASC didn’t feel they had the time to nurture a
+17-year-old.
+But my connection with ASC was hardly over. A few months later I got a full-
+time second-shift job at ASC operating off-line printers. These printers printed
+junk mail from print images that were stored on tape. My job was to load the
+printers with paper, load the tapes into the tape drives, fix paper jams, and
+otherwise just watch the machines work.
+The year was 1970. College was not an option for me, nor did it hold any
+particular enticements. The Viet Nam war was still raging, and the campuses
+were chaotic. I had continued to inhale books on COBOL, Fortran, PL/1,
+PDP-8, and IBM 360 Assembler. My intent was to bypass school and drive as
+hard as I could to get a job programming.

@@ -1,0 +1,66 @@
+352
+Appendix B: org.jfree.date.SerialDate
+165     /** A useful constant for referring to the second week in a month. */
+166     public static final int SECOND_WEEK_IN_MONTH = 2;
+167
+168     /** A useful constant for referring to the third week in a month. */
+169     public static final int THIRD_WEEK_IN_MONTH = 3;
+170
+171     /** A useful constant for referring to the fourth week in a month. */
+172     public static final int FOURTH_WEEK_IN_MONTH = 4;
+173
+174     /** A useful constant for referring to the last week in a month. */
+175     public static final int LAST_WEEK_IN_MONTH = 0;
+176
+177     /** Useful range constant. */
+178     public static final int INCLUDE_NONE = 0;
+179
+180     /** Useful range constant. */
+181     public static final int INCLUDE_FIRST = 1;
+182
+183     /** Useful range constant. */
+184     public static final int INCLUDE_SECOND = 2;
+185
+186     /** Useful range constant. */
+187     public static final int INCLUDE_BOTH = 3;
+188
+189     /**
+190      * Useful constant for specifying a day of the week relative to a fixed
+191      * date.
+192      */
+193     public static final int PRECEDING = -1;
+194
+195     /**
+196      * Useful constant for specifying a day of the week relative to a fixed
+197      * date.
+198      */
+199     public static final int NEAREST = 0;
+200
+201     /**
+202      * Useful constant for specifying a day of the week relative to a fixed
+203      * date.
+204      */
+205     public static final int FOLLOWING = 1;
+206
+207     /** A description for the date. */
+208     private String description;
+209
+210     /**
+211      * Default constructor.
+212      */
+213     protected SerialDate() {
+214     }
+215
+216     /**
+217      * Returns <code>true</code> if the supplied integer code represents a
+218      * valid day-of-the-week, and <code>false</code> otherwise.
+219      *
+220      * @param code  the code being checked for validity.
+221      *
+222      * @return <code>true</code> if the supplied integer code represents a
+223      *         valid day-of-the-week, and <code>false</code> otherwise.
+224      */
+225     public static boolean isValidWeekdayCode(final int code) {
+226
+Listing B-1 (continued)
+SerialDate.Java

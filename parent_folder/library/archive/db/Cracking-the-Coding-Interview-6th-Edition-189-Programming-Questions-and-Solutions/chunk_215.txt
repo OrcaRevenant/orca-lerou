@@ -1,0 +1,87 @@
+Solutions to Chapter 1 | Arrays and Strings
+15
+// N u l l i f y rows
+16
+for ( i n t i = 0; i < row.length; i++) {
+1 7
+i f ( r o w [ i ] )
+nullifyRow(matrix,
+i ) ;
+18
+>
+19
+20
+// N u l l i f y columns
+21
+for ( i n t j = 0; j < column.length; j++) {
+22
+if (column[j]) nullifyColumn(matrix,
+j ) ;
+23
+>
+24
+}
+25
+26 void n u l l i f y R o w ( i n t [ ] [ ] matrix, i n t row) {
+27
+for ( i n t j = 0; j < m a t r i x [ 0 ] . l e n g t h ; j++) {
+28
+m a t r i x [ r o w ] [ j ] = 0;
+29
+}
+30
+}
+31
+32 void n u l l i f y C o l u m n ( i n t [ ] [ ] matrix, i n t col) {
+33
+for ( i n t i = 0; i < matrix.length; i++) {
+34
+m a t r i x [ i ] [ c o l ] = 0;
+35
+}
+36 >
+To make this somewhat more space efficient, we could use a bit vector instead of a boolean array. It would
+stillbeO(N) space.
+We can reduce the space to 0 ( 1 ) by using the first row as a replacement for the row array and the first
+column as a replacement for the column afray. This works as follows:
+1. Check if the first row and first column have any zeros, and set variables rowHasZero and
+columnHasZero. [We'll nullify the first row and first column later, if necessary.)
+2. Iterate through the rest of the matrix, setting m a t r i x [ i ] [ 0 ] and m a t r i x [ 0 ] [j ] to zero whenever
+there's a zero in m a t r i x [ i] [j ].
+3. Iterate through rest of matrix, nullifying row i if there's a zero in m a t r i x [ i ] [ 0 ] .
+4. Iterate through rest of matrix, nullifying column j if there's a zero i n m a t r i x [ 0 ] [ j ] ,
+5. Nullify the first row and first column, if necessary (based on values from Step 1).
+This code is below:
+1
+void s e t Z e r o s ( i n t [ ] [ ] matrix) {
+2
+boolean rowHasZero = false;
+3
+boolean colHasZero = false;
+4
+// Check if f i r s t row has a zero
+6
+for ( i n t j = 0; j < m a t r i x [ 0 ] . l e n g t h ; j++) {
+7
+if ( m a t r i x [ 0 ] [ j ] == 0) {
+8
+rowHasZero = true;
+9
+break;
+10
+>
+11
+>
+12
+13
+// Check if f i r s t column has a zero
+14
+for ( i n t i = 0; i < matrix.length; i++) {
+15
+if ( m a t r i x [ i ] [ 0 ] == 0) {
+16
+colHasZero = t r u e ;
+17
+break;
+CrackingTheCodinglnterview.com | 6th Edition
+199

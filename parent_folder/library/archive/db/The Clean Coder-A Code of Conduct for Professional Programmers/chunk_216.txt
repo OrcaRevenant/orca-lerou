@@ -1,0 +1,10 @@
+CONCLUSION
+185
+CO N C LU S I O N
+School can teach the theory of computer programming. But school does not,
+and cannot teach the discipline, practice, and skill of being a craftsman. Those
+things are acquired through years of personal tutelage and mentoring. It is time
+for those of us in the software industry to face the fact that guiding the next
+batch of software developers to maturity will fall to us, not to the universities.
+It’s time for us to adopt a program of apprenticeship, internship, and long-term
+guidance.

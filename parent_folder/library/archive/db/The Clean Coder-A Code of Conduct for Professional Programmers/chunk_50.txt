@@ -1,0 +1,31 @@
+CHAPTER 1 PROFESSIONALISM
+18
+A wealth of ideas, disciplines, techniques, tools, and terminologies decorate the
+last fifty years of our field. How much of this do you know? If you want to be a
+professional, you should know a sizable chunk of it and constantly be increasing
+the size of that chunk.
+Why should you know these things? After all, isn’t our field progressing so
+rapidly that all these old ideas have become irrelevant? The first part of that
+query seems obvious on the surface. Certainly our field is progressing and at a
+ferocious pace. Interestingly enough, however, that progress is in many respects
+peripheral. It’s true that we don’t wait 24 hours for compile turnaround any
+more. It’s true that we write systems that are gigabytes in size. It’s true that we
+work in the midst of a globe-spanning network that provides instant access to
+information. On the other hand, we are writing the same if and while statements
+that we were writing 50 years ago. Much has changed. Much has not.
+The second part of the query is certainly not true. Very few ideas of the past 50
+years have become irrelevant. Some have been sidelined, it’s true. The notion of
+doing waterfall development has certainly fallen into disfavor. But that doesn’t
+mean we shouldn’t know what it is, and what its good and bad points are.
+Overall, however, the vast majority of the hard-won ideas of the last 50 years are
+as valuable today as they were then. Perhaps they are even more valuable now.
+Remember Santayana’s curse: “Those who cannot remember the past are
+condemned to repeat it.”
+Here is a minimal list of the things that every software professional should be
+conversant with:
+• Design patterns. You ought to be able to describe all 24 patterns in the GOF book
+and have a working knowledge of many of the patterns in the POSA books.
+• Design principles. You should know the SOLID principles and have a good
+understanding of the component principles.
+• Methods. You should understand XP, Scrum, Lean, Kanban, Waterfall,
+Structured Analysis, and Structured Design.

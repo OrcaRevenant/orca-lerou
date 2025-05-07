@@ -1,0 +1,43 @@
+Many JS utility libraries/frameworks provide their own option for
+deep cloning of an object, but those approaches and their gotchas
+are beyond our scope to discuss here.
+So let’s examine if ES6 object destructuring with defaults can help at all:
+config.options = config.options || {};
+config.log = config.log || {};
+{
+options: {
+remove: config.options.remove = default.options.remove,
+enable: config.options.enable = default.options.enable,
+instance: config.options.instance = default.options.instance
+} = {},
+log: {
+warn: config.log.warn = default.log.warn,
+error: config.log.error = default.log.error
+} = {}
+} = config;
+Not as nice as the false promise of Object.assign(..) (being that it’s shallow only),
+but it’s better than the earlier shown manual approach by a fair bit, I think. Still
+unfortunately verbose and repetitive.
+The previous snippet’s approach works because I’m hacking the destructuring and
+defaults mechansim to do the property === undefined checks and assignment deci‐
+sions for me. It’s a trick in that I’m destructuring config (see the = config at the end
+of the snippet), but I’m re-assigning all the destructured values right back into con
+fig, with the config.options.enable assignment references.
+Still too much, though. Let’s see if we can make anything better.
+The following trick works best if you know that all the various properties you’re
+destructuring are uniquely named. You can still do it even if that’s not the case, but it’s
+not as nice — you’ll have to do the destructuring in stages, or create unique local vari‐
+ables as temporary aliases.
+If we fully destructure all the properties into top level variables, we can then immedi‐
+ately restructure to reconstitute the original nested object structure.
+But all those temporary variables hanging around would pollute scope. So, let’s use
+block scoping (see “Block-Scoped Declarations” earlier in this chapter) with a general
+{ } enclosing block:
+// merge `defaults` into `config`
+{
+// destructure (with default value assignments)
+let {
+Destructuring
+|
+31
+www.it-ebooks.info

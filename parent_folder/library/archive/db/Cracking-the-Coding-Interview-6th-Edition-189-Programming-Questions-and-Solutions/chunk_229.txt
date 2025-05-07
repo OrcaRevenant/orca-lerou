@@ -1,0 +1,80 @@
+Solutions to Chapter 2 | Linked Lists
+6
+7
+}
+This method will form the outline of the i s P a l i n d r o m e method. The "meat" of the algorithm though is
+comparing node i to node n - i to check if the linked list is a palindrome. How do we do that?
+Let's examine what the call stack looks like:
+1
+vl = isPalindrome: l i s t = 0 ( 1 ( 2 ( 3 ) 2 ) 1 ) 0 .
+length = 7
+2
+v2 = isPalindrome: l i s t = 1 ( 2 ( 3 ) 2 ) 1 ) 0 . length = 5
+3
+v3 = isPalindrome: l i s t = 2 ( 3 ) 2 ) 1 ) 0 . length = 3
+4
+v4 = isPalindrome: l i s t = 3 ) 2 ) 1 ) 0 . length = 1
+5
+returns v3
+6
+returns v2
+7
+returns
+vl
+8
+returns ?
+In the above call stack, each call wants to check if the list is a palindrome by comparing its head node with
+the corresponding node from the back of the list. That is:
+•
+Line 1 needs to compare node 0f with node 0b
+•
+Line 2 needs to compare node If with node lb
+•
+Line 3 needs to compare node 2f with node 2b
+•
+Line 4 needs to compare node 3 f w i t h n o d e 3b.
+If we rewind the stack, passing nodes back as described below, we can do just that:
+•
+Line4 sees that it is the middle node (since l e n g t h = 1), and passes back head. next.The value head
+equals node 3, so head. next is node 2b,
+•
+Line 3 compares its head, node 2f, to returned_node (the value from the previous recursive call),
+which is node 2b, If the values match, it passes a reference to node lb (returned_node.next) up
+to Sine 2.
+•
+Line 2 compares its head (node I f ) to returned_node (node lb). If the values match, it passes a
+reference to node 0b (or, returned_node. next) up to tine 1.
+•
+Line 1 compares its head, node 0f, to r e t u r n e d j i o d e , which is node 0b. If the values match, it
+returns true.
+To generalize, each call compares its head to returned_node, and then passes returned_node. next
+up the stack. In this way, every node i gets compared to node n
+-
+i. If at any point the values do not
+match, we return f a l s e , and every call up the stack checks for that value.
+But wait, you might ask, sometimes we said we'll return a boolean value, and sometimes we're returning
+a node. Which is it?
+It's both. We create a simple class with two members, a boolean and a node, and return an instance of
+that class.
+1
+class Result {
+2
+public LinkecfListNode node;
+3
+public boolean r e s u l t ;
+4
+}
+The example below illustrates the parameters and return values from this sample list.
+1
+isPalindrome:
+l i s t
+= 0 ( 1 ( 2 ( 3 ( 4 ) 3 ) 2 ) 1 ) 0 .
+len = 9
+2
+isPalindrome:
+l i s t = 1 ( 2 ( 3 ( 4 ) 3 ) 2 ) 1 ) 0 .
+len = 7
+3
+isPalindrome: l i s t = 2 ( 3 ( 4 ) 3 ) 2 ) 1 ) 0. len = 5
+CrackingTheCodinglnterview.com | 6th Edition
+22 3

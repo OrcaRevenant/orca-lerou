@@ -1,0 +1,36 @@
+Map Keys
+To get the list of keys, use keys(), which returns an iterator over the keys in the map:
+var m = new Map();
+var x = { id: 1 },
+y = { id: 2 };
+m.set( x, "foo" );
+m.set( y, "bar" );
+var keys = [ ...m.keys() ];
+keys[0] === x;                  // true
+keys[0] === y;                  // true
+To determine if a map has a given key, use has(..):
+var m = new Map();
+var x = { id: 1 },
+y = { id: 2 };
+m.set( x, "foo" );
+m.has( x );                     // true
+m.has( y );                     // false
+Maps essentially let you associate some extra piece of information (the value) with an
+object (the key) without actually putting that information on the object itself.
+If you use an object as a Map key and that object is later discarded
+(all references unset) in attempt to have garbage collection (GC)
+reclaim its memory, the Map itself will still retain its entry. You will
+need to first remove the entry from the Map before unsetting the
+last reference, or the object will not be GC-able. In the next section,
+we’ll see WeakMaps as a better option for GC-eligible object keys.
+While you can use any kind of value as a key for a Map, you typically will use objects,
+as strings and other primitives are already eligible as keys of normal objects. In other
+words, you’ll probably want to continue to use normal objects for maps unless some
+or all of the keys need to be objects, in which case Map is more appropriate.
+WeakMaps
+WeakMaps are a variation on Maps, which has most of the same external behavior
+but differs underneath in how the memory allocation (specifically its GC) works.
+146
+|
+Chapter 5: Collections
+www.it-ebooks.info

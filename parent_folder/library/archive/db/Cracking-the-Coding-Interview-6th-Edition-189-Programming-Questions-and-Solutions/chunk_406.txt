@@ -1,0 +1,52 @@
+10
+Solutions to Sorting and Searching
+10.1
+Sorted Merge: You are given two sorted arrays, A and 8, where A has a large enough buffer at the
+end to hold B. Write a method to merge B into A in sorted order,
+pg 149
+SOLUTION
+Since we know that A has enough buffer at the end, we won't need to allocate additional space. Our logic
+should involve simply comparing elements of A and B and inserting them in order, until we've exhausted
+all elements in A and in B.
+The only issue with this is that if we insert an element into the front of A, then we'll have to shift the existing
+elements backwards to make room for it. It's better to insert elements into the back of the array, where
+there's empty space.
+The code below does just that. It works from the back of A and B, moving the largest elements to the back
+of A.
+1
+void merge{int[] a, i n t [ ] b, i n t lastA, i n t lastB) {
+2
+i n t indexA = lastA - 1; /* Index of l a s t element in array a */
+i n t indexB = lastB - 1; /* Index of l a s t element in array b */
+4
+i n t indexMerged = lastB + lastA - 1; /* end of merged array */
+5
+6
+/* Merge a and b, s t a r t i n g from the l a s t element in each */
+7
+while (indexB >= 0) {
+8
+/* end of a is > than end of b */
+9
+if {indexA >= 0 && a[indexA] > b[indexBj) {
+10
+a[indexMerged] = a[indexA]j II copy element
+11
+indexA--;
+12
+> else {
+13
+a[indexMerged] = b[indexB]; // copy element
+14
+indexS--;
+15
+>
+16
+indexMerged--; // move indices
+17
+}
+18 >
+Note that you don't need to copy the contents of A after running out of elements in B.They are already in
+place.
+372
+Cracking the Coding Interview, 6th Edition

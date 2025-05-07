@@ -1,0 +1,82 @@
+Solutions to Chapter 4 | Trees and Graphs
+1. Track its runningSum. We'il take this in as a parameter and immediately increment it by node, value.
+2. Lookup runningSum - targetSuminthehashtabie.The value there indicates the total number. Set
+t o t a l P a t h s to this value.
+3. If runningSum == targetSum, then there's one additional path that starts at the root. Increment
+t o t a l P a t h s .
+4. Add runningSum to the hash table (incrementing the value if it's already there).
+5. Recurse left and right, counting the number of paths with sum targetSum.
+6. After we're done recursing left and right, decrement the value of runningSum in the hash table.This is
+essentially backing out of our work; it reverses the changes to the hash table so that other nodes don't
+use it (since we're now done with node).
+Despite the complexity of deriving this algorithm, the code to implement this is relatively simple.
+1
+i n t countPatbsWithSum(TreeNade root,
+i n t targetSum) {
+2
+return countPathsWithSum(root, targetSum, 0, new HashMap<Integer, l n t e g e r > ( ) ) ;
+3
+>
+4
+5
+i n t countPathsWithSum(TreeNode node, i n t targetSum, i n t runningSum,
+6
+Ha shflap< Integer, Integer> pathCount) {
+7
+if (node == n u l l ) return 0; // Base case
+8
+9
+/* Count paths with sum ending at the current node. */
+10
+runningSum += node.data;
+11
+i n t sum = runningSum - targetSum;
+12
+i n t totalPaths = pathCount.getOrDefault(sum, 0);
+13
+14
+/* If runningSum equals targetSum, then one additional path starts at root.
+15
+* Add in t h i s path.1"/
+16
+if (runningSum — targetSum) {
+17
+totalPaths++;
+18
+}
+19
+20
+/* Increment pathCount, recurse, then decrement pathCount. */
+21
+incrementHashTable(pathCount, runningSum, 1); // Increment pathCount
+22
+totalPaths += countPathsWithSum(node.left, targetSum, runningSum, pathCount);
+23
+totalPaths += countPathsWithSumfnode.right, targetSum, runningSum, pathCount);
+24
+incrementHashTat)le(pathCount, runningSum, - 1 ) ; II Decrement pathCount
+25
+26
+return totalPaths;
+27
+)
+28
+29 void incrementHashTable(HashMap<Integer, Integer> hashTable, i n t key, i n t delta) {
+30
+i n t newCount = hashTable,getOrDefault(key, 0) + delta;
+31
+if (newCount == 0) { // Remove when zero to reduce space usage
+32
+hashTable.remove(key);
+33
+} else {
+34
+hashTable.put(key, newCount);
+35
+>
+36 >
+The runtime for this algorithm is 0(N), where N is the number of nodes in the tree. We know it is 0(N)
+because we travel to each node just once, doing 0 ( 1 ) work each time. In a balanced tree, the space
+complexity I s 0 { l o g N) due to the hash table. The space complexity can grow to 0(n) in an unbalanced
+CrackingTheCodinglnterview.com | 6th Edition
+247

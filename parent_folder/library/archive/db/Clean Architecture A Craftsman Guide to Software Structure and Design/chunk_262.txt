@@ -1,0 +1,31 @@
+the face of incredible ignorance. I fought, and fought, and fought.
+In the end, the hardware developer was promoted over my head to become the
+software manager. In the end, they put a RDBMS into that poor system. And, in
+the end, they were absolutely right and I was wrong.
+Not for engineering reasons, mind you: I was right about that. I was right to fight
+against putting an RDBMS into the architectural core of the system. The reason I
+was wrong was because our customers expected us to have a relational database.
+They didn’t know what they would do with it. They didn’t have any realistic way
+of using the relational data in our system. But it didn’t matter: Our customers
+fully expected an RDBMS. It had become a check box item that all the software
+purchasers had on their list. There was no engineering rationale—rationality had
+nothing to do with it. It was an irrational, external, and entirely baseless need,
+but it was no less real.
+Where did that need come from? It originated from the highly effective
+marketing campaigns employed by the database vendors at the time. They had
+managed to convince high-level executives that their corporate “data assets”
+needed protection, and that the database systems they offered were the ideal
+means of providing that protection.
+We see the same kind of marketing campaigns today. The word “enterprise” and
+the notion of “Service-Oriented Architecture” have much more to do with
+marketing than with reality.
+What should I have done in that long-ago scenario? I should have bolted an
+RDBMS on the side of the system and provided some narrow and safe data
+access channel to it, while maintaining the random access files in the core of the
+system. What did I do? I quit and became a consultant.
+CONCLUSION
+The organizational structure of data, the data model, is architecturally
+significant. The technologies and systems that move data on and off a rotating
+magnetic surface are not. Relational database systems that force the data to be
+organized into tables and accessed with SQL have much more to do with the
+latter than with the former. The data is significant. The database is a detail.

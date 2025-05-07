@@ -1,0 +1,40 @@
+var text =
+`Now is the time for all good men
+to come to the aid of their
+country!`;
+console.log( text );
+// Now is the time for all good men
+// to come to the aid of their
+// country!
+As you can see, the new-lines we inserted into the string literal were preserved and
+kept in the string value, just as we’d hope.
+Interpolated Expressions
+Any valid expression is allowed to appear inside ${..} in an interpolated string lit‐
+eral, including function calls, inline function expression calls, and even other interpo‐
+lated string literals!
+As a word of caution, be very careful about the readability of your
+code with such new found power. Just like with default value
+expressions and destructuring assignment expressions, just because
+you can do something doesn’t mean you should do it. Never go so
+overboard with new ES6 tricks that your code becomes more clever
+than you or your other team members.
+Consider:
+function upper(s) {
+return s.toUpperCase();
+}
+var who = "reader"
+var text =
+`A very ${upper( "warm" )} welcome
+to all of you ${upper( `${who}s` )}!`;
+console.log( text );
+// A very WARM welcome
+// to all of you READERS!
+Here, the inner \${who}s\`` interpolated string literal was a little bit nicer conve‐
+nience for us when combining the who variable with the "s" string, as opposed to who
++ "s". There will be cases that nesting interpolated string literals is helpful, but be
+wary if you find yourself doing that kind of thing often, or if you find yourself nesting
+several levels deep.
+42
+|
+Chapter 2: Syntax
+www.it-ebooks.info

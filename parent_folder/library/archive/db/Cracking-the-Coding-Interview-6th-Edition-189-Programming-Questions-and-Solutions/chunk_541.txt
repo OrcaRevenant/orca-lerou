@@ -1,0 +1,76 @@
+Solutions to Chapter 17 \ Hard
+5
+return add(sum, carry); II recurse with sum + carry
+6
+>
+Alternatively, you can implement this iteratively.
+1
+int add(int a, int b) {
+2
+while {b != 0) {
+3
+int sum = a A b; // add without carrying
+4
+int carry = (a fi b) << 1; // carry, but don't add
+5
+a = sum;
+6
+b = carry;
+7
+>
+8
+return a;
+9
+>
+Problems requiring us to implement core operations like addition and subtraction are relatively common.
+The key in all of these problems is to dig into how these operations are usually implemented, so that we can
+re-implement them with the constraints of the given problem.
+17.2
+Shuffle: Write a method to shuffle a deck of cards. It must be a perfect shuffle—in other words, each
+of the 52! permutations of the deck has to be equally likely. Assume that you are given a random
+number generator which is perfect.
+pg 186
+SOLUTION
+This is a very well known interview question, and a well known algorithm. If you aren't one of the lucky few
+to already know this algorithm, read on.
+Let's imagine our n-element array. Suppose it looks like this:
+[1] [2] [3] [4] [5]
+Using ourBaseCaseand Build approach, wecanaskthisquestion:suppose we had a method s h u f f l e ( . . . )
+that worked on n - 1 elements. Could we use this to shuffle n elements?
+Sure. In fact, that's quite easy. We would first shuffle the first n -1 elements. Then, we would take the nth
+element and randomly swap it with an element in the array. That's it!
+Recursively, that algorithm looks like this:
+1
+I* Random number between lower and higher, inclusive */
+2
+int rand(int lower, int higher) {
+3
+return lower + (int)(Math.random() * (higher - lower + 1));
+d
+)
+5
+6
+int[] shuffleArrayRecursively(int[] cards, int i) {
+7
+if (i == 0) return cards;
+8
+9
+shuffleArrayRecursively(cards, i - 1); // Shuffle earlier part
+10
+int k = rand(0, i ) ; // Pick random index to swap with
+11
+12
+I* Swap element k and i */
+13
+int temp = cards[k);
+14
+cards[k] = cards[i);
+15
+cardsfi] = temp;
+16
+17
+/* Return shuffled array */
+18
+return cards;
+CrackingTheCodinglnterview.com | 6th Edition
+531

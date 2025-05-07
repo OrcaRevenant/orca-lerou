@@ -1,0 +1,42 @@
+47
+Prefer Exceptions to Returning Error Codes
+public void delete(Page page) {
+try {
+deletePageAndAllReferences(page);
+}
+catch (Exception e) {
+logError(e);
+}
+}
+private void deletePageAndAllReferences(Page page) throws Exception {
+deletePage(page);
+registry.deleteReference(page.name);
+configKeys.deleteKey(page.name.makeKey());
+}
+private void logError(Exception e) {
+logger.log(e.getMessage());
+}
+In the above, the delete function is all about error processing. It is easy to understand
+and then ignore. The deletePageAndAllReferences function is all about the processes of
+fully deleting a page. Error handling can be ignored. This provides a nice separation that
+makes the code easier to understand and modify.
+Error Handling Is One Thing
+Functions should do one thing. Error handing is one thing. Thus, a function that handles
+errors should do nothing else. This implies (as in the example above) that if the keyword
+try exists in a function, it should be the very ﬁrst word in the function and that there
+should be nothing after the catch/finally blocks.
+The Error.java Dependency Magnet
+Returning error codes usually implies that there is some class or enum in which all the
+error codes are deﬁned.
+public enum Error {
+OK,
+INVALID,
+NO_SUCH,
+LOCKED,
+OUT_OF_RESOURCES,
+WAITING_FOR_EVENT;
+}
+Classes like this are a dependency magnet; many other classes must import and use
+them. Thus, when the Error enum changes, all those other classes need to be recompiled
+and redeployed.11 This puts a negative pressure on the Error class. Programmers don’t want
+11. Those who felt that they could get away without recompiling and redeploying have been found—and dealt with.

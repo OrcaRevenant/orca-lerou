@@ -1,0 +1,92 @@
+Solutions to Chapter 17 | Moderate
+13 /* Compute the difference between the number of letters and numbers between the
+14
+* beginning of the array and each index, */
+15 int[] computeDeltaArray(char[] array) {
+16
+int[ ] deltas = new intfarray.length];
+17
+int delta = 0;
+18
+for (int i = 0; i < array.length; 1++) {
+19
+if (Character.isletter(array[i])) {
+20
+delta++;
+21
+} else if (Character.isDigit(array[i])) {
+22
+delta--;
+23
+}
+24
+deltas[i] = delta;
+25
+}
+26
+return deltas;
+27 >
+28
+29 /* Find the matching pair of values in the deltas array with the largest
+30
+* difference in indices. */
+31 int[] findLongestMatch(int[] deltas) {
+32
+HashMapdnteger, Integers map = new HashMap<Integer, Integers();
+33
+map.put(0,
+-1);
+34
+int[] max = new int[2];
+35
+for (int i = 0; 1 < deltas.length; 1++) {
+36
+if (!map.containsKey(deltas[i])) {
+37
+map.put(deltas[i],
+i ) ;
+38
+} else {
+39
+int match = map.get(deltas[i]);
+40
+int distance = i - match;
+41
+int longest = max[l] - max[0];
+42
+if (distance > longest) {
+43
+max[l] = i;
+44
+max[0] = match;
+45
+}
+46
+}
+47
+}
+48
+return max;
+49 }
+50
+51 char[] extract(char[] array, int start, int end) { /* same */ >
+This solution takes 0(N) time, where N is size of the array.
+17.6
+Count of 2s: Write a method to count the number of 2s between 0 and n.
+pg 186
+SOLUTION
+Our first approach to this problem can be—and probably should be—a brute force solution. Remember
+that interviewers want to see how you're approaching a problem. Offering a brute force solution is a great
+way to start.
+1
+/* Counts the number of '2' digits between 0 and n */
+2
+int number0f2sInRange(int n) {
+3
+int count = 0;
+4
+for (int i = 2; i <= n; i++) { // Might as well start at 2
+5
+count += number0f2s(i);
+5Î8
+492 Cracking the Coding Interview, 6th Edition

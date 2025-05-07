@@ -1,0 +1,75 @@
+Solutions to Chapter 17 j Hard
+13
+new PriorityQueue<Integer>(k, new MaxHeapComparator());
+14
+for ( i n t a : array) {
+15
+if (heap.sizeQ < k) { // If space remaining
+16
+heap.add(a);
+17
+> else if (a < heap.peekQ) { // if f u l l and top is small
+IE
+heap.poll(); II remove highest
+19
+heap.add(a); // insert new element
+20
+>
+21
+>
+22
+return heap;
+23 >
+24
+25 /* Convert heap to i n t array. */
+26 i n t [ ) heapToIntArray(PriorityQueue<Integer> heap) {
+27
+i n t [ ] array = new i n t [ h e a p . s i z e ( ) ] ;
+28
+while (!heap.isEmpty()) {
+29
+array[heap.size() - 1] • heap.poll();
+30
+>
+31
+return array;
+32 >
+33
+34 class MaxHeapComparator implements Comparator<Integer> {
+35
+public i n t compare(Integer x, Integer y) {
+36
+return y - x;
+37
+}
+38
+}
+Java's uses the P r i o r ityQueue class to offer heap-like functionality. By default, it operates as a min heap,
+with the smallest element on the top. To switch it to the biggest element on the top, we can pass in a
+different comparator.
+Approach 3: Selection Rank Algorithm (if elements are unique)
+Selection Rank is a well-known algorithm in computer science to find the i t h smallest (or largest) element
+in an array in linear time.
+If the elements are unique, you can find the i t h smallest element in expected 0 ( n ) time. The basic algo-
+rithm operates like this:
+1. Pick a random element in the array and use it as a "pivot." Partition elements around the pivot, keeping
+track of the number of elements on the left side of the partition.
+2. If there are exactly i elements on the left, then you just return the biggest element on the left.
+3. If the left side is bigger than i, repeat the algorithm on just the left part of the array.
+4. If the left side is smaller than i, repeat the algorithm on the right, but look for the element with rank
+i -
+l e f t S i z e .
+Once you have found the i t h smallest element, you know that all elements smaller than this will be to the
+left of this (since you've partitioned the array accordingly). You can now just return the first i elements.
+The code below implements this algorithm.
+1
+i n t [ ] smallestK(int[) array, i n t k) {
+2
+if (k <= 6 |I k > array.length) {
+3
+throw new IllegalArgumentExceptionQ;
+4
+}
+5
+55 S
+Cracking the Coding interview, 6th Edition

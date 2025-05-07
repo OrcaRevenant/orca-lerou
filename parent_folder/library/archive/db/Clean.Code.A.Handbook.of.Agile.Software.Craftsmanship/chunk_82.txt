@@ -1,0 +1,21 @@
+52
+Chapter 3: Functions
+Bibliography
+[KP78]:  Kernighan and Plaugher, The Elements of Programming Style, 2d. ed., McGraw-
+Hill, 1978.
+[PPP02]:  Robert C. Martin, Agile Software Development: Principles, Patterns, and Prac-
+tices, Prentice Hall, 2002.
+[GOF]:  Design Patterns: Elements of Reusable Object Oriented Software, Gamma et al.,
+Addison-Wesley, 1996.
+[PRAG]:  The Pragmatic Programmer, Andrew Hunt, Dave Thomas, Addison-Wesley,
+2000.
+[SP72]:  Structured Programming, O.-J. Dahl, E. W. Dijkstra, C. A. R. Hoare, Academic
+Press, London, 1972.
+.append(arg)
+.append(" .")
+.append(pagePathName)
+.append("\n");
+}
+}
+Listing 3-7 (continued)
+SetupTeardownIncluder.java

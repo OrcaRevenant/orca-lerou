@@ -1,0 +1,41 @@
+100
+Chapter 6: Objects and Data Structures
+So, what if we told the ctxt object to do this?
+BufferedOutputStream bos = ctxt.createScratchFileStream(classFileName);
+That seems like a reasonable thing for an object to do! This allows ctxt to hide its
+internals and prevents the current function from having to violate the Law of Demeter by
+navigating through objects it shouldn’t know about.
+Data Transfer Objects
+The quintessential form of a data structure is a class with public variables and no func-
+tions. This is sometimes called a data transfer object, or DTO. DTOs are very useful struc-
+tures, especially when communicating with databases or parsing messages from sockets,
+and so on. They often become the ﬁrst in a series of translation stages that convert raw data
+in a database into objects in the application code.
+Somewhat more common is the “bean” form shown in Listing 6-7. Beans have private
+variables manipulated by getters and setters. The quasi-encapsulation of beans seems to
+make some OO purists feel better but usually provides no other beneﬁt.
+Listing 6-7
+address.java
+public class Address {
+private String street;
+private String streetExtra;
+private String city;
+private String state;
+private String zip;
+public Address(String street, String streetExtra,
+String city, String state, String zip) {
+this.street = street;
+this.streetExtra = streetExtra;
+this.city = city;
+this.state = state;
+this.zip = zip;
+}
+public String getStreet() {
+return street;
+}
+public String getStreetExtra() {
+return streetExtra;
+}
+public String getCity() {
+return city;
+}

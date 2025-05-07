@@ -1,0 +1,47 @@
+173
+No Duplication
+No Duplication
+Duplication is the primary enemy of a well-designed system. It represents additional
+work, additional risk, and additional unnecessary complexity. Duplication manifests
+itself in many forms. Lines of code that look exactly alike are, of course, duplication.
+Lines of code that are similar can often be massaged to look even more alike so that
+they can be more easily refactored. And duplication can exist in other forms such as
+duplication of implementation. For example, we might have two methods in a collection
+class:
+int size() {}
+boolean isEmpty() {}
+We could have separate implementations for each method. The isEmpty method could track
+a boolean, while size could track a counter. Or, we can eliminate this duplication by tying
+isEmpty to the deﬁnition of size:
+boolean isEmpty() {
+return 0 == size();
+}
+Creating a clean system requires the will to eliminate duplication, even in just a few
+lines of code. For example, consider the following code:
+public void scaleToOneDimension(
+float desiredDimension, float imageDimension) {
+if (Math.abs(desiredDimension - imageDimension) < errorThreshold)
+return;
+float scalingFactor = desiredDimension / imageDimension;
+scalingFactor = (float)(Math.floor(scalingFactor * 100) * 0.01f);
+RenderedOp newImage = ImageUtilities.getScaledImage(
+image, scalingFactor, scalingFactor);
+image.dispose();
+System.gc();
+image = newImage;
+}
+public synchronized void rotate(int degrees) {
+RenderedOp newImage = ImageUtilities.getRotatedImage(
+image, degrees);
+image.dispose();
+System.gc();
+image = newImage;
+}
+To keep this system clean, we should eliminate the small amount of duplication between
+the scaleToOneDimension and rotate methods:
+public void scaleToOneDimension(
+float desiredDimension, float imageDimension) {
+if (Math.abs(desiredDimension - imageDimension) < errorThreshold)
+return;
+float scalingFactor = desiredDimension / imageDimension;
+scalingFactor = (float)(Math.floor(scalingFactor * 100) * 0.01f);

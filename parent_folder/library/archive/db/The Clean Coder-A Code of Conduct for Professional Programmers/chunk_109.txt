@@ -1,0 +1,10 @@
+77
+5
+TEST D RIVE N
+D E VE LOPM ENT
+It has been over ten years since Test Driven Development (TDD) made its debut
+in the industry. It came in as part of the Extreme Programming (XP) wave, but
+has since been adopted by Scrum, and virtually all of the other Agile methods.
+Even non-Agile teams practice TDD.
+When, in 1998, I first heard of “Test First Programming” I was skeptical. Who
+wouldn’t be? Write your unit tests first? Who would do a goofy thing like that?

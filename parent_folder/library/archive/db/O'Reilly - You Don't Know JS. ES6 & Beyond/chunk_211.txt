@@ -1,0 +1,43 @@
+Here’s a function call that is not in tail position:
+"use strict";
+function foo(x) {
+return x * 2;
+}
+function bar(x) {
+// not a tail call
+return 1 + foo( x );
+}
+bar( 10 );              // 21
+1 + .. has to be performed after the foo(x) call completes, so the state of that
+bar(..) invocation needs to be preserved.
+But the following snippet demonstrates calls to foo(..) and bar(..) where both are
+in tail position, since they’re the last thing to happen in their code path (other than
+the return):
+"use strict";
+function foo(x) {
+return x * 2;
+}
+function bar(x) {
+x = x + 1;
+if (x > 10) {
+return foo( x );
+}
+else {
+return bar( x + 1 );
+}
+}
+bar( 5 );               // 24
+bar( 15 );              // 32
+In this program, bar(..) is clearly recursive, but foo(..) is just a regular function
+call. In both cases, the function calls are in proper tail position. The x + 1 is evaluated
+before the bar(..) call, and whenever that call finishes, all that happens is the
+return.
+Proper tail calls of these forms can be optimized — called tail call optimization (TCO)
+— so that the stack frame allocation is unnecessary. Instead of creating a new stack
+frame for the next function call, the engine just reuses the existing stack frame. That
+works because a tail call doesn’t need to preserve any of the current state since noth‐
+ing happens with that state after the tail call.
+200
+|
+Chapter 7: Meta Programming
+www.it-ebooks.info

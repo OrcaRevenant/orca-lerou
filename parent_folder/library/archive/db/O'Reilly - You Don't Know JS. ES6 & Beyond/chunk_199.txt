@@ -1,0 +1,49 @@
+“No Such Property/Method”
+A common complaint about JS is that objects aren’t by default very defensive in the
+situation where you try to access or set a property that doesn’t already exist. You way
+wish to pre-define all the properties/methods for an object, and have an error thrown
+if a non-existent property name is subsequently used.
+We can accomplish this with a proxy, either in proxy first or proxy last design. Let’s
+consider both.
+var obj = {
+a: 1,
+foo() {
+console.log( "a:", this.a );
+}
+},
+handlers = {
+get(target,key,context) {
+if (Reflect.has( target, key )) {
+return Reflect.get(
+target, key, context
+);
+}
+else {
+throw "No such property/method!";
+}
+},
+set(target,key,val,context) {
+if (Reflect.has( target, key )) {
+return Reflect.set(
+target, key, val, context
+);
+}
+else {
+throw "No such property/method!";
+}
+}
+},
+pobj = new Proxy( obj, handlers );
+pobj.a = 3;
+pobj.foo();         // a: 3
+pobj.b = 4;         // Error: No such property/method!
+pobj.bar();         // Error: No such property/method!
+For both get(..) and set(..), we only forward the operation if the target object’s
+property already exists; error thrown otherwise. The proxy object (pobj) is the main
+object code should interact with, as it intercepts these actions to provide the protec‐
+tions.
+Now, let’s consider inverting with proxy last design:
+188
+|
+Chapter 7: Meta Programming
+www.it-ebooks.info

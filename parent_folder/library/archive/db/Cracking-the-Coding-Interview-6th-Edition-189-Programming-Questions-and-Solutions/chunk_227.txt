@@ -1,0 +1,73 @@
+Solutions to Chapter 2 | Linked Lists
+Solution #1: Reverse and Compare
+Our first solution is to reverse the linked list and compare the reversed list to the original list, if they're the
+same, the lists are identical.
+Note that when we compare the linked list to the reversed tist, we only actually need to compare the first
+haifof the list. If the first half of the normal list matches the first half of the reversed list, then the second half
+of the normal list must match the second half of the reversed fist.
+1
+boolean isPalindrome(LinkedListNode head) {
+2
+LinkedListNode reversed = reverseAndClone(head);
+3
+return isEqualfhead,
+reversed);
+4
+}
+5
+6
+LinkedListNode reverseAndClone(LinkedListNode node) {
+7
+LinkedListNode head = n u l l ;
+8
+while {node != n u l l ) {
+LinkedListNode n = new LinkedListNode(node.data); // Clone
+10
+n.next = head;
+11
+head = n;
+12
+node = node.next;
+13
+}
+14
+return head;
+15 >
+16
+17 boolean IsEqualfLinkedListNode one, LinkedListNode two) {
+18
+while {one 1= n u l l && two != n u l l ) {
+19
+if (one.data 1= two.data) {
+20
+return false;
+21
+>
+22
+one = one.next;
+23
+two = two.next;
+24
+>
+25
+return one == n u l l && two =* n u l l ;
+26
+}
+Observe that we've modularized this code into r e v e r s e and is Equal functions. We've also created a new
+class so that we can return both the head and the tail of this method. We could have also returned a two-
+element array, but that approach is less maintainable.
+Solution #2; Iterative Approach
+We want to detect linked listswhere the front half of the list is the reverse of the second half. How would we
+do that? By reversing the front half of the list. A stack can accomplish this.
+We need to push the first half of the elements onto a stack. We can do this in two different ways, depending
+on whether or not we know the size of the linked list.
+if we know the size of the linked list, we can iterate through the first half of the elements in a standard for
+loop, pushing each element onto a stack. We must be careful, of course, to handle the case where the length
+of the linked list is odd.
+if we don't know the size of the linked list, we can iterate through the linked list, using the fast runner / slow
+runner technique described in the beginning of the chapter. At each step in the loop, we push the data from
+the slow runner onto a stack. When the fast runner hits the end of the list, the slow runner will have reached
+the middle of the linked list. By this point, the stack will have all the elements from the front of the linked
+list, but in reverse order.
+CrackingTheCodinglnterview.com | 6th Edition
+22 3

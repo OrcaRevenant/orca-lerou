@@ -1,0 +1,32 @@
+than one jar file. I called this rule, “Download and Go.” This rule drove many of
+our decisions.
+One of the first decisions was to write our own web server, specific to the needs
+of FitNesse. This might sound absurd. Even in 2001 there were plenty of open
+source web servers that we could have used. Yet writing our own turned out to
+be a really good decision because a bare-bones web server is a very simple piece
+of software to write and it allowed us to postpone any web framework decision
+until much later.2
+Another early decision was to avoid thinking about a database. We had MySQL
+in the back of our minds, but we purposely delayed that decision by employing a
+design that made the decision irrelevant. That design was simply to put an
+interface between all data accesses and the data repository itself.
+We put the data access methods into an interface named WikiPage. Those
+methods provided all the functionality we needed to find, fetch, and save pages.
+Of course, we didn’t implement those methods at first; we simply stubbed them
+out while we worked on features that didn’t involve fetching and saving the data.
+Indeed, for three months we simply worked on translating wiki text into HTML.
+This didn’t require any kind of data storage, so we created a class named
+MockWikiPage that simply left the data access methods stubbed.
+Eventually, those stubs became insufficient for the features we wanted to write.
+We needed real data access, not stubs. So we created a new derivative of
+WikiPage named InMemoryPage. This derivative implemented the data access
+method to manage a hash table of wiki pages, which we kept in RAM.
+This allowed us to write feature after feature for a full year. In fact, we got the
+whole first version of the FitNesse program working this way. We could create
+pages, link to other pages, do all the fancy wiki formatting, and even run tests
+with FIT. What we couldn’t do was save any of our work.
+When it came time to implement persistence, we thought again about MySQL,
+but decided that wasn’t necessary in the short term, because it would be really
+easy to write the hash tables out to flat files. So we implemented
+FileSystemWikiPage, which just moved the functionality out to flat files, and
+then we continued developing more features.

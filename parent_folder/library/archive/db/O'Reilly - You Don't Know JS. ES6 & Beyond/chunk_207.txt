@@ -1,0 +1,42 @@
+p.c = 3;
+p.d = 4;
+for (var prop of Reflect.enumerate( p )) {
+console.log( prop );
+}
+// c d a b
+for (var prop in p) {
+console.log( prop );
+}
+// c d a b
+JSON.stringify( p );
+// {"c":3,"d":4}
+Object.keys( p );
+// ["c","d"]
+Boiling this all down: as of ES6, Reflect.ownKeys(..), Object.getOwnProperty
+Names(..), and Object.getOwnPropertySymbols(..) all have predictable and relia‐
+ble ordering guaranteed by the specification. So it’s safe to build code that relies on
+this ordering.
+Reflect.enumerate(..), Object.keys(..), and for..in (as well as JSON.stringifi
+cation(..) by extension) continue to share an observable ordering with each other,
+as they always have. But that ordering will not necessarily be the same as that of
+Reflect.ownKeys(..). Care should still be taken in relying on their implementation
+dependent ordering.
+Feature Testing
+What is a feature test? It’s a test that you run to determine if a feature is available or
+not. Sometimes, the test is not just for existence, but for conformance to specified
+behavior — features can exist but be buggy.
+This is a meta programming technique, to test the environment your program runs in
+to then determine how your program should behave.
+The most common use of feature tests in JS is checking for the existence of an API
+and if it’s not present, defining a polyfill (see Chapter 1). For example:
+if (!Number.isNaN) {
+Number.isNaN = function(x) {
+return x !== x;
+};
+}
+The if statement in this snippet is meta programming: we’re probing our program
+and its runtime environment to determine if and how we should proceed.
+196
+|
+Chapter 7: Meta Programming
+www.it-ebooks.info

@@ -1,0 +1,86 @@
+IV | Hints for Additional Review Problems
+#701.
+17.12
+#702,
+17.19
+#703.
+16.20
+#704.
+17.7
+#705.
+17.23
+#706,
+16.19
+#707.
+16.7
+#708.
+16.16
+#709.
+17.20
+#710.
+16.4
+#711.
+16.5
+#712.
+17.1
+#713.
+17.5
+#714.
+17,23
+#715.
+16,11
+#716.
+16.1
+#717.
+17.19
+#718.
+16.18
+#719.
+17.12
+Many people get stuck at this point and aren't sure what to do. Sometimes they need
+the start of the linked list, and sometimes they need the end. A given node doesn't
+necessarily know what to return on its c o n v e r t call. Sometimes the simple solution is
+easiest: always return both. What are some ways you could do this?
+Part 2: Try a sum of squares of the values.
+A trie might help us short-circuit. What if you stored the whole list of words in the trie?
+Each connected subgraph represents a group of synonyms. To find each group, we can
+do repeated breadth-first (or depth-first) searches.
+Describe the runtime of the brute force solution.
+How can you make sure that you're not revisiting the same cells? Think about how
+breadth-first search or depth-first search on a graph works.
+When a > b, then a - b > 0. Can you get the sign bit of a - b?
+In order to be able to sort MIDDLE and have the whole array become sorted, you need
+MAX(LEFT)
+<= MIN(MIDDLE and RIGHT)and MAX(LEFT and MIDDLE)
+<=
+MIN(RIGHT).
+What if you used a heap? Or two heaps?
+If you were calling hasWon multiple times, how might your solution change?
+Each zero in n! corresponds to n being divisible by a factor of 10. What does that mean?
+You can use an AND operation to compute the carry. What do you do with it?
+Suppose, in this table, index i has c o u n t ( A , 0 - > i ) = 3 a n d c o u n t ( B , 0 - > i ) =
+7. This means that there are four more Bs than As. If you find a later spot j with the same
+difference (count(B,
+0 - > j )
+- count (A,
+0- >j)), then this indicates a subarray
+with an equal number of As and Bs.
+Can you do preprocessing to optimize this solution?
+Once you have a recursive algorithm, think about the runtime. Can you make this faster?
+How?
+Let d i f f be the difference between a and b. Can you use d i f f in some way?Then can
+you get rid of this temporary variable?
+Part 2: You might need the quadratic formula. It's not a big deal if you don't remember
+it. Most people won't. Remember that there is such a thing as good enough.
+Since the value of a determines the value of b (and vice versa) and either a or b must
+start at the beginning of the value, you should have only 0 ( n ) possibilities for how to
+split up the pattern,
+You could return both the start and end of a linked list in multiple ways. You could
+return a two-element array. You could define a new data structure to hold the start and
+end. You could re-use the BiNode data structure. If you're working in a language that
+supports this (like Python), you could just return multiple values. You could solve the
+problem as a circular linked list, with the start's previous pointer pointing to the end
+(and then break the circular list in a wrapper method). Explore these solutions. Which
+one do you like most and why?
+CracktngTheCodinglnterview.com 16th Edition
+693

@@ -1,0 +1,31 @@
+LEAVING OPTIONS OPEN
+A good architecture balances all of these concerns with a component structure
+that mutually satisfies them all. Sounds easy, right? Well, it’s easy for me to
+write that.
+The reality is that achieving this balance is pretty hard. The problem is that most
+of the time we don’t know what all the use cases are, nor do we know the
+operational constraints, the team structure, or the deployment requirements.
+Worse, even if we did know them, they will inevitably change as the system
+moves through its life cycle. In short, the goals we must meet are indistinct and
+inconstant. Welcome to the real world.
+But all is not lost: Some principles of architecture are relatively inexpensive to
+implement and can help balance those concerns, even when you don’t have a
+clear picture of the targets you have to hit. Those principles help us partition our
+systems into well-isolated components that allow us to leave as many options
+open as possible, for as long as possible.
+A good architecture makes the system easy to change, in all the ways that it must
+change, by leaving options open.
+DECOUPLING LAYERS
+Consider the use cases. The architect wants the structure of the system to support
+all the necessary use cases, but does not know what all those use cases are.
+However, the architect does know the basic intent of the system. It’s a shopping
+cart system, or it’s a bill of materials system, or it’s an order processing system.
+So the architect can employ the Single Responsibility Principle and the Common
+Closure Principle to separate those things that change for different reasons, and
+to collect those things that change for the same reasons—given the context of the
+intent of the system.
+What changes for different reasons? There are some obvious things. User
+interfaces change for reasons that have nothing to do with business rules. Use
+cases have elements of both. Clearly, then, a good architect will want to separate
+the UI portions of a use case from the business rule portions in such a way that
+they can be changed independently of each other, while keeping those use cases

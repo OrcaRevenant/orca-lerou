@@ -1,0 +1,23 @@
+• Transcoded storage: It is a blob storage that stores transcoded video files.
+• CDN: Videos are cached in CDN. When you click the play button, a video is streamed
+from the CDN.
+• Completion queue: It is a message queue that stores information about video transcoding
+completion events.
+• Completion handler: This consists of a list of workers that pull event data from the
+completion queue and update metadata cache and database.
+Now that we understand each component individually, let us examine how the video
+uploading flow works. The flow is broken down into two processes running in parallel.
+a. Upload the actual video.
+b. Update video metadata. Metadata contains information about video URL, size,
+resolution, format, user info, etc.
+Flow a: upload the actual video
+
+Figure 14-5 shows how to upload the actual video. The explanation is shown below:
+1. Videos are uploaded to the original storage.
+2. Transcoding servers fetch videos from the original storage and start transcoding.
+3. Once transcoding is complete, the following two steps are executed in parallel:
+3a. Transcoded videos are sent to transcoded storage.
+3b. Transcoding completion events are queued in the completion queue.
+3a.1. Transcoded videos are distributed to CDN.
+3b.1. Completion handler contains a bunch of workers that continuously pull event data
+from the queue.

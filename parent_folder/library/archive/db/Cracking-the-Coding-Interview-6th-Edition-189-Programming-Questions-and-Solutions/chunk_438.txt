@@ -1,0 +1,76 @@
+Solutions to Chapter 15 | Threads and Locks
+13
+14
+Node * node = new Node;
+15
+nodeMapjcur] = node; // map current before traversing links
+16
+node->ptrl = copy_recursive(cur->ptrl, nodeMap);
+17
+node->ptr2 = copy_recursive(cur->ptr2, nodeMap);
+18
+return node;
+19 >
+20
+21 Node * copy_structure(Node * root) {
+22
+NodeMap nodeMap; // we w i l l need an empty map
+23
+return copy_recursive(root, nodeMap);
+24 >
+12.9
+Smart Pointer: Write a smart pointer class, A smart pointer is a data type, usually implemented
+with templates, that simulates a pointer while also providing automatic garbage collection. It
+automatically counts the number of references to a SmartPointer<T*> object and frees the
+object of typeT when the reference count hits zero.
+pg 164
+SOLUTION
+A smart pointer is the same as a normal pointer, but it provides safety via automatic memory management.
+It avoids issues like dangling pointers, memory leaks and allocation failures. The smart pointer must main-
+tain a single reference count for all references to a given object.
+This is one of those problems that seems at first glance pretty overwhelming, especially if you're not a C++
+expert. One useful way to approach the problem is to divide the problem into two parts: (1) outline the
+pseudocode and approach and then (2) implement the detailed code.
+In terms of the approach, we need a reference count variable that is incremented when we add a new refer-
+ence to the object and decremented when we remove a reference. The code should look something like
+the below pseudocode:
+1
+template «class T> class SmartPointer {
+2
+/* The smart pointer class needs pointers to both the object i t s e l f and to the
+3
+* ref count. These must be pointers, rather than the actual object on nef count
+4
+* value, since the goal of a smart pointer is that the reference count is
+5
+* tracked across multiple smart pointers to one object. */
+6
+T * obj;
+7
+unsigned * ref_count;
+8
+>
+We know we need constructors and a single destructor for this class, so let's add those first.
+I
+SmartPointer(T * object) {
+/* We want to set the value of T * obj, and set the reference counter to 1. */
+3
+>
+4
+5
+SmartPointer(SmartPointer<T>8 sptr) {
+6
+/* This constructor creates a new smart pointer that points to an existing
+7
+* object, we w i l l need to f i r s t set obj and ref_count to pointer to s p t r ' s obj
+8
+* and r e f c o u n t . Then, because we created a new reference to obj, we need to
+9
+* increment ref_count. V
+10 >
+I I
+12 ~SmartPointer{SmartPointer<T> sptr) {
+13
+/* We are destroying a reference to the object. Decrement ref_count. If
+420
+Cracking the Coding interview, 6th Edition

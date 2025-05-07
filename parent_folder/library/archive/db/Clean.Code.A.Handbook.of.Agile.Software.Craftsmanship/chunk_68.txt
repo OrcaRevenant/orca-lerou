@@ -1,0 +1,45 @@
+38
+Chapter 3: Functions
+Consider Listing 3-4. It shows just one of the operations that might depend on the
+type of employee.
+There are several problems with this function. First, it’s large, and when new
+employee types are added, it will grow. Second, it very clearly does more than one thing.
+Third, it violates the Single Responsibility Principle7 (SRP) because there is more than one
+reason for it to change. Fourth, it violates the Open Closed Principle8 (OCP) because it
+must change whenever new types are added. But possibly the worst problem with this
+function is that there are an unlimited number of other functions that will have the same
+structure. For example we could have
+isPayday(Employee e, Date date),
+or
+deliverPay(Employee e, Money pay),
+or a host of others. All of which would have the same deleterious structure.
+The solution to this problem (see Listing 3-5) is to bury the switch statement in the
+basement of an ABSTRACT FACTORY,9 and never let anyone see it. The factory will use the
+switch statement to create appropriate instances of the derivatives of Employee, and the var-
+ious functions, such as calculatePay, isPayday, and deliverPay, will be dispatched poly-
+morphically through the Employee interface.
+My general rule for switch statements is that they can be tolerated if they appear
+only once, are used to create polymorphic objects, and are hidden behind an inheritance
+Listing 3-4
+Payroll.java
+public Money calculatePay(Employee e)
+throws InvalidEmployeeType {
+switch (e.type) {
+case COMMISSIONED:
+return calculateCommissionedPay(e);
+case HOURLY:
+return calculateHourlyPay(e);
+case SALARIED:
+return calculateSalariedPay(e);
+default:
+throw new InvalidEmployeeType(e.type);
+}
+}
+7.
+a. http://en.wikipedia.org/wiki/Single_responsibility_principle
+b. http://www.objectmentor.com/resources/articles/srp.pdf
+8.
+a. http://en.wikipedia.org/wiki/Open/closed_principle
+b. http://www.objectmentor.com/resources/articles/ocp.pdf
+9.
+[GOF].

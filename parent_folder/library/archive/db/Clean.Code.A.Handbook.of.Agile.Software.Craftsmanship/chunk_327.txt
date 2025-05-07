@@ -1,0 +1,38 @@
+297
+General
+Consider this example from FitNesse:
+Matcher match = headerPattern.matcher(line);
+if(match.find())
+{
+String key = match.group(1);
+String value = match.group(2);
+headers.put(key.toLowerCase(), value);
+}
+The simple use of explanatory variables makes it clear that the ﬁrst matched group is
+the key, and the second matched group is the value.
+It is hard to overdo this. More explanatory variables are generally better than fewer. It
+is remarkable how an opaque module can suddenly become transparent simply by break-
+ing the calculations up into well-named intermediate values.
+G20: Function Names Should Say What They Do
+Look at this code:
+Date newDate = date.add(5);
+Would you expect this to add ﬁve days to the date? Or is it weeks, or hours? Is the date
+instance changed or does the function just return a new Date without changing the old one?
+You can’t tell from the call what the function does.
+If the function adds ﬁve days to the date and changes the date, then it should be called
+addDaysTo or increaseByDays. If, on the other hand, the function returns a new date that is
+ﬁve days later but does not change the date instance, it should be called daysLater or
+daysSince.
+If you have to look at the implementation (or documentation) of the function to know
+what it does, then you should work to ﬁnd a better name or rearrange the functionality so
+that it can be placed in functions with better names.
+G21: Understand the Algorithm
+Lots of very funny code is written because people don’t take the time to understand the
+algorithm. They get something to work by plugging in enough if statements and ﬂags,
+without really stopping to consider what is really going on.
+Programming is often an exploration. You think you know the right algorithm for
+something, but then you wind up ﬁddling with it, prodding and poking at it, until you get it
+to “work.” How do you know it “works”? Because it passes the test cases you can think of.
+There is nothing wrong with this approach. Indeed, often it is the only way to get a
+function to do what you think it should. However, it is not sufﬁcient to leave the quotation
+marks around the word “work.”

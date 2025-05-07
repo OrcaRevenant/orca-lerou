@@ -1,0 +1,25 @@
+storage video servers (Figure 14-28).
+2. For less popular content, we may not need to store many encoded video versions. Short
+videos can be encoded on-demand.
+3. Some videos are popular only in certain regions. There is no need to distribute these
+videos to other regions.
+4. Build your own CDN like Netflix and partner with Internet Service Providers (ISPs).
+Building your CDN is a giant project; however, this could make sense for large streaming
+companies. An ISP can be Comcast, AT&T, Verizon, or other internet providers. ISPs are
+located all around the world and are close to users. By partnering with ISPs, you can
+improve the viewing experience and reduce the bandwidth charges.
+All those optimizations are based on content popularity, user access pattern, video size, etc. It
+is important to analyze historical viewing patterns before doing any optimization. Here are
+some of the interesting articles on this topic: [12] [13].
+Error handling
+For a large-scale system, system errors are unavoidable. To build a highly fault-tolerant
+system, we must handle errors gracefully and recover from them fast. Two types of errors
+exist:
+• Recoverable error. For recoverable errors such as video segment fails to transcode, the
+general idea is to retry the operation a few times. If the task continues to fail and the
+system believes it is not recoverable, it returns a proper error code to the client.
+• Non-recoverable error. For non-recoverable errors such as malformed video format, the
+system stops the running tasks associated with the video and returns the proper error code
+to the client.
+Typical errors for each system component are covered by the following playbook:
+• Upload error: retry a few times.

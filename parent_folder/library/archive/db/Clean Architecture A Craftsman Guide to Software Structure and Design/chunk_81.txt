@@ -1,0 +1,14 @@
+Figure 7.5 The most important method is kept in the original Employee class and used as a Facade for the
+lesser functions
+You might object to these solutions on the basis that every class would contain
+just one function. This is hardly the case. The number of functions required to
+calculate pay, generate a report, or save the data is likely to be large in each case.
+Each of those classes would have many private methods in them.
+Each of the classes that contain such a family of methods is a scope. Outside of
+that scope, no one knows that the private members of the family exist.
+CONCLUSION
+The Single Responsibility Principle is about functions and classes—but it
+reappears in a different form at two more levels. At the level of components, it
+becomes the Common Closure Principle. At the architectural level, it becomes
+the Axis of Change responsible for the creation of Architectural Boundaries.
+We’ll be studying all of these ideas in the chapters to come.

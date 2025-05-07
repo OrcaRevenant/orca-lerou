@@ -1,0 +1,69 @@
+350
+Appendix B: org.jfree.date.SerialDate
+38  * --------------------------
+39  * 11-Oct-2001 : Re-organised the class and moved it to new package
+40  *               com.jrefinery.date (DG);
+41  * 05-Nov-2001 : Added a getDescription() method, and eliminated NotableDate
+42  *               class (DG);
+43  * 12-Nov-2001 : IBD requires setDescription() method, now that NotableDate
+44  *               class is gone (DG);  Changed getPreviousDayOfWeek(),
+45  *               getFollowingDayOfWeek() and getNearestDayOfWeek() to correct
+46  *               bugs (DG);
+47  * 05-Dec-2001 : Fixed bug in SpreadsheetDate class (DG);
+48  * 29-May-2002 : Moved the month constants into a separate interface
+49  *               (MonthConstants) (DG);
+50  * 27-Aug-2002 : Fixed bug in addMonths() method, thanks to N???levka Petr (DG);
+51  * 03-Oct-2002 : Fixed errors reported by Checkstyle (DG);
+52  * 13-Mar-2003 : Implemented Serializable (DG);
+53  * 29-May-2003 : Fixed bug in addMonths method (DG);
+54  * 04-Sep-2003 : Implemented Comparable.  Updated the isInRange javadocs (DG);
+55  * 05-Jan-2005 : Fixed bug in addYears() method (1096282) (DG);
+56  *
+57  */
+58
+59 package org.jfree.date;
+60
+61 import java.io.Serializable;
+62 import java.text.DateFormatSymbols;
+63 import java.text.SimpleDateFormat;
+64 import java.util.Calendar;
+65 import java.util.GregorianCalendar;
+66
+67 /**
+68  *  An abstract class that defines our requirements for manipulating dates,
+69  *  without tying down a particular implementation.
+70  *  <P>
+71  *  Requirement 1 : match at least what Excel does for dates;
+72  *  Requirement 2 : class is immutable;
+73  *  <P>
+74  *  Why not just use java.util.Date?  We will, when it makes sense.  At times,
+75  *  java.util.Date can be *too* precise - it represents an instant in time,
+76  *  accurate to 1/1000th of a second (with the date itself depending on the
+77  *  time-zone).  Sometimes we just want to represent a particular day (e.g. 21
+78  *  January 2015) without concerning ourselves about the time of day, or the
+79  *  time-zone, or anything else.  That's what we've defined SerialDate for.
+80  *  <P>
+81  *  You can call getInstance() to get a concrete subclass of SerialDate,
+82  *  without worrying about the exact implementation.
+83  *
+84  * @author David Gilbert
+85  */
+86 public abstract class SerialDate implements Comparable,
+87                                             Serializable,
+88                                             MonthConstants {
+89
+90     /** For serialization. */
+91     private static final long serialVersionUID = -293716040467423637L;
+92
+93     /** Date format symbols. */
+94     public static final DateFormatSymbols
+95         DATE_FORMAT_SYMBOLS = new SimpleDateFormat().getDateFormatSymbols();
+96
+97     /** The serial number for 1 January 1900. */
+98     public static final int SERIAL_LOWER_BOUND = 2;
+99
+100     /** The serial number for 31 December 9999. */
+101     public static final int SERIAL_UPPER_BOUND = 2958465;
+102
+Listing B-1 (continued)
+SerialDate.Java

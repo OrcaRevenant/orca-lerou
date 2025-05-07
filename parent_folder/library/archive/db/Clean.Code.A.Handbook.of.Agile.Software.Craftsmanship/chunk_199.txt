@@ -1,0 +1,32 @@
+169
+Bibliography
+same language that a domain expert uses, there is less risk that you will incorrectly trans-
+late the domain into the implementation.
+DSLs, when used effectively, raise the abstraction level above code idioms and design
+patterns. They allow the developer to reveal the intent of the code at the appropriate level
+of abstraction.
+Domain-Speciﬁc Languages allow all levels of abstraction and all domains in the applica-
+tion to be expressed as POJOs, from high-level policy to low-level details.
+Conclusion
+Systems must be clean too. An invasive architecture overwhelms the domain logic and
+impacts agility. When the domain logic is obscured, quality suffers because bugs ﬁnd it
+easier to hide and stories become harder to implement. If agility is compromised, produc-
+tivity suffers and the beneﬁts of TDD are lost.
+At all levels of abstraction, the intent should be clear. This will only happen if you
+write POJOs and you use aspect-like mechanisms to incorporate other implementation
+concerns noninvasively.
+Whether you are designing systems or individual modules, never forget to use the
+simplest thing that can possibly work.
+Bibliography
+[Alexander]:  Christopher Alexander, A Timeless Way of Building, Oxford University
+Press, New York, 1979.
+[AOSD]:  Aspect-Oriented Software Development port, http://aosd.net
+[ASM]:  ASM Home Page, http://asm.objectweb.org/
+[AspectJ]:  http://eclipse.org/aspectj
+[CGLIB]:  Code Generation Library, http://cglib.sourceforge.net/
+[Colyer]:  Adrian Colyer, Andy Clement, George Hurley, Mathew Webster, Eclipse
+AspectJ, Person Education, Inc., Upper Saddle River, NJ, 2005.
+[DSL]:  Domain-speciﬁc programming language, http://en.wikipedia.org/wiki/Domain-
+speciﬁc_programming_language
+[Fowler]:  Inversion of Control Containers and the Dependency Injection pattern,
+http://martinfowler.com/articles/injection.html

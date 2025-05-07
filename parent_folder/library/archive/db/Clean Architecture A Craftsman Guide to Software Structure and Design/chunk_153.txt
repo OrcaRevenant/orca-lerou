@@ -1,0 +1,32 @@
+support the intent of the system. If the system is a shopping cart application, then
+the architecture must support shopping cart use cases. Indeed, this is the first
+concern of the architect, and the first priority of the architecture. The architecture
+must support the use cases.
+However, as we discussed previously, architecture does not wield much
+influence over the behavior of the system. There are very few behavioral options
+that the architecture can leave open. But influence isn’t everything. The most
+important thing a good architecture can do to support behavior is to clarify and
+expose that behavior so that the intent of the system is visible at the architectural
+level.
+A shopping cart application with a good architecture will look like a shopping
+cart application. The use cases of that system will be plainly visible within the
+structure of that system. Developers will not have to hunt for behaviors, because
+those behaviors will be first-class elements visible at the top level of the system.
+Those elements will be classes or functions or modules that have prominent
+positions within the architecture, and they will have names that clearly describe
+their function.
+Chapter 21, “Screaming Architecture,” will make this point much clearer.
+OPERATION
+Architecture plays a more substantial, and less cosmetic, role in supporting the
+operation of the system. If the system must handle 100,000 customers per
+second, the architecture must support that kind of throughput and response time
+for each use case that demands it. If the system must query big data cubes in
+milliseconds, then the architecture must be structured to allow this kind of
+operation.
+For some systems, this will mean arranging the processing elements of the
+system into an array of little services can be run in parallel on many different
+servers. For other systems, it will mean a plethora of little lightweight threads
+sharing the address space of a single process within a single processor. Still other
+systems will need just a few processes running in isolated address spaces. And
+some systems can even survive as simple monolithic programs running in a
+single process.

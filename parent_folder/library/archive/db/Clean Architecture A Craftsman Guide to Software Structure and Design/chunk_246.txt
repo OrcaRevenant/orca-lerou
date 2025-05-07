@@ -1,0 +1,10 @@
+Figure 29.2 Hardware must be separated from the rest of the system
+Software and firmware intermingling is an anti-pattern. Code exhibiting this
+anti-pattern will resist changes. In addition, changes will be dangerous, often
+leading to unintended consequences. Full regression tests of the whole system
+will be needed for minor changes. If you have not created externally
+instrumented tests, expect to get bored with manual tests—and then you can
+expect new bug reports.
+The Hardware Is a Detail
+The line between software and firmware is typically not so well defined as the
+line between code and hardware, as shown in Figure 29.3.

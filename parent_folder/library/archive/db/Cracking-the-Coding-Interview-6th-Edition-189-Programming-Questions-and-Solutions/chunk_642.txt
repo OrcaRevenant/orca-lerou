@@ -1,0 +1,55 @@
+XI. Advanced Topics
+•
+Base case: Prove there are 2° subsets of { } . This is true, since the only subset of {} is { } .
+•
+Assume that there are 2" subsetsof { a j , a ; J a,,
+a n).
+•
+Prove that there are 2 r K l subsets of { a ^ a ; J a },
+a n i l>.
+Consider the subsets of {a , a 3, a 3,
+. . . , a n i l}. Exactly half will contain a
+and half will not.
+The subsets that do not contain a n i l are just the subsets of {a s J
+a ; J
+a,,
+. . . ,
+a n}. We assumed
+there are 2" of those.
+Since we have the same number of subsets with x as without x, there are 2" subsets with a n t l.
+Therefore, we have 2" + 2" subsets, which is 2"+1,
+Many recursive algorithms can be proved valid with induction.
+• Topological Sort
+A topological sort of a directed graph is a way of ordering the list of nodes such that if ( a , b) is an edge
+in the graph then a will appear before b in the list. If a graph has cycles or is not directed, then there is no
+topological sort.
+There are a number of applications for this. For example, suppose the graph represents parts on an assembly
+line. The edge (Handle, Door) indicates that you need to assemble the handle before the door. The topo-
+logical sort would offer a valid ordering for the assembly line.
+We can construct a topological sort with the following approach.
+1. Identify all nodes with no incoming edges and add those nodes to our topological sort.
+»
+We know those nodes are safe to add first since they have nothing that needs to come before
+them. Might as well get them over with!
+»
+We know that such a node must exist if there's no cycle. After alt, if we picked an arbitrary node
+we could just walk edges backwards arbitrarily. We'll either stop at some point (in which case
+we've found a node with no incoming edges) or we'll return to a prior node (in which case there
+is a cycle).
+2. When we do the above, remove each node's outbound edges from the graph.
+» Those nodes have already been added to the topological sort, so they're basically irrelevant. We
+can't violate those edges anymore.
+3. Repeat the above, adding nodes with no incoming edges and removing their outbound edges. When all
+the nodes have been added to the topological sort, then we are done.
+More formally, the algorithm is this:
+1. Create a queue order, which will eventually store the valid topological sort. It is currently empty.
+2. Create a queue processNext. This queue will store the next nodes to process.
+3. Count the number of incoming edges of each node and set a class variable node, inbound. Nodes typi-
+cally only store their outgoing edges. However, you can count the inbound edges by walking through
+each node n and, for each of its outgoing edges (n, x), incrementing x. inbound,
+4. Walk through the nodesagain and add to processNext any node where x. inbound == 0.
+5. While processNext is not empty, do the following:
+»
+Remove first node n from processNext.
+6î0
+Cracking the Coding Interview, 6th Edition

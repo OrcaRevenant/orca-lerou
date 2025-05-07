@@ -1,0 +1,66 @@
+355
+Appendix B: org.jfree.date.SerialDate
+351      * @param code  the month code (1-12).
+352      *
+353      * @return the quarter that the month belongs to.
+354      * @throws java.lang.IllegalArgumentException
+355      */
+356     public static int monthCodeToQuarter(final int code) {
+357
+358         switch(code) {
+359             case JANUARY:
+360             case FEBRUARY:
+361             case MARCH: return 1;
+362             case APRIL:
+363             case MAY:
+364             case JUNE: return 2;
+365             case JULY:
+366             case AUGUST:
+367             case SEPTEMBER: return 3;
+368             case OCTOBER:
+369             case NOVEMBER:
+370             case DECEMBER: return 4;
+371             default: throw new IllegalArgumentException(
+372                 "SerialDate.monthCodeToQuarter: invalid month code.");
+373         }
+374
+375     }
+376
+377     /**
+378      * Returns a string representing the supplied month.
+379      * <P>
+380      * The string returned is the long form of the month name taken from the
+381      * default locale.
+382      *
+383      * @param month  the month.
+384      *
+385      * @return a string representing the supplied month.
+386      */
+387     public static String monthCodeToString(final int month) {
+388
+389         return monthCodeToString(month, false);
+390
+391     }
+392
+393     /**
+394      * Returns a string representing the supplied month.
+395      * <P>
+396      * The string returned is the long or short form of the month name taken
+397      * from the default locale.
+398      *
+399      * @param month  the month.
+400      * @param shortened  if <code>true</code> return the abbreviation of the
+401      *                   month.
+402      *
+403      * @return a string representing the supplied month.
+404      * @throws java.lang.IllegalArgumentException
+405      */
+406     public static String monthCodeToString(final int month,
+407                                            final boolean shortened) {
+408
+409         // check arguments...
+410         if (!isValidMonthCode(month)) {
+411             throw new IllegalArgumentException(
+412                 "SerialDate.monthCodeToString: month outside valid range.");
+Listing B-1 (continued)
+SerialDate.Java

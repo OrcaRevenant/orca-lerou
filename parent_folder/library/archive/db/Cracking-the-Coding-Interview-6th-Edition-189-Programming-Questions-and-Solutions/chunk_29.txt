@@ -1,0 +1,42 @@
+Ill I Special Situations
+• Acquisitions and Acquihires
+During the technical due diligence process for many acquisitions, the acquirer will often interview most or
+all of a startup's employees. Google, Yahoo, Facebook, and many other companies have this as a standard
+part of many acquisitions.
+Which startups go through this? And why?
+Part of the reasoning for this is that their employees had to go through this process to get hi red. They don't
+want acquisitions to be an "easy way" into the company. And, since the team is a core motivator for the
+acquisition, they figure it makes sense to assess the skills of the team.
+Not all acquisitions are like this, of course. The famous multi-billion dollar acquisitions generally did not
+have to go through this process. Those acquisitions, after all, are usually about the user base and commu-
+nity, less so about the employees or even the technology. Assessing the team's skills is less essential.
+However, it is not as simple as"acquihires get interviewed, traditional acquisitions do not/There is a big gray
+area between acquihires (i.e., talent acquisitions) and product acquisitions. Many startups are acquired for
+the team and ideas behind the technology. The acquirer might discontinue the product, but have the team
+work on something very similar.
+If your startup is going through this process, you can typically expect your team to have interviews very
+similar to what a normal candidate would experience (and, therefore, very similar to what you'll see in this
+book).
+How important are these interviews?
+These interviews can carry enormous importance. They have three different roles:
+•
+They can make or break acquisitions. They are often the reason a company does not get acquired,
+•
+They determine which employees receive offers to join the acquirer.
+•
+They can affect the acquisition price (in part as a consequence of the number of employees who join).
+These interviews are much more than a mere "screen."
+Which employees go through the interviews?
+For tech startups, usually all of the engineers go through the interview process, as they are one of the core
+motivators for the acquisition.
+In addition, sales, customer support, product managers, and essentially any other role might have to go
+through it.
+The CEO is often slotted into a product manager interview or a dev manager interview, as this is often the
+closest match for the CEO's current responsibilities. This is not an absolute rule, though. It depends on what
+the CEO's role presently is and what the CEO is interested in. With some of my clients, the CEO has even
+opted to not interview and to leave the company upon the acquisition.
+What happens to employees who don't perform well in the interview?
+Employees who underperform will often not receive offers to join the acquirer, (if many employees don't
+perform well, then the acquisition will likely not go through.)
+CrackingTheCodinglnterview.com | 6th Edition
+19

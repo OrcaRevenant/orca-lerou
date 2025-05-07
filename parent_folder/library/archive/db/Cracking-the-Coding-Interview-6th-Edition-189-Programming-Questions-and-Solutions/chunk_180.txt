@@ -1,0 +1,72 @@
+Chapter 14 | Databases
+StudentCourses: CourselD*, StudentlD*
+Using the above table, implement the following queries.
+Query 1; Student Enrollment
+Implement a query to get a list of all students and how many courses each student is enrolled in.
+At first we might try something like this:
+1
+/* Incorrect Code */
+2
+SELECT Students.StudentName, count(*)
+3
+FROM Students INNER JOIN StudentCourses
+4
+ON Students.StudentlD = StudentCourses.StudentID
+5
+GROUP BY Students.StudentlD
+This has three problems:
+1. We have excluded students who are not enrolled in any courses, since StudentCourses only includes
+enrolled students. We need to change this to a LEFT JOIN.
+2. Even if we changed it to a LEFT JOIN, the query is still not quite right. Doing count ( * ) would return
+how many items there are in a given group of Student IDs. Students enrolled in zero courses would still
+have one item in their group. We need to change this to count the number of CourselDs in each group:
+c o u n t ( S t u d e n t C o u r s e s . C o u r s e l D ) .
+3. We've grouped by Students . StudentlD, but there are still multiple StudentNames in each group.
+How will the database know which StudentName to return? Sure, they may all have the same value,
+but the database doesn't understand that. We need to apply an aggregate function to this, such as
+f i r s t ( S t u d e n t s . S t u d e n t N a m e ) .
+Fixing these issues gets us to this query:
+1
+/* Solution 1: Wrap with another query */
+2
+SELECT StudentName, Students.StudentlD, Cnt
+3
+FROM (
+4
+SELECT Students.StudentlD, count(StudentCourses.CourselD) as [Cnt]
+5
+FROM Students LEFT JOIN StudentCourses
+6
+ON Students.StudentlD = StudentCourses.StudentID
+7
+GROUP BY Students.StudentlD
+8
+) T INNER JOIN Students on T.StudentlD = Students,StudentlD
+Looking at this code, one might ask why we don't just select the student name on line 3 to avoid having to
+wrap lines 3 through 6 with another query. This (incorrect) solution is shown beiow.
+1
+/* Incorrect Code */
+1
+SELECT StudentName, Students.StudentlDj count(StudentCourses.CourselD) as [Cnt]
+2
+FROM Students LEFT JOIN StudentCourses
+3
+ON Students.StudentlD = StudentCourses.StudentID
+4
+GROUP BY Students.StudentlD
+The answer is that we con'r do that - at least not exactly as shown. We can only select values that are in an
+aggregate function or in the GROUP BY clause.
+Alternatively, we could resolve the above issues with either of the following statements:
+1
+/* Solution 2: Add StudentName to GROUP 8Y clause. */
+2
+SELECT StudentName, Students.StudentlD, count(StudentCourses.CourselD) as [Cnt]
+3
+FROM Students LEFT JOIN StudentCourses
+4
+ON Students.StudentlD = StudentCourses.StudentID
+5
+GROUP BY Students.StudentlD, Students.StudentName
+OR
+170
+Cracking the Coding Interview, 6th Edition

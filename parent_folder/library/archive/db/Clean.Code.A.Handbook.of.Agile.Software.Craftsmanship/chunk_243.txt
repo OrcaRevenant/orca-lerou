@@ -1,0 +1,43 @@
+213
+Args: The Rough Draft
+To avoid this, I use the discipline of Test-Driven Development (TDD). One of the cen-
+tral doctrines of this approach is to keep the system running at all times. In other words,
+using TDD, I am not allowed to make a change to the system that breaks that system.
+Every change I make must keep the system working as it worked before.
+To achieve this, I need a suite of automated tests that I can run on a whim and that ver-
+iﬁes that the behavior of the system is unchanged. For the Args class I had created a suite
+of unit and acceptance tests while I was building the festering pile. The unit tests were
+written in Java and administered by JUnit. The acceptance tests were written as wiki pages
+in FitNesse. I could run these tests any time I wanted, and if they passed, I was conﬁdent
+that the system was working as I speciﬁed.
+So I proceeded to make a large number of very tiny changes. Each change moved the
+structure of the system toward the ArgumentMarshaler concept. And yet each change kept
+the system working. The ﬁrst change I made was to add the skeleton of the
+ArgumentMarshaller to the end of the festering pile (Listing 14-11).
+Clearly, this wasn’t going to break anything. So then I made the simplest modiﬁcation
+I could, one that would break as little as possible. I changed the HashMap for the Boolean
+arguments to take an ArgumentMarshaler.
+private Map<Character, ArgumentMarshaler> booleanArgs =
+new HashMap<Character, ArgumentMarshaler>();
+This broke a few statements, which I quickly ﬁxed.
+...
+private void parseBooleanSchemaElement(char elementId) {
+booleanArgs.put(elementId, new BooleanArgumentMarshaler());
+}
+..
+Listing 14-11
+ArgumentMarshaller appended to Args.java
+private class ArgumentMarshaler {
+private boolean booleanValue = false;
+public void setBoolean(boolean value) {
+booleanValue = value;
+}
+public boolean getBoolean() {return booleanValue;}
+}
+private class BooleanArgumentMarshaler extends ArgumentMarshaler {
+}
+private class StringArgumentMarshaler extends ArgumentMarshaler {
+}
+private class IntegerArgumentMarshaler extends ArgumentMarshaler {
+}
+}

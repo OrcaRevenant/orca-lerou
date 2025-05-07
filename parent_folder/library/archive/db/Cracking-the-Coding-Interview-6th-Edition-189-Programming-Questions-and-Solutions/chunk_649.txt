@@ -1,0 +1,35 @@
+XI, Advanced Topics
+• Red-Black Trees
+Red-black trees (a type of self-balancing binary search tree) do not ensure quite as strict balancing, but the
+balancing is still good enough to ensure 0( l o g N) insertions, deletions, and retrievals. They require a bit
+less memory and can rebalance faster (which means faster insertions and removals), so they are often used
+in situations where the tree will be modified frequently.
+Red-black trees operate by enforcing a quasi-alternating red and black coloring (under certain rules,
+described below) and then requiring every path from a node to its leaves to have the same number of black
+nodes. Doing so leads to a reasonably balanced tree.
+The tree below is a red-black tree (where the red nodes are indicated with gray):
+Properties
+1. Every node is either red or black.
+2. The root is black.
+3. The leaves, which are NULL nodes, are considered black.
+4. Every red node must have two black children. That is, a red node cannot have red children [although a
+black node can have black children),
+5. Every path from a node to its leaves must have the same number of black children.
+Why It Balances
+Property #4 means that two red nodes cannot be adjacent in a path (e.g., parent and child). Therefore, no
+more than half the nodes in a path can be red.
+Consider two paths from a node (say, the root) to its leaves. The paths must have the same number of
+black nodes (property #5), so let's assume that their red node counts are as different as possible: one path
+contains the minimum number of red nodes and the other one contains the maximum number.
+•
+Path 1 (MinRed):The minimum number of red nodes is zero. Therefore, path 1 hasb nodes total.
+•
+Path 2 (Max Red): The maximum number of red nodes is b, since red nodes must have black children and
+there are b black nodes. Therefore, path 2 has 2b nodes total.
+Therefore, even in the most extreme case, the lengths of paths cannot differ by more than a factor of two.
+That's good enough to ensure an 0( l o g N) find and insert runtime.
+If we can maintain these properties, we'll have a (sufficiently) balanced tree—good enough to ensure
+0( l o g N) insert and find, anyway. The question then is how to maintain these properties efficiently. We'll
+only discuss insertion here, but you can look up deletion on your own.
+CrackingTheCodinginterview.com | 6th Edition
+639

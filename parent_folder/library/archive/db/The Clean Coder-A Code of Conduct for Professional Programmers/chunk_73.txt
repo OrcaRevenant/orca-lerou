@@ -1,0 +1,30 @@
+41
+CODE IMPOSSIBLE
+CO D E I M PO S S I B LE
+In the story when John asks “Is good code impossible?”, he is really asking “Is
+professionalism impossible?” After all, it wasn’t just the code that suffered in his
+tale of dysfunction. It was his family, his employer, his customer, and the users.
+Everybody lost3 in this adventure. And they lost due to unprofessionalism.
+So who was acting unprofessionally? John makes it clear that he thinks it was
+the executives at Gorilla Mart. After all, his playbook was a pretty clear
+indictment of their bad behavior. But was their behavior bad? I don’t think so.
+3. With the possible exception of John’s direct employer, though I’d bet they lost too.
+• Add features by faulting the team for not recognizing their necessity. In
+this case, the hardcoded content was going to require app updates to
+change. How could I not realize that? I did, but I’d been handed a false
+promise earlier, that’s why. Or a client will hire “a new guy” who’s
+recognized there is some obvious omission. One day a client will say they
+just hired Steve Jobs and can we add alchemy to the app? Then they’ll …
+• Push the deadline. Over and over. Developers work their fastest and
+hardest (and BTW are at their most error prone, but who cares about
+that, right?) with a couple days to go on a deadline. Why tell them you
+can push the date out further while they’re being so productive? Take
+advantage of it! And so it goes, a few days are added, a week is added, just
+when you had worked a 20-hour shift to get everything just right. It’s like
+a donkey and carrot, except you’re not treated as well as the donkey.
+It’s a brilliant playbook. Can you blame them for thinking it works? But they don’t see the
+God-awful code. And so it happens, time and again, despite the results.
+In a globalized economy, where corporations are held to the almighty dollar and raising the
+stock price involves layoffs, overworked staffs, and offshoring, this strategy I’ve shown you of
+cutting developer costs is making good code obsolete. As developers, we’re going to be asked/
+told/conned into writing twice the code in half the time if we’re not careful.

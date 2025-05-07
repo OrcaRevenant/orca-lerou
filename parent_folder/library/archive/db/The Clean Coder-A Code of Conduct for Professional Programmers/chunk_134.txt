@@ -1,0 +1,34 @@
+CHAPTER 7 ACCEPTANCE TESTING
+102
+Sam: “Of course.”
+Paula: “Oh! I thought you just wanted a temporary backup.”
+Sam: “No, the customer wants to keep them all forever.”
+Paula: “That’s a new one on me. OK, glad we cleared that up.”
+Tom: “So the name of the sub-directory should tell us exactly what’s in it.”
+Sam: “It’s got all the old inactive logs.”
+Tom: “So let’s call it old_inactive_logs.”
+Sam: “Great.”
+Tom: “So when does this directory get created?”
+Sam: “Huh?”
+Paula: “We should create the directory when the system starts, but only if
+the directory doesn’t already exist.”
+Tom: “OK, there’s our first test. I’ll need to start up the system and see if
+the old_inactive_logs directory is created. Then I’ll add a file to that
+directory. Then I’ll shut down, and start again, and make sure both
+the directory and the file are still there.”
+Paula: “That test is going to take you a long time to run. System start-up is
+already 20 seconds, and growing. Besides, I really don’t want to have
+to build the whole system every time I run the acceptance tests.”
+Tom: “What do you suggest?”
+Paula: “We’ll create a SystemStarter class. The main program will load this
+starter with a group of StartupCommand objects, which will follow the
+Command pattern. Then during system start-up the SystemStarter
+will simply tell all the StartupCommand objects to run. One of those
+StartupCommand derivatives will create the old_inactive_logs
+directory, but only if it doesn’t already exist.”
+Tom: “Oh, OK, then all I need to test is that StartupCommand derivative.
+I can write a simple FitNesse test for that.”
+Tom goes to the board.
+“The first part will look something like this”:
+given the command LogFileDirectoryStartupCommand
+given that the old_inactive_logs directory does not exist

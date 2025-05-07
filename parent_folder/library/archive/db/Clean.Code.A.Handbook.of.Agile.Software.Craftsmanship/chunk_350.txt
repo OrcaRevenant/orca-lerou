@@ -1,0 +1,46 @@
+320
+Appendix A: Concurrency II
+The server has several reasons to change; therefore it violates the Single Responsibility
+Principle. To keep concurrent systems clean, thread management should be kept to a few,
+well-controlled places. What’s more, any code that manages threads should do nothing
+other than thread management. Why? If for no other reason than that tracking down con-
+currency issues is hard enough without having to unwind other nonconcurrency issues at
+the same time.
+If we create a separate class for each of the responsibilities listed above, including the
+thread management responsibility, then when we change the thread management strategy,
+the change will impact less overall code and will not pollute the other responsibilities. This
+also makes it much easier to test all the other responsibilities without having to worry
+about threading. Here is an updated version that does just that:
+public void run() {
+while (keepProcessing) {
+try {
+ClientConnection clientConnection = connectionManager.awaitClient();
+ClientRequestProcessor requestProcessor
+= new ClientRequestProcessor(clientConnection);
+clientScheduler.schedule(requestProcessor);
+} catch (Exception e) {
+e.printStackTrace();
+}
+}
+connectionManager.shutdown();
+}
+This now focuses all things thread-related into one place, clientScheduler. If there are
+concurrency problems, there is just one place to look:
+public interface ClientScheduler {
+void schedule(ClientRequestProcessor requestProcessor);
+}
+The current policy is easy to implement:
+public class ThreadPerRequestScheduler implements ClientScheduler {
+public void schedule(final ClientRequestProcessor requestProcessor) {
+Runnable runnable = new Runnable() {
+public void run() {
+requestProcessor.process();
+}
+};
+Thread thread = new Thread(runnable);
+thread.start();
+}
+}
+Having isolated all the thread management into a single place, it is much easier to change
+the way we control threads. For example, moving to the Java 5 Executor framework
+involves writing a new class and plugging it in (Listing A-1).

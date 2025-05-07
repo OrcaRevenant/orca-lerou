@@ -1,0 +1,41 @@
+Nested destructuring can be a simple way to flatten out object namespaces. For exam‐
+ple:
+var App = {
+model: {
+User: function(){ .. }
+}
+};
+// instead of:
+// var User = App.model.User;
+var { model: { User } } = App;
+Destructuring Parameters
+In the following snippet, can you spot the assignment?
+function foo(x) {
+console.log( x );
+}
+foo( 42 );
+The assignment is kinda hidden: the argument 42 is assigned to the parameter x when
+foo(42) is executed. If parameter/argument pairing is an assignment, then it stands
+to reason that it’s an assignment that could be destructured, right? Of course!
+Consider array destructuring for parameters:
+function foo( [ x, y ] ) {
+console.log( x, y );
+}
+foo( [ 1, 2 ] );                    // 1 2
+foo( [ 1 ] );                       // 1 undefined
+foo( [] );                          // undefined undefined
+Object destructuring for parameters works, too:
+function foo( { x, y } ) {
+console.log( x, y );
+}
+foo( { y: 1, x: 2 } );              // 2 1
+foo( { y: 42 } );                   // undefined 42
+foo( {} );                          // undefined undefined
+This technique is an approximation of named arguments (a long requested feature for
+JS!), in that the properties on the object map to the destructured parameters of the
+same names. That also means that we get optional parameters (in any position) for
+free, as you can see leaving off the x “parameter” worked as we’d expect.
+Destructuring
+|
+27
+www.it-ebooks.info

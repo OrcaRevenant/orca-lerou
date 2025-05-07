@@ -1,0 +1,29 @@
+development team. In this meeting, they announce their plans to offer a kitten
+delivery service to the city. Users can order kittens to be delivered to their homes
+or to their places of business.
+The company will set up several kitten collection points across the city. When a
+kitten order is placed, a nearby taxi will be selected to collect a kitten from one
+of those collection points, and then deliver it to the appropriate address.
+One of the taxi suppliers has agreed to participate in this program. Others are
+likely to follow. Still others may decline.
+Of course, some drivers may be allergic to cats, so those drivers should never be
+selected for this service. Also, some customers will undoubtedly have similar
+allergies, so a vehicle that has been used to deliver kittens within the last 3 days
+should not be selected for customers who declare such allergies.
+Look at that diagram of services. How many of those services will have to
+change to implement this feature? All of them. Clearly, the development and
+deployment of the kitty feature will have to be very carefully coordinated.
+In other words, the services are all coupled, and cannot be independently
+developed, deployed, and maintained.
+This is the problem with cross-cutting concerns. Every software system must
+face this problem, whether service oriented or not. Functional decompositions,
+of the kind depicted in the service diagram in Figure 27.1, are very vulnerable to
+new features that cut across all those functional behaviors.
+OBJECTS TO THE RESCUE
+How would we have solved this problem in a component-based architecture?
+Careful consideration of the SOLID design principles would have prompted us
+to create a set of classes that could be polymorphically extended to handle new
+features.
+The diagram in Figure 27.2 shows the strategy. The classes in this diagram
+roughly correspond to the services shown in Figure 27.1. However, note the
+boundaries. Note also that the dependencies follow the Dependency Rule.

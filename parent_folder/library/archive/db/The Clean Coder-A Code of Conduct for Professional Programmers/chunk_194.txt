@@ -1,0 +1,31 @@
+PROGRAMMERS VERSUS PEOPLE
+163
+PROG R A M M E R S V E R S U S PROG R AM M E R S
+Programmers often have difficulty working closely with other programmers.
+This leads to some really terrible problems.
+Owned Code
+One of the worst symptoms of a dysfunctional team is when each programmer
+builds a wall around his code and refuses to let other programmers touch it.
+I have been to places where the programmers wouldn’t even let other
+programmers see their code. This is a recipe for disaster.
+I once consulted for a company that built high-end printers. These machines
+have many different components such as feeders, printers, stackers, staplers,
+cutters, and so on. The business valued each of these devices differently. Feeders
+were more important than stackers, and nothing was more important than the
+printer.
+Each programmer worked on his device. One guy would write the code for the
+feeder, another guy would write the code for the stapler. Each of them kept their
+technology to themselves and prevented anyone else from touching their code.
+The political clout that these programmers wielded was directly related to how
+much the business valued the device. The programmer who worked on the
+printer was unassailable.
+This was a disaster for the technology. As a consultant I was able to see that there
+was massive duplication in the code and that the interfaces between the modules
+were completely skewed. But no amount of argument on my part could convince
+the programmers (or the business) to change their ways. After all, their salary
+reviews were tied to the importance of the devices they maintained.
+Collective Ownership
+It is far better to break down all walls of code ownership and have the team own
+all the code. I prefer teams in which any team member can check out any
+module and make any changes they think are appropriate. I want the team to
+own the code, not the individuals.

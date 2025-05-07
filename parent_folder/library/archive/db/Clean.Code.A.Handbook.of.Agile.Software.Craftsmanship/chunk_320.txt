@@ -1,0 +1,41 @@
+290
+Chapter 17: Smells and Heuristics
+you create. Coding becomes faster and less error prone because you have raised the
+abstraction level.
+The most obvious form of duplication is when you have clumps of identical code that
+look like some programmers went wild with the mouse, pasting the same code over and
+over again. These should be replaced with simple methods.
+A more subtle form is the switch/case or if/else chain that appears again and again in
+various modules, always testing for the same set of conditions. These should be replaced
+with polymorphism.
+Still more subtle are the modules that have similar algorithms, but that don’t share
+similar lines of code. This is still duplication and should be addressed by using the TEM-
+PLATE METHOD,4 or STRATEGY5 pattern.
+Indeed, most of the design patterns that have appeared in the last ﬁfteen years are sim-
+ply well-known ways to eliminate duplication. So too the Codd Normal Forms are a strat-
+egy for eliminating duplication in database schemae. OO itself is a strategy for organizing
+modules and eliminating duplication. Not surprisingly, so is structured programming.
+I think the point has been made. Find and eliminate duplication wherever you can.
+G6: Code at Wrong Level of Abstraction
+It is important to create abstractions that separate higher level general concepts from lower
+level detailed concepts. Sometimes we do this by creating abstract classes to hold the
+higher level concepts and derivatives to hold the lower level concepts. When we do this,
+we need to make sure that the separation is complete. We want all the lower level concepts
+to be in the derivatives and all the higher level concepts to be in the base class.
+For example, constants, variables, or utility functions that pertain only to the detailed
+implementation should not be present in the base class. The base class should know noth-
+ing about them.
+This rule also pertains to source ﬁles, components, and modules. Good software
+design requires that we separate concepts at different levels and place them in different
+containers. Sometimes these containers are base classes or derivatives and sometimes they
+are source ﬁles, modules, or components. Whatever the case may be, the separation needs
+to be complete. We don’t want lower and higher level concepts mixed together.
+Consider the following code:
+public interface Stack {
+Object pop() throws EmptyException;
+void push(Object o) throws FullException;
+double percentFull();
+4.
+[GOF].
+5.
+[GOF].

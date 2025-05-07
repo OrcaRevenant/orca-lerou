@@ -1,0 +1,91 @@
+Solutions to Chapter 17 | Hard
+value
+7
+5
+9
+9
+2
+1
+3
+5
+7
+9
+1
+1
+5
+8
+8
+9
+7
+index
+0
+l
+2
+3
+4
+S
+Ê
+7
+8
+9
+10
+11
+12
+13
+14 is
+16
+1 -> {5, 10, 11)
+5 -> {1, 7, 12)
+9 -> {2, 3, 9, 15}
+What is the very first valid subsequence (which contains 1,5, and 9)? We can just look at the heads of each
+list to tell us this. The minimum of the heads is the start of the range and the max of the heads is the end of
+the range. In this case, the first range is [1,5].This is currently our "best" subsequence.
+How can we find the next one? Weil, the next one will not include index 1, so let's remove that from the list.
+1 -> {5, 10, 11}
+5 -> {7, 12}
+9 -> {2, 3, 9, 15}
+The next subsequence is [2, 7]. This is worse than the earlier best, so we can toss it.
+Now, what's the next subsequence? We can remove the min from earlier (2) and find out.
+1 -> {5, 10, 11}
+5
+{7, 12}
+9 -> {3, 9, 15}
+The next subsequence is [3, 7], which is no better or worse than our current best.
+We can continue down this path each time, repeating this process. We will end up iterating through all
+"minimal"subsequences that start from a given point.
+1. Current subsequence is [min of heads, max of heads]. Compare to best subsequence and update if
+necessary.
+2. Remove the minimum head.
+3. Repeat.
+This will give us an O(SB) time complexity. This is because for each of B elements, we are doing a compar-
+ison to the 5 other list heads to find the minimum.
+This is pretty good, but let's see if we can make that minimum computation faster.
+What we're doing in these repeated minimum calls is taking a bunch of elements, finding and removing the
+minimum, adding in one more element, and then finding the minimum again.
+We can make this faster by using a min-heap. First, put each of the heads in a min-heap, Remove the
+minimum. Look up the list that this minimum came from and add back the new head. Repeat.
+To get the list that the minimum element came from, we'll need to use a HeapNode class that stores both
+the l o c a t i o n W i t h i n L i s t (the index) and the l i s t Id. This way, when we remove the minimum, we can
+jump back to the correct list and add its new head to the heap.
+1
+Range shortestSupersequence(int[] array, i n t [ ] elements) {
+2
+ArrayList<Queue<Integer>> locations = getLocationsForElements(array, elements);
+3
+if (locations == n u l l ) return n u l l ;
+4
+return getShortestClosure(locations);
+5
+}
+6
+7
+/* Get l i s t of queues (linked l i s t s ) storing the indices at which each element in
+8
+* smallArray appears in bigArray. */
+9
+ArrayList<Queue<Integer>> getLocationsForElements(int[] big, i n t [ ] small) {
+10
+/* I n i t i a l i z e hash map from item value to locations. */
+11
+HashMap<Integer, Queue<integer>> itemLocations =
+CrackingTheCodinglnterview.com | 6th Edition S 3 7

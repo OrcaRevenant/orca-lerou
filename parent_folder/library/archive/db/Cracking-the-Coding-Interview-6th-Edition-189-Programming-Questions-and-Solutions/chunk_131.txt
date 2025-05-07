@@ -1,0 +1,41 @@
+Chapter 6 | Math and Logic Puzzles
+if one or both events have a probability of zero (that is, it is impossible), then the events are both indepen-
+dent and mutually exclusive. This is provable through a simple application of the definitions (that is, the
+formulas) of independence and mutual exclusivity.
+• Start Talking
+Don't panic when you get a brainteaser. Like algorithm questions, interviewers want to see how you tackle
+a problem; they don't expect you to immediately know the answer. Start talking, and show the interviewer
+how you approach a problem.
+> Develop Rules and Patterns
+In many cases, you will find it useful to write down ,'ruies"or patterns that you discover white solving the
+problem. And yes, you really should write these down—it will help you remember them as you solve the
+problem. Let's demonstrate this approach with an example.
+Vou have two ropes, and each takes exactly one hour to burn. How would you use them to time exactly 15
+minutes? Note that the ropes are of uneven densities, so halfthe rope length-wise does not necessarily take
+half an hour to burn.
+I
+Tip: Stop here and spend some time trying to solve this problem on your own. If you absolutely must,
+read through this section for hints—but do so slowly. Every paragraph wilt get you a bit closer to the
+solution.
+From the statement of the problem, we immediately know that we can time one hour. We can also time
+two hours, by lighting one rope, waiting until it is burnt and then lighting the second. We can generalize
+this into a rule.
+Rule !: Given a rope that takes x minutes to burn and another that takes y minutes, we can time X+y
+minutes.
+What else can we do with the rope? We can probably assume that lighting a rope in the middle (or anywhere
+other than the ends) won't do us much good. The flames would expand in both directions, and we have no
+idea how long it would take to burn.
+However, we can tight a rope at both ends. The two flames would meet after 30 minutes.
+Rule2: Given a rope that takes x minutes to burn, we can time Yi minutes.
+We now know that we can time 30 minutes using a single rope. This also means that we can remove 30
+minutes of burning time from the second rope, by lighting rope 1 on both ends and rope 2 on just one end,
+/?u/e3;lfrope 1 takes x minutes to burn and rope 2 takes y minutes, we can turn rope 2 into a rope that takes
+( y - x ) minutes or ( y - % ) minutes.
+Now, let's piece alt of these together. We can turn rope 2 into a rope with 30 minutes of burn time. If we then
+light rope 2 on the other end (see rule 2), rope 2 will be done after 15 minutes.
+From start to end, our approach is as follows:
+1, Light rope 1 at both ends and rope 2 at one end.
+2. When the two flames on Rope 1 meet, 30 minutes will have passed. Rope 2 has 30 minutes left of burn-
+time.
+CrackingTheCoding I nterview.com 16th Edition
+121

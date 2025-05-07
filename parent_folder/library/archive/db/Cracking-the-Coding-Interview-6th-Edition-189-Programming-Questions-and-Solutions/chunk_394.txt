@@ -1,0 +1,42 @@
+Solutions to Chapter 9 j System Design and Scalability
+Step 3: Updating results when contents change
+Recall that some queries may be so popular that, with a sufficiently large cache, they would permanently
+be cached. We need some sort of mechanism to allow cached results to be refreshed, either periodically or
+"on-demand"when certain content changes.
+To answer this question, we need to consider when results would change (and you need to discuss this with
+your interviewer). The primary times would be when:
+1. The content at a URL changes (or the page at that URL is removed).
+2. The ordering of results change in response to the rank of a page changing.
+3. New pages appear related to a particular query.
+To handle situations #1 and #2, we could create a separate hash table that would tell us which cached
+queries are tied to a specific URL. This could be handled completely separately from the other caches, and
+reside on different machines. However, this solution may require a lot of data.
+Alternatively, if the data doesn't require instant refreshing (which it probably doesn't), we could periodically
+crawl through the cache stored on each machine to purge queries tied to the updated URLs.
+Situation #3 is substantially more difficult to handle. We could update single word queries by parsing the
+content at the new URL and purging these one-word queries from the caches. But, this will only handle the
+one-word queries.
+A good way to handle Situation #3 (and likely something we'd want to do anyway) is to implement an "auto-
+matic time-out" on the cache. That is, we'd impose a time out where no query, regardless of how popular it
+is, can sit in the cache for more than x minutes. This will ensure that all data is periodically refreshed.
+Step 4: Further Enhancements
+There are a number of improvements and tweaks you could make to this design depending on the assump-
+tions you make and the situations you optimize for.
+One such optimization is to better support the situation where some queries are very popular. For example,
+suppose (as an extreme example) a particular string constitutes 1% of alt queries. Rather than machine i
+forwarding the request to machine j every time, machine i could forward the request just once to j, and
+then i coutd store the results in its own cache as well.
+Alternatively, there may also be some possibility of doing some sort of re-architecture of the system to
+assign queries to machines based on their hash value (and therefore the location of the cache), rather than
+randomly. However, this decision may come with its own set of trade-offs.
+Another optimization we could make is to the "automatic time out" mechanism. As initially described, this
+mechanism purges any data after X minutes. However, we may want to update some data (like current
+news) much more frequently than other data (like historical stock prices). We could implement timeouts
+based on topic or based on URLs. In the fatter situation, each URL would have a time out value based on
+how frequently the page has been updated in the past, The time out for the query would be the minimum
+of the time outs for each URL.
+These are just a few of the enhancements we can make. Remember that in questions like this, there is no
+single correct way to solve the problem. These questions are about having a discussion with your inter-
+viewer about design criteria and demonstrating your general approach and methodology.
+394
+Cracking the Coding Interview, 6th Edition

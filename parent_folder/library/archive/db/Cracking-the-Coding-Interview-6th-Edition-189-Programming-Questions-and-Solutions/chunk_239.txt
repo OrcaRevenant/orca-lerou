@@ -1,0 +1,106 @@
+Solutions to Chapter 3 | Stacks and Queues
+Please note that the code for this solution is far more complex than would be appropriate for an interview.
+You could be responsible for pseudocode, or perhaps the code of individual components, but the entire
+implementation would be far too much work.
+1
+public class MultiStack {
+2
+/* Stacklnfo is a simple class that holds a set of data about each stack. It
+3
+* does not hold the actual items in the stack. We could have done t h i s with
+4
+* j u s t a bunch of individual variables, but that Js messy and doesn't gain us
+5
+* much, */
+6
+private class Stacklnfo {
+7
+public i n t s t a r t , size, capacity;
+8
+public Stacklnfo(int s t a r t , i n t capacity) {
+9
+t h i s . s t a r t = s t a r t ;
+10
+this.capacity = capacity;
+11
+>
+12
+13
+/* Check if an index on the f u l l array is within the stack boundaries. The
+14
+* stack can wrap around to the s t a r t of the array. */
+15
+public boolean isWithinStackCapacity(int index) {
+16
+/* If outside of bounds of array, return false. */
+17
+if (index < 9 || index >= values.length) {
+18
+return f a l s e ;
+19
+>
+20
+21
+i* If index wraps around, adjust i t . */
+22
+i n t contiguouslndex = index < s t a r t ? index + values.length : index;
+23
+i n t end = s t a r t + capacity;
+24
+return s t a r t <= contiguouslndex && contiguouslndex < end;
+25
+>
+26
+27
+public i n t lastCapacitylndexQ {
+28
+return adjustlndex(start + capacity - 1);
+29
+)
+30
+31
+public i n t lastElementlndexQ {
+32
+return adjustlndex(start + size - 1);
+33
+>
+34
+35
+public boolean i s F u l l Q { return size == capacity; }
+36
+public boolean isEmptyQ { return size == 0; )
+37
+>
+38
+39
+private Stacklnfof] i n f o ;
+40
+private i n t [ ] values;
+41
+42
+public MultiStack(int numberOfStacks,
+i n t defaultSize) {
+43
+/* Create metadata f o r a l l the stacks. */
+44
+info = new StackInfo[numberOfStacks];
+45
+f o r ( i n t i = 0; i < numberOfStacks; i++) {
+46
+i n f o [ i ] = new StackInfo(defaultSize * i, defaultSize);
+47
+>
+48
+values = new int[numberOfStacks * defaultSize];
+49
+>
+50
+51
+/* Push value onto stack nurn, shifting/expanding stacks as necessary. Throws
+52
+* exception if a l l stacks are f u l l .
+V
+53
+public voicf push(int stackNum, i n t value) throws FullStackException {
+CrackingTheCodinglnterview.com ] 6th Edition
+239

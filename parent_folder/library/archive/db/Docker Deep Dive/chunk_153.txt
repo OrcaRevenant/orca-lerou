@@ -1,0 +1,7 @@
+One final thing to mention about Docker overlay networks is that Docker also
+supports Layer 3 routing within the same overlay network. For example, you can
+create an overlay network with two subnets, and Docker will take care of routing
+between them. The command to create a network like this could be docker
+network create --subnet=10.1.1.0/24 --subnet=11.1.1.0/24 -d overlay
+prod-net. This would result in two virtual switches Br0 and Br1 being created
+inside the network namespace and routing happens by default.

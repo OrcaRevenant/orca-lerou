@@ -1,0 +1,39 @@
+Since positions 0, 1, and 3 didn’t exist on arrLike, the result was the undefined value
+for each of those slots.
+You could produce a similar outcome like this:
+var emptySlotsArr = [];
+emptySlotsArr.length = 4;
+emptySlotsArr[2] = "foo";
+Array.from( emptySlotsArr );
+// [ undefined, undefined, "foo", undefined ]
+Avoiding Empty Slots
+There’s a subtle but important difference in the previous snippet between the empty
+SlotsArr and the result of the Array.from(..) call. Array.from(..) never produces
+empty slots.
+Prior to ES6, if you wanted to produce an array initialized to a certain length with
+actual undefined values in each slot (no empty slots!), you had to do extra work:
+var a = Array( 4 );                             // four empty slots!
+var b = Array.apply( null, { length: 4 } );     // four `undefined` values
+But Array.from(..) now makes this easier:
+var c = Array.from( { length: 4 } );            // four `undefined` values
+Using an empty slot array like a in the previous snippets would
+work with some array functions, but others ignore empty slots (like
+map(..), etc.). You should never intentionally work with empty
+slots, as it will almost certainly lead to strange/unpredictable
+behavior in your programs.
+Mapping
+The Array.from(..) utility has another helpful trick up its sleeve. The second argu‐
+ment, if provided, is a mapping callback (almost the same as the regular
+Array#map(..) expects) which is called to map/transform each value from the source
+to the returned target. Consider:
+var arrLike = {
+length: 4,
+2: "foo"
+};
+Array.from( arrLike, function mapper(val,idx){
+if (typeof val == "string") {
+return val.toUpperCase();
+154
+|
+Chapter 6: API Additions
+www.it-ebooks.info

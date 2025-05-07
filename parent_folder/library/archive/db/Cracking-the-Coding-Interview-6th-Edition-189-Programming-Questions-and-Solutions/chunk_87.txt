@@ -1,0 +1,60 @@
+VII j Technical Questions
+For example, Java is fairly easy for people to understand, even if they haven't worked in it. Most people have
+worked in something with Java-like syntax, such as C and C++.
+However, languages such as Scala or Objective C havefairty different syntax.
+Potential Problems
+Some languages just open you up to potential issues. For example, using C++ means that, in addition to ail
+the usual bugs you can have in your code, you can have memory management and pointer issues.
+Verbosity
+Some languages are more verbose than others. Java for example is a fairly verbose language as compared
+with Python. Just compare the following code snippets.
+Python:
+1
+diet = {"left": I, "right": 2, "top": 3, "bottom": 4}j
+Java:
+1
+HashMap<String, Integer> diet = new HashMap<String, Integer>().
+2
+diet.put("left", 1);
+3
+d i e t . p u t ( " r i g h t " ,
+2 ) ;
+4
+dict.putO'top", 3);
+5
+diet.put("bottom", 4);
+However, some of the verbosity of Java can be reduced by abbreviating code. I could imagine a candidate
+on a whiteboard writing something like this:
+1
+HM<S, I> diet = new HM<S, I>().
+2
+dict.put("left", 1);
+3
+...
+"right", 2
+4
+...
+"top", 3
+5
+...
+"bottom", 4
+The candidate would need to explain the abbreviations, but most interviewers wouldn't mind.
+Ease of Use
+Some operations are easier in some languages than others. For example, in Python, you can very easily
+return multiple values from a function. In Java, the same action would require a new class. This can be
+handy for certain problems.
+Similar to the above though, this can be mitigated by just abbreviating code or presuming methods that
+you don't actually have. For example, if one language provides a function to transpose a matrix and another
+language doesn't, this doesn't necessarily make the first language much better to code in (for a problem
+th3t needs such a function). You could just assume that the other language has a similar method.
+• What Good Coding Looks Like
+You probably know by now that employers want to see that you write "good, clean"code. But what does this
+really mean, and how is this demonstrated in an interview?
+Broadly speaking, good code has the following properties:
+•
+Correct: The code should operate correctly on all expected and unexpected inputs.
+•
+Efficient: The code should operate as efficiently as possible in terms of both time and space. This "effi-
+ciency" includes both the asymptotic (big 0) efficiency and the practical, real-life efficiency. That is, a
+CrackingTheCgdinglnterview.com ] 6th Edition
+81

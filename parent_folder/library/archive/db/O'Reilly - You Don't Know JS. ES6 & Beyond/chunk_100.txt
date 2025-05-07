@@ -1,0 +1,42 @@
+* 2 returns 12 back to the previous call’s x. Finally 12 * 2, or 24, is returned from the
+completed run of the *foo(..) generator.
+Iterator Control
+We briefly introduced the concept a few sections ago that generators are controlled by
+iterators. Let’s fully dig into that now.
+Recall the recursive *foo(..) from the previous section. Here’s how we’d run it:
+function *foo(x) {
+if (x < 3) {
+x = yield *foo( x + 1 );
+}
+return x * 2;
+}
+var it = foo( 1 );
+it.next();              // { value: 24, done: true }
+In this case, the generator doesn’t really ever pause, as there’s no yield .. expression.
+Instead, yield * just keeps the current iteration step going via the recursive call. So,
+just one call to the iterator’s next() function fully runs the generator.
+Now let’s consider a generator which will have multiple steps and thus multiple pro‐
+duced values:
+function *foo() {
+yield 1;
+yield 2;
+yield 3;
+}
+We already know we can consume an iterator, even one attached to a generator like
+*foo(), with a for..of loop:
+for (var v of foo()) {
+console.log( v );
+}
+// 1 2 3
+The for..of loop requires an iterable. A generator function refer‐
+ence (like foo) by itself is not an iterable; you must execute it with
+foo() to get the iterator (which is also an iterable, as we explained
+earlier in this chapter). You could theoretically extend the Genera
+torPrototype (the prototype of all generator functions) with a Sym
+bol.iterator function which essentially just did return this().
+That would make the foo reference itself an iterable, which means
+for (var v of foo) { .. } — notice no () on foo — works.
+Generators
+|
+89
+www.it-ebooks.info

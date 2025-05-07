@@ -1,0 +1,47 @@
+will be serviced by containers running the old version and some will be serviced
+by containers running the new version. After enough time all requests will be
+serviced by containers running the updated copy of the service.
+Congratulations. You’ve just pushed a rolling update to a live containerized
+application.
+If you run a docker inspect --pretty command against the service you’ll see
+the update parallelism and update delay settings you just used are now part of the
+service definition. This means future updates that you push will automatically
+use these settings unless you override them as part of the docker service
+update command.
+$ docker service inspect --pretty uber-svc
+ID:             mub0dgtc8szm80ez5bs8wlt19
+Name:           uber-svc
+Service Mode:   Replicated
+Replicas:      12
+UpdateStatus:
+State:         updating
+Started:       About a minute
+Message:       update in progress
+Placement:
+UpdateConfig:
+Parallelism:   2
+Delay:         20s
+On failure:    pause
+Monitoring Period: 5s
+Max failure ratio: 0
+Update order:      stop-first
+RollbackConfig:
+Parallelism:   1
+On failure:    pause
+Monitoring Period: 5s
+Max failure ratio: 0
+Rollback order:    stop-first
+ContainerSpec:
+Image:    nigelpoulton/tu-demo:v2@sha256:d3c0d8c9...cf0ef2ba5eb74c
+Resources:
+Networks: uber-net
+Endpoint Mode:  vip
+Ports:
+PublishedPort = 80
+Protocol = tcp
+TargetPort = 80
+PublishMode = ingress
+You should also note a couple of things about the service’s network config. All
+nodes in the swarm that are running a task for the service will have the uber-net
+overlay network that we created earlier. We can verify this by running docker
+network ls on any node running a task.

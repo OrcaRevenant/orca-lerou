@@ -1,0 +1,21 @@
+Figure 9.2
+The names and IP addresses are not important and can be different in your lab. If
+you are following along with the examples, just remember to substitute them
+with your own.
+Enabling swarm mode
+Running docker swarm init on a Docker host in single-engine mode will
+switch that node into swarm mode and create a new swarm. It will also make the
+node the first manager of the Swarm.
+Additional nodes can then be joined to the swarm as workers and managers
+using the docker swarm join command. This also puts those nodes into swarm
+mode as part of the operation.
+The following steps will put mgr1 into swarm mode and initialize a new swarm.
+It will then join wrk1, wrk2, and wrk3 as worker nodes - automatically putting
+them into swarm mode. Finally, it will add mgr2 and mgr3 as additional
+managers and switch them into swarm mode. At the end of the procedure all 6
+nodes will be part of the same swarm and will all be operating in swarm mode.
+This example will use the IP addresses and DNS names of the nodes shown in
+Figure 9.2. Yours may be different.
+1. Log on to mgr1 and initialize a new swarm (don’t forget to use backticks
+instead of backslashes if following along with Windows in a PowerShell
+terminal).

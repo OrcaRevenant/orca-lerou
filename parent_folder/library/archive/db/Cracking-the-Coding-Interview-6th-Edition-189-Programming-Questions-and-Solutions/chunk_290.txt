@@ -1,0 +1,70 @@
+Solutions to Chapter 5 | Bit Manipulation
+I
+Be careful with how you express the runtime. For example, if you say the runtime is 0{ n), what is
+n? It is not correct to say that this algorithm is 0(value of the integer). This algorithm is 0(number
+of bits). For this reason, when you have potential ambiguity in what n might mean, it's best just to
+not use n. Then neither you nor your interviewer will be confused. Pick a different variable name.
+We used "b" for the number of bits. Something logical works well.
+Can we do better? Recall the concept of Best Conceivable Runtime, The B.C.R. for this algorithm is 0 ( b )
+(since we'll always have to read through the sequence), so we know we can't optimize the time. We can,
+however, reduce the memory usage.
+Optimal Algorithm
+To reduce the space usage, note that we don't need to hang on to the length of each sequence the entire
+time. We only need it long enough to compare each Is sequence to the immediately preceding Is sequence.
+Therefore, we can just walk through the integer doing this, tracking the current Is sequence length and the
+previous 1s sequence length. When we see a zero, update p r e v i o u s L e n g t h :
+*
+If the next bit is a 1, p r e v i o u s L e n g t h should beset to c u r r e n t Length.
+*
+If the next bit isaO, then we can't merge these sequences together. So, set p r e v i o u s L e n g t h to 0.
+Update maxLength as we go,
+1
+i n t f l i p B i t ( i n t a) {
+2
+/* If a l l I s , t h i s is already the longest sequence. */
+3
+if (~a == 0) return Integer.BYTES * 8;
+4
+5
+i n t currentLength = 0;
+6
+i n t previousLength = 0;
+7
+i n t maxLength = 1; // We can always have a sequence of at least one 1
+8
+while (a 1= 0) {
+9
+if ((a & 1) == 1) { II Current b i t is a 1
+10
+currentLength++;
+11
+} else if ((a & 1) == 6) { // Current b i t is a 0
+12
+/* Update to 8 ( i f next b i t is S) or currentLength ( i f next b i t is 1). */
+13
+previousLength = (a & 2) == 0 ? 0 : currentLength;
+14
+currentLength = 0;
+15
+}
+16
+maxLength = Math.max(previousLength + currentLength + X, maxLength);
+17
+a >>>= 1;
+IS
+>
+19
+return maxLength;
+20
+}
+The runtime of this algorithm is still 0{ b), but we use only 0( 1) additional memory.
+5.4
+Next Number: Given a positive integer, print the next smallest and the next largest number that
+have the same number of 1 bits in their binary representation.
+pg 116
+SOLUTION
+There are a number of ways to approach this problem, including using brute force, using bit manipulation,
+and using clever arithmetic. Note that the arithmetic approach builds on the bit manipulation approach.
+You'll want to understand the bit manipulation approach before going on to the arithmetic one.
+288
+Cracking the Coding Interview, 6th Edition

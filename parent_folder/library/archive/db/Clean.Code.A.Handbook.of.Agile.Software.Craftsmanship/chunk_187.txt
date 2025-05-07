@@ -1,0 +1,40 @@
+157
+Scaling Up
+Dependency Injection
+A powerful mechanism for separating construction from use is Dependency Injection (DI),
+the application of Inversion of Control (IoC) to dependency management.3 Inversion of
+Control moves secondary responsibilities from an object to other objects that are dedicated
+to the purpose, thereby supporting the Single Responsibility Principle. In the context of
+dependency management, an object should not take responsibility for instantiating depen-
+dencies itself. Instead, it should pass this responsibility to another “authoritative” mecha-
+nism, thereby inverting the control. Because setup is a global concern, this authoritative
+mechanism will usually be either the “main” routine or a special-purpose container.
+JNDI lookups are a “partial” implementation of DI, where an object asks a directory
+server to provide a “service” matching a particular name.
+MyService myService = (MyService)(jndiContext.lookup(“NameOfMyService”));
+The invoking object doesn’t control what kind of object is actually returned (as long it
+implements the appropriate interface, of course), but the invoking object still actively
+resolves the dependency.
+True Dependency Injection goes one step further. The class takes no direct steps to
+resolve its dependencies; it is completely passive. Instead, it provides setter methods or
+constructor arguments (or both) that are used to inject the dependencies. During the con-
+struction process, the DI container instantiates the required objects (usually on demand)
+and uses the constructor arguments or setter methods provided to wire together the depen-
+dencies. Which dependent objects are actually used is speciﬁed through a conﬁguration
+ﬁle or programmatically in a special-purpose construction module.
+The Spring Framework provides the best known DI container for Java.4 You deﬁne
+which objects to wire together in an XML conﬁguration ﬁle, then you ask for particular
+objects by name in Java code. We will look at an example shortly.
+But what about the virtues of LAZY-INITIALIZATION? This idiom is still sometimes
+useful with DI. First, most DI containers won’t construct an object until needed. Second,
+many of these containers provide mechanisms for invoking factories or for constructing
+proxies, which could be used for LAZY-EVALUATION and similar optimizations.5
+Scaling Up
+Cities grow from towns, which grow from settlements. At ﬁrst the roads are narrow and
+practically nonexistent, then they are paved, then widened over time. Small buildings and
+3.
+See, for example, [Fowler].
+4.
+See [Spring]. There is also a Spring.NET framework.
+5.
+Don’t forget that lazy instantiation/evaluation is just an optimization and perhaps premature!

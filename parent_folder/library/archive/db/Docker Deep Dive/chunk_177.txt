@@ -1,0 +1,13 @@
+Chapter Summary
+Docker can be configured to be extremely secure. It supports all of the major
+Linux security technologies including; kernel namespaces, cgroups, capabilities,
+MAC, and seccomp. For all of these it ships with sensible defaults, but you can
+customize them and even disable them.
+Over and above the general Linux security technologies, the Docker platform
+also includes an extensive set of its own security technologies. Swarm Mode is
+built on TLS and is insanely simple to configure and customize. Security
+Scanning performs binary-level inspections of Docker images and provides
+detailed reports of known vulnerabilities. Docker Content Trust lets you sign and
+verify content, and secrets are now first-class citizens in Docker.
+The net result is that your Docker environment can be configured to be as secure
+or insecure as you desire - it all depends on how you configure it.

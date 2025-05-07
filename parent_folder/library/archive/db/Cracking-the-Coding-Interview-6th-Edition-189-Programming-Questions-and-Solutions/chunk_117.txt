@@ -1,0 +1,81 @@
+Chapter 4 | Trees and Graphs
+0
+1
+2
+3
+0
+0
+1
+0
+0
+1
+0
+0
+1
+0
+2
+1
+0
+0
+0
+3
+0
+0
+1
+0
+The same graph algorithms that are used ori adjacency lists (breadth-first search, etc.) can be performed
+with adjacency matrices, but they may be somewhat tess efficient. !n the adjacency list representation, you
+can easily iterate through the neighbors of a node. In the adjacency matrix representation, you will need to
+iterate through all the nodes to identify a node's neighbors.
+• Graph Search
+The two most common ways to search a graph are depth-first search and breadth-first search.
+In depth-first search (DFS), we start at the root (or another arbitrarily selected node) and explore each
+branch completely before moving on to the next branch. That is, we go deep first (hence the name depth-
+first search) before we go wide.
+In breadth-first search (BFS), we start at the root (or another arbitrarily selected node) and explore each
+neighbor before going on to any of their children. That is, we go wide (hence breadth-first search) before
+we go deep.
+See the below depiction of a graph and its depth-first and breadth-first search (assuming neighbors are
+iterated in numerical order).
+Graph
+Depth-First Search
+Breadth-First Search
+].
+Node 0
+1
+Node 0
+2
+Node 1
+2
+Node 1
+3
+Node 3
+3
+Node 4
+4
+Node 2
+4
+Node 5
+5
+Node 4
+5
+Node 3
+6
+Node 5
+6
+Node 2
+Breadth-first search and depth-first search tend to be used in different scenarios. DFS is often preferred if we
+want to visit every node in the graph. Both will work just fine, but depth-first search is a bit simpler.
+However, if we want to find the shortest path (or just any path) between two nodes, 8FS is generally better.
+Consider representing all the friendships in the entire worid in a graph and trying to find a path of friend-
+ships between Ash and Vanessa.
+In depth-first search, we could take a path like Ash -> B r i a n ->
+C a r l e t o n -> Davis -> E r i c
+-> Farah -> Gayle -> Harry -> I s a b e l l a -> Dohn -> Kari... and then find ourselves very
+far away. We could go through most of the world without realizing that, in fact, Vanessa is Ash's friend. We
+will still eventually find the path, but it may take a long time. It also won't find us the shortest path.
+In breadth-first search, we would stay close to Ash for as long as possible. We might iterate through many
+of Ash's friends, but we wouldn't go to his more distant connections until absolutely necessary. If Vanessa
+is Ash's friend, or his friend-of-a-friend, we'll find this out relatively quickly,
+CrackingTheCodinglnterview.com | 6th Edition
+103

@@ -1,0 +1,39 @@
+Symbol Registry
+One mild downside to using symbols as in the last few examples is that the EVT_LOGIN
+and INSTANCE variables had to be stored in an outer scope (perhaps even the global
+scope), or otherwise somehow stored in a publicly available location, so that all parts
+of the code which need to use the symbols can access them.
+To aid in organizing code with access to these symbols, you can create symbol values
+with the global symbol registry. For example:
+const EVT_LOGIN = Symbol.for( "event.login" );
+console.log( EVT_LOGIN );       // Symbol(event.login)
+And:
+function HappyFace() {
+const INSTANCE = Symbol.for( "instance" );
+if (HappyFace[INSTANCE]) return HappyFace[INSTANCE];
+// ..
+return HappyFace[INSTANCE] = { .. };
+}
+Symbol.for(..) looks in the global symbol registry to see if a symbol is already
+stored with the provided description text, and returns it if so. If not, it creates one to
+return. In other words, the global symbol registry treats symbol values, by description
+text, as singletons themselves.
+But that also means that any part of your application can retrieve the symbol from the
+registry using Symbol.for(..), as long as the matching description name is used.
+Ironically, symbols are basically intended to replace the use of magic strings (arbitrary
+string values given special meaning) in your application. But you precisely use magic
+description string values to uniquely identify/locate them in the global symbol regis‐
+try!
+To avoid accidental collisions, you’ll probably want to make your symbol descriptions
+quite unique. One easy way of doing that is to include prefix/context/namespacing
+information in them.
+For example, consider a utility like:
+function extractValues(str) {
+var key = Symbol.for( "extractValues.parse" ),
+re = extractValues[key] ||
+/[^=&]+?=([^&]+?)(?=&|$)/g,
+values = [], match;
+70
+|
+Chapter 2: Syntax
+www.it-ebooks.info

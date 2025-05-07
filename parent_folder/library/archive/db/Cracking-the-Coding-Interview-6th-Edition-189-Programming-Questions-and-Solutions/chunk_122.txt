@@ -1,0 +1,47 @@
+Bit Manipulation
+B
+it manipulation is used in a variety of problems. Sometimes, the question explicitly calls for bit manipu-
+lation. Other times, it's simply a useful technique to optimize your code. You should be comfortable
+doing bit manipulation by hand, as well as with code. Be careful; it's easy to make little mistakes.
+• Bit Manipulation By Hand
+If you're rusty on bit manipulation, try the following exercises by hand. The items in the third column can be
+solved manually or with "tricks" (described below). For simplicity, assume that these are four-bit numbers.
+If you get confused, work them through as a base 10 number. You can then apply the same process to a
+binary number. Remember that A indicatesanXOR, and ~isa NOT (negation).
+0110 + 0010
+0011 * 0101
+0110 + 0110
+0011 + 0010
+0011 * 0011
+0100 * 0011
+0110 - 0011
+1101 >> 2
+1101 n (~1101)
+1000 - 0110
+1101 n 0101
+1011 & (~0 << 2)
+Solutions: line 111000,1111,1100); line 2 [010t, 1001,1100); line 3(0011,0011,1111]; line 4 (0010,1000.1000).
+The tricks in Column 3 are as follows:
+1. 0110 + 0110 is equivalent to 0110 * 2, which is equivalent to shifting 0110 left by 1.
+2. 0160 equals 4, and multiplying by 4 is just left shifting by 2. So we shift 0911 left by 2 to get 1100,
+3. Think about this operation bit by bit. If you XOR a bit with its own negated value, you will always get 1.
+Therefore, the solution to a " ( - a ) will be a sequence of 1s.
+4. ~0 is a sequence of Is, so ~0 << 2 is 1s followed by two 0s. ANDing that with another value will clear
+the last two bits of the value.
+If you didn't see these tricks immediately, think about them logically.
+• Bit Facts and Tricks
+The following expressions are useful in bit manipulation. Don't just memorize them, though; think deeply
+about why each of these is true. We use"1s"and"0s"to indicate a sequence of 1s or 0s, respectively.
+x A 0 s = x
+x & 0s = 0
+x | 0$ = x
+X A I s = -X
+X & IS a X
+X | IS s lS
+X
+A
+X = 0
+X 6 X = X
+X I X = *
+ÎOO
+Cracking the Coding Interview, 6th Edition

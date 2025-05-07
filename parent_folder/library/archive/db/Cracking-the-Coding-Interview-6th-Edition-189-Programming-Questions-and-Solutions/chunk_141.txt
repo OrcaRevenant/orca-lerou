@@ -1,0 +1,46 @@
+Chapter 8 | Recursion and Dynamic Programming
+Half-and-Half Approach
+In addition to top-down and bottom-up approaches, it's often effective to divide the data set in half.
+For example, binary search works with a "ha!f-and-half"approach. When we look for an element in a sorted
+array, we first figure out which half of the array contains the value. Then we recurse and search for it in that
+half.
+Merge sort is also a "half-and-half" approach. We sort each half of the array and then merge together the
+sorted halves.
+• Recursive vs. Iterative Solutions
+Recursive algorithms can be very space inefficient. Each recursive call adds a new layer to the stack, which
+means that if your algorithm recurses to a depth of n, it uses at least 0 ( n ) memory.
+For this reason, it's often better to implement a recursive algorithm iteratively. All recursive algorithms can
+be implemented iteratively, although sometimes the code to do so is much more complex. Before diving
+into recursive code, ask yourself how hard it would be to implement it iteratively, and discuss the tradeoffs
+with your interviewer.
+> Dynamic Programming & Memoization
+Although people make a big deal about how scary dynamic programming problems are, there's really no
+need to be afraid of them. In fact, once you get the hang of them, these can actually be very easy problems.
+Dynamic programming is mostly just a matter of taking a recursive algorithm and finding the overlapping
+subproblems (that is, the repeated calls). You then cache those results for future recursive calls.
+Alternatively, you can study the pattern of the recursive calls and implement something iterative. You still
+"cache" previous work,
+I
+A note on terminology: Some people call top-down dynamic programming "memoization" and
+only use "dynamic programming" to refer to bottom-up work. We do not make such a distinction
+here. We call both dynamic programming.
+One of the simplest examples of dynamic programming is computing the nth Fibonacci number. A good
+way to approach such a problem is often to implement it as a normal recursive solution, and then add the
+caching part.
+Fibonacci Numbers
+Let's walk through an approach to compute the nth Fibonacci number.
+Recursive
+We will start with a recursive implementation. Sounds simple, right?
+1
+i n t f i b o n a c c i ( i n t i)
+{
+2
+if (i == 0) return 0;
+3
+if {i == 1) return 1;
+4
+return f i b o n a c c i ( i - 1) + f i b o n a c c i f i - 2);
+5
+>
+CrackingTheCodinglnterview.com ] 6th Edition
+143

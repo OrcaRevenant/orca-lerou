@@ -1,0 +1,15 @@
+Inconsistency resolution: versioning
+Replication gives high availability but causes inconsistencies among replicas. Versioning and
+vector locks are used to solve inconsistency problems. Versioning means treating each data
+modification as a new immutable version of data. Before we talk about versioning, let us use
+an example to explain how inconsistency happens:
+As shown in Figure 6-7, both replica nodes n1 and n2 have the same value. Let us call this
+value the original value. Server 1 and server 2 get the same value for get(“name”) operation.
+Next, server 1 changes the name to “johnSanFrancisco”, and server 2 changes the name to
+“johnNewYork” as shown in Figure 6-8. These two changes are performed simultaneously.
+Now, we have conflicting values, called versions v1 and v2.
+In this example, the original value could be ignored because the modifications were based on
+it. However, there is no clear way to resolve the conflict of the last two versions. To resolve
+this issue, we need a versioning system that can detect conflicts and reconcile conflicts. A
+vector clock is a common technique to solve this problem. Let us examine how vector clocks
+work.

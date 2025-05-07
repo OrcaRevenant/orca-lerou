@@ -1,0 +1,34 @@
+Eisenhower’s matrix of importance vs. urgency, 17
+preference for function vs. architecture, 15–16
+Business rules
+boundaries between GUI and, 169–170
+clean architecture for, 202–203
+conclusion, 194
+creating Entities, 190–191
+decoupling from UI, 287–289
+decoupling layers, 152–153
+decoupling use cases, 153
+designing for testability, 251
+in Hunt the Wumpus adventure game, 222–223
+independent developability, 47
+keeping close to data, 67
+plugging into, 170–173
+policy statements calculating, 184
+request/response models and, 193–194
+in SAC archaeology project, 346–347
+separating components with boundary lines, 165–169
+understanding, 189–190
+use cases for, 191–193, 204
+C
+C++ language
+inheritance in, 40
+learning, 366
+marrying STL framework in, 293
+polymorphism in, 42
+ROSE application, 369–370
+weakening encapsulation, 36–37
+C language
+BOSS archaeology project using, 351–352
+DLU/DRU archaeology project using, 356
+encapsulation in, 34–36
+inheritance in, 38–40

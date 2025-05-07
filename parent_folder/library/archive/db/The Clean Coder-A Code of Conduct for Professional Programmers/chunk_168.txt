@@ -1,0 +1,32 @@
+136
+CHAPTER 10 ESTIMATION
+In 1978, I was the lead developer for a 32K embedded Z-80 program written
+in assembly language. The program was burned onto 32 1K ´ 8 EEprom
+chips. These 32 chips were inserted into three boards, each of which held 12
+chips.
+We had hundreds of devices in the field, installed in telephone central offices
+all over the United States. Whenever we fixed a bug or added a feature, we’d
+have to send field service techs to each of those units and have them replace
+all 32 chips!
+This was a nightmare. The chips and the boards were fragile. The pins on the
+chips could bend and break. The constant flexing of the boards could damage
+solder joints. The risk of breakage and error were enormous. The cost to the
+company was far too high.
+My boss, Ken Finder, came to me and asked me to fix this. What he wanted was
+a way to make a change to a chip that did not require all the other chips to
+change. If you’ve read my books, or heard my talks, you know I rant a lot about
+independent deployability. This is where I first learned that lesson.
+Our problem was that the software was a single linked executable. If a new line
+of code was added to the program, all the addresses of the following lines of
+code changed. Since each chip simply held 1K of the address space, the contents
+of virtually all the chips would change.
+The solution was pretty simple. Each chip had to be decoupled from all the
+others. Each had to be turned into an independent compilation unit that could
+be burned independently of all the others.
+So I measured the sizes of all the functions in the application and wrote a
+simple program that fit them, like a jigsaw puzzle, into each of the chips,
+leaving 100 bytes of space or so for expansion. At the beginning of each chip
+I put a table of pointers to all the functions on that chip. At boot-up these
+pointers were moved into RAM. All the code in the system was changed so
+that functions were called only through these RAM vectors and never
+directly.

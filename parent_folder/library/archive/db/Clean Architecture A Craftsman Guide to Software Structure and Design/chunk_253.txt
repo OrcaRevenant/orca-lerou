@@ -1,0 +1,32 @@
+new code to a defined interface and behavior? This is not a trick question. I
+choose the latter.
+You might start worrying about code bloat about now. Really, though, the layer
+becomes the place where much of the duplication around using an OS is isolated.
+This duplication does not have to impose a big overhead. If you define an
+OSAL, you can also encourage your applications to have a common structure.
+You might provide message passing mechanisms, rather than having every
+thread handcraft its concurrency model.
+The OSAL can help provide test points so that the valuable application code in
+the software layer can be tested off-target and off-OS. A clean embedded
+architecture’s software is testable off the target operating system. A successful
+OSAL provides that seam or set of substitution points that facilitate off-target
+testing.
+PROGRAMMING TO INTERFACES AND
+SUBSTITUTABILITY
+In addition to adding a HAL and potentially an OSAL inside each of the major
+layers (software, OS, firmware, and hardware), you can—and should—apply the
+principles described throughout this book. These principles encourage separation
+of concerns, programming to interfaces, and substitutability.
+The idea of a layered architecture is built on the idea of programming to
+interfaces. When one module interacts with another though an interface, you can
+substitute one service provider for another. Many readers will have written their
+own small version of printf for deployment in the target. As long as the
+interface to your printf is the same as the standard version of printf, you can
+override the service one for the other.
+One basic rule of thumb is to use header files as interface definitions. When you
+do so, however, you have to be careful about what goes in the header file. Limit
+header file contents to function declarations as well as the constants and struct
+names that are needed by the function.
+Don’t clutter the interface header files with data structures, constants, and
+typedefs that are needed by only the implementation. It’s not just a matter of
+clutter: That clutter will lead to unwanted dependencies. Limit the visibility of

@@ -1,0 +1,22 @@
+Consistency
+Since data is replicated at multiple nodes, it must be synchronized across replicas. Quorum
+consensus can guarantee consistency for both read and write operations. Let us establish a
+few definitions first.
+N = The number of replicas
+W = A write quorum of size W. For a write operation to be considered as successful, write
+operation must be acknowledged from W replicas.
+R = A read quorum of size R. For a read operation to be considered as successful, read
+operation must wait for responses from at least R replicas.
+Consider the following example shown in Figure 6-6 with N = 3.
+W = 1 does not mean data is written on one server. For instance, with the configuration in
+Figure 6-6, data is replicated at s0, s1, and s2. W = 1 means that the coordinator must receive
+at least one acknowledgment before the write operation is considered as successful. For
+instance, if we get an acknowledgment from s1, we no longer need to wait for
+acknowledgements from s0 and s2. A coordinator acts as a proxy between the client and the
+nodes.
+The configuration of W, R and N is a typical tradeoff between latency and consistency. If W =
+1 or R = 1, an operation is returned quickly because a coordinator only needs to wait for a
+response from any of the replicas. If W or R > 1, the system offers better consistency;
+however, the query will be slower because the coordinator must wait for the response from
+the slowest replica.
+If W + R > N, strong consistency is guaranteed because there must be at least one

@@ -1,0 +1,50 @@
+210
+Chapter 14: Successive Reﬁnement
+private boolean isStringSchemaElement(String elementTail) {
+return elementTail.equals("*");
+}
+private boolean isBooleanSchemaElement(String elementTail) {
+return elementTail.length() == 0;
+}
+private void parseBooleanSchemaElement(char elementId) {
+booleanArgs.put(elementId, false);
+}
+private boolean parseArguments() {
+for (currentArgument = 0; currentArgument < args.length; currentArgument++)
+{
+String arg = args[currentArgument];
+parseArgument(arg);
+}
+return true;
+}
+private void parseArgument(String arg) {
+if (arg.startsWith("-"))
+parseElements(arg);
+}
+private void parseElements(String arg) {
+for (int i = 1; i < arg.length(); i++)
+parseElement(arg.charAt(i));
+}
+private void parseElement(char argChar) {
+if (setArgument(argChar))
+argsFound.add(argChar);
+else {
+unexpectedArguments.add(argChar);
+valid = false;
+}
+}
+private boolean setArgument(char argChar) {
+boolean set = true;
+if (isBoolean(argChar))
+setBooleanArg(argChar, true);
+else if (isString(argChar))
+setStringArg(argChar, "");
+else
+set = false;
+return set;
+}
+private void setStringArg(char argChar, String s) {
+currentArgument++;
+try {
+Listing 14-10 (continued)
+Args.java (Boolean and String)

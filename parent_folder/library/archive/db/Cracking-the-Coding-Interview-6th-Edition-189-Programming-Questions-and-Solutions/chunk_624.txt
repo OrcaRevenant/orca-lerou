@@ -1,0 +1,86 @@
+Solutions to Chapter 17 | Hard
+rowStart
+9
+-8
+1
+3
+-2
+-3
+7
+6
+-2
+4
+6
+-4
+-4
+8
+-7
+12
+-S
+3
+9
+-5
+rowEnd
+Given a r o w S t a r t and rowEnd, we want to find the c o l S t a r t and colEnd that give us the highest
+possible sum. To do this, we can sum up each column and then apply the maximumSubArray function
+explained at the beginning of this problem.
+for the earlier example, the maximum subarray is the first through Fourth columns. This means that the
+maximum submatrix is ( r o w S t a r t , f i r s t column) through (rowEnd, f o u r t h column).
+We now have pseudocode that looks like the following.
+1
+maxSum = 0
+2
+foreach rowStart in rows
+3
+foreach rowEnd in rows
+4
+foreach col in columns
+partialSum[col] = sum of matrix[rowStart, col] through matrix[rowEnd, col]
+6
+runningMaxSum = maxSubArray(partialSum)
+7
+maxSum = maxCrunningMaxSum, maxSum)
+8
+return maxSum
+The sum in lines 5 and 6 takes R*C time to compute (since it iterates through r o w S t a r t through rowEnd),
+so this gives us a runtime of 0(R 3C). We're not quite done yet.
+In lines 5 and 6, we're basically adding up a [ 6 ] . . . a [ i ] from scratch, even though in the previous itera-
+tion of the outer for loop, we already added up a [ 0 ] . . . a [ i - 1 ] . Let's cut out this duplicated effort.
+1
+maxSum = 0
+2
+foreach rowStart in rows
+3
+clear array partialSum
+4
+foreach rowEnd in rows
+5
+foreach col in columns
+6
+partialSum[col] += matrix[rowEnd, col]
+runningMaxSum = maxSubArray(partialSum)
+8
+maxSum = max(nunningMaxSum, maxSum)
+9
+return maxSum
+Our full code looks like this:
+1
+SubMatrix getMaxMatrix(int[][] matrix) {
+2
+int rowCount = matrix.length;
+3
+int colCount = matrix[0],length;
+4
+SubMatrix best = null;
+5
+for (int rowStart = 0; rowStart < rowCount; rowStart++) {
+7
+lnt[] partialSum = new int[colCount];
+8
+for (int rowEnd = rowStart; rowEnd < rowCount; rowEnd+t) {
+10
+/* Add values at row rowEnd. */
+11
+for (int i = 0; i < colCount; i++) {
+614
+Cracking the Coding Interview, 6th Edition

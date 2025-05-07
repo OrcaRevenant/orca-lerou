@@ -1,0 +1,103 @@
+Solutions to Chapter 17 | Hard
+3
+public int zerosBelow = 0;
+4
+/* declaration, getters, setters */
+5
+>
+6
+7
+Subsquare findSquare(int[][] matrix) {
+8
+SquareCell[][] processed = processSquare(matrix);
+9
+for (int i = matrix.length; i >= 1; i--) {
+10
+Subsquare square = findSquareWithSize(processed, i);
+11
+if (square != null) return square;
+12
+}
+13
+return null;
+14 )
+15
+16 Subsquare findSquareWithSize(SquareCell[][] processed, int size) {
+17
+/* equivalent to first algorithm */
+18 >
+19
+20 boolean isSquare(SquareCell[][] matrix, int row, int col, int sz) {
+21
+SquareCell topLeft = matrix[row][col];
+22
+SquareCell topRight = matrix[row][col + sz - 1];
+23
+SquareCell bottomLeft = matrix[row + sz - 1][col]j
+24
+25
+/* Check top, left, right, and bottom edges, respectively. */
+26
+if (topLeft.zerosRight < sz || topLeft.zerosBelow < sz ||
+27
+topRight.zerosBelow < sz || bottomLeft.zerosRight < sz) {
+28
+return false;
+29
+}
+30
+return true;
+31 }
+32
+33
+SquareCell[][] processSquare(int[][ ] matrix) {
+34
+SquareCell[][] processed =
+new SquareCell[matrix.length][matrix.length];
+36
+37
+for (int r = matrix.length - 1; r >= 0; r--) {
+38
+for (int c = matrix.length - 1; c >= 0; c--) {
+39
+int rightZeros = 0;
+40
+int belowZeros = 0;
+41
+// only need to process if it's a black cell
+42
+if (rnatrix[r][c) « 0) {
+43
+rightZeros++;
+44
+belowZeros++;
+45
+II next column over is on same row
+46
+if (c + 1 < matrix.length) {
+47
+SquareCell previous = processed[r][c + 1];
+48
+rightZeros += previous.zerosRight;
+49
+}
+50
+if (r + 1 < matrix.length) {
+51
+SquareCell previous = processed[r + l][c];
+52
+belowZeros += previous,zerosBelow;
+53
+>
+54
+>
+55
+processed[r][c] = new 5quareCell(rightZeros, belowZeros);
+56
+>
+57
+>
+58
+return processed;
+55 S
+CrackingTheCodinglnterview.com | 6th Edition

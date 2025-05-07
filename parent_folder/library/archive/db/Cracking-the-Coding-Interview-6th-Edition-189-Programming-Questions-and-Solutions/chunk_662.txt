@@ -1,0 +1,9 @@
+Hints
+I
+nterviewers usually don't just hand you a question and expect you to solve it. Rather, they will typically
+offer guidance when you're stuck, especially on the harder questions. It's impossible to totally simulate
+the interview experience in a book, but these hints are designed to get you closer.
+Try to solve the questions independently when possible. But it's okay to look for some help when you are
+really struggling. Again, struggling is a normal part of the process.
+I've organized the hints somewhat randomly here, such that all the hints for a problem aren't adjacent. This
+way you won't accidentally see the second hint when you're reading the first hint.

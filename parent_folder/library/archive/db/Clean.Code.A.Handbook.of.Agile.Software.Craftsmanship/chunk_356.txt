@@ -1,0 +1,38 @@
+326
+Appendix A: Concurrency II
+Imagine the case where the ﬁrst thread completes the ﬁrst three instructions, up to and
+including GETFIELD, and then it is interrupted. A second thread takes over and performs
+the entire method, incrementing lastId by one; it gets 43 back. Then the ﬁrst thread picks up
+where it left off; 42 is still on the operand stack because that was the value of lastId when it
+executed GETFIELD. It adds one to get 43 again and stores the result. The value 43 is
+returned to the ﬁrst thread as well. The result is that one of the increments is lost because the
+ﬁrst thread stepped on the second thread after the second thread interrupted the ﬁrst thread.
+Making the getNexId() method synchronized ﬁxes this problem.
+Conclusion
+An intimate understanding of byte-code is not necessary to understand how threads can
+step on each other. If you can understand this one example, it should demonstrate the pos-
+sibility of multiple threads stepping on each other, which is enough knowledge.
+That being said, what this trivial example demonstrates is a need to understand the
+memory model enough to know what is and is not safe. It is a common misconception that
+the ++ (pre- or post-increment) operator is atomic, and it clearly is not. This means you
+need to know:
+• Where there are shared objects/values
+• The code that can cause concurrent read/update issues
+• How to guard such concurrent issues from happening
+Knowing Your Library
+Executor Framework
+As demonstrated in the ExecutorClientScheduler.java on page 321, the Executor frame-
+work introduced in Java 5 allows for sophisticated execution using thread pools. This is a
+class in the java.util.concurrent package.
+If you are creating threads and are not using a thread pool or are using a hand-written
+one, you should consider using the Executor. It will make your code cleaner, easier to fol-
+low, and smaller.
+The Executor framework will pool threads, resize automatically, and recreate threads
+if necessary. It also supports futures, a common concurrent programming construct. The
+Executor framework works with classes that implement Runnable and also works with
+classes that implement the Callable interface. A Callable looks like a Runnable, but it can
+return a result, which is a common need in multithreaded solutions.
+A future is handy when code needs to execute multiple, independent operations and
+wait for both to ﬁnish:
+public String processRequest(String message) throws Exception {
+Callable<String> makeExternalCall = new Callable<String>() {

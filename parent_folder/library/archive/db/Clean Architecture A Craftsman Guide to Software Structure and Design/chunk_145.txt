@@ -1,0 +1,29 @@
+MAINTENANCE
+Of all the aspects of a software system, maintenance is the most costly. The
+never-ending parade of new features and the inevitable trail of defects and
+corrections consume vast amounts of human resources.
+The primary cost of maintenance is in spelunking and risk. Spelunking is the cost
+of digging through the existing software, trying to determine the best place and
+the best strategy to add a new feature or to repair a defect. While making such
+changes, the likelihood of creating inadvertent defects is always there, adding to
+the cost of risk.
+A carefully thought-through architecture vastly mitigates these costs. By
+separating the system into components, and isolating those components through
+stable interfaces, it is possible to illuminate the pathways for future features and
+greatly reduce the risk of inadvertent breakage.
+KEEPING OPTIONS OPEN
+As we described in an earlier chapter, software has two types of value: the value
+of its behavior and the value of its structure. The second of these is the greater of
+the two because it is this value that makes software soft.
+Software was invented because we needed a way to quickly and easily change
+the behavior of machines. But that flexibility depends critically on the shape of
+the system, the arrangement of its components, and the way those components
+are interconnected.
+The way you keep software soft is to leave as many options open as possible, for
+as long as possible. What are the options that we need to leave open? They are
+the details that don’t matter.
+All software systems can be decomposed into two major elements: policy and
+details. The policy element embodies all the business rules and procedures. The
+policy is where the true value of the system lives.
+The details are those things that are necessary to enable humans, other systems,
+and programmers to communicate with the policy, but that do not impact the

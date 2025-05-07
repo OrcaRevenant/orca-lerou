@@ -1,0 +1,40 @@
+export default function foo() { .. }
+export function bar() { .. }
+export function baz() { .. }
+And this import:
+import foofn, * as hello from "world";
+foofn();
+hello.default();
+hello.bar();
+hello.baz();
+While this syntax is valid, it can be rather confusing that one method of the module
+(the default export) is bound at the top-level of your scope, whereas the rest of the
+named exports (and one called default) are bound as properties on a differently
+named (hello) identifier namespace.
+As I mentioned earlier, my suggestion would be to avoid designing your module
+exports in this way, to reduce the chances that your module’s users will suffer these
+strange quirks.
+All imported bindings are immutable and/or read-only. Consider the previous
+import; all of these subsequent assignment attempts will throw `TypeError`s:
+import foofn, * as hello from "world";
+foofn = 42;         // (runtime) TypeError!
+hello.default = 42; // (runtime) TypeError!
+hello.bar = 42;     // (runtime) TypeError!
+hello.baz = 42;     // (runtime) TypeError!
+Recall earlier in the "export`ing API Members" section that we talked about
+how the `bar and baz bindings are bound to the actual identifiers inside the "world"
+module. That means if the module changes those values, hello.bar and hello.baz
+now reference the updated values.
+But the immutable/read-only nature of your local imported bindings enforces that
+you cannot change them from the imported bindings, hence the `TypeError`s. That’s
+pretty important, because without those protections, your changes would end up
+affecting all other consumers of the module (remember: singleton), which could cre‐
+ate some very surprising side-effects!
+Moreover, though a module can change its API members from the inside, you should
+be very cautious of intentionally designing your modules in that fashion. ES6 mod‐
+ules are supposed to be static, so deviations from that principle should be rare and
+should be carefully and verbosely documented.
+110
+|
+Chapter 3: Organization
+www.it-ebooks.info

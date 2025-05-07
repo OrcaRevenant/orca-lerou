@@ -1,0 +1,65 @@
+325
+Possible Paths of Execution
+These three instructions are guaranteed to be atomic because, although the thread
+executing them could be interrupted after any one of them, the information for the
+PUTFIELD instruction (the constant value 0 on the top of the stack and the reference to
+this one below the top, along with the ﬁeld value) cannot be touched by another thread.
+So when the assignment occurs, we are guaranteed that the value 0 will be stored in the
+ﬁeld value. The operation is atomic. The operands all deal with information local to the
+method, so there is no interference between multiple threads.
+So if these three instructions are executed by ten threads, there are 4.38679733629e+24
+possible orderings. However, there is only one possible outcome, so the different orderings
+are irrelevant. It just so happens that the same outcome is guaranteed for longs in this case
+as well. Why? All ten threads are assigning a constant value. Even if they interleave with
+each other, the end result is the same.
+With the ++ operation in the getNextId method, there are going to be problems.
+Assume that lastId holds 42 at the beginning of this method. Here is the byte-code for this
+new method:
+ICONST_0
+Put the constant value 0 onto the operand stack.
+this, 0
+PUTFIELD lastId
+Store the top value on the stack (which is 0) into
+the ﬁeld value of the object referred to by the
+object reference one away from the top of the
+stack, this.
+<empty>
+Mnemonic
+Description
+Operand
+Stack After
+ALOAD 0
+Load this onto the operand stack
+this
+DUP
+Copy the top of the stack. We now have two
+copies of this on the operand stack.
+this, this
+GETFIELD lastId
+Retrieve the value of the ﬁeld lastId from the
+object pointed to on the top of the stack (this) and
+store that value back on to the stack.
+this, 42
+ICONST_1
+Push the integer constant 1 on the stack.
+this, 42, 1
+IADD
+Integer add the top two values on the operand
+stack and store the result back on to the operand
+stack.
+this, 43
+DUP_X1
+Duplicate the value 43 and put it before this.
+43, this, 43
+PUTFIELD value
+Store the top value on the operand stack, 43, into
+the ﬁeld value of the current object, represented by
+the next-to-top value on the operand stack, this.
+43
+IRETURN
+return the top (and only) value on the stack.
+<empty>
+Mnemonic
+Description
+Operand
+Stack After

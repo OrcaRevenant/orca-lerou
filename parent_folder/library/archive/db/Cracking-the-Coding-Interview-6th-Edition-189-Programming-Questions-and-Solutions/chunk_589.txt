@@ -1,0 +1,56 @@
+Solutions to Chapter 17 | Hard
+26
+return f a l s e ;
+27
+>
+28
+>
+29
+return true;
+30 >
+31
+32 /* HashMapList<String, Integer> is a HashMap that maps from Strings to
+33
+* ArrayList<Integer>, See appendix for implementation. */
+We could have also used a s u b s t r i n g and equals function, instead of writing i s A t Location. This is
+slightly faster {though not in terms of big O) because it doesn't require creating a bunch of substrings.
+This will take 0( k b t ) time, where k is the length of the longest string in T, b is the length of the bigger
+string, and t is the number of smaller strings within T.
+Solution #2
+To optimize this, we should think about how we can tackle all the elements in T at once, or somehow re-use
+work.
+One way is to create a trie-like data structure using each suffix in the bigger string. For the string bibs, the
+suffix list would be: bibs, ibs, bs, s.
+The tree for this is below.
+Then, all you need to do is search in the suffix tree for each string in T. Note that if "B" were a word, you
+would come up with two locations.
+1
+HashMapList<String, lnteger> searchAll(String big, S t r i n g [ ] smalls) {
+2
+HashMapList<Stringj lnteger> lookup = new HashMapList<String, Integer>();
+3
+Trie tree = createTrieFromstring(big);
+4
+f o r (String s : smalls) {
+5
+/* Get terminating location of each occurrence.*/
+6
+ArrayList<Integer> locations = tree.search(s);
+7
+8
+/* Adjust to s t a r t i n g location. */
+9
+subtractValue(locations,
+s . l e n g t h ( ) ) ;
+10
+11
+/* Insert.
+*/
+12
+lookup.put(s,
+locations);
+13
+>
+14
+return lookup;
+CrackingTheCodinglnterview.com | 6th Edition S 3 7

@@ -1,0 +1,38 @@
+124
+Chapter 9: Unit Tests
+In a way they were right. Their testing effort had failed them. But it was their decision
+to allow the tests to be messy that was the seed of that failure. Had they kept their tests
+clean, their testing effort would not have failed. I can say this with some certainty because
+I have participated in, and coached, many teams who have been successful with clean unit
+tests.
+The moral of the story is simple: Test code is just as important as production code. It
+is not a second-class citizen. It requires thought, design, and care. It must be kept as clean
+as production code.
+Tests Enable the -ilities
+If you don’t keep your tests clean, you will lose them. And without them, you lose the very
+thing that keeps your production code ﬂexible. Yes, you read that correctly. It is unit tests
+that keep our code ﬂexible, maintainable, and reusable. The reason is simple. If you have
+tests, you do not fear making changes to the code! Without tests every change is a possible
+bug. No matter how ﬂexible your architecture is, no matter how nicely partitioned your
+design, without tests you will be reluctant to make changes because of the fear that you
+will introduce undetected bugs.
+But with tests that fear virtually disappears. The higher your test coverage, the less
+your fear. You can make changes with near impunity to code that has a less than stellar
+architecture and a tangled and opaque design. Indeed, you can improve that architecture
+and design without fear!
+So having an automated suite of unit tests that cover the production code is the key to
+keeping your design and architecture as clean as possible. Tests enable all the -ilities,
+because tests enable change.
+So if your tests are dirty, then your ability to change your code is hampered, and you
+begin to lose the ability to improve the structure of that code. The dirtier your tests, the
+dirtier your code becomes. Eventually you lose the tests, and your code rots.
+Clean Tests
+What makes a clean test? Three things. Readability, readability, and readability. Read-
+ability is perhaps even more important in unit tests than it is in production code. What
+makes tests readable? The same thing that makes all code readable: clarity, simplicity,
+and density of expression. In a test you want to say a lot with as few expressions as
+possible.
+Consider the code from FitNesse in Listing 9-1. These three tests are difﬁcult to
+understand and can certainly be improved. First, there is a terrible amount of duplicate
+code [G5] in the repeated calls to addPage and assertSubString. More importantly, this
+code is just loaded with details that interfere with the expressiveness of the test.

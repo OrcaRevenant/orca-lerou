@@ -1,0 +1,60 @@
+12
+Solutions to C and C++
+12.1
+Last K Lines: Write a method to print the last K lines of an input file using C++.
+pg163
+SOLUTION
+One brute force way couid be to count the number of lines (N)and then print from M-K to Nth line. But this
+requires two reads of the file, which is unnecessarily costly. We need a solution which allows us to read just
+once and be able to print the last K lines.
+We can allocate an array for all K lines and the last K lines we've read in the array. , and so on. Each time that
+we read a new line, we purge the oldest line from the array.
+But—you might ask—wouldn't this require shifting elements in the array, which is also very expensive? No,
+not if we do it correctly. Instead of shifting the array each time, we wilt use a circular array.
+With a circular array, we always replace the oldest item when we read a new line. The oldest item is tracked
+in a separate variable, which adjusts as we add new items.
+The following is an example of a circular array:
+step 1 ( i n i t i a l l y ) : array = {a, b, c, d, e, f } . p = 0
+step 2 ( i n s e r t g ) :
+array = {g, b, c, d, e, f } . p = 1
+step 3 ( i n s e r t h):
+array = {g, h, c, d, e, f } . p = 2
+step 4 ( i n s e r t i ) :
+array = {g, h, i,
+d, e, f } . p = 3
+The code below implements this algorithm.
+1
+void p r i n t L a s t l 9 L i n e s ( c h a r * fileName) {
+2
+const i n t K = 10;
+3
+ifstream f i l e
+(fileName);
+4
+s t r i n g L[K];
+5
+i n t size = 6;
+6
+7
+/* read f i l e l i n e by l i n e i n t o c i r c u l a r array */
+8
+/* peek() so an EOF f o l l o w i n g a l i n e ending is not considered a separate l i n e */
+9
+while ( f i l e . p e e k ( ) != EOF) {
+19
+g e t l i n e ( f i l e , L [ s i z e % K ] ) ;
+11
+size++;
+12
+>
+13
+14
+/* compute s t a r t of c i r c u l a r array,
+and the size of it */
+15
+i n t s t a r t = size > K ? (size % K) : 0;
+16
+i n t count = min(K, s i z e ) ;
+17
+372
+Cracking the Coding Interview, 6th Edition

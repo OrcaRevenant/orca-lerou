@@ -1,0 +1,66 @@
+384
+Appendix B: org.jfree.date.SerialDate
+125         else {
+126             throw new IllegalArgumentException(
+127                 "The 'month' argument must be in the range 1 to 12."
+128             );
+129         }
+130
+131         if ((day >= 1) && (day <= SerialDate.lastDayOfMonth(month, year))) {
+132             this.day = day;
+133         }
+134         else {
+135             throw new IllegalArgumentException("Invalid 'day' argument.");
+136         }
+137
+138         // the serial number needs to be synchronised with the day-month-year...
+139         this.serial = calcSerial(day, month, year);
+140
+141         this.description = null;
+142
+143     }
+144
+145     /**
+146      * Standard constructor - creates a new date object representing the
+147      * specified day number (which should be in the range 2 to 2958465.
+148      *
+149      * @param serial  the serial number for the day (range: 2 to 2958465).
+150      */
+151     public SpreadsheetDate(final int serial) {
+152
+153         if ((serial >= SERIAL_LOWER_BOUND) && (serial <= SERIAL_UPPER_BOUND)) {
+154             this.serial = serial;
+155         }
+156         else {
+157             throw new IllegalArgumentException(
+158                 "SpreadsheetDate: Serial must be in range 2 to 2958465.");
+159         }
+160
+161         // the day-month-year needs to be synchronised with the serial number...
+162         calcDayMonthYear();
+163
+164     }
+165
+166     /**
+167      * Returns the description that is attached to the date.  It is not
+168      * required that a date have a description, but for some applications it
+169      * is useful.
+170      *
+171      * @return The description that is attached to the date.
+172      */
+173     public String getDescription() {
+174         return this.description;
+175     }
+176
+177     /**
+178      * Sets the description for the date.
+179      *
+180      * @param description  the description for this date (<code>null</code>
+181      *                     permitted).
+182      */
+183     public void setDescription(final String description) {
+184         this.description = description;
+185     }
+186
+Listing B-5 (continued)
+SpreadsheetDate.java

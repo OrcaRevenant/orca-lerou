@@ -1,0 +1,44 @@
+281
+Then Make It Right
+The next function is getNearestDayOfWeek (lines 695–726), which we corrected back
+on page 270. But the changes I made back then aren’t consistent with the current pattern in
+the last two functions [G11]. So I made it consistent and used some EXPLAINING TEMPO-
+RARY VARIABLES [G19] to clarify the algorithm.
+The getEndOfCurrentMonth method (lines 728–740) is a little strange because it is an
+instance method that envies [G14] its own class by taking a DayDate argument. I made it a
+true instance method and clariﬁed a few names.
+Refactoring weekInMonthToString (lines 742–761) turned out to be very interesting
+indeed. Using the refactoring tools of my IDE, I ﬁrst moved the method to the WeekInMonth
+enum that I created back on page 275. Then I renamed the method to toString. Next, I
+changed it from a static method to an instance method. All the tests still passed. (Can you
+guess where I am going?)
+Next, I deleted the method entirely! Five asserts failed (lines 411–415, Listing B-4,
+page 374). I changed these lines to use the names of the enumerators (FIRST,
+SECOND, . . .). All the tests passed. Can you see why? Can you also see why each of these
+steps was necessary? The refactoring tool made sure that all previous callers of
+weekInMonthToString now called toString on the weekInMonth enumerator because all enu-
+merators implement toString to simply return their names. . . .
+Unfortunately, I was a bit too clever. As elegant as that wonderful chain of refactor-
+ings was, I ﬁnally realized that the only users of this function were the tests I had just mod-
+iﬁed, so I deleted the tests.
+Fool me once, shame on you. Fool me twice, shame on me! So after determining that
+nobody other than the tests called relativeToString (lines 765–781), I simply deleted the
+function and its tests.
+offsetToTarget += 7;
+return plusDays(offsetToTarget);
+}
+public DayDate getNearestDayOfWeek(final Day targetDay) {
+int offsetToThisWeeksTarget = targetDay.index - getDayOfWeek().index;
+int offsetToFutureTarget = (offsetToThisWeeksTarget + 7) % 7;
+int offsetToPreviousTarget = offsetToFutureTarget - 7;
+if (offsetToFutureTarget > 3)
+return plusDays(offsetToPreviousTarget);
+else
+return plusDays(offsetToFutureTarget);
+}
+public DayDate getEndOfMonth() {
+Month month = getMonth();
+int year = getYear();
+int lastDay = lastDayOfMonth(month, year);
+return DayDateFactory.makeDate(lastDay, month, year);
+}

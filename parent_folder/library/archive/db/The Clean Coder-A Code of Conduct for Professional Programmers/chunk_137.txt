@@ -1,0 +1,33 @@
+ACCEPTANCE TESTS
+105
+There are many open-source and commercial tools that facilitate the automation
+of acceptance tests. FitNesse, Cucumber, cuke4duke, robot framework, and
+Selenium, just to mention a few. All these tools allow you to specify automated
+tests in a form that nonprogrammers can read, understand, and even author.
+E X TR A WO R K
+Sam’s point about work is understandable. It does look like a lot of extra work
+to write acceptance tests like this. But given Figure 7-1 we can see that it’s not
+really extra work at all. Writing these tests is simply the work of specifying the
+system. Specifying at this level of detail is the only way we, as programmers, can
+know what “done” means. Specifying at this level of detail is the only way that
+the stakeholders can ensure that the system they are paying for really does what
+they need. And specifying at this level of detail is the only way to successfully
+automate the tests. So don’t look at these tests as extra work. Look at them as
+massive time and money savers. These tests will prevent you from implementing
+the wrong system and will allow you to know when you are done.
+WH O WR ITE S ACC E PTAN C E TE ST S , AN D WH E N ?
+In an ideal world, the stakeholders and QA would collaborate to write these
+tests, and developers would review them for consistency. In the real world,
+stakeholders seldom have the time or inclination to dive into the required level
+of detail. So they often delegate the responsibility to business analysts, QA, or
+even developers. If it turns out that developers must write these tests, then take
+care that the developer who writes the test is not the same as the developer who
+implements the tested feature.
+Typically business analysts write the “happy path” versions of the tests, because
+those tests describe the features that have business value. QA typically writes the
+“unhappy path” tests, the boundary conditions, exceptions, and corner cases.
+This is because QA’s job is to help think about what can go wrong.
+Following the principle of “late precision,” acceptance tests should be written as
+late as possible, typically a few days before the feature is implemented. In Agile
+projects, the tests are written after the features have been selected for the next
+Iteration or Sprint.

@@ -1,0 +1,41 @@
+Now let’s assume that this particular vote has come to an end and your company
+is now running a new poll. A new image has been created for the new poll and
+has been added to the same Docker Hub repository, but this one is tagged as v2
+instead of v1.
+Let’s also assume that you’ve been tasked with pushing the updated image to the
+swarm in a staged manner - 2 containers at a time with a 20 second delay in
+between each batch of 2. We can use the following docker service update
+command to accomplish this.
+$ docker service update \
+--image nigelpoulton/tu-demo:v2 \
+--update-parallelism 2 \
+--update-delay 20s uber-svc
+uber-svc
+Let’s review the command. docker service update lets us make updates to
+running services by updating the service’s desired state. This time we gave it a
+new image tag v2 instead of v1. And we used the --update-parallelism and
+the --upate-delay flags to make sure that the new image was pushed to 2 tasks
+at a time with a 20 second cool-off period in between each pair. Finally, we told
+Docker to make these changes to the uber-svc service.
+If we run a docker service ps against the service we’ll see that some of the
+tasks in the service are at v2 while some are at v1. If we give the operation
+enough time to complete (4 minutes) all tasks will eventually reach the new
+desired state of using the v2 image.
+$ docker service ps uber-svc
+ID        NAME              IMAGE        NODE   DESIRED   CURRENT STATE
+7z...nys  uber-svc.1    nigel...v2   mgr2  Running   Running 13 secs
+0v...7e5  \_uber-svc.1  nigel...v1   wrk3  Shutdown  Shutdown 13 secs
+bh...wa0  uber-svc.2    nigel...v1   wrk2  Running   Running 1 min
+e3...gr2  uber-svc.3    nigel...v2   wrk2  Running   Running 13 secs
+23...u97  \_uber-svc.3  nigel...v1   wrk2  Shutdown  Shutdown 13 secs
+82...5y1  uber-svc.4    nigel...v1   mgr2  Running   Running 1 min
+c3...gny  uber-svc.5    nigel...v1   wrk3  Running   Running 1 min
+e6...3u0  uber-svc.6    nigel...v1   wrk1  Running   Running 1 min
+78...r7z  uber-svc.7    nigel...v1   wrk1  Running   Running 1 min
+2m...kdz  uber-svc.8    nigel...v1   mgr3  Running   Running 1 min
+b9...k7w  uber-svc.9    nigel...v1   mgr3  Running   Running 1 min
+ag...v16  uber-svc.10   nigel...v1   mgr2  Running   Running 1 min
+e6...dfk  uber-svc.11   nigel...v1   mgr1  Running   Running 1 min
+e2...k1j  uber-svc.12   nigel...v1   mgr1  Running   Running 1 min
+You can witness the update happening in real-time by opening a web browser to
+any node in the swarm and hitting refresh several times. Some of the requests

@@ -1,0 +1,31 @@
+LEARNING HOW TO SAY “YES”
+53
+Marge: “Will that include the documentation?”
+Peter: “I’ll try to get that done as well.”
+Perhaps Marge can’t hear the dithering in Peter’s statements, but he’s certainly
+not making much of a commitment. Marge is asking questions that demand
+boolean answers but Peter’s boolean responses are fuzzy.
+Notice the abuse of the word try. In the last chapter we used the “extra effort”
+definition of try. Here, Peter is using the “maybe, maybe not” definition.
+Peter would be better off responding like this:
+Marge: “Peter, will you have the rating engine mods done by Friday?”
+Peter:
+“Probably, but it might be Monday.”
+Marge: “Will that include the documentation?”
+Peter:
+“The documentation will take me another few hours, so Monday
+is possible, but it might be as late as Tuesday.”
+In this case Peter’s language is more honest. He is describing his own
+uncertainty to Marge. Marge may be able to deal with that uncertainty. On the
+other hand, she might not.
+CO M M IT TI N G WITH D I S C I PLI N E
+Marge:  “Peter, I need a definite yes or no. Will you have the rating engine
+finished and documented by Friday?”
+This is a perfectly fair question for Marge to ask. She’s got a schedule to maintain,
+and she needs a binary answer about Friday. How should Peter respond?
+Peter:
+“In that case, Marge, I’ll have to say no. The soonest I can be sure
+that I’ll be done with the mods and the docs is Tuesday.”
+Marge: “You are committing to Tuesday?”
+Peter:
+“Yes, I will have it all ready on Tuesday.”

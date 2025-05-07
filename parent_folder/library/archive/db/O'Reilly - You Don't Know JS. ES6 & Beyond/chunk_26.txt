@@ -1,0 +1,40 @@
+// pass along all of `args` as arguments
+// to `foo(..)`
+foo.apply( null, args );
+}
+bar( 0, 1, 2, 3 );                  // 2 4
+The ...args in the foo(..) function declaration gathers arguments, and the ...args
+in the console.log(..) call spreads them out. That’s a good illustration of the sym‐
+metric but opposite uses of the ... operator.
+Besides the ... usage in a function declaration, there’s another case where ... is used
+for gathering values, and we’ll look at it in the “Too Many, Too Few, Just Enough” sec‐
+tion later in this chapter.
+Default Parameter Values
+Perhaps one of the most common idioms in JavaScript relates to setting a default
+value for a function parameter. The way we’ve done this for years should look quite
+familiar:
+function foo(x,y) {
+x = x || 11;
+y = y || 31;
+console.log( x + y );
+}
+foo();              // 42
+foo( 5, 6 );        // 11
+foo( 5 );           // 36
+foo( null, 6 );     // 17
+Of course, if you’ve used this pattern before, you know that it’s both helpful and a lit‐
+tle bit dangerous, if for example you need to be able to pass in what would otherwise
+be considered a falsy value for one of the parameters. Consider:
+foo( 0, 42 );       // 53 <-- Oops, not 42
+Why? Because the 0 is falsy, and so the x || 11 results in 11, not the directly passed
+in 0.
+To fix this gotcha, some people will instead write the check more verbosely like this:
+function foo(x,y) {
+x = (x !== undefined) ? x : 11;
+y = (y !== undefined) ? y : 31;
+console.log( x + y );
+}
+Default Parameter Values
+|
+15
+www.it-ebooks.info

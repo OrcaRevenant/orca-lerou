@@ -1,0 +1,30 @@
+HANDLING PRESSURE
+153
+C R I S I S D I S C I PLI N E
+You know what you believe by observing yourself in a crisis. If in a crisis you
+follow your disciplines, then you truly believe in those disciplines. On the other
+hand, if you change your behavior in a crisis, then you don’t truly believe in
+your normal behavior.
+If you follow the discipline of Test Driven Development in noncrisis times
+but abandon it during a crisis, then you don’t really trust that TDD is helpful.
+If you keep your code clean during normal times but make messes in a crisis,
+then you don’t really believe that messes slow you down. If you pair in a
+crisis but don’t normally pair, then you believe pairing is more efficient than
+non-pairing.
+Choose disciplines that you feel comfortable following in a crisis. Then follow
+them all the time. Following these disciplines is the best way to avoid getting
+into a crisis.
+Don’t change your behavior when the crunch comes. If your disciplines are the
+best way to work, then they should be followed even in the depths of a crisis.
+HA N D LI N G PR E S S U R E
+Forestalling, mitigating, and eliminating pressure is all well and good, but
+sometimes the pressure comes despite all your best intentions and preventions.
+Sometimes the project just takes longer than anyone thought it would. Sometimes
+the initial design is just wrong and must be reworked. Sometimes you lose a
+valued team member or customer. Sometimes you make a commitment that
+you just can’t keep. Then what?
+D O N ’T PAN IC
+Manage your stress. Sleepless nights won’t help you get done any faster. Sitting
+and fretting won’t help either. And the worst thing you could do is to rush!
+Resist that temptation at all costs. Rushing will only drive you deeper into the
+hole.

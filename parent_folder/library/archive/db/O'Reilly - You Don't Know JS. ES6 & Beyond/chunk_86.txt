@@ -1,0 +1,37 @@
+For example, a custom iterator may add additional metadata to the result object, like
+where the data came from, how long it took to retrieve, cache expiration length, fre‐
+quency for the appropriate next request, etc.
+Technically, value is optional if it would otherwise be considered
+absent or unset, such as in the case of the value of undefined. Since
+accessing res.value will produce undefined whether it’s present
+with that value or absent entirely, the presence/absence of the prop‐
+erty is more an implementation detail and/or an optimization,
+rather than a functional issue.
+next() Iteration
+Let’s look at an array, which is an iterable, and the iterator it can produce to consume
+its values:
+var arr = [1,2,3];
+var it = arr[Symbol.iterator]();
+it.next();      // { value: 1, done: false }
+it.next();      // { value: 2, done: false }
+it.next();      // { value: 3, done: false }
+it.next();      // { value: undefined, done: true }
+Each time the method located at Symbol.iterator (see Chapter 2 and 7) is invoked
+on this arr value, it will produce a new fresh iterator. Most structures will do the
+same, including all the built-in data structures in JS.
+However, it is possible to conceive of a structure which could only produce a single
+iterator (singleton pattern), or perhaps only allow one unique iterator at a time,
+requiring the current one to be
+You’ll notice that the it iterator in the previous snippet doesn’t report done: true
+when you received the 3 value. You have to call next() again, in essence going
+beyond the end of the array’s values, to get the completed signal done: true. It may
+not be clear why until later in this section, but that design decision will typically be
+considered a best practice.
+Primitive string values are also iterables by default:
+var greeting = "hello world";
+var it = greeting[Symbol.iterator]();
+it.next();      // { value: "h", done: false }
+Iterators
+|
+75
+www.it-ebooks.info

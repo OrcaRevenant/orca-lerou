@@ -1,0 +1,25 @@
+CHAPTER 6
+API Additions
+From conversions of values to mathematic calculations, ES6 adds many static proper‐
+ties and methods to various built-in natives and objects to help with common tasks.
+In addition, instances of some of the natives have new capabilities via various new
+prototype methods.
+Most of these features can be faithfully polyfilled. We will not dive
+into such details here, but check out “ES6 Shim” (https://
+github.com/paulmillr/es6-shim/) for standards-compliant shims/
+polyfills.
+Array
+One of the most commonly extended features in JS by various user libraries is the
+Array type. It should be no surprise that ES6 adds a number of helpers to Array, both
+static and prototype (instance).
+Array.of(..) Static Function
+There’s a well known gotcha with the Array(..) constructor, which is that if there’s
+only one argument passed, and that argument is a number, instead of making an
+array of one element with that number value in it, it constructs an empty array with a
+length property equal to the number. This action produces the unfortunate and
+quirky “empty slots” behavior that’s reviled about JS arrays.
+Array.of(..) replaces Array(..) as the preferred function-form constructor for
+arrays, because Array.of(..) does not have that special single-number-argument
+case. Consider:
+151
+www.it-ebooks.info

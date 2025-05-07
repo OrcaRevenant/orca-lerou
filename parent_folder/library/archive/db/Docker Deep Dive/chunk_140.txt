@@ -1,0 +1,40 @@
+Swarm mode - The commands
+docker swarm init is the command to create a new swarm. The node that
+you run the command on becomes the first manager in the new swarm and
+is switched to run in swarm mode.
+docker swarm join-token reveals the commands and tokens required to
+join workers and managers to existing swarms. To expose the command to
+join a new manager use the docker swarm join-token manager command,
+and to get the command to join a worker use the docker swarm join-
+token worker command.
+docker node ls lists all nodes in the swarm and lists which are managers
+and which is the leader.
+docker service create is the command to declaratively create a new
+service.
+docker service ls lists running services in the swarm and gives basic info
+on the state of the service and any tasks it’s running.
+docker service ps <service> gives more detailed information about
+individual tasks running in a service.
+docker service inspect gives very detailed information on a service. It
+accepts the --pretty flag to limit the information returned to the most
+important information.
+docker service scale lets you scale the number of tasks in a service up
+and down.
+docker service update lets you update many of the properties of a
+running service.
+docker service rm is the command to delete a service from the swarm.
+Use it with caution as it deletes all tasks in a service without asking for
+confirmation.
+
+Chapter summary
+In this chapter we learned about swarm mode and how to build a swarm.
+We used the docker swarm init command to create a new swarm and make the
+node we ran the command on the first manager of that swarm. We then joined
+managers and workers. We learned that managers operate in an HA formation
+and the recommended number of managers is either 3 or 5.
+We learned how to declare services and run them on a swarm. We saw how
+network ports are exposed across the entire swarm allowing us to hit any node in
+the swarm and reach the service endpoint - even if the node we hit wasn’t
+running a task for the service.
+We wrapped the chapter up by scaling a service up then down, and pushing an
+update to a live service using a rolling update.

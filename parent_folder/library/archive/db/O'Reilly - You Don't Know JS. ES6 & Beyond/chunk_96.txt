@@ -1,0 +1,42 @@
+yield
+Generators also have a new keyword you can use inside them, to signal the pause
+point: yield. Consider:
+function *foo() {
+var x = 10;
+var y = 20;
+yield;
+var z = x + y;
+}
+In this *foo() generator, the operations on the first two lines would run at the begin‐
+ning, then yield would pause the generator. If and when resumed, the last line of
+*foo() would run. yield can appear any number of times (or not at all, technically!)
+in a generator.
+You can even put yield inside a loop, and it can represent a repeated pause point. In
+fact, a loop that never completes just means a generator that never completes, which
+is completely valid, and sometimes entirely what you need.
+yield is not just a pause point. It’s an expression that sends out a value when pausing
+the generator. Here’s a while..true loop in a generator that for each iteration `yield`s
+a new random number:
+function *foo() {
+while (true) {
+yield Math.random();
+}
+}
+The yield .. expression not only sends a value — yield without a value is the same
+as yield undefined — but also receives (e.g., is replaced by) the resumption value
+message. Consider:
+function *foo() {
+var x = yield 10;
+console.log( x );
+}
+This generator will, at first run, yield out the value 10 when pausing itself. When you
+resume the generator — using the it.next(..) we referred to earlier — whatever
+value (if any) you resume with will replace/complete the whole yield 10 expression,
+meaning whatever value that is will be assigned to the x variable.
+A yield .. expression can appear anywhere a normal expression can. For example:
+function *foo() {
+var arr = [ yield 1, yield 2, yield 3 ];
+Generators
+|
+85
+www.it-ebooks.info

@@ -1,0 +1,42 @@
+For detailed information about a service, use the docker service inspect
+command.
+$ docker service inspect --pretty web-fe
+ID:             z7ovearqmruwk0u2vc5o7ql0p
+Name:           web-fe
+Service Mode:   Replicated
+Replicas:      5
+Placement:
+UpdateConfig:
+Parallelism:   1
+On failure:    pause
+Monitoring Period: 5s
+Max failure ratio: 0
+Update order:      stop-first
+RollbackConfig:
+Parallelism:   1
+On failure:    pause
+Monitoring Period: 5s
+Max failure ratio: 0
+Rollback order:    stop-first
+ContainerSpec:
+Image:   nigelpoulton/pluralsight-docker-ci:latest@sha256:7a6b01...d8d3d
+Resources:
+Endpoint Mode:  vip
+Ports:
+PublishedPort = 8080
+Protocol = tcp
+TargetPort = 8080
+PublishMode = ingress
+The example above uses the --pretty flag to limit the output to the most
+interesting items printed in an easy-to-read format. Leaving off the --pretty
+flag will give a more verbose output.
+We’ll come back to some of these outputs later.
+Let’s go and see how to scale a service.
+Scaling a service
+Another powerful feature of services is the ability to easily scale them up and
+down.
+Let’s assume business is booming and we’re seeing double the amount of
+anticipated traffic hitting the web front-end. Fortunately, scaling the web-fe
+service is as simple as running the docker service scale command.
+$ docker service scale web-fe=10
+web-fe scaled to 10

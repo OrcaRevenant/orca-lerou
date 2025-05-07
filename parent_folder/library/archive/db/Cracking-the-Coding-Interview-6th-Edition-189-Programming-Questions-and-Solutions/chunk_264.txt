@@ -1,0 +1,60 @@
+Solutions to Chapter 4 | Trees and Graphs
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113 >
+This solution takes 0(P + D) time, where P is the number of projects and D is the number of dependency
+pairs.
+I
+Note: You might recognize this as the topological sort algorithm on page 632. We've rederived
+this from scratch. Most people won't know this algorithm and it's reasonable for an interviewer
+to expect you to be able to derive it.
+public void addNeighbor(Project node) {
+if (!map.containsKey(node.getNaine()))
+{
+children.add(node);
+map, put (node, get Name ()., node);
+node.incrementDependencies();
+}
+>
+public void incrementDependenciesf) { dependencies++; }
+public void decrementDependenciesO { dependencies--; }
+public String getName() { return name; }
+public Arrayl_ist<Project> getChildren() { return children; }
+public i n t getNumberDependencies() { return dependencies; }
+Solution #2
+Alternatively, we can use depth-first search (DFS) to find the build path.
+Suppose we picked an arbitrary node (say b) and performed a depth-first search on it. When we get to the
+end of a path and can't go any further (which will happen at h and e), we know that those terminating
+nodes can be the last projects to be built. No projects depend on them.
+DFS(b)
+DFS(h)
+build order = . . . ,
+DFS(a)
+DFS(e)
+build order =
+e, h
+// Step l
+// Step 2
+// Step 3
+II Step 4
+// Step 5
+11 Step 6
+II Step 7+
+Now, consider what happens at node a when we return from the DFS of e. We know a's children need to
+appear after a in the build order. So, once we return from searching a's children (and therefore they have
+been added), we C3n choose to add a to the front of the build order.
+274
+Cracking the Coding Interview, 6th Edition

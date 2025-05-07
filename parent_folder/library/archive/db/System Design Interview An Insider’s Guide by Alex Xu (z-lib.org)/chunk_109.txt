@@ -1,0 +1,20 @@
+Step 2 - Propose high-level design and get buy-in
+In this section, we discuss the API endpoints, URL redirecting, and URL shortening flows.
+API Endpoints
+API endpoints facilitate the communication between clients and servers. We will design the
+APIs REST-style. If you are unfamiliar with restful API, you can consult external materials,
+such as the one in the reference material [1]. A URL shortener primary needs two API
+endpoints.
+1.URL shortening. To create a new short URL, a client sends a POST request, which contains
+one parameter: the original long URL. The API looks like this:
+POST api/v1/data/shorten
+• request parameter: {longUrl: longURLString}
+• return shortURL
+2.URL redirecting. To redirect a short URL to the corresponding long URL, a client sends a
+GET request. The API looks like this:
+GET api/v1/shortUrl
+• Return longURL for HTTP redirection
+URL redirecting
+Figure 8-1 shows what happens when you enter a tinyurl onto the browser. Once the server
+receives a tinyurl request, it changes the short URL to the long URL with 301 redirect.
+The detailed communication between clients and servers is shown in Figure 8-2.

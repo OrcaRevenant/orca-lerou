@@ -1,0 +1,14 @@
+xxiii
+Foreword
+code is never perfect. We become more fully human, more worthy of the divine, and closer
+to that greatness in the details.
+In our profession, we desperately need all the help we can get. If a clean shop ﬂoor
+reduces accidents, and well-organized shop tools increase productivity, then I’m all for
+them. As for this book, it is the best pragmatic application of Lean principles to software I
+have ever seen in print. I expected no less from this practical little group of thinking indi-
+viduals that has been striving together for years not only to become better, but also to gift
+their knowledge to the industry in works such as you now ﬁnd in your hands. It leaves the
+world a little better than I found it before Uncle Bob sent me the manuscript.
+Having completed this exercise in lofty insights, I am off to clean my desk.
+James O. Coplien
+Mørdrup, Denmark

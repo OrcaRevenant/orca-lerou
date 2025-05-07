@@ -1,0 +1,44 @@
+Introduction
+Something's Wrong
+We walked out of the hiring meeting frustrated—again. Of the ten candidates we reviewed that day, none
+would receive offers. Were we being too harsh, we wondered?
+I, in particular, was disappointed. We had rejected one of my candidates. A former student. One I had
+referred. He had a 3.73 GPA from the University of Washington, one of the best computer science schools
+in the world, and had done extensive work on open-source projects. He was energetic. He was creative. He
+was sharp. He worked hard. He was a true geek in all the best ways.
+But I had to agree with the rest of the committee: the data wasn't there. Even if my emphatic recommenda-
+tion could sway them to reconsider, he would surely get rejected in the later stages of the hiring process.
+There were just too many red flags.
+Although he was quite intelligent, he struggled to solve the interview problems. Most successful candi-
+dates could fly through the first question, which was a twist on a well-known problem, but he had trouble
+developing an algorithm. When he came up with one, he failed to consider solutions that optimized for
+other scenarios. Finally, when he began coding, he flew through the code with an initial solution, but it
+was riddled with mistakes that he failed to catch. Though he wasn't the worst candidate we'd seen by any
+measure, he was far from meeting the "bar." Rejected.
+When he asked for feedback over the phone a couple of weeks later, I struggled with what to tell him. Be
+smarter? No, 1 knew he was brilliant. Be a better coder? No, his skills were on par with some of the best I'd
+seen.
+Like many motivated candidates, he had prepared extensively. He had read K&R's classic C book, and he'd
+reviewed CLRS'famous algorithms textbook. He could describe in detail the myriad of ways of balancing a
+tree, and he could do things in C that no sane programmer should ever want to do.
+I had to tell him the unfortunate truth: those books aren't enough. Academic books prepare you for fancy
+research, and they wilt probably make you a better software engineer, but they're not sufficient for inter-
+views. Why? I'll give you a hint: Your interviewers haven't seen red-black trees since they were in school
+either.
+To crack the coding interview, you need to prepare with real interview questions. You must practice on
+real problems and learn their patterns. It's about developing a fresh algorithm, not memorizing existing
+problems.
+Cracking the Coding Interview is the result of my first-hand experience interviewing at top companies and
+later coaching candidates through these interviews. It is the result of hundreds of conversations with candi-
+dates. It is the result of the thousands of questions contributed by candidates and interviewers. And it's the
+result of seeing so many interview questions from so many firms. Enclosed in this book are 189 of the best
+interview questions, selected from thousands of potential problems.
+My Approach
+The focus of Cracking the Coding Interview is algorithm, coding, and design questions. Why? Because
+while you can and will be asked behavioral questions, the answers will be as varied as your resume. Like-
+wise, while many firms will ask so-called "trivia"questions (e.g.,"What is a virtual function?"), the skills devel-
+oped through practicing these questions are limited to very specific bits of knowledge. The book will briefly
+touch on some of these questions to show you what they're like, but i have chosen to allocate space to areas
+where there's more to learn.
+VIM
+Cracking the Coding Interview, 6th Edition

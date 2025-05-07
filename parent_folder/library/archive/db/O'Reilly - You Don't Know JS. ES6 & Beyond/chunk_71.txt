@@ -1,0 +1,38 @@
+While y does not alter the meaning of ^ in any way, the m multiline
+mode does, such that ^ means start-of-input or start of text after a
+newline. So, if you combine y and m flags together for a pattern, you
+can find multiple ^-rooted matches in a string. But remember:
+since it’s y sticky, you’ll have to make sure lastIndex is pointing at
+the correct new line position (likely by matching to the end of the
+line) each subsequent time, or no subsequent matches will be
+made.
+Regular Expression flags
+Prior to ES6, if you wanted to examine a regular expression object to see what flags it
+had applied, you needed to parse them out — ironically, probably with another regu‐
+lar expression — from the content of the source property, such as:
+var re = /foo/ig;
+re.toString();          // "/foo/ig"
+var flags = re.toString().match( /\/([gim]*)$/ )[1];
+flags;                  // "ig"
+As of ES6, you can now get these values directly, with the new flags property:
+var re = /foo/ig;
+re.flags;               // "gi"
+It’s a small nuance, but the ES6 specification calls for the expression’s flags to be listed
+in this order: "gimuy", regardless of what order the original pattern was specified
+with. That’s the difference between /ig and "gi".
+No, the order of flags specified or listed doesn’t matter.
+Another tweak from ES6 is that the RegExp(..) constructor is now flags-aware if
+you pass it an existing regular expression:
+var re1 = /foo*/y;
+re1.source;                         // "foo*"
+re1.flags;                          // "y"
+var re2 = new RegExp( re1 );
+re2.source;                         // "foo*"
+re2.flags;                          // "y"
+var re3 = new RegExp( re1, "ig" );
+re3.source;                         // "foo*"
+re3.flags;                          // "gi"
+60
+|
+Chapter 2: Syntax
+www.it-ebooks.info

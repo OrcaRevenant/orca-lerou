@@ -1,0 +1,37 @@
+Just like = assignment, yield is also “right-associative”, which means that multiple
+yield expressions in succession are treated as having been ( .. ) grouped from
+right to left. So, yield yield yield 3 is treated as yield (yield (yield 3)). Of
+course, a “left-associative” interpretation like ((yield) yield) yield 3 would make
+no sense.
+Just like with operators, it’s a good idea to use ( .. ) grouping, even if not strictly
+required, to disambiguate your intent if yield is combined with other operators or
+`yield`s.
+See the Types & Grammar title of this series for more information
+about operator precedence and associativity.
+yield *
+In the same way that the * makes a function declaration into function * generator
+declaration, a * makes yield into yield *, which is a very different mechanism,
+called yield delegation. Grammatically, yield *.. is will behave the same as a
+yield .., as discussed in the previous section.
+yield * .. requires an iterable; it then invokes that iterable’s iterator, and delegates
+its own host generator’s control to that iterator until it’s exhausted. Consider:
+function *foo() {
+yield *[1,2,3];
+}
+Exactly the same as earlier discussion of * position in a generator’s
+declaration, the * positioning in yield * expressions is stylistically
+up to you. Most other literature prefers yield* .., but I prefer
+yield *.., for very symmetrical reasons as already discussed.
+The [1,2,3] value produces an iterator which will step through its values, so the
+*foo() generator will yield those values out at its consumed. Another way to illus‐
+trate the behavior is in yield delegating to another generator:
+function *foo() {
+yield 1;
+yield 2;
+yield 3;
+}
+function *bar() {
+Generators
+|
+87
+www.it-ebooks.info

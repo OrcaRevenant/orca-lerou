@@ -1,0 +1,20 @@
+85
+Horizontal Formatting
+ﬁrst few functions, without having to immerse ourselves in the details. Listing 5-5 is
+organized this way. Perhaps even better examples are Listing 15-5 on page 263, and List-
+ing 3-7 on page 50.
+Horizontal Formatting
+How wide should a line be? To answer that, let’s look at how wide lines are in typical pro-
+grams. Again, we examine the seven different projects. Figure 5-2 shows the distribution
+of line lengths of all seven projects. The regularity is impressive, especially right around
+45 characters. Indeed, every size from 20 to 60 represents about 1 percent of the total
+number of lines. That’s 40 percent! Perhaps another 30 percent are less than 10 characters
+wide. Remember this is a log scale, so the linear appearance of the drop-off above 80 char-
+acters is really very signiﬁcant. Programmers clearly prefer short lines.
+This suggests that we should strive to keep our lines short. The old Hollerith limit of
+80 is a bit arbitrary, and I’m not opposed to lines edging out to 100 or even 120. But
+beyond that is probably just careless.
+I used to follow the rule that you should never have to scroll to the right. But monitors
+are too wide for that nowadays, and younger programmers can shrink the font so small
+Figure 5-2
+Java line width distribution

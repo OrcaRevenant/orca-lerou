@@ -1,0 +1,17 @@
+Figure 9.2 The infamous square/rectangle problem
+In this example, Square is not a proper subtype of Rectangle because the height
+and width of the Rectangle are independently mutable; in contrast, the height
+and width of the Square must change together. Since the User believes it is
+communicating with a Rectangle, it could easily get confused. The following
+code shows why:
+Click here to view code image
+Rectangle r = …
+r.setW(5);
+r.setH(2);
+assert(r.area() == 10);
+If the … code produced a Square, then the assertion would fail.
+The only way to defend against this kind of LSP violation is to add mechanisms
+to the User (such as an if statement) that detects whether the Rectangle is, in
+fact, a Square. Since the behavior of the User depends on the types it uses, those
+types are not substitutable.
+LSP AND ARCHITECTURE

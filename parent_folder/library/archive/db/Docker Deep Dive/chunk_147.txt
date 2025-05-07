@@ -1,0 +1,24 @@
+$ docker container ls
+CONTAINER ID   IMAGE           COMMAND           CREATED      STATUS
+396c8b142a85   ubuntu:latest   "sleep infinity"  2 hours ago  Up 2 hrs
+$
+$ docker container inspect \
+--format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' 396c8b\
+142a85
+10.0.0.3
+Make sure you run these commands on both nodes to get the IP addresses of
+both containers.
+Figure 10.3 shows the configuration so far.
+Figure 10.3
+As we can see, there is a Layer 2 overlay network spanning both hosts, and each
+container has an IP address on this overlay network. This means that the
+container on node1 will be able to ping the container on node2 using its
+10.0.0.4 address from the overlay network. This works despite the fact that
+both nodes are on separate Layer 2 underlay networks. Let’s prove it.
+Log on to the container on node1 and ping the remote container.
+To do this on the Linux Ubuntu container you will need to install the ping utility.
+If you’re following along with the Windows PowerShell example the ping utility
+is already installed.
+Remember that the container IDs used below will be different in your
+environment.
+Linux example:

@@ -1,0 +1,41 @@
+Let’s instead iterate the generator manually:
+function *foo() {
+yield 1;
+yield 2;
+yield 3;
+}
+var it = foo();
+it.next();              // { value: 1, done: false }
+it.next();              // { value: 2, done: false }
+it.next();              // { value: 3, done: false }
+it.next();              // { value: undefined, done: true }
+If you look closely, there are 3 yield statements and 4 next() calls. That may seem
+like a strange mismatch. In fact, there will always be one more next() call than yield
+expression, assuming all are evaluated and the generator is fully run to completion.
+But if you look at it from the opposite perspective (inside-out instead of outside-in),
+the matching between yield and next() makes more sense.
+Recall that the yield .. expression will be completed by the value you resume the
+generator with. That means the argument you pass to next(..) completes whatever
+yield .. expression is currently paused waiting for a completion.
+Let’s illustrate this perspective this way:
+function *foo() {
+var x = yield 1;
+var y = yield 2;
+var z = yield 3;
+console.log( x, y, z );
+}
+In this snippet, each yield .. is sending a value out (1, 2, 3), but more directly, it’s
+pausing the generator to wait for a value. In other words, it’s almost like asking the
+question, “What value should I use here? I’ll wait to hear back.”
+Now, here’s how we control *foo() to start it up:
+var it = foo();
+it.next();              // { value: 1, done: false }
+That first next() call is starting up the generator from its initial paused state, and
+running it to the first yield. At the moment you call that first next(), there’s no
+yield .. expression waiting for a completion. If you passed a value to that first
+next() call, it would just be thrown away, because nobody is waiting to receive such
+value.
+90
+|
+Chapter 3: Organization
+www.it-ebooks.info

@@ -1,0 +1,46 @@
+VIII ( The Offer and Beyond
+Company Stability
+All else being equal, of course stability is a good thing. No one wants to be fired or laid off.
+However, all else isn't actually equal. The more stable companies are also often growing more slowly.
+How much emphasis you should put on company stability really depends on you and your values. For some
+candidates, stability should not be a large factor. Can you fairly quickly find a new job? If so, it might be
+better to take the rapidly growing company, even if it's unstable? If you have work visa restrictions or just
+aren't confident in your ability to find something new, stability might be more important.
+The Happiness Factor
+Last but not least, you should of course consider how happy you will be. Any of the following factors may
+impact that:
+•
+TTie Product; Many people look heavily at what product they are building, and of course this matters a bit.
+However, for most engineers, there are more important factor, such as who you work with.
+•
+Manager and Tea mm ates: When people say that they love, or hate, their job, it's often because of their
+teammates and their manager. Have you met them? Did you enjoy talking with them?
+•
+Company Culture: Culture is tied to everything from how decisions get made, to the social atmosphere,
+to how the company is organized. Ask your future teammates how they would describe the culture.
+•
+Hours: Ask future teammates about how long they typically work, and figure out if that meshes with your
+lifestyle. Remember, though, that hours before major deadlines are typically much longer.
+Additionally, note that if you are given the opportunity to switch teams easily (like you are at Google and
+Facebook), you'll have an opportunity to find a team and product that matches you well.
+• Negotiation
+Years ago, I signed up for a negotiations class. On the first day, the instructor asked us to imagine a scenario
+where we wanted to buy a car. Dealership A sells the car for a fixed $20,000—no negotiating. Dealership B
+allows us to negotiate. How much would the car have to be (after negotiating) for us to goto Dealership B?
+(Quick! Answer this for yourself!)
+On average, the class said that the car would have to be $750 cheaper. In other words, students were willing
+to pay $750 just to avoid having to negotiate for an hour or so. Not surprisingly, in a class poll, most of these
+students also said they didn't negotiate their job offer. They just accepted whatever the company gave
+them.
+Many of us can probably sympathize with this position. Negotiation isn't fun for most of us. But still, the
+financial benefits of negotiation are usually worth it.
+Do yourself a favor. Negotiate. Here are some tips to get you started.
+L Just Do It. Yes, I know it's scary; (almost) no one likes negotiating. But it's so, so worth it. Recruiters will not
+revoke an offer because you negotiated, so you have little to lose. This is especially true if the offer is from
+a larger company. You probably won't be negotiating with your future teammates.
+2. Have a Viable Alternative. Fundamentally, recruiters negotiate with you because they're concerned you
+may not join the company otherwise. If you have alternative options, that will make their concern much
+more real.
+3. Have a Specific "Ask": It's more effective to ask for an additional $7000 in salary than to just ask for "more."
+£ 4
+86 Cracking the Coding interview, 6th Edition

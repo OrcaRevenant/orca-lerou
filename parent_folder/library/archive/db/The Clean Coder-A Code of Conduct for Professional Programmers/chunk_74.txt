@@ -1,0 +1,33 @@
+CHAPTER 2 SAYING NO
+42
+The folks at Gorilla Mart wanted the option to have an iPhone app on Black
+Friday. They were willing to pay to have that option. They found someone
+willing to provide that option. So how can you fault them?
+Yes, it’s true, there were some communications failures. Apparently the
+executives didn’t know what a web service really was, and there were all the
+normal issues of one part of a big corporation not knowing what another part
+is doing. But all that should have been expected. John even admits as much
+when he says: “Despite years of constant reminders that every feature a client
+asks for will always be more complex to write than it is to explain . . .”
+So if the culprit was not Gorilla Mart, then who?
+Perhaps it was John’s direct employer. John didn’t say this explicitly, but there
+was a hint when he said, parenthetically, “In business, client importance
+matters.” So did John’s employer make unreasonable promises to Gorilla Mart?
+Did they put pressure on John, directly or indirectly, to make those promises
+come true? John doesn’t say this, so we can only wonder.
+Even so, where is John’s responsibility in all of this? I put the fault squarely on
+John. John is the one who accepted the initial two-week deadline, knowing full
+well that projects are usually more complex than they sound. John is the one
+who accepted the need to write the PHP server. John is the one who accepted
+the email registration, and the coupon expiration. John is the one who worked
+20-hour days and 90-hour weeks. John is the one who subtracted himself from
+his family and his life to make this deadline.
+And why did John do this? He tells us in no uncertain terms: “I hit Send, lay
+back in my chair, and with a smug grin began to fantasize how the company
+would run me up onto their shoulders and lead a procession down 42nd Street
+while I was crowned “Greatest Developer Ev-ar.” In short, John was trying to be
+a hero. He saw his chance for accolades, and he went for it. He leaned over and
+grabbed for the brass ring.
+Professionals are often heroes, but not because they try to be. Professionals become
+heroes when they get a job done well, on time, and on budget. By trying to become
+the man of the hour, the savior of the day, John was not acting like a professional.

@@ -1,0 +1,31 @@
+• The tester, in the central office, would use our system to determine the
+approximate distance, in feet, to the fault. This would be accurate to within
+20% or so. The tester would dispatch a cable repair craftsman to an appropriate
+access point near that position.
+• The cable repair craftsman, upon arrival, would call the tester and ask to begin
+the fault location process. The tester would invoke the fault location feature of
+the 4-Tel system. The system would begin measuring the electronic
+characteristics of that faulty line, and would print messages on the screen
+requesting that certain operations be performed, such as opening the cable or
+shorting the cable.
+• The tester would tell the craftsman which operations the system wanted, and
+the craftsman would tell the tester when the operation was complete. The tester
+would then tell the system that the operation was complete, and the system
+would continue with the test.
+• After two or three such interactions, the system would calculate a new distance
+to the fault. The cable craftsman would then drive to that location and begin
+the process again.
+Imagine how much better that would be if the cable craftsmen, up on the pole or
+standing at a pedestal, could operate the system themselves. And that is exactly
+what the new voice technologies allowed us to do. The cable craftsmen could
+call directly into our system, direct the system with touch tones, and listen to the
+results being read back to them in a pleasant voice.
+THE NAME
+The company held a little contest to select a name for the new system. One of
+the most creative of the names suggested was SAM CARP. This stood for “Still
+Another Manifestation of Capitalist Avarice Repressing the Proletariat.”
+Needless to say, that wasn’t selected.
+Another was the Teradyne Interactive Test System. That one was also not
+selected.
+Still another was Service Area Test Access Network. That, too, was not selected.
+The winner, in the end, was VRS: Voice Response System.

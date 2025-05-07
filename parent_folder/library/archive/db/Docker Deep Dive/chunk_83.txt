@@ -1,0 +1,9 @@
+Windows host running in Linux containers mode) your shell will attach to the
+container’s shell for 10 seconds and then exit: docker container run
+alpine:latest sleep 10. You can do the same with a Windows container with
+the following command docker container run
+microsoft/powershell:nanoserver Start-Sleep -s 10.
+You can manually stop a container with the docker container stop command,
+and then restart it with docker container start. To get rid of a container
+forever you have to explicitly delete it using docker container rm.
+That’s the elevator pitch! Now let’s get into the detail…

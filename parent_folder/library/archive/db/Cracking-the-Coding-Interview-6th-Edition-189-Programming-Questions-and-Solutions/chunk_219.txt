@@ -1,0 +1,63 @@
+Solutions to Chapter 2 | Linked Lists
+8
+runner.next = runner.next.next;
+9
+> else {
+10
+runner = runner.next;
+11
+>
+12
+}
+13
+current • current.next;
+14
+>
+15
+}
+This code runs in 0 ( 1 ) space, but 0(N 2) time.
+2.2
+Return Kth to Last: implement an algorithm to find the kth to last element of a singly linked list.
+pg 223
+SOLUTION
+We will approach this problem both recursively and non-recursively. Remember that recursive solutions are
+often cleaner but less optimal. For example, in this problem, the recursive implementation is about half the
+length of the iterative solution but also takes 0 { n ) space, where n is the number of elements in the linked
+list.
+Note that for this solution, we have defined k such that passing in k = 1 would return the last element, k
+= 2 would return to the second to last element, and so on. It is equally acceptable to define k such that k
+= 0 would return the lastelement.
+Solution #1; If linked list size is known
+If the size of the linked list is known, then the kth to last element is the ( l e n g t h - k)th element. We can
+just iterate through the linked list to find this element. Because this solution is so trivial, we can almost be
+sure that this is not what the interviewer intended.
+Solution #2: Recursive
+This algorithm recurses through the linked list. When it hits the end, the method passes back a counter set
+to 0. Each parent call adds 1 to this counter. When the counter equals k, we know we have reached the kth
+to last element of the linked list.
+Implementing this is short and sweet—provided we have a way of "passing back" an integer value through
+the stack. Unfortunately, we can't pass back a node and a counter using normal return statements. So how
+do we handle this?
+Approach A: Don't Return the Element.
+One way to do this is to change the problem to simply printing the kth to last element. Then, we can pass
+back the value of the counter simply through return values.
+1
+i n t printKthToLast(LlnkedListNode head, i n t k) {
+2
+if (head == n u l l ) {
+3
+return 0;
+4
+>
+i n t index = printKthToLast(head.nextj k) + 1;
+6
+if (index == k) {
+System.out.println(k + " t h to last node is " + head.data);
+8
+}
+9
+return index;
+10
+}
+CrackingTheCodinglnterview.com | 6th Edition
+22 3

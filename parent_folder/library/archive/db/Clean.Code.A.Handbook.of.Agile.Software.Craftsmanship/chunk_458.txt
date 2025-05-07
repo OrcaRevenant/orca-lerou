@@ -1,0 +1,45 @@
+431
+Index
+variables
+1 based versus zero based, 261
+declaring, 80, 81, 292
+explaining temporary, 279–281
+explanatory, 296–297
+keeping private, 93
+local, 292, 324
+moving to a different class, 273
+in place of comments, 67
+promoting to instance variables of
+classes, 141
+with unclear context, 28
+venting, in comments, 65
+verbs, keywords and, 43
+Version class, 139
+versions, not deserializing across, 272
+vertical density, in code, 79–80
+vertical distance, in code, 80–84
+vertical formatting, 76–85
+vertical openness, between concepts,
+78–79
+vertical ordering, in code, 84–85
+vertical separation, 292
+W
+wading, through bad code, 3
+Web containers, decoupling provided
+by, 178
+what, decoupling from when, 178
+white space, use of horizontal, 86
+wildcards, 307
+Working Effectively with Legacy
+Code, 10
+“working” programs, 201
+workmanship, 176
+wrappers, 108
+wrapping, 108
+writers, starvation of, 184
+“Writing Shy Code”, 306
+X
+XML
+deployment descriptors, 160
+“policy” specified configuration
+files, 164

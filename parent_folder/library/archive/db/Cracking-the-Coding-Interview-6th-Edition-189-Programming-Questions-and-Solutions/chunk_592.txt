@@ -1,0 +1,56 @@
+Solutions to Chapter 17 j Hard
+Now, when we want to find alt words in mis s i s s i p p i , we search through this trie starting with each word.
+•
+m: We would first look up in the trie starting with m, the first letter in m i s s i s s i p p i . As soon as we go
+to mi, we terminate.
+•
+i;Then, we go to i, the second character in m i s s i s s i p p i . We see that i is a complete word, so we
+add it to the list. We also keep going with i over to is.The string is is aiso a complete word, so we add
+that to the list.This node has no more children, so we move onto the next character in m i s s i s s i p p i .
+•
+s: We now go to s. There is no upper-level node for s, so we go onto the next character.
+»
+S: Another s. Go on to the next character.
+•
+i: We see another i.Wego to t h e i node in the trie. We see that i is a complete word, so we add it to the
+list. We also keep going with i over to i s . The string is is also a complete word, so we add that to the
+list. This node has no more children, so we move onto the next character in m i s s i s s i p p i .
+•
+s:Wego to s. There is no upper-level node for s.
+•
+s: Another s. Go on to the next character.
+•
+i: We go to the i node. We see that i is a complete word, so we add it to the trie. The next character in
+m i s s i s s i p p i is a p.There is no node p, so we break here,
+•
+p: We see a p. There is no node p.
+•
+p: Another p.
+•
+i: We go to the i node. We see that i is a complete word, so we add it to the trie. There are no more
+characters left in m i s s i s s i p p i , so we are done.
+Each time we find a complete "small" word, we add it to a list along with the location in the bigger word
+( m i s s i s s i p p i ) where we found the small word.
+The code below implements this algorithm.
+1
+HashMapList<String, Integen> searchAll(Stning big, S t r i n g [ ] smalls) {
+HashMapList<String, Integer> lookup = new HashMapList<String, Integer>();
+3
+i n t maxLen = b i g , l e n g t h ( ) ;
+4
+TnieNode root = createTreeFromStrings(smalls, maxLen).getRoot();
+5
+6
+for ( i n t i = 0j i < b i g . l e n g t h ( ) ; i++) {
+Arrayl_ist<String> strings = findStringsAtLoc(root, big, i ) ;
+8
+insertlntoHashMap(strings,
+lookup, i ) ;
+9
+>
+10
+l i
+return lookup;
+55
+S
+Cracking the Coding interview, 6th Edition

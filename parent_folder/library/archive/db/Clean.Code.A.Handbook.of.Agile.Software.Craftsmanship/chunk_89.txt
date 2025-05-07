@@ -1,0 +1,36 @@
+59
+Bad Comments
+TODOs are jobs that the programmer thinks should be done, but for some reason
+can’t do at the moment. It might be a reminder to delete a deprecated feature or a
+plea for someone else to look at a problem. It might be a request for someone else to
+think of a better name or a reminder to make a change that is dependent on a
+planned event. Whatever else a TODO might be, it is not an excuse to leave bad code in
+the system.
+Nowadays, most good IDEs provide special gestures and features to locate all the
+TODO comments, so it’s not likely that they will get lost. Still, you don’t want your code
+to be littered with TODOs. So scan through them regularly and eliminate the ones you
+can.
+Ampliﬁcation
+A comment may be used to amplify the importance of something that may otherwise seem
+inconsequential.
+String listItemContent = match.group(3).trim();
+// the trim is real important.  It removes the starting
+// spaces that could cause the item to be recognized
+// as another list.
+new ListItemWidget(this, listItemContent, this.level + 1);
+return buildList(text.substring(match.end()));
+Javadocs in Public APIs
+There is nothing quite so helpful and satisfying as a well-described public API. The java-
+docs for the standard Java library are a case in point. It would be difﬁcult, at best, to write
+Java programs without them.
+If you are writing a public API, then you should certainly write good javadocs for it.
+But keep in mind the rest of the advice in this chapter. Javadocs can be just as misleading,
+nonlocal, and dishonest as any other kind of comment.
+Bad Comments
+Most comments fall into this category. Usually they are crutches or excuses for poor code
+or justiﬁcations for insufﬁcient decisions, amounting to little more than the programmer
+talking to himself.
+Mumbling
+Plopping in a comment just because you feel you should or because the process requires it,
+is a hack. If you decide to write a comment, then spend the time necessary to make sure it
+is the best comment you can write.

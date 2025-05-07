@@ -1,0 +1,32 @@
+119
+Using Code That Does Not Yet Exist
+We had a pretty good idea of where our world ended and the new world began. As we
+worked, we sometimes bumped up against this boundary. Though mists and clouds of
+ignorance obscured our view beyond the boundary, our work made us aware of what we
+wanted the boundary interface to be. We wanted to tell the transmitter something like this:
+Key the transmitter on the provided frequency and emit an analog representation of the
+data coming from this stream.
+We had no idea how that would be done because the API had not been designed yet.
+So we decided to work out the details later.
+To keep from being blocked, we deﬁned our own interface. We called it something
+catchy, like Transmitter. We gave it a method called transmit that took a frequency and a
+data stream. This was the interface we wished we had.
+One good thing about writing the interface we wish we had is that it’s under our
+control. This helps keep client code more readable and focused on what it is trying to
+accomplish.
+In Figure 8-2, you can see that we insulated the CommunicationsController classes
+from the transmitter API (which was out of our control and undeﬁned). By using our own
+application speciﬁc interface, we kept our CommunicationsController code clean and
+expressive. Once the transmitter API was deﬁned, we wrote the TransmitterAdapter to
+bridge the gap. The ADAPTER2 encapsulated the interaction with the API and provides a
+single place to change when the API evolves.
+Figure 8-2
+Predicting the transmitter
+This design also gives us a very convenient seam3 in the code for testing. Using a
+suitable FakeTransmitter, we can test the CommunicationsController classes. We can also
+create boundary tests once we have the TransmitterAPI that make sure we are using the
+API correctly.
+2.
+See the Adapter pattern in [GOF].
+3.
+See more about seams in [WELC].

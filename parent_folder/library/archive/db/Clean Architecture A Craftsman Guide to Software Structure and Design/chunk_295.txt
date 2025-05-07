@@ -1,0 +1,28 @@
+CONCLUSION: THE MISSING ADVICE
+The whole point of this chapter is to highlight that your best design intentions
+can be destroyed in a flash if you don’t consider the intricacies of the
+implementation strategy. Think about how to map your desired design on to code
+structures, how to organize that code, and which decoupling modes to apply
+during runtime and compile-time. Leave options open where applicable, but be
+pragmatic, and take into consideration the size of your team, their skill level, and
+the complexity of the solution in conjunction with your time and budgetary
+constraints. Also think about using your compiler to help you enforce your
+chosen architectural style, and watch out for coupling in other areas, such as data
+models. The devil is in the implementation details.
+1. This is arguably a horrible way to name a class, but as we’ll see later, perhaps it doesn’t really matter.
+2. https://martinfowler.com/bliki/PresentationDomainDataLayering.html.
+3. This benefit is much less relevant with the navigation facilities of modern IDEs, but it seems there has
+been a renaissance moving back to lightweight text editors, for reasons I am clearly too old to understand.
+4. My first job after graduating from university in 1996 was building client–server desktop applications
+with a technology called PowerBuilder, a super-productive 4GL that exceled at building database-driven
+applications. A couple of years later, I was building client–server applications with Java, where we had to
+build our own database connectivity (this was pre-JDBC) and our own GUI toolkits on top of AWT.
+That’s “progress“ for you!
+5. In the Command Query Responsibility Segregation pattern, you have separate patterns for updating and
+reading data.
+6. http://www.laputan.org/mud/
+7. See https://www.structurizr.com/help/c4 for more information.
+8. In Java, for example, although we tend to think of packages as being hierarchical, it’s not possible to
+create access restrictions based on a package and subpackage relationship. Any hierarchy that you create
+is in the name of those packages, and the directory structure on disk, only.
+9. Unless you cheat and use Java’s reflection mechanism, but please don’t do that!

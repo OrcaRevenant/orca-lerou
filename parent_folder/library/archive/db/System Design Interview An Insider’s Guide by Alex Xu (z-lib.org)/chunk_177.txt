@@ -1,0 +1,7 @@
+Online status fanout
+How do user A’s friends know about the status changes? Figure 12-19 explains how it works.
+Presence servers use a publish-subscribe model, in which each friend pair maintains a
+channel. When User A’s online status changes, it publishes the event to three channels,
+channel A-B, A-C, and A-D. Those three channels are subscribed by User B, C, and D,
+respectively. Thus, it is easy for friends to get online status updates. The communication
+between clients and servers is through real-time WebSocket.

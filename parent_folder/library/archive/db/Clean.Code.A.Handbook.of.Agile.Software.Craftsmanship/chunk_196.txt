@@ -1,0 +1,36 @@
+166
+Chapter 11: Systems
+This code is much cleaner than the original EJB2 code. Some of the entity details are
+still here, contained in the annotations. However, because none of that information is out-
+side of the annotations, the code is clean, clear, and hence easy to test drive, maintain, and
+so on.
+Some or all of the persistence information in the annotations can be moved to XML
+deployment descriptors, if desired, leaving a truly pure POJO. If the persistence mapping
+details won’t change frequently, many teams may choose to keep the annotations, but with
+far fewer harmful drawbacks compared to the EJB2 invasiveness.
+AspectJ Aspects
+Finally, the most full-featured tool for separating concerns through aspects is the AspectJ
+language,17 an extension of Java that provides “ﬁrst-class” support for aspects as modular-
+ity constructs. The pure Java approaches provided by Spring AOP and JBoss AOP are suf-
+ﬁcient for 80–90 percent of the cases where aspects are most useful. However, AspectJ
+provides a very rich and powerful tool set for separating concerns. The drawback of
+AspectJ is the need to adopt several new tools and to learn new language constructs and
+usage idioms.
+The adoption issues have been partially mitigated by a recently introduced “annota-
+tion form” of AspectJ, where Java 5 annotations are used to deﬁne aspects using pure Java
+code. Also, the Spring Framework has a number of features that make incorporation of
+annotation-based aspects much easier for a team with limited AspectJ experience.
+A full discussion of AspectJ is beyond the scope of this book. See [AspectJ], [Colyer],
+and [Spring] for more information.
+Test Drive the System Architecture
+The power of separating concerns through aspect-like approaches can’t be overstated. If
+you can write your application’s domain logic using POJOs, decoupled from any architec-
+ture concerns at the code level, then it is possible to truly test drive your architecture. You
+can evolve it from simple to sophisticated, as needed, by adopting new technologies on
+public void setAccounts(Collection<Account> accounts) {
+this.accounts = accounts;
+}
+}
+17. See [AspectJ] and [Colyer].
+Listing 11-5 (continued)
+An EBJ3 Bank EJB

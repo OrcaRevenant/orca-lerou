@@ -1,0 +1,21 @@
+Step 3 - Design deep dive
+Up until now, we have discussed the high-level design. Next, we will discuss the most
+important building components and techniques in depth:
+• Depth-first search (DFS) vs Breadth-first search (BFS)
+• URL frontier
+• HTML Downloader
+• Robustness
+• Extensibility
+• Detect and avoid problematic content
+DFS vs BFS
+You can think of the web as a directed graph where web pages serve as nodes and hyperlinks
+(URLs) as edges. The crawl process can be seen as traversing a directed graph from one web
+page to others. Two common graph traversal algorithms are DFS and BFS. However, DFS is
+usually not a good choice because the depth of DFS can be very deep.
+BFS is commonly used by web crawlers and is implemented by a first-in-first-out (FIFO)
+queue. In a FIFO queue, URLs are dequeued in the order they are enqueued. However, this
+implementation has two problems:
+• Most links from the same web page are linked back to the same host. In Figure 9-5, all
+the links in wikipedia.com are internal links, making the crawler busy processing URLs
+from the same host (wikipedia.com). When the crawler tries to download web pages in
+parallel, Wikipedia servers will be flooded with requests. This is considered as “impolite”.

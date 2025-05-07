@@ -1,0 +1,5 @@
+Code Library
+Certain patterns came up while implementing the code for this book. We've tried to generally include the
+full code for a solution with the solution, but in some cases it got quite redundant.
+This appendix provides the code for a few of the most useful chunks of code.
+The complete compilable solutions can be downloaded from CrackingTheCodinglnterview.com.

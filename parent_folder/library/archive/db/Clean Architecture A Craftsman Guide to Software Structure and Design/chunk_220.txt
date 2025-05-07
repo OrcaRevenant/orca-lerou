@@ -1,0 +1,10 @@
+26
+THE MAIN COMPONENT
+In every system, there is at least one component that creates, coordinates, and
+oversees the others. I call this component Main.
+THE ULTIMATE DETAIL
+The Main component is the ultimate detail—the lowest-level policy. It is the
+initial entry point of the system. Nothing, other than the operating system,
+depends on it. Its job is to create all the Factories, Strategies, and other global
+facilities, and then hand control over to the high-level abstract portions of the
+system.

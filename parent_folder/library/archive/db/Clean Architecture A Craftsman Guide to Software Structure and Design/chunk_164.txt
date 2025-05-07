@@ -1,0 +1,33 @@
+to be built, each with three updated business objects, four new messages, and
+eight new handlers.
+And think of what those executables had to do to implement the simplest of
+features. Think of all the object instantiations, all the serializations, all the
+marshaling and de-marshaling, all the building and parsing of messages, all the
+socket communications, timeout managers, retry scenarios, and all the other
+extra stuff that you have to do just to get one simple thing done.
+Of course, during development the programmers did not have a server farm.
+Indeed, they simply ran all three executables in three different processes on a
+single machine. They developed this way for several years. But they were
+convinced that their architecture was right. And so, even though they were
+executing in a single machine, they continued all the object instantiations, all the
+serializations, all the marshaling and de-marshaling, all the building and parsing
+of messages, all the socket communications, and all the extra stuff in a single
+machine.
+The irony is that company P never sold a system that required a server farm.
+Every system they ever deployed was a single server. And in that single server
+all three executables continued all the object instantiations, all the serializations,
+all the marshaling and de-marshaling, all the building and parsing of messages,
+all the socket communications, and all the extra stuff, in anticipation of a server
+farm that never existed, and never would.
+The tragedy is that the architects, by making a premature decision, multiplied the
+development effort enormously.
+The story of P is not isolated. I’ve seen it many times and in many places.
+Indeed, P is a superposition of all those places.
+But there are worse fates than P.
+Consider W, a local business that manages fleets of company cars. They recently
+hired an “Architect” to get their rag-tag software effort under control. And, let
+me tell you, control was this guy’s middle name. He quickly realized that what
+this little operation needed was a full-blown, enterprise-scale, service-oriented
+“ARCHITECTURE.” He created a huge domain model of all the different
+“objects” in the business, designed a suite of services to manage these domain
+objects, and put all the developers on a path to Hell. As a simple example,

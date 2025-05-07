@@ -1,0 +1,45 @@
+329
+Dependencies Between Methods Can Break Concurrent Code
+Each individual method is thread-safe. However, another thread might add a value in
+between the containsKey and put calls. There are several options to ﬁx this problem.
+• Lock the HashTable ﬁrst, and make sure all other users of the HashTable do the same—
+client-based locking:
+synchronized(map) {
+if(!map.conainsKey(key))
+map.put(key,value);
+}
+• Wrap the HashTable in its own object and use a different API—server-based locking
+using an ADAPTER:
+public class WrappedHashtable<K, V> {
+private Map<K, V> map = new Hashtable<K, V>();
+public synchronized void putIfAbsent(K key, V value) {
+if (map.containsKey(key))
+map.put(key, value);
+}
+}
+• Use the thread-safe collections:
+ConcurrentHashMap<Integer, String> map = new ConcurrentHashMap<Integer,
+String>();
+map.putIfAbsent(key, value);
+The collections in java.util.concurrent have operations like putIfAbsent() to accommo-
+date such operations.
+Dependencies Between Methods
+Can Break Concurrent Code
+Here is a trivial example of a way to introduce dependencies between methods:
+public class IntegerIterator implements Iterator<Integer>
+private Integer nextValue = 0;
+public synchronized boolean hasNext() {
+return nextValue < 100000;
+}
+public synchronized Integer next() {
+if (nextValue == 100000)
+throw new IteratorPastEndException();
+return nextValue++;
+}
+public synchronized Integer getNextValue() {
+return nextValue;
+}
+}
+Here is some code to use this IntegerIterator:
+IntegerIterator iterator = new IntegerIterator();
+while(iterator.hasNext()) {

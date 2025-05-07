@@ -1,0 +1,3 @@
+services may be so coupled as to have no architectural significance whatever.
+1. Therefore the number of micro-services will be roughly equal to the number of programmers.
+2. We hope they are rare. Unfortunately, experience suggests otherwise.

@@ -1,0 +1,75 @@
+Solutions to Chapter 2 | Linked Lists
+Solution #3: Iterative
+A more optimal, but less straightforward, solutionis to implement this iteratively. We can use two pointers,
+pi and p2. We place them k nodes apart in the linked list by putting p2 at the beginning and moving pi
+k nodes into the list. Then, when we move them at the same pace, pi will hit the end of the linked list after
+LENGTH - k steps. At that point, p2 will be LENGTH - k nodes into the list, or k nodes from the end.
+The code below implements this algorithm.
+1
+LinkedListNode nthToLast(LinkedListNode head, i n t k) {
+2
+LinkedListNode pi = head;
+3
+LinkedListNode p2 = head;
+4
+5
+/* Move pi k nodes i n t o the l i s t . * /
+6
+for ( i n t i = 0; i < k; i++) {
+7
+if ( p i == n u l l ) return n u l l ; // Out of bounds
+8
+pi = pi.next;
+9
+>
+10
+11
+/* Move them at the same pace. When pi h i t s the end, p2 w i l l be at the r i g h t
+12
+* element. */
+13
+while ( p i 1= n u l l ) {
+14
+pi = pi.next;
+15
+p2 * p2,next;
+16
+>
+17
+return p2;
+18
+}
+ThisalgorithmtakesO(n) timeandO(l) space.
+2.3
+Delete Middle Node: Implement an algorithm to delete a node in the middle (i.e., any node but
+the first and last node, not necessarily the exact middle) of a singly linked list, given only access to
+that node.
+EXAMPLE
+Input: the node c from the linked list a - > b - > c - > d - > e - > f
+Result: nothing is returned, but the new linked list looks like a- >b->d->e->f
+pg 94
+SOLUTION
+In this problem, you are not given access to the head of the linked list. You only have access to that node.
+The solution is simply to copy the data from the next node over to the current node, and then to delete the
+next node.
+The code below implements this algorithm.
+1
+boolean deleteNode(LinkedListNode n) {
+2
+if (n == n u l l |{ n.next == n u l l ) {
+3
+return false;
+// Failure
+4
+}
+5
+LinkedListNode next = n.next;
+6
+n.data = next.data;
+n.next = next.next;
+8
+return true;
+9
+>
+CrackingTheCodinglnterview.com | 6th Edition
+22 3

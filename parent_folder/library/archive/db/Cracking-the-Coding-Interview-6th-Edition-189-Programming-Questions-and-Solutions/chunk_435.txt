@@ -1,0 +1,77 @@
+Solutions to Chapter 12 | C and C++
+5
+cout << "Circumference of Base Class\n";
+6
+return 0;
+7
+}
+a
+n
+9
+10 class Triangle: public Shape {
+11
+public:
+12
+i n t circumference () {
+13
+cout<< "Circumference of Triangle Class\n'J;
+14
+return 3 * edge_length;
+15
+}
+16
+};
+17
+18 void main() {
+19
+Shape * x = new Shape();
+20
+x->circumference(); II "Circumference of Base Class"
+21
+Shape *y = new Triangle();
+22
+y->circumference(); // "Circumference of Triangle Class"
+23 >
+In the previous example, c i r c u m f e r e n c e is a virtual function in the Shape class, so it becomes virtual
+in each of the derived classes (Triangle, etc). C++ non-virtual function calls are resolved at compile time
+with static binding, white virtual function calts are resolved at runtime with dynamic binding.
+12.5
+Shallow vs Deep Copy: What is the difference between deep copy and shallow copy? Explain how
+you would use each.
+pg 164
+SOLUTION
+A shallow copy copies all the member values from one object to another. A deep copy does all this and also
+deep copies any pointer objects.
+An example of shallow and deep copy is below.
+1
+struct Test {
+2
+char * p t r ;
+3
+} ;
+4
+5
+void shallow_copy(Test S src, Test & dest) {
+6
+dest.ptr = s r c . p t r ;
+7
+>
+8
+9
+void deep_copy(Test & src, Test & dest) {
+10
+dest.ptr = (char*)malloc(strlen(src.ptr) + 1);
+11
+strcpyCdest.ptr,
+s r c . p t r ) ;
+12
+>
+Note that shallow_copy may cause a lot of programming runtime errors, especially with the creation and
+deletion of objects. Shallow copy should be used very carefully and only when a programmer really under-
+stands what he wants to do. In most cases, shallow copy is used when there is a need to pass information
+about a complex structure without actual duplication of data. One must also be careful with destruction of
+objects in a shadow copy.
+In real life, shallow copy is rarely used. Deep copy should be used in most cases, especially when the size of
+the copied structure is small.
+CrackingTheCodinglnterview.com | 6th Edition
+425

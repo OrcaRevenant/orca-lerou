@@ -1,0 +1,29 @@
+Moving to production with Multi-stage Builds
+When it comes to Docker images, big is bad!
+Big means slow. Big means hard to work with. And big means a large attack
+surface!
+For these reasons, Docker images should be small. The aim of the game is to
+only ship production images containing the stuff needed to run your app in
+production.
+The problem is… keeping images small was hard work.
+For example, the way you write your Dockerfiles has a huge impact on the size
+of your images. A common example is that every RUN instruction adds a new
+layer. As a result, it’s usually considered a best practice to include multiple
+commands as part of a single RUN instruction - all glued together with double-
+ampersands (&&) and backslash () line-breaks. While this isn’t rocket science, it
+requires time and discipline.
+Another issue is that we don’t clean up after ourselves. We’ll RUN a command
+against an image that pulls some build-time tools, and we’ll leave all those tools
+in the image when we ship it to production. Not ideal!
+There were ways around this - most notably the builder pattern. But most of
+these required discipline and added complexity.
+The builder pattern required you to have at least two Dockerfiles - one for
+development and one for production. You’d write your Dockerfile.dev to start
+from a large base image, pull in any additional build tools required, and build
+your app. You’d then build an image from the Dockerfile.dev and create a
+container from it. You’d then use your Dockerfile.prod to build a new image
+from a smaller base image, and copy over the application form the container you
+just created from the build image. And everything needed to be glued together
+with a script.
+This approach was doable, but at the expense of complexity.
+Multi-stage builds to the rescue!

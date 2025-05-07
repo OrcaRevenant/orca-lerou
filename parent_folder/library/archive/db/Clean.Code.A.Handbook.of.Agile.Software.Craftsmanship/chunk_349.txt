@@ -1,0 +1,43 @@
+319
+Client/Server Example
+Adding Threading
+Assume for the moment that the performance test fails. How can we improve the through-
+put so that the performance test passes? If the process method of the server is I/O bound,
+then here is one way to make the server use threads (just change the processMessage):
+void process(final Socket socket) {
+if (socket == null)
+return;
+Runnable clientHandler = new Runnable() {
+public void run() {
+try {
+String message = MessageUtils.getMessage(socket);
+MessageUtils.sendMessage(socket, "Processed: " + message);
+closeIgnoringException(socket);
+} catch (Exception e) {
+e.printStackTrace();
+}
+}
+};
+Thread clientConnection = new Thread(clientHandler);
+clientConnection.start();
+}
+Assume that this change causes the test to pass;1 the code is complete, correct?
+Server Observations
+The updated server completes the test successfully in just over one second. Unfortunately,
+this solution is a bit naive and introduces some new problems.
+How many threads might our server create? The code sets no limit, so the we could
+feasibly hit the limit imposed by the Java Virtual Machine (JVM). For many simple sys-
+tems this may sufﬁce. But what if the system is meant to support many users on the public
+net? If too many users connect at the same time, the system might grind to a halt.
+But set the behavioral problem aside for the moment. The solution shown has prob-
+lems of cleanliness and structure. How many responsibilities does the server code have?
+• Socket connection management
+• Client processing
+• Threading policy
+• Server shutdown policy
+Unfortunately, all these responsibilities live in the process function. In addition, the
+code crosses many different levels of abstraction. So, small as the process function is, it
+needs to be repartitioned.
+1.
+You can verify that for yourself by trying out the before and after code. Review the nonthreaded code starting on page 343.
+Review the threaded code starting on page 346.

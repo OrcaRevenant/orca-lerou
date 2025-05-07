@@ -1,0 +1,23 @@
+265
+Conclusion
+This is actually quite pretty. The module is separated into a group of analysis func-
+tions and another group of synthesis functions. They are topologically sorted so that the
+deﬁnition of each function appears just after it is used. All the analysis functions appear
+ﬁrst, and all the synthesis functions appear last.
+If you look carefully, you will notice that I reversed several of the decisions I made
+earlier in this chapter. For example, I inlined some extracted methods back into
+formatCompactedComparison, and I changed the sense of the shouldNotBeCompacted expres-
+sion. This is typical. Often one refactoring leads to another that leads to the undoing of the
+ﬁrst. Refactoring is an iterative process full of trial and error, inevitably converging on
+something that we feel is worthy of a professional.
+Conclusion
+And so we have satisﬁed the Boy Scout Rule. We have left this module a bit cleaner than
+we found it. Not that it wasn’t clean already. The authors had done an excellent job with it.
+But no module is immune from improvement, and each of us has the responsibility to
+leave the code a little better than we found it.
+private String endingEllipsis() {
+return (suffixLength > contextLength ? ELLIPSIS : "");
+}
+}
+Listing 15-5 (continued)
+ComparisonCompactor.java (final)

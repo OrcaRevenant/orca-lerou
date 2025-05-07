@@ -1,0 +1,30 @@
+coupled to the layers below. Rather, this approach gave the application
+programmers a “simpler” language than M356 assembler in which to program
+their trim jobs.
+Trim jobs could be loaded from tape and executed by the system. Essentially, our
+system was an operating system for trim applications.
+The system was written in M365 assembler and compiled in a single compilation
+unit that produced absolute binary code.
+The boundaries in this application were soft at best. Even the boundary between
+the system code and the applications written in the DSL was not well enforced.
+There were couplings everywhere.
+But that was typical of software in the early 1970s.
+ALUMINUM DIE-CAST MONITORING
+In the middle of the 1970s, while OPEC was placing an embargo on oil, and
+gasoline shortages were causing angry drivers to get into fights at gas stations, I
+began working at Outboard Marine Corporation (OMC). This is the parent
+company of Johnson Motors and Lawnboy lawnmowers.
+OMC maintained a huge facility in Waukegan, Illinois, for creating die-cast
+aluminum parts for all of the company’s motors and products. Aluminum was
+melted down in huge furnaces, and then carried in large buckets to dozens upon
+dozens of individually operated aluminum die-cast machines. Each machine had
+a human operator responsible for setting the molds, cycling the machine, and
+extracting the newly cast parts. These operators were paid based on how many
+parts they produced.
+I was hired to work on a shop-floor automation project. OMC had purchased an
+IBM System/7—which was IBM’s answer to the minicomputer. They tied this
+computer to all the die-cast machines on the floor, so that we could count, and
+time, the cycles of each machine. Our role was to gather all that information and
+present it on 3270 green-screen displays.
+The language was assembler. And, again, every bit of code that executed in this
+computer was code that we wrote. There was no operating system, no subroutine

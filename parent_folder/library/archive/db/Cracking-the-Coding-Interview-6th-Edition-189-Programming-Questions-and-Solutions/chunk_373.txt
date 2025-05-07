@@ -1,0 +1,87 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+makeChange(50 using 0 quarters, 5 dimes)
+makeChange(25 using 0 quarters) = makeChange(25 using 0 quarters, 0 dimes) +
+makeChange(25 using 0 quarters, 1 dime)
++
+makeChange(25 using 0 quarters, 2 dimes)
+Each one of these, in turn, expands out once we start applying nickels. We end up with a tree-like recursive
+structure where each call expands out to four or more calls.
+The base case of our recursion is the fully reduced statement. For example, makeChange(50 u s i n g 0
+q u a r t e r s ,
+5 dimes) is fulty reduced to 1, since 5 dimes equals 50 cents.
+This leads to a recursive algorithm that looks like this:
+1
+i n t makeChange(int amount, i n t [ ] denoms,
+i n t index) {
+2
+if (index >= denoms,length - 1) return 1; U l a s t denom
+3
+i n t denorriAmount = denoms[index];
+4
+i n t ways = 0;
+5
+f o r ( i n t i = 0; i * denomAmount <= amount; i++) {
+6
+i n t amountRemaining = amount - i * denomAmount;
+7
+ways += makeChange(amountRemaining, denoms, index + 1 ) ;
+8
+}
+9
+return ways;
+10 )
+11
+12 i n t makeChange(int n) {
+13
+i n t [ ] denoms = {25, 10, 5, 1 } ;
+14
+return makeChange(n, denoms, 0 ) ;
+15
+)
+This works, but it's not as optimal as it could be.The issue is that we will be recursively calling makeChange
+several times for the same values of amount and index.
+We can resolve this issue by storing the previously computed values. We'll need to store a mapping from
+each pair (amount,
+i n d e x ) to the precomputed result.
+1
+i n t makeChange(int n) {
+2
+i n t [ ] denoms = {25, 10, 5, 1 ) ;
+i n t [ ] [ ] map = new i n t [ n + l][denoms.length]; // precomputed vals
+4
+return makeChange(n, denoms, 0, map);
+5
+>
+6
+7
+i n t makeChange(int amount, i n t [ ] denoms, i n t index, i n t [ ] [ ] map) {
+8
+if {map[amount][index]
+> 0) { // r e t r i e v e value
+9
+return map[amount][index];
+10
+)
+11
+if (index >= denoms.length - 1) return 1; // one denom remaining
+12
+i n t denomAmount = denoms[index];
+13
+i n t ways = 0;
+14
+f o r ( i n t i - 0; i * denomAmount <= amount; i++) {
+15
+// go to next denom, assuming i coins of denomAmount
+16
+i n t amountRemaining = amount - i * denomAmount;
+17
+ways += makeChange(amountRemaining, denoms, index + 1, map);
+18
+}
+19
+map[amount][index) = ways;
+20
+r e t u r n ways;
+21 }
+CrackingTheCodinglnterview.com [ 6th Edition
+3 S1

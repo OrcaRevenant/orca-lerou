@@ -1,0 +1,52 @@
+260
+Chapter 15: JUnit Internals
+compactExpected = compactString(expected);
+compactActual = compactString(actual);
+}
+private int findCommonSuffix(int prefixIndex) {
+int expectedSuffix = expected.length() - 1;
+int actualSuffix = actual.length() - 1;
+for (; actualSuffix >= prefixIndex && expectedSuffix >= prefixIndex;
+actualSuffix--, expectedSuffix--) {
+if (expected.charAt(expectedSuffix) != actual.charAt(actualSuffix))
+break;
+}
+return expected.length() - expectedSuffix;
+}
+I’m not really happy with this. The passing of the prefixIndex argument is a bit arbitrary
+[G32]. It works to establish the ordering but does nothing to explain the need for that
+ordering. Another programmer might undo what we have done because there’s no indica-
+tion that the parameter is really needed. So let’s take a different tack.
+private void compactExpectedAndActual() {
+findCommonPrefixAndSuffix();
+compactExpected = compactString(expected);
+compactActual = compactString(actual);
+}
+private void findCommonPrefixAndSuffix() {
+findCommonPrefix();
+int expectedSuffix = expected.length() - 1;
+int actualSuffix = actual.length() - 1;
+for (;
+actualSuffix >= prefixIndex && expectedSuffix >= prefixIndex;
+actualSuffix--, expectedSuffix--
+) {
+if (expected.charAt(expectedSuffix) != actual.charAt(actualSuffix))
+break;
+}
+suffixIndex = expected.length() - expectedSuffix;
+}
+private void findCommonPrefix() {
+prefixIndex = 0;
+int end = Math.min(expected.length(), actual.length());
+for (; prefixIndex < end; prefixIndex++)
+if (expected.charAt(prefixIndex) != actual.charAt(prefixIndex))
+break;
+}
+We put findCommonPrefix and findCommonSuffix back the way they were, changing the
+name of findCommonSuffix to findCommonPrefixAndSuffix and having it call findCommon-
+Prefix before doing anything else. That establishes the temporal nature of the two func-
+tions in a much more dramatic way than the previous solution. It also points out how ugly
+findCommonPrefixAndSuffix is. Let’s clean it up now.
+private void findCommonPrefixAndSuffix() {
+findCommonPrefix();
+int suffixLength = 1;

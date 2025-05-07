@@ -1,0 +1,88 @@
+II | Hints for Concepts and Algorithms
+#276.
+9.7
+As much work as possible should be done asynchronously.
+#277.
+10.11
+Suppose you had a sequence of three elements ({0,
+2}, in any order. Write out all
+possible sequences for those elements and how you can fix them to make 1 the peak.
+#278.
+8.7
+Approach 2: If you had all permutations of two-character substrings, could you generate
+all permutations of three-character substrings?
+#279.
+10.9
+Think about the previous hint in the context of rows.
+#280.
+8.5
+Alternatively, if you're doing 9*7, you could do 4*7, double that, and then add 7.
+#281.
+10.7
+Try using one pass to get it down to a range of values, and then a second pass to find a
+specific value,
+#282,
+6.6
+Suppose there were exactly one blue-eyed person. What would that person see? When
+would they leave?
+#283.
+7.6
+Which will be the easiest pieces to match first? Can you start with those? Which will be
+the next easiest, once you've nailed those down?
+#284.
+6.2
+If two events are mutually exclusive (they can never occur simultaneously), you can add
+their probabilities together. Can you find a set of mutually exclusive events that repre-
+sent making two out of three hoops?
+#285.
+9.2
+A breadth-first search is probably better. A depth-first search can wind up going on a
+long path, even though the shortest path is actually very short. Is there a modification
+to a breadth-first search that might be even faster?
+#286.
+8.3
+Binary search has a runtime ofO( l o g N). Can you apply a form of binary search to the
+problem?
+#287.
+7.12
+In order to handle collisions, the hash table should be an array of linked lists.
+#288.
+10.9
+What would happen if we tried to keep track of this using an array? What are the pros
+and cons of this?
+#289.
+10.8
+Can you use a bit vector?
+#290.
+8.4
+Anything that is a subset of { a ,
+b} is also a subset of { a ,
+b,
+c}. Which sets are
+subsetsof{3j
+b,
+c } b u t n o t { a ,
+b}?
+#291.
+10.9
+Can we use the previous hints to move up, down, left, and right around the rows and
+columns?
+#292.
+10.11
+Revisit the set of sequences for { 0 ,
+2} that you just wrote out. Imagine there are
+elements before the leftmost element. Are you sure that the way you swap the elements
+won't invalidate the previous part of the array?
+#293.
+9.5
+Can you combine a hash table and a linked list to get the best of both worlds?
+#294,
+6.8
+It's actually better for the first drop to be a bit lower. For example, you could drop at the
+10th floor, then the 20th floor, then the 30th floor, and so on. The worst case here will be
+19 drops (10, 20
+100, 91, 92,..., 99). Can you beat that? Try not randomly guessing at
+different solutions. Rather, think deeper. How is the worst case defined? How does the
+number of drops of each egg factor into that?
+CrackingTheCodinglnterview.com | 6th Edition
+675

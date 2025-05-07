@@ -1,0 +1,17 @@
+URL Filter
+The URL filter excludes certain content types, file extensions, error links and URLs in
+“blacklisted” sites.
+URL Seen?
+“URL Seen?” is a data structure that keeps track of URLs that are visited before or already in
+the Frontier. “URL Seen?” helps to avoid adding the same URL multiple times as this can
+increase server load and cause potential infinite loops.
+Bloom filter and hash table are common techniques to implement the “URL Seen?”
+component. We will not cover the detailed implementation of the bloom filter and hash table
+here. For more information, refer to the reference materials [4] [8].
+URL Storage
+URL Storage stores already visited URLs.
+So far, we have discussed every system component. Next, we put them together to explain the
+workflow.
+Web crawler workflow
+To better explain the workflow step-by-step, sequence numbers are added in the design
+diagram as shown in Figure 9-4.

@@ -1,0 +1,31 @@
+Containers
+Now that we have an image pulled locally on our Docker host, we can use the
+docker container run command to launch a container from it.
+For Linux:
+$ docker container run -it ubuntu:latest /bin/bash
+root@6dc20d508db0:/#
+For Windows:
+> docker container run -it microsoft/powershell:nanoserver PowerShell.exe
+Windows PowerShell
+Copyright (C) 2016 Microsoft Corporation. All rights reserved.
+PS C:\>
+Look closely at the output from the commands above. You should notice that the
+shell prompt has changed in each instance. This is because your shell is now
+attached to the shell of the new container - you are literally inside of the new
+container!
+Let’s examine that docker container run command. docker container run
+tells the Docker daemon to start a new container. The -it flags tell the daemon
+to make the container interactive and to attach our current terminal to the shell of
+the container (we’ll get more specific about this in the chapter on containers).
+Next, the command tells Docker that we want the container to be based on the
+ubuntu:latest image (or the microsoft/powershell:nanoserver image if you’re
+following along with Windows). Finally, we tell Docker which process we want
+to run inside of the container. For the Linux example we’re running a Bash shell,
+for the Windows container were running PowerShell.
+Run a ps command from inside of the container to list all running processes.
+Linux example:
+root@6dc20d508db0:/# ps -elf
+F S UID    PID  PPID   NI ADDR SZ WCHAN  STIME TTY  TIME CMD
+4 S root     1     0    0 -  4560 wait   13:38 ?    00:00:00 /bin/bash
+0 R root     9     1    0 -  8606 -      13:38 ?    00:00:00 ps -elf
+Windows example:

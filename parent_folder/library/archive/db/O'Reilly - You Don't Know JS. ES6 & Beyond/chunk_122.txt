@@ -1,0 +1,40 @@
+There are module design philosophies where you actually intend to
+let a consumer change the value of a property on your API, or
+module APIs are designed to be “extended” by having other “plu‐
+gins” add to the API namespace. As we just asserted, ES6 module
+APIs should be thought of and designed as static and unchangea‐
+ble, which strongly restricts and discourages these alternate module
+design patterns. You can get around these limitations by exporting
+a plain object, which of course can then be changed at will. But be
+careful and think twice before going down that road.
+Declarations that occur as a result of an import are “hoisted” (see the Scope & Clo‐
+sures title of this series). Consider:
+foo();
+import { foo } from "foo";
+foo() can run because not only did the static resolution of the import .. statement
+figure out what foo is during compilation, but it also “hoisted” the declaration to the
+top of the module’s scope so it’s available throughout the module.
+Finally, the most basic form of the import looks like this:
+import "foo";
+This form does not actually import any of the module’s bindings into your scope. It
+loads (if not already loaded), compiles (if not already compiled), and evaluates (if not
+already run) the "foo" module.
+In general, that sort of import is probably not going to be terribly useful. There may
+be niche cases where a module’s definition has side effects (such as assigning things to
+the window/global object). You could also envision using import "foo" as a sort of
+preload for a module that may be needed later.
+Circular Module Dependency
+A imports B. B imports A. How does this actually work?
+I’ll state off the bat that designing systems with intentional circular dependency is
+generally something I try to avoid. That having been said, I recognize there are rea‐
+sons people do this and it can solve some sticky design situations.
+Let’s consider how ES6 handles this. First, module "A":
+import bar from "B";
+export default function foo(x) {
+if (x > 10) return bar( x - 1 );
+return x * 2;
+}
+Modules
+|
+111
+www.it-ebooks.info

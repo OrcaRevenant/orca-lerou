@@ -1,0 +1,52 @@
+Chapter 5 | Bit Manipulation
+5.2
+Binary to String: Given a reai number between 0 and 1 (e.g., 0.72) that is passed in as a double, print
+the binary representation. If the number cannot be represented accurately in binary with at most 32
+characters, print "ERROR."
+Hlnts:#143,#167,#173, #269, #297
+5.3
+Flip Bit to Win: You have an integer and you can flip exactly one bit from a 0 to a 1, Write code to
+find the length of the longest sequence of Is you could create.
+EXAMPLE
+Input:
+1775
+( o r :
+11011101111)
+Output:
+8
+Hints: #159, #226, #314, #352
+5.4
+Next Number: Given a positive integer, print the next smallest and the next largest number that
+have the same number of 1 bits in their binary representation.
+Hints: #147, #175, #242, #312, #339, #358, #375, #390
+5.5
+Debugger: Explain what thefollowing code does: ( (n & ( n - 1 ) ) == 0).
+Hints: # 15 J, #202, #261, #302, #346, #372, #383, #398
+5.6
+Conversion: Write a function to determine the number of bits you would need to flip to convert
+integer A to integer B.
+EXAMPLE
+Input:
+29 ( o r : 11101), 15 ( o r : 01111)
+Output:
+2
+Hints: #336, #369
+5.7
+PairwiseSwap: Write a program to swap odd and even bits in an integer with as few instructions as
+possible (e.g., bit 9 and bit 1 are swapped, bit 2 and bit 3 are swapped, and so on).
+Hints: #145, #248, #328, #355
+5.8
+Draw Line: A monochrome screen is stored as a single array of bytes, allowing eight consecutive
+pixels to be stored in one byte. The screen has width w, where w is divisible by 8 (that is, no byte will
+be split across rows). The height of the screen, of course, can be derived from the length of the array
+and the width. Implement a function that draws a horizontal line from ( x l , y) to ( x 2 , y).
+The method signature should look something like:
+drawl ine(byte[ ] screen., i n t width, i n t x l , i n t X2, i n t y)
+Hints: #366, #381, #384, #391
+Additional Questions: Arrays and Strings (#1.1, #1.4, #1.8), Math and Logic Puzzles (#6.10), Recursion (#8.4,
+#8.14), Sorting and Searching (#10.7, #10.8), C++(#12.10), Moderate Problems (#16.1, #16.7), Hard Problems
+(#17.1).
+Hints start on page 662.
+116
+tracking
+the Coding Interview, 6th Edition

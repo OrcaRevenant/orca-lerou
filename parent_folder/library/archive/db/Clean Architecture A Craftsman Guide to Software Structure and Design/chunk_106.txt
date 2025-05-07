@@ -1,0 +1,37 @@
+A BRIEF HISTORY OF COMPONENTS
+In the early years of software development, programmers controlled the memory
+location and layout of their programs. One of the first lines of code in a program
+would be the origin statement, which declared the address at which the program
+was to be loaded.
+Consider the following simple PDP-8 program. It consists of a subroutine named
+GETSTR that inputs a string from the keyboard and saves it in a buffer. It also has
+a little unit test program to exercise GETSTR.
+Click here to view code image
+*200
+TLS
+START, CLA
+TAD BUFR
+JMS GETSTR
+CLA
+TAD BUFR
+JMS PUTSTR
+JMP START
+BUFR, 3000
+GETSTR, 0
+DCA PTR
+NXTCH, KSF
+JMP -1
+KRB
+DCA I PTR
+TAD I PTR
+AND K177
+ISZ PTR
+TAD MCR
+SZA
+JMP NXTCH
+K177, 177
+MCR, -15
+Note the *200 command at the start of this program. It tells the compiler to
+generate code that will be loaded at address 2008.
+This kind of programming is a foreign concept for most programmers today.
+They rarely have to think about where a program is loaded in the memory of the

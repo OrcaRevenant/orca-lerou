@@ -1,0 +1,69 @@
+IV | Hints for Additional Review Problems
+#556.
+17.22
+To quickly get the valid words that are one edit away, try to group the words in the
+dictionary in a useful way. Observe that all words in the form b _ l l (such as b i l l , b a l l ,
+b e l l , and b u l l ) will be one edit away. However, those aren't the only words that are
+one edit away from b i l l .
+#557.
+16.21
+When you move a value a from array A to array 8, then A's sum decreases by a and B's
+sum increases by a. What happens when you swap two values? What would be needed
+to swap two values and get the same sum?
+#558.
+17.11
+If you had a list of the occurrences of each word, then you are really looking for a pair
+of values within two arrays (one value for each array) with the smallest difference. This
+could be a fairly similar algorithm to your initial algorithm.
+#559.
+16.22
+Option #2: One approach is to just double the size of the array when the ant wanders
+to an edge. How will you handle the ant wandering into negative coordinates, though?
+Arrays can't have negative indices,
+#560.
+16.13
+Given a line (slope and y-intercept), can you find where it intersects another line?
+#561.
+17.26
+Solution 2: One way to think about this is that we need to be able to very quickly pull
+a list of all documents with some similarity to a specific document. (Again, we should
+not do this by saying "look at ail documents and quickly eliminate the dissimilar docu-
+ments."That will beat least 0(DS).)
+#562.
+17.16
+Iterative solution: Observe that you would never skip three appointments in a row. Why
+would you? You would always be able to take the middle booking.
+#563.
+16.14
+Have you tried using a hash table?
+#564.
+16.21
+If you swap two values, a and b, then the sum of A becomes sumA - a + band the
+sum of B becomes sumB - b + a.These sums need to beequal.
+#565.
+17,24
+If you can precompute the sum from the top left corner to each cell, you can use this to
+compute the sum of an arbitrary submatrix in 0 (1} time. Picture a particular submatrix.
+The full, precomputed sum will include this submatrix, an array immediateiy above it
+(C), and array to the left (B), and an area to the top and left (A). How can you compute
+the sum of just D?
+x l
+X2
+y l
+y2
+A
+C
+8
+D
+#566.
+17.10
+Consider the brute force solution. We pick an element and then validate if it's the
+majority element by counting the number of matching and non-matching elements.
+Suppose, for the first element, the first few checks reveal seven non-matching elements
+and three matching elements. Is it necessary to keep checking this element?
+#567,
+16,17
+Start from the beginning of the array. As that subsequence gets larger, it stays as the
+best subsequence. Once it becomes negative, though, it's useless.
+680
+Cracking the Coding Interview, 6th Edition

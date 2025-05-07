@@ -1,0 +1,91 @@
+Solutions to Chapter 16 | Moderate
+7
+/* PRECOMPUTATION */
+8
+9
+/* Create a hash table that maps from a number to all words that have this
+10
+* numerical representation. */
+11 HashMapList<5tring, String> initializeDictionary(String[] words) {
+12
+/* Create a
+hash table that maps from a letter to the digit */
+13
+HashMap<Character, Character* letterToNumberMap = createLetterToNumberMapQ;
+14
+15
+/* Create word -> number map. */
+16
+HashMapList<5tring, String? wordsToNumbers = new HashMapListcString, String*();
+17
+for (String word : words) {
+18
+String numbers = convertToT9(word, letterToNumberMap);
+19
+wordsToNumbers.put(numbers, word);
+20
+}
+21
+return wordsToNumbers;
+22
+}
+23
+24 /* Convert mapping of number->letters into letter->number. */
+25 HashMapcCharacter, Character* createLetterToNumberMap() {
+26
+HashMap<Character, Character* letterToNumberMap =
+27
+new HashMap<Character, Character>();
+28
+for (int i = d; i < t9Letters.length; i++) {
+29
+char[] letters = t9Letters[i];
+30
+if (letters != null) {
+31
+for (char letter : letters) {
+32
+char c = Character.forDigit(i, 10);
+33
+letterToNumberMap.put(letter, c);
+34
+}
+35
+>
+36
+>
+37
+return letterToNumberMap;
+38 )
+39
+40 /* Convert from a String to its T9 representation. */
+41 String convertToT9(String word, HashMap<Character, Character* letterToNumberMap) {
+42
+StringBuilder sb = new StringBuilder();
+43
+for (char c : word.toCharArrayQ) {
+44
+if (letterToNumberMap.containsKey(c)) {
+45
+char digit = letterToNumberMap.get(c);
+46
+sb.append(digit);
+47
+>
+48
+}
+49
+return sb.toStringQ;
+50 >
+51
+52 char[][] t9Letters = /* Same as before */
+53
+54 /* HashMapListcString, Integer* is a HashMap that maps from Strings to
+55
+* ArrayListcInteger*. See appendix for implementation. */
+Getting the words that map to this number will runinO(N) time, where N is the number of digits. The 0( N)
+comes in during the hash table look up (we need to convert the number to a hash table). If you know the
+words are never longer than a certain max size, then you could also describe the runtime as 0 ( 1 ) .
+Note that it's easy to think, "Oh, linear—that's not that fast." But it depends what it's linear on. Linear on the
+length of the word is extremely fast. Linear on the length of the dictionary is not so fast.
+492 Cracking the Coding Interview, 6th Edition

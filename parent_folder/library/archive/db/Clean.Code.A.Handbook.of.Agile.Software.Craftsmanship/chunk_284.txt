@@ -1,0 +1,45 @@
+254
+Chapter 15: JUnit Internals
+I ran a code coverage analysis on the ComparisonCompactor using these tests. The code
+is 100 percent covered. Every line of code, every if statement and for loop, is executed by
+the tests. This gives me a high degree of conﬁdence that the code works and a high degree
+of respect for the craftsmanship of the authors.
+The code for ComparisonCompactor is in Listing 15-2. Take a moment to look over this
+code. I think you’ll ﬁnd it to be nicely partitioned, reasonably expressive, and simple in
+structure. Once you are done, then we’ll pick the nits together.
+assertEquals("expected:<a> but was:<null>", failure);
+}
+public void testComparisonErrorWithExpectedNull() {
+String failure= new ComparisonCompactor(0, null, "a").compact(null);
+assertEquals("expected:<null> but was:<a>", failure);
+}
+public void testComparisonErrorWithExpectedNullContext() {
+String failure= new ComparisonCompactor(2, null, "a").compact(null);
+assertEquals("expected:<null> but was:<a>", failure);
+}
+public void testBug609972() {
+String failure= new ComparisonCompactor(10, "S&P500", "0").compact(null);
+assertEquals("expected:<[S&P50]0> but was:<[]0>", failure);
+}
+}
+Listing 15-2
+ComparisonCompactor.java (Original)
+package junit.framework;
+public class ComparisonCompactor {
+private static final String ELLIPSIS = "...";
+private static final String DELTA_END = "]";
+private static final String DELTA_START = "[";
+private int fContextLength;
+private String fExpected;
+private String fActual;
+private int fPrefix;
+private int fSuffix;
+public ComparisonCompactor(int contextLength,
+String expected,
+String actual) {
+fContextLength = contextLength;
+fExpected = expected;
+fActual = actual;
+}
+Listing 15-1 (continued)
+ComparisonCompactorTest.java

@@ -1,0 +1,25 @@
+Historically, the SRP has been described this way:
+A module should have one, and only one, reason to change.
+Software systems are changed to satisfy users and stakeholders; those users and
+stakeholders are the “reason to change” that the principle is talking about.
+Indeed, we can rephrase the principle to say this:
+A module should be responsible to one, and only one, user or stakeholder.
+Unfortunately, the words “user” and “stakeholder” aren’t really the right words
+to use here. There will likely be more than one user or stakeholder who wants
+the system changed in the same way. Instead, we’re really referring to a group—
+one or more people who require that change. We’ll refer to that group as an
+actor.
+Thus the final version of the SRP is:
+A module should be responsible to one, and only one, actor.
+Now, what do we mean by the word “module”? The simplest definition is just a
+source file. Most of the time that definition works fine. Some languages and
+development environments, though, don’t use source files to contain their code.
+In those cases a module is just a cohesive set of functions and data structures.
+That word “cohesive” implies the SRP. Cohesion is the force that binds together
+the code responsible to a single actor.
+Perhaps the best way to understand this principle is by looking at the symptoms
+of violating it.
+SYMPTOM 1: ACCIDENTAL
+DUPLICATION
+My favorite example is the Employee class from a payroll application. It has
+three methods: calculatePay(), reportHours(), and save() (Figure 7.1).

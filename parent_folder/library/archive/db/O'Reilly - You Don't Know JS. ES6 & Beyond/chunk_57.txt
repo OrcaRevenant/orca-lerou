@@ -1,0 +1,40 @@
+If a number value is encountered in the values array, we put "$" in front of it and
+format it to two decimal places with toFixed(2). Otherwise, we let the value passthru
+untouched.
+Raw Strings
+In the previous snippets, our tag functions receive a first argument we called strings,
+which is an array. But there’s an additional bit of data included: the raw unprocessed
+versions of all the strings. You can access those raw string values using the .raw prop‐
+erty, like this:
+function showraw(strings, ...values) {
+console.log( strings );
+console.log( strings.raw );
+}
+showraw`Hello\nWorld`;
+// [ "Hello\nWorld" ]
+// [ "Hello\\nWorld" ]
+As you can see, the raw version of the string preserves the escaped \n sequence, while
+the processed version of the string treats it like an unescaped real new-line.
+ES6 comes with a built-in function that can be used as a string literal tag:
+String.raw(..). It simply passes through the raw versions of the strings:
+console.log( `Hello\nWorld` );
+/* "Hello
+World" */
+console.log( String.raw`Hello\nWorld` );
+// "Hello\nWorld"
+Other uses for string literal tags included special processing for internationalization,
+localization, and more!
+Arrow Functions
+We’ve touched on this binding complications with functions earlier in this chapter,
+and they’re covered at length in the this & Object Prototypes title of this series. It’s
+important to understand the frustrations that this based programming with normal
+functions brings, because that is the primary motivation for the new ES6 => arrow
+function feature.
+Let’s first illustrate what an arrow function looks like, as compared to normal func‐
+tions:
+function foo(x,y) {
+return x + y;
+46
+|
+Chapter 2: Syntax
+www.it-ebooks.info

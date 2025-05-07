@@ -1,0 +1,19 @@
+Docker Engine - The TLDR
+The Docker engine is the core software that runs and manages containers. We
+often refer to it simply as Docker, or the Docker platform. If you know a thing or
+two about VMware, it might be useful to think of it as being like ESXi in the
+VMware world.
+The Docker engine is modular in design with many swappable components.
+Where possible, these are based on open-standards outlined by the Open
+Container Initiative (OCI).
+In many ways, the Docker Engine is like a car engine - both are modular and
+created by connecting many small specialized parts: - A car engine is made from
+many specialized parts that work together to make a car drive - intake manifolds,
+throttle body, cylinders, spark plugs, exhaust manifolds etc. - The Docker Engine
+is made from many specialized tools that work together to create and run
+containers - images, APIs, execution driver, runtime, shims etc.
+At the time of writing, the major components that make up the Docker engine
+are: the Docker client, the Docker daemon, containerd, and runc. Together, these
+create and run containers.
+Figure 5.1 shows a high-level view.
+Figure 5.1

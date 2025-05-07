@@ -1,0 +1,40 @@
+Of course, all the previously discussed variations of destructuring are available to us
+with parameter destructuring, including nested destructuring, default values, etc.
+Destructuring also mixes fine with other ES6 function parameter capabilities, like
+default parameter values and rest/gather parameters.
+Consider these quick illustrations (certainly not exhaustive of the possible variations):
+function f1([ x=2, y=3, z ]) { .. }
+function f2([ x, y, ...z], w) { .. }
+function f3([ x, y, ...z], ...w) { .. }
+function f4({ x: X, y }) { .. }
+function f5({ x: X = 10, y = 20 }) { .. }
+function f6({ x = 10 } = {}, { y } = { y: 10 }) { .. }
+Let’s take one example from this snippet and examine it, for illustration purposes:
+function f3([ x, y, ...z], ...w) {
+console.log( x, y, z, w );
+}
+f3( [] );                           // undefined undefined [] []
+f3( [1,2,3,4], 5, 6 );              // 1 2 [3,4] [5,6]
+There are two ... operators in use here, and they’re both gathering values in arrays (z
+and w), though ...z gathers from the rest of the values left over in the first array
+argument, while ...w gathers from the rest of the main arguments left over after the
+first.
+Destructuring Defaults + Parameter Defaults
+There’s one subtle point you should be particularly careful to notice, the difference in
+behavior between a destructuring default value and a function parameter default
+value.
+function f6({ x = 10 } = {}, { y } = { y: 10 }) {
+console.log( x, y );
+}
+f6();                               // 10 10
+As first, it would seem that we’ve declared a default value of 10 for both the x and y
+parameters, but in two different ways. However, these two different approaches will
+behave differently in certain cases, and the difference is awfully subtle.
+Consider:
+f6( {}, {} );                       // 10 undefined
+Wait, why did that happen? It’s pretty clear that named parameter x is defaulting to 10
+if not passed as a property of that same name in the first argument’s object.
+28
+|
+Chapter 2: Syntax
+www.it-ebooks.info

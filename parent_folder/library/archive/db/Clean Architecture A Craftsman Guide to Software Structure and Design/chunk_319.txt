@@ -1,0 +1,28 @@
+“Fifty megabytes! Hahahahahahahahahah!”
+I had the facilities manager build a little room that would house six VT100
+terminals. I decorated it with pictures from space. Our software developers
+would use this room to write and compile code.
+When the machine arrived, I spent several days setting it up, wiring all the
+terminals, and getting everything to work. It was a joy—a labor of love.
+We purchased standard assemblers for the 8085 from Boston Systems Office,
+and we translated the 4-Tel Micro code into that syntax. We built a cross-
+compilation system that allowed us to download compiled binaries from the
+PDP-11 to our 8085 development environments, and ROM burners. And—Bob’s
+your Uncle—it all worked like a champ.
+C
+But that left us with the problem of still using 8085 assembler. That was not a
+situation that I was happy with. I had heard that there was this “new” language
+that was heavily used at Bell Labs. They called it “C.” So I purchased a copy of
+The C Programming Language by Kernighan and Ritchie. Like the PDP-11
+manuals a few months before, I inhaled this book.
+I was astounded by the simple elegance of this language. It sacrificed none of the
+power of assembly language, and provided access to that power with a much
+more convenient syntax. I was sold.
+I purchased a C compiler from Whitesmiths, and got it running on the PDP-11.
+The output of the compiler was assembler syntax that was compatible with the
+Boston Systems Office 8085 compiler. So we had a pathway to go from C to the
+8085 hardware! We were in business.
+Now the only problem was convincing a group of embedded assembly language
+programmers that they should be using C. But that’s a nightmare tale for another
+time …
+BOSS

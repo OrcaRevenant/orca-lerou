@@ -1,0 +1,23 @@
+Namespaces
+Kernel namespaces are at the very heart of containers! They let us slice up an
+operating system (OS) so that it looks and feels like multiple isolated operating
+systems. This lets us do really cool things like run multiple web servers on the
+same OS without having port conflicts. It also lets us run multiple apps on the
+same OS without them fighting over shared config files and shared libraries.
+A couple of quick examples:
+You can run multiple web servers, each requiring port 443, on a single OS.
+To do this you just run each web server app inside of its own network
+namespace. This works because each network namespace gets its own IP
+address and full range of ports.
+You can run multiple applications, each requiring their own particular
+version of a shared library or configuration file. To do this you run each
+application inside of its own mount namespace. This works because each
+mount namespace can have its own isolated copy of any directory on the
+system (e.g. /etc, /var, /dev etc.)
+Figure 11.2 shows a high-level example of two web server applications running
+on a single host and both using port 443. Each web server app is running inside
+of its own network namespace.
+Figure 11.2
+Docker on Linux currently utilizes the following kernel namespaces:
+Process ID (pid)
+Network (net)

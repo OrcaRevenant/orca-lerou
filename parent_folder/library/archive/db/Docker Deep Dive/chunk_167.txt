@@ -1,0 +1,20 @@
+You now have a Swarm with two managers and one worker. The managers are
+configured for high availability (HA) and the cluster store is replicated to them
+both. This updated configuration is shown in Figure 11.9.
+Figure 11.9
+Looking behind the scenes at Swarm security
+Now that we’ve built a secure Swarm let’s take a minute to look behind the
+scenes at some of the security technologies involved.
+Swarm join tokens
+The only thing that is needed to join managers and workers to an existing Swarm
+is the relevant join token. For this reason, it is vital that you keep your join-
+tokens safe! No posting them on public GitHub pages!
+Every Swarm maintains two distinct join tokens: - One for joining new managers
+- One for joining new workers
+It’s worth understanding the format of the Swarm join token. Every join token is
+comprised of 4 distinct fields separated by dashes (-):
+PREFIX - VERSION - SWARM ID - TOKEN
+The prefix is always “SWMTKN”. The version field indicates the version of the
+Swarm. The Swarm ID field is a hash of the Swarm’s certificate. The token
+portion is the part that determines if the token can be used to join the node as a
+manager or worker.

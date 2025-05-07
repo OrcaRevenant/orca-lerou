@@ -1,0 +1,58 @@
+VII j Technical Questions
+That second 0(N) comes from searching. The array is sorted. Can we search in a sorted array in faster than
+0 ( N ) time?
+Why, yes. We can use binary search to find an element in a sorted array in 0( l o g N) time.
+We n o w have an improved algorithm: 0 ( N log N).
+Brute Force:
+O(N')
+Improved Algorithm: 0(N log N)
+Optimal Algorithm: ?
+SCR:
+0(N)
+Can we do even better? Doing better likely means reducing that O ( l o g N) to 0 ( 1 ) .
+In general, we cannot search an array—even a sorted array—in better than 0 ( l o g N) time. This is not the
+general case though. We're doing this search over and over again.
+The BCRis telling us that we will never, ever have an algorithm that's faster than 0 ( N ) . Therefore, any work
+we do in 0(N) time is a "freebie"—it won't impact our runtime.
+Re-read the list of optimization tips on page 64. Is there anything that can help us?
+One of the tips there suggests precomputing or doing upfront work. Any upfront work we do inO(N) time
+is a freebie. It won't impact our runtime.
+I
+This is another place where BCR can be useful. Any work you do that's less than or equal to the
+BCR is "free," in the sense that it won't impact your runtime. You might want to eliminate it even-
+tually, but it's not a top priority just yet.
+Our focus is still on reducing search from 0 ( 1 og N) to 0 ( 1 ) . Any precomputation that's 0 ( N ) or less is
+"free."
+In this case, we can just throw everything in B into a hash table. This will take 0(N) time. Then, we just go
+through A and look up each element in the hash table. This look up (or search) is 0 ( 1 ) , so our runtime is
+0(N).
+Suppose our interviewer hits us with a question that makes us cringe: Can we do better?
+No, not in terms of runtime. We have achieved the fastest possible runtime, therefore we cannot optimize
+the big 0 time. We could potentially optimize the space complexity,
+I
+This is another place where BCR is useful. It tells us that we're "done" in terms of optimizing the
+runtime, and we should therefore turn our efforts to the space complexity.
+In fact, even without the interviewer prompting us, we should have a question mark with respect to our
+algorithm. We would have achieved the exact same runtime if the data wasn't sorted. So why did the inter-
+viewer give us sorted arrays? That's not unheard of, but it is a bit strange.
+Let's turn back to our example.
+A: 13
+27
+35
+49 49
+55
+59
+6: 17
+35
+39
+40
+^
+58
+60
+We're now looking for an algorithm that:
+*
+Operates in 0 ( 1 ) space (probably). We already have an 0 ( N ) space algorithm with optimal runtime. If
+we want to use less additional space, that probably means no additional space. Therefore, we need to
+drop the hash table.
+61
+Cracking the Coding Interview, 6th Edition

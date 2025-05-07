@@ -1,0 +1,40 @@
+278
+Chapter 16: Refactoring SerialDate
+The isValidMonthCode function (lines 326–346) was made irrelevant by the Month
+enum, so I deleted it [G9].
+The monthCodeToQuarter function (lines 356–375) smells of FEATURE ENVY7 [G14]
+and probably belongs in the Month enum as a method named quarter. So I replaced it.
+This made the Month enum big enough to be in its own class. So I moved it out of
+DayDate to be consistent with the Day enum [G11],[G13].
+The next two methods are named monthCodeToString (lines 377–426). Again, we see
+the pattern of one method calling its twin with a ﬂag. It is usually a bad idea to pass a ﬂag
+as an argument to a function, especially when that ﬂag simply selects the format of the out-
+put [G15]. I renamed, simpliﬁed, and restructured these functions and moved them into the
+Month enum [N1],[N3],[C3],[G14].
+The next method is stringToMonthCode (lines 428–472). I renamed it, moved it into the
+Month enum, and simpliﬁed it [N1],[N3],[C3],[G14],[G12].
+public static String[] getMonthNames() {
+return dateFormatSymbols.getMonths();
+}
+7.
+[Refactoring].
+public int quarter() {
+return 1 + (index-1)/3;
+}
+public String toString() {
+return dateFormatSymbols.getMonths()[index - 1];
+}
+public String toShortString() {
+return dateFormatSymbols.getShortMonths()[index - 1];
+}
+public static Month parse(String s) {
+s = s.trim();
+for (Month m : Month.values())
+if (m.matches(s))
+return m;
+try {
+return make(Integer.parseInt(s));
+}
+catch (NumberFormatException e) {}
+throw new IllegalArgumentException("Invalid month " + s);
+}

@@ -1,0 +1,13 @@
+Analytics Logs. It stores raw data about search queries. Logs are append-only and are not
+indexed. Table 13-3 shows an example of the log file.
+Aggregators. The size of analytics logs is usually very large, and data is not in the right
+format. We need to aggregate data so it can be easily processed by our system.
+Depending on the use case, we may aggregate data differently. For real-time applications
+such as Twitter, we aggregate data in a shorter time interval as real-time results are important.
+On the other hand, aggregating data less frequently, say once per week, might be good
+enough for many use cases. During an interview session, verify whether real-time results are
+important. We assume trie is rebuilt weekly.
+Aggregated Data.
+Table 13-4 shows an example of aggregated weekly data. “time” field represents the start
+time of a week. “frequency” field is the sum of the occurrences for the corresponding query
+in that week.

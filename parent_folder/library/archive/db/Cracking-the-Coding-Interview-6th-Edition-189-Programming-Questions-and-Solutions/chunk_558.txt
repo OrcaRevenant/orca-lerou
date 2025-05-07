@@ -1,0 +1,80 @@
+Solutions to Chapter 17 | Moderate
+68 >
+This algorithm will take 0(2") time. We can optimize it using memoization (that is, caching the best
+sequences).
+There's a cleaner way to do this though.
+Solution #2: Iterative
+Imagine we had the longest subsequence that terminates with each element, A [ 0 ] through A[ 3]. Could
+we use this to find the longest subsequence that terminates with A[4]?
+Array: 13, 14, 10, 11, 12
+Longest(ending with A [ 0 ] ) : 13
+Longest(ending with A [ l ] ) : 13, 14
+Longest(ending with A[2]): 10
+Longest(ending with A[3]): 10, 11
+Longest(erding with A[4]): 10, 11, 12
+Sure. We just append A [ 4 ] on to the longest subsequence that it can be appended to.
+This is now fairly straightforward to implement.
+1
+Arraylist<HtWt> longestIncreasingSeq(Arraylist<HtWt> array) {
+2
+C o l l e c t i o n s . s o r t ( a r r a y ) ;
+3
+4
+ArrayList<ArrayList<HtWt>> solutions =
+new ArrayList<ArrayList<HtWt>>();
+5
+ArrayList<HtWt> bestSequence = n u l l ;
+6
+/* Find the longest subsequence that terminates with each element. Track the
+8
+* longest overall subsequence as we go, V
+9
+for ( i n t i = 0; i < a r r a y . s i z e { ) ; i++) {
+10
+ArrayList<HtWt> longestAtIndex = bestSeqAtIndex(array, solutions, i ) ;
+11
+solutions.add(i,
+longestAtlndex);
+12
+bestSequence = max(bestSequence, longestAtlndex);
+13
+}
+14
+15
+return bestSequence;
+16 >
+17
+18 /* Find the longest subsequence which terminates with t h i s element. */
+19 ArrayList<HtWt> bestSeqAtIndex(ArrayList<HtWt> array,
+20
+ArrayList<ArrayList<HtWt>> solutions, i n t index) {
+21
+HtWt value = array.get(index);
+22
+23
+ArrayList<HtWt> bestSequence = new ArrayList<HtWt>();
+24
+25
+/* Find the longest subsequence that we can append t h i s element t o . */
+26
+f o r ( i n t i = 0; i < index; i++) {
+27
+ArrayList<HtWt> solution = s o l u t i o n s . g e t ( i ) ;
+28
+if (canAppend(solution, value)) {
+29
+bestSequence = max(solution, bestSequence);
+30
+>
+31
+}
+32
+33
+/* Append element. */
+34
+ArrayList<HtWt> best = (ArrayList<HtWt>) bestSequence.clone();
+35
+best.add(value);
+36
+492
+Cracking the Coding Interview, 6th Edition

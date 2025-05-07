@@ -1,0 +1,35 @@
+288
+Chapter 17: Smells and Heuristics
+Functions
+F1: Too Many Arguments
+Functions should have a small number of arguments. No argument is best, followed by
+one, two, and three. More than three is very questionable and should be avoided with prej-
+udice. (See “Function Arguments” on page 40.)
+F2: Output Arguments
+Output arguments are counterintuitive. Readers expect arguments to be inputs, not out-
+puts. If your function must change the state of something, have it change the state of the
+object it is called on. (See “Output Arguments” on page 45.)
+F3: Flag Arguments
+Boolean arguments loudly declare that the function does more than one thing. They are
+confusing and should be eliminated. (See “Flag Arguments” on page 41.)
+F4: Dead Function
+Methods that are never called should be discarded. Keeping dead code around is wasteful.
+Don’t be afraid to delete the function. Remember, your source code control system still
+remembers it.
+General
+G1: Multiple Languages in One Source File
+Today’s modern programming environments make it possible to put many different languages
+into a single source ﬁle. For example, a Java source ﬁle might contain snippets of XML,
+HTML, YAML, JavaDoc, English, JavaScript, and so on. For another example, in addition to
+HTML a JSP ﬁle might contain Java, a tag library syntax, English comments, Javadocs,
+XML, JavaScript, and so forth. This is confusing at best and carelessly sloppy at worst.
+The ideal is for a source ﬁle to contain one, and only one, language. Realistically, we
+will probably have to use more than one. But we should take pains to minimize both the
+number and extent of extra languages in our source ﬁles.
+G2: Obvious Behavior Is Unimplemented
+Following “The Principle of Least Surprise,”2 any function or class should implement the
+behaviors that another programmer could reasonably expect. For example, consider a
+function that translates the name of a day to an enum that represents the day.
+2.
+Or “The Principle of Least Astonishment”: http://en.wikipedia.org/wiki/
+Principle_of_least_astonishment

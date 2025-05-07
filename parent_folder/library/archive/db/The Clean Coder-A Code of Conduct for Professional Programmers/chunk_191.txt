@@ -1,0 +1,31 @@
+CHAPTER 12 COLLABORATION
+160
+When I solved a bug it was like winning a victory, or slaying the Jabberwock!
+I would go to my boss, Ken Finder, Vorpal blade in hand, and passionately
+describe to him how interesting the bug was. One day Ken finally erupted in
+frustration: “Bugs aren’t interesting. Bugs just need to be fixed!”
+I learned something that day. It’s good to be passionate about what we do. But
+it’s also good to keep your eye on the goals of the people who pay you.
+The first responsibility of the professional programmer is to meet the needs of
+his or her employer. That means collaborating with your managers, business
+analysts, testers, and other team members to deeply understand the business
+goals. This doesn’t mean you have to become a business wonk. It does mean that
+you need to understand why you are writing the code you are writing, and how
+the business that employs you will benefit from it.
+The worst thing a professional programmer can do is to blissfully bury himself
+in a tomb of technology while the business crashes and burns around him. Your
+job is to keep the business afloat!
+So, professional programmers take the time to understand the business. They
+talk to users about the software they are using. They talk to sales and marketing
+people about the problems and issues they have. They talk to their managers to
+understand the short- and long-term goals of the team.
+In short, they pay attention to the ship they are sailing on.
+The only time I was fired from a programming job was in 1976. I was working
+for Outboard Marine Corp. at the time. I was helping to write a factory
+automation system that used IBM System/7s to monitor dozens of aluminum
+die-cast machines on the shop floor.
+Technically, this was a challenging and rewarding job. The architecture of the
+System/7 was fascinating, and the factory automation system itself was really
+interesting.
+We also had a good team. The team lead, John, was competent and motivated.
+My two programming teammates were pleasant and helpful. We had a lab

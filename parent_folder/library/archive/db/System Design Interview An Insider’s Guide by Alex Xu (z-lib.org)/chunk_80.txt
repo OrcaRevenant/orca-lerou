@@ -1,0 +1,16 @@
+availability while sacrificing partition tolerance. Since network failure is unavoidable, a
+distributed system must tolerate network partition. Thus, a CA system cannot exist in real-
+world applications.
+What you read above is mostly the definition part. To make it easier to understand, let us take
+a look at some concrete examples. In distributed systems, data is usually replicated multiple
+times. Assume data are replicated on three replica nodes, n1, n2 and n3 as shown in Figure 6-
+2.
+Ideal situation
+In the ideal world, network partition never occurs. Data written to n1 is automatically
+replicated to n2 and n3. Both consistency and availability are achieved.
+Real-world distributed systems
+In a distributed system, partitions cannot be avoided, and when a partition occurs, we must
+choose between consistency and availability. In Figure 6-3, n3 goes down and cannot
+communicate with n1 and n2. If clients write data to n1 or n2, data cannot be propagated to
+n3. If data is written to n3 but not propagated to n1 and n2 yet, n1 and n2 would have stale
+data.

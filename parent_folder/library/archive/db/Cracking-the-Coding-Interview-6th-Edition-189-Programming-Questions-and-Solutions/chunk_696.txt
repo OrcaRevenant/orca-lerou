@@ -1,0 +1,82 @@
+IV | Hints for Additional Review Problems
+#586.
+17.7
+If each name maps to a list of its alternate spellings, you might have to update a lot of
+lists when you set X and Y as synonyms. If X is a synonym of {A,
+B, C}, and Y is a
+synonymof{D, E, F } then you would need to add {Y, D, E, F} to A's synonym
+list, B's synonym list, C's synonym list, and X's synonym list. Ditto for {Y, D,
+E, F}.
+Can we make this faster?
+#587.
+17.16
+Iterative solution: If you take an appointment, you can't take the next appointment, but
+you can take anything after that. Therefore, o p t i r r i a l ( r . ,
+r n ) = max(r 1 +
+o p t i m a l ( r U 2 J
+r n ) j
+o p t i m a l { r u l ,
+,
+r M)). You can solve this itera-
+tively by working backwards.
+#588.
+16.8
+Have you considered negative numbers? Does your solution work for values like
+100,030,000?
+#589.
+17.IS
+When you get recursive algorithms that are very inefficient, try looking for repeated
+subproblems.
+#590.
+17,19
+Part 1: If you have to find the missing number in 0 ( 1 ) space and 0(N) time, then you
+can do a only constant number of passes through the array and can store only a few
+variables.
+#591.
+17.9
+Look at the list of all values for 3a * 5" * 7C, Observe that each value in the list will be
+3*(some previous value), 5*(some previous value), or 7*(some previous value).
+#592.
+16.21
+A brute force solution is to just look through all pairs of values to find one with the
+right difference. This will probably look tike an outer loop through A with an inner loop
+through B, For each value, compute the difference and compare it to what we're looking
+for. Can we be more specific here, though? Given a value in A and a target difference, do
+we know the exact value of the element within B we're looking for?
+#593.
+17.14
+What about using a heap or tree of some sort?
+#594.
+16.17
+If we tracked the running sum, we should reset it as soon as the subsequence becomes
+negative. We would never add a negative sequence to the beginning or end of another
+subsequence.
+#595.
+17.24
+With precomputation, you should be able to get a runtime of 0(N 4). Can you make this
+even faster?
+#596.
+17.3
+Try this recursively. Suppose you had an algorithm to get a subset of size m from n - 1
+elements. Could you develop an algorithm to get a subset of size m from n elements?
+#597.
+16.24
+Can we make this faster with a hash table?
+#598.
+17.22
+Your previous algorithm probably resembles a depth-first search. Can you make this
+faster?
+#599.
+16.22
+Option #3: Another thing to think about is whether you even need a grid to implement
+this. What information do you actually need in the problem?
+#600.
+16.9
+Subtraction: Would a negate function (which converts a positive integer to negative)
+help? Can you implement this using the add operator?
+#601.
+17.1
+Focus on just one of the steps above. If you "forgot" to carry the ones, what would the
+add operation look like?
+680
+Cracking the Coding Interview, 6th Edition

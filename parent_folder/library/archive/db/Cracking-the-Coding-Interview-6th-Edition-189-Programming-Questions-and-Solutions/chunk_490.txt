@@ -1,0 +1,73 @@
+Solutions to Chapter 14 j Databases
+If we apply this to the above expression, we get:
+1. 0 ( l o g a +
+log('A)
++ l o g ( ' / * )
++
+• - - )
+2. O(log a + ( l o g a - log 2) + ( l o g a - log 4) + ( l o g a - log 8) + . . .
+3. 0 ( ( l o g a ) * ( l o g a) - ( l o g 2 + l o g 4 + log 8 + . . . + l o g a ) ) / / 0 ( l o g a)terms
+4. 0( ( l o g a ) * ( l o g a) - (1 + 2 + 3 + . . . + l o g a ) ) //computing the values of logs
+5. 0( ( l o g a ) * ( l o g a) -
+j //apply equation for sum of 1 through k
+6. O ( ( l o g a) 3)//drop second term from step S
+Therefore, the runtime i s 0 ( ( l o g a ) ' } .
+This math is considerably more complicated than most people would be able to do (or expected to do) in an
+interview. You could make a simplification: You do O(log a) rounds and the longest round takes O(log
+a) work. Therefore, as an upper bound, negate takes 0( ( l o g a) 2} time. In this case, the upper bound
+happens to be the true time.
+There are some faster solutions too. For example, rather than resetting d e l t a to 1 at each round, we could
+change d e l t a to its previous value. This would have the effect of d e l t a "counting up" by multiples of two,
+and then "counting down" by multiples of two. The runtime of this approach would beO(log a). However,
+this implementation would require a stack, division, orbit shifting—any of which might violate the spirit of
+the problem. You could certainly discuss those implementations with your interviewer though.
+Multiplication
+The connection between addition and multiplication is equally straightforward. To multiply a by b, we just
+add a to itself b times.
+1
+/* Multiply a by b by adding a to itself b times */
+2
+int multiply(int a, int b) {
+3
+if (a < b) {
+4
+return multiply(bj a); // algorithm is faster if b < a
+5
+}
+6
+int sum = 0;
+7
+for (int i = abs(b); i > 0; i = minusfi, 1)) {
+8
+sum += a;
+9
+>
+ie
+if (b < e) {
+11
+sum = negate(sum);
+12
+>
+13
+return sum;
+14 }
+15
+16 /* Return absolute value */
+17 int abs(int a) {
+is
+if (a < 9) {
+19
+return negate(a);
+20
+} else {
+21
+return a;
+22
+>
+23 >
+The one thing we need to be careful of in the above code is to properly handle multiplication of negative
+numbers. If b is negative, we need to flip the value of sum. So, what this code really does is:
+multiply (a, b)
+abs(b) * a * ( - 1 if b < 0).
+4 8 0
+Cracking the Coding Interview, 6th Edition

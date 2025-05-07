@@ -1,0 +1,36 @@
+• Recrawl based on web pages’ update history.
+• Prioritize URLs and recrawl important pages first and more frequently.
+Storage for URL Frontier
+In real-world crawl for search engines, the number of URLs in the frontier could be hundreds
+of millions [4]. Putting everything in memory is neither durable nor scalable. Keeping
+everything in the disk is undesirable neither because the disk is slow; and it can easily
+become a bottleneck for the crawl.
+We adopted a hybrid approach. The majority of URLs are stored on disk, so the storage space
+is not a problem. To reduce the cost of reading from the disk and writing to the disk, we
+maintain buffers in memory for enqueue/dequeue operations. Data in the buffer is
+periodically written to the disk.
+HTML Downloader
+The HTML Downloader downloads web pages from the internet using the HTTP protocol.
+Before discussing the HTML Downloader, we look at Robots Exclusion Protocol first.
+Robots.txt
+Robots.txt, called Robots Exclusion Protocol, is a standard used by websites to communicate
+with crawlers. It specifies what pages crawlers are allowed to download. Before attempting to
+crawl a web site, a crawler should check its corresponding robots.txt first and follow its rules.
+To avoid repeat downloads of robots.txt file, we cache the results of the file. The file is
+downloaded and saved to cache periodically. Here is a piece of robots.txt file taken from
+https://www.amazon.com/robots.txt. Some of the directories like creatorhub are disallowed
+for Google bot.
+User-agent: Googlebot
+Disallow: /creatorhub/*
+Disallow: /rss/people/*/reviews
+Disallow: /gp/pdp/rss/*/reviews
+Disallow: /gp/cdp/member-reviews/
+Disallow: /gp/aw/cr/
+Besides robots.txt, performance optimization is another important concept we will cover for
+the HTML downloader.
+Performance optimization
+Below is a list of performance optimizations for HTML downloader.
+1. Distributed crawl
+To achieve high performance, crawl jobs are distributed into multiple servers, and each server
+runs multiple threads. The URL space is partitioned into smaller pieces; so, each downloader
+is responsible for a subset of the URLs. Figure 9-9 shows an example of a distributed crawl.

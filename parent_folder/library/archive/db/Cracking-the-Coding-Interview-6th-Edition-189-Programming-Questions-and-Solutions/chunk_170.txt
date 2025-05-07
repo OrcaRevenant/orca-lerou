@@ -1,0 +1,85 @@
+Chapter 15 j Threads and Locks
+13
+} ;
+Another usage for virtual functions is when we can't (or don't want to) implement a method for the parent
+class. Imagine, for example, that we want Student and Teacher to inherit from Person so that we
+can implement a common method such as a d d C o u r s e ( s t r i n g
+s). Calling addCourse on Person,
+however, wouldn't make much sense since the implementation depends on whether the object is actually
+a Student or Teacher.
+In this case, we might want addCourse to be a virtual function defined within Person, with the imple-
+mentation being left to the subclass.
+1
+class Person {
+2
+int id; II all members are private by default
+3
+char name[NAME_SIZE]j
+4
+public:
+S
+virtual void aboutMe() {
+6
+cout << "I am a person." << endl;
+7
+}
+3
+q
+virtual bool addCourse(string s) = 0;
+\ •
+10
+Si
+11 class Student : public Person {
+12
+public:
+13
+void aboutMe() {
+14
+cout << "I am a student." << endl;
+15
+}
+16
+17
+bool addCourse(string s) {
+18
+cout << "Added course " << s << " to student
+19
+return true;
+20
+I
+21 };
+22
+23 int main() {
+24
+Person * p = new Student();
+25
+p->aboutMe(); // prints "I am a student."
+26
+p->addCourse("History");
+27
+delete p;
+28 }
+Note that by defining addCourse to be a "pure virtual function,"Person is now an abstract class and we
+cannot instantiate it.
+• Virtual Destructor
+The virtual function naturally introduces the concept of a "virtual destructor." Suppose we wanted to imple-
+ment a destructor method for Person and Student. A naive solution might look like this:
+1
+class Person {
+2
+public:
+3
+~Person() {
+4
+cout << "Deleting a person." c< endlj
+5
+>
+6
+} ;
+7
+S
+class Student : public Person {
+9
+public:
+160
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,70 @@
+Solutions to Chapter 17 | Moderate
+Ll.ADD Jonathan -> John
+L2.ADD John -> Jonathan
+READ (Jon, Johnny)
+LI.ADD Jon -> Johnny
+L2.ADD Johnny -> Jon
+READ (Johnny, John)
+Ll.ADD Johnny -> John
+LI.UPDATE Jon -> John
+L2.UPDATE John -> Jonathan, Johnny, Jon
+If we later find that John is equivalent to, say, Jonny, we'll need to look up the names in LI and L2 and
+merge together all the names that are equivalent to them.
+This will work, but it's unnecessarily complicated to keep track of these two lists.
+Instead, we can think of these names as "equivalence classes."When we find a pair (Jonathan, John), we put
+these in the same set (or equivalence classes). Each name maps to its equivalence class. All items in the set
+map to the same instance of the set.
+If we need to merge two sets, then we copy one set into the other and update the hash table to point to
+the new set.
+READ (Jonathan, John)
+CREATE Setl = Jonathan, John
+Ll.ADD Jonathan -> Setl
+Ll.ADD John -> Setl
+READ (Jon, Johnny)
+CREATE Set2 « Jon, Johnny
+Ll.ADD Jon -> Set2
+Ll.ADD Johnny -> Set2
+READ (Johnny, John)
+COPY Set2 into Setl.
+Setl = Jonathan, John, Jon, Johnny
+LI.UPDATE Jon
+Setl
+Ll.UPDATE Johnny -> Setl
+In the last step above, we iterated through ail items in Set2 and updated the reference to point to S e t l .
+As we do this, we keep track of the total frequency of names.
+1
+HashMapcString, Integers trulyMostPopular(HashMap<String, Integers names,
+2
+String[][] synonyms) {
+3
+/* Parse l i s t and initialize equivalence classes.*/
+4
+HashMapcString, NameSet> groups = constructGroups(names);
+5
+6
+/* Merge equivalence classes together. V
+7
+mergeClasses(groups, synonyms);
+8
+9
+/* Convert back to hash map. */
+10
+return convertToMap(groups);
+11 }
+12
+13 /* This is the core of the algorithm. Read through each pair. Merge their
+14
+* equivalence classes and update the mapping of the secondary class to point to
+15
+* the first set.*/
+16 void mergeClasses(HashMap<String, NameSet> groups, String[][) synonyms) {
+17
+for (String[] entry : synonyms) {
+18
+String namel = entry[0];
+19
+String name2 = entry[l];
+20
+NameSet setl = groups.get(namel);
+492
+Cracking the Coding Interview, 6th Edition

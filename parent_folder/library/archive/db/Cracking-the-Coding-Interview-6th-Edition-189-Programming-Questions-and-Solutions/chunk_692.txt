@@ -1,0 +1,80 @@
+IV | Hints for Additional Review Problems
+#523.
+16.10
+Solution 2: Observe that people are "fungible." It doesn't matter who was born and when
+they died. All you need is a list of birth years and death years. This might make the ques-
+tion of how you sort the list of people easier,
+#S24.
+16.25
+First scope the problem. What are the features you would want?
+#525.
+17,24
+Can you do any sort of precomputation to make computing the sum of a submatrix
+0(1)?
+#526.
+17.16
+Recursive solution: The runtime of your memoization approach should be 0(N), with
+0(N) space.
+#527.
+16.3
+Think carefully about how to handle the case of line segments that have the same slope
+and y-intercept.
+#528.
+16.13
+To cut two squares in half, a line must go through the middle of both squares.
+#529.
+16.14
+You should be able to get to an 0(N !) solution.
+#530.
+17.14
+Consider thinking about reorganizing the data in some way or using additional data
+structures.
+#531.
+16.17
+Picture the array as alternating sequences of positive and negative numbers. Observe
+that we would never include just part of a positive sequence or part of a negative
+sequence.
+#532.
+16.10
+Solution 2: Try creating a sorted list of births and a sorted list of deaths. Can you iterate
+through both, tracking the number of people alive at any one time?
+#533.
+16.22
+Option #2: Think about how an A r r a y L i s t works. Can you use an A r r a y L i s t for this?
+#534.
+17.26
+Solution 1:To understand the relationship between the union and the intersection of
+two sets, consider a Venn diagram (a diagram where one circle overlaps another circle).
+#535.
+17.22
+Once you have a brute force solution, try to find a faster way of getting all valid words
+that are one edit away. You don't want to create all strings that are one edit away when
+the vast majority of them are not valid dictionary words.
+#536,
+16.2
+Can you use a hash table to optimize the repeated case?
+#537.
+17.7
+An easier way of taking the above approach is to have each name map to a list of alter-
+nate spellings. What should happen when a name in one group is set equal to a name in
+another group?
+#538.
+17.11
+You could build a lookup table that maps from a word to a list of the locations where
+each word appears. How then could you find the closest two locations?
+#539.
+17.24
+What if you precomputed the sum of the submatrix starting at the top left corner and
+continuing to each cell? How long would it take you to compute this? If you did this,
+could you then get the sum of an arbitrary submatrix in 0 ( 1 ) time?
+#540.
+16.22
+Option #2: It's not impossible to use an A r r a y L i s t , but it would be tedious. Perhaps it
+would be easier to build your own, but specialized for matrices.
+#541.
+16.10
+Solution 3: Each birth adds one person and each death removes a person. Try writing an
+example of a list of people (with birth and death years) and then re-formatting this into
+a list of each year and a +1 for a birth and a -1 for a death.
+680
+Cracking the Coding Interview, 6th Edition

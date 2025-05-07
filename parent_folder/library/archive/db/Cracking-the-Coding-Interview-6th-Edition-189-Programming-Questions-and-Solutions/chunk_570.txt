@@ -1,0 +1,43 @@
+Solutions to Chapter 17 j Hard
+17.12 BiNode: Consider a simple data structure called BiNode, which has pointers to two other nodes. The
+data structure BiNode could be used to represent both a binary tree (where nodel is the left node
+and node2 is the right node) or a doubly linked list (where nodel is the previous node and node2
+is the next node). Implement a method to convert a binary search tree (implemented with BiNode)
+into a doubly linked list. The values should be kept in order and the operation should be performed
+in place (that is, on the original data structure).
+pg 188
+SOLUTION
+This seemingly complex problem can be implemented quite elegantly using recursion. You will need to
+understand recursion very well to solve it.
+Picture a simple binary search tree:
+The c o n v e r t method should transform it into the below doubly linked list:
+0 <-> 1 <-> 2 <-> 3 <-> 4 <-> 5 <-> 6
+Let's approach this recursively, starting with the root (node 4).
+We know that the left and right halves of the tree form their own "sub-parts" of the linked list (that is, they
+appear consecutively in the linked list). So, if we recursively converted the left and right subtrees to a doubly
+linked list, could we build the final linked list from those parts?
+Yes! We would simply merge the different parts.
+The pseudocode looks something like:
+1
+BiNode convert(BiNode node) {
+2
+BiNode l e f t = convert(node.left);
+3
+BiNode r i g h t = convert(node.right);
+4
+mergeLists(left, node, r i g h t ) ;
+5
+return l e f t ; / / f r o n t o f l e f t
+6
+>
+To actually implement the nitty-gritty details of this, we'll need to get the head and tail of each linked list.
+We can do this several different ways.
+Solution #1: Additional Data Structure
+The first, and easier, approach is to create a new data structure called NodePair which holds just the head
+and tail of a linked list. The c o n v e r t method can then return something of type NodePair.
+The code below implements this approach.
+1
+private class NodePair {
+55
+S
+Cracking the Coding interview, 6th Edition

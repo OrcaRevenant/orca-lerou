@@ -1,0 +1,7 @@
+1. https://insights.sei.cmu.edu/sei_blog/2011/08/the-growing-importance-of-sustaining-software-for-
+thedod.html
+2. The hardware device that controls the serial port.
+3. Some silicon providers add keywords to the C language to make accessing the registers and IO ports
+simple from C. Unfortunately, once that is done, the code is no longer C.
+4. This statement intentionally uses HTML.
+5. Hunt and Thomas, The Pragmatic Programmer.

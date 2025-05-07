@@ -1,0 +1,36 @@
+76
+Chapter 5: Formatting
+You should take care that your code is nicely formatted. You should choose a set of
+simple rules that govern the format of your code, and then you should consistently apply
+those rules. If you are working on a team, then the team should agree to a single set of
+formatting rules and all members should comply. It helps to have an automated tool that
+can apply those formatting rules for you.
+The Purpose of Formatting
+First of all, let’s be clear. Code formatting is important. It is too important to ignore and
+it is too important to treat religiously. Code formatting is about communication, and
+communication is the professional developer’s ﬁrst order of business.
+Perhaps you thought that “getting it working” was the ﬁrst order of business for a
+professional developer. I hope by now, however, that this book has disabused you of that
+idea. The functionality that you create today has a good chance of changing in the next
+release, but the readability of your code will have a profound effect on all the changes
+that will ever be made. The coding style and readability set precedents that continue to
+affect maintainability and extensibility long after the original code has been changed
+beyond recognition. Your style and discipline survives, even though your code does not.
+So what are the formatting issues that help us to communicate best?
+Vertical Formatting
+Let’s start with vertical size. How big should a source ﬁle be? In Java, ﬁle size is closely
+related to class size. We’ll talk about class size when we talk about classes. For the
+moment let’s just consider ﬁle size.
+How big are most Java source ﬁles? It turns out that there is a huge range of sizes and
+some remarkable differences in style. Figure 5-1 shows some of those differences.
+Seven different projects are depicted. Junit, FitNesse, testNG, Time and Money,
+JDepend, Ant, and Tomcat. The lines through the boxes show the minimum and maxi-
+mum ﬁle lengths in each project. The box shows approximately one-third (one standard
+deviation1) of the ﬁles. The middle of the box is the mean. So the average ﬁle size in the
+FitNesse project is about 65 lines, and about one-third of the ﬁles are between 40 and
+100+ lines. The largest ﬁle in FitNesse is about 400 lines and the smallest is 6 lines.
+Note that this is a log scale, so the small difference in vertical position implies a very
+large difference in absolute size.
+1.
+The box shows sigma/2 above and below the mean. Yes, I know that the ﬁle length distribution is not normal, and so the stan-
+dard deviation is not mathematically precise. But we’re not trying for precision here. We’re just trying to get a feel.

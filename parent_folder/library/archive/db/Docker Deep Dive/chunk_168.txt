@@ -1,0 +1,36 @@
+As you can see below, the manager and worker join tokens for a given Swarm
+are identical except for the final TOKEN field.
+MANAGER: SWMTKN-1-1dmtwusdc…r17stb-
+2axi53zjbs45lqxykaw8p7glz
+WORKER: SWMTKN-1-1dmtwusdc…r17stb-ehp8gltji64jbl45zl6hw738q
+If you suspect that either of your join tokens has been compromised you can
+revoke them and issue new ones with a single command. The following example
+revokes the existing manager join token and issues a new one.
+$ docker swarm join-token --rotate manager
+Successfully rotated manager join token.
+To add a manager to this swarm, run the following command:
+docker swarm join --token \
+SWMTKN-1-1dmtwu...r17stb-1i7txlh6k3hb921z3yjtcjrc7 \
+172.31.5.251:2377
+Notice that the only difference between the old and new join tokens is the last
+field. The Swarm ID remains the same.
+Join tokens are stored in the cluster config database which is encrypted by
+default.
+TLS and mutual authentication
+Every manager and worker that joins a Swarm is issued a client certificate. This
+certificate is used for mutual authentication. It identifies the node, which Swarm
+the node is a member of, and role the node performs in the Swarm (manager or
+worker).
+On a Linux host you can inspect a node’s client certificate with the following
+command.
+$ sudo openssl x509 \
+-in /var/lib/docker/swarm/certificates/swarm-node.crt \
+-text
+Certificate:
+Data:
+Version: 3 (0x2)
+Serial Number:
+80:2c:a7:b1:28...a8:af:89:a1:2a:51:89
+Signature Algorithm: ecdsa-with-SHA256
+Issuer: CN=swarm-ca
+Validity

@@ -1,0 +1,35 @@
+$ docker swarm init \
+--advertise-addr 10.0.0.1:2377 \
+--listen-addr 10.0.0.1:2377
+Swarm initialized: current node (d21lyz...c79qzkx) is now a manager.
+The command can be broken down as follows:
+docker swarm init tells Docker to initialize a new Swarm and make
+this node the first manager. It also enables swarm mode on the node.
+--advertise-addr is the IP and port that other nodes should use to
+connect to this manager. The flag is optional, but it gives you control
+over which IP gets used on nodes with multiple IPs. It also gives you
+the chance to specify an IP address that does not exist on the node,
+such as a load balancer IP address.
+--listen-addr lets you specify which IP and port you want to listen
+on for swarm traffic. This will usually match the --advertise-addr,
+but is useful in situations where you want to restrict swarm to a
+particular IP on a system with multiple IPs. It’s also required in
+situations where the --advertise-addr refers to a remote IP address
+like a load balancer.
+I recommend you be specific and always use both flags. All of the Windows
+Swarm work I’ve done has required these two flags.
+The default port that swarm mode operates on is 2377. This is entirely
+customizable, but Docker, Inc. are looking to register this with IANA as the
+official Docker Swarm port.
+2. List the nodes in the swarm
+$ docker node ls
+ID            HOSTNAME   STATUS  AVAILABILITY  MANAGER STATUS
+d21...qzkx *  mgr1       Ready   Active        Leader
+Notice that mgr1 is currently the only node in the swarm and is listed as the
+Leader. We’ll come back to this in a second.
+3. From magr1 run the docker swarm join-token command to extract the
+commands and tokens required to add new workers and managers to the
+swarm.
+$ docker swarm join-token worker
+To add a manager to this swarm, run the following command:
+docker swarm join \

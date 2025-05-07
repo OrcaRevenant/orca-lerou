@@ -1,0 +1,45 @@
+198
+Chapter 14: Successive Reﬁnement
+The other ArgumentMarshaler derivatives simply replicate this pattern for doubles and
+String arrays and would serve to clutter this chapter. I’ll leave them to you as an exercise.
+One other bit of information might be troubling you: the deﬁnition of the error code
+constants. They are in the ArgsException class (Listing 14-7).
+Listing 14-6
+IntegerArgumentMarshaler.java
+import static com.objectmentor.utilities.args.ArgsException.ErrorCode.*;
+public class IntegerArgumentMarshaler implements ArgumentMarshaler {
+private int intValue = 0;
+public void set(Iterator<String> currentArgument) throws ArgsException {
+String parameter = null;
+try {
+parameter = currentArgument.next();
+intValue = Integer.parseInt(parameter);
+} catch (NoSuchElementException e) {
+throw new ArgsException(MISSING_INTEGER);
+} catch (NumberFormatException e) {
+throw new ArgsException(INVALID_INTEGER, parameter);
+}
+}
+public static int getValue(ArgumentMarshaler am) {
+if (am != null && am instanceof IntegerArgumentMarshaler)
+return ((IntegerArgumentMarshaler) am).intValue;
+else
+return 0;
+}
+}
+Listing 14-7
+ArgsException.java
+import static com.objectmentor.utilities.args.ArgsException.ErrorCode.*;
+public class ArgsException extends Exception {
+private char errorArgumentId = '\0';
+private String errorParameter = null;
+private ErrorCode errorCode = OK;
+public ArgsException() {}
+public ArgsException(String message) {super(message);}
+public ArgsException(ErrorCode errorCode) {
+this.errorCode = errorCode;
+}
+public ArgsException(ErrorCode errorCode, String errorParameter) {
+this.errorCode = errorCode;
+this.errorParameter = errorParameter;
+}

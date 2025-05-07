@@ -1,0 +1,13 @@
+Think of a service in Java as a set of abstract classes in one or more jar files.
+hink of each new feature or feature extension as another jar file that contains
+classes that extend the abstract classes in the first jar files. Deploying a new
+feature then becomes not a matter of redeploying the services, but rather a matter
+of simply adding the new jar files to the load paths of those services. In other
+words, adding new features conforms to the Open-Closed Principle.
+The service diagram in Figure 27.3 shows the structure. The services still exist
+as before, but each has its own internal component design, allowing new features
+to be added as new derivative classes. Those derivative classes live within their
+own components.
+Figure 27.3 Each service has its own internal component design, enabling new features to be added as new
+derivative classes
+CROSS-CUTTING CONCERNS

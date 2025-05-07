@@ -1,0 +1,104 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+While it's true that we can't beat this worst case time, we should be able to design an algorithm to beat
+this in many cases. Consider a string with all duplicate characters, like aaaaaaaaaaaaaaa. This will take
+an extremely long time (since there are over 6 billion permutations of a 13-character string), even though
+there is only one unique permutation.
+Ideally, we would like to only create the unique permutations, rather than creating every permutation and
+then ruling outthe duplicates.
+We can start with computing the count of each letter (easy enough to get this—just use a hash table). For a
+string such as aabbbbc, this would be:
+a->2 | b->4 ] c - > l
+Let's imagine generating a permutation of this string (now represented as a hash table). The first choice we
+make is whether to use an a, b, or c as the first character. After that, we have a subproblem to solve: find all
+permutations of the remaining characters, and append those to the already picked "prefix."
+P(a->2 | b->4 | c - > l ) = {a + P(a->1 i b->4 | c - > l ) } +
+(b + P(a->2 | b->3 | c->l)} +
+(c + P(a->2 j b->4 | c->0)}
+P(a->1 I b->4
+P(a->2 I b->3
+P(a->2 i b->4
+c->l) - {a
+{b
+{c
+c->l) = {a
+P(a->0
+P(a->1
+P(a->1
+P(a-M
+{b + P(a->2
+(c + P(a->2
+P(a->1
+b->4
+b->3
+b->4
+b->3
+b->2
+b->3
+b->4
+b->3
+c->0) = {a
+{b + P(a->2
+Eventually, we'll get down to no more characters remaining.
+The code below implements this algorithm.
+1 ArrayList<String> printPerms(String s) {
+c->i)>
+£->1)>
+c->0)}
+€->!)>
+c->l)>
+C->0)}
+C->0)>
+C->0)}
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+ArrayList<String> result = new ArrayList<String>();
+HashMapcCharacter, Integer> map = buildFreqTable(s);
+printPerms(map,
+s.lengthO, result);
+return result;
+>
+HashMapcCharacter, Integer> buildFreqTable(String s) {
+HashMapcCharacter, Integer> map = new HashMapcCharacter, Integer>();
+for (char c : s.toCharArrayf)) {
+if (Imap.containsKey(c)) {
+map.put(Cj 0);
+>
+map.put(c, map.get(c) + 1);
+>
+return map;
+>
+void printPermsfHashMapcCharacter, Integer> map, String prefix, int remaining,
+ArrayList<String> result) {
+/* Base case. Permutation has been completed. */
+if (remaining == 0) {
+result.add(prefix);
+return;
+>
+/* Try remaining letters for next char, and generate remaining permutations. */
+3
+54
+Cracking the Coding Interview, 6th Edition

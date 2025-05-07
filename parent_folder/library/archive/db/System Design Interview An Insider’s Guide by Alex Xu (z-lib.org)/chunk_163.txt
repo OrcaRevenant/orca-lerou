@@ -1,0 +1,2 @@
+Long polling
+Because polling could be inefficient, the next progression is long polling (Figure 12-4).

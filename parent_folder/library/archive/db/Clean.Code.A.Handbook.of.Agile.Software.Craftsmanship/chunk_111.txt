@@ -1,0 +1,44 @@
+81
+Vertical Formatting
+public int countTestCases() {
+int count= 0;
+for (Test each : tests)
+count += each.countTestCases();
+return count;
+}
+In rare cases a variable might be declared at the top of a block or just before a loop in a
+long-ish function. You can see such a variable in this snippet from the midst of a very long
+function in TestNG.
+...
+for (XmlTest test : m_suite.getTests()) {
+TestRunner tr = m_runnerFactory.newTestRunner(this, test);
+tr.addListener(m_textReporter);
+m_testRunners.add(tr);
+invoker = tr.getInvoker();
+for (ITestNGMethod m : tr.getBeforeSuiteMethods()) {
+beforeSuiteMethods.put(m.getMethod(), m);
+}
+for (ITestNGMethod m : tr.getAfterSuiteMethods()) {
+afterSuiteMethods.put(m.getMethod(), m);
+}
+}
+...
+Instance variables,  on the other hand, should be declared at the top of the class. This
+should not increase the vertical distance of these variables, because in a well-designed
+class, they are used by many, if not all, of the methods of the class.
+There have been many debates over where instance variables should go. In C++ we
+commonly practiced the so-called scissors rule, which put all the instance variables at the
+bottom. The common convention in Java, however, is to put them all at the top of the class.
+I see no reason to follow any other convention. The important thing is for the instance vari-
+ables to be declared in one well-known place. Everybody should know where to go to see
+the declarations.
+Consider, for example, the strange case of the TestSuite class in JUnit 4.3.1. I have
+greatly attenuated this class to make the point. If you look about halfway down the listing,
+you will see two instance variables declared there. It would be hard to hide them in a better
+place. Someone reading this code would have to stumble across the declarations by acci-
+dent (as I did).
+public class TestSuite implements Test {
+static public Test createTest(Class<? extends TestCase> theClass,
+String name) {
+...
+}

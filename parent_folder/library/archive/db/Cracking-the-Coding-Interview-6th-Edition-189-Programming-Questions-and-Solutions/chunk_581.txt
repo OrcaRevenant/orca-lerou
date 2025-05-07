@@ -1,0 +1,101 @@
+Solutions to Chapter 17 | Hard
+28
+* element. Copy those in. */
+29
+while (count < k) {
+30
+smallestfcount] = threshold;
+31
+count++;
+32
+>
+33
+34
+return smallest;
+35 >
+36
+37 /* Find value with rank k in array. »/
+38 i n t r a n k ( i n t [ ] array, i n t k) {
+39
+if (k >= array.length) {
+40
+throw new IllegalArgumentExceptionQ;
+41
+}
+42
+return rank(array, k, 0, array,length - 1);
+43
+}
+44
+45 /* Find value with rank k in sub array between s t a r t and end. */
+46 i n t r a n k ( i n t [ ] array, i n t k, i n t s t a r t , i n t end) {
+47
+/* P a r t i t i o n array around an a r b i t r a r y pivot. */
+48
+i n t pivot = array[randomIntInRange(start, end)];
+49
+PartitionResult p a r t i t i o n = p a r t i t i o n f a r r a y , s t a r t , end, p i v o t ) ;
+50
+i n t l e f t S i z e = p a r t i t i o n . l e f t S i z e ;
+51
+i n t middleSize = partition.middleSize;
+52
+53
+1* Search portion of array. */
+54
+if (k < l e f t S i z e ) { II Rank k is on l e f t half
+55
+return rank(array, k, s t a r t , s t a r t + l e f t S i z e - 1);
+56
+> else if (k < l e f t S i z e + middleSize) { // Rank k is in middle
+57
+return pivot; U middle is a l l pivot values
+58
+) else { // Rank k is on r i g h t
+59
+return rank(array, k - l e f t S i z e - middleSize, s t a r t + l e f t S i z e + middleSize,
+60
+end);
+61
+>
+62 }
+63
+64 I* P a r t i t i o n result into < pivot, equal to pivot -> bigger than pivot. */
+65 PartitionResult p a r t i t i o n ( i n t [ ] array, i n t s t a r t , i n t end, i n t pivot) {
+66
+i n t l e f t = s t a r t ; /* Stays at ( r i g h t ) edge of l e f t side. */
+67
+i n t r i g h t = end;
+I* Stays at ( l e f t ) edge of r i g h t side. */
+68
+i n t middle = s t a r t ; /* Stays at ( r i g h t ) edge of middle. */
+69
+while (middle <= r i g h t ) {
+70
+if (array[middle] < pivot) {
+71
+I* Middle is smaller than the pivot. Left is either smaller or equal to
+72
+* the pivot. Either way, swap them. Then middle and l e f t should move by
+73
+* one. * /
+74
+swap(array, middle, l e f t ) ;
+75
+middle++;
+76
+l e f t + + ;
+77
+} else if (array[middle] > pivot) {
+78
+I* Middle is bigger than the pivot. Right could have any value. Swap them,
+* then we know that the new r i g h t is bigger than the pivot. Move r i g h t by
+80
+* one. */
+81
+swap(array, middle, r i g h t ) ;
+82
+r i g h t - - ;
+83
+} else if (array[middle] == pivot) {
+CrackingTheCodinglnterview.com | 6th Edition S 3 7

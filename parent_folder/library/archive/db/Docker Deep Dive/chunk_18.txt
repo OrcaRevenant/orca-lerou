@@ -1,0 +1,28 @@
+officially renamed as the Moby project at DockerCon 2017 in Austin, Tx. As part
+of this rename the GitHub repo was moved from docker/docker to moby/moby
+and the project got its own logo.
+Figure 2.3
+The goal of the Moby project is to break Docker down into more modular
+components, and to do this in the open. It’s hosted on GitHub and you can see a
+list of the current sub-projects and tools included in the Moby repository at
+https://github.com/moby. The core Docker Engine project is currently located at
+https://github.com/moby/moby but parts are being broken out and modularized
+all the time.
+As an open-source project, the source code is publicly available and you are free
+to download it, contribute to it, tweak it, and use it, as long as you adhere to the
+terms of the Apache License 2.0.
+If you take the time to look at the project’s commit history you’ll see the who’s-
+who of infrastructure technology including; RedHat, Microsoft, IBM, Cisco, and
+HPE. You’ll also see the names of individuals not associated with large
+corporations.
+Most of the project and its tools are written in Golang - the relatively new
+system-level programming language from Google also known as Go. If you code
+in Go you’re in a great position to contribute to the project!
+A nice side effect of Moby/Docker being an open-source project is the fact that
+so much of it is developed and designed in the open. This does away with a lot
+of the old ways where code was proprietary and locked behind closed doors. It
+also means that release cycles are published and worked on in the open. No more
+uncertain release cycles that are kept a secret and then pre-announced months-in-
+advance to ridiculous pomp and ceremony. The Moby/Docker project doesn’t
+work like that. Most things are done in the open for all to see and all to
+contribute to.

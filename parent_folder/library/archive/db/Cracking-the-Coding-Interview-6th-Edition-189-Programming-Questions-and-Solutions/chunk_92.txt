@@ -1,0 +1,31 @@
+VIII
+The Offer and Beyond
+Just when you thought you could sit back and relax after your interviews, now you're faced with the post-
+interview stress: Should you accept the offer? Is it the right one? How do you decline an offer? What about
+deadlines? We'll handle a few of these issues here and go into more details about how to evaluate an offer,
+and how to negotiate it,
+• Handling Offers and Rejection
+Whether you're accepting an offer, declining an offer, or responding to a rejection, it matters what you do.
+Offer Deadlines and Extensions
+When companies extend an offer, there's almost always a deadline attached to it. Usually these deadlines
+are one to four weeks out. If you're still waiting to hear back from other companies, you can ask for an exten-
+sion. Companies will usually try to accommodate this, if possible.
+Declining an Offer
+Even if you aren't interested in working for this company right now, you might be interested in working for it
+in a few years, (Or, your contacts might one day move to a more exciting company.) It's in your best interest
+to decline the offer on good terms and keep a tine of communication open.
+When you decline an offer, provide a reason that Is non-offensive and inarguable. For example, if you were
+declining a big company for a startup, you could explain that you feel a startup is the right choice for you
+at this time. The big company can't suddenly "become" a startup, so they can't argue about your reasoning.
+Handling Rejection
+Getting rejected is unfortunate, but it doesn't mean that you're not a great engineer. Lots of great engineers
+do poorly, either because they don't "test well" on these sort of interviewers, or they just had an "off" day.
+Fortunately, most companies understand that these interviews aren't perfect and many good engineers get
+rejected. For this reason, companies are often eager to re-interview previously rejected candidate. Some
+companies will even reach out to old candidates or expedite their application because of their prior perfor-
+mance.
+When you do get the unfortunate call, use this as an opportunity to buifd a bridge to re-apply. Thank your
+recruiter for his time, explain that you're disappointed but that you understand their position, and ask when
+you can reapply to the company.
+ÎOO
+Cracking the Coding Interview, 6th Edition

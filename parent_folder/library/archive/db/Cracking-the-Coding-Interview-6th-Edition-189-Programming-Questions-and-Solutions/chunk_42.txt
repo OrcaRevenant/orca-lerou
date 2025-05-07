@@ -1,0 +1,35 @@
+V
+Behavioral Questions
+Behavioral questions are asked to get to know your personality, to understand your resume more deeply,
+and just to ease you into an interview. They are important questions and can be prepared for.
+• Interview Preparation Grid
+Go through each of the projects or components of your resume and ensure that you can talk about them in
+detail. Filling out a grid like this may help:
+Common Questions
+Project 1
+Project 2
+Project 3
+Challenges
+Mistakes/Failures
+Enjoyed
+Leadership
+Conflicts
+What You'd Do Differently
+Along the top, as columns, you should list all the major aspects of your resume, including each project, job,
+or activity. Along the side, as rows, you should list the common behavioral questions.
+Study this grid before your interview. Reducing each story to just a couple of keywords may make the grid
+easier to study and recall. You can also more easily have this grid in front of you during an interview without
+it being a distraction.
+In addition, ensure that you have one to three projects that you can talk about in detail. You should be able
+to discuss the technical components in depth. These should be projects where you played a central role.
+What are your weaknesses?
+When asked about your weaknesses, give a real weakness! Answers like "My greatest weakness is that I
+work too hard" tell your interviewer that you're arrogant and/or won't admit to your faults. A good answer
+conveys a real, legitimate weakness but emphasizes how you work to overcome it.
+For example:
+I
+"Sometimes, I don't have a very good attention to detail. While that's good because it lets me
+execute quickly, it also means that I sometimes make careless mistakes. Because of that, I make
+sure to always have someone else double check my work."
+26
+Cracking the Coding Interview, 6th Edition

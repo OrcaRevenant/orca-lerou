@@ -1,0 +1,62 @@
+Solutions to Chapter 16 | Moderate
+16.21 Sum Swap: Given two arrays of integers, find a pair of values (one value from each array) that you
+can swap to give the two arrays the same sum.
+EXAMPLE
+Input: {4,
+2, 1, 1, 2} and { 3 , 6, 3, 3}
+Output: { 1 ,
+3}
+pg 184
+SOLUTION
+We should start by trying to understand what exactly we're looking for.
+We have two arrays and their sums. Although we likely aren't given their sums upfront, we can just act like
+we are for now. After all, computing the sum is an 0(N) operation and we know we can't beat 0(N) anyway.
+Computing the sum, therefore, won't impact the runtime.
+When we move a (positive) value a from array A to array B, then the sum of A drops by a and the sum of B
+increases by a.
+We are looking for two values, a and b, such that:
+sumA - a + b = surrB - b + a
+Doing some quick math:
+2a - 2b • sumA - sumB
+a - b = (sumA - sumB) / 2
+Therefore, we're looking for two values that have a specific target difference: (sumA - sumB) / 2.
+Observe that because that the target must be an integer (after all, you can't swap two integers to get a non-
+integer difference), we can conclude that the difference between the sums must be even to have a valid pair.
+Brute Force
+A brute force algorithm is simple enough. We just iterate through the arrays and check ail pairs of values.
+We can either do this the "naive" way (compare the new sums) or by looking for a pair with that difference.
+Naive approach:
+1
+i n t [ ] findSwapValues(intn arrayl, i n t [ ] array2) {
+2
+int suml = sum(arrayl);
+int sum2 = sum(array2);
+4
+for (int one : arrayl) {
+6
+for (int two : array2) {
+int newSuml = suml - one + two;
+8
+int newSum2 <= sum2 - two + one;
+9
+if (newSuml
+newSum2) {
+10
+i n t [ ] values = {one, two);
+11
+return values;
+12
+}
+13
+>
+14
+}
+15
+16
+return null;
+I? >
+Target approach:
+1
+int[] findSwapvalues(int[] arrayl, int[] array2) {
+CrackingTheCodinglnterview.com | 6th Edition
+495

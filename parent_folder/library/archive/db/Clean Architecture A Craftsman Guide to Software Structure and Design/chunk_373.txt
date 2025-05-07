@@ -1,0 +1,36 @@
+DLU/DRU archaeology project, 354–356
+Europe, 348–349
+grand redesign, 347–348
+overview of, 344
+SAP (Stable Abstractions Principle)
+avoiding zones of exclusion, 130
+distance from main sequence, 130–132
+drawing boundary lines, 173
+introduction to, 126–127
+main sequence, 127–130
+measuring abstraction, 127
+where to put high-level policy, 126
+SC (service center), 4-TEL archaeology project, 339–340
+Scalability
+kitty problem and services, 242–243
+services not only option for building, 241
+Schmidt, Doug, 256–258
+Scientific methods, proving statements false, 30–31
+Scope, of changing architecture, 15
+Screaming architecture. See Architecture, screaming
+SDP (Stable Dependencies Principle)
+abstract components, 125–126
+not all components should be, 124–125
+not all components should be stable, 123–125
+overview of, 120
+stability, 120–121
+stability metrics, 122–123
+Stable Abstractions Principle, 127
+Security, testing API, 253
+Selection, as program control structure, 27–28
+Separation of components, as big concern in architecture, 24
+Sequence, as program control structure, 27–28
+Serial communication bus, SAC archaeology project, 347
+Service area computer. See SAC (service area computer), archaeology project
+Service center (SC), 4-TEL archaeology project, 339–340
+Service-level decoupling mode, 153, 156–157

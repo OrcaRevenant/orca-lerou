@@ -1,0 +1,51 @@
+Solutions to Chapter 17 | Hard
+The runtime of this solution is 0( 2") because at each element we're making two choices and we do this n
+times (where n is the number of massages).
+The space complexity is 0 ( n ) due to the recursive call stack.
+We can also depict this through a recursive call tree on an array of length 5. The number in each node repre-
+sents the index value in a call to maxMinutes. Observe that, for example, maxMinutes (massages,
+0) callsmaxMinutesfmassageSj
+1) and maxMinutes (massages,
+2).
+As with many recursive problems, we should evaluate if there's a possibility to memoize repeated subprob-
+lems. Indeed, there is.
+Solution #2: Recursion + Memoization
+We will repeatedly call maxMinutes on the same inputs. For example, we'll call it on index 2 when we're
+deciding whether to take appointment 0. We'll also call it on index 2 when we're deciding whether to take
+appointment 1. We should memoize this.
+Our memo table is just a mapping from index to the max minutes. Therefore, a simple array will suffice.
+1
+i n t maxMinutes(int[] massages) {
+2
+i n t [ ] memo = new int[massages.length];
+3
+return maxMinutes(massages, 0, memo);
+4
+}
+s
+6
+i n t maxMinutes(int[] massages, i n t index, i n t [ ] memo) {
+7
+if (index >= massages.length) {
+8
+return 0;
+9
+>
+10
+11
+if (memo[index] == 0) {
+12
+i n t bestwith = massages[index] + maxMinutes(massages, index + 2, memo);
+13
+i n t bestwithout = maxMinutes(massages, index + 1, memo);
+14
+memo[index] = Math.max(bestwith, bestwithout);
+15
+>
+16
+17
+return memo[index];
+18 >
+To determine the runtime, we'll draw the same recursive call tree as before but gray-out the cails that will
+return im mediately. The cails that will never happen will be deleted entirely.
+CrackingTheCodinglnterview.com | 6th Edition S 3 7

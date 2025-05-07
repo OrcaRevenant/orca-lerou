@@ -1,0 +1,22 @@
+CONTENTS
+Foreword
+Preface
+Acknowledgments
+About the Author
+PART I Introduction
+Chapter 1 What Is Design and Architecture?
+The Goal?
+Case Study
+Conclusion
+Chapter 2 A Tale of Two Values
+Behavior
+Architecture
+The Greater Value
+Eisenhower’s Matrix
+Fight for the Architecture
+PART II Starting with the Bricks: Programming Paradigms
+Chapter 3 Paradigm Overview
+Structured Programming
+Object-Oriented Programming
+Functional Programming
+Food for Thought

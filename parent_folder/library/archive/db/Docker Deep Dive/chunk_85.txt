@@ -1,0 +1,17 @@
+4 VMs, install 4 operating systems, and then install the 4 applications. When it’s
+all done it looks a bit like Figure 7.2.
+Figure 7.2
+Things are a bit different in the container model.
+When the server is powered on, your chosen OS boots. In the Docker world this
+can be Linux, or a modern version of Windows that has support for the container
+primitives in its kernel. As per the VM model, the OS claims all hardware
+resources. On top of the OS we install a container engine such as Docker. The
+container engine then takes OS resources such as the process tree, the
+filesystem, and the network stack, and carves them up into secure isolated
+constructs called containers. Each container looks smells and feels just like a
+real OS. Inside of each container we can run an application. Like before, we’re
+assuming a single physical server with 4 applications. Therefore we’d carve out
+4 containers and run a single application inside of each as shown in Figure 7.3.
+Figure 7.3
+At a high level we can say that hypervisors perform hardware virtualization -
+they carve up physical hardware resources into virtual versions. On the other

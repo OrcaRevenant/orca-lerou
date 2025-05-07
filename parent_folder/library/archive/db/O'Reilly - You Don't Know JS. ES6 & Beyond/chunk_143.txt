@@ -1,0 +1,39 @@
+Promise.resolve(..) creates a promise resolved to the value passed in. Let’s com‐
+pare how it works to the more manual approach:
+var p1 = Promise.resolve( 42 );
+var p2 = new Promise( function pr(resolve){
+resolve( 42 );
+} );
+p1 and p2 will essentially identical behavior. The same goes for resolving with a
+promise:
+var theP = ajax( .. );
+var p1 = Promise.resolve( theP );
+var p2 = new Promise( function pr(resolve){
+resolve( theP );
+} );
+Promise.resolve(..) is the solution to the thenable-trust issue
+raised in the previous section. Any value that you are not already
+certain is a trustable Promise — even if it could be an immediate
+value — can be normalized by passing it to Promise.resolve(..).
+If the value is already a recognizable promise or thenable, its state/
+resolution will simply be adopted, insulating you from misbehav‐
+ior. If it’s instead an immediate value, it will be “wrapped” in a gen‐
+uine promise, thereby normalizing its behavior to be async.
+Promise.reject(..) creates an immediately rejected promise, the same as its
+Promise(..) constructor counterpart:
+var p1 = Promise.reject( "Oops" );
+var p2 = new Promise( function pr(resolve,reject){
+reject( "Oops" );
+} );
+While resolve(..) and Promise.resolve(..) can accept a promise and adopt its
+state/resolution, reject(..) and Promise.reject(..) do not differentiate what
+value they receive. So, if you reject with a promise or thenable, the promise/thenable
+itself will be set as the rejection reason, not its underlying value.
+Promise.all([ .. ]) accepts an array of one or more values (e.g., immediate values,
+promises, thenables). It returns a promise back which will be fulfilled if all the values
+fulfill, or reject immediately once the first of any of them rejects.
+Starting with these values/promises:
+132
+|
+Chapter 4: Async Flow Control
+www.it-ebooks.info

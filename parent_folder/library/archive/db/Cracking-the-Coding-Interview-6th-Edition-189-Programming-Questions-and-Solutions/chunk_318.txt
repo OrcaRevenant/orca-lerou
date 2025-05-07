@@ -1,0 +1,93 @@
+Solutions to Chapter 7 j Object-Oriented Design
+There are a few things which are common to them, like address, name, job title, and age. These things can
+be kept in one class and can be extended or inherited by others.
+Finally, there shouid be one C a l l H a n d l e r class which would route the calls to the correct person.
+Note that on any object-oriented design question, there are many ways to design the objects. Discuss the
+trade-offs of different solutions with your interviewer. You should usually design for long-term code flex-
+ibility and maintenance.
+We'll go through each of the classes below in detail.
+C a l l H a n d l e r represents the body of the program, and ail calls are funneled first through it.
+1
+public class CallHandler {
+2
+/* 3 levels of employees; respondents, managers, directors. */
+3
+private final int LEVELS = 3;
+4
+5
+/* Initialize 16 respondents, 4 managers, and 2 directors. */
+6
+private final int NUM_R E S P QND E NT5 = 10;
+7
+private final int NUMJWJAGERS = 4j
+8
+private final int NUM_DIRECTORS = 2;
+9
+10
+/* List of employees, by level.
+11
+* employeeLevels[0] = respondents
+12
+* employeeLevels[l] = managers
+13
+* employeeLeve!s[2] = directors
+14
+*/
+15
+List<List<Employee>> employeeLevels;
+16
+17
+/* queues for each call's rank */
+18
+List<List<Call>> callQueues;
+19
+20
+public CallHandler() { ... >
+21
+22
+/* Gets the first available employee who can handle this call.*/
+23
+public Employee getHandlerForCall(Call call) { ... )
+24
+/* Routes the call to an available employee, or saves in a queue if no employee
+26
+* is available. */
+21
+public void tfispatchCall(Caller caller) {
+28
+Call call = new Call(caller);
+29
+dispatchCall(call);
+30
+>
+31
+32
+/* Routes the call to an available employee, or saves in a queue if no employee
+33
+* is available. */
+34
+public void dispatchCall(Call call) {
+35
+/* Try to route the call to an employee with minimal rank. */
+36
+Employee emp = getHandlerForCall(call);
+37
+if (emp != null) {
+38
+emp.receiveCall(call);
+39
+call.setHandler(emp);
+49
+> else {
+41
+/* Place the call into corresponding call queue according to its rank. */
+42
+call.reply('cPlease wait for free employee to reply");
+43
+callQueues.get(call.getRank().getvalue()).add(call);
+44
+>
+45
+}
+308
+Cracking the Coding Interview, 6th Edition

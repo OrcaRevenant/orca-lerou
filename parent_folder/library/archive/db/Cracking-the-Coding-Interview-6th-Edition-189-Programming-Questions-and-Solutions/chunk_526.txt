@@ -1,0 +1,105 @@
+Solutions to Chapter 16 | Moderate
+1
+public class Board {
+2
+private HashSet<Position> whites = new HashSet<Position>();
+3
+private Ant ant = new Ant();
+4
+private Position topLeftCorner = new Position(0, e);
+5
+private Position bottomRightCorner = riew Position(0, 0);
+6
+7
+public Board() { }
+8
+9
+/* Move ant. */
+10
+public void move() {
+11
+ant.turn(isWhite(ant.position)); // Turn
+12
+flip(ant.position); // flip
+13
+ant.moveQ; // move
+14
+ensureFit(ant.position);
+15
+}
+16
+17
+I* Flip color of cells. */
+IE
+private void flip(Position position) {
+19
+if (whites.contains(position)) {
+20
+whites.removefposition);
+21
+> else {
+22
+whites.add(position.clone());
+23
+>
+24
+>
+25
+26
+/* Grow grid by tracking the most top-left and bottom-right positions.*/
+27
+private void ensureFit(Position position) {
+28
+int row = position.row;
+29
+int column = position.column;
+30
+31
+topLeftCorner.row = Math.min(topLeftCorner.row, row);
+32
+topLeftCorner.column = Math.min(topLeftCorner.column, column);
+33
+34
+bottoroRightCorner.row = Math.max(bottomRightCorner.row, row);
+bottomRightCorner.column = Math.max(bottomRightCorner.column, column);
+36
+)
+37
+38
+/* Check if cell is white. */
+39
+public boolean isWhite(Position p) {
+40
+return whites.contains(p);
+41
+)
+42
+43
+/* Check if cell is white. */
+44
+public boolean isWhite(int row, int column) {
+45
+return whites.contains(new Positiori(row, column));
+46
+>
+47
+48
+/* Print board. */
+49
+public String toStringO {
+50
+StringBuilder sb = new StringBuilder();
+51
+int rowMin = topLeftCorner.row;
+52
+int rowMax = bottomRightCorner.row;
+53
+int colMin = topLeftCorner.column;
+54
+int colMax = bottomRightCorner.column;
+55
+for (int r = rowMin; r <= rowMax; r-H-) {
+56
+for (int e = colMin; c <= colMax; c++) {
+516
+492 Cracking the Coding Interview, 6th Edition

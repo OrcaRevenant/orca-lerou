@@ -1,0 +1,70 @@
+VI I BigO
+14
+return memo[n];
+15
+}
+Let's walk through what this algorithm does.
+f i b ( l ) -> return 1
+f i b < 2 )
+f i b ( l ) -> return 1
+f i b ( 0 ) -> return 0
+store 1 at memo[2]
+f i b ( 3 )
+f i b ( 2 ) -> lookup memo[2]
+f l b ( l )
+-> return 1
+store 2 at rrtemo[3]
+f i b ( 4 )
+f i b ( 3 ) -> lookup memo[3]
+f i b ( 2 ) -> lookup mema[2]
+store 3 at memo[4]
+f i b ( S )
+f i b ( 4 ) -> lookup meroo[4]
+f i b ( 3 ) -> lookup me[tto[3]
+store 5 at memo[S]
+At each call to f i b ( i ) , we have already computed and stored the values for f i b ( i - l ) and f i b ( i - 2 ) .
+We just took up those values, sum them, store the new result, and return. This takes a constant amount of
+time.
+We're doing a constant amount of work N times, so thisisO(n) time.
+This technique, called memoization, is a very common one to optimize exponential time recursive algo-
+rithms.
+Example 16
+The following function prints the powers of 2 from 1 through n (inclusive). For example, if n is 4, it would
+print 1,2, and 4, What is its runtime?
+1
+i n t powers0f2(int n) {
+2
+if (n < 1) {
+3
+return 0;
+4
+} else if (n == 1) {
+5
+System.out,println(l)j
+6
+return lj
+7
+} else {
+8
+int prev = powers0f2(n / 2);
+9
+int curr = prev * 2;
+10
+System,out,println(curr);
+11
+return currj
+12
+}
+13 >
+There are several ways we couid compute this runtime.
+What It Does
+Let's walkthrough a call like p o w e r s O f 2 ( 5 0 ) ,
+powersOf2(50)
+-> powersOf2(25)
+-> return 1
+-> return 2
+-> return 1
+-> return 3
+-> return 2
+5 4
+Cracking the Coding Interview, 6th Edition

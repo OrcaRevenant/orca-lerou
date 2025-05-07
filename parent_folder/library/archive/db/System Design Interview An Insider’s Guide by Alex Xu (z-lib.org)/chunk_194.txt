@@ -1,0 +1,5 @@
+In Figure 13-10, each trie node on the left is mapped to the <key, value>  pair on the right. If
+you are unclear how key-value stores work, refer to Chapter 6: Design a key-value store.
+Query service
+In the high-level design, query service calls the database directly to fetch the top 5 results.
+Figure 13-11 shows the improved design as previous design is inefficient.

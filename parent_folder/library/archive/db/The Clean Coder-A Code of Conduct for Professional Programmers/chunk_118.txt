@@ -1,0 +1,32 @@
+CHAPTER 6 PRACTICING
+86
+S O M E BAC KG RO U N D O N PR ACTI C I N G
+Practicing is not a new concept in software development, but we didn’t
+recognize it as practicing until just after the turn of the millennium. Perhaps
+the first formal instance of a practice program was printed on page 6 of
+[K&R-C].
+main()
+{
+printf("hello, world\n");
+}
+Who among us has not written that program in one form or another? We use it
+as a way to prove a new environment or a new language. Writing and executing
+that program is proof that we can write and execute any program.
+When I was much younger, one of the first programs I would write on a new
+computer was SQINT, the squares of integers. I wrote it in assembler, BASIC,
+FORTRAN, COBOL, and a zillion other languages. Again, it was a way to prove
+that I could make the computer do what I wanted it to do.
+In the early ’80s personal computers first started to show up in department
+stores. Whenever I passed one, like a VIC-20 or a Commodore-64, or a TRS-80,
+I would write a little program that printed an infinite stream of ‘\’ and ‘/’ characters
+on the screen. The patterns this program produced were pleasing to the eye and
+looked far more complex than the little program that generated them.
+Although these little programs were certainly practice programs, program-
+mers in general did not practice. Frankly, the thought never occurred to us.
+We were too busy writing code to think about practicing our skills. And
+besides, what would have been the point? During those years programming
+did not require quick reactions or nimble fingers. We did not use screen
+editors until the late ’70s. We spent much of our time waiting for compiles
+or debugging long, horrid stretches of code. We had not yet invented the
+short-cycles of TDD, so we did not require the fine-tuning that practice
+could bring.

@@ -1,0 +1,79 @@
+IV | Hints for Additional Review Problems
+#484.
+17.26
+Solution 1: Start with just a simple algorithm comparing all documents to all other docu-
+ments. How would you compute the similarity of two documents as fast as possible?
+#485.
+17.5
+It doesn't really matter which letter or number it is. You can simplify this problem to just
+having an array of As and Bs. You would then be looking for the longest subarray with
+an equal number of As and Bs.
+#486,
+17.11
+Consider first the algorithm for finding the closest distance if you will run the algorithm
+only once. You should be able to do this in 0(N) time, where N is the number of words
+in the document.
+#487.
+16.20
+Can you recursively try all possibilities?
+#488.
+17.9
+Be clear about what this problem is asking for. It's asking for the kth smallest number in
+the form 3a * 5b * 7C.
+#489.
+16,2
+Think about what the best conceivable runtime is for this problem. If your solution
+matches the best conceivable runtime, then you probably can't do any better.
+#490.
+16.10
+Solution 1: Try using a hash table, or an array that maps from a birth year to how many
+people are alive in that year.
+#491.
+16.14
+Sometimes, a brute force is a pretty good solution. Can you try all possible lines?
+#492.
+16.1
+Try picturing the two numbers, a and b, on a number line.
+#493.
+17,7
+The core part of the problem is to group names into the various spellings. From there,
+figuring out the frequencies is relatively easy.
+#494.
+17.3
+If you haven't already, solve 17.2 on page 186.
+#495.
+17.16
+There are recursive and iterative solutions to this problem, but it's probably easier to
+start with the recursive solution.
+#496.
+17.13
+Try a recursive approach,
+#497.
+16.3
+Infinite lines will almost always intersect—unless they're parallel. Parallel lines might
+still "intercept"—if they're the same lines. What does this mean for line segments?
+#498.
+17.26
+Solution 1; To compute the similarity of two documents, try reorganizing the data in
+some way. Sorting? Using another data structure?
+#499.
+17.15
+if we wanted to know just the longest word made up of other words in the list, then we
+could iterate overall words, from longest to shortest, checking if each could be made up
+of other words. To check this, we split the string in all possible locations.
+#500.
+17.25
+Can you find a word rectangle of a specific length and width? What if you just tried all
+options?
+#501.
+17.11
+Adapt your algorithm for one execution of the algorithm for repeated executions. What
+is the slow part? Can you optimize it?
+#502.
+16,8
+Try thinking about the number in terms of chunks of three digits.
+#503,
+17.19
+Start with the first part: Finding the missing number if only one number is missing.
+680
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,28 @@
+Figure 7.4
+The same docker container stop, docker container pause, docker
+container start, and docker container rm commands can be used on the
+container. Also, the same rules of persistence apply - stopping or pausing the
+container does not destroy the container or any data stored in it.
+Inspecting containers
+In the previous example you might have noticed that we didn’t specify a
+program for the container when we issued the docker container run
+command. Yet the container ran a simple web service. How did this happen?
+When building a Docker image it’s possible to embed a default command or
+program you want containers using the image to run. If we run a docker image
+inspect command against the image we used to run our container, we’ll be able
+to see the command/program that the container will run when it starts.
+$ docker image inspect nigelpoulton/pluralsight-docker-ci
+[
+{
+"Id": "sha256:07e574331ce3768f30305519...49214bf3020ee69bba1",
+"RepoTags": [
+"nigelpoulton/pluralsight-docker-ci:latest"
+<Snip>
+],
+"Cmd": [
+"/bin/sh",
+"-c",
+"#(nop) CMD [\"/bin/sh\" \"-c\" \"cd /src \u0026\u0026 node \
+./app.js\"]"
+],
+<Snip>

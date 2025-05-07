@@ -1,0 +1,36 @@
+P
+Package by component, 310–315, 318
+Package by feature, 306–307, 317
+Package by layer
+access modifiers, 317–318
+horizontal layering of code, 304–306
+why it is considered bad, 310–311
+Packages, organization vs. encapsulation, 316–319
+Page-Jones, Meilir, 29
+Partial boundaries
+conclusion, 220
+facades, 220
+one-dimensional boundaries, 219
+reasons to implement, 217–218
+skip last step, 218–219
+Patches, in 4-TEL archaeology project, 344
+PCCU, archaeology project, 352–354
+PDP-11/60 computer, 349–351
+Performance, as low-level concern, 281
+Périphérique anti-pattern of ports and adapters, 320–321
+Physical addressing example, 145–146
+Plugin architecture
+in 4-TEL archaeology project, 344
+for device independence, 44
+drawing boundaries for axis of change, 173
+of lower-level components into higher-level components, 187
+Main component as, 237
+start with presumption of, 170–171
+Pointers
+in creating polymorphic behavior, 43
+functional, 22–23
+Policy
+in clean architecture, 203
+high-level. See High-level policy
+overview of, 183–184
+software systems as statements of, 183

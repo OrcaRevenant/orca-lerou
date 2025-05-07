@@ -1,0 +1,36 @@
+Master Operating Program (MOP), Laser Trim archaeology project, 336
+Mathematics
+contrasting science with, 30
+discipline of proof, 27–28
+Maven tool, module management, 104
+McCarthy, John, 23
+Memory
+early layout of, 98–99
+local processes and, 179
+RAM. See RAM
+Merges, SRP examples, 65
+Message queues, local processes communicate via, 180
+Metrics
+abstraction, 127
+distance from Main Sequence, 130–132
+Meyer, Bertrand, 70
+Micro-service architecture
+in Craft Dispatch System archaeology project, 362–363
+decoupling mode, 153
+deployment strategy, 138
+popularity of, 239
+Modems, SAC archaeology project, 346–347
+Modules
+Common Reuse Principle, 107–108
+defined, 62
+management tools, 104
+public types vs. published types, 319
+Reuse/Release Equivalence Principle, 105
+Monoliths
+building scalable systems, 241
+deployment-level components vs., 179
+deployment of, 176–178
+function calls, 240
+local processes as statically linked, 180
+threads, 179
+Moore’s Law, 101

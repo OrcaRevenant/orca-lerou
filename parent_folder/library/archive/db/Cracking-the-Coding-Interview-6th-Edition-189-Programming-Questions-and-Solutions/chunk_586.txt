@@ -1,0 +1,57 @@
+Solutions to Chapter 17 j Hard
+If we drew a bigger tree, we'd see a similar pattern. The tree looks very linear, with one branch down to the
+left.ThisgivesusanO(n) runtime and 0 ( n ) space.The space usage comes from the recursive call stack as
+well as from the memo table.
+Solution #3: Iterative
+Can we do better? We certainly can't beat the time complexity since we have to look at each appointment.
+However, we might be able to beat the space complexity. This would mean not solving the problem recur-
+sively.
+Let's look at our first example again.
+r 0 = 30
+r, = 15
+r 2 = 60
+r , . 75
+r, = 45
+r 5 « 15
+r , = 15
+6
+r , = 45
+As we noted in the problem statement, we cannot take adjacent appointments.
+There's another observation, though, that we can make: We should never skip three consecutive appoint-
+ments. That is, we might skip r. and r? if we wanted to take r0 and r,. But we would never skip r i r r 2, and
+r 3. This would be suboptimal since we could always improve our set by grabbing that middle element.
+This means that if we take r0, we know we'll definitely skip
+and definitely take either r2 or r3.This substan-
+tially limits the options we need to evaluate and opens the door to an iterative solution.
+Let's think about our recursive + memoization solution and try to reverse the logic; that is, let's try to
+approach it iteratively.
+A useful way to do this is to approach it from the back and move toward the start of the array. At each point,
+we find the solution for the subarray.
+•
+best(7):What's the best option for { r ; = 45}? We can get 45 min. if we take r 7, so best (7) = 45
+•
+best ( 6 ) : What's the best option for
+= 15, . . . }? Still 45 min., so best (6) = 45.
+•
+best(5):What'sthebestoptionfor{r ; = 15,
+. , . } ? We can either:
+»
+taker s = 15 and merge it with best (7) = 45,or:
+»
+take b e s t ( 6 ) = 45.
+The first gives us60minutes, best (5) = 60.
+•
+b e s t ( 4 ) : What's the best option for { r 4 = 45,
+, , . } ? We can either:
+»
+taker 4 = 45 and merge it with best (6) = 45,or:
+»
+takebest(S) = 60.
+The first gives us 90 minutes, best (4) = 90.
+•
+b e s t ^ ^ W h a t ' s t h e b e s t o p t i o n f o r i T j = 75,
+, , . } ? We can either;
+»
+takers = 75 and merge it with best (5) = 60, or:
+55 S
+Cracking the Coding interview, 6th Edition

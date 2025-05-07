@@ -1,0 +1,34 @@
+operation, 138–139
+physical addressing example, 145–146
+understanding, 135–137
+Architecture, screaming
+about the web, 197–198
+conclusion, 199
+frameworks as tools, not ways of life, 198
+overview of, 195–196
+purpose of, 197
+testable architectures, 198
+theme, 196–197
+Archives, as aggregation of components, 96
+Artifacts, OCP, 70
+ASC Tabulating, Union Accounting archaeology project, 326–334
+Assignment, and functional programming, 23
+Asymmetric marriage, to framework authors, 292–293
+Authors, framework, 292–293
+Automated systems, business rules, 191–192
+B
+Base classes, frameworks, 293
+BCE system architecture, 202
+Beck, Kent, 258–261
+Behavior (function)
+architecture supports system, 137, 148
+Eisenhower’s matrix of importance vs. urgency, 16–17
+fighting for seniority of architecture over function, 18
+keeping options open, 140–142
+as software value, 14
+value of function vs. architecture, 15–16
+Binaries, relocatability, 99–100
+Booch, Grady
+introduction to, 366
+working for, 367
+working on ROSE product, 368–369

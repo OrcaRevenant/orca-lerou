@@ -1,0 +1,38 @@
+Multi-stage builds are all about optimizing builds without adding complexity.
+And they deliver on the promise!
+Here’s the high-level…
+With multi-stage builds, we have a single Dockerfile containing multiple FROM
+instructions. Each FROM instruction is a new build stage that can easily COPY
+artefacts from previous stages.
+Let’s look at an example!
+This example app is available at https://github.com/nigelpoulton/atsea-sample-
+shop-app.git and the Dockerfile is in the app directory. It’s a Linux-based
+application so will only work on a Linux Docker host.
+The repo is a fork of dockersamples/atsea-sample-shop-app and I’ve forked it
+in case the upstream repo is removed or deleted.
+The Dockerfile is shown below:
+FROM node:latest AS storefront
+WORKDIR /usr/src/atsea/app/react-app
+COPY react-app .
+RUN npm install
+RUN npm run build
+FROM maven:latest AS appserver
+WORKDIR /usr/src/atsea
+COPY pom.xml .
+RUN mvn -B -f pom.xml -s /usr/share/maven/ref/settings-docker.xml dependency\
+:resolve
+COPY . .
+RUN mvn -B -s /usr/share/maven/ref/settings-docker.xml package -DskipTests
+FROM java:8-jdk-alpine AS production
+RUN adduser -Dh /home/gordon gordon
+WORKDIR /static
+COPY --from=storefront /usr/src/atsea/app/react-app/build/ .
+WORKDIR /app
+COPY --from=appserver /usr/src/atsea/target/AtSea-0.0.1-SNAPSHOT.jar .
+ENTRYPOINT ["java", "-jar", "/app/AtSea-0.0.1-SNAPSHOT.jar"]
+CMD ["--spring.profiles.active=postgres"]
+The first thing to note is that the Dockerfile has three FROM instructions. Each of
+these constitutes a distinct build stage. Internally they’re numbered form the top
+starting at 0. However, we’ve also given each stage a friendly name.
+Stage o is called storefront Stage 1 is called appserver Stage 2 is called
+production

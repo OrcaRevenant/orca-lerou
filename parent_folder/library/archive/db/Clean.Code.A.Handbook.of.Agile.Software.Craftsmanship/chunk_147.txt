@@ -1,0 +1,46 @@
+117
+Learning log4j
+This time we ﬁnd that the Appender has no output stream. Odd—it seems logical that it’d
+have one. After a little help from Google, we try the following:
+@Test
+public void testLogAddAppender() {
+Logger logger = Logger.getLogger("MyLogger");
+logger.removeAllAppenders();
+logger.addAppender(new ConsoleAppender(
+new PatternLayout("%p %t %m%n"),
+ConsoleAppender.SYSTEM_OUT));
+logger.info("hello");
+}
+That worked; a log message that includes “hello” came out on the console! It seems odd
+that we have to tell the ConsoleAppender that it writes to the console.
+Interestingly enough, when we remove the ConsoleAppender.SystemOut argument, we
+see that “hello” is still printed. But when we take out the PatternLayout, it once again com-
+plains about the lack of an output stream. This is very strange behavior.
+Looking a little more carefully at the documentation, we see that the default
+ConsoleAppender constructor is “unconﬁgured,” which does not seem too obvious or useful.
+This feels like a bug, or at least an inconsistency, in log4j.
+A bit more googling, reading, and testing, and we eventually wind up with Listing 8-1.
+We’ve discovered a great deal about the way that log4j works, and we’ve encoded that
+knowledge into a set of simple unit tests.
+Listing 8-1
+LogTest.java
+public class LogTest {
+private Logger logger;
+@Before
+public void initialize() {
+logger = Logger.getLogger("logger");
+logger.removeAllAppenders();
+Logger.getRootLogger().removeAllAppenders();
+}
+@Test
+public void basicLogger() {
+BasicConfigurator.configure();
+logger.info("basicLogger");
+}
+@Test
+public void addAppenderWithStream() {
+logger.addAppender(new ConsoleAppender(
+new PatternLayout("%p %t %m%n"),
+ConsoleAppender.SYSTEM_OUT));
+logger.info("addAppenderWithStream");
+}

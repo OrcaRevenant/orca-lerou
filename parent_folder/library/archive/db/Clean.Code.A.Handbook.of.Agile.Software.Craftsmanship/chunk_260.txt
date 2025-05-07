@@ -1,0 +1,47 @@
+230
+Chapter 14: Successive Reﬁnement
+public int getInt(char arg) {
+Args.ArgumentMarshaler am = marshalers.get(arg);
+try {
+return am == null ? 0 : (Integer) am.get();
+} catch (Exception e) {
+return 0;
+}
+}
+public boolean has(char arg) {
+return argsFound.contains(arg);
+}
+public boolean isValid() {
+return valid;
+}
+private class ArgsException extends Exception {
+}
+private abstract class ArgumentMarshaler {
+public abstract void set(String s) throws ArgsException;
+public abstract Object get();
+}
+private class BooleanArgumentMarshaler extends ArgumentMarshaler {
+private boolean booleanValue = false;
+public void set(String s) {
+booleanValue = true;
+}
+public Object get() {
+return booleanValue;
+}
+}
+private class StringArgumentMarshaler extends ArgumentMarshaler {
+private String stringValue = "";
+public void set(String s) {
+stringValue = s;
+}
+public Object get() {
+return stringValue;
+}
+}
+private class IntegerArgumentMarshaler extends ArgumentMarshaler {
+private int intValue = 0;
+public void set(String s) throws ArgsException {
+try {
+intValue = Integer.parseInt(s);
+Listing 14-12 (continued)
+Args.java (After first refactoring)

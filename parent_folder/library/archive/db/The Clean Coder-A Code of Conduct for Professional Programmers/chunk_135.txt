@@ -1,0 +1,32 @@
+ACCEPTANCE TESTS
+103
+when the command is executed
+then the old_inactive_logs directory should exist
+and it should be empty
+“The second part will look like this”:
+given the command LogFileDirectoryStartupCommand
+given that the old_inactive_logs directory exists
+and that it contains a file named x
+When the command is executed
+Then the old_inactive_logs directory should still exist
+and it should still contain a file named x
+Paula: “Yeah, that should cover it.”
+Sam: “Wow, is all that really necessary?”
+Paula: “Sam, which of these two statements isn’t important enough to
+specify?”
+Sam: “I just mean that it looks like a lot of work to think up and write all
+these tests.”
+Tom: “It is, but it’s no more work than writing a manual test plan. And
+it’s much more work to repeatedly execute a manual test.”
+CO M M U N I C ATI O N
+The purpose of acceptance tests is communication, clarity, and precision. By
+agreeing to them, the developers, stakeholders, and testers all understand what the
+plan for the system behavior is. Achieving this kind of clarity is the responsibility
+of all parties. Professional developers make it their responsibility to work with
+stakeholders and testers to ensure that all parties know what is about to be built.
+AUTO MATI O N
+Acceptance tests should always be automated. There is a place for manual
+testing elsewhere in the software lifecycle, but these kinds of tests should never
+be manual. The reason is simple: cost.
+Consider the image in Figure 7-1. The hands you see there belong to the QA
+manager of a large Internet company. The document he is holding is the table of

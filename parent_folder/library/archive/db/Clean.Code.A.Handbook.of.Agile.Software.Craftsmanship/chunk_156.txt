@@ -1,0 +1,44 @@
+126
+Chapter 9: Unit Tests
+For example, look at the PathParser calls. They transform strings into PagePath
+instances used by the crawlers. This transformation is completely irrelevant to the test at
+hand and serves only to obfuscate the intent. The details surrounding the creation of the
+responder and the gathering and casting of the response are also just noise. Then there’s the
+ham-handed way that the request URL is built from a resource and an argument. (I helped
+write this code, so I feel free to roundly criticize it.)
+In the end, this code was not designed to be read. The poor reader is inundated with a
+swarm of details that must be understood before the tests make any real sense.
+Now consider the improved tests in Listing 9-2. These tests do the exact same thing,
+but they have been refactored into a much cleaner and more explanatory form.
+Responder responder = new SerializedPageResponder();
+SimpleResponse response =
+(SimpleResponse) responder.makeResponse(
+new FitNesseContext(root), request);
+String xml = response.getContent();
+assertEquals("text/xml", response.getContentType());
+assertSubString("test page", xml);
+assertSubString("<Test", xml);
+}
+Listing 9-2
+SerializedPageResponderTest.java (refactored)
+public void testGetPageHierarchyAsXml() throws Exception {
+makePages("PageOne", "PageOne.ChildOne", "PageTwo");
+submitRequest("root", "type:pages");
+assertResponseIsXML();
+assertResponseContains(
+"<name>PageOne</name>", "<name>PageTwo</name>", "<name>ChildOne</name>"
+);
+}
+public void testSymbolicLinksAreNotInXmlPageHierarchy() throws Exception {
+WikiPage page = makePage("PageOne");
+makePages("PageOne.ChildOne", "PageTwo");
+addLinkTo(page, "PageTwo", "SymPage");
+submitRequest("root", "type:pages");
+assertResponseIsXML();
+assertResponseContains(
+"<name>PageOne</name>", "<name>PageTwo</name>", "<name>ChildOne</name>"
+);
+assertResponseDoesNotContain("SymPage");
+}
+Listing 9-1 (continued)
+SerializedPageResponderTest.java

@@ -1,0 +1,105 @@
+Solutions to Chapter 3 | Stacks and Queues
+19
+29
+public i n t popAt(int index) {
+21
+return l e f t S h i f t ( i n d e x , t r u e ) ;
+22
+}
+23
+24
+public i n t l e f t S h i f t ( i n t index, boolean removeTop) {
+25
+Stack stack = stacks.get(index);
+26
+i n t removed_item;
+27
+if (removeTop) removecf_item = stack.pop();
+28
+else removed_item = stack.removeBottom();
+29
+if
+(stack.isEmptyO)
+{
+30
+stacks.remove(index);
+31
+} else if (stacks.size() > index + 1) {
+32
+i n t v = l e f t S h i f t ( i n d e x + 1, f a l s e ) ;
+33
+stack.push(v);
+34
+}
+35
+return removed_item;
+36
+}
+37 >
+38
+39 public class Stack {
+40
+private i n t capacity;
+41
+public Node top, bottom;
+42
+public i n t size = 0;
+43
+44
+public Stack(int capacity) { this.capacity = capacity; >
+45
+public boolean i s f u l l ( ) { return capacity == size; }
+46
+47
+public void join(Node above, Mode below) <
+48
+if (below != n u l l ) below.above = above;
+49
+if (above != n u l l ) above.below = below;
+50
+}
+51
+52
+public boolean push(int v) {
+if (size >= capacity) return f a l s e ;
+54
+size++;
+55
+Node n = new Node(v);
+56
+if (size == 1) bottom = n;
+57
+j o i n ( n , top);
+58
+top = n;
+59
+return true;
+60
+)
+61
+62
+public i n t pop() {
+63
+Node t = top;
+64
+top = top.below;
+65
+s i z e - - ;
+66
+return t . v a l u e ;
+67
+}
+68
+69
+public boolean isEmptyO {
+70
+return size — 0;
+71
+)
+72
+73
+public i n t removeBottom() {
+74
+Node b = bottom;
+CrackingTheCodinglnterview.com ] 6th Edition
+239

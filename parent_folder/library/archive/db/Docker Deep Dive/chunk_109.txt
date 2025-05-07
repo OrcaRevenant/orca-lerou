@@ -1,0 +1,22 @@
+$ docker container run -d --name c1 \
+-p 80:8080 \
+web:latest
+The -d flag runs the container in the background, and the -p 80:8080 flag maps
+port 80 on the host to port 8080 inside the running container.
+Check that the container is running and verify the port mapping.
+$ docker container ls
+ID       IMAGE       COMMAND           <Snip>  PORTS
+82...88  web:latest  "node ./app.js"   ...     0.0.0.0:80->8080/tcp
+The output above is snipped for readability, but shows that the app container is
+running. Note that port 80 is mapped on all host interfaces (0.0.0.0:80) to port
+8080 in the container.
+Test connectivity
+Open a web browser and point it to the DNS name or IP address of the host that
+the container is running on. You will see the web page shown in Figure .
+Figure 8.6
+If the test does not work, try the following:
+1. Make sure that the container is up and running with the docker container
+ls command. The container name is c1 and you should see the port
+mapping as 0.0.0.0:80->8080/tcp.
+2. Check that the firewall and other network security settings are not blocking
+traffic to port 80 on the Docker host.

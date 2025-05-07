@@ -1,0 +1,63 @@
+Solutions to Chapter 17 | Hard
+What's the runtime of this? It's difficult to truly describe in practice as it depends on the (English) language.
+One way of looking at it is to imagine a bizarre language where essentially all paths in the recursion are
+taken, in this case, we are making both choices at each character. If there are n characters, this is an 0(2")
+runtime.
+Optimized
+Commonly, when we have exponential runtimes for a recursive algorithm, we optimize them through
+memoization (that is, caching resuttsJ.To do so, we need to find the common subproblems.
+Where do recursive paths overlap? That is, where are the common subproblems?
+Let's again imagine the string t h i s i s m i k e s f a v o r i t e f o o d . Again, imagine that everything is a valid
+word.
+In this case, we attempt to insert the first space after t as well as after th (and many other choices). Think
+about what the next choice is.
+split(thisismikesfavoritefood)
+->
+t
++ split(hisismikesfavoritefood)
+OR th + split(isismikesfavoritefood)
+OR . . .
+split(hisismikesfavoritefood)
+->
+h + split(isismikesfavoritefood)
+OR . . .
+Adding a space after t and h leads to the same recursive path as inserting a space after th.There's no sense
+in computing s p l i t (isismikesfavoritefood) twice when it will lead to the same result.
+We should instead cache the result. We do this using a hash table which maps from the current substring to
+the ParseResult object.
+We don't actually need to make the current substring a key. The s t a r t index in the string sufficiently represents
+the substring. After all, ifweweretousethe substring, we'd really be using sentence. s u b s t r i n g ( s t a r t ,
+sentence. l e n g t h ) . This hash table will map from a start index to the best parsing from that index to the
+end of the string.
+And, since the start index is the key, we don't need a true hash table at all. We can just use an array of
+ParseResult objects.This will also serve the purpose of mapping from an index to an object.
+The code is essentially identical to the earlier function, but now takes in a memo table (a cache). We look up
+when we first call the function and set it when we return.
+1
+String bestSplit(HashSet<String> dictionary, String sentence) {
+2
+ParseResult[] memo = new ParseResult[sentence.length()];
+3
+ParseResult r = s p l i t ( d i c t i o n a r y , sentence, 0, memo);
+4
+return r == n u l l ? n u l l : r.parsed;
+5
+}
+6
+7
+ParseResult split(HashSet<String> dictionary, String sentence, i n t s t a r t ,
+8
+ParseResult[] memo) {
+9
+if ( s t a r t >= sentence.length()) {
+10
+return new ParseResult(0, " " ) ;
+11
+} if (memo[start]
+1= n u l l ) {
+12
+return memo[startj;
+13
+>
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

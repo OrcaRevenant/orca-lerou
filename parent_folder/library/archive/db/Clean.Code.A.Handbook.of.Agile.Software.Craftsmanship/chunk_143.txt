@@ -1,0 +1,7 @@
+113
+8
+Boundaries
+by James Grenning
+We seldom control all the software in our systems. Sometimes we buy third-party pack-
+ages or use open source. Other times we depend on teams in our own company to produce
+components or subsystems for us. Somehow we must cleanly integrate this foreign code

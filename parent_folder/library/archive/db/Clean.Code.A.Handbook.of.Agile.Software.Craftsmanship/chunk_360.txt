@@ -1,0 +1,39 @@
+330
+Appendix A: Concurrency II
+int nextValue = iterator.next();
+// do something with nextValue
+}
+If one thread executes this code, there will be no problem. But what happens if two threads
+attempt to share a single instance of IngeterIterator with the intent that each thread will
+process the values it gets, but that each element of the list is processed only once? Most of
+the time, nothing bad happens; the threads happily share the list, processing the elements
+they are given by the iterator and stopping when the iterator is complete. However, there is
+a small chance that, at the end of the iteration, the two threads will interfere with each
+other and cause one thread to go beyond the end of the iterator and throw an exception.
+Here’s the problem: Thread 1 asks the question hasNext(), which returns true. Thread
+1 gets preempted and then Thread 2 asks the same question, which is still true. Thread 2
+then calls next(), which returns a value as expected but has a side effect of making
+hasNext() return false. Thread 1 starts up again, thinking hasNext() is still true, and then
+calls next(). Even though the individual methods are synchronized, the client uses two
+methods.
+This is a real problem and an example of the kinds of problems that crop up in con-
+current code. In this particular situation this problem is especially subtle because the only
+time where this causes a fault is when it happens during the ﬁnal iteration of the iterator.
+If the threads happen to break just right, then one of the threads could go beyond the end
+of the iterator. This is the kind of bug that happens long after a system has been in pro-
+duction, and it is hard to track down.
+You have three options:
+• Tolerate the failure.
+• Solve the problem by changing the client: client-based locking
+• Solve the problem by changing the server, which additionally changes the client:
+server-based locking
+Tolerate the Failure
+Sometimes you can set things up such that the failure causes no harm. For example, the
+above client could catch the exception and clean up. Frankly, this is a bit sloppy. It’s rather
+like cleaning up memory leaks by rebooting at midnight.
+Client-Based Locking
+To make IntegerIterator work correctly with multiple threads, change this client (and
+every other client) as follows:
+IntegerIterator iterator = new IntegerIterator();
+while (true) {
+int nextValue;

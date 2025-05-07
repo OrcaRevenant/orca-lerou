@@ -1,0 +1,28 @@
+the manager join token as part of the docker swarm join command, “mgr2”
+will join the Swarm as a manager.
+Run the following command from “mgr1” extract the manager join token.
+$ docker swarm join-token manager
+To add a manager to this swarm, run the following command:
+docker swarm join --token \
+SWMTKN-1-1dmtwu...r17stb-2axi5...8p7glz \
+172.31.5.251:2377
+The output of the command above has been edited so that it doesn’t wrap over
+multiple lines. The output gives you the exact command you need to run on
+nodes that you wish to join the Swarm as managers. The join token and IP
+address will be different in your lab.
+Copy the command and run it on “mgr2” as shown below:
+$ docker swarm join --token SWMTKN-1-1dmtwu...r17stb-2axi5...8p7glz \
+> 172.31.5.251:2377
+This node joined a swarm as a manager.
+“mgr2” has now joined the Swarm as an additional manager.
+The format of the join command is docker swarm join --token
+<manager-join-token> <ip-of-existing-manager>:<default-swarm-
+port>.
+You can verify the operation by running a docker node ls command on either
+of the two managers.
+$ docker node ls
+ID                HOSTNAME   STATUS    AVAILABILITY    MANAGER STATUS
+7xamk...ge662z    mgr1       Ready     Active          Leader
+i0ue4...zcjm7f *  mgr2       Ready     Active          Reachable
+The output above shows that “mgr1” and “mgr2” are both part of the Swarm and
+are both Swarm managers. The updated configuration is shown in Figure 11.8.

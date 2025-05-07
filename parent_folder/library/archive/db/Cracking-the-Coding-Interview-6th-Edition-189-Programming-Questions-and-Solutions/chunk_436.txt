@@ -1,0 +1,70 @@
+Solutions to Chapter 14 | Databases
+12.6
+Volatile: What is the significance of the keyword "volatile" in C?
+pg 164
+SOLUTION
+The keyword v o l a t i l e informs the compiler that the value of variable it is applied to can
+outside, without any update done by the code. This may be done by the operating system,
+another thread. Because the value can change unexpectedly, the compiler will therefore
+each time from memory.
+A volatile integer can be declared by either of the following statements:
+i n t v o l a t i l e x ;
+v o l a t i l e i n t x ;
+To declare a pointer to a volatile integer, we do the following:
+v o l a t i l e i n t * x;
+i n t v o l a t i l e * x;
+A volatile pointer to non-volatile data is rare, but can be done,
+i n t * v o l a t i l e x;
+If you wanted to declare a volatile variable pointer for volatile memory (both pointer address and memory
+contained are volatile), you would do the following:
+i n t v o l a t i l e * v o l a t i l e x;
+Volatile variables are not optimized, which can be very useful. Imagine this function:
+1
+i n t opt = l j
+2
+void Fn(void) {
+3
+s t a r t :
+4
+if (opt == 1) goto s t a r t ;
+5
+else break;
+6
+}
+At first glance, our code appears to loop infinitely. The compiler may try to optimize it to:
+1
+void Fn(void) {
+2
+s t a r t :
+3
+i n t opt = 1;
+4
+if
+(true)
+5
+goto s t a r t ;
+6
+>
+This becomes an infinite loop. However, an external operation might write'0'to the location of variable opt,
+thus breaking the !oop.
+To prevent the compiler from performing such optimization, we want to signal that another element of the
+system could change the variable. We do this using the v o l a t i l e keyword, as shown below.
+1
+v o l a t i l e i n t opt = 1;
+2
+void Fn(void) {
+3
+s t a r t :
+4
+if (opt == 1) goto s t a r t ;
+5
+else break;
+6
+}
+Volatile variables are also useful when multi-threaded programs have global variables and any thread can
+modify these shared variables. We may not want optimization on these variables.
+change from the
+the hardware, or
+reload the value
+426
+Cracking the Coding Interview, 6th Edition

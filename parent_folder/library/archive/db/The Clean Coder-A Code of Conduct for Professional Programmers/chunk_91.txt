@@ -1,0 +1,32 @@
+PREPAREDNESS
+59
+every detail of that solution while remaining consistent within the language,
+platform, current architecture, and all the warts of the current system.
+2. Your code must solve the problem set for you by the customer. Often the
+customer’s requirements do not actually solve the customer’s problems. It is
+up to you to see this and negotiate with the customer to ensure that the
+customer’s true needs are met.
+3. Your code must fit well into the existing system. It should not increase the
+rigidity, fragility, or opacity of that system. The dependencies must be well-
+managed. In short, your code needs to follow solid engineering principles.2
+4. Your code must be readable by other programmers. This is not simply a
+matter of writing nice comments. Rather, it requires that you craft the code in
+such a way that it reveals your intent. This is hard to do. Indeed, this may be
+the most difficult thing a programmer can master.
+Juggling all these concerns is hard. It is physiologically difficult to maintain the
+necessary concentration and focus for long periods of time. Add to this the
+problems and distractions of working in a team, in an organization, and the
+cares and concerns of everyday life. The bottom line is that the opportunity for
+distraction is high.
+When you cannot concentrate and focus sufficiently, the code you write will be
+wrong. It will have bugs. It will have the wrong structure. It will be opaque and
+convoluted. It will not solve the customers’ real problems. In short, it will have
+to be reworked or redone. Working while distracted creates waste.
+If you are tired or distracted, do not code. You’ll only wind up redoing what you
+did. Instead, find a way to eliminate the distractions and settle your mind.
+3 AM CO D E
+The worst code I ever wrote was at 3 am. The year was 1988, and I was working
+at a telecommunications start-up named Clear Communications. We were all
+putting in long hours in order to build “sweat equity.” We were, of course, all
+dreaming of being rich.
+2. [Martin03]

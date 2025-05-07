@@ -1,0 +1,4 @@
+Summary
+This chapter covers many concepts and techniques. To refresh your memory, the following
+table summarizes features and corresponding techniques used for a distributed key-value
+store.

@@ -1,0 +1,30 @@
+HELP
+73
+FALS E D E LIVE RY
+Of all the unprofessional behaviors that a programmer can indulge in, perhaps
+the worst of all is saying you are done when you know you aren’t. Sometimes
+this is just an overt lie, and that’s bad enough. But the far more insidious case is
+when we manage to rationalize a new definition of “done.” We convince
+ourselves that we are done enough, and move on to the next task. We rationalize
+that any work that remains can be dealt with later when we have more time.
+This is a contagious practice. If one programmer does it, others will see and
+follow suit. One of them will stretch the definition of “done” even more, and
+everyone else will adopt the new definition. I’ve seen this taken to horrible
+extremes. One of my clients actually defined “done” as “checked-in.” The code
+didn’t even have to compile. It’s very easy to be “done” if nothing has to work!
+When a team falls into this trap, managers hear that everything is going fine. All
+status reports show that everyone is on time. It’s like blind men having a picnic
+on the railroad tracks: Nobody sees the freight train of unfinished work bearing
+down on them until it is too late.
+D E F I N E “D O N E ”
+You avoid the problem of false delivery by creating an independent definition of
+“done.” The best way to do this is to have your business analysts and testers
+create automated acceptance tests5 that must pass before you can say that you
+are done. These tests should be written in a testing language such as FitNesse,
+Selenium, RobotFX, Cucumber, and so on. The tests should be understandable
+by the stakeholders and business people, and should be run frequently.
+H E LP
+Programming is hard. The younger you are the less you believe this. After all, it’s
+just a bunch of if and while statements. But as you gain experience you begin to
+realize that the way you combine those if and while statements is critically
+5. See Chapter 7, “Acceptance Testing.”

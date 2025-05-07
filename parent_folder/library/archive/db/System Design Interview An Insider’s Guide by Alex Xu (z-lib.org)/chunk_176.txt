@@ -1,0 +1,22 @@
+User logout
+When a user logs out, it goes through the user logout flow as shown in Figure 12-17. The
+online status is changed to offline in the KV store. The presence indicator shows a user is
+offline.
+User disconnection
+We all wish our internet connection is consistent and reliable. However, that is not always the
+case; thus, we must address this issue in our design. When a user disconnects from the
+internet, the persistent connection between the client and server is lost. A naive way to handle
+user disconnection is to mark the user as offline and change the status to online when the
+connection re-establishes. However, this approach has a major flaw. It is common for users to
+disconnect and reconnect to the internet frequently in a short time. For example, network
+connections can be on and off while a user goes through a tunnel. Updating online status on
+every disconnect/reconnect would make the presence indicator change too often, resulting in
+poor user experience.
+We introduce a heartbeat mechanism to solve this problem. Periodically, an online client
+sends a heartbeat event to presence servers. If presence servers receive a heartbeat event
+within a certain time, say x seconds from the client, a user is considered as online. Otherwise,
+it is offline.
+In Figure 12-18, the client sends a heartbeat event to the server every 5 seconds. After
+sending 3 heartbeat events, the client is disconnected and does not reconnect within  x = 30
+seconds (This number is arbitrarily chosen to demonstrate the logic). The online status is
+changed to offline.

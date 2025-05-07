@@ -1,0 +1,4 @@
+checks if the limit is reached or not.
+• If the limit is reached, the request is rejected.
+• If the limit is not reached, the request is sent to API servers. Meanwhile, the system
+increments the counter and saves it back to Redis.

@@ -1,0 +1,45 @@
+272
+Chapter 16: Refactoring SerialDate
+Changing MonthConstants to this enum forces quite a few changes to the DayDate class
+and all it’s users. It took me an hour to make all the changes. However, any function that
+used to take an int for a month, now takes a Month enumerator. This means we can get rid
+of the isValidMonthCode method (line 326), and all the month code error checking such as
+that in monthCodeToQuarter (line 356) [G5].
+Next, we have line 91, serialVersionUID. This variable is used to control the serializer.
+If we change it, then any DayDate written with an older version of the software won’t be
+readable anymore and will result in an InvalidClassException. If you don’t declare the
+serialVersionUID variable, then the compiler automatically generates one for you, and it
+will be different every time you make a change to the module. I know that all the docu-
+ments recommend manual control of this variable, but it seems to me that automatic con-
+trol of serialization is a lot safer [G4]. After all, I’d much rather debug an
+InvalidClassException than the odd behavior that would ensue if I forgot to change the
+serialVersionUID. So I’m going to delete the variable—at least for the time being.2
+I ﬁnd the comment on line 93 redundant. Redundant comments are just places to col-
+lect lies and misinformation [C2]. So I’m going to get rid of it and its ilk.
+The comments at line 97 and line 100 talk about serial numbers, which I discussed
+earlier [C1]. The variables they describe are the earliest and latest possible dates that
+DayDate can describe. This can be made a bit clearer [N1].
+It’s not clear to me why EARLIEST_DATE_ORDINAL is 2 instead of 0. There is a hint in the
+comment on line 829 that suggests that this has something to do with the way dates are
+represented in Microsoft Excel. There is a much deeper insight provided in a derivative of
+DayDate called SpreadsheetDate (Listing B-5, page 382). The comment on line 71 describes
+the issue nicely.
+The problem I have with this is that the issue seems to be related to the implementa-
+tion of SpreadsheetDate and has nothing to do with DayDate. I conclude from this that
+public static Month make(int monthIndex) {
+for (Month m : Month.values()) {
+if (m.index == monthIndex)
+return m;
+}
+throw new IllegalArgumentException("Invalid month index " + monthIndex);
+}
+public final int index;
+}
+2.
+Several of the reviewers of this text have taken exception to this decision. They contend that in an open source framework it is
+better to assert manual control over the serial ID so that minor changes to the software don’t cause old serialized dates to be
+invalid. This is a fair point. However, at least the failure, inconvenient though it might be, has a clear-cut cause. On the other
+hand, if the author of the class forgets to update the ID, then the failure mode is undeﬁned and might very well be silent. I
+think the real moral of this story is that you should not expect to deserialize across versions.
+public static final int EARLIEST_DATE_ORDINAL = 2;     // 1/1/1900
+public static final int LATEST_DATE_ORDINAL = 2958465; // 12/31/9999

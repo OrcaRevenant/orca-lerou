@@ -1,0 +1,32 @@
+grow with project size.
+Eventually, this scenario leads to a crisis. To maintain efficiency, the build
+schedule has to be continually lengthened—but lengthening the build schedule
+increases project risks. Integration and testing become increasingly harder to do,
+and the team loses the benefit of rapid feedback.
+ELIMINATING DEPENDENCY CYCLES
+The solution to this problem is to partition the development environment into
+releasable components. The components become units of work that can be the
+responsibility of a single developer, or a team of developers. When developers
+get a component working, they release it for use by the other developers. They
+give it a release number and move it into a directory for other teams to use. They
+then continue to modify their component in their own private areas. Everyone
+else uses the released version.
+As new releases of a component are made available, other teams can decide
+whether they will immediately adopt the new release. If they decide not to, they
+simply continue using the old release. Once they decide that they are ready, they
+begin to use the new release.
+Thus no team is at the mercy of the others. Changes made to one component do
+not need to have an immediate affect on other teams. Each team can decide for
+itself when to adapt its own components to new releases of the components.
+Moreover, integration happens in small increments. There is no single point in
+time when all developers must come together and integrate everything they are
+doing.
+This is a very simple and rational process, and it is widely used. To make it work
+successfully, however, you must manage the dependency structure of the
+components. There can be no cycles. If there are cycles in the dependency
+structure, then the “morning after syndrome” cannot be avoided.
+Consider the component diagram in Figure 14.1. It shows a rather typical
+structure of components assembled into an application. The function of this
+application is unimportant for the purpose of this example. What is important is
+the dependency structure of the components. Notice that this structure is a
+directed graph. The components are the nodes, and the dependency relationships

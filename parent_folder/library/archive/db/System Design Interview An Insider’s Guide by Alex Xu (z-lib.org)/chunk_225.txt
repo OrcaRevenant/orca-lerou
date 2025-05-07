@@ -1,0 +1,3 @@
+• Total space allocated: 50 million * 10 GB = 500 Petabyte
+• QPS for upload API: 10 million * 2 uploads / 24 hours / 3600 seconds = ~ 240
+• Peak QPS = QPS * 2 = 480

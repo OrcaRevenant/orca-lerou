@@ -1,0 +1,31 @@
+repository! For example, the most recent image in the alpine repository is
+usually tagged as edge. Moral of the story - take care when using the latest tag!
+Pulling images from an unofficial repository is essentially the same - you just
+need to prepend the repository name with a Docker Hub username or
+organization name. The example below shows how to pull the v2 image from the
+tu-demo repository owned by a dodgy person whose Docker Hub account name
+is nigelpoulton.
+$ docker image pull nigelpoulton/tu-demo:v2
+//This will pull the image tagged as `v2`
+//from the `tu-demo` repository within the namespace
+//of my personal Docker Hub account.
+In our earlier Windows examples, we pulled a PowerShell and a .NET image
+with the following two commands:
+> docker image pull microsoft/powershell:nanoserver
+> docker image pull microsoft/dotnet:latest
+The first command pulls the image tagged as nanoserver from the
+microsoft/powershell repository. The second command pulls the image tagged
+as latest from the microsoft/dotnet repository.
+If you want to pull images from 3rd party registries (not Docker Hub), you need
+to prepend the repository name with the DNS name of the registry. For example,
+if the image in the example above was in the Google Container Registry (GCR)
+you’d need to add gcr.io before the repository name as follows - docker pull
+gcr.io/nigelpoulton/tu-demo:v2 (no such repository and image exists).
+You may need to have an account on 3rd party registries and be logged into them
+before you can pull images from them.
+Images with multiple tags
+One final word about image tags… A single image can have as many tags as you
+want. This is because tags are arbitrary alpha-numeric values that are stored as
+metadata alongside the image. Let’s look at an example.
+Pull all of the images in a repository by adding the -a flag to them docker
+image pull command. Then run docker image ls to look at the images pulled.

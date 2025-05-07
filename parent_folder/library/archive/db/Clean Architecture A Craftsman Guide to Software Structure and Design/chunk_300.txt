@@ -1,0 +1,13 @@
+Figure A.3 One platter of that disk: 3/8 inch thick, 36 inches in diameter
+Courtesy, Ed Thelen, ed-thelen.org
+The CRT terminals ran at 30 characters per second. This was a pretty good rate
+for the late 1960s because modems were relatively unsophisticated in those days.
+ASC leased a dozen or so dedicated phone lines and twice that number of 300
+baud modems from the phone company to connect the Datanet 30 to these
+terminals.
+These computers did not come with operating systems. They didn’t even come
+with file systems. What you got was an assembler.
+If you needed to store data on the disk, you stored data on the disk. Not in a file.
+Not in a directory. You figured out which track, platter, and sector to put the data
+into, and then you operated the disk to put the data there. Yes, that means we
+wrote our own disk driver.

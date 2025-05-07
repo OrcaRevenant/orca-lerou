@@ -1,0 +1,31 @@
+translate them into the bit patterns needed by the new modem.
+This was not straightforward. Commands to the modem consisted of sequences
+of writes to different IO addresses on the serial bus. Our hack had to interpret
+these commands, in sequence, and translate them into a different sequence using
+different IO addresses, timings, and bit positions.
+We got it to work, but it was the worst hack imaginable. It was because of this
+fiasco that I learned the value of isolating hardware from business rules, and of
+abstracting interfaces.
+THE GRAND REDESIGN IN THE SKY
+By the time the 1980s rolled around, the idea of producing your own
+minicomputer and your own computer architecture was beginning to fall out of
+fashion. There were many microcomputers on the market, and getting them to
+work was cheaper and more standard then continuing to rely on proprietary
+computer architectures from the late 1960s. That, plus the horrible architecture
+of the SAC software, induced our technical management to start a complete re-
+architecture of the SAC system.
+The new system was to be written in C using a UNIX O/S on disk, running on an
+Intel 8086 microcomputer. Our hardware guys started working on the new
+computer hardware, and a select group of software developers, “The Tiger
+Team,” was commissioned with the rewrite.
+I won’t bore you with the details of the initial fiasco. Suffice it to say that the
+first Tiger Team failed entirely after burning two or three man-years on a
+software project that never delivered anything.
+A year or two later, probably 1982, the process was started again. The goal was
+the total and complete redesign of the SAC in C and UNIX on our own, newly
+designed, impressively powerful 80286 hardware. We called that computer
+“Deep Thought.”
+It took years, then more years, and then even more years. I don’t know when the
+first UNIX-based SAC was finally deployed; I believe I had left the company by
+then (1988). Indeed, I’m not at all sure it ever was deployed.
+Why the delay? In short, it is very difficult for a redesign team to catch up with a

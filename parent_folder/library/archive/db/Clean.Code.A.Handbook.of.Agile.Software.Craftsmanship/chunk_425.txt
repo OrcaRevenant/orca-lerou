@@ -1,0 +1,69 @@
+397
+Appendix B: org.jfree.date.SerialDate
+Listing B-8
+Month.java (Final)
+1 package org.jfree.date;
+2
+3 import java.text.DateFormatSymbols;
+4
+5 public enum Month {
+6   JANUARY(1), FEBRUARY(2), MARCH(3),
+7   APRIL(4),   MAY(5),      JUNE(6),
+8   JULY(7),    AUGUST(8),   SEPTEMBER(9),
+9   OCTOBER(10),NOVEMBER(11),DECEMBER(12);
+10   private static DateFormatSymbols dateFormatSymbols = new DateFormatSymbols();
+11   private static final int[] LAST_DAY_OF_MONTH =
+12     {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+13
+14   private int index;
+15
+16   Month(int index) {
+17     this.index = index;
+18   }
+19
+20   public static Month fromInt(int monthIndex) {
+21     for (Month m : Month.values()) {
+22       if (m.index == monthIndex)
+23         return m;
+24     }
+25     throw new IllegalArgumentException("Invalid month index " + monthIndex);
+26   }
+27
+28   public int lastDay() {
+29     return LAST_DAY_OF_MONTH[index];
+30   }
+31
+32   public int quarter() {
+33     return 1 + (index - 1) / 3;
+34   }
+35
+36   public String toString() {
+37     return dateFormatSymbols.getMonths()[index - 1];
+38   }
+39
+40   public String toShortString() {
+41     return dateFormatSymbols.getShortMonths()[index - 1];
+42   }
+43
+44   public static Month parse(String s) {
+45     s = s.trim();
+46     for (Month m : Month.values())
+47       if (m.matches(s))
+48         return m;
+49
+50     try {
+51       return fromInt(Integer.parseInt(s));
+52     }
+53     catch (NumberFormatException e) {}
+54     throw new IllegalArgumentException("Invalid month " + s);
+55   }
+56
+57   private boolean matches(String s) {
+58     return s.equalsIgnoreCase(toString()) ||
+59            s.equalsIgnoreCase(toShortString());
+60   }
+61
+62   public int toInt() {
+63     return index;
+64   }
+65 }

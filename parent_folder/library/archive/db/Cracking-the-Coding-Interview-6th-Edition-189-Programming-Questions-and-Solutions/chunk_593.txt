@@ -1,0 +1,63 @@
+Solutions to Chapter 17 | Hard
+12 }
+13
+14 /* Insert each s t r i n g into t r i e (provided s t r i n g is not longer than maxLen). */
+15 Trie createTreeFromStrings(String[] smalls, i n t maxLen) {
+16
+Trie tree = new T r i e ( " " ) ;
+17
+f o r (String s : smalls) {
+18
+if (s.lengthQ <= maxLen) {
+19
+t r e e . i n s e r t S t r i n g ( s ,
+&);
+20
+>
+21
+)
+22
+return tree;
+23
+}
+24
+25 /* Find strings in t r i e that s t a r t at index " s t a r t " within big. */
+26 ArrayList<String> findStringsAtLoc(TrieNode root, String big, i n t s t a r t ) {
+27
+ArrayList<String> strings = new ArrayList<String>();
+28
+i n t index = s t a r t ;
+29
+while (index < b i g . l e n g t h ( ) ) {
+30
+root = root.getChild(big.charAt(index));
+31
+if (root == n u l l ) break;
+32
+if (root,terminates()) { II Is complete s t r i n g , add to l i s t
+33
+strings.add(big.substring(start, index + 1));
+34
+>
+35
+index++;
+36
+}
+37
+return strings;
+38
+}
+39
+40 /* HashMapListcString, Integer> is a HashMap that maps from Strings to
+41
+* ArrayList<Integer>. See appendix f o r implementation. */
+This algorithm takes O ( k t ) time to create the trie and O(bk) time to search for all the strings.
+I
+Reminder: k is the length of the longest string in T, b is the length of the bigger string, and t is
+the number of smaller strings within T.
+The total time to solvethe question isO(kt + bk).
+Solution #1 was O ( k b t ) . We know that 0 ( k t + bk) will be faster than O ( k b t ) .
+Solution #2 was 0(b J + k t ) . Since b wiil always be bigger than k (or if it's not, then we know this really
+long string k cannot be found in b), we know Solution #3 is also faster than Solution #2.
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

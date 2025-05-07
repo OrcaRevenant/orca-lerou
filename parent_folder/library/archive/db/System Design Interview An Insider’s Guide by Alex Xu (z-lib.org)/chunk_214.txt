@@ -1,0 +1,5 @@
+Task workers run the tasks which are defined in the DAG. Different task workers may run
+different tasks as shown in Figure 14-19.
+Temporary storage
+Multiple storage systems are used here. The choice of storage system depends on factors like
+data type, data size, access frequency, data life span, etc. For instance, metadata is frequently

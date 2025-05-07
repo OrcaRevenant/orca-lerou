@@ -1,0 +1,79 @@
+Solutions to Chapter 16 | Databases
+We can follow this logic to write recursive code. Note that we don't need to track the sequence of pianks. All
+we need to know is the current length and the number of planks remaining.
+1
+HashSet<Integer> allLengths(int k, i n t shorter, i n t longer) {
+2
+HashSet<Integer> lengths = new HashSet<Integer>();
+3
+getAlll_engths(k, 0, shorter, longer, lengths);
+4
+return lengths;
+5
+>
+6
+7
+void getAllLengths(int k, i n t t o t a l , i n t shorter, i n t longer,
+8
+HashSet<Integer> lengths) {
+9
+i f (k == 0) {
+10
+lengths.add(total);
+11
+return;
+12
+)
+13
+getAlllengths(k - 1, t o t a l + shorter, shorter, longer, lengths);
+14
+getAllLengths(k - 1, t o t a l + longer, shorter, longer, lengths);
+15 >
+We've added each length to a hash set. This wili automatically prevent adding duplicates.
+This algorithm takes 0(2*) time, since there are two choices at each recursive call and we recurse to a
+depth of K.
+Memoization Solution
+As in many recursive algorithms (especially those with exponential runtimes), we can optimize this through
+memorization (a form of dynamic programming).
+Observe that some of the recursive calls will be essentially equivalent. For example, picking plank 1 and
+then plank 2 is equivalent to picking plank 2 and then plank 1.
+Therefore, if we've seen this ( t o t a l ,
+plank c o u n t ) pair before then we stop this recursive path. We
+can do this using a HashSet with a key of ( t o t a l , plank count).
+Many candidates will make a mistake here. Rather than stopping only when they've seen
+( t o t a l ,
+plank
+count), they'll stop whenever they've seen just t o t a l before. This is
+incorrect. Seeing two planks of length 1 is not the same thing as one plank of length 2, because
+there are different numbers of planks remaining. In memoization problems, be very careful
+about what you choose for your key.
+The code for this approach is very similar to the earlier approach.
+1
+HashSet<Integer> allLengths(int k, i n t shorter, i n t longer) {
+2
+HashSet<Integer> lengths = new HashSet<Integer>();
+3
+HashSet<String> v i s i t e d = new HashSet<String>();
+4
+getAllLengths(k, 0, shorter, longer, lengths, v i s i t e d ) ;
+5
+return lengths;
+6
+>
+7
+8
+void getAllLengths(int k, i n t t o t a l , i n t shorter, i n t longer,
+9
+Hashset<lnteger> lengths, HashSet<String> v i s i t e d ) {
+10
+i f (k == 0) {
+1 1
+lengths,add(total);
+12
+return;
+13
+}
+14
+String key = k + " " + t o t a l ;
+CrackingTheCodinglnterview.com \ 6th Edition
+415

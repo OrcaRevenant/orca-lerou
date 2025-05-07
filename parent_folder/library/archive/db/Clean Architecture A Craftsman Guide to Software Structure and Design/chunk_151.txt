@@ -1,0 +1,18 @@
+One day a more experienced programmer joined our ranks. When he saw what
+we had done, the blood drained from his face, and he stared aghast at us, as if we
+were aliens of some kind. Then he gently advised us to change our addressing
+scheme to use relative addresses.
+Our wiser colleague suggested that we consider the disk to be one huge linear
+array of sectors, each addressable by a sequential integer. Then we could write a
+little conversion routine that knew the physical structure of the disk, and could
+translate the relative address to a cylinder/head/sector number on the fly.
+Fortunately for us, we took his advice. We changed the high-level policy of the
+system to be agnostic about the physical structure of the disk. That allowed us to
+decouple the decision about disk drive structure from the application.
+CONCLUSION
+The two stories in this chapter are examples, in the small, of a principle that
+architects employ in the large. Good architects carefully separate details from
+policy, and then decouple the policy from the details so thoroughly that the
+policy has no knowledge of the details and does not depend on the details in any
+way. Good architects design the policy so that decisions about the details can be
+delayed and deferred for as long as possible.

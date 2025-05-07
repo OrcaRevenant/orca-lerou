@@ -1,0 +1,29 @@
+space. The strategies for segregating the components and managing their
+dependencies are the same.2
+As with monoliths, communications across deployment component boundaries
+are just function calls and, therefore, are very inexpensive. There may be a one-
+time hit for dynamic linking or runtime loading, but communications across
+these boundaries can still be very chatty.
+THREADS
+Both monoliths and deployment components can make use of threads. Threads
+are not architectural boundaries or units of deployment, but rather a way to
+organize the schedule and order of execution. They may be wholly contained
+within a component, or spread across many components.
+LOCAL PROCESSES
+A much stronger physical architectural boundary is the local process. A local
+process is typically created from the command line or an equivalent system call.
+Local processes run in the same processor, or in the same set of processors
+within a multicore, but run in separate address spaces. Memory protection
+generally prevents such processes from sharing memory, although shared
+memory partitions are often used.
+Most often, local processes communicate with each other using sockets, or some
+other kind of operating system communications facility such as mailboxes or
+message queues.
+Each local process may be a statically linked monolith, or it may be composed of
+dynamically linked deployment components. In the former case, several
+monolithic processes may have the same components compiled and linked into
+them. In the latter, they may share the same dynamically linked deployment
+components.
+Think of a local process as a kind of uber-component: The process consists of
+lower-level components that manage their dependencies through dynamic
+polymorphism.

@@ -1,0 +1,12 @@
+20
+BUSINESS RULES
+If we are going to divide our application into business rules and plugins, we’d
+better get a good grasp on just what business rules actually are. It turns out there
+are several different kinds.
+Strictly speaking, business rules are rules or procedures that make or save the
+business money. Very strictly speaking, these rules would make or save the
+business money, irrespective of whether they were implemented on a computer.
+They would make or save money even if they were executed manually.
+The fact that a bank charges N% interest for a loan is a business rule that makes
+the bank money. It doesn’t matter if a computer program calculates the interest,
+or if a clerk with an abacus calculates the interest.

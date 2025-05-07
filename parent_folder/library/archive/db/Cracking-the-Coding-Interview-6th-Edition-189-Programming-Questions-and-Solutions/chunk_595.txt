@@ -1,0 +1,120 @@
+Solutions to Chapter 17 | Hard
+27
+return max;
+28 }
+29
+30 /* Find next instance of element starting from index. */
+31 int findNextInstance(int[] array, i n t element, i n t index) {
+32
+for ( i n t i = index; i < array.length; i++) {
+33
+if ( a r r a y [ i ] == element) {
+34
+return
+i;
+35
+>
+36
+}
+37
+return -1;
+38
+}
+39
+40 public class Range {
+41
+private i n t s t a r t ;
+42
+private i n t end;
+43
+public Range(int s, i n t e) {
+44
+start = s;
+45
+end = e;
+46
+>
+47
+48
+public int lengthQ { return end - start + 1; }
+49
+public i n t getStart{) { return s t a r t ; }
+50
+public i n t getEnd{) { return end; }
+51
+52
+public boolean shorterThan{Range other) {
+53
+return length() < other.lengthQ;
+54
+}
+55 >
+This algorithm will potentially takeO(SB?) time, where B is the length of b i g S t r i n g and S is the length
+of sma U S t r i n g . This is because at each of the B characters, we potentially do 0( SB) work: S scans of the
+rest of the string, which has potentially B characters.
+Optimized
+Let's think about how we can optimize this. The core reason why it's slow is the repeated searches. Is there a
+faster way that we can find, given an index, the next occurrence of a particular character?
+Let's think about it with an example. Given the array below, ts there a way we could quickly find the next 5
+from each location?
+1, 5, 9j 0, 2, 1, 3, 5, 7, 9, 1, 1, 5, 8, 8, 9, 7
+Yes. Because we're going to have to do this repeatedly, we can precompute this information In just a single
+(backwards) sweep. Iterate through the array backwards, tracking the last (most recent) occurrence of 5.
+value
+7
+5
+9
+0
+2
+1
+3
+5
+7
+9
+1
+1
+5
+a
+8
+9
+7
+index
+0
+1
+2
+3
+4
+S
+6
+7
+8
+9
+10 11
+12
+13 14 is
+16
+next S
+1
+1
+7
+7
+7
+7
+7
+7
+12
+12
+12
+12
+12
+X
+X
+X
+X
+Doing this for each of { 1 , 5, 9} takes just 3 backwards sweeps.
+Some people want to merge this into one backwards sweep that handles all three values. It feels faster—but
+it's not really. Doing it in one backwards sweep means doing three comparisons at each iteration. N moves
+through the list with three comparisons at each move is no better than 3N moves and one comparison at
+each move. You might as well keep the code clean by doing it in separate sweeps.
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

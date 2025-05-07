@@ -1,0 +1,61 @@
+Chapter 13 j Java
+1
+Vector<String> myVect = new Vector<String>();
+2
+myVect.add("one")J
+3
+myVect. add(rftwo");
+4
+System,out.println(myVect.get(0));
+L i n k e d L i s t : Linked L i s t is, of course, Java's built-in Linked L i s t class. Though it rarely comes up in
+an interview, it's useful to study because it demonstrates some of the syntax for an iterator.
+1
+LinkedList<String> myLinkedList = new LinkedList<Stning>();
+2
+myLinkedList.add("two");
+3
+myLinkedList.addFirst("one");
+4
+Iterator<String> iter = myLinkedList.iterator();
+5
+while (iter.hasNext()) {
+6
+System.out.println(iter.next());
+f
+>
+HashMap:TheHashMap collection is widely used, both in interviews and in the real world. We've provided
+a snippet of the syntax below.
+1
+HashMap<String, String> map = new HashMap<Stringj String>();
+2
+map.put("one", "uno");
+3
+map.putC'two", "dos");
+4
+System.out.print In(map.get("one"));
+Before your interview, make sure you're very comfortable with the above syntax. You'll need it.
+Interview Questions
+Please note that because virtually ail the solutions in this book are implemented with Java, we have selected
+only a small number of questions for this chapter. Moreover, most of these questions deal with the "trivia" of
+the languages, since the rest of the book is filled with Java programming questions,
+13.1
+Private Constructor: In terms of inheritance, what is the effect of keeping a constructor private?
+Hints: tt404
+plj 433
+13.2
+Return from Finally: In Java, does the f i n a l l y block get executed if we insert a r e t u r n state-
+ment inside the try block of a t r y - c a t c h - f i n a l l y ?
+Hints: #409
+13.3
+Final, etc.: What is the difference between f i n a l , f i n a l l y , and f i n a l i z e ?
+Hints: #412
+pg 433
+13.4
+Generics vs. Templates: Explain the difference between templates in C++ and generics in Java.
+Hints: #416, #425
+13.5
+TreeMap, HashMap, LinkedHashMap: Explain the differences between TreeMap, HashMap, and
+LinkedHashMap. Provide an example of when each one would be best.
+Hints: #420, #424, #430, #454
+CrackiFigTheCodinglnterview.com j 6th Edition
+1 6 7

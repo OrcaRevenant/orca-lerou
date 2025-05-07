@@ -1,0 +1,24 @@
+Step 4 - Wrap up
+In this chapter, we proposed a system design to support Google Drive. The combination of
+strong consistency, low network bandwidth and fast sync make the design interesting. Our
+design contains two flows: manage file metadata and file sync. Notification service is another
+important component of the system. It uses long polling to keep clients up to date with file
+changes.
+Like any system design interview questions, there is no perfect solution. Every company has
+its unique constraints and you must design a system to fit those constraints. Knowing the
+tradeoffs of your design and technology choices are important. If there are a few minutes left,
+you can talk about different design choices.
+For example, we can upload files directly to cloud storage from the client instead of going
+through block servers. The advantage of this approach is that it makes file upload faster
+because a file only needs to be transferred once to the cloud storage. In our design, a file is
+transferred to block servers first, and then to the cloud storage. However, the new approach
+has a few drawbacks:
+• First, the same chunking, compression, and encryption logic must be implemented on
+different platforms (iOS, Android, Web). It is error-prone and requires a lot of engineering
+effort. In our design, all those logics are implemented in a centralized place: block servers.
+• Second, as a client can easily be hacked or manipulated, implementing encrypting logic
+on the client side is not ideal.
+Another interesting evolution of the system is moving online/offline logic to a separate
+service. Let us call it presence service. By moving presence service out of notification
+servers, online/offline functionality can easily be integrated by other services.
+Congratulations on getting this far! Now give yourself a pat on the back. Good job!

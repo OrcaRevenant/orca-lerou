@@ -1,0 +1,85 @@
+Solutions to Chapter 17 | Hard
+12
+partialSum[i] += matrix[rowEnd][i];
+13
+>
+14
+15
+Range bestRange = max5ubArray(partialSum, colCount);
+16
+if (best == null || best.getSumQ < bestRange.sum) {
+17
+best = new SubMatrixfrowStart, bestRange.start, rowEnd,
+18
+bestRange.end, bestRange.sum);
+19
+}
+20
+}
+21
+>
+22
+return best;
+23 }
+24
+25 Range maxSubArray(int[] array, int N) {
+26
+Range best = null;
+27
+int start - 0;
+28
+int sum = 0;
+29
+30
+for (int i = 0; i < N; i++) {
+31
+sum += array[i];
+32
+if (best == null |] sum > best.sum) {
+33
+best = new Range(start, i, sum);
+34
+>
+35
+36
+/* If running_sum is < 0 no point in trying to continue the series. Reset. */
+37
+if (sum < 0) {
+38
+start = i + l;
+39
+sum = 0;
+40
+}
+41
+)
+42
+return best;
+43 >
+44
+45 public class Range {
+46
+public int start, end, sum;
+47
+public Range(int start, int end, int sum) {
+48
+this.start = start;
+49
+this.end = end;
+50
+this.sum = sum;
+51
+)
+52 }
+This was an extremely complex problem. You would not be expected to figure out this entire problem in an
+interview without a lot of help from your interviewer.
+17.25 Word Rectangle: Given a list of millions of words, design an algorithm to create the largest possible
+rectangle of letters such that every row forms a word (reading left to right) and every column forms
+a word (reading top to bottom). The words need not be chosen consecutively from the list, but all
+rows must be the same length and all columns must be the same height.
+pg 190
+SOLUTION
+Many problems involving a dictionary can be solved by doing some pre-processing. Where can we do pre-
+processing?
+CrackingTheCodinginterview.com | 6th Edition
+62 3

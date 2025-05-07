@@ -1,0 +1,37 @@
+var sym = Symbol( "some optional description" );
+typeof sym;     // "symbol"
+Some things to note:
+• You cannot and should not use new with Symbol(..). It’s not a constructor, nor
+are you producing an object.
+• The parameter passed to Symbol(..) is optional. If passed, it should be a string
+that gives a friendly description for the symbol’s purpose.
+• The typeof output is a new value ("symbol") that is the primary way to identify a
+symbol.
+The description, if provided, is solely used for the stringification representation of the
+symbol:
+sym.toString();     // "Symbol(some optional description)"
+Similar to how primitive string values are not instances of String, symbols are also
+not instances of Symbol. If for some reason you want to construct a boxed wrapper
+object form of a symbol value, you can do the following:
+sym instanceof Symbol;      // false
+var symObj = Object( sym );
+symObj instanceof Symbol;   // true
+symObj.valueOf() === sym;   // true
+symObj in this snippet is interchangeable with sym; either form can
+be used in all places symbols are utilized. There’s not much reason
+to use the boxed wrapper object form (symObj) instead of the prim‐
+itive form (sym). Keeping with similar advice for other primitives,
+it’s probably best to prefer sym over symObj.
+The internal value of a symbol itself — referred to as its name — is hidden from the
+code and cannot be obtained. You can think of this symbol value as an automatically
+generated, unique (within your application) string value.
+But if the value is hidden and unobtainable, what’s the point of having a symbol at all?
+The main point of a symbol is to create a string-like value that can’t collide with any
+other value. So for example, consider using a symbol as a constant representing an
+event name:
+const EVT_LOGIN = Symbol( "event.login" );
+You’d then use EVT_LOGIN in place of a generic string literal like "event.login":
+68
+|
+Chapter 2: Syntax
+www.it-ebooks.info

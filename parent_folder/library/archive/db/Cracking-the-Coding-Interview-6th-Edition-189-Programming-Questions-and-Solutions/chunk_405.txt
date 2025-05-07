@@ -1,0 +1,34 @@
+Solutions to Chapter 9 | System Design and Scalability
+One issue here is that this amount of data could be substantial. We could potentially reduce the space usage
+considerably by storing data only probabilistically. Each URL would have a s t o r a g e ^ p r o b a b i l i t y asso-
+ciated with it. As the popularity of a site goes up, the s t o r a g e _ p r o b a b i l i t y goes down. For example,
+a popular document might have data logged only one out of every ten times, at random. When we look
+up the number of visits for the site, we'll need to adjust the value based on the probability (for example, by
+multiplying it by 10). This will of course lead to a small inaccuracy, but that may be acceptable.
+The log files are not designed to be used frequently. We will want to also store this precomputed data in a
+datastore. If the analytics just displays the number of visits plus a graph over time, this could be kept in a
+separate database.
+URL
+Month and Year
+Visits
+12ab31b92p
+December 2013
+242119
+12ab31b92p
+January 2014
+429918
+...
+Every time a URL is visited, we can increment the appropriate row and column. This datastore can also be
+sharded by the URL.
+As the stats are not listed on the regular pages and would generally be of less interest, it should not face as
+heavy of a load. We could still cache the generated HTMLonthefrontend servers, so that we don't continu-
+ously reaccess the data for the most popular URLs.
+Follow-Up Questions
+•
+How would you support user accounts?
+*
+How would you add a new piece of analytics (e.g., referral source) to the stats page?
+•
+How would your design change if the stats were shown with each document?
+CrackingTheCodinginterview.com | 6th Edition Î7
+5

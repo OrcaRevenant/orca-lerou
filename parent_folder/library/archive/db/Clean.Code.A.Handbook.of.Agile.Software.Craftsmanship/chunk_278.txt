@@ -1,0 +1,52 @@
+248
+Chapter 14: Successive Reﬁnement
+else if (elementTail.equals("#"))
+marshalers.put(elementId, new IntegerArgumentMarshaler());
+else if (elementTail.equals("##"))
+marshalers.put(elementId, new DoubleArgumentMarshaler());
+else
+throw new ArgsException(ArgsException.ErrorCode.INVALID_FORMAT,
+elementId, elementTail);
+}
+private void validateSchemaElementId(char elementId) throws ArgsException {
+if (!Character.isLetter(elementId)) {
+throw new ArgsException(ArgsException.ErrorCode.INVALID_ARGUMENT_NAME,
+elementId, null);
+}
+}
+private void parseArguments() throws ArgsException {
+for (currentArgument = argsList.iterator(); currentArgument.hasNext();) {
+String arg = currentArgument.next();
+parseArgument(arg);
+}
+}
+private void parseArgument(String arg) throws ArgsException {
+if (arg.startsWith("-"))
+parseElements(arg);
+}
+private void parseElements(String arg) throws ArgsException {
+for (int i = 1; i < arg.length(); i++)
+parseElement(arg.charAt(i));
+}
+private void parseElement(char argChar) throws ArgsException {
+if (setArgument(argChar))
+argsFound.add(argChar);
+else {
+throw new ArgsException(ArgsException.ErrorCode.UNEXPECTED_ARGUMENT,
+argChar, null);
+}
+}
+private boolean setArgument(char argChar) throws ArgsException {
+ArgumentMarshaler m = marshalers.get(argChar);
+if (m == null)
+return false;
+try {
+m.set(currentArgument);
+return true;
+} catch (ArgsException e) {
+e.setErrorArgumentId(argChar);
+throw e;
+}
+}
+Listing 14-16 (continued)
+Args.java

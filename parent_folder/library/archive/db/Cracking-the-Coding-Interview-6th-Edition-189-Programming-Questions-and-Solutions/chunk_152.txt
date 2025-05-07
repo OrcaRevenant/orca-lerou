@@ -1,0 +1,52 @@
+Chapter 9 | System Design and Scalability
+Imagine you have a conveyor belt that transfers items across a factory. Latency is the time it takes an item to
+go from one side to another. Throughput is the number of items that roll off the conveyor belt per second.
+•
+Building a fatter conveyor belt will not change latency. It will, however, change throughput and band-
+width. You can get more items on the belt, thus transferring more in a given unit of time.
+•
+Shortening the belt will decrease latency, since items spend less time in transit. It won't change the
+throughput or bandwidth. The same number of items will roll off the belt per unit of time.
+•
+Making a faster conveyor belt will change all three. The time it takes an item to travel across the factory
+decreases. More items will also roll off the conveyor belt per unit of time,
+-
+Bandwidth is the number of items that can be transferred per unit of time, in the best possible condi-
+tions. Throughput is the time it really takes, when the machines perhaps aren't operating smoothly.
+Latency can be easy to disregard, but it can be very important in particular situations. For example, if you're
+playing certain online games, latency can be a very big deal. How can you play a typical online sports game
+(like a two-player football game) if you aren't notified very quickly of your opponent's movement? Addition-
+ally, unlike throughput where at least you have the option of speeding things up through data compres-
+sion, there is often little you can do about latency.
+MapReduce
+MapReduce is often associated with Google, but it's used much more broadly than that. A MapReduce
+program is typically used to process large amounts of data.
+As its name suggests, a MapReduce program requires you to write a Map step and a Reduce step.The rest
+is handled by the system.
+•
+Map takes in some data and emits a <key, value > pair.
+•
+Reduce takes a key and a set of associated values and "reduces" them in some way, emitting a new key
+and value. The results of this might be fed back into the Reduce program for more reducing.
+MapReduce allows us to do a lot of processing in parallel, which makes processing huge amounts of data
+more scalable.
+For more information, see "MapReduce" on page 642.
+• Considerations
+In addition to the earlier concepts to learn, you should consider the following issues when designing a
+system.
+•
+Failures: Essentially any part of a system can fait. You'll need to plan for many or all of these failures.
+•
+Availability and Reliability: Availability is a function of the percentage of time the system is opera-
+tional. Reliability is a function of the probability that the system is operational for a certain unit of time.
+•
+Read-heavy vs. Write-heavy: Whether an application will do a lot of reads or a lot of writes impacts the
+design. If it's write-heavy, you could consider queuing up the writes {but think about potential failure
+here!). If it's read-heavy, you might want to cache. Other design decisions could change as well.
+-
+Security: Security threats can, of course, be devastating for a system. Think about the types of issues a
+system might face and design around those.
+This is just to get you started with the potential issues for a system, Remember to be open in your interview
+about the tradeoffs.
+1Ï8
+Cracking the Coding Interview, 6th Edition

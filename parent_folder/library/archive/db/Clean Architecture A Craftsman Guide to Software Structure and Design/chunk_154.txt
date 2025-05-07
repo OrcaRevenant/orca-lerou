@@ -1,0 +1,30 @@
+As strange as it may seem, this decision is one of the options that a good
+architect leaves open. A system that is written as a monolith, and that depends on
+that monolithic structure, cannot easily be upgraded to multiple processes,
+multiple threads, or micro-services should the need arise. By comparison, an
+architecture that maintains the proper isolation of its components, and does not
+assume the means of communication between those components, will be much
+easier to transition through the spectrum of threads, processes, and services as
+the operational needs of the system change over time.
+DEVELOPMENT
+Architecture plays a significant role in supporting the development environment.
+This is where Conway’s law comes into play. Conway’s law says:
+Any organization that designs a system will produce a design whose structure is a copy of the
+organization’s communication structure.
+A system that must be developed by an organization with many teams and many
+concerns must have an architecture that facilitates independent actions by those
+teams, so that the teams do not interfere with each other during development.
+This is accomplished by properly partitioning the system into well-isolated,
+independently developable components. Those components can then be
+allocated to teams that can work independently of each other.
+DEPLOYMENT
+The architecture also plays a huge role in determining the ease with which the
+system is deployed. The goal is “immediate deployment.” A good architecture
+does not rely on dozens of little configuration scripts and property file tweaks. It
+does not require manual creation of directories or files that must be arranged just
+so. A good architecture helps the system to be immediately deployable after
+build.
+Again, this is achieved through the proper partitioning and isolation of the
+components of the system, including those master components that tie the whole
+system together and ensure that each component is properly started, integrated,
+and supervised.

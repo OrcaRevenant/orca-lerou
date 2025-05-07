@@ -1,0 +1,75 @@
+Introduction
+Considerations
+142
+There is no "perfect" system
+143
+Example Problem
+143
+Chapter 101 Sorting and Searching
+146
+Common Sorting Algorithms
+146
+Searching Algorithms
+149
+Chapter 11 [Testing
+152
+What the Interviewer Is Looking For
+152
+Testing a Real World Object
+153
+Testing a Piece of Software
+154
+Testing a Function
+155
+Troubleshooting Questions
+156
+Knowledge Based
+158
+Chapter 12 ] C and C++
+158
+Classes and Inheritance
+158
+Constructors and Destructors
+159
+Virtual Functions
+159
+Virtual Destructor
+160
+Default Values
+161
+Operator Overloading
+161
+Pointers and References
+162
+Templates
+163
+Chapter 13 | Java
+165
+How to Approach
+165
+Overloading vs. Overriding
+165
+Collection Frame work
+166
+Chapter 141 Databases
+169
+SQL Syntax and Variations
+169
+Denormalized vs. Normalized Databases
+169
+SQi. Statements
+169
+Small Database Design
+171
+Large Database Design
+172
+Chapter 15 [Threadsand Locks
+174
+Threads in Java
+174
+Synchronization and Locks
+176
+Deadlocks and Deadlock Prevention
+179
+CrackingTheCodinglnterview.com 16th Edition
+VII

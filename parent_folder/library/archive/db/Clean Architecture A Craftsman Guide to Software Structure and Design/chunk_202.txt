@@ -1,0 +1,20 @@
+Figure 22.2 A typical scenario for a web-based Java system utilizing a database
+The job of the Presenter is to repackage the OutputData into viewable form as
+the ViewModel, which is yet another plain old Java object. The ViewModel
+contains mostly Strings and flags that the View uses to display the data.
+Whereas the OutputData may contain Date objects, the Presenter will load the
+ViewModel with corresponding Strings already formatted properly for the user.
+The same is true of Currency objects or any other business-related data. Button
+and MenuItem names are placed in the ViewModel, as are flags that tell the View
+whether those Buttons and MenuItems should be gray.
+This leaves the View with almost nothing to do other than to move the data from
+the ViewModel into the HTML page.
+Note the directions of the dependencies. All dependencies cross the boundary
+lines pointing inward, following the Dependency Rule.
+CONCLUSION
+Conforming to these simple rules is not difficult, and it will save you a lot of
+headaches going forward. By separating the software into layers and conforming
+to the Dependency Rule, you will create a system that is intrinsically testable,
+with all the benefits that implies. When any of the external parts of the system
+become obsolete, such as the database, or the web framework, you can replace
+those obsolete elements with a minimum of fuss.

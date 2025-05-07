@@ -1,0 +1,77 @@
+11 Hints for Data Structures
+#47.
+4.7
+Look at this graph. Is there any node you can identify that will definitely be okay to build
+first?
+#48.
+4.9
+The root is the very first value that must be in every array. What can you say about the
+order of the values in the left subtree as compared to the values in the right subtree? Do
+the left subtree values need to be inserted before the right subtree?
+#49.
+4.4
+What if you could modify the binary tree node class to allow a node to store the height
+of its subtree?
+#50.
+2.8
+There are really two parts to this problem. First, detect if the linked list has a loop.
+Second, figure out where the loop starts,
+#51.
+1.7
+Try thinking about it layer by layer. Can you rotate a specific layer?
+#52.
+4.12
+If each path had to start at the root, we could traverse all possible paths starting from
+the root. We can track the sum as we go, incrementing t o t a l P a t h s each time we
+find a path with our target sum. Now, how do we extend this to paths that can start
+anywhere? Remember: Just get a brute-force algorithm done. You can optimize later.
+#53.
+1.3
+It's often easiest to modify strings by going from the end of the string to the beginning.
+#54.
+4.11
+This is your own binary search tree class, so you can maintain any information about the
+tree structure or nodes that you'd like (provided it doesn't have other negative implica-
+tions, like making i n s e r t much slower). In fact, there's probably a reason the interview
+question specified that it was your own class. You probably need to store some addi-
+tional information in order to implement this efficiently.
+#55.
+2.7
+Focus first on just identifying if there's an intersection.
+#56,
+3.6
+Let's suppose we kept separate lists for dogs and cats. How would we find the oldest
+animal of any type? Be creative!
+#57.
+4.5
+To be a binary search tree, it's not sufficient that the l e f t . v a l u e
+<=
+c u r r e n t .
+v a l u e < r i g h t , v a l u e for each node. Every node on the left must be less than the
+current node, which must be less than all the nodes on the right.
+#58.
+3.1
+Try thinking about the array as circular, such that the end of the array "wraps around" to
+the start of thearray.
+#59.
+3.2
+What if we kept track of extra data at each stack node? What sort of data might make it
+easier to solve the problem?
+#60.
+4.7
+If you identify a node without any incoming edges, then it can definitely be built. Find
+this node (there could be multiple) and add it to the build order. Then, what does this
+mean for its outgoing edges?
+#61.
+2.6
+In the recursive approach (we have the length of the list), the middle is the base case:
+i s P e r m u t a t i o n ( m i d d l e ) is true. The node x to the immediate left of the middle:
+What can that node do to check ifx->raiddle->y forms a palindrome? Now suppose
+that checks out. What about the previous node 3? If x- >middle- >y is a palindrome,
+how can it check that a - > x - > m i d d l e - > y - > b is a palindrome?
+#62.
+4.11
+As a naive "brute force" algorithm, can you use a tree traversal algorithm to implement
+this algorithm? What is the runtime of this?
+654
+Cracking the Coding Interview, 6th Edition

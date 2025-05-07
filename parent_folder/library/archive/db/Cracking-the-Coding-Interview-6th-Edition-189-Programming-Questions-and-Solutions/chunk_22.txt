@@ -1,0 +1,44 @@
+II | Behind the Scenes
+You can expect a mtx of one-on-one and two-on-one interviews. Be ready to code on a whiteboard and
+make sure all of your thoughts are clearly communicated. Lunch is with your potential future manager and
+appears more casual, but it is still an interview. Each interviewer usually focuses on a different area and
+is discouraged from sharing feedback with other interviewers unless there's something they want subse-
+quent interviewers to drill into.
+Towards the end of the day, your interviewers will compare notes. If everyone still feels you're a viable candi-
+date, you will have an interview with the director and the VP of the organization to which you're applying.
+White this decision is rather informal, it's a very good sign if you make it. This decision also happens behind
+the scenes, and if you don't pass, you'll simply be escorted out of the building without ever having been
+the wiser (until now).
+If you made it to the director and VP interviews, all of your interviewers will gather in a conference room
+to give an official thumbs up or thumbs down. The VP typically won't be present but can still veto the hire
+if they weren't impressed. Your recruiter will usually follow up a few days later, but feel free to ping him or
+her for updates.
+Definitely Prepare:
+If you know what team you're interviewing with, make sure you read up on that product. What do you like
+about it? What would you improve? Offering specific recommendations can show your passion for the job.
+What's Unique:
+Apple does two-on-one interviews often, but don't get stressed out about them-it's the same as a one-on-
+one interview!
+Also, Apple employees are huge Apple fans. You should show this same passion in your interview.
+• The Facebook Interview
+Once selected for an interview, candidates will generally do one or two phone screens, Phone screens will
+be technical and will involve coding, usually an online document editor.
+After the phone interview(s), you might be asked to do a homework assignment that will include a mix of
+coding and algorithms. Pay attention to your coding style here. If you've never worked in an environment
+which had thorough code reviews, it may be a good idea to get someone who has to review your code.
+During your on-site interview, you will interview primarily with other software engineers, but hiring
+managers are also involved whenever they are available. Atl interviewers have gone through comprehen-
+sive interview training, and who you interview with has no bearing on your odds of getting an offer.
+Each interviewer is given a"role"during the on-site interviews, which helps ensure that there are no repeti-
+tive questions and that they get a holistic picture of a candidate. These roles are:
+*
+Behavioral ("Jedi"): This interview assesses your ability to be successful in Facebook's environment.
+Would you fit wetl with the culture and values? What are you excited about? How do you tackle chal-
+ienges? Be prepared to talk about your interest in Facebook as well. Facebook wants passionate people.
+You might also be asked some coding questions in this interview.
+•
+Coding and Algorithms ("Ninja"): These are your standard coding and algorithms questions, much like
+what you'll find in this book. These questions are designed to be challenging. You can use any program-
+ming language you want.
+14
+Cracking the Coding interview, 6th Edition

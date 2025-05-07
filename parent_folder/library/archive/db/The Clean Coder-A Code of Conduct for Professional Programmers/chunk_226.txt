@@ -1,0 +1,31 @@
+IDE/EDITOR
+195
+E MAC S
+Emacs is still one of the most powerful editors out there, and will probably
+remain so for decades to come. The internal lisp model guarantees that. As a
+general-purpose editing tool, nothing else even comes close. On the other hand,
+I think that Emacs cannot really compete with the specific-purpose IDEs that
+now dominate. Editing code is not a general-purpose editing job.
+In the ’90s I was an Emacs bigot. I wouldn’t consider using anything else. The
+point-and-click editors of the day were laughable toys that no developer could
+take seriously. But in the early ’00s I was introduced to IntelliJ, my current IDE
+of choice, and I’ve never looked back.
+EC LI PS E / I NTE LLI J
+I’m an IntelliJ user. I love it. I use it to write Java, Ruby, Clojure, Scala,
+Javascript, and many others. This tool was written by programmers who
+understand what programmers need when writing code. Over the years, they
+have seldom disappointed me and almost always pleased me.
+Eclipse is similar in power and scope to IntelliJ. The two are simply leaps and
+bounds above Emacs when it comes to editing Java. There are other IDEs in this
+category, but I won’t mention them here because I have no direct experience
+with them.
+The features that set these IDEs above tools like Emacs are the extremely
+powerful ways in which they help you manipulate code. In IntelliJ, for example,
+you can extract a superclass from a class with a single command. You can
+rename variables, extract methods, and convert inheritance into composition,
+among many other great features.
+With these tools, code editing is no longer about lines and characters as much
+as it is about complex manipulations. Rather than thinking about the next few
+characters and lines you need to type, you think about the next few trans-
+formations you need to make. In short, the programming model is remarkably
+different and highly productive.

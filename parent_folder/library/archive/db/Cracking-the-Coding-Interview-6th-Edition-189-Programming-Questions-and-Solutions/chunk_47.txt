@@ -1,0 +1,49 @@
+V [ Behavioral Questions
+entrepreneurial environment.
+4. Current Role (Details): One of my old managers from Amazon recruited me out to join her startup,
+which was what brought me to Microworks. Here, I did the initial system architecture, which has scaled
+pretty well with our rapid growth. I then took an opportunity to lead the Android team. I do manage a
+team of three, but my rote is primarily with technical leadership: architecture, coding, etc.
+5. Outside of Work: Outside of work, I've been participating in some hackathons—mostly doing iOS
+development there as a way to learn it more deeply. I'm also active as a moderator on online forums
+around Android development.
+6. Wrap Up: I'm looking now for something new, and your company caught my eye. I've always loved the
+connection with the user, and I really want to get back to a smaller environment too.
+This structure works well for about 95% of candidates. For candidate with more experience, you might
+condense part of it. Ten years from now, the candidate's initial statements might become just: "After my
+CS degree from Berkeley, I spent a few years at Amazon and then joined a startup where I led the Android
+team."
+Hobbies
+Think carefully about your hobbies. You mayor may not want to discuss them.
+Often they're just fluff. If your hobby is just generic activities like skiing or playing with your dog, you can
+probably skip it.
+Sometimes though, hobbies can be useful. This often happens when:
+•
+The hobby is extremely unique (e.g., fire breathing). It may strike up a bit of a conversation and kick off
+the interview on a more amiable note.
+•
+The hobby is technical.This not only boosts your actual skillset, but it also shows passion for technology.
+•
+The hobby demonstrates a positive personality attribute. A hobby I ike "remodeling your house yourself"
+shows a drive to learn new things, take some risks, and get your hands dirty (literally and figuratively).
+It would rarely hurt to mention hobbies, so when in doubt, you might as well.
+Think about how to best frame your hobby though. Do you have any successes or specific work to show
+from it (e.g., landing a part in a play)? Is there a personality attribute this hobby demonstrates?
+Sprinkle in Shows of Successes
+In the above pitch, the candidate has casually dropped in some highlights of his background.
+•
+He specifically mentioned that he was recruited out of Microworks by his old manager, which shows that
+he was successful at Amazon.
+»
+He also mentions wanting to be in a smaller environment, which shows some element of culture fit
+(assuming this is a startup he's applying for).
+•
+He mentions some successes he's had, such as launching a key part of AWS and architecting a scalable
+system.
+•
+He mentions his hobbies, both of which show a drive to learn.
+When you think about your pitch, think about what different aspects of your background say about you.
+Can you can drop in shows of successes (awards, promotions, being recruited out by someone you worked
+with, launches, etc.)? What do you want to communicate about yourself?
+CrackingTheCodinglnterview.com \ 6th Edition
+37

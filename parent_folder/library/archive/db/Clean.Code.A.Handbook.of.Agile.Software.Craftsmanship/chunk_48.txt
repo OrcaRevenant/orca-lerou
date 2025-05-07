@@ -1,0 +1,40 @@
+18
+Chapter 2: Meaningful Names
+so much of it, we’d better do it well. What follows are some simple rules for creating
+good names.
+Use Intention-Revealing Names
+It is easy to say that names should reveal intent. What we want to impress upon you is that
+we are serious about this. Choosing good names takes time but saves more than it takes.
+So take care with your names and change them when you ﬁnd better ones. Everyone who
+reads your code (including you) will be happier if you do.
+The name of a variable, function, or class, should answer all the big questions. It
+should tell you why it exists, what it does, and how it is used. If a name requires a com-
+ment, then the name does not reveal its intent.
+int d; // elapsed time in days
+The name d reveals nothing. It does not evoke a sense of elapsed time, nor of days. We
+should choose a name that speciﬁes what is being measured and the unit of that measure-
+ment:
+int elapsedTimeInDays;
+int daysSinceCreation;
+int daysSinceModification;
+int fileAgeInDays;
+Choosing names that reveal intent can make it much easier to understand and change
+code. What is the purpose of this code?
+public List<int[]> getThem() {
+List<int[]> list1 = new ArrayList<int[]>();
+for (int[] x : theList)
+if (x[0] == 4)
+list1.add(x);
+return list1;
+}
+Why is it hard to tell what this code is doing? There are no complex expressions.
+Spacing and indentation are reasonable. There are only three variables and two constants
+mentioned. There aren’t even any fancy classes or polymorphic methods, just a list of
+arrays (or so it seems).
+The problem isn’t the simplicity of the code but the implicity of the code (to coin a
+phrase): the degree to which the context is not explicit in the code itself. The code implic-
+itly requires that we know the answers to questions such as:
+1. What kinds of things are in theList?
+2. What is the signiﬁcance of the zeroth subscript of an item in theList?
+3. What is the signiﬁcance of the value 4?
+4. How would I use the list being returned?

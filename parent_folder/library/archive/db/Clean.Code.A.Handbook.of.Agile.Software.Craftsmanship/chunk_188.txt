@@ -1,0 +1,43 @@
+158
+Chapter 11: Systems
+empty plots are ﬁlled with larger buildings, some of which will eventually be replaced
+with skyscrapers.
+At ﬁrst there are no services like power, water, sewage, and the Internet (gasp!). These
+services are also added as the population and building densities increase.
+This growth is not without pain. How many times have you driven, bumper to bumper
+through a road “improvement” project and asked yourself, “Why didn’t they build it wide
+enough the ﬁrst time!?”
+But it couldn’t have happened any other way. Who can justify the expense of a six-
+lane highway through the middle of a small town that anticipates growth? Who would
+want such a road through their town?
+It is a myth that we can get systems “right the ﬁrst time.” Instead, we should imple-
+ment only today’s stories, then refactor and expand the system to implement new stories
+tomorrow. This is the essence of iterative and incremental agility. Test-driven develop-
+ment, refactoring, and the clean code they produce make this work at the code level.
+But what about at the system level? Doesn’t the system architecture require preplan-
+ning? Certainly, it can’t grow incrementally from simple to complex, can it?
+Software systems are unique compared to physical systems. Their architectures can grow
+incrementally, if we maintain the proper separation of concerns.
+The ephemeral nature of software systems makes this possible, as we will see. Let us ﬁrst
+consider a counterexample of an architecture that doesn’t separate concerns adequately.
+The original EJB1 and EJB2 architectures did not separate concerns appropriately and
+thereby imposed unnecessary barriers to organic growth. Consider an Entity Bean for a
+persistent Bank class. An entity bean is an in-memory representation of relational data, in
+other words, a table row.
+First, you had to deﬁne a local (in process) or remote (separate JVM) interface, which
+clients would use. Listing 11-1 shows a possible local interface:
+Listing 11-1
+An EJB2 local interface for a Bank EJB
+package com.example.banking;
+import java.util.Collections;
+import javax.ejb.*;
+public interface BankLocal extends java.ejb.EJBLocalObject {
+String getStreetAddr1() throws EJBException;
+String getStreetAddr2() throws EJBException;
+String getCity() throws EJBException;
+String getState() throws EJBException;
+String getZipCode() throws EJBException;
+void setStreetAddr1(String street1) throws EJBException;
+void setStreetAddr2(String street2) throws EJBException;
+void setCity(String city) throws EJBException;
+void setState(String state) throws EJBException;

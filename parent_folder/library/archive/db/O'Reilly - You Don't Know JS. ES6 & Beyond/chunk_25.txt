@@ -1,0 +1,41 @@
+The ...z in this snippet is essentially saying: “gather the rest of the arguments (if any)
+into an array called z.” Since x was assigned 1, and y was assigned 2, the rest of the
+arguments 3, 4, and 5 were gathered into z.
+Of course, if you don’t have any named parameters, the ... gathers all arguments:
+function foo(...args) {
+console.log( args );
+}
+foo( 1, 2, 3, 4, 5);            // [1,2,3,4,5]
+The ...args in the foo(..) function declaration is usually called
+“rest parameters”, since you’re collecting the rest of the parameters.
+I prefer “gather”, since it’s more descriptive of what it does, not
+what it contains.
+The best part about this usage is that is provides a very solid alternative to using the
+long-since deprecated arguments array — actually, it’s not really an array, but an
+array-like object. Since args (or whatever you call it — a lot of people prefer r or
+rest) is a real array, we can get rid of lots of silly pre-ES6 tricks we jumped through
+to make arguments into something we can treat as an array.
+Consider:
+// doing things the new ES6 way
+function foo(...args) {
+// `args` is already a real array
+// discard first element in `args`
+args.shift();
+// pass along all of `args` as arguments
+// to `console.log(..)`
+console.log( ...args );
+}
+// doing things the old-school pre-ES6 way
+function bar() {
+// turn `arguments` into a real array
+var args = Array.prototype.slice.call( arguments );
+// add some elements on the end
+args.push( 4, 5 );
+// filter out odd numbers
+args = args.filter( function(v){
+return v % 2 == 0;
+} );
+14
+|
+Chapter 2: Syntax
+www.it-ebooks.info

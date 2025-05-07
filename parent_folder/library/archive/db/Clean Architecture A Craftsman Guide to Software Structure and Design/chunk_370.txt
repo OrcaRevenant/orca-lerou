@@ -1,0 +1,36 @@
+splitting data streams, 227–228
+Polymorphic dispatch, 4-TEL archaeology project, 344
+Polymorphism
+crossing circle boundaries with dynamic, 206
+dependency inversion, 44–47
+flow of control in dynamic, 177–178
+in object-oriented programming, 22, 40–43
+power of, 43–44
+Ports and adapters
+access modifiers, 318
+approach to code organization, 308–310
+decouple dependencies with source code trees, 319–320
+Périphérique anti-pattern of, 320–321
+Positional stability, component, 122–123
+Premature decisions, coupling to, 160–163
+“Presentation Domain Data Layering” (Fowler), 305–306
+Presenters
+in clean architecture, 203, 205
+clean architecture scenario, 207–208
+component architecture, 301
+crossing circle boundaries, 206
+Presenters and humble objects
+conclusion, 215
+data mappers, 214–215
+database getaways, 214
+Humble Object pattern, 212
+overview of, 211–212
+Presenters and Views, 212–213
+service listeners, 215
+testing and architecture, 213
+Processes, partitioning into classes/separating classes, 71–72
+Processor
+is detail, 265–269
+mutability and, 52
+Product, video sales case study, 298
+Productivity

@@ -1,0 +1,67 @@
+Solutions to Chapter 17 | Hard
+35
+row2 = r2;
+36
+C012 = c2;
+37
+sum = sir;
+38
+}
+39
+40
+public int getSum() {
+41
+return sum;
+42
+>
+43 }
+It is good practice to pull the sum code into its own function since it's a fairly distinct set of code.
+Dynamic Programming Solution: 0(N")
+Notice that the earlier solution is made slower by a factor of 0(N 2) simply because computing the sum of
+a matrix is so slow. Can we reduce the time to compute the area? Yes! In fact, we can reduce the time of
+computeSumtoO{l).
+Consider the following rectangle:
+yi
+y2
+Suppose we knew the following values:
+ValD = area(point(0, 0)
+point(x2j y2))
+ValC = area(point(0, 0) -> point(x2j yl))
+ValB = area(point(0, 0) -> point(xl, y2))
+ValA = area(point(0, 0) -> point(xl, yl))
+Each Val* starts at the origin and ends at the bottom right corner of a subrectangle.
+With these values, we know the following:
+area(O) = ValD - area(A union C) - area(A union B) + area(A).
+Or, written another way:
+area(D) = ValD - ValB - ValC + ValA
+We can efficiently compute these values for all points in the matrix by using similar logic:
+Val(x, y) = Val(x-1, y) + Val(y-1, x) - Val(x-1, y-1) + M[x][y]
+We can precompute all such values and then efficiently find the maximum submatrix.
+The following code implements this algorithm.
+1
+SubMatrix getMaxMatrix(int[][] matrix) {
+2
+SubMatrix best = null;
+3
+int rowCount = matrix.length;
+4
+int columnCount = matrix[0].length;
+5
+int[H] sumThrough = precomputeSums(matrix);
+6
+7
+for (int rowl = 0; rowl < rowCount; rowl++) {
+8
+for (int row2 = rowl; row2 < rowCount; row2++) {
+9
+for (int coll = 0; coll < columnCount; coll++) (
+10
+for (int col2 = coll; col2 < columnCount; col2++) (
+xl
+x2
+A
+C
+S
+D
+612
+Cracking the Coding Interview, 6th Edition

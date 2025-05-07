@@ -1,0 +1,44 @@
+275
+Then Make It Right
+As you can see, I have already moved the MINIMUM_YEAR_SUPPORTED
+and
+MAXIMUM_YEAR_SUPPORTED variables into SpreadsheetDate, where they belong [G6].
+The next issue in DayDate are the day constants beginning at line 109. These should
+really be another enum [J3]. We’ve seen this pattern before, so I won’t repeat it here. You’ll
+see it in the ﬁnal listings.
+Next, we see a series of tables starting with LAST_DAY_OF_MONTH at line 140. My ﬁrst
+issue with these tables is that the comments that describe them are redundant [C3]. Their
+names are sufﬁcient. So I’m going to delete the comments.
+There seems to be no good reason that this table isn’t private [G8], because there is a
+static function lastDayOfMonth that provides the same data.
+The next table, AGGREGATE_DAYS_TO_END_OF_MONTH, is a bit more mysterious because it is
+not used anywhere in the JCommon framework [G9]. So I deleted it.
+The same goes for LEAP_YEAR_AGGREGATE_DAYS_TO_END_OF_MONTH.
+The next table, AGGREGATE_DAYS_TO_END_OF_PRECEDING_MONTH, is used only in Spread-
+sheetDate (line 434 and line 473). This begs the question of whether it should be moved
+to SpreadsheetDate. The argument for not moving it is that the table is not speciﬁc to any
+particular implementation [G6]. On the other hand, no implementation other than
+SpreadsheetDate actually exists, and so the table should be moved close to where it is
+used [G10].
+What settles the argument for me is that to be consistent [G11], we should make the
+table private and expose it through a function like julianDateOfLastDayOfMonth. Nobody
+seems to need a function like that. Moreover, the table can be moved back to DayDate easily
+if any new implementation of DayDate needs it. So I moved it.
+The same goes for the table, LEAP_YEAR_AGGREGATE_DAYS_TO_END_OF_MONTH.
+Next, we see three sets of constants that can be turned into enums (lines 162–205).
+The ﬁrst of the three selects a week within a month. I changed it into an enum named
+WeekInMonth.
+protected int _getMinimumYear() {
+return SpreadsheetDate.MINIMUM_YEAR_SUPPORTED;
+}
+protected int _getMaximumYear() {
+return SpreadsheetDate.MAXIMUM_YEAR_SUPPORTED;
+}
+}
+public enum WeekInMonth {
+FIRST(1), SECOND(2), THIRD(3), FOURTH(4), LAST(0);
+public final int index;
+WeekInMonth(int index) {
+this.index = index;
+}
+}

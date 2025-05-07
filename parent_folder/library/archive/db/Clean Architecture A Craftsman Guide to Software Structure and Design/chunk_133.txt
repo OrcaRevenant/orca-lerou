@@ -1,0 +1,30 @@
+PRINCIPLE
+A component should be as abstract as it is stable.
+WHERE DO WE PUT THE HIGH-LEVEL POLICY?
+Some software in the system should not change very often. This software
+represents high-level architecture and policy decisions. We don’t want these
+business and architectural decisions to be volatile. Thus the software that
+encapsulates the high-level policies of the system should be placed into stable
+components (I = 0). Unstable components (I = 1) should contain only the
+software that is volatile—software that we want to be able to quickly and easily
+change.
+However, if the high-level policies are placed into stable components, then the
+source code that represents those policies will be difficult to change. This could
+make the overall architecture inflexible. How can a component that is maximally
+stable (I = 0) be flexible enough to withstand change? The answer is found in the
+OCP. This principle tells us that it is possible and desirable to create classes that
+are flexible enough to be extended without requiring modification. Which kind
+of classes conform to this principle? Abstract classes.
+INTRODUCING THE STABLE ABSTRACTIONS PRINCIPLE
+The Stable Abstractions Principle (SAP) sets up a relationship between stability
+and abstractness. On the one hand, it says that a stable component should also be
+abstract so that its stability does not prevent it from being extended. On the other
+hand, it says that an unstable component should be concrete since it its instability
+allows the concrete code within it to be easily changed.
+Thus, if a component is to be stable, it should consist of interfaces and abstract
+classes so that it can be extended. Stable components that are extensible are
+flexible and do not overly constrain the architecture.
+The SAP and the SDP combined amount to the DIP for components. This is true
+because the SDP says that dependencies should run in the direction of stability,
+and the SAP says that stability implies abstraction. Thus dependencies run in the
+direction of abstraction.

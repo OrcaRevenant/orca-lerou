@@ -1,0 +1,36 @@
+var s2 = s1.normalize();
+s2.length;                          // 1
+s2 === "\xE9";                      // true
+normalize(..) takes an optional argument that specifies the normalization form to
+use. This argument must be one of the following four values: "NFC" (default), "NFD",
+"NFKC", or "NFKD".
+Normalization forms and their effects on strings is well beyond the
+scope of what we’ll discuss here. See “Unicode Normalization
+Forms” (http://www.unicode.org/reports/tr15/) for more informa‐
+tion.
+String.raw(..) Static Function
+The String.raw(..) utility is provided as a built-in tag function to use with template
+string literals (see Chapter 2) for obtaining the raw string value without any process‐
+ing of escape sequences.
+This function will almost never be called manually, but will be used with tagged tem‐
+plate literals:
+var str = "bc";
+String.raw`\ta${str}d\xE9`;
+// "\tabcd\xE9", not "  abcdé"
+In the resultant string, \ and t are separate raw characters, not the one escape
+sequence character \t. The same is true with the Unicode escape sequence.
+repeat(..) Prototype Function
+In languages like Python and Ruby, you can repeat a string as:
+"foo" * 3;                          // "foofoofoo"
+That doesn’t work in JS, since * multiplication is only defined for numbers, and thus
+"foo" coerces to the NaN number.
+However, ES6 defines a string prototype method repeat(..) to accomplish the task:
+"foo".repeat( 3 );                  // "foofoofoo"
+String Inspection Functions
+In addition to String#indexOf(..) and String#lastIndexOf(..) from prior to ES6,
+three new methods for searching/inspection have been added: startsWith(..), end
+sWidth(..), and includes(..).
+String
+|
+169
+www.it-ebooks.info

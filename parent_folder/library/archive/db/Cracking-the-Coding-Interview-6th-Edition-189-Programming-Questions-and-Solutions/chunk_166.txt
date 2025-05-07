@@ -1,0 +1,53 @@
+Chapter 11 j Testing
+Step 2: Define the expected result
+Often, the expected result is obvious: the right output. However, in some cases, you might want to validate
+additional aspects. For instance, if the s o r t method returns a new sorted copy of the array, you should
+probably validate that the original array has not been touched.
+Step 3: Write test code
+Once you have the test cases and results defined, writing the code to implement the test cases should be
+fairly straightforward. Your code might look something like:
+1
+void testAddThreeSorted() {
+2
+MyList list
+new MyList();
+3
+list,addThreeSorted(3,
+2); // Adds 3 items in sorted order
+4
+assertEquals(list.getElement(0), 1);
+5
+assert Equals(list.getElement(1), 2);
+6
+assert Equals(list.getElement(2), 3);
+7
+>
+• Troubleshooting Questions
+A final type of question is explaining how you would debug or troubleshoot an existing issue. Many candi-
+dates balk at a question like this, giving unrealistic answers like "reinstall the software," You can approach
+these questions in a structured manner, like anything else.
+Let's walk through this problem with an example: You're working on the Google Chrome team when you
+receive a bug report: Chrome crashes on launch. What would you do?
+Reinstalling the browser might solve this user's problem, but it wouldn't help the other users who might
+be experiencing the same issue. Your goal is to understand what's really happening, so that the developers
+can fix it.
+Step It Understand the Scenario
+The first thing you should do is ask questions to understand as much about the situation as possible.
+•
+How long has the user been experiencing this issue?
+•
+What version of the browser is it? What operating system?
+•
+Does the issue happen consistently, or how often does it happen? When does it happen?
+•
+Is there an error report that launches?
+Step 2: Break Down the Problem
+Now that you understand the details of the scenario, you want to break down the problem into testable
+units. In this case, you can imagine the flow of the situation as follows:
+1. Go to Windows Start menu.
+2. Click on Chrome icon.
+3. Browser instance starts.
+4. Browser loads settings.
+5. Browser issues HTTP request for homepage.
+156
+Cracking the Coding Interview, 6th Edition

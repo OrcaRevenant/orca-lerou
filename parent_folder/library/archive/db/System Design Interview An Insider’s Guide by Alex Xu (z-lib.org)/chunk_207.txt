@@ -1,0 +1,22 @@
+3b.1.a. and 3b.1.b. Completion handler updates the metadata database and cache when
+video transcoding is complete.
+4. API servers inform the client that the video is successfully uploaded and is ready for
+streaming.
+Flow b: update the metadata
+While a file is being uploaded to the original storage, the client in parallel sends a request to
+update the video metadata as shown in Figure 14-6. The request contains video metadata,
+including file name, size, format, etc. API servers update the metadata cache and database.
+Video streaming flow
+Whenever you watch a video on YouTube, it usually starts streaming immediately and you
+do not wait until the whole video is downloaded. Downloading means the whole video is
+copied to your device, while streaming means your device continuously receives video
+streams from remote source videos. When you watch streaming videos, your client loads a
+little bit of data at a time so you can watch videos immediately and continuously.
+Before we discuss video streaming flow, let us look at an important concept: streaming
+protocol. This is a standardized way to control data transfer for video streaming. Popular
+streaming protocols are:
+• MPEG–DASH. MPEG stands for “Moving Picture Experts Group” and DASH stands for
+"Dynamic Adaptive Streaming over HTTP".
+• Apple HLS. HLS stands for “HTTP Live Streaming”.
+• Microsoft Smooth Streaming.
+• Adobe HTTP Dynamic Streaming (HDS).

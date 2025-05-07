@@ -1,0 +1,72 @@
+Solutions to Chapter 7 ] Object-Oriented Design
+Design: Cell
+C e l l will need to have knowledge of whether it's a bomb, a number, or a blank. We could potentially
+subclass C e l l to hold this data, but I'm not sure that offers us much benefit.
+We could also have an enum TYPE {BOMB, NUMBER, BLANK} todescribe the type of cell. We've chosen
+not to do this because BLANK is really a type of NUMBER cell, where the number is 0. It's sufficient to just
+have an isBombflag.
+It's okay to have made different choices here. These aren't the only good choices. Explain the choices you
+make and their tradeoffs with your interviewer.
+We also need to store state for whether the cell is exposed or not. We probably do not want to subclass
+C e l l for ExposedCell and UnexposedCell.This is a bad idea because Board holds a reference to the
+ceils, and we'd have to change the reference when we flip a cell. And then what if other objects reference
+the instance of Cell?
+It's better to just have a boolean flag for isExposed. We'll do a similar thing for isGuess.
+1
+public class Cell {
+2
+private int row;
+3
+private int column;
+4
+private boolean isBomb;
+5
+private int number;
+6
+private boolean isExposed = false;
+7
+private boolean isGuess = false;
+8
+9
+public Cell(int r, int c) { ... }
+16
+n
+/* Getters and setters for above variables. V
+12
+13
+14
+public boolean flip() {
+15
+isExposed = true;
+16
+return !isBomb;
+17
+}
+18
+19
+public boolean toggleGuess() {
+20
+if (IisExposed) {
+21
+isGuess = lisGuess;
+22
+}
+23
+return isGuess;
+24
+}
+25
+26
+/* Full code can be found in downloadable code solutions. */
+27 }
+Design: Board
+Board will need to have an array of all the C e l l objects. A two-dimension array will work just fine.
+We'll probably want Board to keep state of how many unexposed cells there are. We'll track this as we go,
+so we don't have to continuously count it.
+Board will also handle some of the basic algorithms:
+•
+Initializing the board and laying out the bombs.
+•
+Flipping a cell.
+CrackingTheCodinglnterview.com | 6th Edition
+3 37

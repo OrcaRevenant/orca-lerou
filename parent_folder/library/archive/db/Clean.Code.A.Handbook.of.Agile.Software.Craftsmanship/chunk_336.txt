@@ -1,0 +1,41 @@
+306
+Chapter 17: Smells and Heuristics
+interpretation and formatting of the size variable. This points out that when you break a
+function along lines of abstraction, you often uncover new lines of abstraction that were
+obscured by the previous structure.
+G35: Keep Conﬁgurable Data at High Levels
+If you have a constant such as a default or conﬁguration value that is known and expected
+at a high level of abstraction, do not bury it in a low-level function. Expose it as an argu-
+ment to that low-level function called from the high-level function. Consider the following
+code from FitNesse:
+public static void main(String[] args) throws Exception
+{
+Arguments arguments = parseCommandLine(args);
+...
+}
+public class Arguments
+{
+public static final String DEFAULT_PATH = ".";
+public static final String DEFAULT_ROOT = "FitNesseRoot";
+public static final int DEFAULT_PORT = 80;
+public static final int DEFAULT_VERSION_DAYS = 14;
+...
+}
+The command-line arguments are parsed in the very ﬁrst executable line of FitNesse. The
+default values of those arguments are speciﬁed at the top of the Argument class. You don’t
+have to go looking in low levels of the system for statements like this one:
+if (arguments.port == 0) // use 80 by default
+The conﬁguration constants reside at a very high level and are easy to change. They get
+passed down to the rest of the application. The lower levels of the application do not own
+the values of these constants.
+G36: Avoid Transitive Navigation
+In general we don’t want a single module to know much about its collaborators. More spe-
+ciﬁcally, if A collaborates with B, and B collaborates with C, we don’t want modules that use
+A to know about C. (For example, we don’t want a.getB().getC().doSomething();.)
+This is sometimes called the Law of Demeter. The Pragmatic Programmers call it
+“Writing Shy Code.”12 In either case it comes down to making sure that modules know
+only about their immediate collaborators and do not know the navigation map of the whole
+system.
+If many modules used some form of the statement a.getB().getC(), then it would be
+difﬁcult to change the design and architecture to interpose a Q between B and C. You’d
+12. [PRAG], p. 138.

@@ -1,0 +1,30 @@
+servers, and other environmental issues and tools to be deferred and delayed.
+Frameworks are options to be left open. A good architecture makes it
+unnecessary to decide on Rails, or Spring, or Hibernate, or Tomcat, or MySQL,
+until much later in the project. A good architecture makes it easy to change your
+mind about those decisions, too. A good architecture emphasizes the use cases
+and decouples them from peripheral concerns.
+BUT WHAT ABOUT THE WEB?
+Is the web an architecture? Does the fact that your system is delivered on the
+web dictate the architecture of your system? Of course not! The web is a
+delivery mechanism—an IO device—and your application architecture should
+treat it as such. The fact that your application is delivered over the web is a detail
+and should not dominate your system structure. Indeed, the decision that your
+application will be delivered over the web is one that you should defer. Your
+system architecture should be as ignorant as possible about how it will be
+delivered. You should be able to deliver it as a console app, or a web app, or a
+thick client app, or even a web service app, without undue complication or
+change to the fundamental architecture.
+FRAMEWORKS ARE TOOLS, NOT WAYS
+OF LIFE
+Frameworks can be very powerful and very useful. Framework authors often
+believe very deeply in their frameworks. The examples they write for how to use
+their frameworks are told from the point of view of a true believer. Other authors
+who write about the framework also tend to be disciples of the true belief. They
+show you the way to use the framework. Often they assume an all-
+encompassing, all-pervading, let-the-framework-do-everything position.
+This is not the position you want to take.
+Look at each framework with a jaded eye. View it skeptically. Yes, it might help,
+but at what cost? Ask yourself how you should use it, and how you should
+protect yourself from it. Think about how you can preserve the use-case
+emphasis of your architecture. Develop a strategy that prevents the framework

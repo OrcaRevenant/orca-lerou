@@ -1,0 +1,105 @@
+Solutions to Chapter 17 j Hard
+What is the runtime of this approach? We have nested for loops, each of which runs for k iterations. The
+runtime of the a l l P o s s i b l e K F a c t o r s is 0(k 3),Then, we sort the k3 results in 0( k3 l o g ( k 3 ) ) t i m e
+(which is equivalent to 0 ( k J l o g k) .This gives us a runtime of 0 ( k J l o g k).
+There are a number of optimizations you couid make to this (and better ways of handling the integer over-
+flow), but honestly this algorithm is fairly slow. We should instead focus on reworking the algorithm.
+Improved
+Let's picture what our results will look like.
+1
+-
+39
+*
+5fl
+*
+79
+3
+3
+3!
+* 5® * 7a
+5
+5
+*
+51
+*
+76
+7
+7
+39
+*
+50
+*
+T
+9
+3*3
+3'
+*
+5e
+* T
+15
+3*5
+31 * 51 * 7«
+21
+3*7
+31
+* 5s
+* T
+25
+5*5
+3" * 52
+* 7®
+27
+3*9
+33 * 5e
+* 7"
+35
+5*7
+3" *
+51 * 71
+45
+5*9
+*
+51
+*
+7e
+49
+7*7
+30
+*
+5e
+*
+72
+63
+3*21
+3' * 5"
+*
+71
+The question Is: what is the next value in the list? The next value will be one of these:
+•
+3 * (some previous number in list)
+•
+5 * (some previous number in list)
+•
+7 * (some previous number in list)
+If this doesn't immediately jump out at you, think about it this way: whatever the next value (let's call it nv)
+is, divide it by 3. Will that number have already appeared? As long as nv has factors of 3 in it, yes. The same
+can be said for dividing it by 5 and 7.
+So, we know At can be expressed as (3, S or 7) * (some value in { A ^
+}). We also know that
+Ak is, by definition, the next number in the list. Therefore, At will be the smallest "new" number (a number
+that it's already in (A.,
+. , ., Afe .}) that can be formed by multiplying each value In the list by 3,5 or 7.
+How would we find At? Well, we could actually multiply each number in the list by 3,5, and 7 and find the
+smallest element that has not yet been added to our list. This solution is 0( k 2). Not bad, but! think we can
+do better.
+Rather than At trying to "pull"from a previous element in the list (by multiplying all of them by 3, 5 and 7),
+we can think about each previous value in the list as "pushing" out three subsequent values in the list. That
+is, each number At will eventually be used later in the list in the following forms:
+•
+3 * Aj
+•
+5 * Aj
+•
+7 * A.
+55 S
+Cracking the Coding interview, 6th Edition

@@ -1,0 +1,36 @@
+service to the desired state. If the two states match, the world is a happy place
+and no further action is needed. If they don’t match, the swarm takes actions so
+that they do. Put another way, the swarm is constantly making sure that actual
+state matches desired state.
+As an example, if one of the workers hosting one of the 5 web-fe container tasks
+fails, the actual state for the web-fe service will drop from 5 running tasks to 4.
+This will no longer match the desired state of 5, so Docker will start a new web-
+fe task to bring actual state back in line with desired state. This behavior is very
+powerful and allows the service to self-heal in the event of node failures and the
+likes.
+Viewing and inspecting services
+You can use the docker service ls command to see a list of all services
+running on a swarm.
+$ docker service ls
+ID        NAME     MODE        REPLICAS   IMAGE               PORTS
+z7o...uw  web-fe   replicated  5/5        nigel...ci:latest   *:8080->8080/t\
+cp
+The output above shows a single running service as well as some basic
+information about state. Among other things, we can see the name of the service
+and that 5 out of the 5 desired tasks/replicas are in the running state. If you run
+this command soon after deploying the service it might not show all
+tasks/replicas as running. This is probably because of the time it takes to pull the
+image on each node.
+You can use the docker service ps command to see a list of tasks in a service
+and their state.
+$ docker service ps web-fe
+ID         NAME      IMAGE             NODE  DESIRED  CURRENT
+817...f6z  web-fe.1  nigelpoulton/...  mgr2  Running  Running 2 mins
+a1d...mzn  web-fe.2  nigelpoulton/...  wrk1  Running  Running 2 mins
+cc0...ar0  web-fe.3  nigelpoulton/...  wrk2  Running  Running 2 mins
+6f0...azu  web-fe.4  nigelpoulton/...  mgr3  Running  Running 2 mins
+dyl...p3e  web-fe.5  nigelpoulton/...  mgr1  Running  Running 2 mins
+The format of the command is docker service ps <service-name or
+service-id>. The output displays each task (container) on its own line, shows
+which node in the swarm it’s executing on, and shows desired state and actual
+state.

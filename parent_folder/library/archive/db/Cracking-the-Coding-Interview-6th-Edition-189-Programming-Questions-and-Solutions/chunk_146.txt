@@ -1,0 +1,49 @@
+Chapter 8 j Recursion and Dynamic Programming
+8.9
+Parens; implement an algorithm to print all valid (e.g., properly opened and closed) combinations
+of n pairs of parentheses.
+EXAMPLE
+Input: 3
+O u t p u t : ( ( ( ) ) ) ,
+( 0 0 : ) ,
+( ( » ( > ,
+0 ( 0 ) ,
+0 0 0
+Hints: #138, #174, #187, #209, #243, #265, #295
+8.10
+Paint Fill: Implement the "paint fill"function that one might see on many image editing programs.
+That is, given a screen (represented by a two-dimensional array of colors), a point, and a new color,
+fill in the surrounding area until the color changes from the original cofor.
+Hints: #364, #382
+8.11
+Coins: Given an infinite number of quarters (25 cents), dimes (10 cents), nickels (5 cents), and
+pennies (1 cent), write code to calculate the number of ways of representing n cents.
+Hints #300, #324, #343, #380, #394
+8.12
+Eight Queens: Write an algorithm to print all ways of arranging eight queens on an 8x8 chess board
+so that none of them share the same row, column, or diagonal. In this case, "diagonal" means all
+diagonals, not just the two that bisect the board.
+Hints: #308, #350, #371
+8.13
+Stack of Boxes: You have a stack of n boxes, with widths w4, heights ht, and depths dr The boxes
+cannot be rotated and can only be stacked on top of one another if each box in the stack is strictly
+larger than the box above it in width, height, and depth. Implement a method to compute the
+height of the tallest possible stack. The height of a stack is the sum of the heights of each box.
+Hints: #155, #194, #214, #260, #322, #368, #378
+8.14
+Boolean Evaluation: Given a boolean expression consisting of the symbols 0 (false), 1 (true), &
+(AND), | (OR), and A (XOR), and a desired boolean result value r e s u l t , implement a function to
+count the number of ways of parenthesizing the expression such that it evaluates to r e s u l t ,
+EXAMPLE
+c o u n t E v a l ( " l A e | 0 j l M , f a l s e )
+-> 2
+c o u n t E v a l ( " 0 & 0 & 0 & l A l | 0 " , t r u e )
+-> 10
+Hints: #148, #168, #197, #305, #327
+Additional Questions: Linked Lists (#2.2, #2.5, #2.6), Stacks and Queues (#3.3), Trees and Graphs (#4.2, #4,3,
+#4.4, #4.5, #4,8, #4.10, #4.11, #4.12), Math and Logic Puzzles (#6,6), Sorting and Searching (#10.5, #10.9,
+#10.10), C++ (#12.8), Moderate Problems (#16,11), Hard Problems (#17,4, #17.6, #17.8, #17.12, #17.13,
+#17.15,#17.16,#17.24,#17.25).
+Hints start on page 662,
+136
+1ÎÏ Cracking the Coding interview, 6th Edition

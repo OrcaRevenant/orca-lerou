@@ -1,0 +1,41 @@
+293
+General
+G12: Clutter
+Of what use is a default constructor with no implementation? All it serves to do is clutter
+up the code with meaningless artifacts. Variables that aren’t used, functions that are never
+called, comments that add no information, and so forth. All these things are clutter and
+should be removed. Keep your source ﬁles clean, well organized, and free of clutter.
+G13: Artiﬁcial Coupling
+Things that don’t depend upon each other should not be artiﬁcially coupled. For example,
+general enums should not be contained within more speciﬁc classes because this forces the
+whole application to know about these more speciﬁc classes. The same goes for general
+purpose static functions being declared in speciﬁc classes.
+In general an artiﬁcial coupling is a coupling between two modules that serves no
+direct purpose. It is a result of putting a variable, constant, or function in a temporarily
+convenient, though inappropriate, location. This is lazy and careless.
+Take the time to ﬁgure out where functions, constants, and variables ought to be
+declared. Don’t just toss them in the most convenient place at hand and then leave them
+there.
+G14: Feature Envy
+This is one of Martin Fowler’s code smells.6 The methods of a class should be interested in
+the variables and functions of the class they belong to, and not the variables and functions
+of other classes. When a method uses accessors and mutators of some other object to
+manipulate the data within that object, then it envies the scope of the class of that other
+object. It wishes that it were inside that other class so that it could have direct access to the
+variables it is manipulating. For example:
+public class HourlyPayCalculator {
+public Money calculateWeeklyPay(HourlyEmployee e) {
+int tenthRate = e.getTenthRate().getPennies();
+int tenthsWorked = e.getTenthsWorked();
+int straightTime = Math.min(400, tenthsWorked);
+int overTime = Math.max(0, tenthsWorked - straightTime);
+int straightPay = straightTime * tenthRate;
+int overtimePay = (int)Math.round(overTime*tenthRate*1.5);
+return new Money(straightPay + overtimePay);
+}
+}
+The calculateWeeklyPay method reaches into the HourlyEmployee object to get the data on
+which it operates. The calculateWeeklyPay method envies the scope of HourlyEmployee. It
+“wishes” that it could be inside HourlyEmployee.
+6.
+[Refactoring].

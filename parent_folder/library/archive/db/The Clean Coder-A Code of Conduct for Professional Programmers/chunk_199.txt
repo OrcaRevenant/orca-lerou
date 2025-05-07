@@ -1,0 +1,29 @@
+168
+CHAPTER 13 TEAMS AND PROJECTS
+D O E S IT B LE N D ?
+I have consulted for a number of banks and insurance companies over the years.
+One thing they seem to have in common is the odd way they partition projects.
+Often a project at a bank will be a relatively small job that requires one or two
+programmers for a few weeks. This project will often be staffed with a project
+manager, who is also managing other projects. It will be staffed with a business
+analyst, who is also providing requirements for other projects. It will be staffed
+with some programmers who are also working on other projects. A tester or
+two will be assigned, and they too will be working on other projects.
+See the pattern? The project is so small that no individual can be assigned to it
+on a full-time basis. Everybody is working on the project at 50, or even 25,
+percent.
+Now here’s a rule: There is no such thing as half a person.
+It makes no sense to tell a programer to devote half their time to project A and
+the rest of their time to project B, especially when the two projects have two
+different project managers, different business analysts, different programmers,
+and different testers. How in Hell’s kitchen can you call a monstrosity like that a
+team? That’s not a team, that’s something that came out of a Waring blender.
+TH E G E LLE D TE AM
+It take time for a team to form. The team members start to form relationships.
+They learn how to collaborate with each other. They learn each other’s quirks,
+strengths, and weaknesses. Eventually the team begins to gel.
+There is something truly magical about a gelled team. They can work miracles.
+They anticipate each other, cover for each other, support each other, and
+demand the best from each other. They make things happen.
+A gelled team usually consists of about a dozen people. It could be as many as
+twenty or as few as three, but the best number is probably around twelve. The

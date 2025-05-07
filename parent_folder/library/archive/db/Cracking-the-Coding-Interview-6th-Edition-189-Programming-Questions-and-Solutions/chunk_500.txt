@@ -1,0 +1,72 @@
+Solutions to Chapter 16 \ Moderate
+27 String encodeToString(Element root) {
+28
+StringBuilder sb = new StringBuilder();
+29
+encode(root, sb);
+30
+return sb.toString();
+31 >
+Observe inline 17, the use of the very simple encode method for a string. This is somewhat unnecessary; all
+it does is insert the string and a space following it. However, using this method is a nice touch as it ensures
+that every element will be inserted with a space surrounding it. Otherwise, it might be easy to break the
+encoding by forgetting to append the empty string.
+16.13 Bisect Squares; Given two squares on a two-dimensional plane, find a line that would cut these two
+squares in half. Assume that the top and the bottom sides of the square run parallel to the x-axis.
+pg 182
+SOLUTION
+Before we start, we should think about what exactly this problem means by a "line." Is a line defined by a
+slope and a y-intercept? Or by any two points on the line? Or, should the line be really a line segment, which
+starts and ends at the edges of the squares?
+We will assume, since it makes the problem a bit more interesting, that we mean the third option: that the
+line should end at the edges of the squares. In an interview situation, you should discuss this with your
+interviewer.
+This line that cuts two squares in half must connect the two middles. We can easily calculate the slope,
+knowing that slope = t H t . Once we calculate the slope using the two middles, we can use the same
+equation to calculate the start and end points of the line segment.
+In the below code, we will assume the origin (0, 0) is in the upper left-hand corner,
+l
+public class Square {
+2
+3
+public Point middle() {
+4
+return new P o i n t ( ( t h i s . l e f t + t h i s . r i g h t ) / 2.0,
+5
+(this.top + this.bottom) / 2.0);
+6
+}
+7
+/* Return the point where the l i n e segment connecting midl and mid2 intercepts
+* the edge of square 1. That i s , draw a line from mid2 to midl, and continue it
+10
+* out u n t i l the edge of the square. */
+11
+public Point extend(Point midl, Point mid2, double size) {
+12
+/* Find what direction the l i n e mid2 -> midl goes. V
+13
+double xdir = midl.x < mid2.x ? -1 : l;
+14
+double ydir = midl.y < mid2.y ? -1 : 1;
+15
+16
+/* If midl and mid2 have the same x value, then the slope calculation w i l l
+17
+* throw a divide by 0 exception. So, we compute t h i s specially. */
+18
+if (midl.x == mid2.x) {
+19
+return new Point(midl.x, midl.y + ydir * size / 2.0);
+20
+}
+21
+22
+double slope = (midl.y - mid2.y) / (midl.x - mid2,x);
+23
+double xi = 0;
+24
+double yi = 0;
+25
+5 34
+Cracking the Coding Interview, 6th Edition

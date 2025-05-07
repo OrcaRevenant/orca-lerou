@@ -1,0 +1,8 @@
+Figure 34.5 Relaxed layered architecture
+What we need here is a guideline—an architectural principle—that says
+something like, “Web controllers should never access repositories directly.” The
+question, of course, is enforcement. Many teams I’ve met simply say, “We
+enforce this principle through good discipline and code reviews, because we
+trust our developers.” This confidence is great to hear, but we all know what
+happens when budgets and deadlines start looming ever closer.
+A far smaller number of teams tell me that they use static analysis tools (e.g.,

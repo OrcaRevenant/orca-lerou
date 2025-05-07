@@ -1,0 +1,31 @@
+In fact, if you open a web browser to https://get.docker.com you will see that it’s
+a shell script that does all of the hard work of installation for you.
+Warning: If you install Docker from a source other than the official Docker
+repositories you may end up with a forked version of Docker. This is
+because some vendors and distros choose to fork the Docker project and
+develop their own slightly customized versions. You need to be aware of
+things like this if you are installing from custom repositories as you could
+unwittingly end up in a situation where you are running a fork that has
+diverged from the official Docker project. This isn’t a problem if this is
+what you intend to do. If it is not what you intend, it can lead to situations
+where modifications and fixes your vendor makes do not make it back
+upstream in to the official Docker project. In these situations, you will not
+be able to get commercial support for your installation from Docker, Inc. or
+its authorized service partners.
+Installing Docker on Windows Server 2016
+In this section we’ll look at one of the ways to install Docker on Windows
+Server 2016. We’ll complete the following high-level steps:
+1. Install the Windows Containers feature
+2. Install Docker
+3. Verify the installation
+Before proceeding you should ensure that your system is up-to-date with the
+latest package versions and security updates. You can do this quickly with the
+sconfig command and choosing option 6 to install updates. This may require a
+system restart.
+We’ll be demonstrating an installation on a version of Windows Server 2016 that
+does not already have the Containers feature or an older version of Docker
+already installed.
+Ensure that the Containers feature is installed and enabled.
+1. Right-click the Windows Start button and select Programs and Features.
+This will open the Server Manager app.
+2. Select the Dashboard and click Add Roles and Features.

@@ -1,0 +1,10 @@
+> docker container run -d \
+--name web1 \
+-p 8000:80 \
+test:latest
+Open a web browser and navigate to the DNS name or IP address of the host that
+you are running the container from and point it to port 8080. You will see the
+following web page.
+Figure 4.2
+Well done. You’ve taken an application and containerized it (built a Docker
+image from it).

@@ -1,0 +1,6 @@
+192
+APPENDIX A TOOLING
+Figure A-1 FITNESSE under subversion
+Figure A-2 picture shows a few weeks’ worth of development on the same
+project using git. As you can see, we are branching and merging all over the
+place. This was not because I relaxed my no-branching policy; rather, it simply

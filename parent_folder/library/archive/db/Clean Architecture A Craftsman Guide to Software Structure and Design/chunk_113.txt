@@ -1,0 +1,32 @@
+THE REUSE/RELEASE EQUIVALENCE
+PRINCIPLE
+The granule of reuse is the granule of release.
+The last decade has seen the rise of a menagerie of module management tools,
+such as Maven, Leiningen, and RVM. These tools have grown in importance
+because, during that time, a vast number of reusable components and component
+libraries have been created. We are now living in the age of software reuse—a
+fulfillment of one of the oldest promises of the object-oriented model.
+The Reuse/Release Equivalence Principle (REP) is a principle that seems
+obvious, at least in hindsight. People who want to reuse software components
+cannot, and will not, do so unless those components are tracked through a
+release process and are given release numbers.
+This is not simply because, without release numbers, there would be no way to
+ensure that all the reused components are compatible with each other. Rather, it
+also reflects the fact that software developers need to know when new releases
+are coming, and which changes those new releases will bring.
+It is not uncommon for developers to be alerted about a new release and decide,
+based on the changes made in that release, to continue to use the old release
+instead. Therefore the release process must produce the appropriate notifications
+and release documentation so that users can make informed decisions about
+when and whether to integrate the new release.
+From a software design and architecture point of view, this principle means that
+the classes and modules that are formed into a component must belong to a
+cohesive group. The component cannot simply consist of a random hodgepodge
+of classes and modules; instead, there must be some overarching theme or
+purpose that those modules all share.
+Of course, this should be obvious. However, there is another way to look at this
+issue that is perhaps not quite so obvious. Classes and modules that are grouped
+together into a component should be releasable together. The fact that they share
+the same version number and the same release tracking, and are included under
+the same release documentation, should make sense both to the author and to the
+users.

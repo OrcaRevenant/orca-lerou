@@ -1,0 +1,20 @@
+Figure 19.1 A simple encryption program
+The Translate component is the highest-level component in this system because
+it is the component that is farthest from the inputs and outputs.1
+Note that the data flows and the source code dependencies do not always point in
+the same direction. This, again, is part of the art of software architecture. We
+want source code dependencies to be decoupled from data flow and coupled to
+level.
+It would be easy to create an incorrect architecture by writing the encryption
+program like this:
+Click here to view code image
+function encrypt() {
+while(true)
+writeChar(translate(readChar()));
+}
+This is incorrect architecture because the high-level encrypt function depends
+on the lower-level readChar and writeChar functions.
+A better architecture for this system is shown in the class diagram in Figure 19.2.
+Note the dashed border surrounding the Encrypt class, and the CharWriter and
+CharReader interfaces. All dependencies crossing that border point inward. This
+unit is the highest-level element in the system.

@@ -1,0 +1,59 @@
+Solutions to Chapter 9 j System Design and Scalability
+26
+p r i v a t e ArrayList<Integer> f r i e n d s = new ArrayList<Integer>()>
+27
+p r i v a t e i n t personlD;
+2a
+p r i v a t e S t r i n g i n f o ;
+29
+30
+public Person(int i d ) { this.personlD = i d ; }
+31
+public String g e t ! n f o ( ) { return i n f o ; }
+32
+public void s e t ! n f o ( S t r i n g i n f o ) { t h i s . i n f o = i n f o ; }
+33
+public ArrayList<Integer> getFriends() { return f r i e n d s ;
+)
+34
+public i n t get!D() { return personlD;
+)
+35
+public void addFriend(int i d ) { f r i e n d s . a d d ( i d ) ;
+}
+36 >
+There are more optimizations and follow-up questions here than we could possibly discuss, but here are
+just a few possibilities.
+Optimization: Reduce machinejumps
+Jumping from one machine to another is expensive. Instead of randomly jumping from machine to machine
+with each friend, try to batch these jumps—e.g., if five of my friends live on one machine, I should took them
+up all at once.
+Optimization: Smart division of people and machines
+People are much more likely to befriends with people who live in the same country as they do. Rather than
+randomly dividing people across machines, try to divide them by country, city, state, and so on. This will
+reduce the number of jumps.
+Question: Breadth-first search usually requires "marking" a node as visited. How do you do that in
+this case?
+Usually, in BFS, we mark a node as visited by setting a v i s i t e d flag in its node class. Here, we don't want to
+do that. There could be multiple searches going on at the same time, so it's a bad idea to just edit our data.
+Instead, we could mimic the marking of nodes with a hash table to look up a node id and determine
+whether it's been visited.
+Other Follow-Up Questions:
+•
+In the real world, servers fail. How does this affect you?
+•
+How could you take advantage of caching?
+•
+Do you search until the end of the graph (infinite)? How do you decide when to give up?
+•
+In real life, some people have more friends of friends than others, and are therefore more likely to make
+a path between you and someone else. How could you use this data to pick where to start traversing?
+These are just a few of the follow-up questions you or the interviewer could raise. There are many others.
+9.3
+Web Crawler: If you were designing a web crawler, how would you avoid getting into infinite loops?
+pg 145
+SOLUTION
+The first thing to ask ourselves in this problem is how an infinite loop might occur. The simplest answer is
+that, if we picture the web as a graph of links, an infinite loop will occur when a cycle occurs.
+394
+Cracking the Coding Interview, 6th Edition

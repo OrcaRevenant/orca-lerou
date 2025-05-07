@@ -1,0 +1,29 @@
+of structured programming.
+Building on this foundation, disciplines such as structured analysis and
+structured design became popular in the late 1970s and throughout the 1980s.
+Men like Ed Yourdon, Larry Constantine, Tom DeMarco, and Meilir Page-Jones
+promoted and popularized these techniques throughout that period. By following
+these disciplines, programmers could break down large proposed systems into
+modules and components that could be further broken down into tiny provable
+functions.
+NO FORMAL PROOFS
+But the proofs never came. The Euclidean hierarchy of theorems was never built.
+And programmers at large never saw the benefits of working through the
+laborious process of formally proving each and every little function correct. In
+the end, Dijkstra’s dream faded and died. Few of today’s programmers believe
+that formal proofs are an appropriate way to produce high-quality software.
+Of course, formal, Euclidian style, mathematical proofs are not the only strategy
+for proving something correct. Another highly successful strategy is the
+scientific method.
+SCIENCE TO THE RESCUE
+Science is fundamentally different from mathematics, in that scientific theories
+and laws cannot be proven correct. I cannot prove to you that Newton’s second
+law of motion, F = ma, or law of gravity, F = Gm1m2/r2, are correct. I can
+demonstrate these laws to you, and I can make measurements that show them
+correct to many decimal places, but I cannot prove them in the sense of a
+mathematical proof. No matter how many experiments I conduct or how much
+empirical evidence I gather, there is always the chance that some experiment will
+show that those laws of motion and gravity are incorrect.
+That is the nature of scientific theories and laws: They are falsifiable but not
+provable.
+And yet we bet our lives on these laws every day. Every time you get into a car,

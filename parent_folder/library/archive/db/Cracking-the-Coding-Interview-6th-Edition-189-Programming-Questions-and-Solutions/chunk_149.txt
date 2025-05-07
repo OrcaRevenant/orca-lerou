@@ -1,0 +1,37 @@
+Chapter 9 [ System Design and Scalability
+It may help here to ignore major sea lability challenges and just pretend that the simple, obvious approaches
+will be okay. You'll handle the big issues In Step 4,
+Step 4; Identify the Key Issues
+Once you have a basic design in mind. Focus on the key issues. What will be the bottlenecks or major chal-
+lenges in the system?
+For example, if you were designing TinyURL, one situation you might consider is that while some URLs will
+be infrequently accessed, others can suddenly peak. This might happen if a URL is posted on Reddit or
+another popular forum. You don't necessarily want to constantly hit the database.
+Your interviewer might provide some guidance here. If so, take this guidance and use it.
+Step 5: Redesign for the Key Issues
+Once you have identified the key issues, it's time to adjust your design for it. You might find that it involves
+a major redesign or just some minor tweaking (like using a cache).
+Stay up at the whiteboard here and update your diagramas your design changes.
+Be open about any limitations in your design. Your interviewer will likely be aware of them, so it's important
+to communicate that you're aware of them, too.
+• Algorithms that Scale: Step-By-Step
+In some cases, you're not being asked to design an entire system. You're just being asked to design a single
+feature or algorithm, but you have to do it in a scalable way. Or, there might be one algorithm part that is
+the"real"focus of a broader design question.
+In these cases, try the following approach.
+Step 1: Ask Questions
+As in the earlier approach, ask questions to make sure you really understand the question. There might
+be details the interviewer left out (intentionally or unintentionally). You can't solve a problem if you don't
+understand exactly what the problem is.
+Step 2; Make Believe
+Pretend that the data can all fit on one machine and there are no memory limitations. How would you solve
+the problem? The answer to this question will provide the general outline for your solution.
+Step 3: Get Real
+Now go back to the original problem. How much data can you fit on one machine, and what problems will
+occur when you split up the data? Common problems include figuring out how to logically divide the data
+up, and how one machine would identify where to look up a different piece of data.
+Step 4: Solve Problems
+Finally, think about how to solve the issues you identified in Step 2. Remember that the solution for each
+issue might be to actually remove the issue entirely, or it might be to simply mitigate the issue. Usually, you
+CrackingTheCodinglnterview.com | 6th Edition
+151

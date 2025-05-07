@@ -1,0 +1,31 @@
+Why source code? Because when one source code module changes, other source
+code modules may have to be changed or recompiled, and then redeployed.
+Managing and building firewalls against this change is what boundaries are all
+about.
+THE DREADED MONOLITH
+The simplest and most common of the architectural boundaries has no strict
+physical representation. It is simply a disciplined segregation of functions and
+data within a single processor and a single address space. In a previous chapter, I
+called this the source-level decoupling mode.
+From a deployment point of view, this amounts to nothing more than a single
+executable file—the so-called monolith. This file might be a statically linked C
+or C++ project, a set of Java class files bound together into an executable jar file,
+a set of .NET binaries bound into a single .EXE file, and so on.
+The fact that the boundaries are not visible during the deployment of a monolith
+does not mean that they are not present and meaningful. Even when statically
+linked into a single executable, the ability to independently develop and marshal
+the various components for final assembly is immensely valuable.
+Such architectures almost always depend on some kind of dynamic
+polymorphism1 to manage their internal dependencies. This is one of the reasons
+that object-oriented development has become such an important paradigm in
+recent decades. Without OO, or an equivalent form of polymorphism, architects
+must fall back on the dangerous practice of using pointers to functions to achieve
+the appropriate decoupling. Most architects find prolific use of pointers to
+functions to be too risky, so they are forced to abandon any kind of component
+partitioning.
+The simplest possible boundary crossing is a function call from a low-level
+client to a higher-level service. Both the runtime dependency and the compile-
+time dependency point in the same direction, toward the higher-level component.
+In Figure 18.1, the flow of control crosses the boundary from left to right. The
+Client calls function f() on the Service. It passes along an instance of Data.
+The <DS> marker simply indicates a data structure. The Data may be passed as a

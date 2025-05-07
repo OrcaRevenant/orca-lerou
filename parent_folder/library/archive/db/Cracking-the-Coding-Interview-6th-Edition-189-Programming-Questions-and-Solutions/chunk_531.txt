@@ -1,0 +1,67 @@
+Solutions to Chapter 533 | Moderate
+16 void adjustCounterBy(HashMap<Integer, Integers counter, i n t key, i n t delta) {
+17
+counter.put(key, counter.getOrDefault(keyj 0) + d e l t a ) ;
+18 >
+This solution will print duplicate pairs, but will not reuse the same instance of an element. It will take 0(N)
+time and 0(N) space.
+Alternate Solution
+Alternatively, we can sort the array and then find the pairs in a single pass. Consider this array:
+{ - 2 , - 1 ,
+3j 5j 6, 1, 9 j 13, 14}.
+Let f i r s t point to the head of the array and l a s t point to the end of the array. To find the complement of
+f i r s t , we just move l a s t backwards until we find it. If f i r st + l a s t < sum, then there is no comple-
+ment for f i r s t . We can therefore move f i r s t forward. We stop when f i r s t is greater than l a s t .
+Why must this find all complements for f i r s t ? Because the array is sorted and we're trying progressively
+smaller numbers. When the sum of f i r s t and l a s t is less than the sum, we know that trying even smaller
+numbers (as l a s t ) won't help us find a complement.
+Why must this find all complements for last? Because all pairs must be made up of a f i r s t and a l a s t .
+We've found all complements for f i r s t , therefore we've found all complements of l a s t .
+1
+void printPairSums(int[] array, i n t sum) {
+2
+Arrays.sort(array);
+3
+int f i r s t • 0;
+4
+int last = array.length - 1;
+5
+while (first < last) {
+6
+int s = array[first] + array[lastj;
+7
+i f (s
+sum) {
+8
+System.out.println(array[first] + " " + array[last]);
+9
+first++;
+10
+last--;
+11
+} else {
+12
+if (s < sum) first++;
+13
+else last--;
+14
+}
+is
+}
+16
+}
+This algorithm takes 0(N l o g N) time to sort and 0(N) time to find the pairs.
+Note that since the array is presumably unsorted, it would be equally fast in terms of big 0 to just do a
+binary search at each element for its complement. This would give us a two-step algorithm, where each
+step is 0(N l o g N).
+16.25 LRU Cache: Design and build a "least recently used"cache, which evicts the least recently used item.
+The cache should map from keys to values (allowing you to insert and retrieve a value associated
+with a particular key) and be initialized with a max size. When it is full, it should evict the least
+recently used item. You can assume the keys are integers and the values are strings.
+pg 185
+SOLUTION
+We should start off by defining the scope of the problem. What exactly do we need to achieve?
+•
+Inserting Key, Value Pair: We need to be able to insert a (key, value) pair.
+CrackingTheCodinglnterview.com | 6th Edition
+495

@@ -1,0 +1,71 @@
+IV j Hints for Additional Review Problems
+#542.
+17.16
+Iterative solution: Take the recursive solution and investigate it more. Can you impie-
+ment a similar strategy iteratively?
+#543.
+17.15
+Extend the earlier idea to multiple words. Can we just break each word up in all possible
+ways?
+#544.
+17.1
+You can think about binary addition as iterating through the number, bit by bit, adding
+two bits, and then carrying over the one if necessary. You could also think about it as
+grouping the operations. What if you first added each of the bits (without carrying any
+overflow)? After that, you can handle the overflow.
+#545.
+16.21
+Do some math here or play around with some examples. What does this pair need to
+look like? What can you say about their values?
+#546.
+17.20
+Note that you have to store all the elements you've seen. Even the smallest of the
+first 100 elements could become the median. You can't just toss very low or very high
+elements,
+#547.
+17.26
+Solution 2: It's tempting to try to think of minor optimizations—for example, keeping
+track of the min and max elements in each array. You could then figure out quickly, in
+specific cases, if two arrays don't overlap. The problem with that [and other optimiza-
+tions along these lines) is that you still need to compare all documents to all other docu-
+ments. It doesn't leverage the fact that the similarity is sparse. Given that we have a lot
+of documents, we really need to not compare all documents to all other documents
+(even if that comparison is very fast). All such solutions will be 0(DJ)< where D is the
+number of documents. We shouldn't compare all documents to all other documents.
+#548.
+16.24
+Start with a brute force solution. What is the runtime? What is the best conceivable
+runtime for this problem?
+#549.
+16.10
+Solution 3: What if you created an array of years and how the population changed in
+each year? Could you then find the year with the highest population?
+#550.
+17.9
+In looking for the kth smallest value of 3a * 5b * 7C, we know that a, b, and c will be
+less than or equal to k. Can you generate all such numbers?
+#551.
+16.17
+Observe that if you have a sequence of values which have a negative sum, those will
+never start or end a sequence. (They could be present in a sequence if they connected
+two other sequences.)
+#552.
+17.14
+Can you sort the numbers?
+#553.
+16.16
+We can think about the array as divided into three subarrays: LEFT, MIDDLE, RIGHT.
+LEFT and RIGHT are both sorted. The MIDDLE elements are in an arbitrary order. We
+need to expand MIDDLE until we could sort those elements and then have the entire
+array sorted.
+#554.
+17.16
+Iterative solution: It's probably easiest to start with the end of the array and work back-
+wards.
+#555.
+17.26
+Solution 2; If we can't compare all documents to all other documents, then we need to
+dive down and start looking at things at the element level. Consider a naive solution
+and see if you can extend that to multiple documents.
+CrackingTheCodinglnterview.com | 6th Edition
+69S

@@ -1,0 +1,48 @@
+Proxy First, Proxy Last
+As we mentioned earlier, you typically think of a proxy as “wrapping” the target
+object. In that sense, the proxy becomes the primary object that the code interfaces
+with, and the actual target object remains hidden/protected.
+You might do this because you want to pass the object somewhere that can’t be fully
+“trusted”, and so you need to enforce special rules around its access rather than pass‐
+ing the object itself.
+Consider:
+var messages = [],
+handlers = {
+get(target,key) {
+// string value?
+if (typeof target[key] == "string") {
+// filter out punctuation
+return target[key]
+.replace( /[^\w]/g, "" );
+}
+// pass everything else through
+return target[key];
+},
+set(target,key,val) {
+// only set unique strings, lowercased
+if (typeof val == "string") {
+val = val.toLowerCase();
+if (target.indexOf( val ) == -1) {
+target.push(
+val.toLowerCase()
+);
+}
+}
+return true;
+}
+},
+messages_proxy =
+new Proxy( results, handlers );
+// elsewhere:
+messages_proxy.push(
+"heLLo...", 42, "wOrlD!!", "WoRld!!"
+);
+messages_proxy.forEach( function(val){
+console.log(val);
+} );
+// hello world
+messages.forEach( function(val){
+186
+|
+Chapter 7: Meta Programming
+www.it-ebooks.info

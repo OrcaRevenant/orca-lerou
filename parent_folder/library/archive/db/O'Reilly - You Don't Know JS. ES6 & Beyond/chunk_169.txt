@@ -1,0 +1,38 @@
+(a.indexOf( "2" ) != -1);           // false
+The indexOf(..) comparison requires a strict === match, so a search for "2" fails to
+find a value of 2, and vice versa. There’s no way to override the matching algorithm
+for indexOf(..). It’s also unfortunate/ungraceful to have to make the manual com‐
+parison to the -1 value.
+See the Types & Grammar title of this series for an interesting (and
+controversially confusing) technique to work around the -1 ugli‐
+ness with the ~ operator.
+Since ES5, the most common workaround to have control over the matching logic
+has been the some(..) method. It works by calling a function callback for each ele‐
+ment, until one of those calls returns a true/truthy value, and then it stops. Since you
+get to define the callback function, you have full control over how a match is made:
+var a = [1,2,3,4,5];
+a.some( function matcher(v){
+return v == "2";
+} );                                // true
+a.some( function matcher(v){
+return v == 7;
+} );                                // false
+But the downside to this approach is that you only get the true/false indicating if a
+suitably matched value was found, but not what the actual matched value was.
+ES6’s find(..) addresses this. It works basically the same as some(..), except that
+once the callback returns a true/truthy value, the actual array value is returned:
+var a = [1,2,3,4,5];
+a.find( function matcher(v){
+return v == "2";
+} );                                // 2
+a.find( function matcher(v){
+return v == 7;                  // undefined
+});
+Using a custom matcher(..) function also lets you match against complex values like
+objects:
+var points = [
+{ x: 10, y: 20 },
+158
+|
+Chapter 6: API Additions
+www.it-ebooks.info

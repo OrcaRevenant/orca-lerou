@@ -1,0 +1,8 @@
+equals to 0, shard 0 is used to store and fetch data. If the result equals to 1, shard 1 is used.
+The same logic applies to other shards.
+Figure 1-22 shows the user table in sharded databases.
+The most important factor to consider when implementing a sharding strategy is the choice of
+the sharding key. Sharding key (known as a partition key) consists of one or more columns
+that determine how data is distributed. As shown in Figure 1-22, “user_id” is the sharding
+key. A sharding key allows you to retrieve and modify data efficiently by routing database
+queries to the correct database. When choosing a sharding key, one of the most important

@@ -1,0 +1,56 @@
+Solutions to Chapter 9 j System Design and Scalability
+before categorizer
+after categorizer
+amazon/
+u s e r 1 2 1 j $ 5 . 4 3 , A u g 13
+user922j $15.39,Aug 27
+comcast/
+user922,$9.29,Aug 24
+user248,$40.13,Aug 18
+u s e r ! 2 1 /
+amazon,shopping,$S.43,Aug 13
+user922/
+a n a z o n ) s h o p p i n g , $ 1 5 . 3 9 J A u g 27
+c o m c a s t j ü t i l i t i e s ^ ^ í A u g
+2 4
+user248/
+c o m c a s t j U t i l i t i e s ^ O . l S j A u g
+18
+Then, the budget analyzer comes in. It takes the data grouped by user, merges it across categories (so all
+Shopping tasks for this user in this timespan are merged), and then updates the budget.
+Most of these tasks will be handled in simple log files. Only the final data (the categorized transactions and
+the budget analysis) will be stored in a database. This minimizes writing and reading from the database.
+User Changing Categories
+The user might selectively override particular transactions to assign them to a different category. In this
+case, we would update the datastore for the categorized transactions. It would also signal a quick recom-
+putation of the budget to decrement the item from the old category and increment the item in the other
+category.
+We could also just recompute the budget from scratch.The budget analyzer is fairly quick as it just needs to
+look over the past few weeks of transactions for a single user.
+Follow Up Questions
+«
+How would this change if you also needed to support a mobile app?
+<
+How would you design the component which assigns items to each category?
+•
+How would you design the recommended budgets feature?
+•
+How would you change this if the user could develop rules to categorize all transactions from a partic-
+ular seller differently than the default?
+9.8
+Pastebin: Design a system like Pastebin, where a user can enter a piece of text and get a randomly
+generated URL for public access.
+pg US
+SOLUTION
+We can start with clarifying the specifics of this system.
+Step 1: Scope the Problem
+•
+The system does not support user accounts or editing documents.
+•
+The system tracks analytics of how many times each page is accessed.
+•
+Old documents get deleted after not being accessed for a sufficiently long period of time.
+•
+While there isn't true authentication on accessing documents, users should not be able to "guess" docu-
+394
+Cracking the Coding Interview, 6th Edition

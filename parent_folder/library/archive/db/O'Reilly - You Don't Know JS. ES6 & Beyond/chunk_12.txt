@@ -1,0 +1,26 @@
+CHAPTER 1
+ES? Now & Future
+Before reading this book, I assume you have a solid working proficiency over Java‐
+Script up to the most recent standard (at the time of this writing), which is commonly
+called ES5 (technically ES 5.1). Here, we plan to talk squarely about the upcoming
+ES6, as well as cast our vision beyond to understand how JS will evolve moving for‐
+ward.
+If you are still looking for confidence with JavaScript, I highly recommend you read
+the other titles in this series first:
+• “Up & Going”: Are you new to programming and JS? This is the roadmap you
+need to consult as you start your learning journey.
+• “Scope & Closures”: Did you know that JS lexical scope is based on compiler (not
+interpreter!) semantics? Can you explain how closures are a direct result of lexi‐
+cal scope and functions as values?
+• “this & Object Prototypes”: Can you recite the four simple rules for how this is
+bound? Have you been muddling through fake “classes” in JS instead of adopting
+the simpler “behavior delegation” design pattern? Ever heard of OLOO?
+• “Types & Grammar”: Do you know the built-in types in JS, and more importantly
+do you know how to properly and safely use coercion between types? How com‐
+fortable are you with the nuances of JS grammar/syntax?
+• “Async & Performance”: Are you still using callbacks to manage your asynchrony?
+Can you explain what a promise is and why/how it solves “callback hell”, and how
+generators improve the legibility of async code? What exactly constitutes mature
+optimization of JS programs and individual operations?
+1
+www.it-ebooks.info

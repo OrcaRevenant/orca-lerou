@@ -1,0 +1,74 @@
+Chapter 4 | Trees and Graphs
+Depth-First Search (DFS)
+In DFS, we visit a node a and then iterate through each of a's neighbors. When visiting a node b that is a
+neighbor of a, we visit all of b's neighbors before going on to a's other neighbors. That is, a exhaustively
+searches b's branch before any of its other neighbors.
+Note that pre-order and other forms of tree traversal are a form of DFS. The key difference is that when
+implementing this algorithm for a graph, we must check if the node has been visited. If we don't, we risk
+getting stuck in an infinite loop.
+The pseudocode below implements DFS.
+1
+void search(Node root) {
+2
+if ( r o o t == n u l l ) r e t u r n ;
+3
+v i s i t ( r o o t ) ;
+4
+r o o t . v i s i t e d = t r u e ;
+5
+f o r each (Node n in root.adjacent) {
+6
+if ( n . v i s i t e d == f a l s e ) {
+search(n);
+8
+>
+9
+>
+i a
+>
+Breadth-First Search (BFS)
+BFS is a bit less intuitive, and many interviewees struggle with the implementation unless they are already
+familiar with it. The main tripping point is the (false) assumption that BFS is recursive. It's not. Instead, it
+uses a queue.
+In BFS, node a visits each of a's neighbors before visiting any of their neighbors. You can think of this as
+searching level by level out from a. An iterative solution involving a queue usually works best,
+l
+void search(Node r o o t ) {
+2
+Queue queue = new Queue();
+3
+root.marked = t r u e ;
+4
+queue.enqueue(root); II Add to the end of queue
+5
+6
+while (Iqueue.isEmptyO)
+{
+7
+Node r « queue.dequeue(); // Remove from the f r o n t of the queue
+8
+v i s i t ( r ) ;
+9
+foreach (Node n in r . a d j a c e n t ) {
+10
+if (n.marked == f a l s e ) {
+11
+n.marked = t r u e ;
+12
+queue.enqueue(n);
+13
+>
+14
+}
+15
+>
+16
+>
+If you are asked to implement BFS, the key thing to remember is the use of the queue. The rest of the algo-
+rithm flows from this fact.
+Bidirectional Search
+Bidirectional search is used to find the shortest path between a source and destination node. It operates
+by essentially running two simultaneous breadth-first searches, one from each node. When their searches
+collide, we have found a path.
+102
+Cracking the Coding Interview, 6th Edition

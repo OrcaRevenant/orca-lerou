@@ -1,0 +1,34 @@
+linking components as, 96
+External agency, clean architecture independence from, 202
+External definition, compilers, 100
+External reference, compilers, 100
+F
+Facade pattern, partial boundaries, 220
+Fan-in/fan-out metrics, component stability, 122–123
+Feathers, Michael, 58
+File systems, mitigating time delay, 279–280
+Firewalls, boundary crossings via, 176
+Firmware
+in 4-TEL archaeology project, 343–344
+definitions of, 256–257
+eliminating target-hardware bottleneck, 262–263
+fuzzy line between software and, 263–264
+obsolete as hardware evolves, 256
+stop writing so much, 257–258
+FitNesse program
+overview of, 163–165
+partial boundary, 218–219
+FLD (Field Labeled Data), Craft Dispatch System archaeology project, 363
+Flow of control
+crossing circle boundaries, 206
+dependency management, case study, 302
+dynamic polymorphism, 177–178
+in Union Accounting archaeology project, 334
+Fowler, Martin, 305–306
+Fragile Tests Problem, 251
+Frameworks
+avoid basing architecture on, 197
+clean architecture independent from, 202
+creating testable architecture without, 198
+Dependency Rule for, 205
+as option to be left open, 197

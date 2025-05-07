@@ -1,0 +1,50 @@
+V [ Behavioral Questions
+This technique grabs your interviewer's attention and makes it very ciear what your story will be about It
+also helps you be more focused in your communication, since you've made it very clear to yourself what
+the gist of your response is.
+S.A.R. (Situation, Action, Result)
+The S.A.R, approach means that you start off outlining the situation, then explaining the actions you took,
+and lastly, describing the result.
+Example:"Tell me about a challenging interaction with a teammate."
+•
+Situation: On my operating systems project, I was assigned to work with three other people. While two
+were great, the third team member didn't contribute much. He stayed quiet during meetings, rarely
+chipped in during email discussions, and struggled to complete his components. This was an issue not
+only because it shifted more work onto us, but also because we didn't know if we could count on him.
+•
+Action: I didn't want to write him off completely yet, so I tried to resoive the situation. I did three things.
+First, I wanted to understand why he was acting like this. Was it laziness? Was he busy with something
+else? I struck up a conversation with him and then asked him open-ended questions about how he felt it
+was going. Interestingly, basically out of nowhere, he said that he wanted to take on the writeup, which
+is one of the most time intensive parts. This showed me that it wasn't laziness; it was that he didn't feel
+like he was good enough to write code.
+Second, now that I understand the cause, I tried to make it clear that he shouldn't fear messing up, I told
+him about some of the bigger mistakes that I made and admitted that I wasn't ciear about a lot of parts
+of the project either.
+Third and finally, 1 asked him to help me with breaking out some of the components of the project. We
+sat down together and designed a thorough spec for one of the big component, in much more detail
+than we had before. Once he could see all the pieces, it helped show him that the project wasn't as scary
+as he'd assumed.
+•
+Result: With his confidence raised, he now offered to take on a bunch of the smaller coding work, and
+then eventually some of the biggest parts. He finished all his work on time, and he contributed more in
+discussions. We were happy to work with him on a future project.
+The situation and the result should be succinct. Your interviewer generally does not need many details to
+understand what happened and, in fact, may be confused by them.
+By using the S.A.R, model with clear situations, actions and results, the interviewer will be able to easily
+identify how you made an impact and why it mattered.
+Consider putting your stories into the following grid:
+Nugget
+Situation
+Action(s)
+Result
+What It Says
+Story 1
+1. ...
+2. ...
+3, ...
+Story 2
+Explore the Action
+In almost all cases, the "action" is the most important part of the story. Unfortunately, far too many people
+talk on and on about the situation, but then just breeze through the action.
+CrackingTheCodinglnterview.com \ 6th Edition 37

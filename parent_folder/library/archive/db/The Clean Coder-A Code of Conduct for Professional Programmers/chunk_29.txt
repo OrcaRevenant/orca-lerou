@@ -1,0 +1,13 @@
+xxix
+A BOUT TH E AUTHOR
+Robert C. Martin (“Uncle Bob”) has been a programmer since 1970. He is
+founder and president of Object Mentor, Inc., an international firm of highly
+experienced software developers and managers who specialize in helping
+companies get their projects done. Object Mentor offers process improvement
+consulting, object-oriented software design consulting, training, and skill
+development services to major corporations worldwide.
+Martin has published dozens of articles in various trade journals and is a
+regular speaker at international conferences and trade shows.
+He has authored and edited many books, including:
+• Designing Object Oriented C++ Applications Using the Booch Method
+• Patterns Languages of Program Design 3

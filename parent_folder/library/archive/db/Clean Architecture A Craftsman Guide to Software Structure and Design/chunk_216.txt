@@ -1,0 +1,20 @@
+that we would like to play Hunt the Wumpus on the net with multiple players. In
+this case, we would need a network component, like that shown in Figure 25.5.
+This organization divides the data flow into three streams, all controlled by the
+GameRules.
+Figure 25.5 Adding a network component
+So, as systems become more complex, the component structure may split into
+many such streams.
+SPLITTING THE STREAMS
+At this point you may be thinking that all the streams eventually meet at the top
+in a single component. If only life were so simple! The reality, of course, is
+much more complex.
+Consider the GameRules component for Hunt the Wumpus. Part of the game
+rules deal with the mechanics of the map. They know how the caverns are
+connected, and which objects are located in each cavern. They know how to
+move the player from cavern to cavern, and how to determine the events that the
+player must deal with.
+But there is another set of policies at an even higher level—policies that know
+the health of the player, and the cost or benefit of a particular event. These
+policies could cause the player to gradually lose health, or to gain health by
+discovering food. The lower-level mechanics policy would declare events to this

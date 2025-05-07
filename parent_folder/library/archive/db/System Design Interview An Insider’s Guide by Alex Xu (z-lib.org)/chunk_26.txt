@@ -1,0 +1,22 @@
+Database scaling
+There are two broad approaches for database scaling: vertical scaling and horizontal scaling.
+Vertical scaling
+Vertical scaling, also known as scaling up, is the scaling by adding more power (CPU, RAM,
+DISK, etc.) to an existing machine. There are some powerful database servers. According to
+Amazon Relational Database Service (RDS) [12], you can get a database server with 24 TB
+of RAM. This kind of powerful database server could store and handle lots of data. For
+example, stackoverflow.com in 2013 had over 10 million monthly unique visitors, but it only
+had 1 master database [13]. However, vertical scaling comes with some serious drawbacks:
+• You can add more CPU, RAM, etc. to your database server, but there are hardware
+limits. If you have a large user base, a single server is not enough.
+• Greater risk of single point of failures.
+• The overall cost of vertical scaling is high. Powerful servers are much more expensive.
+Horizontal scaling
+Horizontal scaling, also known as sharding, is the practice of adding more servers. Figure 1-
+20 compares vertical scaling with horizontal scaling.
+Sharding separates large databases into smaller, more easily managed parts called shards.
+Each shard shares the same schema, though the actual data on each shard is unique to the
+shard.
+Figure 1-21 shows an example of sharded databases. User data is allocated to a database
+server based on user IDs. Anytime you access data, a hash function is used to find the
+corresponding shard. In our example, user_id % 4 is used as the hash function. If the result

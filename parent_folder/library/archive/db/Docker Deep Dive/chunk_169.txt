@@ -1,0 +1,31 @@
+Not Before: Jul 19 07:56:00 2017 GMT
+Not After : Oct 17 08:56:00 2017 GMT
+Subject: O=mfbkgjm2tlametbnfqt2zid8x, OU=swarm-manager,
+CN=7xamk8w3hz9q5kgr7xyge662z
+Subject Public Key Info:
+<SNIP>
+The Subject data in the output above uses the standard O, OU, and CN fields to
+specify the Swarm ID, the node’s role, and the node ID.
+The organization O field stores the Swarm ID
+The organizational unit OU field stores the nodes role in the Swarm
+The canonical name CN field stores the nodes crypto ID.
+This is shown in Figure 11.10.
+Figure 11.10
+We can also see the certificate rotation period in the Validity section.
+We can match these values to the corresponding values shown in the output of a
+docker system info command.
+$ docker system info
+<SNIP>
+Swarm: active
+NodeID: 7xamk8w3hz9q5kgr7xyge662z
+Is Manager: true
+ClusterID: mfbkgjm2tlametbnfqt2zid8x
+...
+<SNIP>
+...
+CA Configuration:
+Expiry Duration: 3 months
+Force Rotate: 0
+Root Rotation In Progress: false
+<SNIP>
+Configuring some CA settings

@@ -1,0 +1,81 @@
+II | Hints for Concepts and Algorithms
+#295.
+8.9
+We can ensure that this string is valid by counting the number of left and right parens.
+It is always valid to add a left paren, up until the total number of pairs of parens. We can
+adda right paren as long as c o u n t ( l e f t parens) <= c o u n t ( r i g h t parens).
+#296.
+6.4
+You can think about this either as the probability(3 ants walking clockwise) + proba-
+bility(3 ants walking counter-clockwise). Or, you can think about it as: The first ant picks
+a direction. What's the probability of the other ants picking the same direction?
+#297.
+5.2
+Think about what happens for values that can't be represented accurately in binary.
+#298.
+10.3
+Can you modify binary search for this purpose?
+#299.
+11.1
+What will happen to the unsigned i n t ?
+#300.
+8.11
+Try breaking it down into subproblems. If you were making change, what is the first
+choice you would make?
+#301.
+10.10
+The problem with using an array is that it will be slow to insert a number. What other
+data structures could we use?
+#302.
+5.5
+If (n & ( n - 1 ) ) == 0, then this means that n and n - 1 never have a 1 in the same
+spot. Why would that happen?
+#303.
+10.9
+Another way to think about this is that if you drew a rectangle around a cell extending
+to the bottom, right coordinate of the matrix, the cell would be bigger than all the items
+in this square.
+#304.
+9.2
+Is there any way to search from both the source and destination? For what reason or in
+what case might this be faster?
+#305.
+8.14
+If your code looks really lengthy, with a lot of if's (for each possible operator, "target"
+boolean result, and left/right side), think about the relationship between the different
+parts. Try to simplify your code. It should not need a ton of complicated if-state-
+ments. For example, consider expressions of the form <LEFT>OR<RIGHT> versus
+<LEFT>AND<R1GHT>. Both may need to know the number of ways that the <LEFT>
+evaluates to true. See what code you can reuse.
+#306.
+6.9
+The number 3 has an even number of factors (1 and 3). The number 12 has an even
+number of factors (1,2, 3,4,6,12). What numbers do not? What does this tell you about
+the doors?
+#307.
+7.12
+Think carefully about what information the linked list node needs to contain.
+#308.
+8.12
+We know that each row must have a queen. Can you try all possibilities?
+#309.
+8.7
+Approach 2: To generate a permutation of abed, you need to pick an initial character. It
+can be a, b, c, or d. You can then permute the remaining characters. How can you use
+this approach to generate all permutations of the full string?
+#310.
+10.3
+What is the runtime of your algorithm? What will happen if the array has duplicates?
+#311.
+9.5
+How would you scale this to a larger system?
+#312.
+5.4
+Get Next: Can you flip a 0 to a 1 to create the next biggest number?
+#313.
+11.4
+Think about what load testing is designed to test. What are the factors in the load of a
+webpage? What criteria would be used to judge if a webpage performs satisfactorily
+under heavy load?
+664
+Cracking the Coding interview, 6th Edition

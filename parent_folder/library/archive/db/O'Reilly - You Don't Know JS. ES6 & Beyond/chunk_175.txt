@@ -1,0 +1,38 @@
+The d, f, and Symbol("g") properties are omitted from copying; symbols, non-
+enumerable properties, and non-owned properties are all excluded from the assign‐
+ment. Also, e is copied as a normal property assignment, not duplicated as a read-
+only property.
+In an earlier section, we showed using setPrototypeOf(..) to setup a [[Proto
+type]] relationship between an o2 and o1 object. There’s another form that leverages
+Object.assign(..):
+var o1 = {
+foo() { console.log( "foo" ); }
+};
+var o2 = Object.assign(
+Object.create( o1 ),
+{
+// .. o2's definition ..
+}
+);
+// delegates to `o1.foo()`
+o2.foo();                           // foo
+Object.create(..) is the ES5 standard utility that creates an
+empty object that is [[Prototype]]-linked. See the this & Object
+Prototypes title of this series for more information.
+Math
+ES6 adds several new mathematic utilities that fill in holes or aid with common oper‐
+ations. All of these can be manually calculated, but most of them are now defined
+natively so that in some cases the JS engine can either more optimally perform the
+calculations, or perform them with better decimal precision than their manual coun‐
+terparts.
+It’s likely that asm.js/transpiled JS code (see the Async & Performance title of this ser‐
+ies) is the more likely consumer of many of these utilities rather than direct develop‐
+ers.
+Trigonometry:
+• cosh(..) - hyperbolic cosine
+• acosh(..) - hyperbolic arccosine
+• sinh(..) - hyperbolic sine
+164
+|
+Chapter 6: API Additions
+www.it-ebooks.info

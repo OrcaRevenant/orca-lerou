@@ -1,0 +1,22 @@
+Distributed key-value store
+A distributed key-value store is also called a distributed hash table, which distributes key-
+value pairs across many servers. When designing a distributed system, it is important to
+understand CAP (Consistency, Availability, Partition Tolerance) theorem.
+CAP theorem
+CAP theorem states it is impossible for a distributed system to simultaneously provide more
+than two of these three guarantees: consistency, availability, and partition tolerance. Let us
+establish a few definitions.
+Consistency: consistency means all clients see the same data at the same time no matter
+which node they connect to.
+Availability: availability means any client which requests data gets a response even if some
+of the nodes are down.
+Partition Tolerance: a partition indicates a communication break between two nodes.
+Partition tolerance means the system continues to operate despite network partitions.
+CAP theorem states that one of the three properties must be sacrificed to support 2 of the 3
+properties as shown in Figure 6-1.
+Nowadays, key-value stores are classified based on the two CAP characteristics they support:
+CP (consistency and partition tolerance) systems: a CP key-value store supports
+consistency and partition tolerance while sacrificing availability.
+AP (availability and partition tolerance) systems: an AP key-value store supports
+availability and partition tolerance while sacrificing consistency.
+CA (consistency and availability) systems: a CA key-value store supports consistency and

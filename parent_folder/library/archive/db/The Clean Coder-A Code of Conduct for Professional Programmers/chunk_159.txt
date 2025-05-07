@@ -1,0 +1,31 @@
+FOCUS-MANNA
+127
+If things work out, then that path was workable. If you get into trouble, you can
+back out and go down the other path. It would be wise to agree on a time as
+well as a set of criteria to help determine when the chosen path should be
+abandoned.
+Beware of meetings that are really just a venue to vent a disagreement and to
+gather support for one side or the other. And avoid those where only one of the
+arguers is presenting.
+If an argument must truly be settled, then ask each of the arguers to present
+their case to the team in five minutes or less. Then have the team vote. The
+whole meeting will take less than fifteen minutes.
+FOCU S - M AN NA
+Forgive me if this section seems to smell of New Age metaphysics, or perhaps of
+Dungeons & Dragons. It’s just that this is the way I think about this topic.
+Programming is an intellectual exercise that requires extended periods of
+concentration and focus. Focus is a scarce resource, rather like manna.1 After
+you have expended your focus-manna, you have to recharge by doing unfocused
+activities for an hour or more.
+I don’t know what this focus-manna is, but I have a feeling that it is a physical
+substance (or possibly its lack) that affects alterness and attention. Whatever it
+may be, you can feel when it’s there, and you can feel when it’s gone.
+Professional developers learn to manage their time to take advantage of their
+focus-manna. We write code when our focus-manna is high; and we do other,
+less productive things when it’s not.
+Focus-manna is also a decaying resource. If you don’t use it when it’s there, you
+are likely to lose it. That’s one of the reasons that meetings can be so
+1. Manna is a common commodity in fantasy and role-playing games like Dungeons & Dragons. Every player
+has a certain amount of manna, which is a magical substance expended whenever a player casts a magical
+spell. The more potent the spell, the more of that player’s manna is consumed. Manna recharges at a slow,
+fixed daily rate. So it’s easy to use it all up in a few spell-casting sessions.

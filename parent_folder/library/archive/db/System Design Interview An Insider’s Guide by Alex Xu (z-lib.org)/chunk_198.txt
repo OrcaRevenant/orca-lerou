@@ -1,0 +1,5 @@
+To mitigate the data imbalance problem, we analyze historical data distribution pattern and
+apply smarter sharding logic as shown in Figure 13-15. The shard map manager maintains a
+lookup database for identifying where rows should be stored. For example, if there are a
+similar number of historical queries for ‘s’ and for ‘u’, ‘v’, ‘w’, ‘x’, ‘y’ and ‘z’ combined, we
+can maintain two shards: one for ‘s’ and one for ‘u’ to ‘z’.

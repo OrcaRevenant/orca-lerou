@@ -1,0 +1,28 @@
+CHAPTER 3 SAYING YES
+52
+• If you committed to solving a bug you thought was solvable and you realize
+at some point the bug is much more hideous than previously thought, you
+can raise the flag. The team can then decide on a course of action to make
+that commitment (pairing, spiking on potential solutions, brainstorming) or
+change the priority and move you over to another simpler bug.
+One important point here is: If you don’t tell anyone about the potential
+problem as soon as possible, you’re not giving anyone a chance to help you
+follow through on your commitment.
+S U M MARY
+Creating a language of commitment may sound a bit scary, but it can help solve
+many of the communication problems programmers face today—estimations,
+deadlines, and face-to-face communication mishaps. You’ll be taken as a serious
+developer who lives up to their word, and that’s one of the best things you can
+hope for in our industry.
+~~~
+L E AR N I N G H OW TO SAY “YE S ”
+I asked Roy to contribute that article because it struck a chord within me. I’ve
+been preaching about learning how to say no for some time. But it is just as
+important to learn how to say yes.
+TH E O TH E R S I D E O F “TRY ”
+Let’s imagine that Peter is responsible for some modifications to the rating
+engine. He’s privately estimated that these modifications will take him five or six
+days. He also thinks that writing the documentation for the modifications will
+take a few hours. On Monday morning his manager, Marge, asks him for status.
+Marge: “Peter, will you have the rating engine mods done by Friday?”
+Peter: “I think that’s doable.”

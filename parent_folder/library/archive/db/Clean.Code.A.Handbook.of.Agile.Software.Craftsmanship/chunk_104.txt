@@ -1,0 +1,38 @@
+74
+Chapter 4: Comments
+It is easy to argue that the ﬁrst comment is redundant because it reads very much like
+the generatePrimes function itself. Still, I think the comment serves to ease the reader into
+the algorithm, so I’m inclined to leave it.
+The second argument is almost certainly necessary. It explains the rationale behind
+the use of the square root as the loop limit. I could ﬁnd no simple variable name, nor any
+different coding structure that made this point clear. On the other hand, the use of the
+square root might be a conceit. Am I really saving that much time by limiting the iteration
+to the square root? Could the calculation of the square root take more time than I’m saving?
+It’s worth thinking about. Using the square root as the iteration limit satisﬁes the old C
+and assembly language hacker in me, but I’m not convinced it’s worth the time and effort
+that everyone else will expend to understand it.
+Bibliography
+[KP78]:  Kernighan and Plaugher, The Elements of Programming Style, 2d. ed., McGraw-
+Hill, 1978.
+private static boolean notCrossed(int i)
+{
+return crossedOut[i] == false;
+}
+private static void putUncrossedIntegersIntoResult()
+{
+result = new int[numberOfUncrossedIntegers()];
+for (int j = 0, i = 2; i < crossedOut.length; i++)
+if (notCrossed(i))
+result[j++] = i;
+}
+private static int numberOfUncrossedIntegers()
+{
+int count = 0;
+for (int i = 2; i < crossedOut.length; i++)
+if (notCrossed(i))
+count++;
+return count;
+}
+}
+Listing 4-8 (continued)
+PrimeGenerator.java (refactored)

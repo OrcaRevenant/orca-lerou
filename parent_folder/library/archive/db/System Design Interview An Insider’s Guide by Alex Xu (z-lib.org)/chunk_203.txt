@@ -1,0 +1,11 @@
+• CDN cost.
+• When cloud CDN serves a video, you are charged for data transferred out of the
+CDN.
+• Let us use Amazon’s CDN CloudFront for cost estimation (Figure 14-2) [3]. Assume
+100% of traffic is served from the United States. The average cost per GB is $0.02.
+For simplicity, we only calculate the cost of video streaming.
+• 5 million * 5 videos * 0.3GB * $0.02 = $150,000 per day.
+From the rough cost estimation, we know serving videos from the CDN costs lots of money.
+Even though cloud providers are willing to lower the CDN costs significantly for big
+customers, the cost is still substantial. We will discuss ways to reduce CDN costs in deep
+dive.

@@ -1,0 +1,41 @@
+302
+Chapter 17: Smells and Heuristics
+G29: Avoid Negative Conditionals
+Negatives are just a bit harder to understand than positives. So, when possible, condition-
+als should be expressed as positives. For example:
+if (buffer.shouldCompact())
+is preferable to
+if (!buffer.shouldNotCompact())
+G30: Functions Should Do One Thing
+It is often tempting to create functions that have multiple sections that perform a series of
+operations. Functions of this kind do more than one thing, and should be converted into
+many smaller functions, each of which does one thing.
+For example:
+public void pay() {
+for (Employee e : employees) {
+if (e.isPayday()) {
+Money pay = e.calculatePay();
+e.deliverPay(pay);
+}
+}
+}
+This bit of code does three things. It loops over all the employees, checks to see whether
+each employee ought to be paid, and then pays the employee. This code would be better
+written as:
+public void pay() {
+for (Employee e : employees)
+payIfNecessary(e);
+}
+private void payIfNecessary(Employee e) {
+if (e.isPayday())
+calculateAndDeliverPay(e);
+}
+private void calculateAndDeliverPay(Employee e) {
+Money pay = e.calculatePay();
+e.deliverPay(pay);
+}
+Each of these functions does one thing. (See “Do One Thing” on page 35.)
+G31: Hidden Temporal Couplings
+Temporal couplings are often necessary, but you should not hide the coupling. Structure
+the arguments of your functions such that the order in which they should be called is obvi-
+ous. Consider the following:

@@ -1,0 +1,73 @@
+Solutions to Chapter 4 | Trees and Graphs
+We may recognize that we should only need to search the entire tree once to find p and q. We should then
+be able to "bubble up" the findings to earlier nodes in the stack. The basic logic is the same as the earlier
+solution.
+We recurse through the entire tree with a function called commonAncestor(TreeNode
+r o o t ,
+TreeNode p, TreeNode q). This function returns values as follows:
+•
+Returns p, if root's subtree includes p (and not q).
+•
+Returns q, if root's subtree includes q (and not p).
+.
+Returns n u l l , if neither p nor q are in root's subtree.
+•
+Else, returns the common ancestor of p and q.
+Finding the common ancestor of p and q in the final case is easy. When commonAncestor(n. l e f t ) p,
+q) and coramonAncestor ( n . r i g h t , p, q) both return non-null values (indicating that p and q were
+found in different subtrees), then n will be the common ancestor.
+The code below offers an initial solution, but it has a bug. Can you find it?
+1
+/* The below code has a bug. */
+2
+TreeNode commonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+3
+if {root == n u l l ) return n u l l ;
+4
+if {root -= p &8 root == q) return root;
+5
+6
+TreeNode x = commonAncestor(root.left, p, q);
+7
+if (x 1= n u l l && x I= p &8 x != q) { // Already found ancestor
+8
+return x;
+<3
+}
+10
+11
+TreeNode y = commonAncestor(root.right, p, q);
+12
+if (y 1= n u l l && y 1= p S8 y != q) { II Already found ancestor
+13
+return y;
+14
+}
+15
+16
+if (x 1= n u l l 8& y 1= n u l l ) { II p and q found in t f i f f . subtrees
+17
+return root; II This is the common ancestor
+18
+} else if (root == p || root == q) {
+19
+return root;
+20
+) else {
+21
+return x == n u l l ? y : x; /* return the non-null value */
+22
+}
+23 >
+The problem with this code occurs in the case where a node is not contained in the tree. For example, look
+at the following tree:
+Suppose wecall commonAncestor(node 3, node 5, node 7).Of course, node 7 does not exist—
+and that's where the issue will come in. The calling order looks like:
+1
+commonAnc(node 3, node 5, node 7)
+// --> 5
+2
+c a l l s conamonAnc{node 1, node 5, node 7)
+// --> n u l l
+274
+Cracking the Coding Interview, 6th Edition

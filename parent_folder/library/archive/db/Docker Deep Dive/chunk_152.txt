@@ -1,0 +1,32 @@
+all ports. The VTEP interface connected to Br0 knows how to forward the frame
+so responds with its own MAC address. This is a proxy ARP reply and results in
+the Br0 switch learning how to forward the packet and it updates its ARP table
+mapping 10.0.0.4 to the MAC address of the VTEP.
+Now that the Br0 switch has learned how to forward traffic to C2 all future
+packets for C2 will be transmitted directly to the VTEP interface. The VTEP
+interface knows about C2 because all newly started containers have their
+network details propagated to other nodes in the swarm using the network’s
+built-in gossip protocol.
+The switch then sends the packet to the VTEP interface which encapsulates the
+frames so they can be sent over the underlay transport infrastructure. At a fairly
+high level this encapsulation includes adding a VXLAN header to the Ethernet
+frame. The VXLAN header contains the VXLAN network ID (VNID) which is
+used to map frames from VLANs to VXLANs and vice versa. Each VLAN gets
+mapped to VNID so that on the receiving end the packet can be de-encapsulated
+and forwarded on to the correct VLAN. This obviously maintains network
+isolation. The encapsulation also wraps the frame in a IP/UDP packet with the IP
+address of the VTEP on node2 in the destination IP field and the UDP port 4789
+socket information. This encapsulation allows the data to be sent across the
+underlying networks without the underlying networks having to know anything
+about VXLAN.
+When the packet arrives at node2, the kernel sees that it’s addressed to UDP port
+4789. The kernel also knows that it has a VTEP interface bound to that socket.
+As a result, it sends the packet to the VTEP which reads the VNID, de-
+encapsulates the packet and sends it on to its own local Br0 switch on the VLAN
+that corresponds the VNID. From there it is delivered to container C2.
+That’s the basics of how VXLAN technology is leveraged by native Docker
+overlay networks.
+We’re only scratching the surface here, but it should be enough for you to be
+able to start the ball rolling with any potential production Docker deployments.
+It should also give you the knowledge required to talk to your networking team
+about the networking aspects of your Docker infrastructure.

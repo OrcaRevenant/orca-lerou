@@ -1,0 +1,9 @@
+Chapter Summary
+In this chapter you performed the following operations-related tasks;
+downloaded a Docker image, launched a container from the image, executed a
+command inside of the container (ps), and then stopped and deleted the
+container. You also containerized a simple application by pulling some source
+code from GitHub and building it into an image using instructions in a
+Dockerfile.
+This big picture view should help you with the up-coming chapters where we
+will dig deeper into images and containers.

@@ -1,0 +1,38 @@
+If you’ve read all those titles and you feel pretty comfortable with those topics, it’s
+time we dive into the evolution of JS to explore all the changes coming not only soon
+but farther over the horizon.
+ES6 is not just a modest set of new APIs added to the langauge, as ES5 was. It incor‐
+porates a whole slew of new syntactic forms, some of which may take quite a bit of
+getting used to. There’s also a variety of new organization forms and new API helpers
+for various data types.
+ES6 is a radical jump forward for the language. Even if you think you do know JS in
+ES5, ES6 is full of new stuff you don’t know yet, so get ready! This book will explore
+all the major themes of ES6 that you need to get up to speed on, and even gaze at
+future features you should be aware of that are coming down the track.
+All code in this book assumes an ES6+ environment. At the time of
+this writing, ES6 support varies quite a bit in browsers and JS envi‐
+ronments (like node.js), so your mileage may vary.
+Versioning
+The JavaScript standard is referred to officially as “ECMAScript” (abbreviated “ES”),
+and up until just recently has been versioned entirely by ordinal number (i.e., “5” for
+“5th edition”).
+The earliest versions ES1 and ES2 were not widely known or implemented, but ES3
+was the first widespread baseline for JavaScript. ES3 constitutes the JavaScript stan‐
+dard for browsers like IE6-8 and older Android 2.x mobile browsers. For politicial
+reasons beyond what we’ll cover here, the ill-fated ES4 never came about.
+In 2009, ES5 was officially finalized (later ES5.1 in 2011), and settled as the wide‐
+spread standard for JS for the modern revolution and explosion of browsers, such as
+Firefox, Chrome, Opera, Safari, and many others.
+Leading up to the expected next version of JS (slipped from 2013 to 2014 and then
+2015), the obvious and common label in discourse has been ES6.
+However, late into the ES6 specification timeline, suggestions have surfaced that ver‐
+sioning may in the future switch to being year-based, such ES2016 (aka ES7) to refer
+to whatever version of the specification is finalized before the end of 2016. Some disa‐
+gree, but ES6 will likely maintain its dominant mindshare over the late change substi‐
+tute ES2015. However ES2016 may in fact signal the new versioning scheme.
+It has also been observed that the pace of JS evolution is much faster even than single-
+year versioning. As soon as an idea begins to progress through standards discussions,
+2
+|
+Chapter 1: ES? Now & Future
+www.it-ebooks.info

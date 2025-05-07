@@ -1,0 +1,51 @@
+Ill I Special Situations
+•
+Prepare the Core Testing Problems: For example, how would you test a light bulb? A pen? A cash register?
+Microsoft Word? The Testing chapter will give you more background on these problems.
+•
+Practice the Coding Questions: The number one thing that SDETs get rejected for is coding skills. Although
+coding standards are typically lower for an SDET than for a traditional developer, SDETs are still expected
+to be very strong in coding and algorithms. Make sure that you practice solving all the same coding and
+algorithm questions that a regular developer would get.
+•
+Practice Testing the Coding Questions: A very popular format for SDET questions is "Write code to do X,"
+followed up by, "Okay, now test it," Even when the question doesn't specifically require this, you should
+ask yourself, "How would I test this?" Remember; any problem can be an SDET problem!
+Strong communication skills can also be very important for testers, since your job requires you to work with
+so many different people. Do not neglect the Behavioral Questions section.
+Career Advice
+Finally, a word of career advice; If, like many candidates, you are hoping to apply to an SDET position as the
+"easy"way into a company, be aware that many candidates find it very difficult to move from an SDET posi-
+tion to a dev position. Make sure to keep your coding and algorithms skills very sharp if you hope to make
+this move, and try to switch within one to two years. Otherwise, you might find it very difficult to be taken
+seriously in a dev interview.
+Never let your coding skills atrophy.
+• Product (and Program) Management
+These "PM" roles vary wildly across companies and even within a company. At Microsoft, for instance, some
+PMsmay be essentially customer evangelists, working in a customer-facing role that borders on marketing.
+Across campus though, other PMs may spend much of their day coding. The latter type of PMs would likely
+be tested on coding, since this is an important part of their job function.
+Generally speaking, interviewers for PM positions are looking for candidates to demonstrate skills in the
+following areas:
+•
+Handling Ambiguity: This is typically not the most critical area for an interview, but you should be aware
+that interviewers do look for skill here. Interviewers want to see that, when faced with an ambiguous
+situation, you don't get overwhelmed and stall. They want to see you tackle the problem head on:
+seeking new information, prioritizing the most important parts, and solving the problem in a structured
+way. This typically will not be tested directly (though it can be), but it may be one of many things the
+interviewer is looking for in a problem.
+•
+Customer Focus (Attitude): Interviewers want to see that your attitude is customer-focused. Do you
+assume that everyone will use the product just like you do? Or are you the type of person who puts
+himself in the customer's shoes and tries to understand how they want to use the product? Questions
+like "Design an alarm clock for the blind" are ripe for examining this aspect. When you hear a question
+like this, be sure to ask a lot of questions to understand who the customer is and how they are using the
+product. The skills covered in the Testing section are closely related to this.
+•
+Customer Focus (Technical Skills). Some teams with more complex products need to ensure that their PMs
+walk in with a strong understanding of the product, as it would be difficult to acquire this knowledge on
+the job. Deep technical knowledge of mobile phones is probably not necessary to work on the Android
+or Windows Phone teams (although it might still be nice to have), whereas an understanding of security
+might be necessary to work on Windows Security. Hopefully, you wouldn't interview with a team that
+16
+24 Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,82 @@
+Solutions to Chapter 7 j Object-Oriented Design
+*
+Expanding blank areas.
+It will receive the game plays from the Game object and carry them out. It will then need to return the
+result of the play, which couid beany of (clicked a bomb and lost, clicked out of bounds, clicked an already
+exposed area, clicked a blank area and still playing, clicked a blank area and won, clicked a number and
+won}. This is really two different items that need to be returned: successful (whether or not the play was
+successfully made) and a game state (won, lost, playing). We'll use an additional GamePlayResult to
+return this data.
+We'lt also use a Game PI ay class to hold the move that the player plays. We need to use a row, column,
+and then a flag to indicate whether this was an actual flip or the user was just marking this as a "guess" at a
+possible bomb.
+The basic skeleton of this class might look something like this:
+1
+public class Board {
+2
+private int nRowsj
+3
+private int nColumns;
+4
+private int nBombs = 0;
+5
+private Cell[][] cells;
+6
+private Cell[] bombs;
+7
+private int numUnexposedRemaining;
+8
+9
+public Board(int r, int c, int b) { ... }
+10
+11
+private void i n i t i a l i z e B o a r d ( ) { ••• )
+12
+private boolean flipCell(Cell cell) ( . . . )
+13
+public void expand81ank(Cell cell) ( . . . )
+14
+public UserPlayResult playFlip(UserPlay play) { ... >
+15
+public int getMumRemaining() { return numUnexposedRemaining; }
+16 >
+17
+18 public class UserPlay {
+19
+private int row;
+20
+private int column;
+21
+private boolean isGuess;
+22
+/* constructor, getters, setters. */
+23 }
+24
+25 public class UserPlayResult {
+26
+private boolean successful;
+27
+private Game.GameState resultingState;
+28
+/* constructor, getters, setters. */
+29 >
+Design: Game
+The Game class will store references to the board and hold the game state. It also takes the user input and
+sends it off to Board.
+1
+public class Game {
+2
+public enum GameState { WON, LOST, RUNNING }
+3
+4
+private Board board;
+5
+private int rows;
+6
+private int columns;
+7
+private int bombs;
+8
+private GameState state;
+334
+Cracking the Coding Interview, 6th Edition

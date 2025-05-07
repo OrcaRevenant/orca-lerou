@@ -1,0 +1,5 @@
+verify and identify a spider trap, and either exclude those websites from the crawler or apply
+some customized URL filters.
+3. Data noise
+Some of the contents have little or no value, such as advertisements, code snippets, spam
+URLs, etc. Those contents are not useful for crawlers and should be excluded if possible.

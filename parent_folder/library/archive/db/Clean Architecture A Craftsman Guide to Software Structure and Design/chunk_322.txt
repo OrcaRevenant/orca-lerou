@@ -1,0 +1,30 @@
+deployment of digital switches. As we looked at their schedules, we felt
+confident that we had plenty of time, so we consistently delayed our
+development.
+Then came the day that my boss called me into his office and said: “One of our
+customers is deploying a digital switch next month. We have to have a working
+CCU/CMU by then.”
+I was aghast! How could we possibly do man-years of development in a month?
+But my boss had a plan …
+We did not, in fact, need a full CCU/CMU architecture. The phone company that
+was deploying the digital switch was tiny. They had only one central office, and
+only two local distribution points. More importantly, the “local” distribution
+points were not particularly local. They actually had regular-old analog switches
+in them that switched to several hundred customers. Better yet, those switches
+were of a kind that could be dialed by a normal COLT. Better even still, the
+customer’s phone number contained all the information necessary to decide
+which local distribution point to use. If the phone number had a 5, 6, or 7 in a
+certain position, it went to distribution point 1; otherwise, it went to distribution
+point 2.
+So, as my boss explained to me, we did not actually need a CCU/CMU. What we
+needed was a simple computer at the central office connected by modem lines to
+two standard COLTs at the distribution points. The SAC would communicate
+with our computer at the central office, and that computer would decode the
+phone number and then relay the dialing and measurement commands to the
+COLT at the appropriate distribution point.
+Thus was born the pCCU.
+This was the first product written in C and using BOSS that was deployed to a
+customer. It took me about a week to develop. There is no deep architectural
+significance to this tale, but it makes a nice preface to the next project.
+DLU/DRU
+In the early 1980s, one of our customers was a telephone company in Texas.

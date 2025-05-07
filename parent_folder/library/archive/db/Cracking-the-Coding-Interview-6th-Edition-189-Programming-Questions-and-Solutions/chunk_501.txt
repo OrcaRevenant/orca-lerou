@@ -1,0 +1,92 @@
+Solutions to Chapter 16 | Moderate
+26
+/* Calculate slope using the equation ( y l - y2) / ( x l - x2).
+* Note: if the slope is "steep" (>l) then the end of the line segment w i l l
+28
+* hit size / 2 units away from the middle on the y axis. If the slope is
+29
+* "shallow" {<1) the end of the line segment w i l l h i t size / 2 units away
+30
+* from the middle on the x axis. */
+31
+if
+(Math.abs(slope) « 1) {
+32
+xl • midl.x + xdir * size / 2.0j
+33
+yl = midl.y + ydir * size / 2.0j
+34
+} else if (Math.abs(slope) < 1) { II shallow slope
+35
+xl = midl.x + xdir * size / 2.0;
+36
+yl = slope * ( x l - midl.x) + midl.y;
+37
+> else { H steep slope
+38
+yl = midl.y + ydir * size / 2.0;
+39
+xl = ( y l - midl.y) / slope + midl.x;
+40
+}
+41
+return new Point(xlj y l ) ;
+42
+}
+43
+44
+public Line cut(Square other) {
+45
+I* Calculate where a line between each middle would collide with the edges of
+46
+* the squares */
+47
+Point pi = extend(this.middle(), other.middlef), t h i s . s i z e ) ;
+48
+Point p2 = extend(this.middle(), other,middle()j -1 * t h i s . s i z e ) ;
+49
+Point p3 = extend(other,middle()j this.middle()j other.size);
+50
+Point p4 = extend(other.middle()j this.middle(), -1 * other,size);
+51
+52
+/* Of above points, f i n d start and end of lines. Start is farthest l e f t (with
+53
+* top most as a t i e breaker) and end is farthest right (with bottom most as
+54
+* a t i e breaker. */
+55
+Point start = p i ;
+56
+Point end = p i ;
+57
+Point[] points = (p2, p3, p4);
+58
+f o r ( i n t i = 0; i < points.length; i++) {
+59
+if ( p o i n t s [ i ] . x < s t a r t . x ||
+60
+( p o i n t s [ i ] . x == s t a r t . x &8 p o i n t s [ i ] . y < s t a r t . y ) ) {
+61
+start = p o i n t s [ i ] ;
+62
+) else if ( p o i n t s [ i ] . x > end.x |j
+63
+( p o i n t s [ i ] . x == end.x &S p o i n t s [ i ] . y > end.y)) {
+64
+end = p o i n t s [ i ] ;
+65
+>
+66
+}
+67
+68
+return new Line(start, end);
+69
+}
+The main goal of this problem is to see how careful you are about coding. It's easy to glance over the special
+cases (e.g., the two squares having the same middle). Vou should make a list of these special cases before
+you start the problem and make sure to handle them appropriately This is a question that requires careful
+and thorough testing.
+CrackingTheCodinglnterview.com | 6th Edition
+4 9 1

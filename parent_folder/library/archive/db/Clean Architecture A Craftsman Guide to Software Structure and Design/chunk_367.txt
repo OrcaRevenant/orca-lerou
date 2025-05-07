@@ -1,0 +1,33 @@
+MOP (Master Operating Program), Laser Trim archaeology project, 336
+Morning after syndrome
+eliminating dependency cycles to solve, 113–115
+managing dependencies to prevent, 118
+overview of, 112
+weekly build issues, 112–113
+MPS (multiprocessing system), SAC archaeology project, 345–346
+Mutability, 52–54
+Mutable variables, 51, 54–55
+N
+National Council of Architects Registry Board (NCARB), 370–372
+.NET, components as DLLs, 96
+NetNews, presence of author on, 367–369
+Newkirk, Jim, 371–372
+Nygaard, Kristen, 22
+O
+Object-oriented databases, ROSE product, 368–370
+Object Oriented Design with Applications (Booch), 366, 368
+Object-oriented programming
+conclusion, 47
+for cross-cutting concerns, 244–245
+dependency inversion, 44–47
+deployment of monoliths, 177
+encapsulation, 35–37
+history of, 22
+inheritance, 37–40
+overview of, 34–35
+polymorphism, 40–43
+power of polymorphism, 43–44
+Object Oriented Software Engineering (Jacobson), 196, 202
+Object relational mappers (ORMs), 214–215
+Objects, invented in 4-TEL archaeology project, 344
+OCP (Open-Closed Principle)

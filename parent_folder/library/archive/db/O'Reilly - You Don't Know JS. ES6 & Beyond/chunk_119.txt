@@ -1,0 +1,38 @@
+From the perspective of your ES6 code and the JS engine itself, the contents of this
+string literal are completely opaque and meaningless. The module loader will inter‐
+pret this string as an instruction of where to find the desired module, either as a URL
+path or a local filesystem path.
+The foo, bar, and baz identifiers listed must match named exports on the module’s
+API (static analysis and error assertion apply). They are bound as top-level identifiers
+in your current scope:
+import { foo } from "foo";
+foo();
+You can rename the bound identifiers imported, as:
+import { foo as theFooFunc } from "foo";
+theFooFunc();
+If the module has just a default export that you want to import and bind to an identi‐
+fier, you can opt to skip the { .. } surrounding syntax for that binding. The import
+in this preferred case gets the nicest and most concise of the import syntax forms:
+import foo from "foo";
+// or:
+import { default as foo } from "foo";
+As explained in the previous section, the default keyword in a
+module’s export specifies a named export where the name is
+actually default, as is illustrated by the second more verbose syn‐
+tax option. The renaming from default to, in this case, foo, is
+explicit in the latter syntax and is identical yet implicit in the for‐
+mer syntax.
+You can also import a default export along with other named exports, if the module
+has such a definition. Recall this module definition from earlier:
+export default function foo() { .. }
+export function bar() { .. }
+export function baz() { .. }
+To import that module’s default export and its two named exports:
+import FOOFN, { bar, baz as BAZ } from "foo";
+FOOFN();
+bar();
+BAZ();
+108
+|
+Chapter 3: Organization
+www.it-ebooks.info

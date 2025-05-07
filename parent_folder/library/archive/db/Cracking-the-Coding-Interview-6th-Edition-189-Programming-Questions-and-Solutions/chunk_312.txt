@@ -1,0 +1,95 @@
+Solutions to Chapter 6 | Math and Logic Puzzles
+Day 0 -> 7
+Day 1 -> 8
+Day 2 -> 9
+Day 3-> 10
+Strip 6
+6xx
+x6x
+xx6
+xx 5
+Strip 7
+7xx
+x7x
+xx 7
+xx6
+Strip 8
+8 xx
+x8x
+xx8
+xx7
+Strip 9
+9 xx
+x9x
+xx 9
+xx8
+Now, bottle #383 will see (Day 7 = #3, Day 8-> #8, Day 9-> [NONE], Day 10-> #4], while bottle #388 will see
+(Day 7 = #3, Day 8-> #8, Day 9-> [NONE], Day 10 -> #9), We can distinguish between these by "reversing"
+the shifting on day 10's results.
+What happens, though, if day 10 still doesn't see any new results? Could this happen?
+Actually, yes. Bottle #898 would see (Day 7 = #8, Day 8-> #9, Day 9 -> [NONE], Day 10 -> [NONE]). That's
+okay, though. We just need to distinguish bottle #898 from #899. Bottle #899 will see (Day 7 = #8, Day 8 ->
+#9, Day 9 -> [NONE], Day 10 -> #0).
+The "ambiguous" bottles from day 9 will always map to different values on day 10.The logic is:
+•
+If Day 3->10's test reveals a new test result, "unshift" this value to derive the third digit.
+*
+Otherwise, we know that thethird digit equals either the first digit or the second digit and that the third
+digit, when shifted, still equals either the first digit or the second digit. Therefore, we just need to figure
+out whether the first digit "shifts" into the second digit or the other way around. In the former case, the
+third digit equals the first digit. In the latter case, the third digit equals the second digit.
+Implementing this requires some careful work to prevent bugs.
+1
+int findPoisonectBottle(ArrayList<Bottle> bottles, ArrayList<TestStrip> strips) {
+2
+if ( b o t t l e s . s i z e ( ) > 1000 || s t r i p s . s i z e ( ) < 10) return -1;
+3
+4
+i n t tests = 4; // three d i g i t s , plus one extra
+5
+i n t nTestStrips = s t r i p s . s i z e ( ) ;
+6
+7
+/* Run t e s t s . »/
+8
+for (int day = 0; day < tests; day++) {
+9
+runTestSet(bottles, s t r i p s , day);
+10
+>
+11
+12
+/* Get results.
+*/
+13
+HashSet<Integer> previousResults = new HashSet<lnteger>();
+14
+i n t [ ] d i g i t s = new i n t [ t e s t s ] ;
+15
+f o r ( i n t day = 0; day < t e s t s ; day++) {
+16
+i n t resultDay = day + TestStrip.DAYS_F0R_RESULT;
+17
+d i g i t s [ d a y ] = getPositiveOnDay(strips, resultDay, previousResults);
+18
+previousResults.add(digits[day]);
+19
+)
+20
+21
+/* if day 1's results matched day 0's, update the d i g i t . */
+22
+if ( d i g i t s [ l ] == -1) {
+23
+d i g i t s [ l ] = d i g i t s [ 0 ] ;
+24
+}
+25
+26
+/* If day 2 matched day 0 or day 1, check day 3, Day 3 is the same as day 2, but
+27
+* incremented by 1. */
+28
+if ( d i g i t s [ 2 ] == -1) {
+3 0 2
+Cracking the Coding Interview, 6th Edition

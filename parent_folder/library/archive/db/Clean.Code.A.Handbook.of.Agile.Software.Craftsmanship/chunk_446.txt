@@ -1,0 +1,84 @@
+419
+Index
+dyadic argument, 40
+dyadic functions, 42
+dynamic proxies, 161
+E
+e, as a variable name, 22
+Eclipse, 26
+edit sessions, playing back, 13–14
+efficiency, of code, 7
+EJB architecture, early as over-engineered,
+167
+EJB standard, complete overhaul of, 164
+EJB2 beans, 160
+EJB3, Bank object rewritten in, 165–166
+“elegant” code, 7
+emergent design, 171–176
+encapsulation, 136
+of boundary conditions, 304
+breaking, 106–107
+of conditionals, 301
+encodings, avoiding, 23–24, 312–313
+entity bean, 158–160
+enum(s)
+changing MonthConstants to, 272
+using, 308–309
+enumeration, moving, 277
+environment, heuristics on, 287
+environment control system, 128–129
+envying, the scope of a class, 293
+error check, hiding a side effect, 258
+Error class, 47–48
+error code constants, 198–200
+error codes
+implying a class or enum, 47–48
+preferring exceptions to, 46
+returning, 103–104
+reusing old, 48
+separating from the Args module,
+242–250
+error detection, pushing to the edges, 109
+error flags, 103–104
+error handling, 8, 47–48
+error messages, 107, 250
+error processing, testing, 238–239
+errorMessage method, 250
+errors. See also boundary condition errors;
+spelling errors; string comparison
+errors
+classifying, 107
+Evans, Eric, 311
+events, 41
+exception classification, 107
+exception clauses, 107–108
+exception management code, 223
+exceptions
+instead of return codes, 103–105
+narrowing the type of, 105–106
+preferring to error codes, 46
+providing context with, 107
+separating from Args, 242–250
+throwing, 104–105, 194
+unchecked, 106–107
+execution, possible paths of, 321–326
+execution models, 183–185
+Executor framework, 326–327
+ExecutorClientScheduler.java, 321
+explanation, of intent, 56–57
+explanatory variables, 296–297
+explicitness, of code, 19
+expressive code, 295
+expressiveness
+in code, 10–11
+ensuring, 175–176
+Extract Method refactoring, 11
+Extreme Programming Adventures
+in C#, 10
+Extreme Programming Installed, 10
+“eye-full”, code fitting into, 79–80
+F
+factories, 155–156
+factory classes, 273–275
+failure
+to express ourselves in code, 54

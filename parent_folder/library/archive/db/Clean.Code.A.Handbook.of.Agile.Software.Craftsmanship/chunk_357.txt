@@ -1,0 +1,43 @@
+327
+Knowing Your Library
+public String call() throws Exception {
+String result = "";
+// make external request
+return result;
+}
+};
+Future<String> result = executorService.submit(makeExternalCall);
+String partialResult = doSomeLocalProcessing();
+return result.get() + partialResult;
+}
+In this example, the method starts executing the makeExternalCall object. The method con-
+tinues other processing. The ﬁnal line calls result.get(), which blocks until the future
+completes.
+Nonblocking Solutions
+The Java 5 VM takes advantage of modern processor design, which supports reliable,
+nonblocking updates. Consider, for example, a class that uses synchronization (and there-
+fore blocking) to provide a thread-safe update of a value:
+public class ObjectWithValue {
+private int value;
+public void synchronized incrementValue() { ++value; }
+public int getValue() { return value; }
+}
+Java 5 has a series of new classes for situations like this: AtomicBoolean,
+AtomicInteger, and AtomicReference are three examples; there are several more. We can
+rewrite the above code to use a nonblocking approach as follows:
+public class ObjectWithValue {
+private AtomicInteger value = new AtomicInteger(0);
+public void incrementValue() {
+value.incrementAndGet();
+}
+public int getValue() {
+return value.get();
+}
+}
+Even though this uses an object instead of a primitive and sends messages like
+incrementAndGet() instead of ++, the performance of this class will nearly always beat the
+previous version. In some cases it will only be slightly faster, but the cases where it will be
+slower are virtually nonexistent.
+How is this possible? Modern processors have an operation typically called Compare
+and Swap (CAS). This operation is analogous to optimistic locking in databases, whereas
+the synchronized version is analogous to pessimistic locking.

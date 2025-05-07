@@ -1,0 +1,81 @@
+430
+Index
+Third Law, of TDD, 122
+third-party code
+integrating, 116
+learning, 116
+using, 114–115
+writing tests for, 116
+this variable, 324
+Thomas, Dave, 8, 9, 289
+thread(s)
+adding to a method, 322
+interfering with each other, 330
+making as independent as
+possible, 182
+stepping on each other, 180, 326
+taking resources from other
+threads, 338
+thread management strategy, 320
+thread pools, 326
+thread-based code, testing, 342
+threaded code
+making pluggable, 187
+making tunable, 187–188
+symptoms of bugs in, 187
+testing, 186–190
+writing in Java 5, 182–183
+threading
+adding to a client/server application,
+319, 346–347
+problems in complex systems, 342
+thread-safe collections, 182–183, 329
+throughput
+causing starvation, 184
+improving, 319
+increasing, 333–335
+validating, 318
+throws clause, 106
+tiger team, 5
+tight coupling, 172
+time, taking to go fast, 6
+Time and Money project, 76
+file sizes, 77
+timely tests, 133
+timer program, testing, 121–122
+“TO” keyword, 36
+TO paragraphs, 37
+TODO comments, 58–59
+tokens, used as magic numbers, 300
+Tomcat project, 76, 77
+tools
+ConTest tool, 190, 342
+coverage, 313
+handling proxy boilerplate, 163
+testing thread-based code, 342
+train wrecks, 98–99
+transformations, as return values, 41
+transitive navigation, avoiding, 306–307
+triadic argument, 40
+triads, 42
+try blocks, 105
+try/catch blocks, 46–47, 65–66
+try-catch-finally statement, 105–106
+tunable threaded-based code, 187–188
+type encoding, 24
+U
+ubiquitous language, 311–312
+unambiguous names, 312
+unchecked exceptions, 106–107
+unencapsulated conditional, encapsulating,
+257
+unit testing, isolated as difficult, 160
+unit tests, 124, 175, 268
+unprofessional programming, 5–6
+uppercase C, in variable names, 20
+usability, of newspapers, 78
+use, of a system, 154
+users, handling concurrently, 179
+V
+validation, of throughput, 318
+variable names, single-letter, 25

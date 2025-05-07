@@ -1,0 +1,54 @@
+Solutions to Chapter 17 | Hard
+On one hand, yes. 3 could redeem itself and be the majority element, if there area bunch of 3s later in the
+array.
+On the other hand, not really. If 3 does redeem itself, then we'll encounter those 3s later on, in a subsequent
+validation step. We could terminate this v a l i d a t e ( 3 ) step.
+That logic is fine for the first element, but what about the next one? We would immediately terminate
+v a l i d a t e (1), v a l i d a t e ( 7 ) , a n d so on.
+Since the logic was okay for the first element, what if we treated all subsequent elements like they're the
+first element of some new subarray? This would mean that we start v a l i d a t e ( a r r a y [ 1 ] ) at index 1,
+v a l i d a t e ( a r r a y [ 2 ] ) at index 2, and soon.
+What would this look like?
+validate(3)
+sees 3 -> countYes = 1, countNo = 0
+sees 1 -> countYes = 1, countNo = 1
+TERMINATE. 3 is not majority thus f a r .
+v a l i d a t e ( l )
+sees l -> countYes = d, countNo = 0
+sees 7 -> countYes = 1, countNo = 1
+TERMINATE. 1 is not majority thus f a r .
+validate(7)
+sees 7 -> countYes = 1, countNo = 0
+sees 1 -> countYes = 1, countNo = 1
+TERMINATE, 7 is not majority thus f a r ,
+v a l i d a t e ( l )
+sees 1 -> countYes = 1, countNo = 0
+sees 1 -> countYes = 2, countNo = 0
+sees 7
+countYes = 2, countNo = 1
+sees 7 -> countYes = 2, countNo = 1
+TERMINATE. 1 is not majority thus f a r .
+v a l i d a t e ( l )
+sees 1 -> countYes = 1, countNo = 0
+sees 7 -> countYes = 1, countNo = 1
+TERMINATE. 1 is not majority thus f a r .
+validate(7)
+sees 7 -> countYes = 1, countNo = 0
+sees 7 -> countYes = 2, countNo = 0
+sees 3 -> countYes = 2, countNo = 1
+sees 7 -> countYes = 3, countNo = 1
+sees 7 -> countYes = 4, countNo = 1
+sees 7 -> countYes * 5, countNo = 1
+Do we know at this point that 7 is the majority element? Not necessarily. We have eliminated everything
+before that 7, and everything after it. But there could be no majority element. A quick v a l i d a t e ( 7) pass
+that starts from the beginning can confirm if 7 Is actually the majority element. This v a l i d a t e step will be
+O(N) time, which is also our Best Conceivable Runtime. Therefore, this final v a l i d a t e step won't impact
+our total runtime.
+This is pretty good, but let's see if we can make this a bit faster. We should notice that some elements are
+being "inspected" repeatedly. Can we get rid of this?
+Look atthe first v a l i d a t e (3).This failsafter the subarray [ 3 j 1], because 3 was not the majority element.
+But because v a l i d a t e fails the instant an element is not the majority element, it also means nothing else
+in that subarray was the majority element. By our earlier logic, we don't need to call v a l i d a t e ( l ) . We
+know that 1 did not appear more than half the time. If it is the majority element, it'll pop up later.
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

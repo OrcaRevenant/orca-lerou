@@ -1,0 +1,72 @@
+Solutions to Chapter 17 | Hard
+We're again at the same point we were in the first part of the problem. We need a calculation that can be
+applied such that the result is unique across all potential pairs of missing numbers.
+Perhaps there is such a calculation (the prime one would work, but it's not constant time), but your inter-
+viewer probably doesn't expect you to know such math.
+What else can we do? Let's go back to what we can do. We can get x + y and we can also get x * y. Each
+result leaves us with a number of possibilities. But using both of them narrows it down to the specific
+numbers.
+x + y = sum
+-> y = sum - x
+x * y = product -> x(sum - x) = product
+x*sum - x! = product
+x*sum - x3 - product = 6
+-xJ + x*sum - product = 0
+At this point, we can apply the quadratic formula to solve for x. Once we have x, we can then compute y.
+There are actually a number of other calculations you can perform. In fact, almost any other calculation
+(other than "linear" calculations) will give us values for x and y.
+For this part, let's use a different calculation. Instead of using the product of 1 * 2 * . . . * n,wecanuse
+the sum of the squares: 1J + 21 + . . . + n;.This will make the B i g l n t e g e r usage a little less critical,
+as the code will at least run on small values of n. We can discuss with our interviewer whether or not this is
+important.
+x + y = s
+-> y = s - x
+x: + y1 = t
+-> x1 + (s-x) s = t
+2x! - 2sx + s ' - t = 0
+Recall the quadratic formula:
+x = [ - b +- s q r t ( b 2 - 4ac>] / 2a
+where, in this case:
+a = 2
+b = -2s
+c = s : - t
+Implementing this is now somewhat straightforward.
+1
+i n t [ ] missingTwo(int[] array) {
+2
+i n t max_value = array.length + 2;
+3
+i n t rem_square = squareSumToN(max_value., 2);
+4
+i n t rem_one = max_value * (max_value + 1) / 2;
+5
+6
+for ( i n t i = 0; i < array.length; i++) {
+7
+rem_square -= a r r a y [ i ] * a r r a y [ i ] ;
+8
+remjDne -= a r r a y f i ] ;
+9
+}
+10
+11
+return solveEquation(rem_onej
+rem_square);
+12
+>
+13
+14 i n t squareSuittToM(int n, i n t power) {
+15
+i n t sum = 0;
+16
+for ( i n t i = 1; i <= n; i++) {
+17
+sum += ( i n t ) Math.pow(ij power);
+18
+>
+19
+return sum;
+20
+>
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

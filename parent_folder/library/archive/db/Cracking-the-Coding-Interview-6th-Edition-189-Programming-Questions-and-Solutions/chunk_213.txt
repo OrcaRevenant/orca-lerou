@@ -1,0 +1,49 @@
+Solutions to Chapter 1 | Arrays and Strings
+One other benefit of this approach is that we can initialize S t r i n g B u i l d e r to its necessary capacity
+up-front. Without this, S t r i n g B u i l d e r will (behind the scenes) need to double its capacity every time it
+hits capacity. The capacity could be double what we ultimately need.
+1.7
+Rotate Matrix: Given an image represented by an NxN matrix, where each pixel in the image is 4
+bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
+SOLUTION
+pg91
+Because we're rotating the matrix by 90 degrees, the easiest way to do this is to implement the rotation in
+layers. We perform a circular rotation on each layer, moving the top edge to the right edge, the right edge
+to the bottom edge, the bottom edge to the left edge, and the ieft edge to the top edge.
+1
+How do we perform this four-way edge swap? One option is to copy the top edge to an array, and then
+move the left to the top, the bottom to the left, and so on. This requires 0(N) memory, which is actually
+unnecessary.
+A better way to do this is to implement the swap index by index. In this case, we do the following:
+1
+f o r i = 0 to n
+2
+temp = t o p [ i ) ;
+3
+t p p [ i j = l e f t [ i ]
+4
+l e f t f i ] = bottom[i]
+5
+bottom[i] = r i g h t [ i ]
+6
+r i g h t [ i ] = temp
+We perform such a swap on each layer, starting from the outermost layer and working our way inwards.
+(Alternatively, we could start from the inner layer and work outwards.)
+The code for this algorithm is below.
+1
+boolean r o t a t e ( i n t [ ] [ ] matrix) {
+2
+if (matrix.length == 0 || matrix.length 1= matrix[0].length) return false;
+3
+i n t n = matrix,length;
+4
+for ( i n t layer = 0; layer < n / 2; layer++) {
+5
+i n t f i r s t = layer;
+6
+i n t last = n - 1 - layer;
+7
+f o r ( i n t i = f i r s t ; i < l a s t ; i++) {
+8
+i n t offset = i - f i r s t ;
+CrackingTheCodinglnterview.com | 6th Edition 199

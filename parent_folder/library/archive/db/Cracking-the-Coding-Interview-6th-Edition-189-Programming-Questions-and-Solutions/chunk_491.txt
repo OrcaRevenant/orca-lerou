@@ -1,0 +1,67 @@
+Solutions to Chapter 14 | Databases
+We also implemented a simple abs function to help.
+Division
+Of the three operations, division is certainty the hardest. The good thing is that we can use the mult i p l y ,
+s u b t r a c t , and negate methods now to implement d i v i d e .
+We are trying to compute x where X = Y'a. Or, to put this another way, find x where a = bx.We'venow
+changed the problem into one that can be stated with something we know how to do: multiplication.
+We could implement this by multiplying b by progressively higher values, until we reach a. That would be
+fairly inefficient, particularly given that our implementation of m u l t i p l y involves a lot of adding.
+Alternatively, we can look at the equation a = xb to see that we can compute x by adding b to itself
+repeatedly until we reach a. The number of times we need to do that will equal x.
+Of course, a might not be evenly divisible by b, and that's okay. Integer division, which is what we've been
+asked to implement, is supposed to truncate the result.
+The code below implements this algorithm.
+1
+i n t d i v i d e ( i n t a, i n t b) throws java.lang.ArithmeticException {
+2
+i f (b == 0) {
+3
+throw new java.lang.ArithmeticException("ERROR");
+4
+}
+5
+i n t absa = abs(a);
+6
+i n t absb = abs(b);
+7
+8
+int product = 0;
+9
+i n t x = 0;
+10
+while (product + absb <= absa) { /* don't go past a */
+11
+product += absb;
+12
+x++;
+13
+>
+14
+15
+i f ((a < 0 &S b < 0) I| (a > 0 S& b > 0)) {
+16
+return x;
+17
+) else {
+13
+return negate(x);
+19
+)
+20 }
+In tackling this problem, you should be aware of the following:
+•
+A logical approach of going back to what exactly multiplication and division do comes in handy.
+Remember that. All (good) interview problems can be approached in a logical, methodical way!
+•
+The interviewer is looking for this sort of logical work-your-way-through-it approach.
+•
+This is a great problem to demonstrate your ability to write clean code—specifically, to show your ability
+to reuse code. For example, if you were writing this solution and didn't put negate in its own method,
+you should move it into its own method once you see that you'll use it multiple times.
+•
+Be careful about making assumptions while coding. Don't assume that the numbers are alt positive or
+that a is bigger than b.
+CrackingTheCodinglnterview.com \ 6th
+Edition
+415

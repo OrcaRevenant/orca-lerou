@@ -1,0 +1,30 @@
+The longer you leave options open, the more experiments you can run, the more
+things you can try, and the more information you will have when you reach the
+point at which those decisions can no longer be deferred.
+What if the decisions have already been made by someone else? What if your
+company has made a commitment to a certain database, or a certain web server,
+or a certain framework? A good architect pretends that the decision has not been
+made, and shapes the system such that those decisions can still be deferred or
+changed for as long as possible.
+A good architect maximizes the number of decisions not made.
+DEVICE INDEPENDENCE
+As an example of this kind of thinking, let’s take a trip back to the 1960s, when
+computers were teenagers and most programmers were mathematicians or
+engineers from other disciplines (and-one third or more were women).
+In those days we made a lot of mistakes. We didn’t know they were mistakes at
+the time, of course. How could we?
+One of those mistakes was to bind our code directly to the IO devices. If we
+needed to print something on a printer, we wrote code that used the IO
+instructions that would control the printer. Our code was device dependent.
+For example, when I wrote PDP-8 programs that printed on the teleprinter, I
+used a set of machine instructions that looked like this:
+Click here to view code image
+PRTCHR, 0
+TSF
+JMP .-1
+TLS
+JMP I PRTCHR
+PRTCHR is a subroutine that prints one character on the teleprinter. The beginning
+zero was used as the storage for the return address. (Don’t ask.) The TSF
+instruction skipped the next instruction if the teleprinter was ready to print a
+character. If the teleprinter was busy, then TSF just fell through to the JMP .-1

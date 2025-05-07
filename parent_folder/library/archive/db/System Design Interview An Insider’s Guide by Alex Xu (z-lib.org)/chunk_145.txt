@@ -1,0 +1,31 @@
+Step 3 - Design deep dive
+In the high-level design, we discussed different types of notifications, contact info gathering
+flow, and notification sending/receiving flow. We will explore the following in deep dive:
+• Reliability.
+• Additional component and considerations: notification template, notification settings,
+rate limiting, retry mechanism, security in push notifications, monitor queued notifications
+and event tracking.
+• Updated design.
+Reliability
+We must answer a few important reliability questions when designing a notification system in
+distributed environments.
+How to prevent data loss?
+One of the most important requirements in a notification system is that it cannot lose data.
+Notifications can usually be delayed or re-ordered, but never lost. To satisfy this requirement,
+the notification system persists notification data in a database and implements a retry
+mechanism. The notification log database is included for data persistence, as shown in Figure
+10-11.
+Will recipients receive a notification exactly once?
+The short answer is no. Although notification is delivered exactly once most of the time, the
+distributed nature could result in duplicate notifications. To reduce the duplication
+occurrence, we introduce a dedupe mechanism and handle each failure case carefully. Here is
+a simple dedupe logic:
+When a notification event first arrives, we check if it is seen before by checking the event ID.
+If it is seen before, it is discarded. Otherwise, we will send out the notification. For interested
+readers to explore why we cannot have exactly once delivery, refer to the reference material
+[5].
+Additional components and considerations
+We have discussed how to collect user contact info, send, and receive a notification. A
+notification system is a lot more than that. Here we discuss additional components including
+template reusing, notification settings, event tracking, system monitoring, rate limiting, etc.
+Notification template

@@ -1,0 +1,40 @@
+var o = {
+baz: function(..) { .. }
+};
+o[ prefix + "foo" ] = function(..) { .. };
+o[ prefix + "bar" ] = function(..) { .. };
+..
+ES6 adds a syntax to the object literal definition which allows you to specify an
+expression that should be computed, whose result is the property name assigned.
+Consider:
+var prefix = "user_";
+var o = {
+baz: function(..) { .. },
+[ prefix + "foo" ]: function(..) { .. },
+[ prefix + "bar" ]: function(..) { .. }
+..
+};
+Any valid expression can appear inside the [ .. ] that sits in the property name
+position of the object literal definition.
+Probably the most common use of computed property names will be with `Symbol`s
+(which we cover in “Symbols” later in this chapter), such as:
+var o = {
+[Symbol.toStringTag]: "really cool thing",
+..
+};
+Symbol.toStringTag is a special built-in value, which we evaluate with the [ .. ]
+syntax, so we can assign the "really cool thing" value to the special property
+name.
+Computed property names can also appear as the name of a concise method or a con‐
+cise generator:
+var o = {
+["f" + "oo"]() { .. }   // computed concise method
+*["b" + "ar"]() { .. }  // computed concise generator
+};
+Setting [[Prototype]]
+We won’t cover prototypes in detail here, so for more information, see the this &
+Object Prototypes title of this series.
+38
+|
+Chapter 2: Syntax
+www.it-ebooks.info

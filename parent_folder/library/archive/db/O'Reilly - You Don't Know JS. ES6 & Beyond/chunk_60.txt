@@ -1,0 +1,41 @@
+verted. The longer the function, the less => helps; the shorter the function, the more
+=> can shine.
+I think it’s probably more sensible and reasonable to adopt => for the places in code
+where you do need short inline function expressions, but leave your normal-length
+main functions as-is.
+Not Just Shorter Syntax, But this
+Most of the popular attention toward => has been on saving those precious keystrokes
+by dropping function, return, and { .. } from your code.
+But, there’s a big detail we’ve skipped over so far. I said at the beginning of the section
+that => functions are closely related to this binding behavior. In fact, => arrow func‐
+tions are primarily designed to alter this behavior in a specific way, solving a particu‐
+lar and common pain point with this-aware coding.
+The saving of keystrokes is a red herring, a misleading side show at best.
+Let’s revisit another example from earlier in this chapter:
+var controller = {
+makeRequest: function(..) {
+var self = this;
+btn.addEventListener( "click", function(){
+// ..
+self.makeRequest(..);
+}, false );
+}
+};
+We used the var self = this hack, and then referenced self.makeRequest(..),
+which inside the callback function we’re passing to addEventListener(..), the this
+binding will not be the same as it is in makeRequest(..) itself. In other words,
+because this bindings are dynamic, we fall back to the predictability of lexical scope
+via the self variable.
+Herein we finally can see the primary design characteristic of => arrow functions.
+Inside arrow functions, the this binding is not dynamic, but is instead lexical. In the
+previous snippet, if we used an arrow function for the callback, this will be predicta‐
+bly what we wanted it to be.
+Consider:
+var controller = {
+makeRequest: function(..) {
+btn.addEventListener( "click", () => {
+// ..
+Arrow Functions
+|
+49
+www.it-ebooks.info

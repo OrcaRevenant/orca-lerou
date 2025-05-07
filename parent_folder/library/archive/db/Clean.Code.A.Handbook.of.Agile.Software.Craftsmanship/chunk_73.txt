@@ -1,0 +1,38 @@
+43
+Function Arguments
+Argument Objects
+When a function seems to need more than two or three arguments, it is likely that some of
+those arguments ought to be wrapped into a class of their own. Consider, for example, the
+difference between the two following declarations:
+Circle makeCircle(double x, double y, double radius);
+Circle makeCircle(Point center, double radius);
+Reducing the number of arguments by creating objects out of them may seem like
+cheating, but it’s not. When groups of variables are passed together, the way x and
+y are in the example above, they are likely part of a concept that deserves a name of its
+own.
+Argument Lists
+Sometimes we want to pass a variable number of arguments into a function. Consider, for
+example, the String.format method:
+String.format("%s worked %.2f hours.", name, hours);
+If the variable arguments are all treated identically, as they are in the example above, then
+they are equivalent to a single argument of type List. By that reasoning, String.format is
+actually dyadic. Indeed, the declaration of String.format as shown below is clearly
+dyadic.
+public String format(String format, Object... args)
+So all the same rules apply. Functions that take variable arguments can be monads,
+dyads, or even triads. But it would be a mistake to give them more arguments than
+that.
+void monad(Integer... args);
+void dyad(String name, Integer... args);
+void triad(String name, int count, Integer... args);
+Verbs and Keywords
+Choosing good names for a function can go a long way toward explaining the intent of
+the function and the order and intent of the arguments. In the case of a monad, the
+function and argument should form a very nice verb/noun pair. For example,
+write(name) is very evocative. Whatever this “name” thing is, it is being “written.” An
+even better name might be writeField(name), which tells us that the “name” thing is a
+“ﬁeld.”
+This last is an example of the keyword form of a function name. Using this form we
+encode the names of the arguments into the function name. For example, assertEquals
+might be better written as assertExpectedEqualsActual(expected, actual). This strongly
+mitigates the problem of having to remember the ordering of the arguments.

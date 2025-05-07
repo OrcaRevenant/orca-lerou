@@ -1,0 +1,51 @@
+Solutions to Chapter 17 | Hard
+Optimized (Better)
+Let's think about our previous algorithm. Is there any way we can make it more optimal?
+If we consider the runtime—0(PW +
+DW)—we probably can't get rid of the O(DW) factor. We have to
+touch each word at least once, and there are 0(DW) words. Therefore, if there's an optimization to be made,
+it's probably in theO(PW) term.
+It would be difficult to eliminate the P part in O(PW) because we have to at least print all P pairs (which
+takes 0(P) time).The best place to focus, then, is on the W part. Is there some way we can do less than 0(W)
+work for each pair of similar documents?
+One way to tackle this Is to analyze what information the hash table gives us. Consider this list of docu-
+ments:
+12: { l , 5, 9}
+13: {5, 3, 1> 8}
+14: {4, 3, 2}
+15: {1,
+9) 8}
+17: {1, 6}
+!f we look up document 12's elements in a hash table for this document, we'll get:
+1 -> {12, 13, IS, 17}
+5 -> {12, 13, 15}
+9 -> {12, IS)
+This tells us that documents 13,15, and 17 have some similarity. Under our current algorithm, we would
+now need to compare document 12 to documents 13,15, and 17 to see the number of elements document
+12 has in common with each (that is, the size of the intersection). The union can be computed from the
+document sizes and the intersection, as we did before.
+Observe, though, that document 13 appeared twice in the hash table, document 15 appeared three times,
+and document 17 appeared once. We discarded that information. But can we use it instead? What does it
+indicate that some documents appeared multiple times and others didn't?
+Document 13 appeared twice because it has two elements (1 and 5) in common. Document 17 appeared
+once because it has only one element (1) in common. Document 15 appeared three times because it has
+three elements (1, 5, and 9) in common. This information can actually directly give us the size of the inter-
+section.
+We could go through each document, look up the items in the hash table, and then count how many times
+each document appears in each item's lists. There's a more direct way to do it.
+1. As before, build a hash table for a list of documents.
+2. Create a new hash table that maps from a document pair to an integer (which will indicate the size of
+the intersection).
+3. Read the first hash table by iterating through each list of documents.
+4. For each list of documents, iterate through the pairs in that list. Increment the intersection count for
+each pair.
+Comparing this runtime to the previous one is a bit tricky. One way we can look at it is to realize that before
+we were doing 0(W) work for each similar pair. That's because once we noticed that two documents were
+similar, we touched every single word in each document. With this algorithm, we're only touching the words
+that actually overlap. The worst cases are still the same, but for many inputs this algorithm will be faster.
+1
+HashMapcOocPair, Double>
+2
+corrputeSimilanities(HashMap<Integer, Document> documents) {
+614
+Cracking the Coding Interview, 6th Edition

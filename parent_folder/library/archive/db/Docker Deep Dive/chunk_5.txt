@@ -1,0 +1,11 @@
+0: About the book
+This is a book about Docker. No prior knowledge required!
+If you’re interested in Docker and want to know how it works and how to do
+things properly this book is dedicated to you!
+If you just want to use Docker and you don’t care about how it all works, this
+book is not for you. Bye.
+What about a print (paperback) version
+No offense Leanpub and Amazon Kindle, but as good as modern e-books are,
+I’m still a fan of ink and paper! So…. this book is available as a high-quality,
+full-color, paperback edition via Amazon - and it’s the business! None of this
+black-and-white nonsense.

@@ -1,0 +1,88 @@
+Solutions to Chapter 16 | Moderate
+20
+int size « i;
+21
+land[row][col] = -1; // Mark visited
+22
+for (int dr = -1; dr <= l; dr++) {
+23
+for (int dc = -1; dc <= 1; dc++) {
+24
+size += computeSize(land, row + dr, col + dc);
+25
+}
+26
+}
+27
+return size;
+28 }
+In this case, we marked a cell as visited by setting Its value to -1. This allows us to check, in one line
+(land [row] [ c o l ] != 0), if the value is valid dryland or visited. In either case, the value will be zero.
+You might also notice that the for loop iterates through nine cells, not eight. It includes the current cell.
+We could add a line in there to not recurse if dr == 0 and dc == 0. This really doesn't save us much.
+We'll execute this if-statement in eight cells unnecessarily, just to avoid one recursive call. The recursive call
+returns immediately since the cell is marked as visited.
+If you don't like modifying the input matrix, you can create a secondary v i s i t e d matrix.
+1
+Arraylist<Integer> coi>!putePondSizes(int[][] land) {
+2
+boolean[][] visited = new boolean[land.length][land[0].length];
+ArrayList<lnteger> pondSizes = new ArrayList<Integer>();
+4
+for (int r = 0; r c land.length; r++) -(
+5
+for (int c = 0; c < land[r].length; C++) {
+6
+int size = computeSize(land, visited, r, c);
+7
+if (size > 0) {
+8
+pondSizes.add(size);
+9
+>
+10
+)
+11
+}
+12
+return pondSizes;
+13 }
+14
+15 int computeSize(int[][] land, boolean[][] visited, int row, int col) {
+16
+t* If out of bounds or already visited. */
+17
+if (row < 0 ]| col < 0 || row >= land.length || col >= land[row].length ||
+18
+visited[row][col] || land[row][col] 1=0) {
+19
+return 0;
+20
+>
+21
+int size = 1;
+22
+visited[row][col] = true;
+23
+for (int dr = - I ; dr <= 1; dr++) {
+24
+for (int dc = -1; dc <= 1; dc++) {
+25
+size += coraputeSize(land, visited, row + dr, col + dc);
+26
+}
+27
+}
+28
+return size;
+29 >
+Both implementations are O(WH), where W is the width of the matrix and H is the height,
+I
+Note: Many people say "0(N)"or "O(N^)" as though N has some inherent meaning. It doesn't.
+Suppose this were a square matrix. You could describe the runtime as O(N) or 0(N 2). Both are
+correct, depending on what you mean by N. The runtime is 0(
+), where N is the length of one
+side. Or, if N is the number of cells, it is 0( N). Be careful by what you mean by N. In fact, it might
+be safer to just not use N at all when there's any ambiguity as to what it could mean.
+492
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,32 @@
+MENTORING
+179
+U N CO N V E NTI O N A L M E NTO R I N G
+I told you those two stories because they describe two very different kinds of
+mentoring, neither of which are the kind that the word usually implies. In the
+first case I learned from the authors of a very well-written manual. In the
+second case I learned by observing people who were actively trying to ignore
+me. In both cases the knowledge gained was profound and foundational.
+Of course, I had other kinds of mentors too. There was the kindly neighbor
+who worked at Teletype who brought me home a box of 30 telephone relays to
+play with. Let me tell you, give a lad some relays and a electric train transformer
+and he can conquer the world!
+There was the kindly neighbor who was a ham operator who showed me how to
+use a multimeter (which I promptly broke). There was the office supply store
+owner who allowed me to come in and “play” with his very expensive
+programmable calculator. There was the Digital Equipment Corporation sales
+office that allowed me to come in and “play” with their PDP-8 and PDP-10.
+Then there was big Jim Carlin, a BAL programmer who saved me from being
+fired from my first programming job by helping me debug a Cobol program
+that was way beyond my depth. He taught me how to read core dumps, and
+how to format my code with appropriate blank lines, rows of stars, and
+comments. He gave me my first push towards craftsmanship. I’m sorry I could
+not return the favor when the boss’s displeasure fell on him a year later.
+But, frankly, that’s about it. There just weren’t that many senior programmers in
+the early seventies. Everywhere else I worked, I was senior. There was nobody to
+help me figure out what true professional programming was. There was no role
+model who taught me how to behave or what to value. Those things I had to
+learn for myself, and it was by no means easy.
+HAR D K N OC K S
+As I told you before, I did, in fact, get fired from that factory automation job in
+1976. Although I was technically very competent, I had not learned to pay
+attention to the business or the business goals. Dates and deadlines meant

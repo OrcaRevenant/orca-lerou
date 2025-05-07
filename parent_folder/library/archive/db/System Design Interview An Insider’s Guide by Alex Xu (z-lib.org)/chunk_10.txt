@@ -1,0 +1,2 @@
+so it does not support failover and redundancy. Database replication is a common technique
+to address those problems. Let us take a look.

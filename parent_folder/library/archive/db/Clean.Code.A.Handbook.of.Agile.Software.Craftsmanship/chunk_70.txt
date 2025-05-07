@@ -1,0 +1,40 @@
+40
+Chapter 3: Functions
+Don’t be afraid to spend time choosing a name. Indeed, you should try several differ-
+ent names and read the code with each in place. Modern IDEs like Eclipse or IntelliJ make
+it trivial to change names. Use one of those IDEs and experiment with different names
+until you ﬁnd one that is as descriptive as you can make it.
+Choosing descriptive names will clarify the design of the module in your mind and
+help you to improve it. It is not at all uncommon that hunting for a good name results in a
+favorable restructuring of the code.
+Be consistent in your names. Use the same phrases, nouns, and verbs in the function
+names you choose for your modules. Consider, for example, the names includeSetup-
+AndTeardownPages, includeSetupPages, includeSuiteSetupPage, and includeSetupPage. The
+similar phraseology in those names allows the sequence to tell a story. Indeed, if I
+showed you just the sequence above, you’d ask yourself: “What happened to
+includeTeardownPages, includeSuiteTeardownPage, and includeTeardownPage?” How’s that
+for being “. . . pretty much what you expected.”
+Function Arguments
+The ideal number of arguments for a function is
+zero (niladic). Next comes one (monadic), followed
+closely by two (dyadic). Three arguments (triadic)
+should be avoided where possible. More than three
+(polyadic) requires very special justiﬁcation—and
+then shouldn’t be used anyway.
+Arguments are hard. They take a lot of con-
+ceptual power. That’s why I got rid of almost all of
+them from the example. Consider, for instance, the
+StringBuffer in the example. We could have
+passed it around as an argument rather than mak-
+ing it an instance variable, but then our readers
+would have had to interpret it each time they saw
+it. When you are reading the story told by the
+module, includeSetupPage() is easier to understand than includeSetupPageInto(newPage-
+Content). The argument is at a different level of abstraction than the function name and
+forces you to know a detail (in other words, StringBuffer) that isn’t particularly important
+at that point.
+Arguments are even harder from a testing point of view. Imagine the difﬁculty of
+writing all the test cases to ensure that all the various combinations of arguments work
+properly. If there are no arguments, this is trivial. If there’s one argument, it’s not too hard.
+With two arguments the problem gets a bit more challenging. With more than two argu-
+ments, testing every combination of appropriate values can be daunting.

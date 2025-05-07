@@ -1,0 +1,28 @@
+381
+Appendix B: org.jfree.date.SerialDate
+436   public void testCreateInstanceFromDDMMYYY() throws Exception {
+437     SerialDate date = createInstance(1, JANUARY, 1900);
+438     assertEquals(1,date.getDayOfMonth());
+439     assertEquals(JANUARY,date.getMonth());
+440     assertEquals(1900,date.getYYYY());
+441     assertEquals(2,date.toSerial());
+442   }
+443
+444   public void testCreateInstanceFromSerial() throws Exception {
+445     assertEquals(d(1, JANUARY, 1900),createInstance(2));
+446     assertEquals(d(1, JANUARY, 1901), createInstance(367));
+447   }
+448
+449   public void testCreateInstanceFromJavaDate() throws Exception {
+450     assertEquals(d(1, JANUARY, 1900),
+createInstance(new GregorianCalendar(1900,0,1).getTime()));
+451     assertEquals(d(1, JANUARY, 2006),
+createInstance(new GregorianCalendar(2006,0,1).getTime()));
+452   }
+453
+454   public static void main(String[] args) {
+455     junit.textui.TestRunner.run(BobsSerialDateTest.class);
+456   }
+457 }
+Listing B-4 (continued)
+BobsSerialDateTest.java

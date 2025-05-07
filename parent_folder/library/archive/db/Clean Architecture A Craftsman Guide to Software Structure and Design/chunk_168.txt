@@ -1,0 +1,21 @@
+database doesn’t matter to the GUI, so there should be a line between them. The
+database doesn’t matter to the business rules, so there should be a line between
+them.
+Some of you may have rejected one or more of those statements, especially the
+part about the business rules not caring about the database. Many of us have
+been taught to believe that the database is inextricably connected to the business
+rules. Some of us have even been convinced that the database is the embodiment
+of the business rules.
+But, as we shall see in another chapter, this idea is misguided. The database is a
+tool that the business rules can use indirectly. The business rules don’t need to
+know about the schema, or the query language, or any of the other details about
+the database. All the business rules need to know is that there is a set of
+functions that can be used to fetch or save data. This allows us to put the
+database behind an interface.
+You can see this clearly in Figure 17.1. The BusinessRules use the
+DatabaseInterface to load and save data. The DatabaseAccess implements the
+interface and directs the operation of the actual Database.
+Figure 17.1 The database behind an interface
+The classes and interfaces in this diagram are symbolic. In a real application,
+there would be many business rule classes, many database interface classes, and
+many database access implementations. All of them, though, would follow

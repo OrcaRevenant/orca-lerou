@@ -1,0 +1,75 @@
+Solutions to Chapter 15 | Threads and Locks
+Therefore, to guarantee both an aligned address and space for this pointer, we will need to allocate an addi-
+tional a l i g n m e n t - 1 + s i z e o f ( v o i d * ) bytes.
+The code below implements this approach.
+1
+void* aligned_malloc(size_t requiredbytes, s i z e t alignment) {
+2
+void" p i ; // i n i t i a l block
+3
+void* p2; 11 aligned block inside i n i t i a l block
+4
+i n t o f f s e t = alignment - l + sizeof(void*);
+5
+if ( ( p i = (void*)malloc(required_bytes + o f f s e t ) ) == NULL) {
+6
+return NULL;
+7
+>
+8
+p2 = ( v o i d * ) ( ( ( s i z e t ) ( p i ) + o f f s e t ) & -(alignment - 1));
+9
+((void * * ) p 2 ) [ - l ]
+p i ;
+10
+return p2;
+11 }
+12
+13 void aligned_free(void *p2) {
+14
+I* f o r consistency, we use the same names as aligned_malloc*/
+15
+void- pi = ( ( v o i d * * ) p 2 ) [ - 1 ] ;
+16
+f r e e ( p l ) ;
+17
+}
+Let's look at the pointer arithmetic in lines 9 and 15. If we treat p2 as a v o i d * * (or an array of void*'s), we
+can just look at the index - 1 to retrieve p i .
+in a l i g n e d _ f r e e , we take p2 as the same p2 returned from a l i g n e d _ m a l l o c . As before, we know
+that the value of pi (which points to the beginning of the full memory block) was stored just before p2. By
+freeing p i , we deallocate the whole memory block.
+12.11 2D Alloc; Write a function in C called my2DAlloc which allocates a two-dimensional array.
+Minimize the number of calls to raalloc and make sure that the memory is accessible by the
+notation a r r [ i ] [ j ] .
+pg 164
+SOLUTION
+As you may know, a two-dimensional array is essentially an array of arrays. Since we use pointers with
+arrays, we can use double pointers to create a double array.
+The basic idea is to create a one-dimensional array of pointers. Then, for each array index, we create a new
+one-dimensional array. This gives us a two-dimensional array that can be accessed via array indices.
+The code below implements this.
+1
+i n t * * my2DAlloc(int rows, i n t cols) {
+2
+i n t * *
+rowptr;
+3
+i n t
+i ;
+4
+rowptr = ( i n t * * ) malloc(rows * s i z e o f ( i n t * ) ) ;
+5
+for (i = 0; i < rows; i++)
+{
+6
+r o w p t r [ i ] = ( i n t * ) malloc(cols * s i z e o f ( i n t ) ) ;
+7
+}
+8
+return rowptr;
+9
+>
+Observe how, in the above code, we've told r o w p t r where exactly each index should point. The following
+diagram represents how this memory is allocated.
+CrackingTheCodinglrtterview.com | 6th Edition 443

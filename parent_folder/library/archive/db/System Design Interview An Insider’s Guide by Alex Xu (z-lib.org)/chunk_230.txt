@@ -1,0 +1,10 @@
+In Figure 15-8, user 1 and user 2 tries to update the same file at the same time, but user 1’s
+file is processed by our system first. User 1’s update operation goes through, but, user 2 gets
+a sync conflict. How can we resolve the conflict for user 2? Our system presents both copies
+of the same file: user 2’s local copy and the latest version from the server (Figure 15-9). User
+2 has the option to merge both files or override one version with the other.
+While multiple users are editing the same document at the same, it is challenging to keep the
+document synchronized. Interested readers should refer to the reference material [4] [5].
+High-level design
+Figure 15-10 illustrates the proposed high-level design. Let us examine each component of
+the system.

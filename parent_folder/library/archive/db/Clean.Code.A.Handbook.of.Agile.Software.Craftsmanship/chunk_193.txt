@@ -1,0 +1,40 @@
+163
+Pure Java AOP Frameworks
+and complexity are two of the drawbacks of proxies. They make it hard to create clean
+code! Also, proxies don’t provide a mechanism for specifying system-wide execution
+“points” of interest, which is needed for a true AOP solution.11
+Pure Java AOP Frameworks
+Fortunately, most of the proxy boilerplate can be handled automatically by tools. Proxies
+are used internally in several Java frameworks, for example, Spring AOP and JBoss AOP,
+to implement aspects in pure Java.12 In Spring, you write your business logic as Plain-Old
+Java Objects. POJOs are purely focused on their domain. They have no dependencies on
+enterprise frameworks (or any other domains). Hence, they are conceptually simpler and
+easier to test drive. The relative simplicity makes it easier to ensure that you are imple-
+menting the corresponding user stories correctly and to maintain and evolve the code for
+future stories.
+You incorporate the required application infrastructure, including cross-cutting con-
+cerns like persistence, transactions, security, caching, failover, and so on, using declara-
+tive conﬁguration ﬁles or APIs. In many cases, you are actually specifying Spring or
+JBoss library aspects, where the framework handles the mechanics of using Java proxies
+or byte-code libraries transparently to the user. These declarations drive the dependency
+injection (DI) container, which instantiates the major objects and wires them together on
+demand.
+Listing 11-4 shows a typical fragment of a Spring V2.5 conﬁguration ﬁle, app.xml13:
+11. AOP is sometimes confused with techniques used to implement it, such as method interception and “wrapping” through
+proxies. The real value of an AOP system is the ability to specify systemic behaviors in a concise and modular way.
+12. See [Spring] and [JBoss]. “Pure Java” means without the use of AspectJ.
+Listing 11-4
+Spring 2.X configuration file
+<beans>
+...
+<bean id="appDataSource"
+class="org.apache.commons.dbcp.BasicDataSource"
+destroy-method="close"
+p:driverClassName="com.mysql.jdbc.Driver"
+p:url="jdbc:mysql://localhost:3306/mydb"
+p:username="me"/>
+<bean id="bankDataAccessObject"
+class="com.example.banking.persistence.BankDataAccessObject"
+p:dataSource-ref="appDataSource"/>
+<bean id="bank"
+13. Adapted from http://www.theserverside.com/tt/articles/article.tss?l=IntrotoSpring25

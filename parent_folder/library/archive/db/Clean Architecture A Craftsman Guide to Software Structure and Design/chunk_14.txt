@@ -1,0 +1,24 @@
+FOREWORD
+What do we talk about when we talk about architecture?
+As with any metaphor, describing software through the lens of architecture can
+hide as much as it can reveal. It can both promise more than it can deliver and
+deliver more than it promises.
+The obvious appeal of architecture is structure, and structure is something that
+dominates the paradigms and discussions of software development—
+components, classes, functions, modules, layers, and services, micro or macro.
+But the gross structure of so many software systems often defies either belief or
+understanding—Enterprise Soviet schemes destined for legacy, improbable
+Jenga towers reaching toward the cloud, archaeological layers buried in a big-
+ball-of-mud slide. It’s not obvious that software structure obeys our intuition the
+way building structure does.
+Buildings have an obvious physical structure, whether rooted in stone or
+concrete, whether arching high or sprawling wide, whether large or small,
+whether magnificent or mundane. Their structures have little choice but to
+respect the physics of gravity and their materials. On the other hand—except in
+its sense of seriousness—software has little time for gravity. And what is
+software made of? Unlike buildings, which may be made of bricks, concrete,
+wood, steel, and glass, software is made of software. Large software constructs
+are made from smaller software components, which are in turn made of smaller
+software components still, and so on. It’s coding turtles all the way down.
+When we talk about software architecture, software is recursive and fractal in
+nature, etched and sketched in code. Everything is details. Interlocking levels of

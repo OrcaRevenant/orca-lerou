@@ -1,0 +1,40 @@
+291
+General
+class EmptyException extends Exception {}
+class FullException extends Exception {}
+}
+The percentFull function is at the wrong level of abstraction. Although there are
+many implementations of Stack where the concept of fullness is reasonable, there are other
+implementations that simply could not know how full they are. So the function would be
+better placed in a derivative interface such as BoundedStack.
+Perhaps you are thinking that the implementation could just return zero if the stack
+were boundless. The problem with that is that no stack is truly boundless. You cannot
+really prevent an OutOfMemoryException by checking for
+stack.percentFull() < 50.0.
+Implementing the function to return 0 would be telling a lie.
+The point is that you cannot lie or fake your way out of a misplaced abstraction. Iso-
+lating abstractions is one of the hardest things that software developers do, and there is no
+quick ﬁx when you get it wrong.
+G7: Base Classes Depending on Their Derivatives
+The most common reason for partitioning concepts into base and derivative classes is so
+that the higher level base class concepts can be independent of the lower level derivative
+class concepts. Therefore, when we see base classes mentioning the names of their deriva-
+tives, we suspect a problem. In general, base classes should know nothing about their
+derivatives.
+There are exceptions to this rule, of course. Sometimes the number of derivatives is
+strictly ﬁxed, and the base class has code that selects between the derivatives. We see this a
+lot in ﬁnite state machine implementations. However, in that case the derivatives and base
+class are strongly coupled and always deploy together in the same jar ﬁle. In the general
+case we want to be able to deploy derivatives and bases in different jar ﬁles.
+Deploying derivatives and bases in different jar ﬁles and making sure the base jar ﬁles
+know nothing about the contents of the derivative jar ﬁles allow us to deploy our systems
+in discrete and independent components. When such components are modiﬁed, they can
+be redeployed without having to redeploy the base components. This means that the
+impact of a change is greatly lessened, and maintaining systems in the ﬁeld is made much
+simpler.
+G8: Too Much Information
+Well-deﬁned modules have very small interfaces that allow you to do a lot with a little.
+Poorly deﬁned modules have wide and deep interfaces that force you to use many different
+gestures to get simple things done. A well-deﬁned interface does not offer very many func-
+tions to depend upon, so coupling is low. A poorly deﬁned interface provides lots of func-
+tions that you must call, so coupling is high.

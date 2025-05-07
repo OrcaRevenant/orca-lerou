@@ -1,0 +1,24 @@
+NDepend, Structure101, Checkstyle) to check and automatically enforce
+architecture violations at build time. You may have seen such rules yourself;
+they usually manifest themselves as regular expressions or wildcard strings that
+state “types in package **/web should not access types in **/data”; and they are
+executed after the compilation step.
+This approach is a little crude, but it can do the trick, reporting violations of the
+architecture principles that you’ve defined as a team and (you hope) failing the
+build. The problem with both approaches is that they are fallible, and the
+feedback loop is longer than it should be. If left unchecked, this practice can turn
+a code base into a “big ball of mud.”6 I’d personally like to use the compiler to
+enforce my architecture if at all possible.
+This brings us to the “package by component” option. It’s a hybrid approach to
+everything we’ve seen so far, with the goal of bundling all of the responsibilities
+related to a single coarse-grained component into a single Java package. It’s
+about taking a service-centric view of a software system, which is something
+we’re seeing with micro-service architectures as well. In the same way that ports
+and adapters treat the web as just another delivery mechanism, “package by
+component” keeps the user interface separate from these coarse-grained
+components. Figure 34.6 shows what the “view orders” use case might look like.
+In essence, this approach bundles up the “business logic” and persistence code
+into a single thing, which I’m calling a “component.” Uncle Bob presented his
+definition of “component” earlier in the book, saying:
+Components are the units of deployment. They are the smallest entities that can be deployed as
+part of a system. In Java, they are jar files.

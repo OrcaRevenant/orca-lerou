@@ -1,0 +1,21 @@
+WHAT ABOUT INPUT AND OUTPUT?
+Developers and customers often get confused about what the system is. They see
+the GUI, and think that the GUI is the system. They define a system in terms of
+the GUI, so they believe that they should see the GUI start working immediately.
+They fail to realize a critically important principle: The IO is irrelevant.
+This may be hard to grasp at first. We often think about the behavior of the
+system in terms of the behavior of the IO. Consider a video game, for example.
+Your experience is dominated by the interface: the screen, the mouse, the
+buttons, and the sounds. You forget that behind that interface there is a model—a
+sophisticated set of data structures and functions—driving it. More importantly,
+that model does not need the interface. It would happily execute its duties,
+modeling all the events in the game, without the game ever being displayed on
+the screen. The interface does not matter to the model—the business rules.
+And so, once again, we see the GUI and BusinessRules components separated
+by a boundary line (Figure 17.4). Once again, we see that the less relevant
+component depends on the more relevant component. The arrows show which
+component knows about the other and, therefore, which component cares about
+the other. The GUI cares about the BusinessRules.
+Figure 17.4 The boundary between GUI and BusinessRules components
+Having drawn this boundary and this arrow, we can now see that the GUI could
+be replaced with any other kind of interface—and the BusinessRules would not

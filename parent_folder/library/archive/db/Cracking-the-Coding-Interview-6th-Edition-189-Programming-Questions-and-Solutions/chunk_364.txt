@@ -1,0 +1,94 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+This approach leads to a natural recursive algorithm. In each part, we are doing the following steps, outlined
+below with pseudocode:
+1 moveDisks(int n, Tower origin, Tower destination, Tower buffer) {
+2
+/* Base case *•/
+3
+if (n <= 0) return;
+4
+/* move top n - 1 disks from origin to buffer, using destination as a buffer. */
+6
+moveDisks(n - 1, origin, buffer, destination);
+7
+8
+/* move top from origin to destination
+9
+moveTop(origin, destination);
+10
+11
+/* move top n - 1 disks from buffer to destination, using origin as a buffer. */
+12
+moveDisl<s(n - 1, buffer, destination, origin);
+13 >
+The following code provides a more detailed implementation of this algorithm, using concepts of object-
+oriented design.
+1 void main(String[] args) {
+2
+int n = 3;
+3
+Tower[] towers = new Tower[n];
+4
+for (int i = 0; i < 3; i++) {
+5
+towers[i] = new Tower(i);
+6
+>
+7
+8
+for (int i = n - 1; i >= 0; i--) {
+9
+towers[0].add(i);
+10
+>
+11
+towers[0],moveDisks(n, towers[2], towers[1]);
+12 }
+13
+14 Class Tower (
+15
+private Stack<Integer> disks;
+16
+private int index;
+17
+public Tower(int i) {
+18
+disks = new Stack<Integer>();
+19
+index = i;
+20
+)
+21
+22
+public int index() {
+23
+return index;
+24
+>
+25
+26
+public void add(int d) {
+27
+if (Idisks.isEmptyO && disks.peek() <= d) {
+28
+System,out.println("Error placing disk " + d);
+29
+} else {
+30
+disks.push(d);
+31
+}
+32
+>
+33
+34
+public void moveTopTo(Tower t) {
+35
+int top = disks.pop();
+36
+t.add(top);
+37
+}
+38
+3 54
+Cracking the Coding Interview, 6th Edition

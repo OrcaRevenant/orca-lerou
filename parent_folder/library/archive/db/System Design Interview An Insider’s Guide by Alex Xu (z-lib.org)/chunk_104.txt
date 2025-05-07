@@ -1,0 +1,10 @@
+The maximum timestamp that can be represented in 41 bits is
+2 ^ 41 - 1 = 2199023255551 milliseconds (ms), which gives us: ~ 69 years =
+2199023255551 ms / 1000 seconds / 365 days / 24 hours/ 3600 seconds. This means the ID
+generator will work for 69 years and having a custom epoch time close to today’s date delays
+the overflow time. After 69 years, we will need a new epoch time or adopt other techniques
+to migrate IDs.
+Sequence number
+Sequence number is 12 bits, which give us 2 ^ 12 = 4096 combinations. This field is 0 unless
+more than one ID is generated in a millisecond on the same server. In theory, a machine can
+support a maximum of 4096 new IDs per millisecond.

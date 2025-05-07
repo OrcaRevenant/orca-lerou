@@ -1,0 +1,72 @@
+Solutions to Chapter 17 | Moderate
+Case digit > 2
+Now, let's look at the case where dth digit of x is greater than 2 (x [ d ] > 2). We can apply almost the exact
+same logic to see that there are the same number of 2s in the 3rd digit in the ranges - 63525 as there as
+in the range 0 - 70000. So, rather than rounding down, we round up.
+if x[d] > 2: count2s!nRangeAtDigit(x, d) =
+let y = round up to nearest 10°"
+return y / 10
+Case digit = 2
+The final case may be the trickiest, but it follows from the earlier logic. Consider x = 62523 and d = 3. We
+know that there are the same ranges of 2s from before {that is, the ranges 2000 - 2999,12000 - 12999,
+..„ 52000 - 52999). How many appear in the 3rd digit in the final, partial range from 62000 - 62523?
+Well, that should be pretty easy. It's just 524 (62000, 62001,
+62523).
+if x[d] = 2: count2sInRangeAtDigit(x, d) -
+l e t y = round down to nearest 10dil
+l e t z = right side of x ( i . e . , x Si 10")
+return y / 10 + z + 1
+Now, all you need is to iterate through each digit in the number. Implementing this code is reasonably
+straightforward.
+1
+int count2s!nRangeAtDigit(int number, int d) {
+2
+int powerOf10 = (int) Math.pow(l0, d);
+3
+int nextPowerOf10 = powerOfl0 * 10;
+4
+int right - number % powerOfl0;
+5
+6
+int roundDown = number - number % nextPowerOfl0;
+7
+int roundup = roundDown + nextPowerOfl0;
+8
+9
+int digit = (number / powerOf10) % 10;
+10
+if (digit < 2) { // if the digit in spot digit is
+11
+return roundDown / 10;
+12
+> else if (digit «* 2) {
+13
+return roundDown / 10 + right + 1;
+14
+) else {
+15
+return roundup / 10;
+16
+>
+17
+}
+18
+19 int count2sInRange(int number) {
+20
+i n t count = 0;
+21
+int len = String.valueOf(number),length();
+22
+for (int digit = 0; digit < len; digit++) {
+23
+count += count2s!nRangeAtDigit(number, digit);
+24
+>
+25
+return count;
+26
+}
+This question requires very careful testing. Make sure to generate a list of test cases, and to work through
+each of them.
+492
+Cracking the Coding Interview, 6th Edition

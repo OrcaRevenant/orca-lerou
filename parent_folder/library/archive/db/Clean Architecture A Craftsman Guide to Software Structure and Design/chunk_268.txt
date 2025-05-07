@@ -1,0 +1,30 @@
+your problems.
+Framework authors know their own problems, and the problems of their
+coworkers and friends. And they write their frameworks to solve those problems
+—not yours.
+Of course, your problems will likely overlap with those other problems quite a
+bit. If this were not the case, frameworks would not be so popular. To the extent
+that such overlap exists, frameworks can be very useful indeed.
+ASYMMETRIC MARRIAGE
+The relationship between you and the framework author is extraordinarily
+asymmetric. You must make a huge commitment to the framework, but the
+framework author makes no commitment to you whatsoever.
+Think about this point carefully. When you use a framework, you read through
+the documentation that the author of that framework provides. In that
+documentation, the author, and other users of that framework, advise you on how
+to integrate your software with the framework. Typically, this means wrapping
+your architecture around that framework. The author recommends that you
+derive from the framework’s base classes, and import the framework’s facilities
+into your business objects. The author urges you to couple your application to
+the framework as tightly as possible.
+For the framework author, coupling to his or her own framework is not a risk.
+The author wants to couple to that framework, because the author has absolute
+control over that framework.
+What’s more, the author wants you to couple to the framework, because once
+coupled in this way, it is very hard to break away. Nothing feels more validating
+to a framework author than a bunch of users willing to inextricably derive from
+the author’s base classes.
+In effect, the author is asking you to marry the framework—to make a huge,
+long-term commitment to that framework. And yet, under no circumstances will
+the author make a corresponding commitment to you. It’s a one-directional
+marriage. You take on all the risk and burden; the framework author takes on

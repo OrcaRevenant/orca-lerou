@@ -1,0 +1,21 @@
+Notice the pattern that I’ve quite deliberately set up in introducing these three
+programming paradigms: Each of the paradigms removes capabilities from the
+programmer. None of them adds new capabilities. Each imposes some kind of
+extra discipline that is negative in its intent. The paradigms tell us what not to
+do, more than they tell us what to do.
+Another way to look at this issue is to recognize that each paradigm takes
+something away from us. The three paradigms together remove goto statements,
+function pointers, and assignment. Is there anything left to take away?
+Probably not. Thus these three paradigms are likely to be the only three we will
+see—at least the only three that are negative. Further evidence that there are no
+more such paradigms is that they were all discovered within the ten years
+between 1958 and 1968. In the many decades that have followed, no new
+paradigms have been added.
+CONCLUSION
+What does this history lesson on paradigms have to do with architecture?
+Everything. We use polymorphism as the mechanism to cross architectural
+boundaries; we use functional programming to impose discipline on the location
+of and access to data; and we use structured programming as the algorithmic
+foundation of our modules.
+Notice how well those three align with the three big concerns of architecture:
+function, separation of components, and data management.

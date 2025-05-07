@@ -1,0 +1,5 @@
+Message table for group chat
+Figure 12-10 shows the message table for group chat. The composite primary key is
+(channel_id, message_id). Channel and group represent the same meaning here. channel_id
+is the partition key because all queries in a group chat operate in a channel.
+Message ID

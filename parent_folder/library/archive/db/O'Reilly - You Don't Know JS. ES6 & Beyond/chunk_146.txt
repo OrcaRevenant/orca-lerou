@@ -1,0 +1,53 @@
+] );
+yield step4( ret );
+}
+On the surface this snippet may seem more verbose than the promise chain equiva‐
+lent in the earlier snippet. However, it offers a much more attractive — and more
+importantly, a more understandable and reason-able — synchronous-looking coding
+style (with = assignment of “return” values, etc.) That’s especially true in that
+try..catch error handling can be used across those hidden async boundaries.
+Why are we using promises with the generator? It’s certainly possible to do async gen‐
+erator coding without promises.
+Promises are a trustable system that univerts the inversion of control of normal call‐
+backs or thunks (see the Async & Performance title of this series). So, combining the
+trustability of Promises and the synchronicity of code in generators effectively
+addresses
+all
+the
+major
+deficiences
+of
+callbacks.
+Also,
+utilities
+like
+Promise.all([ .. ]) are a nice, clean way to express concurrency at a generator’s
+single yield step.
+So how does this magic work? We’re going to need a runner that can run our genera‐
+tor, receive a `yield`ed promise, and wire it up to resume the generator with either
+the fulfillment success value, or throw an error into the generator with the rejection
+reason.
+Many async-capable utilities/libraries have such a “runner”; for example,
+Q.spawn(..) and my asynquence’s runner(..) plugin. But here’s a stand-alone run‐
+ner to illustrate how the process works:
+function run(gen) {
+var args = [].slice.call( arguments, 1), it;
+it = gen.apply( this, args );
+return Promise.resolve()
+.then( function handleNext(value){
+var next = it.next( value );
+return (function handleResult(next){
+if (next.done) {
+return next.value;
+}
+else {
+return Promise.resolve( next.value )
+.then(
+handleNext,
+function handleErr(err) {
+return Promise.resolve(
+it.throw( err )
+Generators + Promises
+|
+135
+www.it-ebooks.info

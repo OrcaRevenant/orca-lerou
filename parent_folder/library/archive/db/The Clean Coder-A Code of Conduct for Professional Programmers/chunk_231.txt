@@ -1,0 +1,30 @@
+200
+tables both in form and intent. The tests can be quickly assembled into suites,
+and the suites can be run at a whim.
+FitNesse is written in Java but can test systems in any language because it
+communicates with an underlying test system that can be written in any
+language. Supported languages include Java, C#/.NET, C, C++, Python, Ruby,
+PHP, Delphi, and others.
+There are two test systems that underlie FitNesse: Fit and Slim. Fit was written
+by Ward Cunningham and was the original inspiration for FitNesse and it’s ilk.
+Slim is a much simpler and more portable test system that is favored by
+FitNesse users today.
+O TH E R TOO L S
+I know of several other tools that could classify as component testing tools.
+• RobotFX is a tool developed by Nokia engineers. It uses a similar tabular
+format to FitNesse, but is not wiki based. The tool simply runs on flat files
+prepared with Excel or similar. The tool is written in Python but can test
+systems in any language using appropriate bridges.
+• Green Pepper is a commercial tool that has a number of similarities with
+FitNesse. It is based on the popular confluence wiki.
+• Cucumber is a plain text tool driven by a Ruby engine, but capable of
+testing many different platforms. The language of Cucumber is the popular
+Given/When/Then style.
+• JBehave is similar to Cucumber and is the logical parent of Cucumber. It is
+written in Java.
+I NTEG R ATI O N TE STI N G TOO L S
+Component testing tools can also be used for many integration tests, but are
+less than appropriate for tests that are driven through the UI.
+In general, we don’t want to drive very many tests through the UI because UIs are
+notoriously volatile. That volatility makes tests that go through the UI very fragile.
+APPENDIX A TOOLING

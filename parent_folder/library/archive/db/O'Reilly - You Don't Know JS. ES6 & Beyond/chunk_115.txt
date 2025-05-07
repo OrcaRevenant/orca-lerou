@@ -1,0 +1,40 @@
+There can only be one default per module definition. We’ll cover import in the next
+section, and you’ll see how the import syntax is more concise if the module has a
+default export.
+There’s a subtle nuance to default export syntax that you should pay close attention to.
+Compare these two snippets:
+function foo(..) {
+// ..
+}
+export default foo;
+And this one:
+function foo(..) {
+// ..
+}
+export { foo as default };
+In the first snippet, you are exporting a binding to the function expression value at
+that moment, not to the identifier foo. In other words, export default .. takes an
+expression. If later inside your module you assign foo to a different value, the module
+import still reveals the function originally exported, not the new value.
+By the way, the first snippet could also have been written as:
+export default function foo(..) {
+// ..
+}
+Even though the function foo.. part here is technically a func‐
+tion expression, for the purposes of the internal scope of the mod‐
+ule, it’s treated like a function declaration, in that the foo name is
+bound in the module’s top-level scope (often called “hoisting”). The
+same is true for export default class Foo... However, while
+you can do export var foo = .., you currently cannot do export
+default var foo = .. (or let or const), in a frustrating case of
+inconsistency. At the time of this writing, there’s already discussion
+of adding that capability in soon, post-ES6, for consistency sake.
+Recall the second snippet again:
+function foo(..) {
+// ..
+}
+export { foo as default };
+104
+|
+Chapter 3: Organization
+www.it-ebooks.info

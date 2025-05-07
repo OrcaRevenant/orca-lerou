@@ -1,0 +1,95 @@
+Solutions to Chapter 7 j Object-Oriented Design
+Setting the Numbered Cells
+Once the bombs have been placed, we need to set the values of the numbered cells. We could go through
+each cell and check how many bombs are around it. This would work, but it's actually a bit slower than is
+necessary.
+Instead, we can go to each bomb and increment each cell around it. For example, cells with 3 bombs will get
+incrementNumber called three times on them and will wind up with a number of 3.
+1
+/* Set the cells around the bombs to the r i g h t number. Although the bombs have
+2
+* been shuffled, the reference in the bombs array is s t i l l to same object. */
+3
+void setNumberedCells() {
+4
+i n t [ ] [ ] deltas = { // Offsets of 8 surrounding cells
+5
+{ - 1 , -1}, { - 1 , 6}, { - 1 , 1>,
+6
+{ 0, -1}>
+{ 03 1>,
+7
+{ 1, -1}, { 1, 0}, { 1, 1}
+3
+} ;
+9
+for {Cell bomb : bombs) {
+10
+i n t row = bomb.getRow{);
+11
+i n t col = bomb.getColumnO;
+12
+for ( i n t [ ] delta : deltas) {
+13
+i n t r =>= row + d e l t a [ 0 ] j
+14
+i n t c = col + d e l t a [ l ] ;
+15
+if (in8ounds(r,
+c)) {
+16
+cells[r][c].incrementNumber();
+17
+}
+18
+>
+19
+)
+20 )
+Expanding a Blank Region
+Expanding the blank region could be done either iteratively or recursively. We implemented it iteratively.
+You can think about this algorithm like this: each blank cell is surrounded by either blank cells or numbered
+cells (never a bomb). All need to be flipped. But, if you're flipping a blank celi, you also need to add the blank
+cells to a queue, to flip their neighboring cells,
+1
+void expandBlank(Cell c e l l ) {
+2
+infill[1 deltas = {
+3
+{ - 1 , - 1 } , { - 1 . 0), {-1, 1},
+4
+{ 0, -1},
+{ 0, 1>,
+5
+{ 1, -1}, { 1, 0}, { 1, 1}
+6
+} ;
+7
+8
+Queue<Cell> toExplore = new LinkedList<Cell>();
+9
+toExplore,add(cell);
+10
+11
+while (ItoExplore.isEmptyO) {
+12
+Cell current = toExplore.remove();
+13
+14
+f o r ( i n t [ J delta : deltas) {
+15
+i n t r = current.getRow() + d e l t a [ 0 ] ;
+16
+i n t c = current.getColumn{) + d e l t a [ l ] ;
+17
+18
+if (inBounds(rj c)) {
+19
+Cell neighbor = c e l l s [ r ] [ c ] ;
+20
+if (flipCell(neighbor) && neighbor.isBlank()) {
+21
+toExplore.add(neighbor);
+348 Cracking
+the Coding
+Interview, 6th Edition

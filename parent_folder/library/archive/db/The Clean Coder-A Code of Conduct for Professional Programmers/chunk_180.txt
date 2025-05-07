@@ -1,0 +1,20 @@
+CHAPTER 10 ESTIMATION
+148
+When professionals make commitments, they provide hard numbers, and then
+they make those numbers. However, in most cases professionals do not make
+such committments. Rather, they provide probabilistic estimates that describe
+the expected completion time and the likely variance.
+Professional developers work with the other members of their team to achieve
+consensus on the estimates that are given to management.
+The techniques described in this chapter are examples of some of the different
+ways that professional developers create practical estimates. These are not the
+only such techniques and are not necessarily the best. They are simply
+techniques that I have found to work well for me.
+B I B LI OG R APH Y
+[McConnell2006]: Steve McConnell, Software Estimation: Demystifying the Black
+Art, Redmond, WA: Microsoft Press, 2006.
+[Boehm81]: Barry W. Boehm, Software Engineering Economics, Upper Saddle
+River, NJ: Prentice Hall, 1981.
+[Grenning2002]: James Grenning, “Planning Poker or How to Avoid Analysis
+Paralysis while Release Planning, ” April 2002, http://renaissancesoftware.
+net/papers/14-papers/44-planing-poker.html

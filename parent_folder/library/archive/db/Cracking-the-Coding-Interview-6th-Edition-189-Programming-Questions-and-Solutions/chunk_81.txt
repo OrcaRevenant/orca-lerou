@@ -1,0 +1,44 @@
+VII j Technical Questions
+• Optimize & Solve Technique #3: Simplify and Generalize
+With Simplify and Generalize, we implement a multi-step approach. First, we simplify or tweak some
+constraint, such as the data type. Then, we solve this new simplified version of the problem. Finally, once we
+have an algorithm for the simplified problem, we try to adapt it for the more complex version.
+[
+Example: A ransom note can be formed by cutting words out of a magazine to form a new
+sentence. How would you figure out if a ransom note (represented as a string) can be formed
+from a given magazine (string)?
+To simplify the problem, we can modify it so that we are cutting characters out of a magazine instead of
+whole words.
+We can solve the simplified ransom note problem with characters by simply creating an array and counting
+the characters. Each spot in the array corresponds to one letter. First, we count the number of times each
+character in the ransom note appears, and then we go through the magazine to see if we have all of those
+characters.
+When we generalize the algorithm, we do a very similar thing. This time, rather than creating an array with
+character counts, we create a hash table that maps from a word to its frequency.
+• Optimize & Solve Technique #4: Base Case and Build
+With Base Case and Build, we solve the problem first for a base case (e.g., n = 1) and then try to build up
+from there. When we get to more complex/interesting cases (often n = 3 or n = 4), we try to build those
+using the prior solutions,
+I
+Example: Design an algorithm to print all permutations of a string. For simplicity, assume all char-
+acters are unique.
+Considera test string abcdef g.
+Case " a " --> { " a " }
+Case "ab" --> { " a h " , "ba"}
+Case "abe" --> ?
+This is the first "interesting" case. If we had the answer to P ( " a b " ) , how could we generate P ( " a b c " ) ?
+Well, the additional letter is"c,"so we can just stick c in at every possible point. That is:
+P("abc") = insert "c" into all locations of all strings in p("ab")
+P("abc") = insert "c" into all locations of all strings in {"ab'V'ba"}
+P("abc") = merge ({"cab", "acb", "abc"}, {"cba
+J
+', "be a", b a c " »
+P("abc") = {"cab", "acb", "abc", "cba", "bea", bac"}
+Now that we understand the pattern, we can develop a general recursive algorithm. We generate all permu-
+tations of a string s i . . . Sn by "chopping off" the last character and generating all permutations of s l . . .
+sn l. Once we have the list of all permutations of S l . .. S •
+f we iterate through this list. For each string in it,
+we insert sn into every location of the string.
+Base Case and Build algorithms often lead to natural recursive algorithms.
+CrackingTheCgdinglnterview.com ] 6th Edition
+81

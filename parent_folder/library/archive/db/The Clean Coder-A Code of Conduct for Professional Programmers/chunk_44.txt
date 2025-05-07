@@ -1,0 +1,30 @@
+CHAPTER 1 PROFESSIONALISM
+12
+“Are you telling us we must be perfect?” Do I hear you object?
+No, I’m telling you that you must be responsible for your imperfections. The
+fact that bugs will certainly occur in your code does not mean you aren’t
+responsible for them. The fact that the task to write perfect software is virtually
+impossible does not mean you aren’t responsible for the imperfection.
+It is the lot of a professional to be accountable for errors even though errors are
+virtually certain. So, my aspiring professional, the first thing you must practice
+is apologizing. Apologies are necessary, but insufficient. You cannot simply keep
+making the same errors over and over. As you mature in your profession, your
+error rate should rapidly decrease towards the asymptote of zero. It won’t ever
+get to zero, but it is your responsibility to get as close as possible to it.
+QA Should Find Nothing
+Therefore, when you release your software you should expect QA to find no
+problems. It is unprofessional in the extreme to purposely send code that you
+know to be faulty to QA. And what code do you know to be faulty? Any code
+you aren’t certain about!
+Some folks use QA as the bug catchers. They send them code that they haven’t
+thoroughly checked. They depend on QA to find the bugs and report them back
+to the developers. Indeed, some companies reward QA based on the number of
+bugs they find. The more bugs, the greater the reward.
+Never mind that this is a desperately expensive behavior that damages the
+company and the software. Never mind that this behavior ruins schedules and
+undermines the confidence of the enterprise in the development team. Never
+mind that this behavior is just plain lazy and irresponsible. Releasing code to QA
+that you don’t know works is unprofessional. It violates the “do no harm” rule.
+Will QA find bugs? Probably, so get ready to apologize—and then figure out
+why those bugs managed to escape your notice and do something to prevent it
+from happening again.

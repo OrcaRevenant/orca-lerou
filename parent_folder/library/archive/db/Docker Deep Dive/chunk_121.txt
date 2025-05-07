@@ -1,0 +1,30 @@
+Backward compatibility
+Introducing swarm mode was extremely important for Docker, Inc. But so is
+maintaining backward compatibility! As a result, swarm mode is entirely
+optional (this may or may not change in the future). A standard installation of
+Docker will default to running in single engine mode, ensuring 100% backward
+compatibility with previous versions of Docker.
+This is great news if you’re a user or developer of 3rd party clustering tools etc.
+As long as you keep Docker 1.12 and later in single-engine mode, all of your
+existing tools and apps will work as normal! However, as soon as you take the
+plunge and put your Docker hosts into swarm mode you risk breaking those 3rd
+party tools and apps.
+In short, putting a Docker Engine into swarm mode gives you all of the latest
+orchestration goodness, it just comes at the price of some backward
+compatibility.
+Swarm mode primer
+Let’s take a minute or two to explain the major components and constructs in a
+swarm.
+A swarm consists of one or more nodes. These can be physical servers, VMs, or
+cloud instances. The only requirement is that all nodes in a swarm can
+communicate with each other over reliable networks.
+Nodes are then configured as managers or workers. Managers look after the
+state of the cluster and are in charge of dispatching tasks to workers. Workers
+accept tasks from managers and execute them.
+When talking about tasks in the context of a swarm, we mean containers. So,
+when we say “managers dispatch tasks to workers”, we’re saying they dispatch
+container workloads. You might also hear them referred to as replicas. This
+might be confusing at this point, so try and remember that tasks and replicas are
+words that mean containers.
+The next thing we need to know about is services. At the highest level, services
+are the way to run tasks on a Swarm. To run a task (container) on Swarm we

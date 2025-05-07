@@ -1,0 +1,30 @@
+190
+in the midst of each iteration. This keeps everyone happy, doesn’t violate any
+corporate rules, and keeps your productivity high.
+PE S S I M I STI C V E R S U S O PTI M I STI C LOC K I N G
+Pessimistic locking seemed like a good idea in the ’80s. After all, the simplest
+way to manage concurrent update problems is to serialize them. So if I’m
+editing a file, you’d better not. Indeed, the system of colored pins that I used in
+the late ’70s was a form of pessimistic locking. If there was a pin in a file, you
+didn’t edit that file.
+Of course, pessimistic locking has its problems. If I lock a file and then go on
+vacation, everybody else who wants to edit that file is stuck. Indeed, even if I
+keep the file locked for a day or two, I can delay others who need to make
+changes.
+Our tools have gotten much better at merging source files that have been edited
+concurrently. It’s actually quite amazing when you think about it. The tools look
+at the two different files and at the ancestor of those two files, and then they
+apply multiple strategies to figure out how to integrate the concurrent changes.
+And they do a pretty good job.
+So the era of pessimistic locking is over. We do not need to lock files when we
+check them out anymore. Indeed, we don’t bother to check out individual files
+at all. We just check out the whole system and edit any files we need to.
+When we are ready to check in our changes, we perform an “update” operation.
+This tells us whether anybody else checked in code ahead of us, automatically
+merges most of the changes, finds conflicts, and helps us do the remaining
+merges. Then we commit the merged code.
+I’ll have a lot to say about the role that automated tests and continuous
+integration play with regard to this process later on in this chapter. For the
+moment let’s just say that we never check in code that doesn’t pass all the tests.
+Never ever.
+APPENDIX A TOOLING

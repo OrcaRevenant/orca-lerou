@@ -1,0 +1,24 @@
+XI. Advanced Topics
+Depending on the balance and where the imbalance occurs, we fix it in a different way.
+• Case 1: Balance is 2.
+In this case, the left's height is two bigger than the right's height, if the left side is larger, the left subtree's
+extra nodes must be hanging to the left (as in LEFT LEFT SHAPE) or hanging to the right (as in LEFT RIGHT
+SHAPE). If it looks like the LEFT RIGHT SHAPE, transform it with the rotations below into the LEFT LEFT
+SHAPE then into BALANCED. If it looks like the LEFT LEFT SHAPEalready, just transform it into BALANCED.
+LEFT RIGHT SHAPE
+LEFT LEFT SHAPE
+BALANCED
+>
+Case 2: Balance is-2.
+This case is the mirror image of the prior case. The tree will look like either the RIGHT LEFT SHAPE or the
+RIGHT RIGHT SHAPE. Perform the rotations below to transform it into BALANCED,
+RIGHT LEFT SHAPE
+RIGHT RIGHT SHAPE
+BALANCED
+In both cases, "balanced" just means that the balance of the tree is between -1 and 1. It does not mean
+that the balance isO.
+We recurse up the tree, fixing any imbalances. If we ever achieve a balance of 0 on a subtree, then we know
+that we have completed all the balances. This portion of the tree wilt not cause another, higher subtree to
+have a balance of-2 or 2. If we were doing this non-recursively, then we could break from the loop.
+6î0
+Cracking the Coding Interview, 6th Edition

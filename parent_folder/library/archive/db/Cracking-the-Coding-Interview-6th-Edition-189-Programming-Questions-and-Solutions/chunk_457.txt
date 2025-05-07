@@ -1,0 +1,33 @@
+1 5
+Solutions to Threads and Locks
+15.1
+Thread vs. Process: What's the difference between a thread and a process?
+pg 179
+SOLUTION
+Processes and threads are related to each other but are fundamentally different,
+A process can be thought of as an instance of a program in execution. A process is an independent entity to
+which system resources (e.g., CPU time and memory) are allocated. Each process is executed in a separate
+address space, and one process cannot access the variables and data structures of another process. If a
+process wishes to access another process'resources, inter process communications have to be used. These
+include pipes, files, sockets, and other forms.
+A thread exists within a process and shares the process' resources [including its heap space). Multiple
+threads within the same process will share the same heap space.This is very different from processes, which
+cannot directly access the memory of another process. Each thread still has its own registers and its own
+stack, but other threads can read and write the heap memory.
+A thread is a particular execution path of a process. When one thread modifies a process resource, the
+change is immediately visible to sibling threads.
+15.2
+Context Switch: How would you measure the time spent in a context switch?
+pg 179
+SOLUTION
+This is a tricky question, but let's start with a possible solution.
+A context switch is the time spent switching between two processes (i.e., bringing a waiting process into
+execution and sending an executing process into waiting/terminated state).This happens in multitasking.
+The operating system must bring the state information of waiting processes into memory and save the
+state information of the currently running process.
+In order to solve this problem, we would like to record the timestamps of the last and first instruction of
+the swapping processes. The context switch time is the difference in the timestamps between the two
+processes.
+Let's take an easy example: Assume there are only two processes, P and P
+CrackingTheCodinglnterview.com 16th Edition
+447

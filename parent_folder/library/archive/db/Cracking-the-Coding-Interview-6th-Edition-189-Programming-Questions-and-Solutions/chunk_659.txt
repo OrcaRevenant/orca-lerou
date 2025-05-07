@@ -1,0 +1,90 @@
+XI. Code Library
+• LinkedListNode (Linked List)
+Like the TreeNode class, we often needed access to the internals of a linked list in a way that the built-in
+linked list class wouldn't support. For this reason, we implemented our own class and used it for many
+problems.
+1
+public class LinkedListNode {
+2
+public LinkedListNode next, prev, l a s t ;
+3
+public i n t data;
+4
+public LinkedListNode(int d, LinkedListNode n, LinkedListNode p){
+5
+data = d;
+6
+setNext(n);
+7
+setPrevious(p);
+8
+}
+9
+10
+public LinkedListNode(int d) {
+11
+data = d;
+12
+>
+13
+14
+public LinkedListNode() { >
+15
+16
+public void setNextfLinkedListNode n) {
+17
+next = n;
+18
+if ( t h i s == l a s t ) {
+19
+last = n;
+20
+>
+21
+if (n I= n u l l && n.prev 1= t h i s ) {
+22
+n.setPrevious(this);
+23
+>
+24
+>
+25
+26
+public void setPrevious(LinkedListNode p) {
+27
+prev = p;
+28
+if (p 1= n u l l &S p.next 1= t h i s ) {
+29
+p.setNext(this);
+30
+>
+31
+}
+32
+33
+public LinkedListNode clone() {
+34
+LinkedListNode next2 = n u l l ;
+35
+if (next 1= n u l l ) {
+36
+next2 = next.clonef);
+37
+>
+38
+LinkedListNode head2 = new LinkedListNode(data, next2, n u l l ) ;
+39
+return head2;
+40
+}
+41
+}
+Again, we've kept the methods and variables public because we often needed this access. This would allow
+the user to "destroy" the linked list, but we actually needed this sort of functionality for our purposes.
+• Trie&TrieNode
+The trie data structure is used in a few problems to make it easier to look up if a word is a prefix of any other
+words in a dictionary (or list of valid words).This is often used when we're recursively building words so that
+we can short circuit when the word is not valid.
+CrackingTheCoding lnterview.com | 6th Edition
+649

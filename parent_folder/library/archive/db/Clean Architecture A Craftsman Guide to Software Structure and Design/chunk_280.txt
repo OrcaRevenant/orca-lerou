@@ -1,0 +1,25 @@
+Another problem is that, as Uncle Bob has already said, a layered architecture
+doesn’t scream anything about the business domain. Put the code for two layered
+architectures, from two very different business domains, side by side and they
+will likely look eerily similar: web, services, and repositories. There’s also
+another huge problem with layered architectures, but we’ll get to that later.
+PACKAGE BY FEATURE
+Another option for organizing your code is to adopt a “package by feature” style.
+This is a vertical slicing, based on related features, domain concepts, or
+aggregate roots (to use domain-driven design terminology). In the typical
+implementations that I’ve seen, all of the types are placed into a single Java
+package, which is named to reflect the concept that is being grouped.
+With this approach, as shown in Figure 34.2, we have the same interfaces and
+classes as before, but they are all placed into a single Java package rather than
+being split among three packages. This is a very simple refactoring from the
+“package by layer” style, but the top-level organization of the code now screams
+something about the business domain. We can now see that this code base has
+something to do with orders rather than the web, services, and repositories.
+Another benefit is that it’s potentially easier to find all of the code that you need
+to modify in the event that the “view orders” use case changes. It’s all sitting in a
+single Java package rather than being spread out.3
+I often see software development teams realize that they have problems with
+horizontal layering (“package by layer”) and switch to vertical layering
+(“package by feature”) instead. In my opinion, both are suboptimal. If you’ve
+read this book so far, you might be thinking that we can do much better—and
+you’re right.

@@ -1,0 +1,89 @@
+Solutions to Chapter 17 j Hard
+In actuality, all we need is the closure row, which is the minimum of all the other rows. We don't need to
+store all the other next occurrence information the entire time.
+Instead, as we do each sweep, we just update the closure row with the minimums. The rest of the algorithm
+works essentially the same way.
+1
+Range shortestSupersequence(int[] big, i n t [ ] small) {
+2
+i n t [ ] closures = getClosures(big, small);
+3
+return getShortestClosure(closures);
+4
+>
+5
+6
+/* Get closure f o r each index. */
+7
+i n t [ ] getClosures(int[] big, i n t [ ] small) {
+8
+i n t [ ] closure = new i n t [ b i g . l e n g t h ] ;
+9
+for ( i n t i = 0; i < small.length; i++) {
+10
+sweepForClosure(big, closure, s m a l l [ i ] ) ;
+11
+}
+12
+return closure;
+13
+}
+14
+15 /* Do backwards sweep and update the closures l i s t with the next occurrence of
+16
+* value, if i t ' s later than the current closure. */
+17 void sweepForClosure(int[] big, i n t [ ] closures, i n t value) {
+18
+i n t next = -1;
+19
+for ( i n t i = big.length - 1; i >= 0; i - - ) {
+20
+if ( b i g [ i ] == value) {
+21
+next = i;
+22
+>
+23
+if {(next =« -1 || closures[i] < next) &&
+24
+(closures[i] != -1)) {
+25
+closures[i] = next;
+26
+}
+27
+}
+28 >
+29
+30 /* Get shortest closure. */
+31 Range getShortestClosure(int[] closures) {
+32
+Range shortest = new Range(0, closures[0]);
+33
+f o r ( i n t i = 1; i c closures.length; i++) {
+34
+if (closures[i] == -1) {
+35
+break;
+36
+>
+Range range = new Range(i, c l o s u r e s [ i ] ) ;
+38
+if
+(Ishortest.shorterThan(range))
+{
+39
+shortest = range;
+40
+>
+41
+}
+42
+return shortest;
+43 >
+This still runs in O(SB) time, but it now only takes 0(B) additional memory.
+Alternative & More Optimal Solution
+There's a totally different way to approach it. Let's suppose we had a list of the occurrences of each element
+in smallArray.
+55 S
+Cracking the Coding interview, 6th Edition

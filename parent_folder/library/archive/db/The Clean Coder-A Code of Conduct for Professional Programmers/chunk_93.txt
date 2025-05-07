@@ -1,0 +1,32 @@
+PREPAREDNESS
+61
+Paralyzed. A million miles away working through the problem in the
+background rather than actually solving the coding problem in front of me.
+Sometimes I will force myself to think about the code. I might drive myself to
+write a line or two. I might push myself to get a test or two to pass. But I can’t
+keep it up. Inevitably I find myself descending into a stupefied insensibility, seeing
+nothing through my open eyes, inwardly churning on the background worry.
+I have learned that this is no time to code. Any code I produce will be trash. So
+instead of coding, I need to resolve the worry.
+Of course, there are many worries that simply cannot be resolved in an hour or
+two. Moreover, our employers are not likely to long tolerate our inability to
+work as we resolve our personal issues. The trick is to learn how to shut down
+the background process, or at least reduce its priority so that it’s not a
+continuous distraction.
+I do this by partitioning my time. Rather than forcing myself to code while the
+background worry is nagging at me, I will spend a dedicated block of time,
+perhaps an hour, working on the issue that is creating the worry. If my child is
+sick, I will call home and check in. If I’ve had an argument with my wife, I’ll call
+her and talk through the issues. If I have money problems, I’ll spend time
+thinking about how I can deal with the financial issues. I know I’m not likely to
+solve the problems in this hour, but it is very likely that I can reduce the anxiety
+and quiet the background process.
+Ideally the time spent wrestling with personal issues would be personal time. It
+would be a shame to spend an hour at the office this way. Professional developers
+allocate their personal time in order to ensure that the time spent at the office is
+as productive as possible. That means you should specifically set aside time at
+home to settle your anxieties so that you don’t bring them to the office.
+On the other hand, if you find yourself at the office and the background
+anxieties are sapping your productivity, then it is better to spend an hour
+quieting them than to use brute force to write code that you’ll just have to
+throw away later (or worse, live with).

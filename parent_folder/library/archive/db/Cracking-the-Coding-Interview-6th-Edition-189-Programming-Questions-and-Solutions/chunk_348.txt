@@ -1,0 +1,101 @@
+Solutions to Chapter 7 j Object-Oriented Design
+32
+public void changeName(String rt) { name = n; }
+33
+public String getName() { return name; }
+34 }
+35
+36 public class File extends Entry {
+37
+private String content;
+38
+private int size;
+39
+40
+public File(String n. Directory p, int sz) {
+41
+super(n, p);
+42
+size = sz;
+43
+>
+44
+45
+public int size() { return size; }
+46
+public String getContentsO { return content; }
+47
+public void setContents(String c) { content = c; }
+48 >
+49
+50 public class Directory extends Entry {
+51
+protected ArrayList<Entry> contents;
+52
+53
+public Directory(String n, Directory p) {
+54
+superfn, p);
+55
+contents = new ArrayList<Entry>();
+56
+>
+57
+58
+public int size() {
+59
+int size = 0;
+60
+for (Entry e : contents) {
+61
+size += e.size();
+62
+}
+63
+return size;
+64
+>
+65
+66
+public int numberOfFilesQ {
+67
+int count = 0;
+68
+for (Entry e : contents) (
+69
+if (e instanceof Directory) {
+70
+count++; // Directory counts as a file
+71
+Directory d = (Directory) e;
+72
+count += d,numberOfFiles();
+73
+> else if (e instanceof File) {
+74
+count++;
+75
+}
+76
+}
+77
+return count;
+78
+>
+79
+80
+public boolean delete£ntry(Entry entry) {
+81
+return contents.remove(entry);
+82
+>
+83
+84
+public void addEntry(Entry entry) {
+85
+contents.add(entry);
+86
+)
+87
+338
+Cracking the Coding Interview, 6th Edition

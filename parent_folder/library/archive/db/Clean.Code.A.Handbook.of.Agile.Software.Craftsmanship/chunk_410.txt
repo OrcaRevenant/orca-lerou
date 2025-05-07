@@ -1,0 +1,66 @@
+382
+Appendix B: org.jfree.date.SerialDate
+Listing B-5
+SpreadsheetDate.java
+1 /* ========================================================================
+2  * JCommon : a free general purpose class library for the Java(tm) platform
+3  * ========================================================================
+4  *
+5  * (C) Copyright 2000-2005, by Object Refinery Limited and Contributors.
+6  *
+7  * Project Info:  http://www.jfree.org/jcommon/index.html
+8  *
+9  * This library is free software; you can redistribute it and/or modify it
+10  * under the terms of the GNU Lesser General Public License as published by
+11  * the Free Software Foundation; either version 2.1 of the License, or
+12  * (at your option) any later version.
+13  *
+14  * This library is distributed in the hope that it will be useful, but
+15  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+16  * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public
+17  * License for more details.
+18  *
+19  * You should have received a copy of the GNU Lesser General Public
+20  * License along with this library; if not, write to the Free Software
+21  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,
+22  * USA.
+23  *
+24  * [Java is a trademark or registered trademark of Sun Microsystems, Inc.
+25  * in the United States and other countries.]
+26  *
+27  * --------------------
+28  * SpreadsheetDate.java
+29  * --------------------
+30  * (C) Copyright 2000-2005, by Object Refinery Limited and Contributors.
+31  *
+32  * Original Author:  David Gilbert (for Object Refinery Limited);
+33  * Contributor(s):   -;
+34  *
+35  * $Id: SpreadsheetDate.java,v 1.8 2005/11/03 09:25:39 mungady Exp $
+36  *
+37  * Changes
+38  * -------
+39  * 11-Oct-2001 : Version 1 (DG);
+40  * 05-Nov-2001 : Added getDescription() and setDescription() methods (DG);
+41  * 12-Nov-2001 : Changed name from ExcelDate.java to SpreadsheetDate.java (DG);
+42  *               Fixed a bug in calculating day, month and year from serial
+43  *               number (DG);
+44  * 24-Jan-2002 : Fixed a bug in calculating the serial number from the day,
+45  *               month and year.  Thanks to Trevor Hills for the report (DG);
+46  * 29-May-2002 : Added equals(Object) method (SourceForge ID 558850) (DG);
+47  * 03-Oct-2002 : Fixed errors reported by Checkstyle (DG);
+48  * 13-Mar-2003 : Implemented Serializable (DG);
+49  * 04-Sep-2003 : Completed isInRange() methods (DG);
+50  * 05-Sep-2003 : Implemented Comparable (DG);
+51  * 21-Oct-2003 : Added hashCode() method (DG);
+52  *
+53  */
+54
+55 package org.jfree.date;
+56
+57 import java.util.Calendar;
+58 import java.util.Date;
+59
+60 /**
+61  * Represents a date using an integer, in a similar fashion to the
+62  * implementation in Microsoft Excel.  The range of dates supported is

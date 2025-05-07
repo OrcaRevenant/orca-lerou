@@ -1,0 +1,29 @@
+Macintosh was only five years old. Windows was a joke back then. But Sun
+Microsystems was building Sparcstations that had credible X-Windows GUIs.
+So we went with Sun—and therefore with C and UNIX.
+This was a startup. We worked 70 to 80 hours per week. We had the vision. We
+had the motivation. We had the will. We had the energy. We had the expertise.
+We had equity. We had dreams of being millionaires. We were full of shit.
+The C code poured out of every orifice of our bodies. We slammed it here, and
+shoved it there. We constructed huge castles in the air. We had processes, and
+message queues, and grand, superlative architectures. We wrote a full seven-
+layer ISO communications stack from scratch—right down to the data link layer.
+We wrote GUI code. GOOEY CODE! OMG! We wrote GOOOOOEY code.
+I personally wrote a 3000-line C function named gi(); its name stood for
+Graphic Interpreter. It was a masterpiece of goo. It was not the only goo I wrote
+at Clear, but it was my most infamous.
+Architecture? Are you joking? This was a startup. We didn’t have time for
+architecture. Just code, dammit! Code for your very lives!
+So we coded. And we coded. And we coded. But, after three years, what we
+failed to do was sell. Oh, we had an installation or two. But the market was not
+particularly interested in our grand vision, and our venture capital financiers
+were getting pretty fed up.
+I hated my life at this point. I saw all my effort and dreams crashing down. I had
+conflicts at work, conflicts at home because of work, and conflicts with myself.
+And then I got a phone call that changed everything.
+THE SETUP
+Two years before that phone call, two things of significance happened.
+First, I managed to set up a uucp connection to a nearby company that had a
+uucp connection to another facility that was connected to the Internet. These
+connections were dial-up, of course. Our main Sparcstation (the one on my desk)
+used a 1200-bps modem to call up our uucp host twice per day. This gave us

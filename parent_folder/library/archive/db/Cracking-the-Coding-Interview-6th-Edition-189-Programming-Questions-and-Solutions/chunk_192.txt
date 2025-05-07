@@ -1,0 +1,50 @@
+Chapter 16 | Moderate
+16.8
+English Int: Given any integer, print an English phrase that describes the integer (e.g., "OneThou-
+sand, Two Hundred Thirty Four").
+Hints; #502, #588, #688
+16.9
+Operations: Write methods to implement the multiply, subtract, and divide operations for integers.
+The results of all of these are integers. Use only the add operator.
+Hints: #572, #600, #613, #648
+16.10 Living People: Given a list of people with their birth and death years, implement a method to
+compute the year with the most number of people alive. You may assume that all people were born
+between 1900 and 2000 (inclusive). If a person was alive during any portion of that year, they should
+be included in that year's count. For example. Person (birth = 1908, death = 1909) is included in the
+counts for both 1908 and 1909.
+Hints: #476, #490, #507, #514, #523, #532, #541, #549, #576
+16.11 Diving Board: You are building a diving board by placing a bunch of planks of wood end-to-end.
+There are two types of planks, one of length s h o r t e r and one of length longer. You must use
+exactly K planks of wood. Write a method to generate all possible lengths for the diving board.
+Hints: #690, #700, #715, #722, #740, #747
+16.12 XML Encoding: Since XML is very verbose, you are given a way of encoding it where each tag gets
+mapped to a pre-defined integer value. The language/grammar is as follows:
+Element
+--> Tag A t t r i b u t e s END Children END
+A t t r i b u t e --> Tag Value
+END
+--> 0
+Tag
+--> some predefined mapping to i n t
+Value
+--> s t r i n g value
+For example, the following XML might be converted into the compressed string below (assuming a
+mapping of f a m i l y -> 1,
+person ->2,
+f i r s t N a m e -> 3,
+lastName - > 4 ,
+s t a t e
+-> 5).
+<family lastName="McDowell" state="CA">
+•cperson firstName="Gayle">Some Message</person>
+</family>
+Becomes:
+1 4 McDowell 5 CA 0 2 3 Gayle 0 Some Message 0 0
+Write code to print the encoded version of an XML element (passed in Element and A t t r i b u t e
+objects).
+Hints: #466
+16.13 Bisect Squares: Given two squares on a two-dimensional plane, find a line that would cut these two
+squares in half. Assume that the top and the bottom sides of the square run parallel to the x-axis.
+Hints: #468, #479, #528, #560
+184
+Cracking t h e Coding Interview, 6th Edition

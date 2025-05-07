@@ -1,0 +1,30 @@
+• Using this formula, we get 3 + 5 * 0.7% = 6.5 request. Depending on the use case, the
+number can either be rounded up or down. In our example, it is rounded down to 6.
+Since the rate limiter allows a maximum of 7 requests per minute, the current request can go
+through. However, the limit will be reached after receiving one more request.
+Due to the space limitation, we will not discuss the other implementation here. Interested
+readers should refer to the reference material [9]. This algorithm is not perfect. It has pros and
+cons.
+Pros
+• It smooths out spikes in traffic because the rate is based on the average rate of the
+previous window.
+• Memory efficient.
+Cons
+• It only works for not-so-strict look back window. It is an approximation of the actual rate
+because it assumes requests in the previous window are evenly distributed. However, this
+problem may not be as bad as it seems. According to experiments done by Cloudflare [10],
+only 0.003% of requests are wrongly allowed or rate limited among 400 million requests.
+High-level architecture
+The basic idea of rate limiting algorithms is simple. At the high-level, we need a counter to
+keep track of how many requests are sent from the same user, IP address, etc. If the counter is
+larger than the limit, the request is disallowed.
+Where shall we store counters? Using the database is not a good idea due to slowness of disk
+access. In-memory cache is chosen because it is fast and supports time-based expiration
+strategy. For instance, Redis [11] is a popular option to implement rate limiting. It is an in-
+memory store that offers two commands: INCR and EXPIRE.
+• INCR: It increases the stored counter by 1.
+• EXPIRE: It sets a timeout for the counter. If the timeout expires, the counter is
+automatically deleted.
+Figure 4-12 shows the high-level architecture for rate limiting, and this works as follows:
+• The client sends a request to rate limiting middleware.
+• Rate limiting middleware fetches the counter from the corresponding bucket in Redis and

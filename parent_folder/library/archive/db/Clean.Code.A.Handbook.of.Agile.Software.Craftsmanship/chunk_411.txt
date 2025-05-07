@@ -1,0 +1,66 @@
+383
+Appendix B: org.jfree.date.SerialDate
+63  * 1-Jan-1900 to 31-Dec-9999.
+64  * <P>
+65  * Be aware that there is a deliberate bug in Excel that recognises the year
+66  * 1900 as a leap year when in fact it is not a leap year. You can find more
+67  * information on the Microsoft website in article Q181370:
+68  * <P>
+69  * http://support.microsoft.com/support/kb/articles/Q181/3/70.asp
+70  * <P>
+71  * Excel uses the convention that 1-Jan-1900 = 1.  This class uses the
+72  * convention 1-Jan-1900 = 2.
+73  * The result is that the day number in this class will be different to the
+74  * Excel figure for January and February 1900...but then Excel adds in an extra
+75  * day (29-Feb-1900 which does not actually exist!) and from that point forward
+76  * the day numbers will match.
+77  *
+78  * @author David Gilbert
+79  */
+80 public class SpreadsheetDate extends SerialDate {
+81
+82     /** For serialization. */
+83     private static final long serialVersionUID = -2039586705374454461L;
+84
+85     /**
+86      * The day number (1-Jan-1900 = 2, 2-Jan-1900 = 3, ..., 31-Dec-9999 =
+87      * 2958465).
+88      */
+89     private int serial;
+90
+91     /** The day of the month (1 to 28, 29, 30 or 31 depending on the month). */
+92     private int day;
+93
+94     /** The month of the year (1 to 12). */
+95     private int month;
+96
+97     /** The year (1900 to 9999). */
+98     private int year;
+99
+100     /** An optional description for the date. */
+101     private String description;
+102
+103     /**
+104      * Creates a new date instance.
+105      *
+106      * @param day  the day (in the range 1 to 28/29/30/31).
+107      * @param month  the month (in the range 1 to 12).
+108      * @param year  the year (in the range 1900 to 9999).
+109      */
+110     public SpreadsheetDate(final int day, final int month, final int year) {
+111
+112         if ((year >= 1900) && (year <= 9999)) {
+113             this.year = year;
+114         }
+115         else {
+116             throw new IllegalArgumentException(
+117                 "The 'year' argument must be in range 1900 to 9999."
+118             );
+119         }
+120
+121         if ((month >= MonthConstants.JANUARY)
+122                 && (month <= MonthConstants.DECEMBER)) {
+123             this.month = month;
+124         }
+Listing B-5 (continued)
+SpreadsheetDate.java

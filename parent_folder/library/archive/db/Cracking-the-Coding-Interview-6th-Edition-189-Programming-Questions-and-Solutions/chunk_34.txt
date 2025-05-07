@@ -1,0 +1,48 @@
+Ill I Special Situations
+Probe deeper on behavioral questions.
+Many candidates are poor at articulating their specific accomplishments.
+You ask them a question about a challenging situation, and they tetl you about a difficult situation their
+team faced. As far as you can tell, the candidate didn't really do much.
+Not so fast, though. A candidate might not focus on themselves because they've been trained to celebrate
+their team's accomplishments and not boast about themselves. This is especially common for people in
+leadership rotes and female candidates.
+Don't assume that a candidate didn't do much in a situation just because you have trouble understanding
+what they did. Call out the situation (nicely!). Ask them specifically if they can tell you what their role was.
+If it didn't really sound like resolving the situation was difficult, then, again, probe deeper. Ask them to go
+into more details about how they thought about the issue and the different steps they took. Ask them why
+they took certain actions. Not describing the details of the actions they took makes them a flawed candi-
+date, but not necessarily a flawed employee.
+Being a good interview candidate is its own skill (after all, that's part of why this book exists), and it's prob-
+ably not one you want to evaluate.
+Coach your candidates.
+Read through the sections on how candidates can develop good algorithms. Many of these tips are ones
+you can offer to candidates who are struggling. You're not "teaching to the test" when you do this; you're
+separating interview skills from job skills.
+•
+Many candidates don't use an example to solve an interview question {or they don't use a good
+example). This makes it substantially more difficult to develop a solution, but it doesn't necessarily mean
+that they're not very good problem solvers. If candidates don't write an example themselves, or if they
+inadvertently write a special case, guide them.
+•
+Some candidates take a long time to find the bug because they use an enormous example. This doesn't
+make them a bad tester or developer, Itjust means that they didn't realize that it would be more efficient
+to analyze their code conceptually first, or that a small example would work nearly as well. Guide them.
+«
+If they dive into code before they have an optimal solution, pull them back and focus them on the algo-
+rithm (if that's what you want to see). It's unfair to say that a candidate never found or implemented the
+optimal solution if they didn't really have the time to do so.
+•
+If they get nervous and stuck and aren't sure where to go, suggest to them that they walk through the
+brute force solution and look for areas to optimize.
+•
+If they haven't said anything and there is a fairly obvious brute force, remind them that they can start off
+with a brute force. Their first solution doesn't have to be perfect.
+Even if you think that a candidate's ability in one of these areas is an important factor, it's not the only factor.
+You can always mark someone down for "failing" this hurdle while helping to guide them past it.
+While this book is here to coach candidates through interviews, one of your goals as an interviewer is to
+remove the effect of not preparing. After all, some candidates have studied for interviews and some candi-
+dates haven't, and this probably doesn't reveal much about their skills as an engineer.
+Guide candidates using the tips in this book (within reason, of course—you don't want to coach candidates
+through the problems so much that you're not evaluating their problem-solving skills anymore).
+24
+Cracking the Coding Interview, 6th Edition

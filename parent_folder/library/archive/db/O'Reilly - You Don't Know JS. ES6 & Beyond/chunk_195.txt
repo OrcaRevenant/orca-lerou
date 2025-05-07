@@ -1,0 +1,44 @@
+return Object.defineProperty(
+target, prop, desc
+);
+}
+},
+proxy = new Proxy( {}, handlers );
+proxy.a = 2;
+// getOwnPropertyDescriptor
+// defineProperty
+The getOwnPropertyDescriptor(..) and defineProperty(..) handlers are trig‐
+gered by the default set(..) handler’s steps when setting a property value (whether
+newly adding or updating). If you also define your own set(..) handler, you may or
+may not make the corresponding calls against context (not target!) which would
+trigger these proxy traps.
+Proxy Limitations
+These meta programming handlers trap a wide array of fundamental operations you
+can perform against an object. However, there are some operations which are not
+(yet, at least) available to intercept.
+For example, none of these operations are trapped and forwarded from pobj proxy to
+obj target:
+var obj = { a:1, b:2 },
+handlers = { .. },
+pobj = new Proxy( obj, handlers );
+typeof obj;
+String( obj );
+obj + "";
+obj == pobj;
+obj === pobj
+Perhaps in the future, more of these underlying fundamental operations in the lan‐
+guage will be interceptable, giving us even more power to extend JavaScript from
+within itself.
+There are certain invariants — behaviors which cannot be overrid‐
+den — that apply to the use of proxy handlers. For example, the
+result from the isExtensible(..) handler is always coerced to a
+boolean. These invariants restrict some of your ability to customize
+behaviors with proxies, but they do so only to prevent you from
+creating strange and unusual (or inconsistent) behavior. The condi‐
+tions for these invariants are complicated so we won’t fully go into
+them here, but this post (http://www.2ality.com/2014/12/es6-
+proxies.html#invariants) does a great job of covering them.
+184
+|
+Chapter 7: Meta Programming
+www.it-ebooks.info

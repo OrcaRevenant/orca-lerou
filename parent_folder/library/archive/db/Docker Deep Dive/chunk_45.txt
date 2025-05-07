@@ -1,0 +1,14 @@
+CONTAINER ID   IMAGE          COMMAND       CREATED  STATUS    NAMES
+e2b69eeb55cb   ubuntu:latest  "/bin/bash"   9 mins   Up 9 min  vigilant_borg
+Stop the container and kill it using the docker container stop and docker
+container rm commands. Remember to substitute the names/IDs of your own
+containers.
+$ docker container stop vigilant_borg
+vigilant_borg
+$
+$ docker container rm vigilant_borg
+vigilant_borg
+Verify that the container was successfully deleted by running another docker
+container ls command.
+$ docker container ls
+CONTAINER ID    IMAGE    COMMAND    CREATED    STATUS    PORTS    NAMES

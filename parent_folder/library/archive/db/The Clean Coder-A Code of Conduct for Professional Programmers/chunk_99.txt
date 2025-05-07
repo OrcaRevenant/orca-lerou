@@ -1,0 +1,32 @@
+DEBUGGING
+67
+and poke around in memory while the system was running. We added log
+messages that printed on the teletype at critical moments. We created in-memory
+counters that counted events and remembered state history that we could
+inspect with the inspector. And, of course, all this had to be written from
+scratch in assembler and tested in the evenings when the system was not in use.
+The terminals were interrupt driven. The characters being sent to the terminals
+were held in circular buffers. Every time a serial port finished sending a character,
+an interrupt would fire and the next character in the circular buffer would be
+readied for sending.
+We eventually found that when a terminal froze it was because the three variables
+that managed the circular buffer were out of sync. We had no idea why this was
+happening, but at least it was a clue. Somewhere in the 5 KSLOC of supervisory
+code there was a bug that mishandled one of those pointers.
+This new knowledge also allowed us to un-freeze terminals manually! We could
+poke default values into those three variables using the inspector, and the
+terminals would magically start running again. Eventually we wrote a little hack
+that would look through all the counters to see if they were misaligned and
+repair them. At first we invoked that hack by hitting a special user-interrupt
+switch on the front panel whenever the Teamsters called to report a freeze-up.
+Later we simply ran the repair utility once every second.
+A month or so later the freeze-up issue was dead, as far as the Teamsters were
+concerned. Occasionally one of their terminals would pause for a half second or
+so, but at a base rate of 30 characters per second, nobody seemed to notice.
+But why were the counters getting misaligned? I was nineteen and determined
+to find out.
+The supervisory code had been written by Richard, who had since gone off to
+college. None of the rest of us were familiar with that code because Richard had
+been quite possessive of it. That code was his, and we weren’t allowed to know
+it. But now Richard was gone, so I got out the inches-thick listing and started to
+go over it page by page.

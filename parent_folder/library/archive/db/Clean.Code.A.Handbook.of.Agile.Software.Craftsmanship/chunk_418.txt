@@ -1,0 +1,66 @@
+390
+Appendix B: org.jfree.date.SerialDate
+Listing B-6
+RelativeDayOfWeekRule.java
+1 /* ========================================================================
+2  * JCommon : a free general purpose class library for the Java(tm) platform
+3  * ========================================================================
+4  *
+5  * (C) Copyright 2000-2005, by Object Refinery Limited and Contributors.
+6  *
+7  * Project Info:  http://www.jfree.org/jcommon/index.html
+8  *
+9  * This library is free software; you can redistribute it and/or modify it
+10  * under the terms of the GNU Lesser General Public License as published by
+11  * the Free Software Foundation; either version 2.1 of the License, or
+12  * (at your option) any later version.
+13  *
+14  * This library is distributed in the hope that it will be useful, but
+15  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+16  * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public
+17  * License for more details.
+18  *
+19  * You should have received a copy of the GNU Lesser General Public
+20  * License along with this library; if not, write to the Free Software
+21  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,
+22  * USA.
+23  *
+24  * [Java is a trademark or registered trademark of Sun Microsystems, Inc.
+25  * in the United States and other countries.]
+26  *
+27  * --------------------------
+28  * RelativeDayOfWeekRule.java
+29  * --------------------------
+30  * (C) Copyright 2000-2003, by Object Refinery Limited and Contributors.
+31  *
+32  * Original Author:  David Gilbert (for Object Refinery Limited);
+33  * Contributor(s):   -;
+34  *
+35  * $Id: RelativeDayOfWeekRule.java,v 1.6 2005/11/16 15:58:40 taqua Exp $
+36  *
+37  * Changes (from 26-Oct-2001)
+38  * --------------------------
+39  * 26-Oct-2001 : Changed package to com.jrefinery.date.*;
+40  * 03-Oct-2002 : Fixed errors reported by Checkstyle (DG);
+41  *
+42  */
+43
+44 package org.jfree.date;
+45
+46 /**
+47  * An annual date rule that returns a date for each year based on (a) a
+48  * reference rule; (b) a day of the week; and (c) a selection parameter
+49  * (SerialDate.PRECEDING, SerialDate.NEAREST, SerialDate.FOLLOWING).
+50  * <P>
+51  * For example, Good Friday can be specified as 'the Friday PRECEDING Easter
+52  * Sunday'.
+53  *
+54  * @author David Gilbert
+55  */
+56 public class RelativeDayOfWeekRule extends AnnualDateRule {
+57
+58     /** A reference to the annual date rule on which this rule is based. */
+59     private AnnualDateRule subrule;
+60
+61     /**
+62      * The day of the week (SerialDate.MONDAY, SerialDate.TUESDAY, and so on).

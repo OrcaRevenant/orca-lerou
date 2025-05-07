@@ -1,0 +1,39 @@
+}
+// versus
+var foo = (x,y) => x + y;
+The arrow function definition consists of a parameter list (of zero or more parame‐
+ters, and surrounding ( .. ) if there’s not exactly one parameter), followed by the =>
+marker, followed by a function body.
+So, in the previous snippet, the arrow function is just the (x,y) => x + y part, and
+that function reference happens to be assigned to the variable foo.
+The body only needs to be enclosed by { .. } if there’s more than one expression, or
+if the body consists of a non-expression statement. If there’s only one expression, and
+you omit the surrounding { .. }, there’s an implied return in front of the expres‐
+sion, as illustrated in the previous snippet.
+Here’s some other arrow function variations to consider:
+var f1 = () => 12;
+var f2 = x => x * 2;
+var f3 = (x,y) => {
+var z = x * 2 + y;
+y++;
+x *= 3;
+return (x + y + z) / 2;
+};
+Arrow functions are always function expressions; there is no arrow function declara‐
+tion. It also should be clear that they are anonymous function expressions — they
+have no named reference for the purposes of recursion or event binding/unbinding
+— though “Function Names” in Chapter 7 will describe ES6’s function name infer‐
+ence rules for debugging purposes.
+All the capabilities of normal function parameters are available to
+arrow functions, including default values, destructuring, rest
+parameters, etc.
+Arrow functions have a nice, shorter syntax, which makes them on the surface very
+attractive for writing terser code. Indeed, nearly all literature on ES6 (other than the
+titles in this series) seems to immediately and exclusively adopt the arrow function as
+“the new function”.
+It is telling that nearly all examples in discussion of arrow functions are short single
+statement utilities, such as those passed as callbacks to various utilities, such as:
+Arrow Functions
+|
+47
+www.it-ebooks.info

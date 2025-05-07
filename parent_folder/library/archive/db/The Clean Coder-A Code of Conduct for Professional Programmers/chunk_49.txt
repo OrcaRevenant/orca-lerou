@@ -1,0 +1,30 @@
+WORK ETHIC
+17
+I’m not talking about all your free time here. I’m talking about 20 extra hours
+per week. That’s roughly three hours per day. If you use your lunch hour to
+read, listen to podcasts on your commute, and spend 90 minutes per day
+learning a new language, you’ll have it all covered.
+Do the math. In a week there are 168 hours. Give your employer 40, and your career
+another 20. That leaves 108. Another 56 for sleep leaves 52 for everything else.
+Perhaps you don’t want to make that kind of commitment. That’s fine, but you
+should not then think of yourself as a professional. Professionals spend time
+caring for their profession.
+Perhaps you think that work should stay at work and that you shouldn’t bring it
+home. I agree! You should not be working for your employer during those 20
+hours. Instead, you should be working on your career.
+Sometimes these two are aligned with each other. Sometimes the work you do
+for your employer is greatly beneficial to your career. In that case, spending
+some of that 20 hours on it is reasonable. But remember, those 20 hours are for
+you. They are to be used to make yourself more valuable as a professional.
+Perhaps you think this is a recipe for burnout. On the contrary, it is a recipe to
+avoid burnout. Presumably you became a software developer because you are
+passionate about software and your desire to be a professional is motivated by
+that passion. During that 20 hours you should be doing those things that
+reinforce that passion. Those 20 hours should be fun!
+K N OW YO U R FI E LD
+Do you know what a Nassi-Schneiderman chart is? If not, why not? Do you
+know the difference between a Mealy and a Moore state machine? You should.
+Could you write a quicksort without looking it up? Do you know what the term
+“Transform Analysis” means? Could you perform a functional decomposition
+with Data Flow Diagrams? What does the term “Tramp Data” mean? Have you
+heard the term “Conascence”? What is a Parnas Table?

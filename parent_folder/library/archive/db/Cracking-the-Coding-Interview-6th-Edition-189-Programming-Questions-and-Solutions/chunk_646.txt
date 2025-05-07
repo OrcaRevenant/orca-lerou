@@ -1,0 +1,40 @@
+XI. Advanced Topics
+• HashTableCollision Resolution
+Essentially any hash table can have collisions. There are a number of ways of handling this.
+Chaining with Linked Lists
+With this approach (which is the most common), the hash table's array maps to a linked list of items. We
+just add items to this linked list. As long as the number of collisions is fairly small, this will be quite efficient.
+In the worst case, lookup is 0 ( n ) , where n is the number of elements in the hash table. This would only
+happen with either some very strange data or a very poor hash function (or both).
+Chaining with Binary Search Trees
+Rather than storing collisions in a linked list, we could store collisions in a binary search tree. This will bring
+the worst-case runtime to 0( l o g n).
+In practice, we would rarely take this approach unless we expected an extremely nonuniform distribution.
+Open Addressing with Linear Probing
+in this approach, when a collision occurs (there is already an item stored at the designated index), we just
+move on to the next index in the array until we find an open spot (Or, sometimes, some other fixed distance,
+like the index + 5.)
+If the number of collisions is low, this is a very fast and space-efficient solution.
+One obvious drawback of this is that the total number of entries in the hash table is limited by the size of
+the array. This is not the case with chaining.
+There's another issue here. Consider a hash table with an underlying array of size 100 where indexes 20
+through 29 are filled (and nothing else). What are the odds of the next insertion going to index 30?The odds
+are 10% because an item mapped to any index between 20 and 30 will wind up at index 30. This causes an
+issue called clustering.
+Quadratic Probing and Double Hashing
+The distance between probes does not need to be linear. You could, for example, increase the probe
+distance quadratically. Or, you could use a second hash function to determine the probe distance.
+• Rabin-Karp Substring Search
+The brute force way to search for a substring S in a larger string B takes 0 ( s ( b - s ) ) time, where s is the
+length of S and b is the length of B. We do this by searching through the first b - s + 1 characters in B
+and, for each, checking if the next s characters match S,
+The Rabin-Karp algorithm optimizes this with a little trick: if two strings are the same, they must have the
+same hash value, (The converse, however, is not true. Two different strings can have the same hash value.)
+Therefore, if we efficiently precompute a hash value for each sequence of s characters within 8, we can find
+the locations of S in 0 ( b ) time. We then just need to validate that those locations really do match S,
+For example, imagine our hash function was simply the sum of each character (where space = 0, a = 1, b =
+2, and soon). If S is ear and 8 = doe a r e h e a r i n g me, we'd then just belooking for sequences where
+the sum is 24 (e + a + r),This happens three times. For each of those locations, we'd check if the string really
+is ear.
+6î0
+Cracking the Coding Interview, 6th Edition

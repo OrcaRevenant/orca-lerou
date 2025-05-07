@@ -1,0 +1,27 @@
+CHAPTER 5
+Collections
+Structured collection and access to data is a critical component of just about any JS
+program. From the beginning of the language up to this point, the array and the
+object have been our primary mechanism for creating data structures. Of course,
+many higher-level data structures have been built on top of these, as user-land libra‐
+ries.
+As of ES6, some of the most useful (and performance-optimizing!) data structure
+abstractions have been added as native components of the language.
+We’ll start this chapter first by looking at Typed Arrays, which were technically con‐
+temporary to ES5 efforts, but which prior to ES6 were only standardized by the web
+platform and not JavaScript. As of ES6, these have been adopted directly by the lan‐
+guage specification, which gives them first-class status.
+Then we’ll look at Maps and Sets, as well as their weak (“weak” in relation to mem‐
+ory/garbage collection) counterparts.
+Typed Arrays
+As we cover in the Types & Grammar title of this series, JS does have a set of built-in
+types, like number and string. It’d be tempting to look at a feature named “typed
+array” and assume it means an array of a specific type of values, like an array of only
+strings.
+However, typed arrays are really more about providing structured access to binary
+data using array-like semantics (indexed access, etc.). The “type” in the name refers to
+a “view” layered on type of the bucket of bits, which is essentially a mapping of
+whether the bits should be viewed as an array of 8-bit signed integers, 16-bit signed
+integers, etc.
+139
+www.it-ebooks.info

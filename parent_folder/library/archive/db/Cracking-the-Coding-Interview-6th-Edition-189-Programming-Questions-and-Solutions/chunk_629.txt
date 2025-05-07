@@ -1,0 +1,91 @@
+Solutions to Chapter 17 | Hard
+49
+return true;
+50
+>
+51
+/* Create a new Rectangle by taking the rows of the current rectangle and
+53
+* appending s. */
+54
+public Rectangle append(Strlng s) { ... >
+55 >
+The WordGroup class is a simple container for all words of a specific length. For easy lookup, we store the
+words in a hash table as well as in an A r r a y L i s t .
+The lists in WordGroup are created through a static method called createWordGroups.
+1
+public class WordGroup {
+2
+private HashMapcString, Boolean> lookup = new HashMap<String, Boolean>();
+private ArrayList<String> group = new ArrayList<String>();
+4
+public boolean containsWord(String s) •( return lookup.containsKey(s); >
+5
+public int lengthQ { return group.sizeQ; >
+6
+public String getWord(int i) { return group.get(i); >
+7
+public ArrayList<String> getWordsQ { return group; }
+3
+9
+public void addWord (5tring s) {
+10
+group.add(s);
+11
+lookup.put(s, true);
+12
+>
+13
+14
+public static WordGroup[] createWordGroups(String[] list) {
+15
+WordGroup[] groupList;
+16
+Int rraxWordLength = 0;
+17
+/* Find the length of the longest word V
+18
+for (int i = 0; 1 < list,length; i++) {
+19
+if (list[i].length() > maxWordLength) {
+20
+maxWordLength = list[i].length();
+21
+>
+22
+>
+23
+24
+/* Group the words in the dictionary into lists of words of same length.
+25
+* groupList[i] will contain a list of words, each of length (i+1). */
+26
+groupList = new WordGroup[maxWordLength];
+27
+for (int i = 0; i < list.length; i++) {
+28
+/* We do wordLength - 1 instead of just wordLength since this is used as
+29
+* an index and no words are of length 0 */
+30
+int wordLength = listfi]. lengthQ - 1;
+31
+if (groupList[wordLength] == null) {
+32
+groupList[wordLength] = new WordGroupO;
+33
+}
+34
+groupList[wordLength].addWord(list[i]);
+35
+>
+36
+return groupList;
+37
+}
+38 }
+The full code for this problem, including the code for T r i e and TrieNode, can be found in the code
+attachment. Note that in a problem as complex as this, you'd most likely only need to write the pseudocode.
+Writing the entire code would be nearly impossible in such a short amount of time.
+CrackingTheCodinginterview.com | 6th Edition
+62 3

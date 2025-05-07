@@ -1,0 +1,32 @@
+We’ve snipped the output to make is easier to find the information we’re
+interested in.
+The entries after “Cmd” show the command(s) that the container will run unless
+you override the with a different command as part of docker container run. If
+you remove all of the shell escapes in the example above, you get the following
+command /bin/sh -c "cd /src && node ./app.js". That’s the default
+command a container based on this image will run.
+It’s common to build images with default commands like this as it makes starting
+containers easier. It also forces a default behavior and is a form of self
+documentation for the image - i.e. we can inspect the image and know what it’s
+intended to do.
+That’s us done for the examples in this chapter. Let’s see a quick way to tidy our
+system up.
+Tidying up
+Here we’re going to show you the simplest and quickest way to get rid of every
+running container on your Docker host. Be warned though, the procedure will
+forcible destroy all containers without giving them a chance to clean up. This
+should never be performed on production systems or systems running
+important containers.
+Run the following command from the shell of your Docker host to delete all
+containers.
+$ docker container rm $(docker container ls -aq) -f
+6efa1838cd51
+In this example we only had a single container running, so only one was deleted
+(6efa1838cd51). However, the command works the same way as the docker
+image rm $(docker image ls -q) command we used in the previous chapter to
+delete all images on a single Docker host. We already know the docker
+container rm command deletes containers. Passing it $(docker container ls
+-aq) as an argument effectively passes it the ID of every container on the
+system. The -f flag forces the operation so that running containers will also be
+destroyed. Net result… all containers, running or stopped, will be destroyed and
+removed from the system.

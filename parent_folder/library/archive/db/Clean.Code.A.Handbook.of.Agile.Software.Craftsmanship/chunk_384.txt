@@ -1,0 +1,66 @@
+356
+Appendix B: org.jfree.date.SerialDate
+413         }
+414
+415         final String[] months;
+416
+417         if (shortened) {
+418             months = DATE_FORMAT_SYMBOLS.getShortMonths();
+419         }
+420         else {
+421             months = DATE_FORMAT_SYMBOLS.getMonths();
+422         }
+423
+424         return months[month - 1];
+425
+426     }
+427
+428     /**
+429      * Converts a string to a month code.
+430      * <P>
+431      * This method will return one of the constants JANUARY, FEBRUARY, ...,
+432      * DECEMBER that corresponds to the string.  If the string is not
+433      * recognised, this method returns -1.
+434      *
+435      * @param s  the string to parse.
+436      *
+437      * @return <code>-1</code> if the string is not parseable, the month of the
+438      *         year otherwise.
+439      */
+440     public static int stringToMonthCode(String s) {
+441
+442         final String[] shortMonthNames = DATE_FORMAT_SYMBOLS.getShortMonths();
+443         final String[] monthNames = DATE_FORMAT_SYMBOLS.getMonths();
+444
+445         int result = -1;
+446         s = s.trim();
+447
+448         // first try parsing the string as an integer (1-12)...
+449         try {
+450             result = Integer.parseInt(s);
+451         }
+452         catch (NumberFormatException e) {
+453             // suppress
+454         }
+455
+456         // now search through the month names...
+457         if ((result < 1) || (result > 12)) {
+458             for (int i = 0; i < monthNames.length; i++) {
+459                 if (s.equals(shortMonthNames[i])) {
+460                     result = i + 1;
+461                     break;
+462                 }
+463                 if (s.equals(monthNames[i])) {
+464                     result = i + 1;
+465                     break;
+466                 }
+467             }
+468         }
+469
+470         return result;
+471
+472     }
+473
+474     /**
+Listing B-1 (continued)
+SerialDate.Java

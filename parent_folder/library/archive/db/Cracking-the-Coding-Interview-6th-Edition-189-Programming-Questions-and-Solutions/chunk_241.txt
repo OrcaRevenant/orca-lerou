@@ -1,0 +1,92 @@
+Solutions to Chapter 3 | Stacks and Queues
+110
+111
+I* Adjust stack data.
+*/
+112
+values[stack.start] = 0; // Clear item
+113
+stack,start =• nextlndex(stack.start); // move s t a r t
+114
+stack.capacity--;
+II Shrink capacity
+115
+>
+116
+117
+/* Expand stack by s h i f t i n g over other stacks */
+118
+private void expand(int stackNum) {
+119
+shift((StackNum + 1) % i n f o . l e n g t h ) ;
+120
+info[stackNum],capacity++;
+121
+>
+122
+123
+/* Returns the number of items actually present in stack. */
+124
+public i n t nuirberOfElementsQ {
+125
+i n t size = 0;
+126
+f o r (Stacklnfo sd : info) {
+127
+size += sd.size;
+128
+>
+129
+return size;
+130
+>
+131
+132
+/* Returns true is a l l the stacks are f u l l . */
+133
+public boolean allStacksAreFullQ {
+134
+return numberOfElements() == values.length;
+135
+>
+136
+137
+/* Adjust index to be within the range of 0 -> length - 1. */
+138
+private i n t adjustlndex(int index) {
+139
+|* lava's mod operator can return neg values. For example, (-11 % 5) w i l l
+140
+* return -1, not 4. We actually want the value to be 4 (since we're wrapping
+141
+* around the index). */
+142
+i n t max = values.length;
+143
+return ((index % max) + max) % max;
+144
+>
+145
+146
+/* Get index a f t e r t h i s index, adjusted for wrap around. */
+147
+private i n t nextlndex(int index) {
+148
+return adjustlndex(index + 1);
+149
+>
+150
+151
+/* Get index before t h i s index, adjusted for wrap around. */
+152
+private i n t previouslndex(int index) {
+153
+return adjustlndex(index - 1);
+154
+}
+155 >
+In problems like this, it's important to focus on writing clean, maintainable code. You should use additional
+classes, as we did with S t a c k l n f o , and pull chunks of code into separate methods. Of course, this advice
+applies to the "real world"as well.
+CrackingTheCodinglnterview.com ] 6th Edition
+239

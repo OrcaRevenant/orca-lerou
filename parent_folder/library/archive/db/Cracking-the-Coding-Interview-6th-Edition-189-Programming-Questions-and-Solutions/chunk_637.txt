@@ -1,0 +1,90 @@
+Solutions to Chapter 17 | Hard
+28
+for (Document doc : docs.values()) {
+29
+ArrayList<lnteger> words = doc.getWords();
+30
+for (int word : words) {
+31
+elements.add(new Element(word, doc.getId()));
+32
+}
+33
+>
+34
+Collections.sort(elements);
+35
+return elements;
+36 )
+37
+38 /* Increment the Intersection size of each document pair. */
+39 void increment(HashMapcDocPair, Double> similarities, int docl, int doc2) {
+40
+DocPair pair = new DocPair(docl, doc2);
+41
+if (Isimilarities.containsKey(pair)) {
+42
+similarities.put(pair, 1.0);
+43
+} else {
+44
+similarities.put(pairj similarities.get(pair) + 1);
+45
+>
+46 }
+47
+48 /* Adjust the intersection value to become the similarity. */
+49 HashMap<DocPair, Double> compute!ntersections(ArrayList<Element> elements) {
+50
+HashMapcDocPair, Double* similarities =» new HashMap<DocPair, Double>();
+51
+52
+for (int i = 0; i < elements.size(); i++) {
+53
+Element left = elements.get(i);
+54
+for (int j = i + 1; j < elements.size(); j++) {
+55
+Element right = elements.get(j);
+56
+if (left.word != right.word) {
+57
+break;
+58
+>
+59
+increment(similarities, left.document, right.document);
+60
+}
+61
+>
+62
+return similarities;
+63 }
+64
+65 /* Adjust the intersection value to become the similarity. *
+66 void adjustToSimilarities(HashMap<Integer, Document> documents.
+67
+HashMapcDocPair, Double> similarities) {
+68
+for (EntrycDocPair, Double> entry : similarities.entry5et()) {
+69
+DocPair pair = entry.getKey();
+79
+Double intersection = entry.getValue();
+71
+Document docl = documents.get(pair.docl);
+72
+Document doc2 = documents.get(pair.doc2);
+73
+double union = (double) docl.size() + doc2.size() - intersection;
+74
+entry.setValue(intersection / union);
+75
+>
+76 >
+The first step of this algorithm is slower than that of the prior algorithm, since it has to sort rather than just
+add to a list. The second step is essentially equivalent.
+Both will run much faster than the original naive algorithm.
+CrackingTheCodinginterview.com | 6th Edition
+62 3

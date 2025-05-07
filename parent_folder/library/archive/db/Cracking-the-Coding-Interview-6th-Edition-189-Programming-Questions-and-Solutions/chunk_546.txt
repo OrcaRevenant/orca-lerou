@@ -1,0 +1,76 @@
+Solutions to Chapter 17 | Moderate
+17.5
+Letters and Numbers; Given an array filled with letters and numbers, find the longest subarray with
+an equal number of letters and numbers.
+pg 186
+SOLUTION
+In the introduction, we discussed the importance of creating a realty good, general-purpose exam pie. That's
+absolutely true. It's also important, though, to understand what matters.
+In this case, we just want an equal number of letters and numbers. Atl letters are treated identically and
+all numbers are treated identically. Therefore, we can use an example with a single letter and a single
+number—or, for that matter, As and Bs, Os and 1 s, or Thingls and Thing2s.
+With that said, let's start with an example:
+[A, B, A, A, A, B, B, B, A, B, A, A, B, B, A, A, A, A, A, A]
+We're looking for the smallest subarray where count (A, subarray) = count (B, subarray).
+Brute Force
+Let's start with the obvious solution. Just go through all subarrays, count the number of As and Bs (or letters
+and numbers), and find the longest one that is equal.
+We can make one small optimization to this. We can start with the longest subarray and, as soon as we find
+one which fits this equality condition, return it.
+1
+/* Return the largest subarray with equal number of 0s and Is. Look at each
+2
+* subarray, starting from the longest. As soon as we find one that's equal, we
+3
+* return.
+4
+char[] findLongestSubarray(char[] array) {
+5
+for (int len = array.length; len > 1; len--) {
+6
+for (int i = 0; i <= array.length - len; i++) {
+if (hasEqualLettersNurribers(array, i, i + len - 1)) {
+8
+return extractSubarray(array, i, i + len - 1);
+9
+>
+10
+}
+11
+>
+12
+return null;
+13 }
+14
+15 /* Check if subarray has equal number of letters and numbers. *•/
+16 boolean hasEqualLettersNumbers(char[] array, int start, int end) {
+17
+int counter = 0;
+18
+for (int i = start; i <= end; i++) {
+19
+if (Character.isLetter(array[i])) {
+20
+counter++;
+21
+} else if (Character.isDigit(array[i])) {
+22
+counter--;
+23
+>
+24
+}
+25
+return counter == 0;
+26
+}
+27
+28 /* Return subarray of array between start and end (inclusive), */
+29 char[] extractSubarray(char[] array, int start, int end) {
+30
+char[] subarray = new char[end - start + 1];
+31
+for (int i = start; i <= end; i++) {
+32
+subarray[i - start] * array[i];
+492 Cracking the Coding Interview, 6th Edition

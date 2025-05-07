@@ -1,0 +1,71 @@
+Solutions to Chapter 2 | Linked Lists
+When they're not the same length, we'd like to just "chop off"—or ignore—those excess (gray) nodes.
+How can we do this? Well, if we know the lengths of the two linked lists, then the difference between those
+two linked lists will tell us how much to chop off.
+We can get the lengths at the same time as we get the tails of the linked lists (which we used in the first step
+to determine if there's an intersection).
+Putting it all together.
+We now have a multistep process.
+1. Run through each linked list to get the lengths and the tails.
+2. Compare the tails. If they are different (by reference, not by value), return immediately. There is no inter-
+section.
+3. Set two pointers to the start of each linked list.
+4. On the longer linked list, advance its pointer by the difference in lengths.
+5. Now, traverse on each linked list until the pointers are the same.
+The implementation for this is below.
+1
+LinkedListNode find!ntersection(LinkedListNode l i s t l , LinkedListNode l i s t 2 ) {
+2
+i f ( l i s t l
+n u l l | | l i s t 2
+n u l l ) return n u l l ;
+3
+4
+/* Get t a i l and sizes. */
+5
+Result r e s u l t l = g e t T a i l A n d S i z e ( l i s t l ) ;
+6
+Result result2 = getTailAndSize(list2);
+7
+8
+/* If d i f f e r e n t t a i l nodes, then there's no intersection. */
+9
+if ( r e s u l t l . t a i l 1= r e s u l t 2 . t a i l ) {
+10
+return n u l l ;
+11
+>
+12
+13
+/* Set pointers to the s t a r t of each linked l i s t . */
+14
+LinkedListNode shorter = r e s u l t l . s i z e < result2.size ? l i s t l : l i s t 2 ;
+15
+LinkedListNode longer = r e s u l t l . s i z e < result2.size ? I i s t 2 : l i s t l ;
+16
+17
+/* Advance the pointer for the longer linked l i s t by difference in lengths. */
+18
+longer = getKthNode(longer, Math.abs(resultl.size - r e s u l t 2 . s i z e ) ) ;
+19
+20
+/* Move both pointers u n t i l you have a c o l l i s i o n . */
+21
+while (shorter != longer) {
+22
+shorter = shorter.next;
+23
+longer = longer,next;
+24
+)
+25
+26
+/* Return either one.
+*/
+27
+return longer;
+28
+>
+29
+Î26
+Cracking the Coding Interview, 6th Edition

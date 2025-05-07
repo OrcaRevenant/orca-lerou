@@ -1,0 +1,36 @@
+Since instances of typed array constructors are array-like objects, it is trivial to con‐
+vert them to a real array, such as:
+// ES5
+Array.prototype.slice( arr );
+// ES6
+Array.from( arr );
+See “Array” in Chapter 6 for more information about
+Array.from(..).
+Maps
+Those with much JS experience know that objects are the primary mechanism for
+creating unordered key/value-pair data structures, otherwise known as maps. How‐
+ever, the major drawback with objects-as-maps is the inability to use a non-string
+value as the key.
+For example, consider:
+var m = {};
+var x = { id: 1 },
+y = { id: 2 };
+m[x] = "foo";
+m[y] = "bar";
+m[x];                           // "bar"
+m[y];                           // "bar"
+What’s going on here? The two objects x and y both stringify to "[object Object]",
+so only that one key is being set in m.
+Some have implemented fake maps by maintaining a parallel array of non-string keys
+alongside an array of the values, such as:
+var keys = [], vals = [];
+var x = { id: 1 },
+y = { id: 2 };
+keys.push( x );
+vals.push( "foo" );
+keys.push( y );
+vals.push( "bar" );
+Maps
+|
+143
+www.it-ebooks.info

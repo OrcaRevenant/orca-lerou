@@ -1,0 +1,44 @@
+VII j Technical Questions
+I
+Example: Given a smaller string s and a bigger string b, design an algorithm to find all permuta-
+tions of the shorter string within the longer one. Print the location of each permutation.
+Think for a moment about how you'd solve this problem. Note permutations are rearrangements of the
+string, so the characters in s can appear in any order in b. They must be contiguous though (not split by
+other characters).
+If you're like most candidates, you probably thought of something like: Generate all permutations of s and
+then lookfor each in b. Since there are S! permutations, this will take 0(S ! * B) time, where S is the length
+of s and B is the length of b.
+This works, but it's an extraordinarily slow algorithm, it's actually worse than an exponential algorithm. If s
+has 14 characters, that's over 87 billion permutations. Add one more character into s and we have 15 times
+more permutations. Ouch!
+Approached a different way, you could develop a decent algorithm fairly easily. Give yourself a big example,
+like this one:
+s: abbe
+b: cbabadcbbabbcbabaabccbabc
+Where are the permutations of s within b? Don't worry about how you're doing it. Just find them. Even a 12
+year old could do this!
+(No, really, go find them. I'll wait!)
+I've underlined below each permutation,
+s: abbe
+b: cbabadcbbabbcbabaabccbabc
+Did you find these? How?
+Fewpeople—even those who earlier came up with the 0(S!
+* 8) algorithm—actually generate alf the
+permutations of abbe to locate those permutations in b. Almost everyone takes one of two (very simitar)
+approaches:
+1. Walk through b and took at sliding windows of 4 characters (since s has length 4). Check if each window
+is a permutation of s.
+2. Walk through b. Every time you see a character in s, check if the next four (the length of s) characters
+area permutation of s.
+Depending on the exact implementation of the "is this a permutation" part, you'll probably get a runtime of
+either 0(B * S),0(B * S l o g S),orO(B * S2). None of these are the most optimal algorithm [there
+is an 0(B) algorithm), but it's a lot better than what we had before.
+Try this approach when you're solving questions. Use a nice, big example and intuitively—manually, that
+is—solve it for the specific example. Then, afterwards, think hard about how you solved it. Reverse engineer
+your own approach.
+Be particularly aware of any "optimizations" you intuitively or automatically made. For example, when you
+were doing this problem, you might have just skipped right over the sliding window with " d " in it, since
+" d " isn't in abbe.That's an optimization your brain made, and it's something you should at least be aware
+of in your algorithm.
+61
+Cracking the Coding Interview, 6th Edition

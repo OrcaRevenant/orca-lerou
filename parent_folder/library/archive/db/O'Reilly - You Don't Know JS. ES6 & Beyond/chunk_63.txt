@@ -1,0 +1,41 @@
+var a = ["a","b","c","d","e"];
+for (var idx in a) {
+console.log( idx );
+}
+// 0 1 2 3 4
+for (var val of a) {
+console.log( val );
+}
+// "a" "b" "c" "d" "e"
+As you can see, for..in loops over the keys/indexes in the a array, while for..of
+loops over the values in a.
+Here’s the pre-ES6 version of the for..of from that previous snippet:
+var a = ["a","b","c","d","e"],
+k = Object.keys( a );
+for (var val, i = 0; i < k.length; i++) {
+val = a[ k[i] ];
+console.log( val );
+}
+// "a" "b" "c" "d" "e"
+And here’s the ES6 but non-for..of equivalent, which also gives a glimpse at man‐
+ually iterating an iterator:
+var a = ["a","b","c","d","e"];
+for (var val, ret, it = a[Symbol.iterator]();
+!(ret = it.next()) && !ret.done;
+) {
+val = ret.value;
+console.log( val );
+}
+// "a" "b" "c" "d" "e"
+Under the covers, the for..of loop asks the iterable for an iterator (using the built-in
+Symbol.iterator — see “Well Known Symbols” in Chapter 7), then it repeatedly calls
+the iterator and assigns its produced value to the loop iteration variable.
+Standard built-in values in JavaScript that are by default iterables (or provide them)
+include:
+• arrays
+• strings
+• generators (see Chapter 3)
+52
+|
+Chapter 2: Syntax
+www.it-ebooks.info

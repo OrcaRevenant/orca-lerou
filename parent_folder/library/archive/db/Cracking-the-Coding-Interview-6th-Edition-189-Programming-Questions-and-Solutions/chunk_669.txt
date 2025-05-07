@@ -1,0 +1,74 @@
+11 Hints for Data Structures
+#94.
+4.12
+Consider each path that starts from the root (there are N such paths) as an array. What
+our brute-force algorithm is really doing is taking each array and finding all contiguous
+subsequences that have a particular sum. We're doing this by computing all subarrays
+and their sums. It might be useful to just focus on this little subproblem. Given an array,
+how would you find all contiguous subsequences with a particular sum? Again, think
+about the duplicated work in the brute-force algorithm.
+#95.
+2.5
+Does your algorithm work on linked lists like 9->7->8 and 6->8->5? Double check that.
+#96.
+4.8
+Careful! Does your algorithm handle the case where only one node exists? What will
+happen? You might need to tweak the return values a bit.
+#97.
+1,5
+What is the relationship between the "insert character" option and the "remove char-
+acter" option? Do these need to be two separate checks?
+#98.
+3.4
+The major difference between a queue and a stack is the order of elements. A queue
+removes the oldest item and a stack removes the newest item. How could you remove
+the oldest item from a stack if you only had access to the newest item?
+#99.
+4.11
+A naive approach that many people come up with is to pick a random number between
+1 and 3, If it's 1, return the current node. If it's 2, branch left. If it's 3, branch right. This
+solution doesn't work. Why not? Is there a way you can adjust it to make it work?
+#100.
+1.7
+Rotating a specific layer would just mean swapping the values in four arrays. If you were
+asked to swap the values in two arrays, could you do this? Can you then extend it to four
+arrays?
+#101.
+2.6
+Go back to the previous hint. Remember: There are ways to return multiple values. You
+can do this with a new class.
+#102.
+1.8
+You probably need some data storage to maintain a list of the rows and columns that
+need to be zeroed. Can you reduce the additional space usage to 0 ( 1 ) by using the
+matrix itself for data storage?
+#103.
+4,12
+We are looking for subarrays with sum targetSum, Observe that we can track in
+constant time the value of r u n n i n g s um[P where this is the sum from element 0 through
+element i. For a subarray of element i through element j to have sum targetSum,
+runningSurrij j + targetSum must equal runningSunij (try drawing a picture of
+an array or a number line). Given that we can track the runningSum as we go, how can
+we quickly look up the number of indices i where the previous equation is true?
+#104.
+1.9
+Think about the earlier hint. Then think about what happens when you concatenate
+e r b o t t l e w a t to itself. You get e r b o t t l e w a t e r b o t t l e w a t .
+#105.
+4.4
+You don't need to modify the binary tree class to store the height of the subtree. Can
+your recursive function compute the height of each subtree while also checking if a
+node is balanced? Try having the function return multiple values.
+#106.
+1.4
+You do not have to—and should not—generate all permutations. This would be very
+inefficient.
+#107.
+4.3
+Try modifying a graph search algorithm to track the depth from the root.
+#108.
+4.12
+Try using a hash table that maps from a runningSum value to the number of elements
+with this runningSum.
+CrackingTheCodinglnterview.com | 6th Edition
+659

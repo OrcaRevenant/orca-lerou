@@ -1,0 +1,45 @@
+39
+Use Descriptive Names
+relationship so that the rest of the system can’t see them [G23]. Of course every circum-
+stance is unique, and there are times when I violate one or more parts of that rule.
+Use Descriptive Names
+In Listing 3-7 I changed the name of our example function from testableHtml to
+SetupTeardownIncluder.render. This is a far better name because it better describes what
+the function does. I also gave each of the private methods an equally descriptive name
+such as isTestable or includeSetupAndTeardownPages. It is hard to overestimate the value
+of good names. Remember Ward’s principle: “You know you are working on clean code
+when each routine turns out to be pretty much what you expected.” Half the battle to
+achieving that principle is choosing good names for small functions that do one thing.
+The smaller and more focused a function is, the easier it is to choose a descriptive
+name.
+Don’t be afraid to make a name long. A long descriptive name is better than a short
+enigmatic name. A long descriptive name is better than a long descriptive comment. Use
+a naming convention that allows multiple words to be easily read in the function names,
+and then make use of those multiple words to give the function a name that says what
+it does.
+Listing 3-5
+Employee and Factory
+public abstract class Employee {
+public abstract boolean isPayday();
+public abstract Money calculatePay();
+public abstract void deliverPay(Money pay);
+}
+-----------------
+public interface EmployeeFactory {
+public Employee makeEmployee(EmployeeRecord r) throws InvalidEmployeeType;
+}
+-----------------
+public class EmployeeFactoryImpl implements EmployeeFactory {
+public Employee makeEmployee(EmployeeRecord r) throws InvalidEmployeeType {
+switch (r.type) {
+case COMMISSIONED:
+return new CommissionedEmployee(r) ;
+case HOURLY:
+return new HourlyEmployee(r);
+case SALARIED:
+return new SalariedEmploye(r);
+default:
+throw new InvalidEmployeeType(r.type);
+}
+}
+}

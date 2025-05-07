@@ -1,0 +1,28 @@
+Solutions to Chapter 9 | System Design and Scalability
+single user daily. Instead, we'll want to queue a task whenever a transaction occurs that potentially exceeds
+a budget. We can store the current budget totals by category to make it easy to understand if a new transac-
+tion exceeds the budget.
+We should also consider incorporating the knowledge (or assumption) that a system like this will probably
+have a large number of inactive users—users who signed up once and then haven't touched the system
+since. We may want to either remove them from the system entirely or deprioritize their accounts. We'll
+want some system to track their account activity and associate priority with their accounts.
+The biggest bottleneck in our system will likely be the massive amount of data that needs to be pulled
+and analyzed. We should be able to fetch the bank data asynchronously and run these tasks across many
+servers. We should drill a bit deeper into how the categorizer and budget analyzer work.
+Categorizer and Budget Analyzer
+One thing to note is that transactions are not dependent on each other. As soon as we get a transaction for
+a user, we can categorize it and integrate this data, it might be inefficient to do so, but it won't cause any
+inaccuracies.
+Should we use a standard database for this? With lots of transactions coming in at once, that might not be
+very efficient. We certainly don't want to do a bunch of joins.
+It may be better instead to just store the transactions to a set of flat text files. We assumed earlier that the
+categorizations are based on the seller's name alone. If we're assuming a lot of users, then there will be a lot
+of duplicates across the sellers. If we group the transaction files by seller's name, we can take advantage of
+these duplicates.
+The categorizer can do something like this:
+It first gets the raw transaction data, grouped by seller. It picks the appropriate category for the seller (which
+might be stored in a cache for the most common sellers), and then applies that category to all those trans-
+actions.
+After applying the category, it re-groups all the transactions by user. Then, those transactions are inserted
+into the datastore for this user.
+CrackingTheCodinginterview.com | 6th Edition Î75

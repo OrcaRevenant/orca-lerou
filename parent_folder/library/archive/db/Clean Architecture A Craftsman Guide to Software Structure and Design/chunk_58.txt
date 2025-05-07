@@ -1,0 +1,32 @@
+#include "point.h"
+#include "namedPoint.h"
+#include <stdio.h>
+int main(int ac, char** av) {
+struct NamedPoint* origin = makeNamedPoint(0.0, 0.0, "origin");
+struct NamedPoint* upperRight = makeNamedPoint (1.0, 1.0, "upperRight");
+printf("distance=%f\n",
+distance(
+(struct Point*) origin,
+(struct Point*) upperRight));
+}
+If you look carefully at the main program, you’ll see that the NamedPoint data
+structure acts as though it is a derivative of the Point data structure. This is
+because the order of the first two fields in NamedPoint is the same as Point. In
+short, NamedPoint can masquerade as Point because NamedPoint is a pure
+superset of Point and maintains the ordering of the members that correspond to
+Point.
+This kind of trickery was a common practice4 of programmers prior to the
+advent of OO. In fact, such trickery is how C++ implements single inheritance.
+Thus we might say that we had a kind of inheritance long before OO languages
+were invented. That statement wouldn’t quite be true, though. We had a trick, but
+it’s not nearly as convenient as true inheritance. Moreover, multiple inheritance
+is a considerably more difficult to achieve by such trickery.
+Note also that in main.c, I was forced to cast the NamedPoint arguments to
+Point. In a real OO language, such upcasting would be implicit.
+It’s fair to say that while OO languages did not give us something completely
+brand new, it did make the masquerading of data structures significantly more
+convenient.
+To recap: We can award no point to OO for encapsulation, and perhaps a half-
+point for inheritance. So far, that’s not such a great score.
+But there’s one more attribute to consider.
+POLYMORPHISM?

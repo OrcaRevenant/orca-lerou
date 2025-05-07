@@ -1,0 +1,44 @@
+o[Symbol.unscopables] = {
+a: false,
+b: true,
+c: false
+};
+with (o) {
+console.log( a, b, c );     // 1 20 3
+}
+A true in the @@unscopables object indicates the property should be unscopable, and
+thus filtered out from the lexical scope variables. false means it’s OK to be included
+in the lexical scope variables.
+The with statement is disallowed entirely in strict mode, and as
+such should be considered deprecated from the language. Don’t use
+it. See the Scope & Closures title of this series for more information.
+Since with should be avoided, the @@unscopables symbol is also
+moot.
+Proxies
+One of the most obviously meta programming features added to ES6 is the Proxy
+feature.
+A proxy is a special kind of object you create that “wraps" — or sits in front of —
+another normal object. You can register special handlers (aka traps) on the proxy
+object which are called when various operations are performed against the proxy.
+These handlers have the opportunity to perform extra logic in addition to forwarding
+the operations on to the original target/wrapped object.
+One example of the kind of trap handler you can define on a proxy is get that inter‐
+cepts the [[Get]] operation — performed when you try to access a property on an
+object. Consider:
+var obj = { a: 1 },
+handlers = {
+get(target,key,context) {
+// note: target === obj,
+// context === pobj
+console.log( "accessing: ", key );
+return Reflect.get(
+target, key, context
+);
+}
+},
+pobj = new Proxy( obj, handlers );
+obj.a;
+Proxies
+|
+181
+www.it-ebooks.info

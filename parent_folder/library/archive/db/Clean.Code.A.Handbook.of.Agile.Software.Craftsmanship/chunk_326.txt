@@ -1,0 +1,39 @@
+296
+Chapter 17: Smells and Heuristics
+could sum up those hours in the code that prints the report, or we could try to keep a run-
+ning total in the code that accepts time cards.
+One way to make this decision is to look at the names of the functions. Let’s say that
+our report module has a function named getTotalHours. Let’s also say that the module that
+accepts time cards has a saveTimeCard function. Which of these two functions, by it’s name,
+implies that it calculates the total? The answer should be obvious.
+Clearly, there are sometimes performance reasons why the total should be calculated
+as time cards are accepted rather than when the report is printed. That’s ﬁne, but the names
+of the functions ought to reﬂect this. For example, there should be a computeRunning-
+TotalOfHours function in the timecard module.
+G18: Inappropriate Static
+Math.max(double a, double b) is a good static method. It does not operate on a single
+instance; indeed, it would be silly to have to say new Math().max(a,b) or even a.max(b).
+All the data that max uses comes from its two arguments, and not from any “owning”
+object. More to the point, there is almost no chance that we’d want Math.max to be
+polymorphic.
+Sometimes, however, we write static functions that should not be static. For example,
+consider:
+HourlyPayCalculator.calculatePay(employee, overtimeRate).
+Again, this seems like a reasonable static function. It doesn’t operate on any particular
+object and gets all it’s data from it’s arguments. However, there is a reasonable chance that
+we’ll want this function to be polymorphic. We may wish to implement several different
+algorithms for calculating hourly pay, for example, OvertimeHourlyPayCalculator and
+StraightTimeHourlyPayCalculator. So in this case the function should not be static. It
+should be a nonstatic member function of Employee.
+In general you should prefer nonstatic methods to static methods. When in doubt,
+make the function nonstatic. If you really want a function to be static, make sure that there
+is no chance that you’ll want it to behave polymorphically.
+G19: Use Explanatory Variables
+Kent Beck wrote about this in his great book Smalltalk Best Practice Patterns8 and again
+more recently in his equally great book Implementation Patterns.9 One of the more power-
+ful ways to make a program readable is to break the calculations up into intermediate val-
+ues that are held in variables with meaningful names.
+8.
+[Beck97], p. 108.
+9.
+[Beck07].

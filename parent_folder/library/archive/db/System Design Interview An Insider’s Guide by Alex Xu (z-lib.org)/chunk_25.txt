@@ -1,0 +1,2 @@
+As the data grows every day, your database gets more overloaded. It is time to scale the data
+tier.

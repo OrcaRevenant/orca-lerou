@@ -1,0 +1,41 @@
+.then( function fulfilled(data){
+// handle data from original promise's
+// handlers
+} );
+In this snippet, we’re returning an immediate value from either fulfilled(..) or
+rejected(..), which then is received on the next event turn in the second then(..)’s
+fulfilled(..). If we instead return a new promise, that new promise is subsumed
+and adopted as the resolution:
+ajax( "http://some.url.1" )
+.then(
+function fulfilled(contents){
+return ajax(
+"http://some.url.2?v=" + contents
+);
+},
+function rejected(reason){
+return ajax(
+"http://backup.url.3?err=" + reason
+);
+}
+)
+.then( function fulfilled(contents){
+// `contents` comes from the subsequent
+// `ajax(..)` call, whichever it was
+} );
+It’s important to note that an exception (or rejected promise) in the first fulfil
+led(..) will not result in the first rejected(..) being called, as that handler only
+responds to the resolution of the first original promise. Instead, the second promise,
+which the second then(..) is called against, receives that rejection.
+In this previous snippet, we are not listening for that rejection, which means it will be
+silently held onto for future observation. If you never observe it by calling a then(..)
+or catch(..), then it will go unhandled. Some browser developer consoles may
+detect these unhandled rejections and report them, but this is not reliably guaranteed;
+you should always observe promise rejections.
+This was just a brief overview of Promise theory and behavior. For
+a much more in-depth exploration, see Chapter 3 of the Async &
+Performance title of this series.
+130
+|
+Chapter 4: Async Flow Control
+www.it-ebooks.info

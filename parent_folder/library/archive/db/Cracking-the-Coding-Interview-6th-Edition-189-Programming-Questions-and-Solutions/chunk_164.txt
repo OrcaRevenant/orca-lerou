@@ -1,0 +1,42 @@
+Chapter 11 | Testing
+• Testing a Piece of Software
+Testing a piece of software is actually very similar to testing a real worfd object. The major difference is that
+software testing generally places a greater emphasis on the details of performing testing.
+Note that software testing has two core aspects to it;
+•
+Manual vs. Automated Testing:In an ideal world, we might love to automate everything, but that's rarely
+feasible. Some things are simply much better with manual testing because some features are too quali-
+tative for a computer to effectively examine (such as if content represents pornography). Additionally,
+whereas a computer can generally recognize only issues that it's been told to look for, human observa-
+tion may reveal new issues that haven't been specifically examined. Both humans and computers form
+an essential part of the testing process.
+*
+Black Box Testing vs. White Box Testing: This distinction refers to the degree of access we have into the
+software. In black box testing, we're just given the software as-ts and need to test it. With white box
+testing, we have additional programmatic access to test individual functions. We can also automate
+some black box testing, although it's certainly much harder.
+Let's walkthrough an approach from start to end.
+Step 1: Are we doing Black Box Testing or White Box Testing?
+Though this question can often be delayed to a later step, I like to get it out of the way early on. Check with
+your interviewer as to whether you're doing black box testing or white box testing—or both.
+Step 2: Who will use it? And why?
+Software typically has one or more target users, and the features are designed with this in mind. For
+example, if you're asked to test software for parental controls on a web browser, your target users include
+both parents (who are implementing the blocking) and children (who are the recipients of blocking). You
+may also have "guests" (people who should neither be implementing nor receiving blocking).
+Step 3: What are the use cases?
+In the software blocking scenario, the use cases of the parents include installing the software, updating
+controls, removing controls, and of course their own personal internet usage. For the children, the use cases
+include accessing legal content as well as "illegal" content.
+Remember that it's not up to you to just magically decide the use cases. This is a conversation to have with
+your interviewer.
+Step 4: What are the bounds of use?
+Now that we have the vague use cases defined, we need to figure out what exactly this means. What does
+it mean for a website to be blocked? Should just the "illegal" page be blocked, or the entire website? Is the
+application supposed to"learn"whatis bad content, oris it based on a white list or black list? If it's supposed
+to learn what inappropriate content is, what degree of false positives or false negatives is acceptable?
+Step 5; What are the stress conditions I failure conditions?
+When the software fails—which it inevitably will—what should the failure look like? Clearly, the software
+failure shouldn't crash the computer. Instead, it's likely that the software should just permit a blocked site.
+154
+Cracking the Coding Interview, 6th Edition

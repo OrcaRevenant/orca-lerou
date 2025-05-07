@@ -1,0 +1,31 @@
+board, the voice/telecom boards, everything. The main computer board was
+Deep Thought, the Intel 80286 processor that I mentioned earlier.
+The voice boards each supported one telephone line. They consisted of a
+telephone interface, a voice encoder/decoder, some memory, and an Intel 80186
+microcomputer.
+The software for the main computer board was written in C. The operating
+system was MP/M-86, an early command-line–driven, multiprocessing, disk
+operating system. MP/M was the poor man’s UNIX.
+The software for the voice boards was written in assembler, and had no
+operating system. Communication between Deep Thought and the voice boards
+occurred through shared memory.
+The architecture of this system would today be called service oriented. Each
+telephone line was monitored by a listener process running under MP/M. When
+a call came in, an initial handler process was started and the call was passed to it.
+As the call proceeded from state to state, the appropriate handler process would
+be started and take control.
+Messages were passed between these services through disk files. The currently
+running service would determine what the next service should be; would write
+the necessary state information into a disk file; would issue the command line to
+start that service; and then would exit.
+This was the first time I had built a system like this. Indeed, this was the first
+time I had been the principal architect of an entire product. Everything having to
+do with software was mine—and it worked like a champ.
+I would not say that the architecture of this system was “clean” in the sense of
+this book; it was not a “plugin” architecture. However, it definitely showed signs
+of true boundaries. The services were independently deployable, and lived
+within their own domain of responsibility. There were high-level processes and
+low-level processes, and many of the dependencies ran in the right direction.
+ER DEMISE
+Unfortunately, the marketing of this product did not go very well. Teradyne was
+a company that sold test equipment. We did not understand how to break into the

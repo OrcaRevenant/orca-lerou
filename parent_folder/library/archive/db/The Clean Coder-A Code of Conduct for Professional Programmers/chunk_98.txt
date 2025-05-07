@@ -1,0 +1,32 @@
+CHAPTER 4 CODING
+66
+Not all forms of creative input work for me. Watching TV does not usually help
+me create. Going to the movies is better, but only a bit. Listening to music does
+not help me create code, but does help me create presentations, talks, and
+videos. Of all the forms of creative input, nothing works better for me than
+good old space opera.
+D E BUGG I N G
+One of the worst debugging sessions in my career happened in 1972. The
+terminals connected to the Teamsters’ accounting system used to freeze once or
+twice a day. There was no way to force this to happen. The error did not prefer
+any particular terminals or any particular applications. It didn’t matter what the
+user had been doing before the freeze. One minute the terminal was working
+fine, and the next minute it was hopelessly frozen.
+It took weeks to diagnose this problem. Meanwhile the Teamsters’ were getting
+more and more upset. Every time there was a freeze-up the person at that
+terminal would have to stop working and wait until they could coordinate all
+the other users to finish their tasks. Then they’d call us and we’d reboot. It was a
+nightmare.
+We spent the first couple of weeks just gathering data by interviewing the
+people who experienced the lockups. We’d ask them what they were doing at
+the time, and what they had done previously. We asked other users if they
+noticed anything on their terminals at the time of the freeze-up. These
+interviews were all done over the phone because the terminals were located in
+downtown Chicago, while we worked 30 miles north in the cornfields.
+We had no logs, no counters, no debuggers. Our only access to the internals of
+the system were lights and toggle switches on the front panel. We could stop the
+computer, and then peek around in memory one word at a time. But we
+couldn’t do this for more than five minutes because the Teamsters’ needed their
+system back up.
+We spent a few days writing a simple real-time inspector that could be operated
+from the ASR-33 teletype that served as our console. With this we could peek

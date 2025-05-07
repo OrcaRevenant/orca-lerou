@@ -1,0 +1,58 @@
+Solutions to Chapter 16 | Moderate
+15
+if (visited.contains(key))
+{
+16
+return;
+17
+}
+18
+getAllLengths(k - 1, t o t a l + shorter, shorter, longer, lengths, v i s i t e d ) ;
+19
+getAHLengths(k - 1, t o t a l + longer, shorter, longer, lengths, v i s i t e d ) ;
+29
+visited.add(key);
+21
+}
+For simplicity, we've set the key to be a string representation of t o t a l and the current plank count. Some
+people may argue it's better to use a data structure to represent this pair.There are benefits to this, but there
+are drawbacks as well. It's worth discussing this tradeoff with your interviewer.
+The runtime of this algorithm is a bit tricky to figure out.
+One way we can think about the runtime is by understanding that we're basically filling in a table of SUMS
+x PLANK COUNTS. The biggest possible sum is K * LONGER and the biggest possible plank count is K.
+Therefore, the runtime will be no worse than 0(K ! * LONGER).
+Of course, a bunch of those sums will never actually be reached. How many unique sums can we get?
+Observe that any path with the same number of each type of planks will have the same sum. Since we can
+have at most K planks of each type, there are only K different sums we can make. Therefore, the table is
+really KxK,and the runtime isO(K2).
+Optimal Solution
+If you re-read the prior paragraph, you might notice something interesting. There are only K distinct sums
+we can get. Isn't that the whole point of the problem—to find all possible sums?
+We don't actually need to go through all arrangements of planks. We just need to go through all unique sets
+of K planks (sets, not orders!}. There are only K ways of picking K planks if we only have two possible types:
+{0 of type A, K of type 8}, {1 of type A, K - l of type B}, (2 of type A, K-2 of type B},...
+This can be done in just a simple for loop. At each "sequence", we just compute the sum.
+1
+HashSet<Integer> allLengths(int k, i n t shorter, i n t longer) {
+2
+HashSet<Integer> lengths = new HashSet<Integer>();
+3
+for ( i n t nShorter = 0; nShorter <= k; nShorter++) {
+4
+i n t nLonger = k - nShorter;
+5
+i n t length = nShorter * shorter + nLonger * longer;
+6
+lengths.add(length);
+7
+)
+8
+return lengths;
+9
+>
+We've used a HashSet here for consistency with the prior solutions. This isn't really necessary though, since
+we shouldn't get any duplicates. We could instead use an A r r a y L i s t . If we do this, though, we just need to
+handle an edge case where the two types of planks are the same length. In this case, we would just return
+an A r r a y L i s t of size 1.
+4 8 8
+Cracking the Coding interview, 6th Edition

@@ -1,0 +1,10 @@
+204
+CO N C LU S I O N
+Software tools have gotten wildly more powerful and plentiful since I started
+programming. My current toolkit is a simple subset of that menagerie. I use git
+for source code control, Tracker for issue management, Jenkins for Continuous
+Build, IntelliJ as my IDE, XUnit for testing, and FitNesse for component
+testing.
+My machine is a Macbook Pro, 2.8Ghz Intel Core i7, with a 17-inch matte
+screen, 8GB ram, 512GB SSD, with two extra screens.
+APPENDIX A TOOLING

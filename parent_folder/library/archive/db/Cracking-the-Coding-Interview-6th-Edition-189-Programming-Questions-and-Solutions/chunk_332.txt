@@ -1,0 +1,46 @@
+Solutions to Chapter 7 j Object-Oriented Design
+7.7
+Chat Server: Explain how you would design a chat server. In particular, provide details about the
+various backend components, classes, and methods. What would be the hardest problems to solve?
+pg 728
+SOLUTION
+Designing a chat server is a huge project, and it is certainly far beyond the scope of what could be completed
+in an interview. After all, teams of many people spend months or years creating a chat server. Part of your
+job, as a candidate, is to focus on an aspect of the problem that is reasonably broad, but focused enough
+that you could accomplish it during an interview. It need not match real life exactly, but it should be a fair
+representation of an actual implementation.
+For our purposes, we'll focus on the core user management and conversation aspects: adding a user,
+creating a conversation, updating one's status, and so on. tn the interest of time 3nd space, we will not go
+into the networking aspects of the problem, or how the data actually gets pushed out to the clients.
+We will assume that "friending" is mutual; I am only your contact if you are mine. Our chat system will
+support both group chat and one-on-one (private) chats. We will not worry about voice chat, video chat,
+or file transfer.
+What specific actions does it need to support?
+This is also something to discuss with your interviewer, but here are some ideas:
+•
+Signing online and offline.
+•
+Add requests (sending, accepting, and rejecting).
+•
+Updating a status message.
+•
+Creating private and group chats.
+•
+Adding new messages to private and group chats.
+This is just a partial list. If you have more time, you can add more actions.
+What can we learn about these requirements?
+We must have a concept of users, add request status, online status, and messages.
+What are the core components of the system?
+The system would likely consist of a database, a set of clients, and a set of servers. We won't include these
+parts in our object-oriented design, but we can discuss the overall view of the system.
+The database will be used for more permanent storage, such as the user list or chat archives. A SQL database
+is a good bet, or, if we need more scalability, we could potentially use BigTabte or a similar system.
+For communication between the client and servers, using XML will work well. Although it's not the most
+compressed format [and you should point this out to your interviewer), it's nice because it's easy for both
+computers and humans to read. Using XML will make your debugging efforts easier—and that matters a
+lot.
+The server will consist of a set of machines. Data will be split across machines, requiring us to potentially hop
+from machine to machine. When possible, we will try to replicate some data across machines to minimize
+the lookups. One major design constraint here is to prevent having a single point of failure. For instance,
+322
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,71 @@
+Chapter 3 j Stacks and Queues
+15
+QueueNode<T> t = new QueueNode<T>(item);
+16
+if (last != null) {
+17
+last.next = t;
+18
+)
+19
+last = t;
+20
+if (first == null) (
+21
+first = last;
+22
+}
+23
+)
+24
+25
+public T removeQ {
+26
+if (first == null) throw new NoSuchElementException();
+27
+T data = first.data;
+28
+first = first.next;
+29
+if (first == null) {
+30
+last = null;
+31
+}
+32
+return data;
+33
+}
+34
+35
+public T peek() {
+36
+if (first == null) throw new NoSuchElementException();
+37
+return first.data;
+38
+>
+39
+40
+public boolean isEmptyQ {
+41
+return first == null;
+42
+}
+43 >
+it is especially easy to mess up the updating of the first and last nodes in a queue. 8e sure to double check
+this.
+One place where queues are often used is in breadth-first search or in implementing a cache.
+In breadth-first search, for example, we used a queue to store a list of the nodes that we need to process.
+Each time we process a node, we add its adjacent nodes to the back of the queue. This allows us to process
+nodes in the order in which they are viewed.
+Interview Questions
+3.1
+Three in One: Describe how you could use a single array to implement three stacks.
+Hints: #2, #12, #38, #58
+3.2
+Stack Min: How would you design a stack which, in addition to push and pop, has a function min
+which returns the minimum eiement? Push, pop and min should ail operate in 0 ( 1 ) time.
+Hints: #27, #59, #78
+9 8
+Cracking the Coding Interview, 6th Edition

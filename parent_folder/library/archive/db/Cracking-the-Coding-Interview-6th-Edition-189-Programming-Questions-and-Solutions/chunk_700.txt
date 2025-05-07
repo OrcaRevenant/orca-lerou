@@ -1,0 +1,77 @@
+IV | Hints for Additional Review Problems
+#651.
+17.21
+You can calculate the area between the tallest bar overall and the tallest bar on the left
+by just iterating through the histogram and subtracting out any bars in between. You
+can do the same thing with the right side. How do you handle the remainder of the
+graph?
+#652.
+17.18
+One brute force solution is to take each starting position and move forward until you've
+found a subsequence which contains all the target characters.
+#653.
+16.18
+Don't forget to handle the possibility that the first character in the p a t t e r n is b.
+#654.
+16.20
+In the real world, we should know that some prefixes/substrings won't work. For
+example, consider the number 33835676368. Although 3383 does correspond to
+f f t f , there are no words that start with f f t f . Is there a way we can short-circuit in
+cases like this?
+#655.
+17.7
+An alternative approach is to think of this as a graph. How would this work?
+#656,
+17.13
+You can think about the choices the recursive algorithm makes in one of two ways: (1)
+At each character, should I put a space here? (2) Where should I put the next space? You
+can solve both of these recursively.
+#657.
+17.8
+If you needed only one side of the pair to increase, then you would just sort all the
+values on that side. Your longest sequence would in fact be all of the pairs (other than
+any duplicates, since the longest sequence needs to strictly increase). What does this tell
+you about the original problem?
+#658.
+17.21
+You can handle the remainder of the graph by just repeating this process: find the tallest
+bar and the second tallest bar, and subtract out the bars in between.
+#659.
+17.4
+To find the least significant bit of the missing number, note that you know how many
+0s and Is to expect. For example, if you see three 0s and three Is in the least significant
+bit, then the missing number's least significant bit must be a 1. Think about it: in any
+sequence of 0s and Is, you'd get a 0, then a 1, then a 0, then a 1, and so on.
+#660.
+17.9
+Rather than checking all values in the list for the next value (by multiplying each by 3,
+5, and 7), think about it this way: when you insert a value x into the list, you can "create"
+the values 3x, Sx, and 7x to be used later.
+#661.
+17.14
+Think about the previous hint some more, particularly in the context of quicksort.
+#662.
+17,21
+How can you make the process of finding the next tallest bar on each side faster?
+#663.
+16.18
+Be careful with how you analyze the runtime. If you iterate through 0(n 3) substrings
+and each one does an 0 ( n ) string comparison, then the total runtime isO(n 3).
+#664,
+17,1
+Now focus on the carrying. In what cases will values carry? How do you apply the carry
+to the number?
+#665,
+16.26
+Consider thinking about it as, when you get to a multiplication or division sign, jumping
+to a separate "process" to compute the result of this chunk.
+#666.
+17.8
+If you sort the values based on height, then this will tell you the ordering ofthe final pairs.
+The longest sequence must be in this relative order (but not necessarily containing all
+of the pairs). You now just need to find the longest increasing subsequence on weight
+while keeping the items in the same relative order. This is essentially the same problem
+as having an array of integers and trying to find the longest sequence you can build
+(without reordering those items).
+6 8 0
+Cracking the Coding Interview, 6th Edition

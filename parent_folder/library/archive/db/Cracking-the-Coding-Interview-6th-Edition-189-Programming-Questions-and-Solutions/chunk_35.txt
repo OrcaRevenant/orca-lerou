@@ -1,0 +1,52 @@
+Ill | Speciai Situations
+Be careful here, though. If you're someone who comes off as intimidating to candidates, this coaching could
+make things worse, it can come off as your telling candidates that they're constantly messing up by creating
+bad examples, not prioritizing testing the right way, and so on.
+If they want silence, give them silence.
+One of the most common questions that candidates ask me is how to deal with an interviewer who insists
+on talking when they just need a moment to think in silence.
+If your candidate needs this, give your candidate this time to think. Learn to distinguish between "I'm stuck
+and have no idea what to do,"andTm thinking in silence,"
+It might help you to guide your candidate, and it might help many candidates, but it doesn't necessarily
+help all candidates. Some need a moment to think. Give them that time, and take into account when you're
+evaluating them that they got a bit less guidance than others.
+Know your mode: sanity check, quality, specialist, and proxy.
+At a very, very high level, there are four modes of questions;
+•
+Sanity Check: These are often easy problem-solving or design questions. They assess a minimum
+degree of competence in problem-solving. They won't tell distinguish between "okay" versus "great" so
+don't evaluate them as such. You can use them earfy in the process (to filter out the worst candidates), or
+when you only need a minimum degree of competency.
+•
+Quality Check: These are the more challenging questions, often in problem-solving or design. They
+are designed to be rigorous and really make a candidate think. Use these when algorithmic/problem-
+solving skiils are of high importance. The biggest mistake people make here is asking questions that are,
+in fact, bad problem-solving questions.
+•
+Specialist Questions: These questions test knowledge of specific topics, such as Java or machine
+iearning. They should be used when for skills a good engineer couldn't quickly learn on the job. These
+questions need to be appropriate for true specialists. Unfortunately, I've seen situations where a
+company asks a candidate who just completed a 10-week coding bootcamp detailed questions about
+Java. What does this show? if she has this knowledge, then she only learned it recently and, therefore, it's
+likely to be easily acquirable. If it's easily acquirable, then there's no reason to hire for it.
+•
+Proxy Knowledge: This is knowledge that is not quite at the specialist level (in fact, you might not even
+need it), but that you would expect a candidate at their level to know. For example, it might not be very
+important to you if a candidate knows CSS or HTML. But if a candidate has worked in depth with these
+technologies and can't talk about why tables are or aren't good, that suggests an issue. They're not
+absorbing information core to their job.
+When companies get into trouble is when they mix and match these:
+•
+They ask specialist questions to people who aren't specialists.
+•
+They hire for specialist roles when they don't need specialists.
+•
+They need specialists but are only assessing pretty basic skills,
+•
+They are asking sanity check (easy) questions, but think they're asking quality check questions. They
+therefore interpret a strong difference between "okay" and "great" performance, even though a very
+minor detail might have separated these.
+In fact, having worked with a number of small and iarge tech companies on their hiring process, I have
+found that most companies are doing one of these things wrong.
+CrackirigTheCodiriglnterview.com |6th Edition
+ÎJ

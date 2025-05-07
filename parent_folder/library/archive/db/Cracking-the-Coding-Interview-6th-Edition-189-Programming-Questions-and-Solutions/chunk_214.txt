@@ -1,0 +1,76 @@
+Solutions to Chapter 1 ] Arrays and Strings
+9
+i n t top = m a t r i x [ f i r s t ] [ i ] ; // save top
+10
+11
+// l e f t -> top
+12
+m a t r i x [ f i r s t ] [ i ] = m a t r i x [ l a s t - o f f s e t ] [ f i r s t ] ;
+13
+14
+// bottom -> l e f t
+15
+m a t r i x [ l a s t - o f f s e t ] [ f i r s t ] = m a t r i x [ l a s t ] [ l a s t - o f f s e t ] ;
+16
+17
+11 right ~> bottom
+18
+m a t r i x [ l a s t ] [ l a s t - o f f s e t ] = m a t r i x [ i ] [ l a s t ] ;
+19
+20
+// top -> r i g h t
+21
+m a t r i x [ i ] [ l a s t ] = top; II r i g h t <- saved top
+22
+>
+23
+>
+24
+return t r u e ;
+25 >
+This algorithm is Offd^), which is the best we can do since any algorithm must touch all
+elements.
+1.8
+Zero Matrix: Write an algorithm such that if an element in an MxN matrix is 0, its entire row and
+column are set to 0,
+pg91
+SOLUTION
+At first glance, this problem seems easy: just iterate through the matrix and every time we see a cell with
+value zero, set its row and column to 0, There's one problem with that solution though: when we come
+across other cells in that row or column, we'll see the zeros and change their row and column to zero. Pretty
+soon, our entire matrix wiil be set to zeros.
+One way around this is to keep a second matrix which flags the zero locations. We would then do a second
+pass through the matrix to set the zeros. This would takeO(MN) space.
+Do we really need 0(MN) space? No. Since we're going to set the entire row and column to zero, we don't
+need to track that it was exactly c e l l [ 2 ] [ 4 ] (row 2, column 4). We only need to know that row 2 has a
+zero somewhere, and column 4 has a zero somewhere. We'll set the entire row and column to zero anyway,
+so why would we care to keep track of the exact location of the zero?
+The code below implements this algorithm. We use two arrays to keep track of all the rows with zeros and all
+the columns with zeros. We then nullify rows and columns based on the values in these arrays.
+1
+void s e t Z e r o s ( i n t [ ] [ ] matrix) {
+2
+boolean[] row = new boolean[matrix.length];
+3
+boolean[] column = new boolean[matrix[0].length];
+4
+5
+II Store the row and column index with value 0
+6
+f o r ( i n t i = 0; i < matrix.length; i++) {
+f o r { i n t j = 0; j < matrix[0],length;j++) {
+8
+if ( m a t r i x [ i ] [ j ] == 0) {
+9
+r o w [ i ] = t r u e ;
+10
+column[j] = true;
+11
+>
+12
+>
+13
+>
+14
+206
+Cracking the Coding Interview, 6th Edition

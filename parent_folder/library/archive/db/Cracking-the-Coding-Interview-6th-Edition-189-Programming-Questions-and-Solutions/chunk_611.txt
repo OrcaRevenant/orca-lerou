@@ -1,0 +1,77 @@
+Solutions to Chapter 17 | Hard
+Yes. In Solution #2, we were able to precompute the height of the tallest bar on the left and right of each
+index. The minimums of these will indicate the "water level" at a bar. The difference between the water level
+and the height of this bar will be the volume of water.
+HEIGHT:
+0 0 4 0 0 6 0 0 3 0 8 0 2 0 5 2 0 3 0 0
+LEFT MAX:
+0 0 4 4 4 6 6 6 6 6 8 8 8 8 8 8 8 8 8 8
+RIGHT MAX:
+8 8 8 8 8 8 8 8 8 8 8 S S 5 5 3 3 3 0 0
+MIN:
+0 0 4 4 4 6 6 6 6 6 8 5 5 5 5 3 3 3 0 0
+DELTA:
+0 0 0 4 4 0 6 6 3 6 0 5 3 5 0 1 3 0 0 0
+Our algorithm now runs in a few simple steps:
+1. Sweep left to right, tracking the max height you've seen and setting left max.
+2. Sweep right to left, tracking the max height you've seen and setting right max.
+3. Sweep across the histogram, computing the minimum of the left max and right max for each index,
+4. Sweep across the histogram, computing the delta between each minimum and the bar. Sum these
+deltas.
+In the actual implementation, we don't need to keep so much data around. Steps 2,3, and 4 can be merged
+into the same sweep. First, compute the left maxes in one sweep. Then sweep through in reverse, tracking
+the right max as you go. At each element, calculate the min of the left and right max and then the delta
+between that (the "min of maxes") and the bar height. Add this to the sum.
+1
+/* Go through each bar and compute the volume of water above It.
+2
+* Volume of water at a bar =
+3
+*
+height - min(tallest bar on left, tallest bar on right)
+4
+*
+[where above equation is positive]
+5
+* Compute the left max in the first sweep, then sweep again to compute the right
+6
+* max, minimum of the bar heights, and the delta. */
+7
+i n t computeHistogramVolume(int[] histo) {
+8
+/* Get left max */
+9
+int[] leftMaxes = new int[histo.length];
+10
+int leftMax = histo[0];
+11
+for (int i = 8; i < histo.length; i++) {
+12
+leftMax = Math.max(leftMax, histo[i]);
+13
+leftMaxes[i] = leftMax;
+14
+}
+15
+16
+i n t sum = 0;
+17
+18
+/* Get right max */
+19
+int rightMax = histofhisto.length - 1];
+20
+for (int i = histo.length - 1; i >= 0; i--) {
+21
+rightMax = Math,max(rightMax, histo[i]);
+22
+int secondTallest = Math.min(rightMax, leftMaxes[i]);
+23
+24
+/* If there are taller things on the left and right side, then there is water
+25
+* above this bar. Compute the volume and add to the sum. */
+26
+if (secondTallest > histo[i]) {
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

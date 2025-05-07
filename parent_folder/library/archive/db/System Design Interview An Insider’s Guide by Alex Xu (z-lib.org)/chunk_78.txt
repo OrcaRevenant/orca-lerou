@@ -1,0 +1,22 @@
+Understand the problem and establish design scope
+There is no perfect design. Each design achieves a specific balance regarding the tradeoffs of
+the read, write, and memory usage. Another tradeoff has to be made was between consistency
+and availability. In this chapter, we design a key-value store that comprises of the following
+characteristics:
+• The size of a key-value pair is small: less than 10 KB.
+• Ability to store big data.
+• High availability: The system responds quickly, even during failures.
+• High scalability: The system can be scaled to support large data set.
+• Automatic scaling: The addition/deletion of servers should be automatic based on traffic.
+• Tunable consistency.
+• Low latency.
+
+Single server key-value store
+Developing a key-value store that resides in a single server is easy. An intuitive approach is
+to store key-value pairs in a hash table, which keeps everything in memory. Even though
+memory access is fast, fitting everything in memory may be impossible due to the space
+constraint. Two optimizations can be done to fit more data in a single server:
+• Data compression
+• Store only frequently used data in memory and the rest on disk
+Even with these optimizations, a single server can reach its capacity very quickly. A
+distributed key-value store is required to support big data.

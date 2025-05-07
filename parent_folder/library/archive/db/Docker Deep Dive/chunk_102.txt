@@ -1,0 +1,16 @@
+Chapter summary
+In this chapter we compared and contrasted the container and VM models. We
+looked at the OS tax problem of the VM model and saw how the container
+model can bring huge efficiencies in much the same way as the VM model
+brought huge advantages over the physical model.
+We saw how to use the docker container run command to start a couple of
+simple containers, and we saw the difference between interactive containers in
+the foreground versus containers running in the background.
+We know that killing the process with PID 1 inside of a container will kill the
+container. And we’ve seen how to start, stop, and delete containers.
+We finished the chapter using the docker container inspect command to
+view detailed configuration metadata.
+So far so good!
+In the next chapter we’ll see how to orchestrate containerized applications across
+multiple Docker hosts with some game changing technologies introduced in
+Docker 1.12.

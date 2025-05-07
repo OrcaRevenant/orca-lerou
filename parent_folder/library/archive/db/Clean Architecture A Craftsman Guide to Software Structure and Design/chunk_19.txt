@@ -1,0 +1,32 @@
+independent of every other variable.
+This is even more startling when you consider the change that has taken place in
+hardware over the same half-century. I started programming on machines the
+size of kitchen refrigerators that had half-megahertz cycle times, 4K of core
+memory, 32K of disk memory, and a 10 character per second teletype interface. I
+am writing this preface on a bus while touring in South Africa. I am using a
+MacBook with four i7 cores running at 2.8 gigahertz each. It has 16 gigabytes of
+RAM, a terabyte of SSD, and a 2880×1800 retina display capable of showing
+extremely high-definition video. The difference in computational power is
+staggering. Any reasonable analysis will show that this MacBook is at least 1022
+more powerful than those early computers that I started using half a century ago.
+Twenty-two orders of magnitude is a very large number. It is the number of
+angstroms from Earth to Alpha-Centuri. It is the number of electrons in the
+change in your pocket or purse. And yet that number—that number at least—is
+the computational power increase that I have experienced in my own lifetime.
+And with all that vast change in computational power, what has been the effect
+on the software I write? It’s gotten bigger certainly. I used to think 2000 lines
+was a big program. After all, it was a full box of cards that weighed 10 pounds.
+Now, however, a program isn’t really big until it exceeds 100,000 lines.
+The software has also gotten much more performant. We can do things today
+that we could scarcely dream about in the 1960s. The Forbin Project, The Moon
+Is a Harsh Mistress, and 2001: A Space Odyssey all tried to imagine our current
+future, but missed the mark rather significantly. They all imagined huge
+machines that gained sentience. What we have instead are impossibly small
+machines that are still … just machines.{xx}
+And there is one thing more about the software we have now, compared to the
+software from back then: It’s made of the same stuff. It’s made of if statements,
+assignment statements, and while loops.
+Oh, you might object and say that we’ve got much better languages and superior
+paradigms. After all, we program in Java, or C#, or Ruby, and we use object-
+oriented design. True—and yet the code is still just an assemblage of sequence,
+selection, and iteration, just as it was back in the 1960s and 1950s.

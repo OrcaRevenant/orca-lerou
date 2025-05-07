@@ -1,0 +1,31 @@
+xxvi
+ACKNOWLEDGMENTS
+Then I went to work at Teradyne where I met Russ Ashdown, Ken Finder, Bob
+Copithorne, Chuck Studee, and CK Srithran (now Kris Iyer). Ken was my boss.
+Chuck and CK were my buds. I learned so much from all of them. Thanks, guys!
+Then there was Mike Carew. At Teradyne, he and I became the dynamic duo.
+We wrote several systems together. If you wanted to get something done, and
+done fast, you got Bob and Mike to do it. We had a load of fun together.
+Thanks, Mike!
+Jerry Fitzpatrick also worked at Teradyne. We met while playing Dungeons &
+Dragons together, but quickly formed a collaboration. We wrote software on a
+Commodore 64 to support D&D users. We also started a new project at
+Teradyne called “The Electronic Receptionist.” We worked together for several
+years, and he became, and remains, a great friend. Thanks, Jerry!
+I spent a year in England while working for Teradyne. There I teamed up with
+Mike Kergozou. He and I schemed together about all manner of things, though
+most of those schemes had to do with bicycles and pubs. But he was a dedicated
+programmer who was very focused on quality and discipline (though, perhaps
+he would disagree). Thanks, Mike!
+Returning from England in 1987, I started scheming with Jim Newkirk. We
+both left Teradyne (months apart) and joined a start-up named Clear
+Communications. We spent several years together there toiling to make the
+millions that never came. But we continued our scheming. Thanks, Jim!
+In the end we founded Object Mentor together. Jim is the most direct,
+disciplined, and focused person with whom I’ve ever had the privilege to work.
+He taught me so many things, I can’t enumerate them here. Instead, I have
+dedicated this book to him.
+There are so many others I’ve schemed with, so many others I’ve collaborated
+with, so many others who have had an impact on my professional life: Lowell
+Lindstrom, Dave Thomas, Michael Feathers, Bob Koss, Brett Schuchert, Dean
+Wampler, Pascal Roy, Jeff Langr, James Grenning, Brian Button, Alan Francis,

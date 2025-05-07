@@ -1,0 +1,13 @@
+5: The Docker Engine
+In this chapter, we’ll take a quick look under the hood of the Docker Engine.
+You can use Docker without understanding any of the things we’ll cover in this
+chapter. So, feel free to skip it. However, to be a real master of anything, you
+need to understand what’s going on under the hood.
+This will be a theory-based chapter with no hands-on exercises.
+As this chapter is part of the Technical section of the book, we’re going to
+employ the three-tiered approach where we split the chapter into three sections:
+The TLDR: Two or three quick paragraphs that you can read while standing
+in line for a coffee
+The deep dive: The really long bit where we get into the detail
+The commands: A quick recap of the commands we learned
+Let’s go learn about the Docker Engine!

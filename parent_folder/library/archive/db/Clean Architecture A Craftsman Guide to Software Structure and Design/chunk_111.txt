@@ -1,0 +1,11 @@
+CONCLUSION
+These dynamically linked files, which can be plugged together at runtime, are
+the software components of our architectures. It has taken 50 years, but we have
+arrived at a place where component plugin architecture can be the casual default
+as opposed to the herculean effort it once was.
+1. My first employer kept several dozen decks of the subroutine library source code on a shelf. When you
+wrote a new program, you simply grabbed one of those decks and slapped it onto the end of your deck.
+2. Actually, most of those old machines used core memory, which did not get erased when you powered the
+computer down. We often left the function library loaded for days at a time.
+3. Moore’s law: Computer speed, memory, and density double every 18 months. This law held from the
+1950s to 2000, but then, at least for clock rates, stopped cold.

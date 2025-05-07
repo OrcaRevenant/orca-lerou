@@ -1,0 +1,21 @@
+passed. Each day the task took a little less than 30 minutes. Jason used a well-
+known cleanliness discipline named test-driven development (TDD) on the first,
+third, and fifth days. On the other three days, he wrote the code without that
+discipline.
+Figure 1.6 Time to completion by iterations and use/non-use of TDD
+First, notice the learning curve apparent in Figure 1.6. Work on the latter days is
+completed more quickly than the former days. Notice also that work on the TDD
+days proceeded approximately 10% faster than work on the non-TDD days, and
+that even the slowest TDD day was faster than the fastest non-TDD day.
+Some folks might look at that result and think it’s a remarkable outcome. But to
+those who haven’t been deluded by the Hare’s overconfidence, the result is
+expected, because they know this simple truth of software development:
+The only way to go fast, is to go well.
+And that’s the answer to the executive’s dilemma. The only way to reverse the
+decline in productivity and the increase in cost is to get the developers to stop
+thinking like the overconfident Hare and start taking responsibility for the mess
+that they’ve made.
+The developers may think that the answer is to start over from scratch and
+redesign the whole system—but that’s just the Hare talking again. The same
+overconfidence that led to the mess is now telling them that they can build it
+better if only they can start the race over. The reality is less rosy:

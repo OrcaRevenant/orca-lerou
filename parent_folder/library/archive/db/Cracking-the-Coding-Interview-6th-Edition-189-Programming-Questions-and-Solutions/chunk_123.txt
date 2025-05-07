@@ -1,0 +1,79 @@
+Chapter 5 j Bit Manipulation
+To understand these expressions, recall that these operations occur bit-by-bit, with what's happening on
+one bit never impacting the other bits. This means that if one of the above statements is true for a single bit,
+then it's true for a sequence of bits.
+• Two's Complement and Negative Numbers
+Computers typically store integers in two's complement representation, A positive number is represented
+as itself while a negative number is represented as the two's complement of its absolute value (with a 1 in its
+sign bit to indicate that a negative value).The two's complement ofanN-bit number (where N is the number
+of bits used for the number.excluding the sign bit) is the complement of the number with respect to 2N.
+Let's look at the 4-bit integer -3 as an example. If it's a 4-bit number, we have one bit for the sign and three
+bits for the value. We want the complement with respect to V, which is 8. The complement of 3 (the abso-
+lute value of -3) with respect to 8 is 5. 5 in binary is 101. Therefore, -3 in binary as a 4-bit number is 1101,
+with the first bit being the sign bit.
+In other words, the binary representation of -K (negative K) as a N-bit number is c o n c a t ( l , 2N l - K).
+Another way to look at this is that we invert the bits in the positive representation and then add 1, 3 is 011
+in binary. Flip the bits to get 100, add 1 to get 101, then prepend the sign bit (1) to get 1101.
+In a four-bit integer, this would look like the following.
+Positive Values
+Negative Values
+7
+0 i n
+- 1
+1 111
+6
+0 110
+- 2
+i
+110
+5
+0 101
+- 3
+i
+101
+4
+0 100
+- 4
+1 100
+3
+0 011
+- 5
+1 011
+2
+0 010
+- 6
+1 010
+1
+0 001
+- 7
+1 001
+0
+a 000
+Observe that the absolute values of the integers on the left and right atways sum to 23, and that the binary
+values on the left and right sides are identical, other than the sign bit. Why is that?
+• Arithmetic vs. Logical Right Shift
+There are two types of right shift operators. The arithmetic right shift essentially divides by two. The logical
+right shift does what we would visually see as shifting the bits. This is best seen on a negative number.
+In a logical right shift, we shift the bits and put a 0 in the most significant bit. It is indicated with a >>>
+operator. On an 8-bit integer (where the sign bit is the most significant bit), this would look like the image
+below. The sign bit is indicated with a gray background.
+= -75
+= 90
+1
+0
+1
+1
+0
+1
+0
+1
+0
+1
+0
+1
+1
+0
+1
+0
+CrackingTheCodinglnterview.com 16th Edition
+113

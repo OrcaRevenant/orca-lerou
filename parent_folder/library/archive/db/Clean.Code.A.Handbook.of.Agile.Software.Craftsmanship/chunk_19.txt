@@ -1,0 +1,35 @@
+xix
+Foreword
+One of our favorite candies here in Denmark is Ga-Jol, whose strong licorice vapors are a
+perfect complement to our damp and often chilly weather. Part of the charm of Ga-Jol to
+us Danes is the wise or witty sayings printed on the ﬂap of every box top. I bought a two-
+pack of the delicacy this morning and found that it bore this old Danish saw:
+Ærlighed i små ting er ikke nogen lille ting.
+“Honesty in small things is not a small thing.” It was a good omen consistent with what I
+already wanted to say here. Small things matter. This is a book about humble concerns
+whose value is nonetheless far from small.
+God is in the details, said the architect Ludwig mies van der Rohe. This quote recalls
+contemporary arguments about the role of architecture in software development, and par-
+ticularly in the Agile world. Bob and I occasionally ﬁnd ourselves passionately engaged in
+this dialogue. And yes, mies van der Rohe was attentive to utility and to the timeless forms
+of building that underlie great architecture. On the other hand, he also personally selected
+every doorknob for every house he designed. Why? Because small things matter.
+In our ongoing “debate” on TDD, Bob and I have discovered that we agree that soft-
+ware architecture has an important place in development, though we likely have different
+visions of exactly what that means. Such quibbles are relatively unimportant, however,
+because we can accept for granted that responsible professionals give some time to think-
+ing and planning at the outset of a project. The late-1990s notions of design driven only by
+the tests and the code are long gone. Yet attentiveness to detail is an even more critical
+foundation of professionalism than is any grand vision. First, it is through practice in the
+small that professionals gain proﬁciency and trust for practice in the large. Second, the
+smallest bit of sloppy construction, of the door that does not close tightly or the slightly
+crooked tile on the ﬂoor, or even the messy desk, completely dispels the charm of the
+larger whole. That is what clean code is about.
+Still, architecture is just one metaphor for software development, and in particular for
+that part of software that delivers the initial product in the same sense that an architect
+delivers a pristine building. In these days of Scrum and Agile, the focus is on quickly
+bringing product to market. We want the factory running at top speed to produce software.
+These are human factories: thinking, feeling coders who are working from a product back-
+log or user story to create product. The manufacturing metaphor looms ever strong in such
+thinking. The production aspects of Japanese auto manufacturing, of an assembly-line
+world, inspire much of Scrum.

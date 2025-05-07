@@ -1,0 +1,95 @@
+Solutions to Chapter 17 j Hard
+i _ l -> i l l
+ai_ -> a i l
+al_ -> a l l , ale
+ap_ -> ape
+i l _ ->
+i l l
+Now, when we want to know the words that are one edit away from a word like ale, we look up _ l e , a_e,
+and a l _ in the hash table.
+The algorithm is otherwise essentially the same.
+1
+LinkedList<String> transform(String start, String stop, String[] words) {
+2
+HashMapListcString, String> wildcardToWordList = createWildcardToWordMap(words);
+3
+HashSet<String> visited = new HashSet<String>();
+4
+return transform(visited, start, stop, wildcardToWordList);
+5
+>
+6
+7
+/* Oo a depth-first search from startword to stopword, traveling through each word
+8
+* that is one edit away. */
+9
+LinkedList<String> transform(HashSet<String> visited. String start, String stop,
+10
+HashMapListcString, String> wildcardToWordList) {
+11
+if (start.equals(stop)) {
+12
+LinkedList«String> path = new LinkedList<String>();
+13
+path.add(start);
+14
+return path;
+15
+} else if (visited.contains(start)) {
+16
+return null;
+17
+}
+18
+19
+visited.add(start);
+20
+ArrayList<String> words = getValidl_inkedWords(start, wildcardToWordList);
+21
+22
+for (String word : words) {
+23
+LinkedList<String> path = transform(visited, word, stop, wildcardToWordList);
+24
+if (path != null) {
+25
+path.addFirst(start);
+26
+return path;
+27
+}
+28
+}
+29
+30
+return null;
+31 }
+32
+33 /* Insert words in dictionary into mapping from wildcard form -> word. */
+34 HashMapListcString, String> createWildc3rdToWordMap(String[] words) {
+35
+HashMapListcString, String> wildcardToWords = new HashMapListcString, String>();
+36
+for (String word : words) {
+37
+ArrayList<String> linked = getWildcardRoots(word);
+38
+for (String linkedWord : linked) {
+39
+wildcardToWords.put(linkedWord, word);
+40
+>
+41
+>
+42
+return wildcardToWords;
+43 }
+44
+45 /* Get list of wildcards associated with word. */
+46 ArrayList<String> getWildcardRoots(String w) {
+47
+ArrayList<String> words = new ArrayList<String>();
+55
+S
+Cracking the Coding interview, 6th Edition

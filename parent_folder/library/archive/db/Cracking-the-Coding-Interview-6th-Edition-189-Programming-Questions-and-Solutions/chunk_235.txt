@@ -1,0 +1,80 @@
+Solutions to Chapter 2 | Linked Lists
+Now, if we keep one p o i n t e r a t C o l l i s i o n S p o t and move the other one to Linked ListHead, they will
+each be k nodes from LoopStart. Moving the two pointers at the same speed will cause them to coflide
+again—this time after k steps, at which point they will both be at LoopStart. All we have to do is return
+this node.
+Part 4: Putting It AH Together
+To summarize, we move F a s t P o i n t e r twice as fast as SlowPointer, When S l o w P o i n t e r enters
+the loop, after k nodes, F a s t P o i n t e r is k nodes into the loop. This means that F a s t P o i n t e r and
+S l o w P o i n t e r are LOOP_SIZE - k nodes away from each other.
+Next, if F a s t P o i n t e r moves two nodes for each node that S l o w P o i n t e r moves, they move one node
+closer to each other on each turn. Therefore, they will meet after LOOP_SIZE
+-
+k turns. Both will be k
+nodes from the front of the loop.
+The head of the linked list is also k nodes from the front of the loop. So, if we keep one pointer where it is,
+and move the other pointer to the head of the linked list, then they will meet at the front of the loop.
+Our algorithm is derived directly from parts 1,2 and 3.
+1. Create two pointers, F a s t P o i n t e r and SlowPointer.
+2. Move F a s t P o i n t e r at a rate of 2 steps and S l o w P o i n t e r at a rate of 1 step.
+3. When they collide, move S l o w P o i n t e r to LinkedListHead. Keep F a s t P o i n t e r where it is.
+4. Move S l o w P o i n t e r and F a s t P o i n t e r at a rate of one step. Return the new collision point.
+The code below implements this algorithm.
+1
+LinkedListNode FindBeginning(LinkedListNode head) {
+2
+LinkedListNode slow = head;
+3
+LinkedListNode f a s t = head;
+4
+5
+/* Find meeting point. This w i l l be LOOP_SI2E - k steps into the linked l i s t . */
+6
+while (fast 1= n u l l && fast.next 1= n u l l ) {
+7
+slow = slow.next;
+8
+fast » f a s t . n e x t . n e x t ;
+9
+if (slow
+fast) { II Collision
+19
+break;
+11
+>
+12
+}
+13
+14
+/* Error check - no meeting point, and therefore no loop */
+15
+if (fast
+n u l l || fast.next == n u l l ) {
+16
+return n u l l ;
+17
+>
+18
+19
+/" Move slow to Head. Keep fast at Meeting Point. Each are k steps from the
+20
+* Loop S t a r t . If they move at the same pace, they must meet at Loop S t a r t . */
+21
+slow = head;
+22
+while (slow != f a s t ) {
+23
+slow = slow.next;
+24
+fast = f a s t . n e x t ;
+25
+}
+26
+27
+/* Both now point to the s t a r t of the loop. */
+28
+return f a s t ;
+29
+}
+CrackingTheCodinglnterview.com | 6th Edition
+22 3

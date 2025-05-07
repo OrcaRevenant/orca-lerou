@@ -1,0 +1,26 @@
+Filesystem/mount (mnt)
+Inter-process Communication (ipc)
+User (user)
+UTS (uts)
+We’ll briefly explain what each one does in a moment. But the most important
+thing to understand is that Docker containers are an organized collection of
+namespaces. Let me repeat that… A Docker container is an organized
+collection of namespaces.
+For example, every container is made up of its own pid, net, mnt, ipc, uts, and
+potentially user namespace. The organized collection of these namespaces is
+what we call a container. Figure 11.3 shows a single Linux host running two
+containers.
+Figure 11.3
+Let’s briefly look at how Docker uses each namespace:
+Process ID namespace: Docker uses the pid namespace to provide isolated
+process trees for each container. Every container gets its own process tree
+meaning that every container can have its own PID 1. PID namespaces also
+mean that a container cannot see or access to the process tree of other
+containers or host it’s running on.
+Network namespace: Docker uses the net namespace to provide each
+container its own isolated network stack. This stack includes; interfaces, IP
+addresses, port ranges, and routing tables. For example, every container
+gets its own eth0 interface with its own unique IP and range of ports.
+Mount namespace: Every container gets its own unique isolated root /
+filesystem. This means that every container can have its own /etc, /var,
+/dev etc. Processes inside of a container cannot access the mount

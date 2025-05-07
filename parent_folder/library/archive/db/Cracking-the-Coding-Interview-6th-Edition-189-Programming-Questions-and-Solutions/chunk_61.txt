@@ -1,0 +1,77 @@
+VII Big 0
+8
+>
+Many people get this question wrong. If you're careful about your logic, it's fairly easy.
+The work inside the for loop is constant. Therefore, we just need to know how many iterations the for loop
+goes through in the worst case.
+The for loop will startwhen x = 2 and end when x * x = n.Or, in otherwords, it stops when x = s/n (when
+x equals the square root of n).
+This for loop is really something like this:
+1
+boolean i s P r i m e ( i n t n) {
+2
+for (int x = 2; x <= sqrt(n); x++) {
+3
+if (n % x == 0) {
+4
+return false;
+5
+}
+6
+>
+7
+return true;
+8
+>
+This runs in 0 ( ^ n ) time.
+Example 11
+The following code computes n! (n factorial). What is its time complexity?
+1
+i n t f a c t o r i a l ( i n t n) {
+2
+if (n < 0) {
+return -1;
+4
+} else if (n == 0) {
+5
+return 1;
+6
+> else {
+return n * factorial(n - 1);
+8
+}
+9
+>
+This is just a straight recursion from n t o n - 1 to n - 2 d o w n to 1. It wilt take 0 ( n ) time.
+Example 12
+This code counts all permutations of a string.
+1
+void permutation(String str) {
+2
+permutation(str, '"');
+3
+>
+4
+5
+void permutation(String str, String prefix) {
+6
+if (str.lengthQ == 0) {
+7
+System.out.println(prefix);
+8
+> else {
+9
+for (int i = 0; i < str.lengthQ; i++) {
+IS
+String rem = str.substring(0, i) + str.substring(i + 1);
+11
+perrriut3tion(rem, prefix + str.charAt(i));
+12
+>
+13
+>
+14 >
+This is a (very!) tricky one. We can think about this by looking at how many times p e r m u t a t i o n gets called
+and how long each call takes. We'll aim for getting as tight of an upper bound as possible.
+CrackingTheCodinglnterview.com | 6th Edition
+51

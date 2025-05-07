@@ -1,0 +1,57 @@
+Solutions to Chapter 10 | Sorting and Searching
+24
+25
+/* Check f o r s t r i n g ,
+and recurse if necessary */
+26
+if
+( s t r . e q u a l s ( s t r i n g s [ m i d ] ) )
+{ // Found
+i t !
+27
+r e t u r n mid;
+28
+} else if (strings[mid].compareTo{str) < 0) { II Search r i g h t
+29
+r e t u r n search(strings, s t r , raid + 1, l a s t ) ;
+30
+} else { 11 Search l e f t
+31
+r e t u r n search(strings, s t r , f i r s t , mid - 1);
+32
+>
+33 >
+34
+35 i n t search(String[] s t r i n g s , S t r i n g s t r ) {
+36
+if ( s t r i n g s == n u l l j | s t r == n u l l [| s t r == " " ) {
+37
+r e t u r n -1;
+38
+>
+39
+return search(strings, s t r , &, s t r i n g s . l e n g t h - 1 ) ;
+40
+}
+The worst-case runtime for this algorithm is 0 ( n ) . In fact, it's impossible to have an algorithm for this
+problem that is better than O(n) in the worst case. After all, you could have an array of all empty strings
+except for one non-empty string. There is no "smart" way to find this non-empty string. In the worst case,
+you will need to look at every element in the array.
+Careful consideration should be given to the situation when someone searches for the empty string. Should
+we find the location (which is an 0( n) operation)? Or should we handle this as an error?
+There's no correct answer here. This is an issue you should raise with your interviewer. Simply asking this
+question will demonstrate that you are a careful coder.
+10.6
+Sort Big File: Imagine you have a 20 GB file with one string per line. Explain how you would sort
+the file.
+pgTSO
+SOLUTION
+When an interviewer gives a size limit of 20 gigabytes, it should tell you something. In this case, it suggests
+that they don't want you to bring all the data into memory.
+So what do we do? We only bring part of the data into memory.
+We'll divide the file into chunks, which are x megabytes each, where x is the amount of memory we have
+available. Each chunk is sorted separately and then saved back to the file system.
+Once alt the chunks are sorted, we merge the chunks, one by one. At the end, we have a fully sorted file.
+This algorithm is known as external sort.
+416
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,31 @@
+When you really look closely at the practice of programming computers, you
+realize that very little has changed in 50 years. The languages have gotten a little
+better. The tools have gotten fantastically better. But the basic building blocks of
+a computer program have not changed.
+If I took a computer programmer from 1966 forward in time to 2016 and put
+her1 in front of my MacBook running IntelliJ and showed her Java, she might
+need 24 hours to recover from the shock. But then she would be able to write the
+code. Java just isn’t that different from C, or even from Fortran.
+And if I transported you back to 1966 and showed you how to write and edit
+PDP-8 code by punching paper tape on a 10 character per second teletype, you
+might need 24 hours to recover from the disappointment. But then you would be
+able to write the code. The code just hasn’t changed that much.
+That’s the secret: This changelessness of the code is the reason that the rules of
+software architecture are so consistent across system types. The rules of software
+architecture are the rules of ordering and assembling the building blocks of
+programs. And since those building blocks are universal and haven’t changed,
+the rules for ordering them are likewise universal and changeless.
+Younger programmers might think this is nonsense. They might insist that
+everything is new and different nowadays, that the rules of the past are past and
+gone. If that is what they think, they are sadly mistaken. The rules have not
+changed. Despite all the new languages, and all the new frameworks, and all the
+paradigms, the rules are the same now as they were when Alan Turing wrote the
+first machine code in 1946.
+But one thing has changed: Back then, we didn’t know what the rules were.
+Consequently, we broke them, over and over again. Now, with half a century of
+experience behind us, we have a grasp of those rules.
+And it is those rules—those timeless, changeless, rules—that this book is all
+about.
+Register your copy of Clean Architecture on the InformIT site for convenient
+access to updates and/or corrections as they become available. To start the
+registration process, go to informit.com/register and log in or create an

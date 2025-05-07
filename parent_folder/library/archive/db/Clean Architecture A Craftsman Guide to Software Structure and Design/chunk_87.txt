@@ -1,0 +1,29 @@
+Interactors are the highest-level concept, so they are the most protected. Views
+are among the lowest-level concepts, so they are the least protected. Presenters
+are higher level than Views, but lower level than the Controller or the Interactor.
+This is how the OCP works at the architectural level. Architects separate
+functionality based on how, why, and when it changes, and then organize that
+separated functionality into a hierarchy of components. Higher-level components
+in that hierarchy are protected from the changes made to lower-level
+components.
+DIRECTIONAL CONTROL
+If you recoiled in horror from the class design shown earlier, look again. Much
+of the complexity in that diagram was intended to make sure that the
+dependencies between the components pointed in the correct direction.
+For example, the FinancialDataGateway interface between the
+FinancialReportGenerator and the FinancialDataMapper exists to invert the
+dependency that would otherwise have pointed from the Interactor component to
+the Database component. The same is true of the FinancialReportPresenter
+interface, and the two View interfaces.
+INFORMATION HIDING
+The FinancialReportRequester interface serves a different purpose. It is there
+to protect the FinancialReportController from knowing too much about the
+internals of the Interactor. If that interface were not there, then the Controller
+would have transitive dependencies on the FinancialEntities.
+Transitive dependencies are a violation of the general principle that software
+entities should not depend on things they don’t directly use. We’ll encounter that
+principle again when we talk about the Interface Segregation Principle and the
+Common Reuse Principle.
+So, even though our first priority is to protect the Interactor from changes to the
+Controller, we also want to protect the Controller from changes to the Interactor
+by hiding the internals of the Interactor.

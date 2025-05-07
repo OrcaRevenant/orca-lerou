@@ -1,0 +1,33 @@
+str.match( re );        // ["oot","ook","or"]
+See how all the matches were returned at once? Sometimes that’s OK, but sometimes
+that’s not what you want.
+The y sticky flag will give you one-at-a-time progressive matching with utilities like
+test(..) and match(..). Just make sure the lastIndex is always in the right position
+for each match!
+Anchored Sticky
+As we warned earlier, it’s inaccurate to think of sticky mode as implying a pattern
+starts with ^. The ^ anchor has a distinct meaning in regular expressions, which is not
+altered by sticky mode. ^ is an anchor that always refers to the beginning of the input,
+and is not in any way relative to lastIndex.
+Besides poor/inaccurate documentation on this topic, the confusion is unfortunately
+strengthened further because an older pre-ES6 experiment with sticky mode in Fire‐
+fox did make ^ relative to lastIndex, so that behavior has been around for years.
+ES6 elected not to do it that way. ^ in a pattern means start-of-input absolutely and
+only.
+As a consequence, a pattern like /^foo/y will always and only find a "foo" match at
+the beginning of a string, if it’s allowed to match there. If lastIndex is not 0, the match
+will fail. Consider:
+var re = /^foo/y,
+str = "foo";
+re.test( str );         // true
+re.test( str );         // false
+re.lastIndex;           // 0 -- reset after failure
+re.lastIndex = 1;
+re.test( str );         // false -- failed for positioning
+re.lastIndex;           // 0 -- reset after failure
+Bottom line: y plus ^ plus lastIndex > 0 is an incompatible combination that will
+always cause a failed match.
+Regular Expressions
+|
+59
+www.it-ebooks.info

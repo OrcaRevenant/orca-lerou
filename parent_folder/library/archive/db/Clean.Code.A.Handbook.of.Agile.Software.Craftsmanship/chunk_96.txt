@@ -1,0 +1,41 @@
+66
+Chapter 4: Comments
+Replace the temptation to create noise with the determination to clean your code. You’ll
+ﬁnd it makes you a better and happier programmer.
+Scary Noise
+Javadocs can also be noisy. What purpose do the following Javadocs (from a well-known
+open-source library) serve? Answer: nothing. They are just redundant noisy comments
+written out of some misplaced desire to provide documentation.
+/** The name. */
+private String name;
+/** The version. */
+private String version;
+/** The licenceName. */
+private String licenceName;
+/** The version. */
+private String info;
+Read these comments again more carefully. Do you see the cut-paste error? If authors
+aren’t paying attention when comments are written (or pasted), why should readers be
+expected to proﬁt from them?
+catch(SocketException e)
+{
+// normal. someone stopped the request.
+}
+catch(Exception e)
+{
+addExceptionAndCloseResponse(e);
+}
+}
+private void addExceptionAndCloseResponse(Exception e)
+{
+try
+{
+response.add(ErrorResponder.makeExceptionString(e));
+response.closeAll();
+}
+catch(Exception e1)
+{
+}
+}
+Listing 4-5 (continued)
+startSending (refactored)

@@ -1,0 +1,30 @@
+Now suppose you were looking at the architecture of a library. You would likely
+see a grand entrance, an area for check-in/out clerks, reading areas, small
+conference rooms, and gallery after gallery capable of holding bookshelves for
+all the books in the library. That architecture would scream: “LIBRARY.”
+So what does the architecture of your application scream? When you look at the
+top-level directory structure, and the source files in the highest-level package, do
+they scream “Health Care System,” or “Accounting System,” or “Inventory
+Management System”? Or do they scream “Rails,” or “Spring/Hibernate,” or
+“ASP”?
+THE THEME OF AN ARCHITECTURE
+Go back and read Ivar Jacobson’s seminal work on software architecture: Object
+Oriented Software Engineering. Notice the subtitle of the book: A Use Case
+Driven Approach. In this book Jacobson makes the point that software
+architectures are structures that support the use cases of the system. Just as the
+plans for a house or a library scream about the use cases of those buildings, so
+should the architecture of a software application scream about the use cases of
+the application.
+Architectures are not (or should not be) about frameworks. Architectures should
+not be supplied by frameworks. Frameworks are tools to be used, not
+architectures to be conformed to. If your architecture is based on frameworks,
+then it cannot be based on your use cases.
+THE PURPOSE OF AN ARCHITECTURE
+Good architectures are centered on use cases so that architects can safely
+describe the structures that support those use cases without committing to
+frameworks, tools, and environments. Again, consider the plans for a house. The
+first concern of the architect is to make sure that the house is usable—not to
+ensure that the house is made of bricks. Indeed, the architect takes pains to
+ensure that the homeowner can make decisions about the exterior material
+(bricks, stone, or cedar) later, after the plans ensure that the use cases are met.
+A good software architecture allows decisions about frameworks, databases, web

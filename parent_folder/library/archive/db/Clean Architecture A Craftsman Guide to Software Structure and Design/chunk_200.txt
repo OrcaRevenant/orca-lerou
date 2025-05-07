@@ -1,0 +1,31 @@
+The frameworks and drivers layer is where all the details go. The web is a detail.
+The database is a detail. We keep these things on the outside where they can do
+little harm.
+ONLY FOUR CIRCLES?
+The circles in Figure 22.1 are intended to be schematic: You may find that you
+need more than just these four. There’s no rule that says you must always have
+just these four. However, the Dependency Rule always applies. Source code
+dependencies always point inward. As you move inward, the level of abstraction
+and policy increases. The outermost circle consists of low-level concrete details.
+As you move inward, the software grows more abstract and encapsulates higher-
+level policies. The innermost circle is the most general and highest level.
+CROSSING BOUNDARIES
+At the lower right of the diagram in Figure 22.1 is an example of how we cross
+the circle boundaries. It shows the controllers and presenters communicating
+with the use cases in the next layer. Note the flow of control: It begins in the
+controller, moves through the use case, and then winds up executing in the
+presenter. Note also the source code dependencies: Each points inward toward
+the use cases.
+We usually resolve this apparent contradiction by using the Dependency
+Inversion Principle. In a language like Java, for example, we would arrange
+interfaces and inheritance relationships such that the source code dependencies
+oppose the flow of control at just the right points across the boundary.
+For example, suppose the use case needs to call the presenter. This call must not
+be direct because that would violate the Dependency Rule: No name in an outer
+circle can be mentioned by an inner circle. So we have the use case call an
+interface (shown in Figure 22.1 as “use case output port”) in the inner circle, and
+have the presenter in the outer circle implement it.
+The same technique is used to cross all the boundaries in the architectures. We
+take advantage of dynamic polymorphism to create source code dependencies
+that oppose the flow of control so that we can conform to the Dependency Rule,
+no matter which direction the flow of control travels.

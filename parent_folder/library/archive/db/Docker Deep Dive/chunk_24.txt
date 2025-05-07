@@ -1,0 +1,27 @@
+Docker for Windows (DfW)
+The first thing to note is that Docker for Windows is a packaged product from
+Docker, Inc. This means it’s got a slick installer that spins up a single-engine
+Docker environment on a 64-bit Windows 10 desktop or laptop.
+The second thing to note is that it is a Community Edition (CE) app. This means
+it is not intended for production workloads.
+The third thing of note is that it might suffer some feature-lag. This is because
+Docker, Inc. are taking a stability first, features second approach with the
+product.
+All three points add up to a quick and easy installation, but one that is not
+intended for production workloads.
+Enough waffle. Let’s see how to install Docker for Windows.
+First up, pre-requisites. Docker for Windows requires:
+Windows 10 Pro | Enterprise | Education (1511 November update, Build
+10586 or later)
+Must be 64-bit
+The Hyper-V and Containers features must be enabled in Windows
+Hardware virtualization support must be enabled in your system’s BIOS
+The following will assume that hardware virtualization support is already
+enabled in your system’s BIOS. If it is not, you should carefully follow the
+procedure for your particular machine.
+The first thing to do in Windows 10 is make sure the Hyper-V and Containers
+features are installed and enabled.
+1. Right-click the Windows Start button and choose Apps and Features.
+2. Click the Programs and Features link.
+3. Click Turn Windows features on or off.
+4. Check the Hyper-V and Containers checkboxes and click OK.

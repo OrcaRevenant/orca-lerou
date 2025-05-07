@@ -1,0 +1,105 @@
+Solutions to Chapter 6 | Math and Logic Puzzles
+54
+i n t testDay = day - DAYS_FOR_RESULT;
+55
+if (testDay < 0 ]| testDay >= dropsByDay.size()) {
+56
+return false;
+57
+>
+58
+f o r ( i n t d = 0; d <= testDay; d++) {
+59
+ArrayList<Bottle> bottles = dropsByDay.get(d);
+60
+if
+(hasPoison(bottles))
+{
+61
+return true;
+62
+}
+63
+>
+64
+return false;
+65
+>
+66 >
+This is just one way of simulating the behavior of the bottles and test strips, and each has its pros and cons.
+With this infrastructure built, we can now implement code to test our approach.
+1
+i n t findPoisonedBottle(ArrayList<Bottle> bottles, ArrayList<TestStrip> s t r i p s ) {
+2
+i n t today = 0;
+3
+4
+while ( b o t t l e s . s i z e ( ) > 1 &fi s t r i p s . s i z e ( ) > 0) {
+5
+/* Run t e s t s .
+*/
+6
+runTestSet(bottleSj
+s t r i p s , today);
+7
+8
+/* Wait f o r results.
+*/
+9
+today += TestStrip,DAYS_FOR_RESULT;
+10
+11
+/* Check results,
+*/
+12
+for (TestStrip s t r i p : s t r i p s ) {
+13
+if (strip.isPositiveOnDay(today))
+{
+14
+bottles = strip.getLastWeeksBottles(today);
+15
+strips.remove(strip);
+16
+break;
+17
+}
+18
+}
+19
+}
+20
+21
+if ( b o t t l e s . s i z e { ) == 1) {
+22
+return b o t t l e s . g e t ( 0 ) , g e t l d ( ) ;
+23
+}
+24
+return -1;
+25 >
+26
+27 /* D i s t r i b u t e bottles across test s t r i p s evenly.
+*/
+28
+void runTestSet(ArrayList<Bottle> b o t t l e s , ArrayList<TestStrip> s t r i p s , i n t day) {
+29
+i n t index = 0;
+30
+for (Bottle bottle : bottles) <
+31
+TestStrip s t r i p = s t r i p s . g e t ( i n d e x ) ;
+32
+strip.addDropOnDay(day,
+b o t t l e ) ;
+index = (index + 1) % s t r i p s . s i z e ( ) ;
+34
+>
+35
+}
+36
+37 /* The complete code can be found in the downloadable code attachment. */
+Note that this approach makes the assumption that there will always be multiple test strips at each round.
+This assumption is valid for 1000 bottles and 10 test strips.
+300
+Cracking the Coding Interview, 6th Edition

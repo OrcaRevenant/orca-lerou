@@ -1,0 +1,16 @@
+The content below is largely based on three popular key-value store systems: Dynamo [4],
+Cassandra [5], and BigTable [6].
+Data partition
+For large applications, it is infeasible to fit the complete data set in a single server. The
+simplest way to accomplish this is to split the data into smaller partitions and store them in
+multiple servers. There are two challenges while partitioning the data:
+• Distribute data across multiple servers evenly.
+• Minimize data movement when nodes are added or removed.
+Consistent hashing discussed in Chapter 5 is a great technique to solve these problems. Let us
+revisit how consistent hashing works at a high-level.
+• First, servers are placed on a hash ring. In Figure 6-4, eight servers, represented by s0,
+s1, …, s7, are placed on the hash ring.
+• Next, a key is hashed onto the same ring, and it is stored on the first server encountered
+while moving in the clockwise direction. For instance, key0 is stored in s1 using this logic.
+Using consistent hashing to partition data has the following advantages:
+Automatic scaling: servers could be added and removed automatically depending on the

@@ -1,0 +1,41 @@
+Chapter 11 j Testing
+6. Browser gets HTTP response.
+7. Browser parses webpage.
+8. Browser displays content.
+At some point in this process, something fails and it causes the browser to crash. A strong tester would
+iterate through the elements of this scenario to diagnose the problem.
+Step 3: Create Specific, Manageable Tests
+Each of the above components should have realistic instructions—things that you can ask the user to do, or
+things that you can do yourself (such as replicating steps on your own machine). In the real world, you will
+be dealing with customers, and you can't give them instructions that they can't or won't do.
+Interview Questions
+11.1
+Mistake: Find the mistake(s) in the following code:
+unsigned i n t i ;
+for {i = 100; i >= 0; --i)
+printf ("%d\niJj l)j
+Hints: #257, #299, #362
+11.2
+Random Crashes: You are given the source to an application which crashes when it is run. After
+running it ten times in a debugger, you find it never crashes in the same place. The application is
+single threaded, and uses only the C standard library. What programming errors could be causing
+this crash? How would you test each one?
+Hints: #325
+11.3
+Chess Test: We have the following method used in a chess game: boolean canMoveTo(int x,
+i n t y ) . This method is part of the Piece class and returns whether or not the piece can move to
+position ( x , y). Explain how you would test this method.
+Hints: #329, #401
+11.4
+No Test Tools: How would you load test a webpage without using any test tools?
+Hints: #313, #345
+pi j 419
+11.5
+Test a Pen; How would you test a pen?
+Hints: #140, #164, #220
+11.6
+Test an ATM: How would you test an ATM in a distributed banking system?
+Hints: #210, #225, #268, #349, #393
+Hints start on page 662.
+CrackingTheCodinglnteruiew.com | 6th Edition
+157

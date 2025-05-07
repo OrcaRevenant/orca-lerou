@@ -1,0 +1,62 @@
+Solutions to Chapter 4 | Trees and Graphs
+The time complexity for this solution isO(N), where N is the number of nodes in the tree. We can prove that
+this is the best we can do, since any algorithm must touch all N nodes.
+Due to the use of recursion, the space complexity isO(log M) on a balanced tree. There are up to 0( l o g
+N) recursive calls on the stack since we may recurse up to the depth of the tree.
+The recursive code for this is as follows:
+1
+boolean checkBST(TreeNode n) {
+2
+return checkBST(n, n u l l , n u l l ) ;
+3
+>
+4
+5
+boolean checkBST(TreeNode n, Integer min, Integer max) {
+6
+if (n == n u l l ) {
+return true;
+8
+}
+9
+if ((min 1= n u l l && n.data <= min) |[ (max != n u l l 6& n.data > max)) {
+10
+return false;
+11
+}
+12
+13
+if (IcheckBST(n,left, min, n.data) |1
+!checkBST(n.right, n.data, max)) {
+14
+return false;
+15
+>
+16
+return t r u e ;
+17 >
+Remember that in recursive algorithms, you should always make sure that your base cases, as well as your
+nuil cases, are well handled.
+4.6
+Successor: Write an algorithm to find the "next" node (i.e., in-order successor) of a given node in a
+binary search tree. You may assume that each node has a link to its parent.
+pg 110
+SOLUTION
+Recall that an in-order traversal traverses the left subtree, then the current node, then the right subtree. To
+approach this problem, we need to think very, very carefully about what happens.
+Let's suppose we have a hypothetical node. We know that the order goes left subtree, then current side,
+then right subtree. So, the next node we visit should be on the right side.
+But which node on the right subtree? It should be the first node we'd visit if we were doing an in-order
+traversal of that subtree. This means that it should be the leftmost node on the right subtree. Easy enough!
+But what if the node doesn't have a right subtree? This is where it gets a bit trickier.
+If a node n doesn't have a right subtree, then we are done traversing n's subtree. We need to pick up where
+we left off with n's parent, which we'll call q.
+If n was to the left of q, then the next node we should traverse should be q (again, since l e f t -> c u r r e n t
+->
+r i g h t ) .
+If n were to the right of q, then we have fully traversed q's subtree as well. We need to traverse upwards from
+q until we find a node x that we have not fully traversed. How do we know that we have not fully traversed
+a node x? We know we have hit this case when we move from a left node to its parent. The left node is fully
+traversed, but its parent is not.
+274
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,29 @@
+Table of Contents
+Foreword. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  ix
+1. ES? Now & Future. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1
+Versioning                                                                                                                           2
+Transpiling                                                                                                                          3
+Shims/Polyfills                                                                                                                4
+Review                                                                                                                                  5
+2. Syntax. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  7
+Block-Scoped Declarations                                                                                               7
+let Declarations                                                                                                             8
+const Declarations                                                                                                       12
+Spread / Rest                                                                                                                     13
+Default Parameter Values                                                                                               15
+Default Value Expressions                                                                                           17
+Destructuring                                                                                                                   19
+Object Property Assignment Pattern                                                                        20
+Not Just Declarations                                                                                                   22
+Too Many, Too Few, Just Enough                                                                               24
+Default Value Assignment                                                                                           26
+Nested Destructuring                                                                                                   26
+Destructuring Parameters                                                                                           27
+Object Literal Extensions                                                                                                32
+Concise Properties                                                                                                       32
+Concise Methods                                                                                                          33
+Computed Property Names                                                                                        37
+Setting [[Prototype]]                                                                                                38
+Object super                                                                                                                 40
+iii
+www.it-ebooks.info

@@ -1,0 +1,68 @@
+Solutions to Chapter 10 | Sorting and Searching
+10.2
+Group Anagrams: Write a method to sort an array of strings so that all the anagrams are next to
+each other.
+pg 150
+SOLUTION
+This problem asks us to group the strings in an array such that the anagrams appear next to each other.
+Note that no specific ordering of the words is required, other than this.
+We need a quick and easy way of determining if two strings are anagrams of each other. What defines if two
+words are anagrams of each other? Weil, anagrams are words that have the same characters but in different
+orders. It follows then that if we can put the characters in the same order, we can easily check if the new
+words are identical.
+One way to do this is to just apply any standard sorting algorithm, like merge sort or quick sort, and modify
+the comparator. This comparator will be used to indicate that two strings which are anagrams of each other
+are equivalent.
+What's the easiest way of checking if two words are anagrams? We could count the occurrences of the
+distinct characters in each string and return t r u e if they match. Or, we could just sort the string. After all,
+two words which are anagrams will look the same once they're sorted.
+The code below implements the comparator.
+1
+class AnagraraComparator implements Comparator«String> {
+2
+public S t r i n g sortChars(String s) {
+3
+c h a r [ ] content = s.toCharArray();
+4
+A r r a y s , s o r t ( c o n t e n t ) ;
+5
+return new S t r i n g ( c o n t e n t ) ;
+6
+>
+7
+8
+public i n t compare(String s i , S t r i n g s2) {
+r e t u r n
+sortChars(sl).compareTo(sortChars(s2));
+10
+}
+11 }
+Now, just sort the arrays using this compareTo method instead of the usual one.
+12
+A r r a y s . s o r t ( a r r a y , new AnagramComparator());
+This algorithm will take 0 ( n l o g ( n ) ) time.
+This may be the best we can do for a general sorting algorithm, but we don't actually need to fully sort the
+array. We only need to group the strings in the array by anagram.
+We can do this by using a hash table which maps from the sorted version of a word to a list of its anagrams.
+So, for example, a c r e will map to the list { a c r e ,
+r a c e , c a r e } . Once we've grouped all the words into
+these lists by anagram, we can then put them back into the array.
+The code below implements this algorithm,
+l
+void s o r t ( S t r i n g [ ] array) {
+2
+HashMapListcString, String> mapList = new HashMapList<String, S t r i n g > ( ) ;
+3
+4
+/* Group words by anagram */
+5
+f o r ( S t r i n g s : array) {
+6
+S t r i n g key = sortChars(s);
+7
+mapList.put(key,
+s ) ;
+8
+}
+CrackingTheCodinglnterview.com | 6th Edition
+397

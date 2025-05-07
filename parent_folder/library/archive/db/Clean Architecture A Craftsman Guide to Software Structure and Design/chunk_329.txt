@@ -1,0 +1,29 @@
+office equipment market.
+After repeated attempts over two years, our CEO gave up and—unfortunately—
+dropped the patent application. The patent was picked up by the company that
+filed three months after we filed; thus we surrendered the entire voice mail and
+electronic call-forwarding market.
+Ouch!
+On the other hand, you can’t blame me for those annoying machines that now
+plague our existence.
+CRAFT DISPATCH SYSTEM
+ER had failed as a product, but we still had all this hardware and software that
+we could use to enhance our existing product lines. Moreover, our marketing
+success with VRS convinced us that we should offer a voice response system for
+interacting with telephone craftsmen that did not depend on our test systems.
+Thus was born CDS, the Craft Dispatch System. CDS was essentially ER, but
+specifically focused on the very narrow domain of managing the deployment of
+telephone repairmen in the field.
+When a problem was discovered in a phone line, a trouble ticket was created in
+the service center. Trouble tickets were kept in an automated system. When a
+repairman in the field finished a job, he would call the service center for the next
+assignment. The service center operator would pull up the next trouble ticket and
+read it off to the repairman.
+We set about to automate that process. Our goal was for the repairman in the
+field to call into CDS and ask for the next assignment. CDS would consult the
+trouble ticket system, and read off the results. CDS would keep track of which
+repairman was assigned to which trouble ticket, and would inform the trouble
+ticket system of the status of the repair.
+There were quite a few interesting features of this system having to do with
+interacting with the trouble ticket system, the plant management system, and any
+automated testing systems.

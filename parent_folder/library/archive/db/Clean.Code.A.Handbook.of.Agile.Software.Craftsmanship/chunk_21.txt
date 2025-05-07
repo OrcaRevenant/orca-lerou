@@ -1,0 +1,44 @@
+xxi
+Foreword
+replacing old ones. As Fred Brooks admonishes us, we should probably re-do major soft-
+ware chunks from scratch every seven years or so to sweep away creeping cruft. Perhaps
+we should update Brooks’ time constant to an order of weeks, days or hours instead of
+years. That’s where detail lies.
+There is great power in detail, yet there is something humble and profound about this
+approach to life, as we might stereotypically expect from any approach that claims Japa-
+nese roots. But this is not only an Eastern outlook on life; English and American folk wis-
+dom are full of such admonishments. The Seiton quote from above ﬂowed from the pen of
+an Ohio minister who literally viewed neatness “as a remedy for every degree of evil.”
+How about Seiso? Cleanliness is next to godliness. As beautiful as a house is, a messy
+desk robs it of its splendor. How about Shutsuke in these small matters? He who is faithful
+in little is faithful in much. How about being eager to re-factor at the responsible time,
+strengthening one’s position for subsequent “big” decisions, rather than putting it off? A
+stitch in time saves nine. The early bird catches the worm. Don’t put off until tomorrow
+what you can do today. (Such was the original sense of the phrase “the last responsible
+moment” in Lean until it fell into the hands of software consultants.) How about calibrat-
+ing the place of small, individual efforts in a grand whole? Mighty oaks from little acorns
+grow. Or how about integrating simple preventive work into everyday life? An ounce of
+prevention is worth a pound of cure. An apple a day keeps the doctor away. Clean code
+honors the deep roots of wisdom beneath our broader culture, or our culture as it once was,
+or should be, and can be with attentiveness to detail.
+Even in the grand architectural literature we ﬁnd saws that hark back to these sup-
+posed details. Think of mies van der Rohe’s doorknobs. That’s seiri. That’s being attentive
+to every variable name. You should name a variable using the same care with which you
+name a ﬁrst-born child.
+As every homeowner knows, such care and ongoing reﬁnement never come to an end.
+The architect Christopher Alexander—father of patterns and pattern languages—views
+every act of design itself as a small, local act of repair. And he views the craftsmanship of
+ﬁne structure to be the sole purview of the architect; the larger forms can be left to patterns
+and their application by the inhabitants. Design is ever ongoing not only as we add a new
+room to a house, but as we are attentive to repainting, replacing worn carpets, or upgrad-
+ing the kitchen sink. Most arts echo analogous sentiments. In our search for others who
+ascribe God’s home as being in the details, we ﬁnd ourselves in the good company of the
+19th century French author Gustav Flaubert. The French poet Paul Valery advises us that a
+poem is never done and bears continual rework, and to stop working on it is abandonment.
+Such preoccupation with detail is common to all endeavors of excellence. So maybe there
+is little new here, but in reading this book you will be challenged to take up good disci-
+plines that you long ago surrendered to apathy or a desire for spontaneity and just
+“responding to change.”
+Unfortunately, we usually don’t view such concerns as key cornerstones of the art of
+programming. We abandon our code early, not because it is done, but because our value
+system focuses more on outward appearance than on the substance of what we deliver.

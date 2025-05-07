@@ -1,0 +1,49 @@
+Solutions to Chapter 15 | Threads and Locks
+P is executing and P2 is waiting for execution. At some point, the operating system must swap P and P2—
+let's assume it happens at the Nth instruction of P . If t
+k indicates the timestamp in microseconds of the
+kth instruction of process x, then the context switch would take t 2 , - tt n microseconds.
+The tricky part is this: how do we know when this swapping occurs? We cannot, of course, record the time-
+stamp of every instruction in the process.
+Another issue is that swapping is governed by the scheduling algorithm of the operating system and
+there may be many kernel level threads which are also doing context switches. Other processes could be
+contending for the CPU or the kernel handling interrupts. The user does not have any control over these
+extraneous context switches. For instance, if at time tx
+the kernel decides to handle an interrupt, then the
+context switch time would be overstated.
+In order to overcome these obstacles, we must first construct an environment such that after P1 executes,
+the task scheduler immediately selects P; to run. This may be accomplished by constructing a data channel,
+such as a pipe, between P and P; and having the two processes play a game of ping-pong with a data
+token.
+That is, let's allow P to be the initial sender and P to be the receiver. Initially, P2 is blocked (sleeping) as it
+awaits the data token. When
+executes, it delivers the token over the data channel to P; and immediately
+attempts to read a response token. However, since P. has not yet had a chance to run, no such token is avail-
+able for Pj and the process is blocked. This relinquishes the CPU.
+A context switch results and the task scheduler must select another process to run. Since P. is now in a
+ready-to-run state, it is a desirable candidate to be selected by the task scheduler for execution. When P2
+runs, the roles of P} and P, are swapped, P2 is now acting as the sender and Pt as the blocked receiver. The
+game ends when P; returns the token to Pt.
+To summarize, an iteration of the game is played with the following steps:
+1. P1 blocks awaiting data from P
+2. P. marks the start time.
+3. P sends token to P,.
+4. P attempts to read a response token from
+This induces a context switch.
+5. P2 is scheduled and receives the token.
+6. P sends a response token to P
+7. P? attempts read a response token from P .This induces a context switch.
+8. Pj is scheduled and receives the token.
+9. P marks the end time.
+The key is that the delivery of a data token induces a context switch. Let Td and Tr be the time it takes to
+deliver and receive a data token, respectively, and let T be the amount of time spent in a context switch. At
+step 2, P records the timestamp of the delivery of the token, and at step 9, it records the timestamp of the
+response. The amount of time elapsed, T, between these events maybe expressed by:
+T = 2 * (Ta + Tr + t,>
+This formula arises because of the following events:
+sends a token (3), the CPU context switches (4), P3
+receives it (5). P, then sends the response token (6), the CPU context switches (7), and finally
+receives it
+(8).
+420
+Cracking the Coding interview, 6th Edition

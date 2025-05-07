@@ -1,0 +1,6 @@
+SOURCE CODE CONTROL
+193
+became the obvious and most convenient way to work. Individual developers
+can make very short-lived branches and then merge them with each other on
+a whim.
+Figure A-2 FITNESSE under git

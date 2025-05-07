@@ -1,0 +1,43 @@
+276
+Chapter 16: Refactoring SerialDate
+The second set of constants (lines 177–187) is a bit more obscure. The INCLUDE_NONE,
+INCLUDE_FIRST, INCLUDE_SECOND, and INCLUDE_BOTH constants are used to describe whether
+the deﬁning end-point dates of a range should be included in that range. Mathematically,
+this is described using the terms “open interval,” “half-open interval,” and “closed inter-
+val.” I think it is clearer using the mathematical nomenclature [N3], so I changed it to an
+enum named DateInterval with CLOSED, CLOSED_LEFT, CLOSED_RIGHT, and OPEN enumerators.
+The third set of constants (lines 18–205) describe whether a search for a particular
+day of the week should result in the last, next, or nearest instance. Deciding what to call
+this is difﬁcult at best. In the end, I settled for WeekdayRange with LAST, NEXT, and NEAREST
+enumerators.
+You might not agree with the names I’ve chosen. They make sense to me, but they
+may not make sense to you. The point is that they are now in a form that makes them easy
+to change [J3]. They aren’t passed as integers anymore; they are passed as symbols. I can
+use the “change name” function of my IDE to change the names, or the types, without
+worrying that I missed some -1 or 2 somewhere in the code or that some int argument dec-
+laration is left poorly described.
+The description ﬁeld at line 208 does not seem to be used by anyone. I deleted it along
+with its accessor and mutator [G9].
+I also deleted the degenerate default constructor at line 213 [G12]. The compiler will
+generate it for us.
+We can skip over the isValidWeekdayCode method (lines 216–238) because we deleted
+it when we created the Day enumeration.
+This brings us to the stringToWeekdayCode method (lines 242–270). Javadocs that
+don’t add much to the method signature are just clutter [C3],[G12]. The only value this
+Javadoc adds is the description of the -1 return value. However, because we changed to the
+Day enumeration, the comment is actually wrong [C2]. The method now throws an
+IllegalArgumentException. So I deleted the Javadoc.
+I also deleted all the final keywords in arguments and variable declarations. As far as
+I could tell, they added no real value but did add to the clutter [G12]. Eliminating final
+ﬂies in the face of some conventional wisdom. For example, Robert Simmons6 strongly
+recommends us to “. . . spread final all over your code.” Clearly I disagree. I think that
+there are a few good uses for final, such as the occasional final constant, but otherwise
+the keyword adds little value and creates a lot of clutter. Perhaps I feel this way because the
+kinds of errors that final might catch are already caught by the unit tests I write.
+I didn’t care for the duplicate if statements [G5] inside the for loop (line 259 and
+line 263), so I connected them into a single if statement using the || operator. I also used
+the Day enumeration to direct the for loop and made a few other cosmetic changes.
+It occurred to me that this method does not really belong in DayDate. It’s really the
+parse function of Day. So I moved it into the Day enumeration. However, that made the Day
+6.
+[Simmons04], p. 73.

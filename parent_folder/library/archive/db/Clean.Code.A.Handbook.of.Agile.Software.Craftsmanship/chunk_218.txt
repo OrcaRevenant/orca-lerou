@@ -1,0 +1,36 @@
+188
+Chapter 13: Concurrency
+threads to be easily tuned. Consider allowing it to change while the system is running.
+Consider allowing self-tuning based on throughput and system utilization.
+Run with More Threads Than Processors
+Things happen when the system switches between tasks. To encourage task swapping, run
+with more threads than processors or cores. The more frequently your tasks swap, the more
+likely you’ll encounter code that is missing a critical section or causes deadlock.
+Run on Different Platforms
+In the middle of 2007 we developed a course on concurrent programming. The course
+development ensued primarily under OS X. The class was presented using Windows XP
+running under a VM. Tests written to demonstrate failure conditions did not fail as fre-
+quently in an XP environment as they did running on OS X.
+In all cases the code under test was known to be incorrect. This just reinforced the fact
+that different operating systems have different threading policies, each of which impacts
+the code’s execution. Multithreaded code behaves differently in different environments.16
+You should run your tests in every potential deployment environment.
+Recommendation: Run your threaded code on all target platforms early and often.
+Instrument Your Code to Try and Force Failures
+It is normal for ﬂaws in concurrent code to hide. Simple tests often don’t expose them.
+Indeed, they often hide during normal processing. They might show up once every few
+hours, or days, or weeks!
+The reason that threading bugs can be infrequent, sporadic, and hard to repeat, is that
+only a very few pathways out of the many thousands of possible pathways through a vul-
+nerable section actually fail. So the probability that a failing pathway is taken can be star-
+tlingly low. This makes detection and debugging very difﬁcult.
+How might you increase your chances of catching such rare occurrences? You can
+instrument your code and force it to run in different orderings by adding calls to methods
+like Object.wait(), Object.sleep(), Object.yield() and Object.priority().
+Each of these methods can affect the order of execution, thereby increasing the odds
+of detecting a ﬂaw. It’s better when broken code fails as early and as often as possible.
+There are two options for code instrumentation:
+• Hand-coded
+• Automated
+16.  Did you know that the threading model in Java does not guarantee preemptive threading? Modern OS’s support preemptive
+threading, so you get that “for free.” Even so, it not guaranteed by the JVM.

@@ -1,0 +1,91 @@
+Solutions to Chapter 17 j Hard
+16 >
+17
+18 public s t a t i c BiNode getTail(BiNode node) {
+19
+if (node == n u l l ) return n u l l ;
+20
+while (node.node2 ! = n u l l ) {
+21
+node => node.node2;
+22
+}
+23
+return node;
+24 >
+Other than a call to g e t T a i l , this code is almost identical to the first solution. It is not, however, very effi-
+cient, A leaf node at depth d will be "touched" by the g e t T a i l method d times (one for each node above
+it), leading to an 0(M2) overall runtime, where N is the number of nodes in the tree.
+Solution #3: Building a Circular Linked List
+We can build our third and final approach off of the second one.
+This approach requires returning the head and tail of the linked list with BiNode. We can do this by
+returning each list as the head of a circular linked list. To get the tail, then, we simply call head.nodel.
+1
+BiNode convertToCircular(BiNode root) {
+2
+if (root == n u l l ) return n u l l ;
+3
+4
+BiNode p a r t i = convertToCircular(root.nodel);
+5
+BiNode part3 = convertToCircular(root,node2);
+6
+7
+if ( p a r t i == n u l l &S part3 == n u l l ) {
+8
+root.nodel = root;
+9
+root.node2 = root;
+10
+return root;
+11
+>
+12
+BiNode t a i l 3 = (part3 == n u l l ) ? n u l l : part3.nodel;
+13
+14
+/* j o i n l e f t to root */
+15
+if ( p a r t i == n u l l ) {
+16
+concat(part3.nodelj
+r o o t ) ;
+17
+} else {
+18
+concatfpartl.nodel,
+r o o t ) ;
+19
+}
+20
+21
+/* j o i n right to root */
+22
+if (part3 == n u l l ) {
+23
+concat(rootj
+p a r t i ) ;
+24
+) else {
+25
+concat(root,
+part3);
+26
+>
+27
+28
+/* j o i n right to l e f t */
+29
+if ( p a r t i 1= n u l l &S part3 != n u l l ) {
+30
+concat(tail3,
+p a r t i ) ;
+31
+>
+32
+return p a r t i == n u l l ? root : p a r t i ;
+34 >
+35
+36 /* Convert l i s t to a c i r c u l a r linked l i s t , then break the circular connection. */
+55 S
+Cracking the Coding interview, 6th Edition

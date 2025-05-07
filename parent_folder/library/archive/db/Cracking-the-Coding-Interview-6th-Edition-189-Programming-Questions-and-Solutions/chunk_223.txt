@@ -1,0 +1,81 @@
+Solutions to Chapter 2 | Linked Lists
+27
+afterEnd.next = node;
+28
+afterEnd = node;
+29
+>
+30
+>
+31
+node = next;
+32
+>
+33
+34
+if (beforeStart == n u l l ) {
+return a f t e r S t a r t ;
+36
+>
+37
+38
+/* Merge before l i s t and a f t e r l i s t */
+39
+beforeEnd.next = a f t e r S t a r t ;
+40
+return beforeStart;
+41
+}
+If it bugs you to keep around four different variables for tracking two linked lists, you're not alone. We can
+make this code a bit shorter.
+If we don't care about making the elements of the list "stable" (which there's no obligation to, since the
+interviewer hasn't specified that), then we can instead rearrange the elements by growing the list at the
+head and tail.
+in this approach, we start a "new" list (using the existing nodes). Elements bigger than the pivot element are
+put at the tail and elements smaller are put at the head. Each time we insert an element, we update either
+the head or tail.
+1
+LinkedListNode partition(LinkedListNode node, i n t x) {
+2
+LinkedListNode head = node;
+3
+LinkedListNode t a i l = node;
+4
+5
+while (node != n u l l ) {
+6
+LinkedListNode next = node.next;
+7
+if (node.data < x) {
+8
+/* Insert node at head. */
+9
+node.next = head;
+10
+head = node;
+11
+} else {
+12
+/* Insert node at t a i l . */
+13
+t a i l . n e x t = node;
+14
+t a i l = node;
+15
+}
+16
+node = next;
+17
+}
+18
+t a i l . n e x t = n u l l ;
+19
+20
+// The head has changed, so we need to return it to the user.
+21
+return head;
+22
+)
+There are many equally optimal solutions to this problem, if you came up with a different one, that's okay!
+CrackingTheCodinglnterview.com | 6th Edition
+22 3

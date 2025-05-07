@@ -1,0 +1,117 @@
+Solutions to Chapter 14 j Databases
+More Optimal
+Let's create an example. (In fact, an example is really helpful in almost ail problems. Ideally, you've already
+done this.) Each column below is matched, so that the items correspond to the same person. For compact-
+ness, we'll just write the last two digits of the year.
+b i r t h : 12
+20
+10
+01
+10
+23
+13
+90
+83
+75
+death: 15
+90
+98
+72
+98
+82
+98
+98
+99
+94
+It's worth noting that it doesn't really matter whether these years are matched up. Every birth adds a person
+and every death removes a person.
+Since we don't actually need to match up the births and deaths, let's sort both. A sorted version of the years
+might help us solve the problem.
+b i r t h : 01
+10
+10
+12
+13
+20
+23
+75
+83
+90
+death: 15
+72
+82
+90
+94
+98
+98
+98
+98
+99
+We can try walking through the years.
+•
+At year 0, no one is alive.
+•
+At year 1, we see one birth.
+•
+At years 2 through 9, nothing happens.
+•
+Let's skip ahead until year 10, when we have two births. We now have three people alive.
+•
+At year 15, one person dies. We are now down to two people alive.
+•
+And so on.
+If we walk through the two arrays like this, we can track the number of people alive at each point.
+1
+i n t maxAliveYear(Person[] people, i n t min, i n t max) {
+2
+int[] births = getSortedYears(people, true);
+3
+int[] deaths => getSortedYears(people, false);
+4
+5
+int birthlndex = 0;
+6
+int deathlndex = 0;
+7
+int currentlyAlive = 0;
+8
+int maxAlive = 0;
+9
+int maxAliveYear = min;
+10
+11
+/* Walk through arrays. */
+12
+while (birthlndex < births.length) {
+13
+if (births[birthlndex] <= deaths[deathlndex]) {
+14
+currentlyAlive++; // include birth
+15
+if (currentlyAlive > maxAlive) {
+16
+maxAlive => currentlyAlive;
+17
+maxAliveYear = births[birthindex];
+18
+}
+19
+birthlndex++; U move birth index
+20
+) else if (births[birthlndex] > deaths[deathindex]) {
+21
+currentlyAlive--; // include death
+22
+deathlndex++; // move death index
+23
+}
+24
+}
+25
+26
+return maxAliveYear;
+27 >
+28
+29 /* Copy birth years or death years (depending on the value of copyBirthYear into
+4 8 4
+Cracking the Coding Interview, 6th Edition

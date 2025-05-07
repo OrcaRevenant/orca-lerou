@@ -1,0 +1,40 @@
+First, each line in the output corresponds to an instruction in the Dockerfile. The
+CREATED BY column even lists the exact instruction that was executed.
+Second, only 4 of the image layers displayed in the output contain any data (the
+ones with non-zero values in the SIZE column). These correspond to the FROM,
+RUN, and COPY instructions in the Dockerfile. Although the other instructions look
+like they create layers, they actually create metadata instead of layers. The
+reason that the docker image history output makes it looks like all instructions
+create layers is an artefact of the way Docker builds used to work.
+Use the docker image inspect command to confirm that only 4 layers were
+created.
+$ docker image inspect web:latest
+<Snip>
+},
+"RootFS": {
+"Type": "layers",
+"Layers": [
+"sha256:5bef08...00324f75e56f589aedb0",
+"sha256:03f8d2...f7061341ab09fab9d2d5",
+"sha256:7bb5e2...5718961a7a706c5d0085",
+"sha256:110b48...541f301505b0da017b34"
+]
+},
+It is considered a good practice to use images from official repositories with the
+FROM instruction. This is because they tend to follow best practices and be
+relatively free from known vulnerabilities. It is also a good idea to start from
+(FROM) small images as this reduces the potential attack surface.
+You can view the output of the docker image build command to see the
+general process for building an image. As the snippet below shows, the basic
+process is: spin up a temporary container > run the Dockerfile
+instruction inside of that container > save the results as a new
+image layer > remove the temporary container.
+Step 3/8 : RUN apk add --update nodejs nodejs-npm
+---> Running in 6f3..06d    <---- run inside temp container
+fetch ...86_64/APKINDEX.tar.gz
+fetch ...86_64/APKINDEX.tar.gz
+(1/9) Installing...
+<Snip>
+---> fdaa341c6b35    <---- create layer
+Removing intermediate container <---- remove temp container
+Step 4/8...

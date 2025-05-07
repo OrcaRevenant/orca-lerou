@@ -1,0 +1,43 @@
+It is in this Main component that dependencies should be injected by a
+Dependency Injection framework. Once they are injected into Main, Main should
+distribute those dependencies normally, without using the framework.
+Think of Main as the dirtiest of all the dirty components.
+Consider the following Main component from a recent version of Hunt the
+Wumpus. Notice how it loads up all the strings that we don’t want the main body
+of the code to know about.
+Click here to view code image
+public class Main implements HtwMessageReceiver {
+private static HuntTheWumpus game;
+private static int hitPoints = 10;
+private static final List<String> caverns = new ArrayList<>();
+private static final String[] environments = new String[]{
+"bright",
+"humid",
+"dry",
+"creepy",
+"ugly",
+"foggy",
+"hot",
+"cold",
+"drafty",
+"dreadful"
+};
+private static final String[] shapes = new String[] {
+"round",
+"square",
+"oval",
+"irregular",
+"long",
+"craggy",
+"rough",
+"tall",
+"narrow"
+};
+private static final String[] cavernTypes = new String[] {
+"cavern",
+"room",
+"chamber",
+"catacomb",
+"crevasse",
+"cell",
+"tunnel",

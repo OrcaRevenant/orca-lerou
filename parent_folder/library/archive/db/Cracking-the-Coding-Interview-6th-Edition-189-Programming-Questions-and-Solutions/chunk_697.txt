@@ -1,0 +1,74 @@
+IV j Hints for Additional Review Problems
+#602.
+16.21
+#603.
+17.26
+#604.
+17.10
+#605.
+17.7
+#606.
+16,21
+#607.
+17.16
+#608.
+17.12
+#609.
+17.19
+#610.
+17.4
+#611.
+17.26
+#612.
+17.6
+#613.
+16,9
+#614.
+16.17
+#615.
+17.24
+#616.
+16.22
+What the brute force really does is look for a value within S which equals a - t a r g e t .
+How can you more quickly find this element? What approaches help us quickly find out
+if an element exists within an array?
+Solution 2: Once you have a way of easily finding the documents similar to a particular
+document, you can go through and just compute the similarity to those documents
+using a simple algorithm. Can you make this faster? Specifically, can you compute the
+similarity directly from the hash table?
+The majority element will not necessarily look like the majority element at first. It is
+possible, for example, to have the majority element appear in the first element of the
+array and then not appear again for the next eight eiements. However, in those cases,
+the majority element will appear later in the array (in fact, many times later on in the
+array). It's not necessarily critical to continue checking a specific instance of an element
+for majority status once it's already looking "unlikely."
+Instead, X, A, B, and C should map to the same instance of the set {X, A, B, C}. Y, D,
+E, and F should map to the same instance of (Y, D, E, F}. When we set X and Y as
+synonyms, we can then just copy one of the sets into the other (e.g., add {Y, D, E,
+F } t o { X j A, Bj C}). How else do we change the hash table?
+We can use a hash tablehere.We can also try sorting. Both help us locate elements more
+quickly.
+Iterative solution: If you're careful about what data you really need, you should be able
+to solve this inO(n) time and 0 ( 1 ) additional space.
+Think about it this way: If you had methods called con v e r t L e f t and convert Right
+(which would convert left and right subtrees to doubly linked lists), could you put those
+together to convert the whole tree to a doubly linked list?
+Part 1: What if you added up all the values in the array? Could you then figure out the
+missing number?
+How long would it take you to figure out the least significant bit of the missing number?
+Solution 2: Imagine you are looking up the documents similar to (1,4,6) by using a hash
+table that maps from a word to documents. The same document ID appears multiple
+times when doing this lookup. What does that indicate?
+Rather than counting the number of twos in each number, think about digit by digit.
+That is, count the number of twos in the first digit (for each number), then the number
+of twos in the second digit (for each number), then the number of twos in the third digit
+(for each number), and so on.
+Multiply: it's easy enough to implement m u l t i p l y using add. But how do you handle
+negative numbers?
+You can solve this in 0(N) time and 0(1) space.
+Suppose this was just a single array. How could we compute the subarray with the
+largest sum? See 16.17 for a solution to this.
+Option #3: All you actually need is some way of looking up if a cell is white or black (and
+of course the position of the ant). Can you just keep a list of all the white cells?
+CrackingTheCodinglnterview.com | 6th Edition
+69S

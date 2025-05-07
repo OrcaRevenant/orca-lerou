@@ -1,0 +1,31 @@
+11 The Interview Process
+• It's All Relative
+If there's no grading system, how are you evaluated? How does an interviewer know what to expect of you?
+Good question. The answer actually makes a lot of sense once you understand it-
+Interviewers assess you relative to other candidates on that same question by the same interviewer. It's a
+relative comparison.
+For example, suppose you came up with some cool new brainteaser or math problem. You ask your friend
+Alex the question, and it takes him 30 minutes to solve it. You ask Bella and she takes SO minutes. Chris is
+never able to solve it, Dexter takes 15 minutes, but you had to give him some major hints and he probably
+would have taken far longer without them. Ellie takes 10—and comes up with an alternate approach you
+weren't even aware of. Fred takes 35 minutes.
+You'll walk away saying, "Wow, Ellie did realty well. I'll bet she's pretty good at math." (Of course, she couid
+have just gotten lucky. And maybe Chris got unlucky. You might ask a few more questions just to really
+make sure that it wasn't good or bad luck.)
+Interview questions are much the same way. Your interviewer develops a fee! for your performance by
+comparing you to other people. It's not about the candidates she's interviewing that week. It's about all the
+candidates that she's ever asked this question to.
+For this reason, getting a hard question isn't a bad thing. When it's harder for you, it's harder for everyone, ft
+doesn't make it any less likely that you'll do well.
+• Frequently Asked Questions
+I didn't hear back immediately after my interview. Am 1 rejected?
+No, There are a number of reasons why a company's decision might be delayed. A very simple explanation
+is that one of your interviewers hasn't provided their feedback yet. Very, very few companies have a policy
+of not responding to candidates they reject.
+If you haven't heard back from a company within 3 - 5 business days after your interview, check in (politely)
+with your recruiter.
+Can I re-apply to a company after getting rejected?
+Almost always, but you typically have to wait a bit (6 months to a 1 year). Your first bad interview usually
+won't affect you too much when you re-interview. Lots of people get rejected from Google or Microsoft and
+later get offers from them.
+CrackingTheCodinglnterview.com 16th Edition 5

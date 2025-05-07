@@ -1,0 +1,18 @@
+Figure 5.4
+One huge benefit of this model
+Having all of the logic and code to start and manage containers removed from
+the daemon means that the entire container runtime is decoupled from the
+Docker daemon. We sometimes call this “daemonless containers”, and it makes
+it possible to perform maintenance and upgrades on the Docker daemon without
+impacting running containers!
+In the old model, where all of container runtime logic was implemented in the
+daemon, starting and stopping the daemon would kill all running containers on
+the host. This was a huge problem in production environments - especially when
+you consider how frequently new versions of Docker are released! Every
+daemon upgrade would kill all containers on that host - not good!
+Fortunately, this is no longer a problem.
+What’s this shim all about?
+Some of the diagrams in the chapter have shown a shim component.
+The shim is integral to the implementation of daemonless containers (the thing
+we just mentioned about decoupling running containers from the daemon for
+things like upgrading the daemon without killing containers).

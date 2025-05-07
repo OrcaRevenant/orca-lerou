@@ -1,0 +1,31 @@
+Figure 9.5
+Run a docker network ls to verify that the network created properly and is
+visible on the Docker host.
+$ docker network ls
+NETWORK ID          NAME                DRIVER      SCOPE
+490e2496e06b        bridge              bridge      local
+a0559dd7bb08        docker_gwbridge     bridge      local
+a856a8ad9930        host                host        local
+1ailuc6rgcnr        ingress             overlay     swarm
+be581cd6de9b        none                null        local
+43wfp6pzea47        uber-net            overlay     swarm
+The uber-net network was successfully created with the swarm scope and is
+currently only visible on manager nodes in the swarm.
+Let’s go and create a new service.
+$ docker service create --name uber-svc \
+--network uber-net \
+-p 80:80 --replicas 12 \
+nigelpoulton/tu-demo:v1
+dhbtgvqrg2q4sg07ttfuhg8nz
+Let’s see what we just declared with that docker service create command.
+The first thing we did was name the service and then use the --network flag to
+tell it to place all containers on the new uber-net network. We then exposed port
+80 across the entire swarm and mapped it to port 80 inside of each of the 12
+replicas or tasks we asked it to run. Finally, we told it to base all tasks on the
+nigelpoulton/tu-demo:v1 image.
+Run a docker service ls and a docker service ps command to verify the
+state of the new service.
+$ docker service ls
+ID            NAME      REPLICAS  IMAGE
+dhbtgvqrg2q4  uber-svc  12/12     nigelpoulton/tu-demo:v1
+$

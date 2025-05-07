@@ -1,0 +1,73 @@
+Solutions to Chapter 10 | Sorting and Searching
+Observe that we can also make a similar conclusion by looking at the ends of columns or rows. If the end
+of a column or row is less than x, then we know that we must move down (for rows) or to the right (for
+columns) to find x. This is because the end is always the maximum element.
+We can bring these observations together into a solution. The observations are the following:
+•
+If the start of a column is greater than x, then x is to the left of the column.
+•
+If the end of a column is less than x, then x is to the right of the column.
+•
+If the start of a row is greater than x, then x is above that row.
+•
+If the end of a row is less than x, then x is below that row.
+We can begin in any number of places, but let's begin with looking at the starts of columns.
+We need to start with the greatest column and work our way to the left. This means that our first element
+for comparison is a r r a y [ 0 ] [ c - 1 ] , where c is the number of columns. By comparing the start of columns
+to x {which is 55), we'll find that x must be in columns 0,1, or 2. We will have stopped at a r r a y [ 0 ] [ 2 ] .
+This element may not be the end of a row in the full matrix, but it is an end of a row of a submatrix. The
+same conditions apply. The value at a r r a y [ 0 ] [ 2 ] , which is 40, is less than 55, so we know we can move
+downwards.
+We now have a submatrix to consider that looks like the following (the gray squares have been eliminated).
+15
+20
+40
+85
+20
+35
+80
+95
+30
+55
+95
+105
+40
+80
+100
+120
+We can repeatedly apply these conditions to search for 55. Note that the only conditions we actually use
+are conditions 1 and 4.
+The code below implements this elimination algorithm.
+1
+boolean f i n d E l e m e n t ( i n t [ ] [ ] matrix, i n t elem) {
+2
+i n t row = 0;
+3
+i n t c o l = m a t r i x [ 0 ] . l e n g t h - 1;
+4
+while (row < m a t r i x . l e n g t h && col >= 0) {
+if ( m a t r i x [ r o w ] [ c o l ] == elem) {
+6
+r e t u r n t r u e ;
+7
+} else if ( n i a t r i x [ r o w ] [ c o l ] > elem) {
+8
+c o l - - ;
+9
+} else {
+10
+row++;
+11
+>
+12
+>
+13
+return f a l s e ;
+14
+}
+Alternatively, we can apply a solution that more directly looks like binary search. The code is considerably
+more complicated, but it applies many of the same learnings.
+Solution #2: Binary Search
+Let's again look at a simple example.
+416
+Cracking the Coding Interview, 6th Edition

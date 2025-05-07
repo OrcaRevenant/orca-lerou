@@ -1,0 +1,21 @@
+The time complexity of this algorithm is the sum of time spent on each step mentioned above:
+O(p) + O(c) + O(clogc)
+The above algorithm is straightforward. However, it is too slow because we need to traverse
+the entire trie to get top k results in the worst-case scenario. Below are two optimizations:
+1. Limit the max length of a prefix
+2. Cache top search queries at each node
+Let us look at these optimizations one by one.
+Limit the max length of a prefix
+Users rarely type a long search query into the search box. Thus, it is safe to say p is a small
+integer number, say 50. If we limit the length of a prefix, the time complexity for “Find the
+prefix” can be reduced from O(p) to O(small constant), aka O(1).
+Cache top search queries at each node
+To avoid traversing the whole trie, we store top k most frequently used queries at each node.
+Since 5 to 10 autocomplete suggestions are enough for users, k is a relatively small number.
+In our specific case, only the top 5 search queries are cached.
+By caching top search queries at every node, we significantly reduce the time complexity to
+retrieve the top 5 queries. However, this design requires a lot of space to store top queries at
+every node. Trading space for time is well worth it as fast response time is very important.
+Figure 13-8 shows the updated trie data structure. Top 5 queries are stored on each node. For
+example, the node with prefix “be” stores the following: [best: 35, bet: 29, bee: 20, be: 15,
+beer: 10].

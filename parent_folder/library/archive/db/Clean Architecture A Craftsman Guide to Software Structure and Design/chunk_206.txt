@@ -1,0 +1,29 @@
+First, let’s get something straight: There is no such thing as an object relational
+mapper (ORM). The reason is simple: Objects are not data structures. At least,
+they are not data structures from their users’ point of view. The users of an object
+cannot see the data, since it is all private. Those users see only the public
+methods of that object. So, from the user’s point of view, an object is simply a
+set of operations.
+A data structure, in contrast, is a set of public data variables that have no implied
+behavior. ORMs would be better named “data mappers,” because they load data
+into data structures from relational database tables.
+Where should such ORM systems reside? In the database layer of course.
+Indeed, ORMs form another kind of Humble Object boundary between the
+gateway interfaces and the database.
+SERVICE LISTENERS
+What about services? If your application must communicate with other services,
+or if your application provides a set of services, will we find the Humble Object
+pattern creating a service boundary?
+Of course! The application will load data into simple data structures and then
+pass those structures across the boundary to modules that properly format the
+data and send it to external services. On the input side, the service listeners will
+receive data from the service interface and format it into a simple data structure
+that can be used by the application. That data structure is then passed across the
+service boundary.
+CONCLUSION
+At each architectural boundary, we are likely to find the Humble Object pattern
+lurking somewhere nearby. The communication across that boundary will almost
+always involve some kind of simple data structure, and the boundary will
+frequently divide something that is hard to test from something that is easy to
+test. The use of this pattern at architectural boundaries vastly increases the
+testability of the entire system.

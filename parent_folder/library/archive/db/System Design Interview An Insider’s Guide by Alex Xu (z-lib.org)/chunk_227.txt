@@ -1,0 +1,29 @@
+A resumable upload is achieved by the following 3 steps [2]:
+• Send the initial request to retrieve the resumable URL.
+• Upload the data and monitor upload state.
+• If upload is disturbed, resume the upload.
+2. Download a file from Google Drive
+Example API: https://api.example.com/files/download
+Params:
+• path: download file path.
+Example params:
+{
+"path": "/recipes/soup/best_soup.txt"
+}
+3. Get file revisions
+Example API: https://api.example.com/files/list_revisions
+Params:
+• path: The path to the file you want to get the revision history.
+• limit: The maximum number of revisions to return.
+Example params:
+{
+"path": "/recipes/soup/best_soup.txt",
+"limit": 20
+}
+All the APIs require user authentication and use HTTPS. Secure Sockets Layer (SSL)
+protects data transfer between the client and backend servers.
+Move away from single server
+As more files are uploaded, eventually you get the space full alert as shown in Figure 15-4.
+Only 10 MB of storage space is left! This is an emergency as users cannot upload files
+anymore. The first solution comes to mind is to shard the data, so it is stored on multiple
+storage servers. Figure 15-5 shows an example of sharding based on user_id .

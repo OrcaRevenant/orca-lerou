@@ -1,0 +1,67 @@
+387
+Appendix B: org.jfree.date.SerialDate
+311      * @param other  the date being compared to.
+312      *
+313      * @return <code>true</code> if this SerialDate represents the same date as
+314      *         the specified SerialDate.
+315      */
+316     public boolean isOn(final SerialDate other) {
+317         return (this.serial == other.toSerial());
+318     }
+319
+320     /**
+321      * Returns true if this SerialDate represents an earlier date compared to
+322      * the specified SerialDate.
+323      *
+324      * @param other  the date being compared to.
+325      *
+326      * @return <code>true</code> if this SerialDate represents an earlier date
+327      *         compared to the specified SerialDate.
+328      */
+329     public boolean isBefore(final SerialDate other) {
+330         return (this.serial < other.toSerial());
+331     }
+332
+333     /**
+334      * Returns true if this SerialDate represents the same date as the
+335      * specified SerialDate.
+336      *
+337      * @param other  the date being compared to.
+338      *
+339      * @return <code>true</code> if this SerialDate represents the same date
+340      *         as the specified SerialDate.
+341      */
+342     public boolean isOnOrBefore(final SerialDate other) {
+343         return (this.serial <= other.toSerial());
+344     }
+345
+346     /**
+347      * Returns true if this SerialDate represents the same date as the
+348      * specified SerialDate.
+349      *
+350      * @param other  the date being compared to.
+351      *
+352      * @return <code>true</code> if this SerialDate represents the same date
+353      *         as the specified SerialDate.
+354      */
+355     public boolean isAfter(final SerialDate other) {
+356         return (this.serial > other.toSerial());
+357     }
+358
+359     /**
+360      * Returns true if this SerialDate represents the same date as the
+361      * specified SerialDate.
+362      *
+363      * @param other  the date being compared to.
+364      *
+365      * @return <code>true</code> if this SerialDate represents the same date as
+366      *         the specified SerialDate.
+367      */
+368     public boolean isOnOrAfter(final SerialDate other) {
+369         return (this.serial >= other.toSerial());
+370     }
+371
+372     /**
+373      * Returns <code>true</code> if this {@link SerialDate} is within the
+Listing B-5 (continued)
+SpreadsheetDate.java

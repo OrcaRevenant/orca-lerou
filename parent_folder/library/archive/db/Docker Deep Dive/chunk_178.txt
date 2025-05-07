@@ -1,0 +1,18 @@
+12: What next
+Hopefully you’re now comfortable talking about Docker and working with it.
+Taking your journey to the next step is simple in today’s world. It’s insanely easy
+to spin up infrastructure and workloads in the cloud where you can build and test
+Docker until you’re a world authority!
+You can also head over to my video training courses at Pluralsight. If you’re not
+a member of Pluralsight then become one! Yes, it costs money, but it’s definitely
+a service where you get value for your money! And if you’re unsure… they
+always have a free trial period where you can get access to my courses for free
+for a limited period.
+I’d also recommend you hit events like Dockercon and your local Docker
+meetups.
+Feedback
+A massive thanks for reading my book. I really hope it was useful for you!
+Now let me ask a favor…
+It takes a lot of effort to write a book! My hope in writing this book, is that it
+inspires you and opens new opportunities. If you’ve enjoyed it, show it some
+love with a few stars and a review on Amazon!

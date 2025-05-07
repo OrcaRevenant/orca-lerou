@@ -1,0 +1,100 @@
+Solutions to Chapter 17 | Hard
+54 LinkedList<String> mergePaths(BFSData bfsl, BFSOata bfs2, String connection) {
+PathNode endl = bfsl.visited.get(connection); // endl -> source
+56
+PathNode end2 = bfs2.visited.get(connection); // end2 -> dest
+57
+LinkedList<String> pathOne = endl.collapse(false); // -forward
+58
+LinkedList<String> pathTwo = end2.collapse(true); ti reverse
+59
+pathTwo.removeFirst(); // remove connection
+69
+pathOne.addAll(pathTwo); // add second path
+61
+return pathOne;
+62 >
+63
+64 /* Methods getwildcardfioots, getWildcardToWordListj and getValidLinkedWords are
+65
+* the same as in the earlier solution. */
+66
+67 public class BFSData {
+68
+public Queue<PathNode> toVisit = new LinkedList<PathNode>();
+69
+public HashMap<Stringj PathNode> visited = new HashMap<S'tringJ Pa"thNode>() \
+70
+71
+public 8fSData(String root) {
+72
+PathNode sourcePath = new PathNode(root, null);
+73
+toVisit.add(sourcePath);
+74
+visited.put(root, sourcePath);
+75
+}
+76
+77
+public boolean isFinished() {
+78
+return toVisit.isEmpty();
+79
+}
+80
+)
+81
+82 public class PathNode {
+83
+private String word = null;
+84
+private PathNode previousNode = null;
+85
+public PathNode(String word, PathNode previous) {
+86
+this.word - word;
+87
+previousNode = previous;
+88
+>
+89
+90
+public String getWord() {
+91
+return word;
+92
+>
+93
+94
+/* Traverse path and return linked list of nodes. */
+95
+public LinkedList<String> collapse(boolean startsWithRoot) {
+96
+LinkedList<String> path = new LinkedList<5tring>();
+97
+PathNode node = this;
+98
+while (node != null) {
+99
+if (startsWithRoot) {
+160
+path.addtast(node.word);
+101
+) else {
+102
+path.addFirst(node.word);
+103
+}
+104
+node = node.previousNode;
+105
+}
+106
+return path;
+107
+)
+108 }
+109
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

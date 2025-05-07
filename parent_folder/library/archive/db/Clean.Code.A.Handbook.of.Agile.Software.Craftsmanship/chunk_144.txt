@@ -1,0 +1,43 @@
+114
+Chapter 8: Boundaries
+with our own. In this chapter we look at practices and techniques to keep the boundaries of
+our software clean.
+Using Third-Party Code
+There is a natural tension between the provider of an interface and the user of an interface.
+Providers of third-party packages and frameworks strive for broad applicability so they
+can work in many environments and appeal to a wide audience. Users, on the other hand,
+want an interface that is focused on their particular needs. This tension can cause problems
+at the boundaries of our systems.
+Let’s look at java.util.Map as an example. As you can see by examining Figure 8-1,
+Maps have a very broad interface with plenty of capabilities. Certainly this power and ﬂexi-
+bility is useful, but it can also be a liability. For instance, our application might build up a
+Map and pass it around. Our intention might be that none of the recipients of our Map delete
+anything in the map. But right there at the top of the list is the clear() method. Any user of
+the Map has the power to clear it. Or maybe our design convention is that only particular
+types of objects can be stored in the Map, but Maps do not reliably constrain the types of
+objects placed within them. Any determined user can add items of any type to any Map.
+If our application needs a Map of Sensors, you might ﬁnd the sensors set up like this:
+Map sensors = new HashMap();
+• clear() void – Map
+• containsKey(Object key) boolean – Map
+• containsValue(Object value) boolean – Map
+• entrySet() Set – Map
+• equals(Object o) boolean – Map
+• get(Object key) Object – Map
+• getClass() Class<? extends Object> – Object
+• hashCode() int – Map
+• isEmpty() boolean – Map
+• keySet() Set – Map
+• notify() void – Object
+• notifyAll() void – Object
+• put(Object key, Object value) Object – Map
+• putAll(Map t) void – Map
+• remove(Object key) Object – Map
+• size() int – Map
+• toString() String – Object
+• values() Collection – Map
+• wait() void – Object
+• wait(long timeout) void – Object
+• wait(long timeout, int nanos) void – Object
+Figure 8-1
+The methods of Map

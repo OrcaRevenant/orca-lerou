@@ -1,0 +1,35 @@
+birth of, 142
+Common Closure Principle compared with, 106
+conclusion, 75
+in Craft Dispatch System archaeology project, 363
+defined, 59
+dependency management, 302
+designing component-based services, 246
+directional control, 74
+information hiding, 74–75
+overview of, 70
+thought experiment, 71–74
+OMC (Outboard Marine Corporation), aluminum die-cast archaeology project,
+338–339
+One-dimensional boundaries, 219
+Open-Closed Principle. See OCP (Open-Closed Principle)
+Operating system abstraction layer (OSAL), clean embedded architecture,
+270–271
+Operating system (OS), is detail, 269–271
+Operations
+architecture supports system, 138–139, 149
+decoupling use cases for, 153
+use cases affected by changes in, 204
+Options, keeping open
+good architecture makes system easy to change, 150–151
+operational architecture, 149
+purpose of architecture, 140–142, 197
+via decoupling mode, 153
+Organization vs. encapsulation, 316–319
+ORMs (object relational mappers), 214–215
+OS (operating system), is detail, 269–271
+OSAL (operating system abstraction layer), clean embedded architecture,
+270–271
+Oscillations, web as one of many, 285–289
+Outgoing dependencies, stability metrics, 122–123
+Overconfidence, foolishness of, 9–12

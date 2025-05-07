@@ -1,0 +1,9 @@
+In Figure 1-14, we move the session data out of the web tier and store them in the persistent
+data store. The shared data store could be a relational database, Memcached/Redis, NoSQL,
+etc. The NoSQL data store is chosen as it is easy to scale. Autoscaling means adding or
+removing web servers automatically based on the traffic load. After the state data is removed
+out of web servers, auto-scaling of the web tier is easily achieved by adding or removing
+servers based on traffic load.
+Your website grows rapidly and attracts a significant number of users internationally. To
+improve availability and provide a better user experience across wider geographical areas,
+supporting multiple data centers is crucial.

@@ -1,0 +1,30 @@
+UML/MDA
+203
+In the ’70s, as teletypes began to fade from use, operating systems like UNIX
+shortened the end-of-line sequence to simply ‘\n’. However, other operating
+systems, like DOS, continued to use the ‘\r\n’ convention.
+When was the last time you had to deal with text files that use the “wrong”
+convention? I face this problem at least once a year. Two identical source files
+don’t compare, and don’t generate identical checksums, because they use
+different line ends. Text editors fail to word-wrap properly, or double space the
+text because the line ends are “wrong.” Programs that don’t expect blank lines
+crash because they interpret ‘\r\n’ as two lines. Some programs recognize ‘\r\n’
+but don’t recognize ‘\n\r’. And so on.
+That’s what I mean by detail. Try coding the horrible logic for sorting out line
+ends in UML!
+N O H OPE , N O C H AN G E
+The hope of the MDA movement was that a great deal of detail could be
+eliminated by using diagrams instead of code. That hope has so far proven to be
+forlorn. It turns out that there just isn’t that much extra detail embedded in
+code that can be eliminated by pictures. What’s more, pictures contain their
+own accidental details. Pictures have their own grammar and syntax and rules
+and constraints. So, in the end, the difference in detail is a wash.
+The hope of MDA was that diagrams would prove to be at a higher level of
+abstraction than code, just as Java is at a higher level than assembler. But again,
+that hope has so far proven to be misplaced. The difference in the level of
+abstraction is tiny at best.
+And, finally, let’s say that one day someone does invent a truly useful
+diagrammatic language. It won’t be architects drawing those diagrams, it will be
+programmers. The diagrams will simply become the new code, and
+programmers will be needed to draw that code because, in the end, it’s all about
+detail, and it is programmers who manage that detail.

@@ -1,0 +1,29 @@
+CHAPTER 3 SAYING YES
+50
+You’re taking full responsibility for something, in front of an audience of at least
+one person. It’s not just you standing in front of the mirror, or the computer
+screen. It’s you, facing another human being, and saying you’ll do it. That’s the
+start of commitment. Putting yourself in the situation that forces you to do
+something.
+You’ve changed the language you use to a language of commitment, and that
+will help you get through the next two stages: meaning it, and following
+through.
+Here are a number of reasons you might not mean it, or follow through, with
+some solutions.
+It wouldn’t work because I rely on person X to get this done.
+You can only commit to things that you have full control of. For example, if
+your goal is to finish a module that also depends on another team, you can’t
+commit to finish the module with full integration with the other team. But
+you can commit to specific actions that will bring you to your target. You
+could:
+• Sit down for an hour with Gary from the infrastructure team to understand
+your dependencies.
+• Create an interface that abstracts your module’s dependency from the other
+team’s infrastructure.
+• Meet at least three times this week with the build guy to make sure your
+changes work well in the company’s build system.
+• Create your own personal build that runs your integration tests for the
+module.
+See the difference?
+If the end goal depends on someone else, you should commit to specific actions
+that bring you closer to the end goal.

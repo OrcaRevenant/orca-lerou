@@ -1,0 +1,66 @@
+354
+Appendix B: org.jfree.date.SerialDate
+289      * Returns an array of month names.
+290      *
+291      * @return an array of month names.
+292      */
+293     public static String[] getMonths() {
+294
+295         return getMonths(false);
+296
+297     }
+298
+299     /**
+300      * Returns an array of month names.
+301      *
+302      * @param shortened  a flag indicating that shortened month names should
+303      *                   be returned.
+304      *
+305      * @return an array of month names.
+306      */
+307     public static String[] getMonths(final boolean shortened) {
+308
+309         if (shortened) {
+310             return DATE_FORMAT_SYMBOLS.getShortMonths();
+311         }
+312         else {
+313             return DATE_FORMAT_SYMBOLS.getMonths();
+314         }
+315
+316     }
+317
+318     /**
+319      * Returns true if the supplied integer code represents a valid month.
+320      *
+321      * @param code  the code being checked for validity.
+322      *
+323      * @return <code>true</code> if the supplied integer code represents a
+324      *         valid month.
+325      */
+326     public static boolean isValidMonthCode(final int code) {
+327
+328         switch(code) {
+329             case JANUARY:
+330             case FEBRUARY:
+331             case MARCH:
+332             case APRIL:
+333             case MAY:
+334             case JUNE:
+335             case JULY:
+336             case AUGUST:
+337             case SEPTEMBER:
+338             case OCTOBER:
+339             case NOVEMBER:
+340             case DECEMBER:
+341                 return true;
+342             default:
+343                 return false;
+344         }
+345
+346     }
+347
+348     /**
+349      * Returns the quarter for the specified month.
+350      *
+Listing B-1 (continued)
+SerialDate.Java

@@ -1,0 +1,96 @@
+Solutions to Chapter 15 | Threads and Locks
+21
+22
+public void secondQ {
+23
+try {
+24
+l o c k l . l o c k ( ) j
+// wait u n t i l finished with f i r s t ( )
+25
+l o c k l . u n l o c k { ) ;
+26
+27
+28
+lock2.unlock(); it mark finished with second()
+29
+} catch ( . . . ) { . . . >
+30
+}
+31
+32
+public void t h i r d { ) {
+33
+t r y {
+34
+lock2.lock()j II wait u n t i l finished with t h i r d ( )
+35
+lock2.unlock();
+36
+37
+} catch ( . . . ) { . . . >
+38
+>
+39 >
+This code won't actually quite work due to the concept of lock ownership. One thread is actually performing
+the lock (in the FooBad constructor), but different threads attempt to unlock the locks. This is not allowed,
+and your code will raise an exception. A lock in Java is owned by the same thread which locked it.
+Instead, we can replicate this behavior with semaphores. The logic is identical,
+l
+public class Foo {
+2
+public Semaphore semi, sem2;
+3
+4
+public Foo() {
+5
+t r y {
+6
+semi = new Semaphore(l);
+sem2 = new Semaphore(l);
+8
+9
+seml.acquire();
+10
+sem2.acquire();
+11
+) catch ( . . . ) { . . . }
+12
+}
+13
+14
+public void f i r s t Q {
+15
+t r y {
+16
+17
+seml.release();
+18
+) catch ( . . . ) { . . . }
+19
+}
+20
+21
+public void second() {
+22
+t r y {
+23
+seml.acquire();
+24
+seml.release();
+25
+26
+sem2.release();
+27
+} catch ( . . . ) { . . . }
+28
+}
+29
+30
+public void t h i r d ( ) {
+31
+t r y {
+32
+sem2.acquire();
+CrackingTheCodinglrtterview.com | 6th Edition
+457

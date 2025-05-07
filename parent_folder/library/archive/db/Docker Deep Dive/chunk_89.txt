@@ -1,0 +1,35 @@
+We started with docker container run, this is the standard command to start a
+new container. We then used the -it flags to make the container interactive and
+attach it to our terminal. Next we told it to use the ubuntu:latest or
+microsoft/powershell:nanoserver image. Finally we told it to run the Bash
+shell in the Linux example, and the PowerShell.exe program in the Windows
+example..
+When we hit Return, the Docker client made the appropriate API calls to the
+Docker daemon. The Docker daemon accepted the command and searched the
+Docker host’s local cache to see if it already had a copy of the requested image.
+In this example it didn’t, so it went to Docker Hub to see if it could find it there.
+It could, so it pulled it locally and stored it in its cache.
+Note: In a standard out-of-the-box Linux installation, the Docker daemon
+implements the Docker Remote API on a local IPC/Unix socket at
+/var/run/docker.sock. On Windows it listens on a named pipe at
+npipe:////./pipe/docker_engine. It’s also possible to configure the
+Docker client and daemon to operate over the network. The default non-
+TLS network port for Docker is 2375, the default TLS port is 2376.
+Once the image was pulled, the daemon created the container and executed the
+specified command inside of it.
+If you look closely you’ll see that your shell prompt has changed and you’re now
+inside of the container. In the example above the shell prompt has changed to
+root@3027eb644874:/#. The long number after the @ is the first 12 characters of
+the container’s unique ID.
+Try executing some basic commands from inside of the container. You might
+notice that some commands do not work. This is because the images we used,
+like almost all container images, are highly optimized for containers. This means
+they don’t have all of the normal commands and packages installed. The
+example below shows a couple of commands - one succeeds and the other one
+fails.
+root@3027eb644874:/# ls -l
+total 64
+drwxr-xr-x   2 root root 4096 Aug 19 00:50 bin
+drwxr-xr-x   2 root root 4096 Apr 12 20:14 boot
+drwxr-xr-x   5 root root  380 Sep 13 00:47 dev
+drwxr-xr-x  45 root root 4096 Sep 13 00:47 etc

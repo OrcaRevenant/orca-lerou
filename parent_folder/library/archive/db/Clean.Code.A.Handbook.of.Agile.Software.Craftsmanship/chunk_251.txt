@@ -1,0 +1,51 @@
+221
+String Arguments
+Of course, the tests continued to pass. Next, I got rid of the three different maps up at
+the top of the algorithm. This made the whole system much more generic. However, I
+couldn’t get rid of them just by deleting them because that would break the system.
+Instead, I added a new Map for the ArgumentMarshaler and then one by one changed the
+methods to use it instead of the three original maps.
+public class Args {
+...
+private Map<Character, ArgumentMarshaler> booleanArgs =
+new HashMap<Character, ArgumentMarshaler>();
+private Map<Character, ArgumentMarshaler> stringArgs =
+new HashMap<Character, ArgumentMarshaler>();
+private Map<Character, ArgumentMarshaler> intArgs =
+new HashMap<Character, ArgumentMarshaler>();
+private Map<Character, ArgumentMarshaler> marshalers =
+new HashMap<Character, ArgumentMarshaler>();
+...
+private void parseBooleanSchemaElement(char elementId) {
+ArgumentMarshaler m = new BooleanArgumentMarshaler();
+booleanArgs.put(elementId, m);
+marshalers.put(elementId, m);
+}
+private void parseIntegerSchemaElement(char elementId) {
+ArgumentMarshaler m = new IntegerArgumentMarshaler();
+intArgs.put(elementId, m);
+marshalers.put(elementId, m);
+}
+private void parseStringSchemaElement(char elementId) {
+ArgumentMarshaler m = new StringArgumentMarshaler();
+stringArgs.put(elementId, m);
+marshalers.put(elementId, m);
+}
+Of course the tests all still passed. Next, I changed isBooleanArg from this:
+private boolean isBooleanArg(char argChar) {
+return booleanArgs.containsKey(argChar);
+}
+to this:
+private boolean isBooleanArg(char argChar) {
+ArgumentMarshaler m = marshalers.get(argChar);
+return m instanceof BooleanArgumentMarshaler;
+}
+The tests still passed. So I made the same change to isIntArg and isStringArg.
+private boolean isIntArg(char argChar) {
+ArgumentMarshaler m = marshalers.get(argChar);
+return m instanceof IntegerArgumentMarshaler;
+}
+private boolean isStringArg(char argChar) {
+ArgumentMarshaler m = marshalers.get(argChar);
+return m instanceof StringArgumentMarshaler;
+}

@@ -1,0 +1,86 @@
+425
+Index
+“Once and only once” principle, 289
+“ONE SWITCH” rule, 299
+one thing, functions doing, 35–36, 302
+one-offs, 180, 187, 191
+OO code, 97
+OO design, 139
+Open Closed Principle (OCP), 15, 38
+by checked exceptions, 106
+supporting, 149
+operand stack, 324
+operating systems, threading policies, 188
+operators, precedence of, 86
+optimistic locking, 327
+optimizations, LAZY-EVALUATION
+as, 157
+optimizing, decision making, 167–168
+orderings, calculating the possible, 322–323
+organization
+for change, 147–150
+of classes, 136
+managing complexity, 139–140
+outbound tests, exercising an interface, 118
+output arguments, 41, 288
+avoiding, 45
+need for disappearing, 45
+outputs, arguments as, 45
+overhead, incurred by concurrency, 179
+overloading, of code with description, 310
+P
+paperback model, as an academic
+model, 27
+parameters, taken by instructions, 324
+parse operation, throwing an
+exception, 220
+partitioning, 250
+paths of execution, 321–326
+pathways, through critical sections, 188
+pattern names, using standard, 175
+patterns
+of failure, 314
+as one kind of standard, 311
+performance
+of a client/server pair, 318
+concurrency improving, 179
+of server-based locking, 333
+permutations, calculating, 323
+persistence, 160, 161
+pessimistic locking, 327
+phraseology, in similar names, 40
+physicalizing, a dependency, 299
+Plain-Old Java Objects. See POJOs
+platforms, running threaded code, 188
+pleasing code, 7
+pluggable thread-based code, 187
+POJO system, agility provided by, 168
+POJOs (Plain-Old Java Objects)
+creating, 187
+implementing business logic, 162
+separating threaded-aware code, 190
+in Spring, 163
+writing application domain logic, 166
+polyadic argument, 40
+polymorphic behavior, of functions, 296
+polymorphic changes, 96–97
+polymorphism, 37, 299
+position markers, 67
+positives
+as easier to understand, 258
+expressing conditionals as, 302
+of decisions, 301precision
+as the point of all naming, 30
+predicates, naming, 25
+preemption, breaking, 338
+prefixes
+for member variables, 24
+as useless in today’s environments,
+312–313
+pre-increment operator, ++, 324, 325, 326
+“prequel”, this book as, 15
+principle of least surprise, 288–289, 295
+principles, of design, 15
+PrintPrimes program, translation into
+Java, 141
+private behavior, isolating, 148–149

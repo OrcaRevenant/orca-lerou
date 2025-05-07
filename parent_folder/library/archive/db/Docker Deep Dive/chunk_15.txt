@@ -1,0 +1,35 @@
+2: Docker
+No book or conversation about containers is complete without talking about
+Docker. But when somebody says “Docker” they can be referring to any of at
+least three things:
+1. Docker, Inc. the company
+2. Docker the container runtime and orchestration technology
+3. Docker the open source project (this is now called Moby)
+If you’re going to make it in the container world, you’ll need to know a bit about
+all three.
+
+Docker - The TLDR
+Docker is software that runs on Linux and Windows. It creates, manages and
+orchestrates containers. The software is developed in the open as part of the
+Moby open-source project on GitHub. Docker, Inc. is a company based out of
+San Francisco and is the overall maintainer of the open-source project. Docker,
+Inc. also has offers commercial versions of Docker with support contracts etc.
+Ok that’s the quick version. Now we’ll explore each in a bit more detail. We’ll
+also talk a bit about the container ecosystem, and we’ll mention the Open
+Container Initiative (OCI).
+Docker, Inc.
+Docker, Inc. is the San Francisco based technology startup founded by French-
+born American developer and entrepreneur Solomon Hykes.
+Figure 2.1 Docker, Inc. logo.
+Interestingly, Docker, Inc. started its life as a platform as a service (PaaS)
+provider called dotCloud. Behind the scenes, the dotCloud platform leveraged
+Linux containers. To help them create and manage these containers they built an
+internal tool that they nick-named “Docker”. And that’s how Docker was born!
+In 2013 the dotCloud PaaS business was struggling and the company needed a
+new lease of life. To help with this they hired Ben Golub as new CEO, rebranded
+the company as “Docker, Inc.”, got rid of the dotCloud PaaS platform, and
+started a new journey with a mission to bring Docker and containers to the
+world.
+Today Docker, Inc. is widely recognized as an innovative technology company
+with a market valuation said to be in the region of $1BN. At the time of writing,
+it has raised over $180M via 7 rounds of funding from some of the biggest

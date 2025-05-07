@@ -1,0 +1,67 @@
+Solutions to Chapter 14 j Databases
+84
+85
+public s t a t i c double floorToNearestEpsilon(double d) {
+86
+i n t r = ( i n t ) (d / epsilon);
+87
+return ((double) r) * epsilon;
+88
+>
+89
+90
+public boolean is£quivalent(double a, double b) {
+91
+return (Math.abs(a - b) < epsilon);
+92
+>
+93
+94
+public boolean is£quivalent(Object o) {
+95
+Line 1 = (Line) o;
+96
+if (isEquivalent(l.slope, slope) SS i s E q u i v a l e n t ( l . i n t e r c e p t , intercept) &&
+97
+( i n f i n i t e _ s l o p e == l . i n f i n i t e _ s l o p e ) ) {
+98
+return true;
+99
+>
+100
+return false;
+101
+}
+102 }
+103
+104 /* HashMapListcString, Integers is a HashMap that maps from Strings to
+105
+* ArrayList<Integer>, See appendix for implementation, */
+We need to be careful about the calculation of the slope of a line. The line might be completely vertical,
+which means that it doesn't have ay-intercept and its slope is infinite. We can keep track of this in a separate
+flag ( i n f i n i t e _ s l o p e ) , W e need to check this condition in the equals method,
+16.15 Master Mind: The Game of Master Mind is played as follows:
+The computer has four slots, and each slot will contain a ball that is red (R), yellow (Y), green (G) or
+blue(B). For example, the computer might have RGG8 (Slot #1 is red, Slots #2 and #3 are green. Slot
+#4 is blue).
+You, the user, are trying to guess the solution. You might, for example, guess YRGB.
+When you guess the correct color for the correct slot, you get a "hit," If you guess a color that exists
+but is in the wrong slot, you get a "pseudo-hit," Note that a slot that is a hit can never count as a
+pseudo-hit.
+For example, if the actual solution is RGBY and you guess GGRR, you have one hit and one pseudo-
+hit.
+Write a method that, given a guess and a solution, returns the number of hits and pseudo-hits.
+pg 183
+SOLUTION
+This problem is straightforward, but it's surprisingly easy to make little mistakes. You should check your
+code extremely thoroughly, on a variety of test cases.
+We'll implement this code by first creating a frequency array which stores how many times each character
+occurs in s o l u t i o n , excluding times when the slot is a"hit."Then, we iterate through guess to count the
+number of pseudo-hits.
+The code below implements this algorithm.
+1
+class Result {
+2
+public, i n t hits = 0;
+486
+Cracking the Coding Interview, 6th Edition

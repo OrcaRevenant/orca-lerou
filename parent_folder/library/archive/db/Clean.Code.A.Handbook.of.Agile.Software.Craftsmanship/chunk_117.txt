@@ -1,0 +1,48 @@
+87
+Horizontal Formatting
+Horizontal Alignment
+When I was an assembly language programmer,3 I used horizontal alignment to accentuate
+certain structures. When I started coding in C, C++, and eventually Java, I continued to try
+to line up all the variable names in a set of declarations, or all the rvalues in a set of assign-
+ment statements. My code might have looked like this:
+public class FitNesseExpediter implements ResponseSender
+{
+private   Socket          socket;
+private   InputStream     input;
+private   OutputStream    output;
+private   Request         request;
+private   Response        response;
+private   FitNesseContext context;
+protected long            requestParsingTimeLimit;
+private   long            requestProgress;
+private   long            requestParsingDeadline;
+private   boolean         hasError;
+public FitNesseExpediter(Socket          s,
+FitNesseContext context) throws Exception
+{
+this.context =            context;
+socket =                  s;
+input =                   s.getInputStream();
+output =                  s.getOutputStream();
+requestParsingTimeLimit = 10000;
+}
+I have found, however, that this kind of alignment is not useful. The alignment seems to
+emphasize the wrong things and leads my eye away from the true intent. For example, in
+the list of declarations above you are tempted to read down the list of variable names with-
+out looking at their types. Likewise, in the list of assignment statements you are tempted to
+look down the list of rvalues without ever seeing the assignment operator. To make matters
+worse, automatic reformatting tools usually eliminate this kind of alignment.
+So, in the end, I don’t do this kind of thing anymore. Nowadays I prefer unaligned
+declarations and assignments, as shown below, because they point out an important deﬁ-
+ciency. If I have long lists that need to be aligned, the problem is the length of the lists, not
+the lack of alignment. The length of the list of declarations in FitNesseExpediter below
+suggests that this class should be split up.
+public class FitNesseExpediter implements ResponseSender
+{
+private Socket socket;
+private InputStream input;
+private OutputStream output;
+private Request request;
+3.
+Who am I kidding? I still am an assembly language programmer. You can take the boy away from the metal, but you can’t
+take the metal out of the boy!

@@ -1,0 +1,44 @@
+16
+Solutions to Moderate
+16.1
+Number Swapper: Write a function to swap a number in place (that is, without temporary variables).
+pg 181
+SOLUTION
+This is a classic interview problem, and it's a reasonably straightforward one. We'll walk through this using
+a eto indicate the original value of a and b0 to indicate the original value of b. We'll also used i f f to indicate
+the value of a0 - be.
+Let's picture these on a number line for the case where a > b.
+d i f f
+First, we briefly set a to d i f f , which is the right side of the above number line. Then, when we add b and
+d i f f (and store that value in b), we get
+We now h3ve b = a 0anda = d i f f . All that's left to do is to
+set a equal to ae - d i f f , which is just b - a.
+The code below implements this.
+1
+II Example for a = 9, b = 4
+2
+a = a - b ; / / a = 9 - 4 = S
+3
+b = a + b ; / / b = 5 + 4 = 9
+4
+a = b - a; / / a = 9 - 5
+We can implement a similar solution with bit manipulation. The benefit of this solution is that it works for
+more data types than just integers.
+1
+II Example f o r a = 101 (in binary) and b = 110
+2
+a = aAb; // a = 101*110 = 011
+3
+b = aAb; // b = 011 AH0 = 101
+4
+a =
+// a = 011A101 = 119
+This code works by using XORs.The easiest way to see how this works is by focusing on a specific bit. If we
+can correctly swap two bits, then we know the entire operation works correctly.
+Let's take two bits, x and y, and walk through this line by line.
+1. x = x
+A y
+This line essentially checks if x and y have different values. It will result in 1 if and only if x ! = y.
+2. y = x A y
+4 6 2
+Cracking the Coding Interview, 6th Edition

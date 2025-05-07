@@ -1,0 +1,88 @@
+Solutions to Chapter 4 | Trees and Graphs
+3. Find a!l the nodes with zero incoming edges and add those to a b u i l d O r d e r array. Set a
+toBeProcessed pointer to the beginning of the array.
+Repeat until toBeProcessed is at the end of the b u i l d O r d e r :
+1. Read nodeat toBeProcessed.
+»
+If node is n u l l , then ail remaining nodes have a dependency and we have detected a cycle.
+2. For each child of node:
+»
+Decrement c h i l d . dependencies (the number of incoming edges).
+»
+If c h i l d , dependencies is zero, add c h i l d to end of b u i l d O r d e r .
+3. Increment toBeProcessed.
+The code below implements this algorithm.
+1
+f* Find a correct build order. */
+2
+Project[] findBuildOrder(String[] projects, S t r i n g [ ] [ ] dependencies) {
+3
+Graph graph = buildGraph(projects, dependencies);
+4
+return orderProjects(graph.getNodes());
+5
+}
+6
+7
+/* Build the graph, adding the edge (a, b) if b is dependent on a. Assumes a pair
+8
+* is l i s t e d in " b u i l d order". The pair (a, b) in dependencies indicates that b
+9
+* depends on a and a must be b u i l t before b. */
+10 Graph buildGraph(String[] projects, S t r i n g [ ] [ ] dependencies) {
+11
+Graph graph = new Graph();
+12
+for (String project : projects) {
+13
+graph.createNode(project);
+14
+}
+15
+16
+for ( S t r i n g [ ] dependency : dependencies) {
+17
+String f i r s t = dependency[0];
+18
+String second = dependency[l);
+19
+graph.addEdge(first,
+second);
+20
+}
+21
+22
+return graph;
+23
+}
+24
+25 /* Return a l i s t of the projects a correct build order.*/
+26 P r o j e c t [ ] orderProjects(ArrayList<Project> projects) {
+27
+Project[] order = new P r o j e c t [ p r o j e c t s . s i z e ( ) ] ;
+28
+29
+/* Add "roots" to the build order f i r s t . * /
+30
+i n t endOfList =• addNonDependent(order, projects, 0);
+31
+32
+i n t toBeProcessed = 0;
+33
+while (toBeProcessed < order.length) {
+34
+Project current = orderftoBeProcessed];
+35
+36
+/* We have a c i r c u l a r dependency since there are no remaining projects with
+37
+* zero dependencies. */
+38
+if (current == n u l l ) {
+39
+return n u l l ;
+40
+}
+41
+274
+Cracking the Coding Interview, 6th Edition

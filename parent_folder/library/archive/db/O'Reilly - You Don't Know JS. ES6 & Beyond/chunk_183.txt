@@ -1,0 +1,43 @@
+Function Names
+There are cases where your code may want to introspect on itself and ask what the
+name of some function is. If you ask what a function’s name is, the answer is surpris‐
+ingly somewhat ambiguous. Consider:
+function daz() {
+// ..
+}
+var obj = {
+foo: function() {
+// ..
+},
+bar: function baz() {
+// ..
+},
+bam: daz,
+zim() {
+// ..
+}
+};
+In this previous snippet, “what is the name of obj.foo()" is slightly nuanced. Is it
+"foo", "", or undefined? And what about obj.bar() — is it named "bar" or "baz"?
+Is obj.bam() named "bam" or "daz"? What about obj.zim()?
+Moreover, what about functions which are passed as callbacks, like:
+function foo(cb) {
+// what is the name of `cb()` here?
+}
+foo( function(){
+// I'm anonymous!
+} );
+There are quite a few ways that functions can be expressed in programs, and it’s not
+always clear and unambiguous what the “name” of that function should be.
+More importantly, we need to distinguish whether the “name” of a function refers to
+its name property — yes, functions have a property called name — or whether it refers
+to the lexical binding name, such as bar in function bar() { .. }.
+The lexical binding name is what you use for things like recursion:
+function foo(i) {
+if (i < 10) return foo( i * 2 );
+return i;
+}
+172
+|
+Chapter 7: Meta Programming
+www.it-ebooks.info

@@ -1,0 +1,53 @@
+407
+Appendix B: org.jfree.date.SerialDate
+167   private void calcDayMonthYear() {
+168     int days = ordinalDay - EARLIEST_DATE_ORDINAL;
+169     int overestimatedYear = MINIMUM_YEAR_SUPPORTED + days / 365;
+170     int nonleapdays = days - DateUtil.leapYearCount(overestimatedYear);
+171     int underestimatedYear = MINIMUM_YEAR_SUPPORTED + nonleapdays / 365;
+172
+173     year = huntForYearContaining(ordinalDay, underestimatedYear);
+174     int firstOrdinalOfYear = firstOrdinalOfYear(year);
+175     month = huntForMonthContaining(ordinalDay, firstOrdinalOfYear);
+176     day = ordinalDay - firstOrdinalOfYear - daysBeforeThisMonth(month.toInt());
+177   }
+178
+179   private Month huntForMonthContaining(int anOrdinal, int firstOrdinalOfYear) {
+180     int daysIntoThisYear = anOrdinal - firstOrdinalOfYear;
+181     int aMonth = 1;
+182     while (daysBeforeThisMonth(aMonth) < daysIntoThisYear)
+183       aMonth++;
+184
+185     return Month.fromInt(aMonth - 1);
+186   }
+187
+188   private int daysBeforeThisMonth(int aMonth) {
+189     if (DateUtil.isLeapYear(year))
+190       return LEAP_YEAR_AGGREGATE_DAYS_TO_END_OF_PRECEDING_MONTH[aMonth] - 1;
+191     else
+192       return AGGREGATE_DAYS_TO_END_OF_PRECEDING_MONTH[aMonth] - 1;
+193   }
+194
+195   private int huntForYearContaining(int anOrdinalDay, int startingYear) {
+196     int aYear = startingYear;
+197     while (firstOrdinalOfYear(aYear) <= anOrdinalDay)
+198       aYear++;
+199
+200     return aYear - 1;
+201   }
+202
+203   private int firstOrdinalOfYear(int year) {
+204     return calcOrdinal(1, Month.JANUARY, year);
+205   }
+206
+207   public static DayDate createInstance(Date date) {
+208     GregorianCalendar calendar = new GregorianCalendar();
+209     calendar.setTime(date);
+210     return new SpreadsheetDate(calendar.get(Calendar.DATE),
+211                                Month.fromInt(calendar.get(Calendar.MONTH) + 1),
+212                                calendar.get(Calendar.YEAR));
+213
+214   }
+215 }
+Listing B-16 (continued)
+SpreadsheetDate.java (Final)

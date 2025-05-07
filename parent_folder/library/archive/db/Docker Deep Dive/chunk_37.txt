@@ -1,0 +1,4 @@
+Chapter Summary
+In this chapter you saw how to install Docker on Windows 10, Mac OS X,
+Linux, and Windows Server 2016. Now that you know how to install Docker
+you are ready to start working with images and containers.

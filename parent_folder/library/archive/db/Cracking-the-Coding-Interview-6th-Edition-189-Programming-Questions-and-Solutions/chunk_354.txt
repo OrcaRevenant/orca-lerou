@@ -1,0 +1,75 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+8,2
+Robot in a Grid: Imagine a robot sitting on the upper left corner of grid with r rows and c columns.
+The robot can only move in two directions, right and down, but certain cells are "off iimits"such that
+the robot cannot step on them. Design an algorithm to find a path for the robot from the top left to
+the bottom right.
+pg 135
+SOLUTION
+if we picture this grid, the only way to move to spot ( r , c) is by moving to one of the adjacent spots:
+( r - l j C ) or ( r , c - l ) . So, we need to find a path to either ( r - l , c ) or ( r , c - l ) .
+How do we find a path to those spots?To find a path to ( r - 1 , c ) or ( r , c - l ) , we need to move to one
+of its adjacent ceils. So, we need to find a path to a spot adjacent to ( r - 1 , c ) , which are coordinates
+( r - 2 , c ) and ( r - 1 , C - l ) , or a spot adjacent to ( r , c - l ) , which are spots ( r - 1 , C - l ) and ( r , c - 2 ) .
+Observe that we list the point ( r - 1 , c - l ) twice; we'll discuss that issue later.
+I
+Tip: A lot of people use the variable names x and y when dealing with two-dimensional arrays.
+This can actually cause some bugs. People tend to think about x as the first coordinate in the
+matrix and y as the second coordinate (e.g., m a t r i x [ x ] [y]}. But, this isn't really correct. The
+first coordinate is usually thought of as the row number, which is in fact the y value (it goes verti-
+cally!). You should write m a t r i x [ y ] [ x ] . Or, just make your life easier by using r (row) 3nd c
+(column) instead.
+So then, to find a path from the origin, we just work backwards like this. Starting from the last cell, we try to
+find a path to each of its adjacent cells. The recursive code below implements this algorithm.
+1
+ArrayList<Point> getPath(boolean[][] maze) {
+2
+if (maze == null || maze.length == 8) return null;
+3
+ArrayList<Point> path = new ArrayList<Point>();
+4
+if (getPath(maze, maze.length - 1, maze[0].length - 1, path)) {
+5
+return path;
+6
+}
+7
+return null;
+8
+}
+9
+10 boolean getPath{boolean[][] maze, int row, int col, ArrayList<Point> path) {
+11
+/* If out of bounds or not available,
+r e t u r n . * /
+12
+if (col < 0 || row < 0 || !maze[row][col]) {
+13
+return false;
+14
+>
+15
+16
+boolean isAtOrigin = (row == 0) && (col == 0);
+17
+18
+/* If there's a path from the s t a r t to here, add my location. */
+19
+if (isAtOrigin || getPath(maze, row, col - 1, path) ||
+28
+getPath(maze, row - l, col, path)) {
+21
+Point p = new Point(row, col);
+22
+path.add(p);
+23
+return true;
+24
+>
+25
+26
+return false;
+27 }
+This solution is 0 ( 2 r K ) , since each path has r+c steps and there are two choices we can make at each step.
+3 54
+Cracking the Coding Interview, 6th Edition

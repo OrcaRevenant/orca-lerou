@@ -1,0 +1,17 @@
+“Uncle Bob, … Uncle Bob,” in the context of the pressures and disappointments
+of the startup, started to wear pretty thin.
+And then, one day, the phone rang.
+THE PHONE CALL
+It was a recruiter. He had gotten my name as someone who knew C++ and
+object-oriented design. I’m not sure how, but I suspect it had something to do
+with my Netnews presence.
+He said he had an opportunity in Silicon Valley, at a company named Rational.
+They were looking for help building a CASE13 tool.
+The blood drained from my face. I knew what this was. I don’t know how I
+knew, but I knew. This was Grady Booch’s company. I saw before me the
+opportunity to join forces with Grady Booch!
+ROSE
+I joined Rational, as a contract programmer, in 1990. I was working on the
+ROSE product. This was a tool that allowed programmers to draw Booch
+diagrams—the diagrams that Grady had written about in Object-Oriented
+Analysis and Design with Applications (Figure A.9 shows an example).

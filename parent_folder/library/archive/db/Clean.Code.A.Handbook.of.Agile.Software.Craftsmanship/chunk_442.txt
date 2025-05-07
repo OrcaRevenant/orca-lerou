@@ -1,0 +1,87 @@
+415
+Index
+C
+The C++ Programming Language, 7
+calculations, breaking into intermediate
+values, 296
+call stack, 324
+Callable interface, 326
+caller, cluttering, 104
+calling hierarchy, 106
+calls, avoiding chains of, 98
+caring, for code, 10
+Cartesian points, 42
+CAS operation, as atomic, 328
+change(s)
+isolating from, 149–150
+large number of very tiny, 213
+organizing for, 147–150
+tests enabling, 124
+change history, deleting, 270
+check exceptions, in Java, 106
+circular wait, 337, 338–339
+clarification, comments as, 57
+clarity, 25, 26
+class names, 25
+classes
+cohesion of, 140–141
+creating for bigger concepts, 28–29
+declaring instance variables, 81
+enforcing design and business
+rules, 115
+exposing internals of, 294
+instrumenting into ConTest, 342
+keeping small, 136, 175
+minimizing the number of, 176
+naming, 25, 138
+nonthread-safe, 328–329
+as nouns of a language, 49
+organization of, 136
+organizing to reduce risk of
+change, 147
+supporting advanced concurrency
+design, 183
+classification, of errors, 107
+clean boundaries, 120
+clean code
+art of, 6–7
+described, 7–12
+writing, 6–7
+clean tests, 124–127
+cleanliness
+acquired sense of, 6–7
+tied to tests, 9
+cleanup, of code, 14–15
+clever names, 26
+client, using two methods, 330
+client code, connecting to a server, 318
+client-based locking, 185, 329, 330–332
+clientScheduler, 320
+client/server application, concurrency in,
+317–321
+Client/Server nonthreaded, code for,
+343–346
+client-server using threads, code changes,
+346–347
+ClientTest.java, 318, 344–346
+closing braces, comments on, 67–68
+Clover, 268, 269
+clutter
+Javadocs as, 276
+keeping free of, 293
+code, 2
+bad, 3–4
+Beck's rules of, 10
+commented-out, 68–69, 287
+dead, 292
+explaining yourself in, 55
+expressing yourself in, 54
+formatting of, 76
+implicity of, 18–19
+instrumenting, 188, 342
+jiggling, 190
+making readable, 311
+necessity of, 2
+reading from top to bottom, 37
+simplicity of, 18, 19
+technique for shrouding, 20

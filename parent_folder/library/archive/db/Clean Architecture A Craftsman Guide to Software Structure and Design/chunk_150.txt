@@ -1,0 +1,32 @@
+tell the operating system to “print” to magnetic tape and run off hundreds of
+thousands of forms.
+Our programs had a shape. That shape disconnected policy from detail. The
+policy was the formatting of the name and address records. The detail was the
+device. We deferred the decision about which device we would use.
+PHYSICAL ADDRESSING
+In the early 1970s, I worked on a large accounting system for a local truckers
+union. We had a 25MB disk drive on which we stored records for Agents,
+Employers, and Members. The different records had different sizes, so we
+formatted the first few cylinders of the disk so that each sector was just the size
+of an Agent record. The next few cylinders were formatted to have sectors that
+fit the Employer records. The last few cylinders were formatted to fit the Member
+records.
+We wrote our software to know the detailed structure of the disk. It knew that the
+disk had 200 cylinders and 10 heads, and that each cylinder had several dozen
+sectors per head. It knew which cylinders held the Agents, Employers, and
+Members. All this was hard-wired into the code.
+We kept an index on the disk that allowed us to look up each of the Agents,
+Employers, and Members. This index was in yet another specially formatted set
+of cylinders on the disk. The Agent index was composed of records that
+contained the ID of an agent, and the cylinder number, head number, and sector
+number of that Agent record. Employers and Members had similar indices.
+Members were also kept in a doubly linked list on the disk. Each Member record
+held the cylinder, head, and sector number of the next Member record, and of the
+previous Member record.
+What would happen if we needed to upgrade to a new disk drive—one with
+more heads, or one with more cylinders, or one with more sectors per cylinder?
+We had to write a special program to read in the old data from the old disk, and
+then write it out to the new disk, translating all of the cylinder/head/sector
+numbers. We also had to change all the hard-wiring in our code—and that hard-
+wiring was everywhere! All the business rules knew the cylinder/head/sector
+scheme in detail.

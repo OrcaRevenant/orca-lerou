@@ -1,0 +1,59 @@
+Solutions to Chapter 4 | Trees and Graphs
+15 i n t countPathsWithSumFromNode(TreeNode node, i n t targetSum, i n t currentSum) {
+16
+if (node == n u l l ) return 0;
+17
+18
+currentSum += node.data;
+19
+20
+i n t totalPaths = 0;
+21
+if (currentSum == targetSum) { // Found a path from the root
+22
+totalPaths++;
+23
+}
+24
+25
+totalPaths += countPathsWithSumFromNodeinode.left, targetSum, currentSum);
+26
+totalPaths += countPathsWithSumFromNode(node.right, targetSum, currentSum);
+27
+return totalPaths;
+28
+}
+What is the time complexity of this algorithm?
+Consider that node at depth d will be "touched" (via countPathsWithSumFromNode) by d nodes above it.
+In a balanced binary tree, d will be no more than approximately l o g N. Therefore, we know that with N
+nodes in the tree, countPathsWithSumFromNodewill be called 0(N l o g N) times. The runtime is 0(N log N).
+We can also approach this from the other direction. At the root node, we traverse to all N - 1 nodes beneath
+it (via count Pat hsWithSumFromNode). At the second level (where there are two nodes), we traverse to N - 3
+nodes. At the third level (where there are four nodes, plus three above those), we traverse to N - 7 nodes.
+Following this pattern, the total work is roughly;
+(N - 1) + (N - 3) + (N - 7) + (N - 15) + (N - 31) + . . . + (N - N)
+To simplify this, notice that the left side of each term is always N and the right side is one less than a power
+of two. The number of terms is the depth of the tree, which isO(log N). For the right side, we can ignore
+the fact that it's one less than a power of two. Therefore, we really have this:
+0(N * [number of terms] - [sum of powers of two from 1 through N])
+0(N log N - N)
+0(N log N)
+If the value of the sum of powers of two from 1 through N isn't obvious to you, think about what the powers
+of two look like in binary;
+0001
++ 0010
++ 0100
++ 1008
+= 1111
+Therefore, theruntime isO(N l o g N) in a balanced tree.
+In an unbalanced tfee, the runtime could be much worse. Consider a tree that is just a straight line down. At
+the root, we traverse to N - 1 nodes. At the next level (with just a single node), we traverse to N - 2 nodes.
+At the third level, we traverse to N - 3 nodes, and so on. This leads us to the sum of numbers between 1
+and N, which isO(N :).
+Solution #2: Optimized
+In analyzing the last solution, we may realize that we repeat some work. For a path such as 10 -> 5 ->
+3 -> -2, we traverse this path (or parts of it) repeatedly. We do it when we start with node 10, then when
+we go to node 5 (looking at 5, then 3, then -2), then when we go to node 3, and then finally when we go to
+node -2. Ideally, we'd like to reuse this work.
+CrackingTheCodinglnterview.com | 6th Edition
+247

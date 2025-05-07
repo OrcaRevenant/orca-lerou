@@ -1,0 +1,30 @@
+$
+$ docker image pull alpine@sha256:c0537...7c0a7726c88e2bb7584dc96
+sha256:c0537...7726c88e2bb7584dc96: Pulling from library/alpine
+cfc728c1c558: Pull complete
+Digest: sha256:c0537ff6a5218...7c0a7726c88e2bb7584dc96
+Status: Downloaded newer image for alpine@sha256:c0537...bb7584dc96
+A little bit more about image hashes (digests)
+Since Docker version 1.10, an image is a very loose collection of independent
+layers.
+The image itself is really just a configuration object that lists the layers and as
+well as some metadata.
+The layers that make up an image are fully independent and have no concept of
+being part of a collective image.
+Each image is identified by a crypto ID that is a hash of the config object. Each
+layer is identified by a crypto ID that is a hash of the content it contains.
+This means that changing the contents of the image, or any of its layers, will
+cause the associated crypto hashes to change. As a result, images and layers are
+immutable.
+We call these hashes content hashes.
+So far, things are pretty simple. But they’re about to get a bit more complicated.
+When we push and pull images, we compress their layers to save bandwidth as
+well as space in the Registry’s blob store.
+Cool, but compressing a layer changes its content! This means that it’s content
+hash will no longer match after the push or pull operation! This is obviously a
+problem.
+For example, when you push an image layer to Docker Hub, Docker Hub will
+attempt to verify that the image arrived without being tampered with en-route.
+To do this, is runs a hash against the layer and checks to see if it matches the
+hash that was sent with the layer. Because the layer was compressed (changed)
+the hash verification will fail.

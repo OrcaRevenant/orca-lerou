@@ -1,0 +1,53 @@
+VI I BigO
+} else {
+for (int i = 0; i < numChars; i++) {
+char c = ithLetter(i);
+printSortedStrings(remaining -
+prefix + c>j
+>
+}
+>
+boolean isInOrder(String s) {
+for (int i = 1; i < s . l e n g t h Q ; i++) {
+int prev = ithletter(s.charAt(i - 1));
+int curr = ithLetter(s.charAt(i));
+if (prev > curr) {
+return false;
+>
+>
+return true;
+char ithletter(int i) {
+return (char) (((int) 'a') + i);
+}
+VI,12
+The following code computes the intersection (the number of elements in common) of two
+arrays. It assumes that neither array has duplicates. It computes the intersection by sorting
+one array (array b) and then iterating through array a checking {via binary search) if each
+value is in b.What is its runtime?
+int intersection(int[] a, int[] b) {
+mergesort(b);
+int intersect = 0;
+for (int x : a) {
+if (binarySearch(bj x) >= 0) {
+intersect++;
+>
+>
+return intersect;
+>
+Solutions
+1. 0(b).Theforloopjustiteratesthrough b.
+2. 0 ( b ) , The recursive code iterates through b cails, since it subtracts one at each level.
+3. 0 ( 1 ) . It does a constant amount of work.
+4. 0( Yb) The variable c o u n t will eventually equal
+The while loop iterates count times. Therefore, it
+iterates
+times.
+5. 0( l o g
+n). This algorithm is essentially doing a binary search to find the square root. Therefore, the
+runtime is 0( l o g n).
+6. 0 ( s q r t ( n ) ) . This is just a straightforward loop that stops when g u e s s * g u e s s
+>
+n (or, in other
+words, when guess > s q r t ( n ) ) .
+54
+Cracking the Coding Interview, 6th Edition

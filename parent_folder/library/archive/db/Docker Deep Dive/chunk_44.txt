@@ -1,0 +1,30 @@
+Attaching to running containers
+You can attach your shell to running containers with the docker container
+exec command. As the container from the previous steps is still running, let’s
+connect back to it.
+Linux example:
+This example references a container called “vigilant_borg”. The name of your
+container will be different, so remember to substitute “vigilant_borg” with the
+name or ID of the container running on your Docker host.
+$ docker container exec -it vigilant_borg bash
+root@e2b69eeb55cb:/#
+Windows example:
+This example references a container called “pensive_hamilton”. The name of
+your container will be different, so remember to substitute “pensive_hamilton”
+with the name or ID of the container running on your Docker host.
+> docker container exec -it pensive_hamilton PowerShell.exe
+Windows PowerShell
+Copyright (C) 2016 Microsoft Corporation. All rights reserved.
+PS C:\>
+Notice that your shell prompt has changed again. You are back inside the
+container.
+The format of the docker container exec command is: docker container
+exec -options <container-name or container-id> <command>. In our
+example we used the -it options to attach our shell to the container’s shell. We
+referenced the container by name and told it to run the bash shell (PowerShell in
+the Windows example). We could easily have referenced the container by its ID.
+Exit the container again by pressing Ctrl-PQ.
+Your shell prompt should be back to your Docker host.
+Run the docker container ls command again to verify that your container is
+still running.
+$ docker container ls

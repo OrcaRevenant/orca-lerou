@@ -1,0 +1,76 @@
+Solutions to Chapter 17 j Hard
+14
+15
+i n t bestlnvalid = Integer.MAX_VALUE;
+16
+String bestParsing = n u l l ;
+17
+String p a r t i a l =
+18
+i n t index = s t a r t ;
+19
+while (index < sentence.length()) {
+20
+char c = sentence.charAt(index);
+21
+p a r t i a l += c;
+22
+i n t i n v a l i d = d i c t i o n a r y . c o n t a i n s ( p a r t i a l ) ? 0 : p a r t i a l . l e n g t h ( ) ;
+23
+if ( i n v a l i d < bestlnvalid) { II Short c i r c u i t
+24
+I* Recurse, putting a space a f t e r t h i s character.
+If t h i s is better than
+25
+* the current best option, replace the best option. */
+26
+ParseResult result - s p l i t ( d i c t i o n a r y , sentence, index + 1, memo);
+27
+if ( i n v a l i d + r e s u l t . i n v a l i d < bestlnvalid) {
+28
+bestlnvalid = i n v a l i d + r e s u l t . i n v a l i d ;
+29
+bestParsing = p a r t i a l + " " + result.parsed;
+30
+if (bestlnvalid == 0) break; // Short c i r c u i t
+31
+}
+32
+>
+33
+34
+index++;
+35
+}
+36
+memo[start] = new ParseResult(bestInvalid, bestParsing);
+37
+return memo[start];
+38
+}
+Understanding the runtime of this is even trickier than in the prior solution. Again, let's imagine the truly
+bizarre case, where essentially everything looks like a valid word.
+One way we can approach it is to realize that s p l i t ( i ) will only be computed once for each value of i.
+What happens when we call s p l i t ( i ) , assuming we've already called s p l i t ( i + 1 ) through s p l i t ( n
+-
+1)?
+s p l i t ( i ) -> c a l l s :
+s p l i t ( i + 1)
+s p l i t ( i + 2)
+s p l i t ( i + 3)
+s p l i t ( i + 4)
+s p l i t ( n - 1)
+Each of the recursive calls has already been computed, so they just return immediately. Doing n - i calls
+at 0 ( 1 ) time each takes 0 ( n - i) time. This means that s p l i t ( i ) takes 0 ( i ) time at most.
+We can now apply the same logic to s p l i t (i
+-
+1), s p l i t (i
+-
+2), and so on. If we make 1 call to
+c o m p u t e s p l i t ( n - 1), 2 calls to compute s p l i t ( n - 2), 3 calls to compute s p l i t ( n - 3)
+n
+calls to compute s p l i t (0), how many calls total do we do? This is basically the sum of the numbers from
+1 through n, which is 0(n 2).
+Therefore, the runtime of this function isO(n J).
+55 S
+Cracking the Coding interview, 6th Edition

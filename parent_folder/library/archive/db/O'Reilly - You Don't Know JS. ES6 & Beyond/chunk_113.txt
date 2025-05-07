@@ -1,0 +1,35 @@
+The New Way
+The two main new keywords that enable ES6 classes are import and export. I imag‐
+ine their overall purposes are obvious enough I don’t need to waste ink explaining.
+However, there’s lots of nuance to the syntax, so let’s take a deeper look.
+An important detail that’s easy to overlook: both import and
+export must always appear in the top-level scope of their respective
+usage. For example, you cannot put either an import or export
+inside an if conditional; they must appear outside of all blocks and
+functions.
+`export`ing API Members
+The export keyword is either put in front of a declaration, or used as an operator (of
+sorts) with a special list of bindings to export. Consider:
+export function foo() {
+// ..
+}
+export var awesome = 42;
+var bar = [1,2,3];
+export { bar };
+Another way of expressing the same exports:
+function foo() {
+// ..
+}
+var awesome = 42;
+var bar = [1,2,3];
+export { foo, awesome, bar };
+These are all called named exports, since you are in effect exporting the name bind‐
+ings of the variables/functions/etc.
+Anything you don’t label with export stays private inside the scope of the module.
+That is, even though something like var bar = .. looks like it’s declaring at the top-
+level global scope, the top-level scope is actually the module itself; there is no global
+scope in modules.
+102
+|
+Chapter 3: Organization
+www.it-ebooks.info

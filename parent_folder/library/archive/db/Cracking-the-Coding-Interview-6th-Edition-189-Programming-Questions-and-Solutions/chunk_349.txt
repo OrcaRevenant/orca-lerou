@@ -1,0 +1,68 @@
+Solutions to Chapter 7 ] Object-Oriented Design
+88
+protected ArrayList<Entry> getContents() { return contents; }
+89 >
+Alternatively, we could have implemented D i r e c t o r y such that it contains separate lists for files and
+subdirectories. This makes the numberOfFiles () method a bit cleaner, since it doesn't need to use the
+i n s t a n c e o f operator, but it does prohibit us from cleanly sorting files and directories by dates or names.
+7.12
+Hash Table: Design and implement a hash table which uses chaining (linked lists) to handle
+collisions.
+pg 129
+SOLUTION
+Suppose we are implementing a hash table that looks like Hash<K, VxThat is, the hash table maps from
+objects of type K to objects of type V.
+At first, we might think our data structure would look something like this:
+1
+class Hash<K, V> {
+2
+LinkedList<V>[] items;
+3
+public void put(K key, V value) { . . . }
+4
+public V get(K key) { . . . }
+5
+}
+Note that items is an array of linked lists, where items [ i ] is a linked list of all objects with keys that map
+to index i (that is, all the objects that coltided at i).
+This would seem to work until we think more deeply about collisions.
+Suppose we have a very simple hash function that uses the string length.
+1
+i n t hashCodeOfKey(K key) {
+2
+return key.toString().length() % items.length;
+3
+>
+The keys j i m and bob will map to the same index in the array, even though they are different keys. We need
+to search through the linked list to find the actual object that corresponds to these keys. But how would we
+do that? All we've stored in the linked list is the value, not the original key.
+This is why we need to store both the value and the original key.
+One way to do that is to create another object called C e l l which pairs keys and values. With this implemen-
+tation, our linked list is of type C e l l .
+The code below uses this implementation.
+1
+public class Hasher<K, V> {
+/* Linked list node class. Used only within hash table. No one else should get
+3
+* access to this. Implemented as doubly linked list. */
+4
+private static class LinkedListNode<K, V> {
+5
+public LinkedListNode-cK, V> next;
+6
+public LinkedListNodecK, V> prev;
+7
+public K key;
+8
+public V value;
+9
+public LinkedListNode(K k, V v) {
+10
+key = k;
+11
+value = v;
+12
+>
+13
+}
+CrackingTheCodinglnterview.com | 6th Edition 3 37

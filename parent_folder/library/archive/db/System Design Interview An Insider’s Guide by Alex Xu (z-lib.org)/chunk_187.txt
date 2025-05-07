@@ -1,0 +1,29 @@
+Step 3 - Design deep dive
+In the high-level design, we discussed data gathering service and query service. The high-
+level design is not optimal, but it serves as a good starting point. In this section, we will dive
+deep into a few components and explore optimizations as follows:
+• Trie data structure
+• Data gathering service
+• Query service
+• Scale the storage
+• Trie operations
+Trie data structure
+Relational databases are used for storage in the high-level design. However, fetching the top
+5 search queries from a relational database is inefficient. The data structure trie (prefix tree) is
+used to overcome the problem. As trie data structure is crucial for the system, we will
+dedicate significant time to design a customized trie. Please note that some of the ideas are
+from articles [2] and [3].
+Understanding the basic trie data structure is essential for this interview question. However,
+this is more of a data structure question than a system design question. Besides, many online
+materials explain this concept. In this chapter, we will only discuss an overview of the trie
+data structure and focus on how to optimize the basic trie to improve response time.
+Trie (pronounced “try”) is a tree-like data structure that can compactly store strings. The
+name comes from the word retrieval, which indicates it is designed for string retrieval
+operations. The main idea of trie consists of the following:
+• A trie is a tree-like data structure.
+• The root represents an empty string.
+• Each node stores a character and has 26 children, one for each possible character. To
+save space, we do not draw empty links.
+• Each tree node represents a single word or a prefix string.
+Figure 13-5 shows a trie with search queries “tree”, “try”, “true”, “toy”, “wish”, “win”.
+Search queries are highlighted with a thicker border.

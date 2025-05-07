@@ -1,0 +1,54 @@
+XI, Advanced Topics
+Of course, you could write this as a single function that reads in all the data, counts the number of times
+each word appears via a hash table, and then outputs the result.
+MapReduce allows you to process the document in parallel. The Map function reads in a document and
+emits just each individual word and the count (which is always 1), The Reduce function reads in keys
+(words) and associated values (counts). It emits the sum of the counts. This sum could possibly wind up as
+input for another call to Reduce on the same key (as shown in the diagram).
+1
+void map(String name, String document):
+2
+for each word W in document:
+3
+emit(w, 1)
+4
+5
+void reduce(String word, Iterator partialCounts):
+6
+i n t suns = 0
+7
+f o r each count in partialCounts:
+8
+sum += count
+9
+emit(word, sum)
+The diagram beiow shows how this might work on this example.
+Input
+Split
+Map
+Shuffle
+Reduce
+Final
+Here's another example: You have a list of data in the form [City, Temperature, Date}. Calculate the average
+temperature in each city every year. For example {(2012, Philadelphia, 58.2), (2011, Philadelphia, 56.6),
+(2012, Seattle, 45.1)).
+«
+Map: The Map step outputs a key value pair where the key is C i t y _ Y e a r and the value is
+(Temperature, 1). The '1' reflects that this is the average temperature out of one data point. This will
+be important for the Reduce step.
+«
+Reduce: The Reduce step will be given a list of temperatures that correspond with a particular city and
+year.lt must use these to compute the average temperature for this input. You cannot simply add up the
+temperatures and divide by the number of values.
+To see this, imagine we have five data points for a particular city and year; 25,100,75, 85,50. The Reduce
+step might only get some of this data at once. If you averaged {75,85} you would get 80. This might end
+up being input for another Reduce step with 50, and it would be a mistake to just naively average 80 and
+50. The 80 has more weight.
+Therefore, our Reduce step instead takes in {(80, 2), (50,1)], then sums the weighted temperatures. So it
+does 80 * 2 + 50 * 1 and then divides by (2 + 1) to get an average temperature of 70. It then emits (70, 3).
+Another Reduce step might reduce {(25,1), (100,1)) to get (62.5, 2). If we reduce this with (70, 3) we get
+the final answer: (67,5). In other words, the average temperature in this city for this year was 67 degrees.
+We could do this in other ways, too. We could have just the city as the key, and the value be (Year, Tempera-
+ture, Count). The Reduce step would do essentially the same thing, but would have to group by Year itself.
+CrackingTheCodinginterview.com | 6th Edition
+639

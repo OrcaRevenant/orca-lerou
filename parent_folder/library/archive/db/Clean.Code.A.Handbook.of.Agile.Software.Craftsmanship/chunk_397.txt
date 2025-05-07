@@ -1,0 +1,67 @@
+369
+Appendix B: org.jfree.date.SerialDate
+185         weekday = SerialDate.stringToWeekdayCode("Wed");
+186         assertEquals(SerialDate.WEDNESDAY, weekday);
+187
+188     }
+189
+190     /**
+191      * Test the conversion of a string to a month.  Note that this test will fail if the
+192      * default locale doesn't use English month names...devise a better test!
+193      */
+194     public void testStringToMonthCode() {
+195
+196         int m = SerialDate.stringToMonthCode("January");
+197         assertEquals(MonthConstants.JANUARY, m);
+198
+199         m = SerialDate.stringToMonthCode(" January ");
+200         assertEquals(MonthConstants.JANUARY, m);
+201
+202         m = SerialDate.stringToMonthCode("Jan");
+203         assertEquals(MonthConstants.JANUARY, m);
+204
+205     }
+206
+207     /**
+208      * Tests the conversion of a month code to a string.
+209      */
+210     public void testMonthCodeToStringCode() {
+211
+212         final String test = SerialDate.monthCodeToString(MonthConstants.DECEMBER);
+213         assertEquals("December", test);
+214
+215     }
+216
+217     /**
+218      * 1900 is not a leap year.
+219      */
+220     public void testIsNotLeapYear1900() {
+221         assertTrue(!SerialDate.isLeapYear(1900));
+222     }
+223
+224     /**
+225      * 2000 is a leap year.
+226      */
+227     public void testIsLeapYear2000() {
+228         assertTrue(SerialDate.isLeapYear(2000));
+229     }
+230
+231     /**
+232      * The number of leap years from 1900 up-to-and-including 1899 is 0.
+233      */
+234     public void testLeapYearCount1899() {
+235         assertEquals(SerialDate.leapYearCount(1899), 0);
+236     }
+237
+238     /**
+239      * The number of leap years from 1900 up-to-and-including 1903 is 0.
+240      */
+241     public void testLeapYearCount1903() {
+242         assertEquals(SerialDate.leapYearCount(1903), 0);
+243     }
+244
+245     /**
+246      * The number of leap years from 1900 up-to-and-including 1904 is 1.
+247      */
+Listing B-2 (continued)
+SerialDateTest.java

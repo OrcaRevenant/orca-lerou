@@ -1,0 +1,112 @@
+Solutions to Chapter 530 | Moderate
+16.23 Rand7 from RandS: Implement a method rand7( ) given rand5( ).That is, given a method that
+generates a random number between 0 and 4 (inclusive], write a method that generates a random
+number between 0 and 6 (inclusive).
+pg 186
+SOLUTION
+To implement this function correctly, we must have each of the values between 0 and 6 returned with 1/7th
+probability.
+First Attempt (Fixed Number of Calls)
+As a first attempt, we might try generating all numbers between 0 and 9, and then mod the resulting value
+by 7. Our code for it might look something tike this:
+1
+int rand7() {
+2
+int v = rand5() + randS();
+3
+return v % 7;
+4
+>
+Unfortunately, the above code will not generate the values with equal probability. We can see this by
+looking at the results of each call to rands () an d the return result of the rand 7 () function.
+1st Call
+2nd Call
+Result
+1st Call
+2nd Call
+Result
+0
+0
+0
+2
+3
+5
+0
+1
+1
+2
+4
+6
+0
+2
+2
+3
+0
+3
+0
+3
+3
+3
+1
+4
+0
+4
+4
+3
+2
+5
+0
+1
+3
+3
+6
+1
+2
+3
+4
+0
+2
+3
+4
+0
+4
+3
+4
+4
+1
+5
+4
+5
+4
+2
+6
+2
+0
+2
+4
+3
+0
+2
+1
+3
+4
+4
+1
+2
+2
+4
+Each individual row has a 1 in 25 chance of occurring, since there a re two calls to rand 5 () and each distrib-
+utes its results with X th probability. If you count up the number of times each number occurs, you'll note
+that this rand7 () function will return 4 with Ax th probability but return 0 with just As th probability.
+This means that our function has failed; the results do not have probability Ath.
+Now, imagine we modify our function to add an if-statement, to change the constant multiplier, or to insert
+a new call to randS (). We will still wind up with a similar looking table, and the probability of getting any
+one of those rows will be Xh - where k is the number of calls to randS () in that row. Different rows may
+have different number of calls.
+The probability of winding up with the result of the rand7() function being, say, 6 would be the sum of
+the probabilities of all rows that result in 6. That Is;
+P(rand7()
+= 6) =
+X + X + .-. + X-"
+518
+492 Cracking the Coding Interview, 6th Edition

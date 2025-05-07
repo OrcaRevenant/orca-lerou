@@ -1,0 +1,47 @@
+65
+Bad Comments
+These comments are so noisy that we learn to ignore them. As we read through code, our
+eyes simply skip over them. Eventually the comments begin to lie as the code around them
+changes.
+The ﬁrst comment in Listing 4-4 seems appropriate.2 It explains why the catch block
+is being ignored. But the second comment is pure noise. Apparently the programmer was
+just so frustrated with writing try/catch blocks in this function that he needed to vent.
+Rather than venting in a worthless and noisy comment, the programmer should have
+recognized that his frustration could be resolved by improving the structure of his code.
+He should have redirected his energy to extracting that last try/catch block into a separate
+function, as shown in Listing 4-5.
+2.
+The current trend for IDEs to check spelling in comments will be a balm for those of us who read a lot of code.
+Listing 4-4
+startSending
+private void startSending()
+{
+try
+{
+doSending();
+}
+catch(SocketException e)
+{
+// normal. someone stopped the request.
+}
+catch(Exception e)
+{
+try
+{
+response.add(ErrorResponder.makeExceptionString(e));
+response.closeAll();
+}
+catch(Exception e1)
+{
+//Give me a break!
+}
+}
+}
+Listing 4-5
+startSending (refactored)
+private void startSending()
+{
+try
+{
+doSending();
+}

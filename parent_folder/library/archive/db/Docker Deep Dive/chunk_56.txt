@@ -1,0 +1,19 @@
+Figure 5.3
+The influence of the Open Container Initiative (OCI)
+While Docker, Inc. was breaking the daemon apart and refactoring code, the OCI
+was in the process of defining two container-related standards:
+1. Image spec
+2. Container runtime spec
+Both specifications were released as version 1.0 in July 2017.
+Docker, Inc. was heavily involved in creating these specifications and
+contributed a lot of code to them.
+As of Docker 1.11 (early 2016), the Docker engine implements the OCI
+specifications as closely as possible. For example, the Docker daemon no longer
+contains any container runtime code - all container runtime code is implemented
+in a separate OCI-compliant layer. By default, Docker uses a tool called runc for
+this. runc is the reference implementation of the OCI container-runtime-spec, and
+a goal of the runc project keep runc in lockstep with the OCI spec.
+As well as this, the containerd component of the Docker Engine makes sure
+Docker images are presented to runc as valid OCI bundles.
+Note: The Docker engine implemented portions of the OCI specs before the
+specs were officially released as version 1.0.

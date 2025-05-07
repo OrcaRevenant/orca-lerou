@@ -1,0 +1,42 @@
+19
+Avoid Disinformation
+The answers to these questions are not present in the code sample, but they could have
+been. Say that we’re working in a mine sweeper game. We ﬁnd that the board is a list of
+cells called theList. Let’s rename that to gameBoard.
+Each cell on the board is represented by a simple array. We further ﬁnd that the zeroth
+subscript is the location of a status value and that a status value of 4 means “ﬂagged.” Just
+by giving these concepts names we can improve the code considerably:
+public List<int[]> getFlaggedCells() {
+List<int[]> flaggedCells = new ArrayList<int[]>();
+for (int[] cell : gameBoard)
+if (cell[STATUS_VALUE] == FLAGGED)
+flaggedCells.add(cell);
+return flaggedCells;
+}
+Notice that the simplicity of the code has not changed. It still has exactly the same number
+of operators and constants, with exactly the same number of nesting levels. But the code
+has become much more explicit.
+We can go further and write a simple class for cells instead of using an array of ints.
+It can include an intention-revealing function (call it isFlagged) to hide the magic num-
+bers. It results in a new version of the function:
+public List<Cell> getFlaggedCells() {
+List<Cell> flaggedCells = new ArrayList<Cell>();
+for (Cell cell : gameBoard)
+if (cell.isFlagged())
+flaggedCells.add(cell);
+return flaggedCells;
+}
+With these simple name changes, it’s not difﬁcult to understand what’s going on. This is
+the power of choosing good names.
+Avoid Disinformation
+Programmers must avoid leaving false clues that obscure the meaning of code. We should
+avoid words whose entrenched meanings vary from our intended meaning. For example,
+hp, aix, and sco would be poor variable names because they are the names of Unix plat-
+forms or variants. Even if you are coding a hypotenuse and hp looks like a good abbrevia-
+tion, it could be disinformative.
+Do not refer to a grouping of accounts as an accountList unless it’s actually a List.
+The word list means something speciﬁc to programmers. If the container holding the
+accounts is not actually a List, it may lead to false conclusions.1 So accountGroup or
+bunchOfAccounts or just plain accounts would be better.
+1.
+As we’ll see later on, even if the container is a List, it’s probably better not to encode the container type into the name.

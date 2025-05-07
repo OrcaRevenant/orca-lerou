@@ -1,0 +1,76 @@
+VII BigO
+2
+for (int i = 0; i < arrayA.length; i++) {
+3
+for (int j = 0; j < arrayB.length; j++) {
+4
+/* 0(1) work */
+5
+}
+6
+}
+1
+>
+For each element of arrayA, the inner for loop goes through b iterations, where b = a r r a y B . l e n g t h ,
+tfa = a r r a y A . l e n g t h , then the runtime isO(ab),
+If you said 0(N J)-then remember your mistake for the future. It's not 0(N J) because there are two different
+inputs. Both matter. This is an extremely common mistake.
+Examples
+What about this strange bit of code?
+1
+void printUnorderedPairs(int[] arrayAj intjj arrays) {
+2
+for (int i = 0j i < arrayA.length; i++) {
+3
+for (int j = 0; j < arrayB.length; j++) {
+4
+for (int k = 0; k < 160800; k++) {
+System.out.println(arrayA[i] + "," + arrayB[j]);
+6
+}
+7
+>
+3
+}
+9
+}
+Nothing has really changed here. 100,000 units of work is still constant, so the runtime is 0 ( a b ) .
+Example 6
+The following code reverses an array. What is its runtime?
+1
+void r e v e r s e ( i n t [ ] array) {
+2
+for (int i = 0; i < array.length / 2; i++) {
+3
+int other = array.length - i - 1;
+4
+int temp = array[i];
+5
+arnay[i] = array[other];
+6
+array[other] = temp;
+7
+>
+8
+}
+This algorithm runs in 0 ( N ) time. The fact that it only goes through half of the array (in terms of iterations)
+does not impact the big O time.
+Example 7
+Which of the following are equivalent to 0(N)?Why?
+•
+0 ( N + P), where P <
+M
+•
+0(2N)
+.
+0 ( N + l o g N)
+•
+0 ( N + M)
+Let's go through these.
+•
+IfP <
+then weknowthatN is the dominant term so we can droptheO(P).
+•
+0(2N) isO(N) since we drop constants.
+4 8
+Cracking the Coding Interview, 6th Edition

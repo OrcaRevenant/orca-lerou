@@ -1,0 +1,31 @@
+314
+Chapter 17: Smells and Heuristics
+T5: Test Boundary Conditions
+Take special care to test boundary conditions. We often get the middle of an algorithm
+right but misjudge the boundaries.
+T6: Exhaustively Test Near Bugs
+Bugs tend to congregate. When you ﬁnd a bug in a function, it is wise to do an exhaustive
+test of that function. You’ll probably ﬁnd that the bug was not alone.
+T7: Patterns of Failure Are Revealing
+Sometimes you can diagnose a problem by ﬁnding patterns in the way the test cases fail.
+This is another argument for making the test cases as complete as possible. Complete test
+cases, ordered in a reasonable way, expose patterns.
+As a simple example, suppose you noticed that all tests with an input larger than ﬁve
+characters failed? Or what if any test that passed a negative number into the second argu-
+ment of a function failed? Sometimes just seeing the pattern of red and green on the test
+report is enough to spark the “Aha!” that leads to the solution. Look back at page 267 to
+see an interesting example of this in the SerialDate example.
+T8: Test Coverage Patterns Can Be Revealing
+Looking at the code that is or is not executed by the passing tests gives clues to why the
+failing tests fail.
+T9: Tests Should Be Fast
+A slow test is a test that won’t get run. When things get tight, it’s the slow tests that will be
+dropped from the suite. So do what you must to keep your tests fast.
+Conclusion
+This list of heuristics and smells could hardly be said to be complete. Indeed, I’m not sure
+that such a list can ever be complete. But perhaps completeness should not be the goal,
+because what this list does do is imply a value system.
+Indeed, that value system has been the goal, and the topic, of this book. Clean code is
+not written by following a set of rules. You don’t become a software craftsman by learn-
+ing a list of heuristics. Professionalism and craftsmanship come from values that drive
+disciplines.

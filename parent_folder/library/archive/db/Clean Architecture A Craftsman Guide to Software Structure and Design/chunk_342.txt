@@ -1,0 +1,36 @@
+Abstract components, 125–126
+Abstract Factories, 89–90
+Abstractions
+principle of stable. See SAP (Stable Abstractions Principle)
+source code dependencies and, 87
+stable, 88–89
+Access modifiers, architectural packages, 316–319
+Accidental duplication, 154–155
+Actors, 62–65
+Address segments, relocatable binaries, 99–100
+ADP (Acyclic Dependencies Principle)
+breaking cycle, 117–118
+component dependency graph effected by, 118
+effect of cycle in component dependency graph, 115–117
+eliminating dependency cycles, 113–115
+jitters, 118
+overview of, 112
+weekly build, 112–113
+Aluminum die-cast monitoring, archaeology project, 338–339
+APIs, testing, 252–253
+App-titude test, 258–261
+Application-specific business rules, use cases, 192–193, 204
+Architects
+goal to minimize human resources, 160
+registry exam archaeology project, 370–373
+separate details from policy, 142
+Architecture
+clean. See Clean architecture
+clean embedded. See Clean embedded architecture
+design vs., 4
+in DLU/DRU archaeology project, 356
+Eisenhower’s matrix of importance vs. urgency, 16–17
+getting software right, 2
+immutability and, 52
+independence. See Independence
+ISP and, 86

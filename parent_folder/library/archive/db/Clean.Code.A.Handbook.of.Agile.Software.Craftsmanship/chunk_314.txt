@@ -1,0 +1,20 @@
+284
+Chapter 16: Refactoring SerialDate
+Interestingly the code coverage in DayDate has decreased to 84.9 percent! This is not
+because less functionality is being tested; rather it is because the class has shrunk so much
+that the few uncovered lines have a greater weight. DayDate now has 45 out of 53 execut-
+able statements covered by tests. The uncovered lines are so trivial that they weren’t worth
+testing.
+Conclusion
+So once again we’ve followed the Boy Scout Rule. We’ve checked the code in a bit cleaner
+than when we checked it out. It took a little time, but it was worth it. Test coverage was
+increased, some bugs were ﬁxed, the code was clariﬁed and shrunk. The next person to
+look at this code will hopefully ﬁnd it easier to deal with than we did. That person will also
+probably be able to clean it up a bit more than we did.
+Bibliography
+[GOF]:  Design Patterns: Elements of Reusable Object Oriented Software, Gamma et al.,
+Addison-Wesley, 1996.
+[Simmons04]:  Hardcore Java, Robert Simmons, Jr., O’Reilly, 2004.
+[Refactoring]:  Refactoring: Improving the Design of Existing Code, Martin Fowler et al.,
+Addison-Wesley, 1999.
+[Beck97]:  Smalltalk Best Practice Patterns, Kent Beck, Prentice Hall, 1997.

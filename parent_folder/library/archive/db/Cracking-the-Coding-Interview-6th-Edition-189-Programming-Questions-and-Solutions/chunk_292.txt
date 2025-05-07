@@ -1,0 +1,135 @@
+Solutions to Chapter 5 | Bit Manipulation
+Step 2: Clear bits to the right of p. From before, cQ
+=
+2 . c l
+=
+5. p
+=
+7.
+1
+1
+0
+1
+1
+0
+1
+0
+0
+0
+0
+0
+0
+0
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+To clear these bits, we need to create a mask that is a sequence of ones, followed by p zeros. We can do this
+as follows:
+a = 1 << p; // a l l zeros except f o r a 1 at position p.
+b = a - 1;
+// a l l zeros, followed by p ones,
+mask = ~b;
+// a l l ones, followed by p zeros,
+n = n & mask; // clears rightmost p b i t s .
+Or, more concisely, we do:
+n &= ~((1 « p) - 1).
+Step 3: Add in cl - lones.
+1
+1
+0
+1
+1
+0
+1
+0
+0
+0
+1
+1
+1
+1
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+Toinsertcl - 1 ones on the right, we do the following:
+a = 1 << ( c l - 1); // 0s with a 1 at position cl - 1
+b = a - 1;
+/ / 0 s with Is at positions 0 through cl - 1
+n = n | b;
+// inserts Is at positions 0 through cl - 1
+Or, more concisely:
+n 1= (1 « ( c l - 1)) - l j
+We have now arrived at the smallest number bigger than n with the same number of ones.
+The code for getMext is below.
+1
+i n t getNext(int n) {
+2
+/* Compute c0 and cl */
+3
+int c = n;
+4
+i n t C0 = 6;
+5
+i n t c l = 0;
+6
+while t ( ( e 8 1) == 0) && (c != 0)) {
+7
+C0++;
+8
+c >>= 1;
+9
+>
+10
+11
+while ((c & 1) == 1) {
+12
+cl++;
+13
+c » = 1;
+14
+>
+15
+16
+I* Error: if n == 11..1100...00, then there is no bigger number with the same
+17
+* number of Is. */
+18
+i f (c0 + c l == 31 || c0 + c l == 0) {
+19
+return -1;
+20
+}
+21
+22
+i n t p = c0 + c l ; // position of rightmost non-trailing zero
+23
+24
+n |= (1 << p); // Flip rightmost non-trailing zero
+25
+n &= ~ ( ( l « p) - 1); // Clear a l l bits to the right of p
+26
+n |= (1 << ( c l - 1)) - 1; // Insert (cl-1) ones on the r i g h t .
+288
+Cracking the Coding Interview, 6th Edition

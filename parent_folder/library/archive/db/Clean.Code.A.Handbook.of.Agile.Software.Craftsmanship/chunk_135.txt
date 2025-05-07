@@ -1,0 +1,43 @@
+105
+Write Your Try-Catch-Finally Statement First
+Notice how much cleaner it is. This isn’t just a matter of aesthetics. The code is better
+because two concerns that were tangled, the algorithm for device shutdown and error han-
+dling, are now separated. You can look at each of those concerns and understand them
+independently.
+Write Your Try-Catch-Finally Statement First
+One of the most interesting things about exceptions is that they deﬁne a scope within your
+program. When you execute code in the try portion of a try-catch-finally statement, you
+are stating that execution can abort at any point and then resume at the catch.
+In a way, try blocks are like transactions. Your catch has to leave your program in a
+consistent state, no matter what happens in the try. For this reason it is good practice to
+start with a try-catch-finally statement when you are writing code that could throw
+exceptions. This helps you deﬁne what the user of that code should expect, no matter what
+goes wrong with the code that is executed in the try.
+Let’s look at an example. We need to write some code that accesses a ﬁle and reads
+some serialized objects.
+We start with a unit test that shows that we’ll get an exception when the ﬁle doesn’t exist:
+@Test(expected = StorageException.class)
+public void retrieveSectionShouldThrowOnInvalidFileName() {
+sectionStore.retrieveSection("invalid - file");
+}
+The test drives us to create this stub:
+public List<RecordedGrip> retrieveSection(String sectionName) {
+// dummy return until we have a real implementation
+return new ArrayList<RecordedGrip>();
+}
+private void tryToShutDown() throws DeviceShutDownError {
+DeviceHandle handle = getHandle(DEV1);
+DeviceRecord record = retrieveDeviceRecord(handle);
+pauseDevice(handle);
+clearDeviceWorkQueue(handle);
+closeDevice(handle);
+}
+private DeviceHandle getHandle(DeviceID id) {
+...
+throw new DeviceShutDownError("Invalid handle for: " + id.toString());
+...
+}
+...
+}
+Listing 7-2 (continued)
+DeviceController.java (with exceptions)

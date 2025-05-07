@@ -1,0 +1,51 @@
+215
+String Arguments
+private void parseStringSchemaElement(char elementId) {
+stringArgs.put(elementId, new StringArgumentMarshaler());
+}
+...
+private void setStringArg(char argChar) throws ArgsException {
+currentArgument++;
+try {
+stringArgs.get(argChar).setString(args[currentArgument]);
+} catch (ArrayIndexOutOfBoundsException e) {
+valid = false;
+errorArgumentId = argChar;
+errorCode = ErrorCode.MISSING_STRING;
+throw new ArgsException();
+}
+}
+...
+public String getString(char arg) {
+Args.ArgumentMarshaler am = stringArgs.get(arg);
+return am == null ? "" : am.getString();
+}
+...
+private class ArgumentMarshaler {
+private boolean booleanValue = false;
+private String stringValue;
+public void setBoolean(boolean value) {
+booleanValue = value;
+}
+public boolean getBoolean() {
+return booleanValue;
+}
+public void setString(String s) {
+stringValue = s;
+}
+public String getString() {
+return stringValue == null ? "" : stringValue;
+}
+}
+Again, these changes were made one at a time and in such a way that the tests kept
+running, if not passing. When a test broke, I made sure to get it passing again before con-
+tinuing with the next change.
+By now you should be able to see my intent. Once I get all the current marshalling
+behavior into the ArgumentMarshaler base class, I’m going to start pushing that behavior
+down into the derivatives. This will allow me to keep everything running while I gradually
+change the shape of this program.
+The obvious next step was to move the int argument functionality into the
+ArgumentMarshaler. Again, there weren’t any surprises.
+private Map<Character, ArgumentMarshaler> intArgs =
+new HashMap<Character, ArgumentMarshaler>();
+...

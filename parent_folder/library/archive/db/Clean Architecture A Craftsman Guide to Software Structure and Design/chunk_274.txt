@@ -1,0 +1,25 @@
+use cases, then this chapter would have to turn into a book in its own right.
+Note the dashed use cases in the center of Figure 33.1. They are abstract1 use
+cases. An abstract use case is one that sets a general policy that another use case
+will flesh out. As you can see, the View Catalog as Viewer and View Catalog as
+Purchaser use cases both inherit from the View Catalog abstract use case.
+On the one hand, it was not strictly necessary for me to create that abstraction. I
+could have left the abstract use case out of the diagram without compromising
+any of the features of the overall product. On the other hand, these two use cases
+are so similar that I thought it wise to recognize the similarity and find a way to
+unify it early in the analysis.
+COMPONENT ARCHITECTURE
+Now that we know the actors and use cases, we can create a preliminary
+component architecture (Figure 33.2).
+The double lines in the drawing represent architectural boundaries as usual. You
+can see the typical partitioning of views, presenters, interactors, and controllers.
+You can also see that I’ve broken each of those categories up by their
+corresponding actors.
+Each of the components in Figure 33.2 represents a potential .jar file or .dll
+file. Each of those components will contain the views, presenters, interactors,
+and controllers that have been allocated to it.
+Note the special components for the Catalog View and the Catalog Presenter.
+This is how I dealt with the abstract View Catalog use case. I assume that those
+views and presenters will be coded into abstract classes within those
+components, and that the inheriting components will contain view and presenter
+classes that will inherit from those abstract classes.

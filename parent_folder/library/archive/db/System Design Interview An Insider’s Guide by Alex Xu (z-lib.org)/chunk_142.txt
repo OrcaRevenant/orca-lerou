@@ -1,0 +1,6 @@
+Contact info gathering flow
+To send notifications, we need to gather mobile device tokens, phone numbers, or email
+addresses. As shown in Figure 10-7, when a user installs our app or signs up for the first time,
+API servers collect user contact info and store it in the database.
+Figure 10-8 shows simplified database tables to store contact info. Email addresses and phone
+numbers are stored in the user table, whereas device tokens are stored in the device table. A

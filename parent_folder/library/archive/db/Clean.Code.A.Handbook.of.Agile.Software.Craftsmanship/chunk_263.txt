@@ -1,0 +1,51 @@
+233
+String Arguments
+else
+return false;
+} catch (ArgsException e) {
+valid = false;
+errorArgumentId = argChar;
+throw e;
+}
+return true;
+}
+This change is important because we want to completely eliminate the if-else chain.
+Therefore, we needed to get the error condition out of it.
+Now we can start to move the set functions. The setBooleanArg function is trivial, so
+we’ll prepare that one ﬁrst. Our goal is to change the setBooleanArg function to simply for-
+ward to the BooleanArgumentMarshaler.
+private boolean setArgument(char argChar) throws ArgsException {
+ArgumentMarshaler m = marshalers.get(argChar);
+if (m == null)
+return false;
+try {
+if (m instanceof BooleanArgumentMarshaler)
+setBooleanArg(m, currentArgument);
+else if (m instanceof StringArgumentMarshaler)
+setStringArg(m);
+else if (m instanceof IntegerArgumentMarshaler)
+setIntArg(m);
+} catch (ArgsException e) {
+valid = false;
+errorArgumentId = argChar;
+throw e;
+}
+return true;
+}
+---
+private void setBooleanArg(ArgumentMarshaler m,
+Iterator<String> currentArgument)
+throws ArgsException {
+try {
+m.set("true");
+catch (ArgsException e) {
+}
+}
+Didn’t we just put that exception processing in? Putting things in so you can take
+them out again is pretty common in refactoring. The smallness of the steps and the need to
+keep the tests running means that you move things around a lot. Refactoring is a lot like
+solving a Rubik’s cube. There are lots of little steps required to achieve a large goal. Each
+step enables the next.
+Why did we pass that iterator when setBooleanArg certainly doesn’t need it? Because
+setIntArg and setStringArg will! And because I want to deploy all three of these functions
+through an abstract method in ArgumentMarshaller, I need to pass it to setBooleanArg.

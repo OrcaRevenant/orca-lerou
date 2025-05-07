@@ -1,0 +1,40 @@
+11 The Interview Process
+2. You could look up the answer if it did ever come up.
+3. You rarely have to use data structures such as binary search trees in the real world. If you did need to,
+you could surely learn it.
+4. Whiteboard coding is an artificial environment. You would never code on the whiteboard in the real
+world, obviously.
+These complaints aren't without merit. In fact, I agree with all of them, at least in part.
+At the same time, there is reason to do things this way for some—not all—positions. It's not important that
+you agree with this logic, but it is a good idea to understand why these questions are being asked. It helps
+offer a little insight into the interviewer's mindset.
+False negatives are acceptable.
+This is sad (and frustrating for candidates), but true.
+From the company's perspective, it's actually acceptable that some good candidates are rejected. The
+company is out to build a great set of employees.They can accept that they miss out on some good people.
+They'd prefer not to, of course, as it raises their recruiting costs. It is an acceptable tradeoff, though, provided
+they can still hire enough good people.
+They're far more concerned with false positives: people who do well in an interview but are not in fact very
+good.
+Problem-solving skills are valuable.
+If you're able to work through several hard problems (with some help, perhaps), you're probably pretty
+good at developing optimal algorithms. You're smart.
+Smart people tend to do good things, and that's valuable at a company. It's not the only thing that matters,
+of course, but it is 3 really good thing.
+Basic data structure and algorithm knowledge is useful.
+Many interviewers would argue that basic computer science knowledge is, in fact, useful. Understanding
+trees, graphs, lists, sorting, and other knowledge does come up periodically. When it does, it's really valu-
+able.
+Could you learn it as needed? Sure. But it's very difficult to know that you should use a binary search tree if
+you don't know of its existence. And if you do know of its existence, then you pretty much know the basics.
+Other interviewers justify the reliance on data structures and algorithms by arguing that it's a good "proxy."
+Even if the skiils wouldn't be that hard to learn on their own, they say it's reasonably well-correlated with
+being a good developer. It means that you've either gone through a computer science program (in which
+case you've learned and retained a reasonably broad set of technical knowledge) or learned this stuff on
+your own. Either way, it's a good sign.
+There's another reason why data structure and algorithm knowledge comes up: because it's hard to ask
+problem-solving questions that don't involve them. It turns out that the vast majority of problem-solving
+questions involve some of these basics. When enough candidates know these basics, it's easy to get into a
+pattern of asking questions with them.
+CrackingTheCodinglnterview.com 16th Edition
+5

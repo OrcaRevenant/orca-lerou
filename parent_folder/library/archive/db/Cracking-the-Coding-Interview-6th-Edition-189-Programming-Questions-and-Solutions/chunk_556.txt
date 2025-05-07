@@ -1,0 +1,62 @@
+Solutions to Chapter 17 | Moderate
+53
+for (GraphNode child : node,getNeighbors()) {
+54
+sum += getComponentFrequency(child);
+55
+}
+56
+return sum;
+57 >
+58
+59 /* Code for GraphNode and Graph is fairly self-explanatory, but can be found in
+60
+* the downloadable code solutions.*/
+To analyze the efficiency, we can think about the efficiency of each part of the algorithm.
+•
+Reading in the data is linear with respect to the size of the data, so it takes 0(8 + P) time, where 8 is the
+number of baby names and P is the number of pairs of synonyms. This is because we only do a constant
+amount of work per piece of input data.
+*
+To compute the frequencies, each edge gets "touched" exactly once across all of the graph searches and
+each node gets touched exactly once to check if it's been visited. The time of this part isO(B + P).
+Therefore, the total time of the algorithm is 0(B f P). We know we cannot do better than this since we
+mustat least read in theB + P pieces of data.
+17.8
+CircusTower: A circus is designing a tower routine consisting of people standing atop one another's
+shoulders. For practical and aesthetic reasons, each person must be both shorter and lighter than
+the person below him or her. Given the heights and weights of each person in the circus, write a
+method to compute the largest possible number of people in such a tower.
+pg 187
+SOLUTION
+When we cut out all the "fluff" to this problem, we can understand that the problem is really the following.
+We have a list of pairs of items. Find the longest sequence such that both the first and second items are in non-
+decreasing order.
+One thing we might first try is sorting the items on an attribute. This is useful actually, but it won't get us all
+the way there.
+By sorting the items by height, we have a relative order the items must appear in. We still need to find the
+longest increasing subsequence of weight though.
+Solution 1: Recursive
+One approach is to essentially try ail possibilities. After sorting by height, we iterate through the array. At
+each element, we branch into two choices: add this element to the subsequence (if it's valid) or do not.
+1
+ArrayList<HtWt> longestIncreasingSeq(ArrayList<HtWt> items) {
+2
+Collections.sort(items);
+3
+return bestSeqAtlndex(items, new ArrayList<HtWt>(), 0);
+4
+}
+5
+6
+ArrayList<HtWt> bestSeqAtIndex(ArrayList<HtWt> array, ArrayList<HtWt> sequence,
+7
+int index) {
+8
+if (index >= array.size()) return sequence;
+9
+10
+Htwt value = array.get(index);
+11
+492
+Cracking the Coding Interview, 6th Edition

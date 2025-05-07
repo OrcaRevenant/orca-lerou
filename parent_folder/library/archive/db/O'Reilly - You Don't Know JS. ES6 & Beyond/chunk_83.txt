@@ -1,0 +1,35 @@
+Object.getOwnPropertyNames( o );    // [ "foo","baz" ]
+To retrieve an object’s symbol properties:
+Object.getOwnPropertySymbols( o );  // [ Symbol(bar) ]
+So it’s clear that a property symbol is not actually hidden or inaccessible, as you can
+always see it in the Object.getOwnPropertySymbols(..) enumeration.
+Built-in Symbols
+ES6 comes with a number of predefined built-in symbols that expose various meta
+behaviors on JavaScript object values. However, these symbols are not registered in
+the global symbol registry, as one might expect.
+Instead, they’re stored as properties on the Symbol function object. For example, in
+the "for..of" section earlier in this chapter, we introduced the Symbol.iterator
+value:
+var a = [1,2,3];
+a[Symbol.iterator];         // native function
+The specification uses the @@ prefix notation to refer to the built-in symbols, the most
+common ones being: @@iterator, @@toStringTag, @@toPrimitive. Several others are
+defined as well, though they probably won’t be used as often.
+See “Well Known Symbols” in Chapter 7 for detailed information
+about how these built-in symbols are used for meta programming
+purposes.
+Review
+ES6 adds a heap of new syntax forms to JavaScript, so there’s plenty to learn!
+Most of these are designed to ease the pain points of common programming idioms,
+such as setting default values to function parameters and gathering the “rest” of the
+parameters into an array. Destructuring is a powerful tool for more concisely express‐
+ing assignments of values from arrays and nested objects.
+While features like => arrow functions appear to also be all about shorter and nicer
+looking syntax, they actually have very specific behaviors that you should intention‐
+ally use only in appropriate situations.
+Expanded Unicode support, new tricks for regular expressions, and even a new prim‐
+itive symbol type round out the syntactic evolution of ES6.
+72
+|
+Chapter 2: Syntax
+www.it-ebooks.info

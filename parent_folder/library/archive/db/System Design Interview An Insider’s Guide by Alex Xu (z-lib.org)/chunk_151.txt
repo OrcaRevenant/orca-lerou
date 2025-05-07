@@ -1,0 +1,19 @@
+Step 1 - Understand the problem and establish design scope
+The first set of clarification questions are to understand what the interviewer has in mind
+when she asks you to design a news feed system. At the very least, you should figure out
+what features to support. Here is an example of candidate-interviewer interaction:
+Candidate: Is this a mobile app? Or a web app? Or both?
+Interviewer: Both
+Candidate: What are the important features?
+Interview: A user can publish a post and see her friends’ posts on the news feed page.
+Candidate: Is the news feed sorted by reverse chronological order or any particular order
+such as topic scores? For instance, posts from your close friends have higher scores.
+Interviewer: To keep things simple, let us assume the feed is sorted by reverse chronological
+order.
+Candidate: How many friends can a user have?
+Interviewer: 5000
+Candidate: What is the traffic volume?
+Interviewer: 10 million DAU
+Candidate: Can feed contain images, videos, or just text?
+Interviewer: It can contain media files, including both images and videos.
+Now you have gathered the requirements, we focus on designing the system.

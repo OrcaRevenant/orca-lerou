@@ -1,0 +1,35 @@
+CHAPTER 2 SAYING NO
+40
+some of our own management on it. Twice I heard back and twice I was told, “What did you
+need again?” I NEED THE APP DESCRIPTION!
+One week later, Apple started testing the app. This is usually a time of joyousness, but it was
+instead a time for mortal dread. As expected, later in the day the app was rejected. It was
+about the saddest, poorest excuse to allow a rejection I can imagine: “App is missing an app
+description.” Functionally perfect; no app description. And for this reason Gorilla Mart
+didn’t have their app ready for Black Friday. I was pretty upset.
+I’d sacrificed my family for a two-week super sprint, and no one at Gorilla Mart could be
+bothered to create an app description given a week of time. They gave it to us an hour after
+the rejection—apparently that was the signal to get down to business.
+If I was upset before, I would become livid a week and a half after that. You see, they still
+hadn’t gotten us real data. The products and coupons on the server were fake. Imaginary.
+The coupon code was 1234567890. You know, phoney baloney. (Bologna is spelled baloney
+when used in that context, BTW.)
+And it was that fateful morning that I checked the Portal and THE APP WAS AVAILABLE!
+Fake data and all! I cried out in abject horror and called up whoever I could and screamed,
+“I NEED THE DATA!” and the woman on the other end asked me if I needed fire or police,
+so I hung up on 911. But then I called Gorilla Mart and was like, “I NEED DATA!” And I’ll
+never forget the response:
+Oh, hey there John. We have a new VP and we’ve decided not to release. Pull it off the
+App Store, would you?
+In the end, it turned out that at least 11 people registered their email addresses in the
+database, which meant there were 11 people that could potentially walk into a Gorilla Mart
+with a fake iPhone coupon in tow. Boy, that might get ugly.
+When it was all said and done, the client had said one thing correctly all along: The code was
+a throwaway. The only problem is, it was never released in the first place.
+Result ? Rush to Complete, Slow to Market
+The lesson in the story is that your stakeholders, whether an external client or internal
+management, have figured out how to get developers to write code quickly. Effectively? No.
+Quickly? Yes. Here’s how it works:
+• Tell the developer the app is simple. This serves to pressure the
+development team into a false frame of mind. It also gets the developers
+to start working earlier, whereby they …

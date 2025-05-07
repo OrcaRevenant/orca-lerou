@@ -1,0 +1,43 @@
+Interviewer: Both.
+Candidate: What are the most important features for the product?
+Interviewer: Ability to make a post and see friends’ news feed.
+Candidate: Is the news feed sorted in reverse chronological order or a particular order? The
+particular order means each post is given a different weight. For instance, posts from your
+close friends are more important than posts from a group.
+Interviewer: To keep things simple, let us assume the feed is sorted by reverse chronological
+order.
+Candidate: How many friends can a user have?
+Interviewer: 5000
+Candidate: What is the traffic volume?
+Interviewer: 10 million daily active users (DAU)
+Candidate: Can feed contain images, videos, or just text?
+Interviewer: It can contain media files, including both images and videos.
+Above are some sample questions that you can ask your interviewer. It is important to
+understand the requirements and clarify ambiguities
+Step 2 - Propose high-level design and get buy-in
+In this step, we aim to develop a high-level design and reach an agreement with the
+interviewer on the design. It is a great idea to collaborate with the interviewer during the
+process.
+• Come up with an initial blueprint for the design. Ask for feedback. Treat your
+interviewer as a teammate and work together. Many good interviewers love to talk and get
+involved.
+• Draw box diagrams with key components on the whiteboard or paper. This might include
+clients (mobile/web), APIs, web servers, data stores, cache, CDN, message queue, etc.
+• Do back-of-the-envelope calculations to evaluate if your blueprint fits the scale
+constraints. Think out loud. Communicate with your interviewer if back-of-the-envelope is
+necessary before diving into it.
+If possible, go through a few concrete use cases. This will help you frame the high-level
+design. It is also likely that the use cases would help you discover edge cases you have not
+yet considered.
+Should we include API endpoints and database schema here? This depends on the problem.
+For large design problems like “Design Google search engine”, this is a bit of too low level.
+For a problem like designing the backend for a multi-player poker game, this is a fair game.
+Communicate with your interviewer.
+Example
+Let us use “Design a news feed system” to demonstrate how to approach the high-level
+design. Here you are not required to understand how the system actually works. All the
+details will be explained in Chapter 11.
+At the high level, the design is divided into two flows: feed publishing and news feed
+building.
+• Feed publishing: when a user publishes a post, corresponding data is written into
+cache/database, and the post will be populated into friends’ news feed.

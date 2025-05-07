@@ -1,0 +1,31 @@
+Security in Docker - The deep dive
+We all know that security is important. We also know that security can be
+complicated and boring!
+When Docker decided to bake security into its platform, it decided to make it
+simple and easy. They knew that if security was hard to configure people
+wouldn’t use it. As a result, most of the security technologies offered by the
+Docker platform are simple to use. They also ship with sensible defaults - this
+means that you get a fairly secure platform at zero effort. Of course, the defaults
+are not perfect, but they’re usually enough to give you a safe start. If they don’t
+suit your needs you can always customize them.
+We’ll organize the rest of this chapter as follows:
+Linux security technologies
+Namespaces
+Control Groups
+Capabilities
+Mandatory Access Control
+seccomp
+Docker platform security technologies
+Swarm Mode
+Docker Security Scanning
+Docker Content Trust
+Docker secrets
+Linux security technologies
+All good container platforms should use namespaces and cgroups to build
+containers. The best container platforms will also integrate with other Linux
+security technologies such as capabilities, Mandatory Access Control systems
+like SELinux and AppArmor, and seccomp. As expected, Docker integrates with
+them all!
+In this section of the chapter we’ll take a brief look at some of the major Linux
+security technologies used by Docker. We won’t go into detail as I want the
+focus of the chapter to be on the Docker platform technologies.

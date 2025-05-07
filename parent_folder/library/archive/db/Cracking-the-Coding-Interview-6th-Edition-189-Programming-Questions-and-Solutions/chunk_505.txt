@@ -1,0 +1,106 @@
+Solutions to Chapter 16 | Moderate
+3
+public int pseudoHits = 0;
+4
+5
+public String toStringQ {
+6
+return " ( " + hits + % " + pseudoHits + ") J'j
+7
+}
+8
+>
+9
+19
+i n t codefchar c) {
+11
+switch (c) {
+12
+case ' B ' :
+13
+return 0j
+14
+case
+'G':
+15
+return 1;
+16
+case
+f R J :
+17
+return 2j
+18
+case
+fY':
+19
+return 3;
+20
+default:
+21
+return - 1 ;
+22
+}
+23
+}
+24
+25 i n t MAX_COLORS = 4j
+26
+27 Result estimate(String guess, String solution) {
+28
+if (guess.length()
+!= solution.length()) return n u l l ;
+29
+30
+Result res = new Result();
+31
+i n t [ ] frequencies = new int[MAX_COLORS];
+32
+33
+/* Compute hits and build frequency table */
+34
+for ( i n t i = 0; i < guess.length{); i++) {
+35
+if (guess.charAt(i) == solution.charAt(i)) {
+36
+res.hits++j
+37
+} else {
+38
+/* Only increment the frequency table (which w i l l be used for pseudo-hits)
+39
+* if i t J s not a h i t . If i t ' s a h i t , the slot has already been "used." */
+40
+i n t code = code(solution.charAt(i))j
+41
+frequencies[code]++j
+42
+>
+43
+}
+44
+45
+/* Compute pseudo-hits */
+46
+for ( i n t i = 0j i < guess.length(); i++) {
+47
+i n t code = code(guess.charAt(i));
+48
+if (code >= 0 8& frequencies[code] > 0 8&
+49
+guess.charAt(i) != solution.charAt(i)) {
+50
+res.pseudoHits++;
+51
+frequencies[code]--;
+52
+>
+53
+>
+54
+return res;
+55 >
+Note that the easier the algorithm for a problem is, the more important it is to write clean and correct code.
+In this case, we've pulled code(char c) into its own method, and we've created a Result class to hold
+the result, rather than just printing it.
+CrackingTheCodinglnterview.com | 6th Edition
+495

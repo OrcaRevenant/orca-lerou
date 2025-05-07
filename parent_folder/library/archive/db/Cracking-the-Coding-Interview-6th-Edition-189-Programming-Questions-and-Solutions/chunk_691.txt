@@ -1,0 +1,81 @@
+IV j Hints for Additional Review Problems
+#504.
+17.16
+Recursive solution: You have two choices at each appointment (take the appointment
+or reject the appointment). As a brute force approach, you can recurse through all possi-
+bilities. Note, though, that if you take request i, your recursive algorithm should skip
+request i + 1.
+#505.
+16.23
+Se very careful that your solution actually returns each value from 0 through 6 with
+equal probability.
+#506.
+17.22
+Start with a brute force, recursive solution. Just create all words that are one edit away,
+check if they are in the dictionary, and then attempt that path.
+#507.
+16.10
+Solution 2: What if you sorted the years? What would you sort by?
+#508.
+17.9
+What does a brute force solution to get the kth smallest value for 3s * 5° * 7C look
+like?
+#509.
+17.12
+Try a recursive approach.
+#510,
+17.26
+Solution 1:You should be able to get an 0(A+B) algorithm to compute the similarity of
+two documents.
+#511.
+17.24
+The brute force solution requires us to continuously compute the sums of each matrix.
+Can we optimize this?
+#512.
+17.7
+One thing to try is maintaining a mapping of each name toits"true"spelling.You would
+also need to map from a true spelling to all the synonyms. Sometimes, you might need
+to merge two different groups of names. Play around with this algorithm to see if you
+can get it to work. Then see if you can simplify/optimize it.
+#513.
+16.7
+If k were 1 when a > b and 0 otherwise, then you could return a*k + b * ( n o t k).
+But how do you create k?
+#514.
+16.10
+Solution 2: Do you actually need to match the birth years and death years? Does it
+matter when a specific person died, or do you just need a list of the years of deaths?
+#515.
+17,5
+Start with a brute force solution.
+#516.
+17.16
+Recursive solution; You can optimize this approach through memoization. What is the
+runtime of this approach?
+#517.
+16.3
+How can we find the intersection between two lines? If two line segments intercept,
+then this must be at the same point as their "infinite" extensions. Is this intersection
+point within both lines?
+#518.
+17,26
+Solution 1: What is the relationship between the intersection and the union? Can you
+compute one from the other?
+#519.
+17.20
+Recall that the median means the number for which half the numbers are larger and half
+the numbers are smaller,
+#520.
+16.14
+You can't truly try all possible lines in the world—that's infinite. But you know that a
+"best" line must intersect at least two points. Can you connect each pair of points? Can
+you check if each line is indeed the best line?
+#521.
+16.26
+Can we just process the expression from left to right? Why might this fail?
+#522.
+17.10
+Start with a brute force solution. Can you just check each value to see if it's the majority
+element?
+CrackingTheCodinglnterview.com | 6th Edition
+69S

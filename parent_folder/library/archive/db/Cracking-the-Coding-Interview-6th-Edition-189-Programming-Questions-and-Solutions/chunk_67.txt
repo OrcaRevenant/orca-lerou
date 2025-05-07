@@ -1,0 +1,55 @@
+VII Big O
+}
+}
+return -ij
+}
+VI.7
+If a binary search tree is not balanced, how long might it take (worst case) to find an element
+in it?
+VI.8
+You are looking for a specific value in a binary tree, but the tree is not a binary search tree.
+What is the time complexity of this?
+VI.9
+The appendToNew method appends a value to an array by creating a new, longer array and
+returning this longer array. You've used the appendToNew method to create a copyArray
+function that repeatedly calls appendToNew. How long does copying an array take?
+int[] copyArray(int[] array) {
+int[] copy = new int[0];
+for (int value : array) {
+copy = appendToNew(copy, value);
+}
+return copy;
+int[] appendToNew(int[] array, int value) {
+II copy all elements over to new array
+int[] bigger = new int[array.length + 1];
+for (int i = 0; i < array.length; i++) {
+bigger[i] = array[1];
+}
+II add new element
+bigger[bigger.length - 1] = value;
+return bigger;
+>
+VI. 10 The following code sums the digits in a number. What is its big O time?
+int sumDigits(int n) {
+int sum = 6;
+while (n > 0) {
+sum += n % 10;
+n /= 10;
+>
+return sum;
+>
+VI.11
+The following code prints all strings of length k where the characters are in sorted order. It
+does this by generating all strings of length k and then checking if each is sorted. What is its
+runtime?
+int numChars = 26;
+void printSortedStrings(int remaining) {
+printSortedStrings(remainingj "");
+>
+void printSortedStrings(int remaining, String prefix) {
+if (remaining == 0) {
+if (islnOrder(prefix)) {
+System.out.println(prefix);
+}
+CrackingTheCodinglnterview.com | 6th Edition
+59

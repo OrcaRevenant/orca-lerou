@@ -1,0 +1,31 @@
+CHAPTER 12 COLLABORATION
+158
+Working next to me was my high school buddy, Tim Conrad. Tim and I had
+worked quite a few miracles in our time. We built computers together in his
+basement. We built Jacob’s ladders in mine. We taught each other how to
+program PDP-8s and how to wire up integrated circuits and transistors into
+functioning calculators.
+We were programmers working on a system that used lasers to trim electronic
+components like resistors and capacitors to extremely high accuracy. For
+example, we trimmed the crystal for the first digital watch, the Motorola Pulsar.
+The computer we programmed was the M365, Teradyne’s PDP-8 clone. We
+wrote in assembly language, and our source files were kept on magnetic tape
+cartridges. Although we could edit on a screen, the process was quite involved,
+so we used printed listings for most of our code reading and preliminary
+editing.
+We had no facility at all for searching the code base. There was no way to find
+out all the places where a given function was called or a given constant was
+used. As you might imagine, this was quite a hindrance.
+So one day Tim and I decided we would write a cross-reference generator. This
+program would read in our source tapes and print out a listing of every symbol,
+along with the file and line numbers where that symbol was used.
+The initial program was pretty simple to write. It simply read in the source tape,
+parsed the assembler syntax, created a symbol table, and added references to the
+entries. It worked great, but it was horribly slow. It took over an hour to process
+our Master Operating Program (the MOP).
+The reason it was so slow was that we were holding the growing symbol table in
+a single memory buffer. Whenever we found a new reference we inserted it into
+the buffer, moving the rest of the buffer down by a few bytes to make room.
+Tim and I were not experts on data structures and algorithms. We’d never heard
+of hash tables or binary searches. We had no clue how to make an algorithm
+fast. We just knew that what we were doing was too slow.

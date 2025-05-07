@@ -1,0 +1,36 @@
+in 4-TEL archaeology project, 344
+as fallacy of services, 241
+kitty problem example, 242–243
+in OO approach for cross-cutting concerns, 244–245
+overview of, 154
+Independent developability
+as fallacy of services, 241
+kitty problem example, 242–243
+in OO approach for cross-cutting concerns, 244–245
+overview of, 153–154
+of UI and database, 47
+Induction, Dijkstra’s proof related to iteration, 28
+Information hiding, Open-Closed Principle, 74–75
+Inheritance relationships
+crossing circle boundaries, 206
+defining OOP, 37–40
+dependency inversion, 46
+dependency management, 302
+guiding use of, 78
+Input/output
+business rules for use cases, 193–194
+decoupling higher-level policy from lower level, 185–187
+policy level defined as distance from, 184
+separating components with boundary lines, 169–170
+Integers, functional programming example, 50–51
+Integration, weekly build issues, 112–113
+Interface adapters, Dependency Rule for, 205
+Interface Segregation Principle. See ISP (Interface Segregation Principle)
+IO device
+UNIX functions, 41–44
+web is, 288–289
+Isolation, test, 250–251
+ISP (Interface Segregation Principle)
+architecture and, 86
+Common Reuse Principle compared with, 108
+conclusion, 86

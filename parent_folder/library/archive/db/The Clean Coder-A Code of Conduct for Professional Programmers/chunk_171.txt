@@ -1,0 +1,31 @@
+139
+WHAT IS AN ESTIMATE ?
+Mike: “What is your estimate for completing the Frazzle task?”
+Peter: “Three days.”
+Is Peter really going to be done in three days? It’s possible, but how likely is it?
+The answer to that is: We have no idea. What did Peter mean, and what has
+Mike learned? If Mike comes back in three days, should he be surprised if Peter
+is not done? Why would he be? Peter has not made a commitment. Peter has
+not told him how likely three days is versus four days or five days.
+What would have happened if Mike had asked Peter how likely his estimate of
+three days was?
+Mike: “How likely is it that you’ll be done in three days?
+Peter: “Pretty likely.”
+Mike: “Can you put a number on it?”
+Peter: “Fifty or sixty percent.”
+Mike: “So there’s a good chance that it’ll take you four days.”
+Peter: “Yes, in fact it might even take me five or six, though I doubt it.”
+Mike: “How much do you doubt it?”
+Peter: “Oh, I don’t know … I’m ninety-five percent certain I’ll be done
+before six days have passed.”
+Mike: “You mean it might be seven days?”
+Peter: “Well, only if everything goes wrong. Heck, if everything goes
+wrong, it could take me ten or even eleven days. But it’s not very
+likely that so much will go wrong.”
+Now we’re starting to hone in on the truth. Peter’s estimate is a probability
+distribution. In his mind, Peter sees the likelihood of completion like what is
+shown is Figure 10-1.
+You can see why Peter gave the original estimate as three days. It’s the highest
+bar on the chart. So in Peter’s mind it is the most likely duration for the task.
+But Mike sees things differently. He looks at the right-hand tail of the chart and
+worries that Peter might really take eleven days to finish.

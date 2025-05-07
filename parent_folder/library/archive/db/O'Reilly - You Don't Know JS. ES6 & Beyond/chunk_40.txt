@@ -1,0 +1,39 @@
+But what about y being undefined? The { y: 10 } value is an object as a function
+parameter default value, not a destructuring default value. As such, it only applies if
+the second argument is not passed at all, or is passed as undefined.
+In the previous snippet, we are passing a second argument ({}), so the default { y:
+10 } value is not used, and the { y } destructuring occurs against the passed in {}
+empty object value.
+Now, compare { y } = { y: 10 } to { x = 10 } = {}.
+For the x’s form usage, if the first function argument is omitted or undefined, the {}
+empty object default applies. Then, whatever value is in the first argument position —
+either the default {} or whatever you passed in — is destructured with the { x =
+10 }, which checks to see if an x property is found, and if not found (or undefined),
+the 10 default value is applied to the x named parameter.
+Deep breath. Read back over those last few paragraphs a couple of times. Let’s review
+via code:
+function f6({ x = 10 } = {}, { y } = { y: 10 }) {
+console.log( x, y );
+}
+f6();                               // 10 10
+f6( undefined, undefined );         // 10 10
+f6( {}, undefined );                // 10 10
+f6( {}, {} );                       // 10 undefined
+f6( undefined, {} );                // 10 undefined
+f6( { x: 2 }, { y: 3 } );           // 2 3
+It would generally seem that the defaulting behavior of the x parameter is probably
+the more desirable and sensible case compared to that of y. As such, it’s important to
+understand why and how { x = 10 } = {} form is different from { y } = { y:
+10 } form.
+If that’s still a bit fuzzy, go back and read it again, and play with this yourself. Your
+future self will thank you for taking the time to get this very subtle gotcha nuance
+detail straight.
+Nested Defaults: Destructured and Restructured
+An interesting idiom emerges — though it may be confusing to get used to — for set‐
+ting defaults for a nested object’s properties, using object destructuring with what I’d
+call restructuring.
+Consider a set of defaults in a nested object structure, like the following:
+Destructuring
+|
+29
+www.it-ebooks.info

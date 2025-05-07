@@ -1,0 +1,28 @@
+example, we don’t want the business rules to break when someone changes the
+format of a web page, or changes the schema of the database. We don’t want
+changes in one part of the system to cause other unrelated parts of the system to
+break. We don’t want our systems to exhibit that kind of fragility.
+Arranging our systems into a plugin architecture creates firewalls across which
+changes cannot propagate. If the GUI plugs in to the business rules, then changes
+in the GUI cannot affect those business rules.
+Boundaries are drawn where there is an axis of change. The components on one
+side of the boundary change at different rates, and for different reasons, than the
+components on the other side of the boundary.
+GUIs change at different times and at different rates than business rules, so there
+should be a boundary between them. Business rules change at different times and
+for different reasons than dependency injection frameworks, so there should be a
+boundary between them.
+This is simply the Single Responsibility Principle again. The SRP tells us where
+to draw our boundaries.
+CONCLUSION
+To draw boundary lines in a software architecture, you first partition the system
+into components. Some of those components are core business rules; others are
+plugins that contain necessary functions that are not directly related to the core
+business. Then you arrange the code in those components such that the arrows
+between them point in one direction—toward the core business.
+You should recognize this as an application of the Dependency Inversion
+Principle and the Stable Abstractions Principle. Dependency arrows are arranged
+to point from lower-level details to higher-level abstractions.
+1. The word “architecture” appears in quotes here because three-tier is not an architecture; it’s a topology.
+It’s exactly the kind of decision that a good architecture strives to defer.
+2. Many years later we were able to slip the Velocity framework into FitNesse.

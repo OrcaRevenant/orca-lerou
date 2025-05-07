@@ -1,0 +1,37 @@
+For the Windows example you should cd into the dotnet-docker-
+samples\aspnetapp directory.
+The Linux example is a simple nodejs web app. The Windows example is a
+simple ASP.NET Core web app.
+Both Git repos contain a file called Dockerfile. A Dockerfile is a plain-text
+document describing how to build a Docker image.
+List the contents of the Dockerfile.
+$ cat Dockerfile
+FROM alpine
+LABEL maintainer="nigelpoulton@hotmail.com"
+RUN apk add --update nodejs nodejs-npm
+COPY . /src
+WORKDIR /src
+RUN  npm install
+EXPOSE 8080
+ENTRYPOINT ["node", "./app.js"]
+The contents of the Dockerfile in the Windows example are different. However,
+this is not important at this stage. We’ll cover Dockerfiles in more detail later in
+the book. For now, it’s enough to understand that each line represents an
+instruction that is used to build an image.
+At this point we have pulled some application code from a remote Git repo. We
+also have a Dockerfile containing instructions that describe how to create a new
+Docker image with the application inside.
+Use the docker image build command to create a new image using the
+instructions contained in the Dockerfile. This example creates a new Docker
+image called test:latest.
+Be sure to perform this command from within the directory containing the app
+code and Dockerfile.
+$ docker image build -t test:latest .
+Sending build context to Docker daemon  74.75kB
+Step 1/8 : FROM alpine
+latest: Pulling from library/alpine
+88286f41530e: Pull complete
+Digest: sha256:f006ecbb824...0c103f4820a417d
+Status: Downloaded newer image for alpine:latest
+---> 76da55c8019d
+<Snip>

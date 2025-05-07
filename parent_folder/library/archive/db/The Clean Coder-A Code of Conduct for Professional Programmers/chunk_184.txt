@@ -1,0 +1,32 @@
+CHAPTER 11 PRESSURE
+152
+CO M M ITM E NT S
+As we discovered in Chapter 10, it is important to avoid committing to
+deadlines that we aren’t sure we can meet. The business will always want these
+commitments because they want to eliminate risk. What we must do is make
+sure that the risk is quantified and presented to the business so that they can
+manage it appropriately. Accepting unrealistic commitments thwarts this goal
+and does a disservice to both the business and to ourselves.
+Sometimes commitments are made for us. Sometimes we find that our business
+has made promises to the customers without consulting us. When this happens
+we are honor bound to help the business find a way to meet those
+commitments. However, we are not honor bound to accept the commitments.
+The difference is important. Professionals will always help the business find a
+way to achieve its goals. But professionals do not necessarily accept commit-
+ments made for them by the business. In the end, if we can find no way to meet
+the promises made by the business, then the people who made the promises
+must accept the responsibility.
+This is easy to say. But when your business is failing, and your paycheck is
+delayed because of missed commitments, it’s hard not to feel the pressure. But if
+you have behaved professionally, at least you can hold your head high as you
+hunt for a new job.
+STAY I N G C LE AN
+The way to go fast, and to keep the deadlines at bay, is to stay clean. Professionals
+do not succumb to the temptation to create a mess in order to move quickly.
+Professionals realize that “quick and dirty” is an oxymoron. Dirty always means
+slow!
+We can avoid pressure by keeping our systems, our code, and our design as
+clean as possible. This does not mean that we spend endless hours polishing
+code. It simply means that we don’t tolerate messes. We know that messes will
+slow us down, causing us to miss dates and break commitments. So we do the
+best work we can and keep our output as clean as we can.

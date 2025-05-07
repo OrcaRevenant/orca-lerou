@@ -1,0 +1,12 @@
+34
+THE MISSING CHAPTER
+By Simon Brown
+All of the advice you’ve read so far will certainly help you design better
+software, composed of classes and components with well-defined boundaries,
+clear responsibilities, and controlled dependencies. But it turns out that the devil
+is in the implementation details, and it’s really easy to fall at the last hurdle if
+you don’t give that some thought, too.
+Let’s imagine that we’re building an online book store, and one of the use cases
+we’ve been asked to implement is about customers being able to view the status
+of their orders. Although this is a Java example, the principles apply equally to
+other programming languages. Let’s put the Clean Architecture to one side for a

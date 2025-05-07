@@ -1,0 +1,34 @@
+Let us use a concrete example to see how it works. In Figure 4-8, the time unit is 1 second
+and the system allows a maximum of 3 requests per second. In each second window, if more
+than 3 requests are received, extra requests are dropped as shown in Figure 4-8.
+A major problem with this algorithm is that a burst of traffic at the edges of time windows
+could cause more requests than allowed quota to go through. Consider the following case:
+In Figure 4-9, the system allows a maximum of 5 requests per minute, and the available quota
+resets at the human-friendly round minute. As seen, there are five requests between 2:00:00
+and 2:01:00 and five more requests between 2:01:00 and 2:02:00. For the one-minute window
+between 2:00:30 and 2:01:30, 10 requests go through. That is twice as many as allowed
+requests.
+Pros:
+• Memory efficient.
+
+• Easy to understand.
+• Resetting available quota at the end of a unit time window fits certain use cases.
+Cons:
+• Spike in traffic at the edges of a window could cause more requests than the allowed
+quota to go through.
+Sliding window log algorithm
+As discussed previously, the fixed window counter algorithm has a major issue: it allows
+more requests to go through at the edges of a window. The sliding window log algorithm
+fixes the issue. It works as follows:
+• The algorithm keeps track of request timestamps. Timestamp data is usually kept in
+cache, such as sorted sets of Redis [8].
+• When a new request comes in, remove all the outdated timestamps. Outdated timestamps
+are defined as those older than the start of the current time window.
+• Add timestamp of the new request to the log.
+• If the log size is the same or lower than the allowed count, a request is accepted.
+Otherwise, it is rejected.
+We explain the algorithm with an example as revealed in Figure 4-10.
+In this example, the rate limiter allows 2 requests per minute. Usually, Linux timestamps are
+stored in the log. However, human-readable representation of time is used in our example for
+better readability.
+• The log is empty when a new request arrives at 1:00:01. Thus, the request is allowed.

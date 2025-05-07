@@ -1,0 +1,8 @@
+135
+10
+E STIMATION
+Estimation is one of the simplest, yet most frightening activities that software
+professionals face. So much business value depends on it. So much of our
+reputations ride on it. So much of our angst and failure are caused by it. It is
+the primary wedge that has been driven between business people and developers.
+It is the source of nearly all the distrust that rules that relationship.

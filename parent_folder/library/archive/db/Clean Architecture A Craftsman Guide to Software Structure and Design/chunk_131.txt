@@ -1,0 +1,15 @@
+Figure 14.8 An ideal configuration for a system with three components
+The diagram in Figure 14.9 shows how the SDP can be violated.
+Figure 14.9 SDP violation
+Flexible is a component that we have designed to be easy to change. We want
+Flexible to be unstable. However, some developer, working in the component
+named Stable, has hung a dependency on Flexible. This violates the SDP
+because the I metric for Stable is much smaller than the I metric for Flexible.
+As a result, Flexible will no longer be easy to change. A change to Flexible
+will force us to deal with Stable and all its dependents.
+To fix this problem, we somehow have to break the dependence of Stable on
+Flexible. Why does this dependency exist? Let’s assume that there is a class C
+within Flexible that another class U within Stable needs to use (Figure 14.10).
+Figure 14.10 U within Stable uses C within Flexible
+We can fix this by employing the DIP. We create an interface class called US and
+put it in a component named UServer. We make sure that this interface declares

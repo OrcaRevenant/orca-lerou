@@ -1,0 +1,34 @@
+unit. See Unit testing
+via Humble Object pattern, 212
+Threads
+mutability and, 52
+schedule/order of execution, 179
+Three-tiered “architecture” (as topology), 161
+Top-down design, component structure, 118–119
+Transactional memory, 53
+Transactions, storing, 54–55
+Transitive dependencies, violating software principles, 75
+Trouble tickets, CDS archaeology project, 362–364
+True duplication, 154–155
+Turning, Alan, 23
+U
+UI (user interface). See also GUI (graphical user interface)
+applying LSP to, 80
+clean architecture independent from, 202
+crossing circle boundaries, 206
+decoupling business rules from, 287–289
+decoupling layers, 152–153
+decoupling use cases, 153
+Hunt the Wumpus adventure game, 222–223
+independent developability, 47, 154
+Interface Segregation Principle, 84
+programming to, 271–272
+reducing volatility of, 88
+SAC archaeology project, 346
+UML class diagram
+package by layer, 304–305, 310
+ports and adapters, 308–310
+relaxed layered architecture, 311–312
+Uncle Bob, 367, 369
+UNIFY database system, VRS archaeology project, 358–359
+Union Accounting system, archaeology project, 326–334

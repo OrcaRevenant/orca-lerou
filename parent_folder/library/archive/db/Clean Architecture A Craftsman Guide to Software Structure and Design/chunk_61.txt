@@ -1,0 +1,31 @@
+initialize those pointers. You have to remember to follow the convention to call
+all your functions through those pointers. If any programmer fails to remember
+these conventions, the resulting bug can be devilishly hard to track down and
+eliminate.
+OO languages eliminate these conventions and, therefore, these dangers. Using
+an OO language makes polymorphism trivial. That fact provides an enormous
+power that old C programmers could only dream of. On this basis, we can
+conclude that OO imposes discipline on indirect transfer of control.
+THE POWER OF POLYMORPHISM
+What’s so great about polymorphism? To better appreciate its charms, let’s
+reconsider the example copy program. What happens to that program if a new IO
+device is created? Suppose we want to use the copy program to copy data from a
+handwriting recognition device to a speech synthesizer device: How do we need
+to change the copy program to get it to work with those new devices?
+We don’t need any changes at all! Indeed, we don’t even need to recompile the
+copy program. Why? Because the source code of the copy program does not
+depend on the source code of the IO drivers. As long as those IO drivers
+implement the five standard functions defined by FILE, the copy program will be
+happy to use them.
+In short, the IO devices have become plugins to the copy program.
+Why did the UNIX operating system make IO devices plugins? Because we
+learned, in the late 1950s, that our programs should be device independent.
+Why? Because we wrote lots of programs that were device dependent, only to
+discover that we really wanted those programs to do the same job but use a
+different device.
+For example, we often wrote programs that read input data from decks of cards,6
+and then punched new decks of cards as output. Later, our customers stopped
+giving us decks of cards and started giving us reels of magnetic tape. This was
+very inconvenient, because it meant rewriting large portions of the original
+program. It would be very convenient if the same program worked
+interchangeably with cards or tape.

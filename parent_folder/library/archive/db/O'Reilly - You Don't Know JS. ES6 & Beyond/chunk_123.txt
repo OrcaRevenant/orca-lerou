@@ -1,0 +1,39 @@
+Now, module "B":
+import foo from "A";
+export default function bar(y) {
+if (y > 5) return foo( y / 2 );
+return y * 3;
+}
+These two functions, foo(..) and bar(..), would work as standard function decla‐
+rations if they were in the same scope, since the declarations are “hoisted” to the
+whole scope and thus available to each other regardless of authoring order.
+With modules, you have declarations in entirely different scopes, so ES6 has to do
+extra work to help make these circular references work.
+In a rough conceptual sense, this is how circular import dependencies are validated
+and resolved:
+• If the "A" module is loaded first, the first step is to scan the file and analyze all the
+exports, so it can register all those bindings available for import. Then it pro‐
+cesses the import .. from "B", which signals that it needs to go fetch "B".
+• Once the engine loads "B", it does the same analysis of its export bindings. When
+it sees the import .. from "A", it knows the API of "A" already, so it can verify
+the import is valid. Now that it knows the "B" API, it can also validate the
+import .. from "B" in the waiting "A" module.
+In essence, the mutual imports, along with the static verification that’s done to vali‐
+date both import statements, virtually composes the two separate module scopes (via
+the bindings), such that foo(..) can call bar(..) and vice versa. This is symmetric to
+if they had originally been declared in the same scope.
+Now let’s try using the two modules together. First, we’ll try foo(..):
+import foo from "foo";
+foo( 25 );              // 11
+Or we can try bar(..):
+import bar from "bar";
+bar( 25 );              // 11.5
+By the time either the foo(25) or bar(25) calls are executed, all the analysis/compila‐
+tion of all modules has completed. That means foo(..) internally knows directly
+about bar(..) and bar(..) interanlly knows directly about foo(..).
+If all we need is to interact with foo(..), then we only need to import the "foo"
+module. Likewise with bar(..) and the "bar" module.
+112
+|
+Chapter 3: Organization
+www.it-ebooks.info

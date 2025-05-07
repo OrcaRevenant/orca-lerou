@@ -1,0 +1,76 @@
+Chapter 12 j Cand C++
+• Templates
+Templates are a way of reusing code to apply the same class to different data types. For example, we might
+have a iist-like data structure which we would like to use for lists of various types. The code below imple-
+ments this with the S h i f t e d L i s t class.
+1
+template cclass T>class ShiftedList {
+2
+T* array;
+3
+int offset, size;
+4
+public:
+5
+ShiftedList(int sz) : offset(6), size(sz) {
+6
+array = new T[size];
+7
+>
+8
+9
+~ShiftedList() {
+10
+delete [J array;
+11
+>
+12
+13
+void shiftBy(int n) {
+14
+offset = (offset + n) % size;
+15
+}
+16
+17
+T getAt(int i) {
+18
+return array[convertIndex(i)];
+19
+>
+20
+21
+void setAt(T item, int i) {
+22
+array[convertIndex(i)] = item;
+23
+}
+24
+25 private:
+26
+int convertIndex(int i) {
+27
+int index = (i - offset) % size;
+28
+while (index < 0) index += size;
+29
+return index;
+30
+}
+31
+} ;
+Interview Questions
+12.1
+Last K Lines: Write a method to print the last K lines of an input file using C++.
+Hints: #449, #459
+12.2
+Reverse String: Implement a function v o i d r e v e r s e ( c h a r * s t r ) in C or C++which reverses
+a null-terminated string.
+Hints: #410, #452
+12.3
+Hash Table vs. STL Map: Compare and contrast a hash table and an STL map. How is a hash table
+implemented? If the number of inputs is small, which data structure options can be used instead of
+a hash table?
+Hints: #423
+CrackingTheCodinglnterview.com | 6th Edition
+16Î

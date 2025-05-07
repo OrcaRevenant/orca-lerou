@@ -1,0 +1,30 @@
+Because 100% closure is not attainable, closure must be strategic. We design our
+classes such that they are closed to the most common kinds of changes that we
+expect or have experienced.
+The CCP amplifies this lesson by gathering together into the same component
+those classes that are closed to the same types of changes. Thus, when a change
+in requirements comes along, that change has a good chance of being restricted
+to a minimal number of components.
+SIMILARITY WITH SRP
+As stated earlier, the CCP is the component form of the SRP. The SRP tells us to
+separate methods into different classes, if they change for different reasons. The
+CCP tells us to separate classes into different components, if they change for
+different reasons. Both principles can be summarized by the following sound
+bite:
+Gather together those things that change at the same times and for the same reasons. Separate
+those things that change at different times or for different reasons.
+THE COMMON REUSE PRINCIPLE
+Don’t force users of a component to depend on things they don’t need.
+The Common Reuse Principle (CRP) is yet another principle that helps us to
+decide which classes and modules should be placed into a component. It states
+that classes and modules that tend to be reused together belong in the same
+component.
+Classes are seldom reused in isolation. More typically, reusable classes
+collaborate with other classes that are part of the reusable abstraction. The CRP
+states that these classes belong together in the same component. In such a
+component we would expect to see classes that have lots of dependencies on
+each other.
+A simple example might be a container class and its associated iterators. These
+classes are reused together because they are tightly coupled to each other. Thus
+they ought to be in the same component.
+But the CRP tells us more than just which classes to put together into a

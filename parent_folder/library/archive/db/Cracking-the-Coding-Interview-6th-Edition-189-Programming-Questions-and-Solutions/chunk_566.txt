@@ -1,0 +1,60 @@
+Solutions to Chapter 17 j Hard
+Let's try this again and see if it works out.
+validate(3)
+sees 3 -> countYes = 1, countNo = 0
+sees 1 -> countYes = l, countNo = 1
+TERMINATE. 3 is not majority thus f a r .
+skip 1
+validate(7)
+sees 7 -> countYes = 1, countNo = 8
+sees 1 -> countYes = 1, countNo = 1
+TERMINATE. 7 is not majority thus f a r .
+skip 1
+v a l i d a t e ( l )
+sees 1 -> countYes = 1, countNo = 0
+sees 7 -> countYes = 1, countNo m 1
+TERMINATE. 1 is not majority thus f a r .
+skip 7
+validate(7)
+sees 7 -> countYes = 1, countNo = 8
+sees 3 -> countYes =
+countNo = 1
+TERMINATE. 7 is not majority thus f a r .
+skip 3
+validate(7)
+sees 7 -> countYes « 1, countNo = 8
+sees 7 -> countYes = 2, countNo = 0
+sees 7 -> countYes = 3, countNo = 0
+Good! We got the right answer. But did we just get tucky?
+We should pause for a moment to think what this algorithm is doing.
+1, We start off with [ 3 ] and we expand the subarray until 3 is no longer the majority element. We fail at
+[ 3 , 1], At the moment we fait, the subarray can have no majority element.
+2, Then we goto [ 7 ] and expand until [ 7 ,
+1]. Again, we terminate and nothing could be the majority
+element in that subarray,
+3, We move to [1] and expand to [ 1, 7]. We terminate. Nothing there could be the majority element.
+4, We goto [ 7 ] and expand to [ 7 , 3]. We terminate. Nothing there couid be the majority element.
+5, We go to [ 7 ] and expand until the end of the array: [ 7 , 7, 7]. We have found the majority element
+{and now we must validate that).
+Each time we terminate the v a l i d a t e step, the subarray has no majority element. This means that there
+are at least as many non-7s as there are 7s. Although we're essentially removing this subarray from the
+original array, the majority element will still be found in the rest of the array—and will still have majority
+status. Therefore, at some point, we will discover the majority element.
+Our algorithm can now be run in two passes: one to find the possible majority element and another to vali-
+date it. Rather than using two variables to count (countYes and countNo), we'll just use a single count
+variable that increments and decrements.
+1
+i n t findMajorityEIement(int[] array) {
+2
+i n t candidate = getCandidate(array);
+3
+return validate(array, candidate) ? candidate : -1;
+4
+}
+5
+6
+i n t getCandidate(int[] array) {
+7
+i n t majority = 0;
+55 S
+Cracking the Coding interview, 6th Edition

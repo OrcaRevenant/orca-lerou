@@ -1,0 +1,37 @@
+301
+General
+database, it will have several employees already cooked into it with well-known values
+and attributes. It also turns out that "John Doe" represents the sole hourly employee in
+that test database. So this test should really read:
+assertEquals(
+HOURLY_EMPLOYEE_ID,
+Employee.find(HOURLY_EMPLOYEE_NAME).employeeNumber());
+G26: Be Precise
+Expecting the ﬁrst match to be the only match to a query is probably naive. Using ﬂoating
+point numbers to represent currency is almost criminal. Avoiding locks and/or transaction
+management because you don’t think concurrent update is likely is lazy at best. Declaring
+a variable to be an ArrayList when a List will due is overly constraining. Making all vari-
+ables protected by default is not constraining enough.
+When you make a decision in your code, make sure you make it precisely. Know why
+you have made it and how you will deal with any exceptions. Don’t be lazy about the pre-
+cision of your decisions. If you decide to call a function that might return null, make sure
+you check for null. If you query for what you think is the only record in the database,
+make sure your code checks to be sure there aren’t others. If you need to deal with cur-
+rency, use integers11 and deal with rounding appropriately. If there is the possibility of
+concurrent update, make sure you implement some kind of locking mechanism.
+Ambiguities and imprecision in code are either a result of disagreements or laziness.
+In either case they should be eliminated.
+G27: Structure over Convention
+Enforce design decisions with structure over convention. Naming conventions are good,
+but they are inferior to structures that force compliance. For example, switch/cases with
+nicely named enumerations are inferior to base classes with abstract methods. No one is
+forced to implement the switch/case statement the same way each time; but the base
+classes do enforce that concrete classes have all abstract methods implemented.
+G28: Encapsulate Conditionals
+Boolean logic is hard enough to understand without having to see it in the context of an if
+or while statement. Extract functions that explain the intent of the conditional.
+For example:
+if (shouldBeDeleted(timer))
+is preferable to
+if (timer.hasExpired() && !timer.isRecurrent())
+11. Or better yet, a Money class that uses integers.

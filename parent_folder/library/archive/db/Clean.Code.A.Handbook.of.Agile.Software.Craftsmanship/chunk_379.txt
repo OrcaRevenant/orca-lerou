@@ -1,0 +1,66 @@
+351
+Appendix B: org.jfree.date.SerialDate
+103     /** The lowest year value supported by this date format. */
+104     public static final int MINIMUM_YEAR_SUPPORTED = 1900;
+105
+106     /** The highest year value supported by this date format. */
+107     public static final int MAXIMUM_YEAR_SUPPORTED = 9999;
+108
+109     /** Useful constant for Monday. Equivalent to java.util.Calendar.MONDAY. */
+110     public static final int MONDAY = Calendar.MONDAY;
+111
+112     /**
+113      * Useful constant for Tuesday. Equivalent to java.util.Calendar.TUESDAY.
+114      */
+115     public static final int TUESDAY = Calendar.TUESDAY;
+116
+117     /**
+118      * Useful constant for Wednesday. Equivalent to
+119      * java.util.Calendar.WEDNESDAY.
+120      */
+121     public static final int WEDNESDAY = Calendar.WEDNESDAY;
+122
+123     /**
+124      * Useful constant for Thrusday. Equivalent to java.util.Calendar.THURSDAY.
+125      */
+126     public static final int THURSDAY = Calendar.THURSDAY;
+127
+128     /** Useful constant for Friday. Equivalent to java.util.Calendar.FRIDAY. */
+129     public static final int FRIDAY = Calendar.FRIDAY;
+130
+131     /**
+132      * Useful constant for Saturday. Equivalent to java.util.Calendar.SATURDAY.
+133      */
+134     public static final int SATURDAY = Calendar.SATURDAY;
+135
+136     /** Useful constant for Sunday. Equivalent to java.util.Calendar.SUNDAY. */
+137     public static final int SUNDAY = Calendar.SUNDAY;
+138
+139     /** The number of days in each month in non leap years. */
+140     static final int[] LAST_DAY_OF_MONTH =
+141         {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+142
+143     /** The number of days in a (non-leap) year up to the end of each month. */
+144     static final int[] AGGREGATE_DAYS_TO_END_OF_MONTH =
+145         {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365};
+146
+147     /** The number of days in a year up to the end of the preceding month. */
+148     static final int[] AGGREGATE_DAYS_TO_END_OF_PRECEDING_MONTH =
+149         {0, 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365};
+150
+151     /** The number of days in a leap year up to the end of each month. */
+152     static final int[] LEAP_YEAR_AGGREGATE_DAYS_TO_END_OF_MONTH =
+153         {0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366};
+154
+155     /**
+156      * The number of days in a leap year up to the end of the preceding month.
+157      */
+158     static final int[]
+159         LEAP_YEAR_AGGREGATE_DAYS_TO_END_OF_PRECEDING_MONTH =
+160             {0, 0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366};
+161
+162     /** A useful constant for referring to the first week in a month. */
+163     public static final int FIRST_WEEK_IN_MONTH = 1;
+164
+Listing B-1 (continued)
+SerialDate.Java

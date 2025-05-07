@@ -1,0 +1,31 @@
+CHAPTER 9 TIME MANAGEMENT
+126
+ITE R ATI O N R E STRO S PECTIVE AN D D E M O
+These meetings are conducted at the end of each iteration. Team members
+discuss what went right and what went wrong. Stakeholders see a demo of the
+newly working features. These meetings can be badly abused and can soak up a
+lot of time, so schedule them 45 minutes before quitting time on the last day of
+the iteration. Allocate no more than 20 minutes for retrospective and 25
+minutes for the demo. Remember, it’s only been a week or two so there
+shouldn’t be all that much to talk about.
+A RG U M E NT S / D I SAG R E E M E NT S
+Kent Beck once told me something profound: “Any argument that can’t be
+settled in five minutes can’t be settled by arguing.” The reason it goes on so long
+is that there is no clear evidence supporting either side. The argument is
+probably religious, as opposed to factual.
+Technical disagreements tend to go off into the stratosphere. Each party has all
+kinds of justifications for their position but seldom any data. Without data, any
+argument that doesn’t forge agreement within a few minutes (somewhere
+between five and thirty) simply won’t ever forge agreement. The only thing to
+do is to go get some data.
+Some folks will try to win an argument by force of character. They might yell,
+or get in your face, or act condescending. It doesn’t matter; force of will doesn’t
+settle disagreements for long. Data does.
+Some folks will be passive-aggressive. They’ll agree just to end the argument,
+and then sabotage the result by refusing to engage in the solution. They’ll say to
+themselves, “This is the way they wanted it, and now they’re going to get what
+they wanted.” This is probably the worst kind of unprofessional behavior there
+is. Never, ever do this. If you agree, then you must engage.
+How do you get the data you need to settle a disagreement? Sometimes you can
+run experiments, or do some simulation or modeling. But sometimes the best
+alternative is to simply flip a coin to choose one of the two paths in question.

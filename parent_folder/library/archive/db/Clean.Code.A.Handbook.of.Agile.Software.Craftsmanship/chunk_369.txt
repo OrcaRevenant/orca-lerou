@@ -1,0 +1,41 @@
+339
+Testing Multithreaded Code
+• Sometimes you cannot impose an order on the acquisition of resources. If the ID of
+the second resource comes from an operation performed on the ﬁrst, then ordering is
+not feasible.
+So there are many ways to avoid deadlock. Some lead to starvation, whereas others
+make heavy use of the CPU and reduce responsiveness. TANSTAAFL!5
+Isolating the thread-related part of your solution to allow for tuning and experimenta-
+tion is a powerful way to gain the insights needed to determine the best strategies.
+Testing Multithreaded Code
+How can we write a test to demonstrate the following code is broken?
+01: public class ClassWithThreadingProblem {
+02:    int nextId;
+03:
+04:    public int takeNextId() {
+05:        return nextId++;
+06:    }
+07:}
+Here’s a description of a test that will prove the code is broken:
+• Remember the current value of nextId.
+• Create two threads, both of which call takeNextId() once.
+• Verify that nextId is two more than what we started with.
+• Run this until we demonstrate that nextId was only incremented by one instead
+of two.
+Listing A-2 shows such a test:
+5.
+There ain’t no such thing as a free lunch.
+Listing A-2
+ClassWithThreadingProblemTest.java
+01: package example;
+02:
+03: import static org.junit.Assert.fail;
+04:
+05: import org.junit.Test;
+06:
+07: public class ClassWithThreadingProblemTest {
+08:     @Test
+09:     public void twoThreadsShouldFailEventually() throws Exception {
+10:         final ClassWithThreadingProblem classWithThreadingProblem
+= new ClassWithThreadingProblem();
+11:

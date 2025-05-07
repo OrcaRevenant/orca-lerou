@@ -1,0 +1,31 @@
+xiv
+FOREWORD
+Over and over again our management stressed to us the importance of those
+dates. A single slip and the government would keep us out of the market for a
+year, and if customers couldn’t sign up on day one, then they would all sign up
+with someone else and we’d be out of business.
+It was the sort of environment in which some people complain, and others
+point out that “pressure makes diamonds.”
+I was a technical project manager, promoted from development. My responsibility
+was to get the web site up on go-live day, so potential customers could download
+information and, most importantly, enrollment forms. My partner in the endeavor
+was the business-facing project manager, whom I’ll call Joe. Joe’s role was to work
+the other side, dealing with sales, marketing, and the non-technical requirements.
+He was also the guy fond of the “pressure makes diamonds” comment.
+If you’ve done much work in corporate America, you’ve probably seen the
+finger-pointing, blamestorming, and work aversion that is completely natural.
+Our company had an interesting solution to that problem with Joe and me.
+A little bit like Batman and Robin, it was our job to get things done. I met with
+the technical team every day in a corner; we’d rebuild the schedule every single
+day, figure out the critical path, then remove every possible obstacle from that
+critical path. If someone needed software; we’d go get it. If they would “love to”
+configure the firewall but “gosh, it’s time for my lunch break,” we would buy
+them lunch. If someone wanted to work on our configuration ticket but had
+other priorities, Joe and I would go talk to the supervisor.
+Then the manager.
+Then the director.
+We got things done.
+It’s a bit of an exaggeration to say that we kicked over chairs, yelled, and
+screamed, but we did use every single technique in our bag to get things done,
+invented a few new ones along the way, and we did it in an ethical way that I am
+proud of to this day.

@@ -1,0 +1,45 @@
+1. It is best practice to only use non-root users when working with Docker. To
+do this you need to add your non-root users to the local docker Unix group
+on your Linux machine. The commands below show how to add the
+npoulton user to the docker group and verify that the operation succeeded.
+You will need to use a valid user account on your own system.
+$ sudo usermod -aG docker npoulton
+$
+$ cat /etc/group | grep docker
+docker:x:999:npoulton
+If you are already logged in as the user that you just added to the docker
+group, you will need to log out and log back in for the group membership to
+take effect.
+Congratulations! Docker is now installed on your Linux machine. Run the
+following commands to verify your installation.
+$ docker --version
+Docker version 17.05.0-ce, build 89658be
+$
+$ docker info
+Containers: 0
+Running: 0
+Paused: 0
+Stopped: 0
+Images: 0
+<Snip>
+Kernel Version: 4.4.0-1013-aws
+Operating System: Ubuntu 16.04.2 LTS
+OSType: linux
+Architecture: x86_64
+CPUs: 1
+Total Memory: 990.7MiB
+Name: ip-172-31-45-57
+ID: L3GX:LLFI:YABL:WVUS:DHLL:2ZQU:44E3:V6BB:LWUY:WIGX:Z6RJ:JBVL
+Docker Root Dir: /var/lib/docker
+Debug Mode (client): false
+Debug Mode (server): false
+Registry: https://index.docker.io/v1/
+Experimental: false
+Insecure Registries:
+127.0.0.0/8
+Live Restore Enabled: false
+If the process described above doesn’t work for your Linux distro, you can go to
+the Docker Docs website and click on the link relating to your distro. This will
+take you to the official Docker installation instructions which are usually kept up
+to date. Be warned though, the instructions on the Docker website tend use the
+package manager and require a lot more steps than the procedure we used above.

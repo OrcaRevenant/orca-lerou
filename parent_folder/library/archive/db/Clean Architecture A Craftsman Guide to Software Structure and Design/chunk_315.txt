@@ -1,0 +1,32 @@
+specific variables were kept in a special area of memory and swapped out at
+every context switch. Shared variables were managed with locks and
+semaphores. Reentrancy issues and race conditions were constant problems.
+There was no isolation of device control logic, or UI logic, from the business
+rules of the system. For example, modem control code could be found smeared
+throughout the bulk of the business rules and UI code. There was no attempt to
+gather it into a module or abstract the interface. The modems were controlled, at
+the bit level, by code that was scattered everywhere around the system.
+The same was true for the terminal UI. Messages and formatting control code
+were not isolated. They ranged far and wide throughout the 60,000-line code
+base.
+The modem modules we were using were designed to be mounted on PC boards.
+We bought those units from a third party, and integrated them with other
+circuitry onto a board that fit into our custom backplane. These units were
+expensive. So, after a few years, we decided to design our own modems. We, in
+the software group, begged the hardware designer to use the same bit formats for
+controlling the new modem. We explained that the modem control code was
+smeared everywhere, and that our system would have to deal with both kinds of
+modems in the future. So, we begged and cajoled, “Please make the new modem
+look just like the old modem from a software control point of view.”
+But when we got the new modem, the control structured was entirely different. It
+was not just a little different. It was entirely, and completely, different.
+Thanks, hardware engineer.
+What were we to do? We were not simply replacing all the old modems with
+new modems. Instead, we were mixing old and new modems in our systems. The
+software needed to be able to handle both kinds of modems at the same time.
+Were we doomed to surround every place in the code that manipulated the
+modems with flags and special cases? There were hundreds of such places!
+In the end, we opted for an even worse solution.
+One particular subroutine wrote data to the serial communication bus that was
+used to control all our devices, including our modems. We modified that
+subroutine to recognize the bit patterns that were specific to the old modem, and

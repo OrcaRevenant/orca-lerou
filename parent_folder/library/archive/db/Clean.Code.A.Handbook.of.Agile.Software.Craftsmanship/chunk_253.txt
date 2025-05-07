@@ -1,0 +1,55 @@
+223
+String Arguments
+return true;
+}
+...
+private void setBooleanArg(ArgumentMarshaler m) {
+try {
+m.set("true"); // was: booleanArgs.get(argChar).set("true");
+} catch (ArgsException e) {
+}
+}
+The tests still passed, so I did the same with Strings and Integers. This allowed me to inte-
+grate some of the ugly exception management code into the setArgument function.
+private boolean setArgument(char argChar) throws ArgsException {
+ArgumentMarshaler m = marshalers.get(argChar);
+try {
+if (m instanceof BooleanArgumentMarshaler)
+setBooleanArg(m);
+else if (m instanceof StringArgumentMarshaler)
+setStringArg(m);
+else if (m instanceof IntegerArgumentMarshaler)
+setIntArg(m);
+else
+return false;
+} catch (ArgsException e) {
+valid = false;
+errorArgumentId = argChar;
+throw e;
+}
+return true;
+}
+private void setIntArg(ArgumentMarshaler m) throws ArgsException {
+currentArgument++;
+String parameter = null;
+try {
+parameter = args[currentArgument];
+m.set(parameter);
+} catch (ArrayIndexOutOfBoundsException e) {
+errorCode = ErrorCode.MISSING_INTEGER;
+throw new ArgsException();
+} catch (ArgsException e) {
+errorParameter = parameter;
+errorCode = ErrorCode.INVALID_INTEGER;
+throw e;
+}
+}
+private void setStringArg(ArgumentMarshaler m) throws ArgsException {
+currentArgument++;
+try {
+m.set(args[currentArgument]);
+} catch (ArrayIndexOutOfBoundsException e) {
+errorCode = ErrorCode.MISSING_STRING;
+throw new ArgsException();
+}
+}

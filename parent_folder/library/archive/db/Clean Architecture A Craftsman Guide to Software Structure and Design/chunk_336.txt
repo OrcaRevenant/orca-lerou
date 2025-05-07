@@ -1,0 +1,30 @@
+The architecture of ROSE was similar to the architecture of a good compiler.
+The graphical notation was “parsed” into an internal representation; that
+representation was then manipulated by rules and stored in an object-oriented
+database.
+Object-oriented databases were a relatively new idea, and the OO world was all
+abuzz with the implications. Every object-oriented programmer wanted to have
+an object-oriented database in his or her system. The idea was relatively simple,
+and deeply idealistic. The database stores objects, not tables. The database was
+supposed to look like RAM. When you accessed an object, it simply appeared in
+memory. If that object pointed to another object, the other object would appear in
+memory as soon as you accessed it. It was like magic.
+That database was probably our biggest practical mistake. We wanted the magic,
+but what we got was a big, slow, intrusive, expensive third-party framework that
+made our lives hell by impeding our progress on just about every level.
+That database was not the only mistake we made. The biggest mistake, in fact,
+was over-architecture. There were many more layers than I have described here,
+and each had its own brand of communications overhead. This served to
+significantly reduce the productivity of the team.
+Indeed, after many man-years of work, immense struggles, and two tepid
+releases, the whole tool was scrapped and replaced with a cute little application
+written by a small team in Wisconsin.
+And so I learned that great architectures sometimes lead to great failures.
+Architecture must be flexible enough to adapt to the size of the problem.
+Architecting for the enterprise, when all you really need is a cute little desktop
+tool, is a recipe for failure.
+ARCHITECTS REGISTRY EXAM
+In the early 1990s, I became a true consultant. I traveled the world teaching
+people what this new OO thing was. My consulting was focused strongly on the
+design and architecture of object-oriented systems.
+One of my first consulting clients was Educational Testing Service (ETS). It was

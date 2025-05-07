@@ -1,0 +1,116 @@
+Solutions to Chapter 17 | Moderate
+ArtfiAfi
+aq
+Ai/uiQ
+AI i nn
+UWUO
+OTTlUU
+uIUOD
+UI1X/D
+AAAAi
+Afll
+fl-1
+Q1 QA'l
+Q1 1 Q1
+UUvUi
+WJ.yi
+OJ-Uui.
+TTXXtTX
+00010
+00*10
+01010
+00111
+01011
+This time, count, (0s) <= count ; ( l s ) , we know that LSB^v) = 0. Now, discard all numbers x where
+LS83(x)
+!=
+L S B 3 ( V ) .
+UUUUu
+UUlUu
+TXXOT7E7
+lUu
+fXiftftA 1
+rtfti
+ft
+i
+ft
+i ftft i
+A-) -i ft-i
+tTytTtTT
+tWxt/l
+UlUUl
+UilUJ.
+flAfli a
+AAl f n
+A1 Q1Q
+VDolu
+W l l O
+UlvltJ
+e e m
+01011
+We're down to just one number. In this case, count 4(0s)
+<=
+count 4(ls), so
+LSB4(V) = 0.
+When we discard all numbers where LSS^x)
+1= 0, we'll wind up with an empty list. Once the list is
+empty, then c o u n t y 0 s ) <= c o u n t y I s ) , so LSB.(v) = 0. in other words, once we have an empty
+list, we can fill in the rest of the bits of v with 0.
+This process will compute that,for the example above, v = 00011.
+The code below implements this algorithm. We've implemented the discarding aspect by partitioning the
+array by bit value as we go.
+1
+int findMissing(Arraylist<8itInteger> array) {
+2
+/* Start from the least significant bit, and work our way up */
+3
+return findMisslng(array, 0);
+4
+>
+5
+6
+int findMissing(Arraylist<BitInteger> input, int column) {
+7
+if (column >= BitInteger,INTEGER_SIZE) { // we're done!
+8
+return 0;
+9
+}
+10
+ArrayList<8itInteger> oneBits = new ArrayList<BitInteger>(input.size()/2)j
+11
+ArrayList<BitInteger> zeroBits = new ArrayList<BitInteger>(input.size()/2);
+12
+13
+for (Bitlnteger t : input) {
+14
+if (t.fetch(column) == 0) {
+15
+zeroBits.add(t);
+16
+> else {
+17
+oneBits.add(t);
+18
+>
+19
+)
+20
+if (zeroBits.size() <= oneBits.size()) {
+21
+int v = findMissing(zeroBits, column + 1);
+22
+return (v << 1) | 0;
+23
+> else {
+24
+int v = findMissing(oneSits, column + 1 ) ;
+25
+return (v << 1) | 1;
+26
+>
+27 >
+In lines 24 and 27, we recursively calculate the other bits of v. Then, we insert either a 0 or 1, depending on
+whether or not countj(05) <= c o u n t ^ l s ) .
+CrackingTheCodinglnterview.com | 6th Edition
+491

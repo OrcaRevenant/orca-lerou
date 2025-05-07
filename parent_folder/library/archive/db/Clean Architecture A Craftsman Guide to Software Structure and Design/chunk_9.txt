@@ -1,0 +1,34 @@
+The Stable Abstractions Principle
+Conclusion
+PART V Architecture
+Chapter 15 What Is Architecture?
+Development
+Deployment
+Operation
+Maintenance
+Keeping Options Open
+Device Independence
+Junk Mail
+Physical Addressing
+Conclusion
+Chapter 16 Independence
+Use Cases
+Operation
+Development
+Deployment
+Leaving Options Open
+Decoupling Layers
+Decoupling Use Cases
+Decoupling Mode
+Independent Develop-ability
+Independent Deployability
+Duplication
+Decoupling Modes (Again)
+Conclusion
+Chapter 17 Boundaries: Drawing Lines
+A Couple of Sad Stories
+FitNesse
+Which Lines Do You Draw, and When Do You Draw Them?
+What About Input and Output?
+Plugin Architecture
+The Plugin Argument

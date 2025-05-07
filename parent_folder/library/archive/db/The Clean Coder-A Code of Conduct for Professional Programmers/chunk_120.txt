@@ -1,0 +1,32 @@
+CHAPTER 6 PRACTICING
+88
+TU R NAROU N D TI M E
+But the way we work has changed dramatically. In the ’60s I could wait a day
+or two to see the results of a compile. In the late ’70s a 50,000-line program
+might take 45 minutes to compile. Even in the ’90s, long build times were
+the norm.
+Programmers today don’t wait for compiles.1 Programmers today have such
+immense power under their fingers that they can spin around the red-green-
+refactor loop in seconds.
+For example, I work on a 64,000-line Java project named FitNesse. A full build,
+including all unit and integration tests, executes in less than 4 minutes. If those
+tests pass, I’m ready to ship the product. So the whole QA process, from source
+code to deployment, requires less than 4 minutes. Compiles take almost no measur-
+able time at all. Partial tests require seconds. So I can literally spin around the
+compile/test loop ten times per minute!
+It’s not always wise to go that fast. Often it is better to slow down and just think.2
+But there are other times when spinning around that loop as fast as possible is
+highly productive.
+Doing anything quickly requires practice. Spinning around the code/test loop
+quickly requires you to make very quick decisions. Making decisions quickly
+means being able to recognize a vast number of situations and problems and
+simply know what to do to address them.
+Consider two martial artists in combat. Each must recognize what the other
+is attempting and respond appropriately within milliseconds. In a combat
+situation you don’t have the luxury of freezing time, studying the positions, and
+deliberating on the appropriate response. In a combat situation you simply have
+to react. Indeed, it is your body that reacts while your mind is working on a
+higher-level strategy.
+1. The fact that some programmers do wait for builds is tragic and indicative of carelessness. In today’s world
+build times should be measured in seconds, not minutes, and certainly not hours.
+2. This is a technique that Rich Hickey calls HDD, or Hammock-Driven Development.

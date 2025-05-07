@@ -1,0 +1,54 @@
+XI. Advanced Topics
+In many cases, it's useful to think about what the Reduce step should do first, and then design the Map step
+around that. What data does Reduce need to have to do its job?
+> Additional Studying
+So, you've mastered this material and you want to learn even more? Okay. Here are some topics to get you
+started:
+•
+Bellman-Ford Algorithm: Finds the shortest paths from a single node in a weighted directed graph
+with positive and negative edges.
+•
+Floyd-Warshall Algorithm: Finds the shortest paths in a weighted graph with positive or negative
+weight edges (but no negative weight cycles).
+•
+Minimum Spanning Trees: In a weighted, connected, undirected graph, a spanning tree is a tree that
+connects all the vertices.The minimum spanning tree is the spanning tree with minimum weight. There
+are various algorithms to do this.
+•
+B-Treesi A self-balancing search tree (not a binary search tree) that is commonly used on disks or other
+storage devices. It is similar to a red-black tree, but uses fewer I/O operations.
+•
+A*: Find the least-cost path between a source node and a goal node (or one of several goal nodes). It
+extends Dijkstra's algorithm and achieves better performance by using heuristics.
+•
+Interval Trees: An extension of a balanced binary search tree, but storing intervals (!ow-> high ranges)
+instead of simple values. A hotel could use this to store a list of all reservations and then efficiently detect
+who is staying at the hotel at a particular time.
+•
+Graph coloring; A way of coloring the nodes in a graph such that no two adjacent vertices have the
+same color. There are various algorithms to do things like determine if a graph can be colored with only
+K colors.
+•
+P, NP, and NP-Complete: P, NP, and NP-Complete refer to classes of problems. P problems are prob-
+lems that can be quickly solved (where "quickly" means polynomial time).NP problems are those where,
+given a solution, the solution can be quickly verified. NP-Complete problems are a subset of NP prob-
+lems that can all be reduced to each other {that is, if you found a solution to one problem, you could
+tweak the solution to solve other problems in the set in polynomial time).
+it is an open (and very famous) question whether P = NP, but the answer is generally believed to be no.
+•
+Combinatorics and Probability: There are various things you can learn about here, such as random
+variables, expected value, and n-choose-k.
+•
+Bipartite Graph; A bipartite graph is a graph where you can divide its nodes into two sets such that
+every edge stretches across the two sets (that is, there is never an edge between two nodes in the same
+set). There is an algorithm to check if a graph is a bipartite graph. Note that a bipartite graph is equiva-
+lent to a graph that can be colored with two colors.
+-
+Regular Expressions: You should know that regular expressions exist and what they can be used for
+(roughly). You can also learn about how an algorithm to match regular expressions would work. Some of
+the basic syntax behind regular expressions could be useful as well.
+There is of course a great deal more to data structures and algorithms. If you're interested in exploring
+these topics more deeply, I recommend picking up the hefty Introduction to Algorithms ("CLRS" by Cormen,
+Leiserson, Rivest and Stein) or The Algorithm Design Manual (by Steven Skiena).
+6î0
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,6 @@
+The above design is effective for a small user group. For instance, WeChat uses a similar
+approach because its user group is capped to 500. For larger groups, informing all members
+about online status is expensive and time consuming. Assume a group has 100,000 members.
+Each status change will generate 100,000 events. To solve the performance bottleneck, a
+possible solution is to fetch online status only when a user enters a group or manually
+refreshes the friend list.

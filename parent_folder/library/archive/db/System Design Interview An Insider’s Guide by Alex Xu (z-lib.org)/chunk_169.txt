@@ -1,0 +1,30 @@
+will examine the data types and read/write patterns.
+Two types of data exist in a typical chat system. The first is generic data, such as user profile,
+setting, user friends list. These data are stored in robust and reliable relational databases.
+Replication and sharding are common techniques to satisfy availability and scalability
+requirements.
+The second is unique to chat systems: chat history data. It is important to understand the
+read/write pattern.
+• The amount of data is enormous for chat systems. A previous study [2] reveals that
+Facebook messenger and Whatsapp process 60 billion messages a day.
+• Only recent chats are accessed frequently. Users do not usually look up for old chats.
+• Although very recent chat history is viewed in most cases, users might use features that
+require random access of data, such as search, view your mentions, jump to specific
+messages, etc. These cases should be supported by the data access layer.
+• The read to write ratio is about 1:1 for 1 on 1 chat apps.
+Selecting the correct storage system that supports all of our use cases is crucial. We
+recommend key-value stores for the following reasons:
+• Key-value stores allow easy horizontal scaling.
+• Key-value stores provide very low latency to access data.
+• Relational databases do not handle long tail [3] of data well. When the indexes grow
+large, random access is expensive.
+• Key-value stores are adopted by other proven reliable chat applications. For example,
+both Facebook messenger and Discord use key-value stores. Facebook messenger uses
+HBase [4], and Discord uses Cassandra [5].
+Data models
+Just now, we talked about using key-value stores as our storage layer. The most important
+data is message data. Let us take a close look.
+Message table for 1 on 1 chat
+Figure 12-9 shows the message table for 1 on 1 chat. The primary key is message_id, which
+helps to decide message sequence. We cannot rely on created_at  to decide the message
+sequence because two messages can be created at the same time.

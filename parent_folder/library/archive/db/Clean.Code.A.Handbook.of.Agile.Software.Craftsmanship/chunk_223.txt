@@ -1,0 +1,9 @@
+193
+14
+Successive Reﬁnement
+Case Study of a Command-Line Argument Parser
+This chapter is a case study in successive reﬁnement. You will see a module that started
+well but did not scale. Then you will see how the module was refactored and cleaned.
+Most of us have had to parse command-line arguments from time to time. If we
+don’t have a convenient utility, then we simply walk the array of strings that is passed
+into the main function. There are several good utilities available from various sources,

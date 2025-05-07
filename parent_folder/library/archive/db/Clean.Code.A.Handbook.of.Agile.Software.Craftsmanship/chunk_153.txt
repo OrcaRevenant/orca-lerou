@@ -1,0 +1,41 @@
+123
+Keeping Tests Clean
+These three laws lock you into a cycle that is perhaps thirty seconds long. The tests
+and the production code are written together, with the tests just a few seconds ahead of the
+production code.
+If we work this way, we will write dozens of tests every day, hundreds of tests every
+month, and thousands of tests every year. If we work this way, those tests will cover virtu-
+ally all of our production code. The sheer bulk of those tests, which can rival the size of the
+production code itself, can present a daunting management problem.
+Keeping Tests Clean
+Some years back I was asked to coach a team who had explicitly decided that their test
+code should not be maintained to the same standards of quality as their production code.
+They gave each other license to break the rules in their unit tests. “Quick and dirty” was
+the watchword. Their variables did not have to be well named, their test functions did not
+need to be short and descriptive. Their test code did not need to be well designed and
+thoughtfully partitioned. So long as the test code worked, and so long as it covered the pro-
+duction code, it was good enough.
+Some of you reading this might sympathize with that decision. Perhaps, long in the
+past, you wrote tests of the kind that I wrote for that Timer class. It’s a huge step from
+writing that kind of throw-away test, to writing a suite of automated unit tests. So, like the
+team I was coaching, you might decide that having dirty tests is better than having no
+tests.
+What this team did not realize was that having dirty tests is equivalent to, if not worse
+than, having no tests. The problem is that tests must change as the production code
+evolves. The dirtier the tests, the harder they are to change. The more tangled the test code,
+the more likely it is that you will spend more time cramming new tests into the suite than it
+takes to write the new production code. As you modify the production code, old tests start
+to fail, and the mess in the test code makes it hard to get those tests to pass again. So the
+tests become viewed as an ever-increasing liability.
+From release to release the cost of maintaining my team’s test suite rose. Eventually it
+became the single biggest complaint among the developers. When managers asked why
+their estimates were getting so large, the developers blamed the tests. In the end they were
+forced to discard the test suite entirely.
+But, without a test suite they lost the ability to make sure that changes to their code
+base worked as expected. Without a test suite they could not ensure that changes to one
+part of their system did not break other parts of their system. So their defect rate began to
+rise. As the number of unintended defects rose, they started to fear making changes. They
+stopped cleaning their production code because they feared the changes would do more
+harm than good. Their production code began to rot. In the end they were left with no tests,
+tangled and bug-riddled production code, frustrated customers, and the feeling that their
+testing effort had failed them.

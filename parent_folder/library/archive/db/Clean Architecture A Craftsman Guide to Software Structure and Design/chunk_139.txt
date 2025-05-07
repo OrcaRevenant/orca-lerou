@@ -1,0 +1,13 @@
+Figure 14.15 Plot of D for a single component over time
+CONCLUSION
+The dependency management metrics described in this chapter measure the
+conformance of a design to a pattern of dependency and abstraction that I think
+is a “good” pattern. Experience has shown that certain dependencies are good
+and others are bad. This pattern reflects that experience. However, a metric is not
+a god; it is merely a measurement against an arbitrary standard. These metrics
+are imperfect, at best, but it is my hope that you find them useful.
+1. In previous publications, I used the names Efferent and Afferent couplings (Ce and Ca) for Fan-out and
+Fan-in, respectively. That was just hubris on my part: I liked the metaphor of the central nervous system.
+2. The author begs the reader’s indulgence for the arrogance of borrowing such an important term from
+astronomy.
+3. In previous publications, I called this metric D′. I see no reason to continue that practice.

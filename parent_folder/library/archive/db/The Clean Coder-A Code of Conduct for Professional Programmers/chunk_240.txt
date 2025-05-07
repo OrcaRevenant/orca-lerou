@@ -1,0 +1,80 @@
+INDEX
+209
+problems found by, 6–7
+as specifiers, 108
+as team member, 108
+R
+Randori, 86–87
+Reading, as creative input, 59
+Recharging, 122–123
+Reputation, 5
+Requirements
+communication of, 89–94
+estimation anxiety and, 92
+late ambiguity in, 92–94
+premature precision in, 91–92
+uncertainty and, 91–92
+Responsibility, 2–5
+apologies and, 6
+“do no harm” approach and, 5–10
+function and, 5–8
+structure and, 8–10
+work ethic and, 10–16
+RobotFX, 200
+Roles, adversarial, 20–23
+Rushing, 34–35, 65–66
+S
+Santana, Carlos, 83
+“Should,” 42
+Shower, 64
+Simplicity, 34
+Sleep, 122
+Source code control, 189–194
+Stakes, 23–24
+Stand-up meetings, 119
+Structure
+in “do no harm” approach, 8–10
+flexibility and, 9
+importance of, 8
+SVN, 191–194
+System tests, in testing strategy, 112
+T
+Task estimation, 138–141
+Teams and teamwork, 24–30
+gelled, 162–164
+management of, 164
+passive aggression and, 28–30
+preserving, 163
+project-initiated, 163–164
+project owner dilemma with,
+164–165
+trying and, 26–28
+velocity of, 164
+Test driven development (TDD)
+benefits of, 74–77
+certainty and, 74
+courage and, 75–76
+cycle time in, 72
+debut of, 71–72
+defect injection rate and, 75
+definition of, 7–8
+design and, 76–77
+documentation and, 76
+interruptions and, 58
+three laws of, 73–74
+what it is not, 77–78
+Testing
+acceptance
+automated, 97–99
+communication and, 97
+continuous integration and,
+104–105
+definition of, 94
+developer’s role in, 100–101
+extra work and, 99
+GUIs and, 103–105
+negotiation and, 101–102
+passive aggression and, 101–102
+timing of, 99–100
+unit tests and, 102–103
+writers of, 99–100

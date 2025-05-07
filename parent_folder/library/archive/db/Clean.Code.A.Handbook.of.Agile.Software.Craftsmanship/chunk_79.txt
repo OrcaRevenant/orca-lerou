@@ -1,0 +1,39 @@
+49
+Conclusion
+While we are sympathetic to the goals and disciplines of structured programming,
+those rules serve little beneﬁt when functions are very small. It is only in larger functions
+that such rules provide signiﬁcant beneﬁt.
+So if you keep your functions small, then the occasional multiple return, break, or
+continue statement does no harm and can sometimes even be more expressive than the sin-
+gle-entry, single-exit rule. On the other hand, goto only makes sense in large functions, so
+it should be avoided.
+How Do You Write Functions Like This?
+Writing software is like any other kind of writing. When you write a paper or an article,
+you get your thoughts down ﬁrst, then you massage it until it reads well. The ﬁrst draft
+might be clumsy and disorganized, so you wordsmith it and restructure it and reﬁne it until
+it reads the way you want it to read.
+When I write functions, they come out long and complicated. They have lots of
+indenting and nested loops. They have long argument lists. The names are arbitrary, and
+there is duplicated code. But I also have a suite of unit tests that cover every one of those
+clumsy lines of code.
+So then I massage and reﬁne that code, splitting out functions, changing names, elim-
+inating duplication. I shrink the methods and reorder them. Sometimes I break out whole
+classes, all the while keeping the tests passing.
+In the end, I wind up with functions that follow the rules I’ve laid down in this chapter.
+I don’t write them that way to start. I don’t think anyone could.
+Conclusion
+Every system is built from a domain-speciﬁc language designed by the programmers to
+describe that system. Functions are the verbs of that language, and classes are the nouns.
+This is not some throwback to the hideous old notion that the nouns and verbs in a require-
+ments document are the ﬁrst guess of the classes and functions of a system. Rather, this is
+a much older truth. The art of programming is, and has always been, the art of language
+design.
+Master programmers think of systems as stories to be told rather than programs to
+be written. They use the facilities of their chosen programming language to construct a
+much richer and more expressive language that can be used to tell that story. Part of that
+domain-speciﬁc language is the hierarchy of functions that describe all the actions that
+take place within that system. In an artful act of recursion those actions are written to
+use the very domain-speciﬁc language they deﬁne to tell their own small part of the
+story.
+This chapter has been about the mechanics of writing functions well. If you follow
+the rules herein, your functions will be short, well named, and nicely organized. But

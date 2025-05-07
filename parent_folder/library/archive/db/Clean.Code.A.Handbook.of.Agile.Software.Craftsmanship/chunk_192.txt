@@ -1,0 +1,44 @@
+162
+Chapter 11: Systems
+We deﬁned an interface Bank, which will be wrapped by the proxy, and a Plain-Old
+Java Object (POJO), BankImpl, that implements the business logic. (We will revisit POJOs
+shortly.)
+The Proxy API requires an InvocationHandler object that it calls to implement any
+Bank method calls made to the proxy. Our BankProxyHandler uses the Java reﬂection
+API to map the generic method invocations to the corresponding methods in BankImpl,
+and so on.
+There is a lot of code here and it is relatively complicated, even for this simple case.10
+Using one of the byte-manipulation libraries is similarly challenging. This code “volume”
+// “InvocationHandler” required by the proxy API.
+public class BankProxyHandler implements InvocationHandler {
+private Bank bank;
+public BankHandler (Bank bank) {
+this.bank = bank;
+}
+// Method defined in InvocationHandler
+public Object invoke(Object proxy, Method method, Object[] args)
+throws Throwable {
+String methodName = method.getName();
+if (methodName.equals("getAccounts")) {
+bank.setAccounts(getAccountsFromDatabase());
+return bank.getAccounts();
+} else if (methodName.equals("setAccounts")) {
+bank.setAccounts((Collection<Account>) args[0]);
+setAccountsToDatabase(bank.getAccounts());
+return null;
+} else {
+...
+}
+}
+// Lots of details here:
+protected Collection<Account> getAccountsFromDatabase() { ... }
+protected void setAccountsToDatabase(Collection<Account> accounts) { ... }
+}
+// Somewhere else...
+Bank bank = (Bank) Proxy.newProxyInstance(
+Bank.class.getClassLoader(),
+new Class[] { Bank.class },
+new BankProxyHandler(new BankImpl()));
+10. For more detailed examples of the Proxy API and examples of its use, see, for example, [Goetz].
+Listing 11-3 (continued)
+JDK Proxy Example

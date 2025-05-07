@@ -1,0 +1,99 @@
+Solutions to Chapter 2 | Linked Lists
+4
+isPalindrome: l i s t = 3 ( 4 ) 3 ) 2 ) 1 ) 0. len = 3
+5
+isPalindrome:
+l i s t
+= 4 ) 3 ) 2 ) 1 ) 0 .
+l e n = l
+6
+returns node 3b, true
+7
+returns node 2b, true
+8
+returns node l b , true
+9
+returns node 0b, true
+10 returns n u l l , true
+Implementing this code is now just a matter of filling in the details.
+1
+boolean isPalindrome(LinkedListNode head) {
+2
+i n t length = lengthOfList(head);
+3
+Result p = isPalindromeRecurse(head, length);
+4
+return p . r e s u l t ;
+5
+>
+6
+7
+Result isPalindromeRecurse(LinkedListNode head, i n t length) {
+8
+if (head == n u l l || length <= 0) { // Even number of nodes
+9
+return new Result(head, t r u e ) ;
+10
+> else if (length -= 1) { // Odd number of nodes
+11
+return new Result(head.next, t r u e ) ;
+12
+>
+13
+14
+/* Recurse on s u b l i s t . */
+15
+Result res = isPalindromeRecurse(head.next, length - 2);
+16
+17
+/* If c h i l d c a l l s are not a palindrome, pass back up
+18
+* a f a i l u r e . */
+19
+if ( I r e s . r e s u l t || res.node == n u l l ) {
+20
+return res;
+21
+)
+22
+23
+/* Check if matches corresponding node on other side. */
+24
+r e s . r e s u l t = (head.data == res.node.data);
+25
+26
+/* Return corresponding node.
+*/
+27
+res.node = res.node.next;
+28
+29
+return res;
+30 >
+31
+32 i n t lengthOfList(LinkedListNode n) {
+33
+i n t size = 0;
+34
+while (n != n u l l ) {
+35
+size++;
+36
+n = n.next;
+37
+>
+38
+return size;
+39
+}
+Some of you might be wondering why we went through all this effort to create a special R e s u l t class. Isn't
+there a better way? Not realiy—at least not in Java.
+However, if we were implementing this in Cor C++, we could have passed in a double pointer.
+1
+bool isPalindromeRecurse(Node head, i n t length, Mode** next) {
+2
+3
+}
+It's ugly, but it works.
+Î26
+Cracking the Coding Interview, 6th Edition

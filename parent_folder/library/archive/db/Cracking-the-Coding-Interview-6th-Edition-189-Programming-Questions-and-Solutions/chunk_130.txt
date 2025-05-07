@@ -1,0 +1,42 @@
+Chapter 6 j Math and Logic Puzzles
+= P(x is even g i v e n x <= 5) P(x <= 5)
+= ( 2 / 5 ) * ( 1 / 2 )
+= 1/5
+Observe that since P(A and B) = P(B given A) P(A) = P(A given B) P(B), you can express
+the probability of A given B in terms of the reverse:
+P(A given B) = P(B g i v e n A) P(A) / P(B)
+The above equation is called Bayes'Theorem.
+Probability of A or B
+Now, imagine you wanted to know what the probability of landing in A or B is. If you knew the odds of
+landing in each individually, and you also knew the odds of landing in their intersection, then you could
+express the probability as:
+P(A or B) = P(A) + P(B) - P(A and B)
+Logically, this makes sense. If we simply added their sizes, we would have double-counted their intersec-
+tion. We need to subtract this out. We can again visualize this through a Venn diagram:
+for example, imagine we were picking a number between 1 and 10 (inclusive). What's the probability of
+picking an even number or a number between 1 and 5? We have a 50% probability of picking an even
+number and a 50% probability of picking a number between 1 and 5. The odds of doing both are 20%. So
+the odds are:
+P(x is even or x <=5)
+= P(x is even) + P(x <= 5) - P(x is even and x <= 5)
+= yi+yi ~ vi
+WL
+=
+/ 5
+From here, getting the special case rules for independent events and for mutually exclusive events is easy.
+Independence
+If A and B are independent (that is, one happening tells you nothing about the other happening), then P(A
+and 8) = P(A) P(B).This rulesimply comes from recognizing that P(B given A) = P(B),sinceA
+indicates nothing about B.
+Mutual Exclusivity
+If A and B are mutually exclusive (that is, if one happens, then the other cannot happen), then P(A or B)
+= P(A) + P{B). This is because P(A and B) = 0, so this term is removed from the earlier P( A or
+B) equation.
+Many people, strangely, mix up the concepts of independence and mutual exclusivity. They are entirely
+different. In fact, two events cannot be both independent and mutually exclusive (provided both have
+probabilities greater than 0), Why? Because mutual exclusivity means that if one happens then the other
+cannot. Independence, however, says that one event happening means absolutely nothing about the other
+event. Thus, as long as two events have non-zero probabilities, they will never be both mutually exclusive
+and independent.
+120
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,69 @@
+Solutions to Chapter 531 | Moderate
+We know that, in order for our function to be correct, this probability must equal j f f . This is impossible
+though. Because 5 and 7 are relatively prime, no series of reciprocal powers of 5 will result in Y i .
+Does this mean the problem is impossible? Not exactly. Strictly speaking, it means that, as long as we can
+list out the combinations of randS () results that will result in a particular value of rand7(), the function
+will not give well distributed results.
+We can still solve this problem. We just have to use a while loop, and realize that there's no telling just how
+many turns will be required to return a result.
+Second Attempt (Nondeterministic Number of Calls)
+As soon as we've allowed for a while loop, our work gets much easier. We just need to generate a range of
+values where each value is equally likely (and where the range has at least seven elements). If we can do this,
+then we can discard the elements greater than the previous multiple of 7, and mod the rest of them by 7. This
+will get us a value within the range of 0 to 6, with each value being equally likely.
+In the below code, we generate the range 0 through 24 by doing 5
+*
+randS() + rand5(). Then,
+we discard the values between 21 and 24, since they would otherwise make rand7() unfairly weighted
+towards 0 through 3. Finally, we mod by? to give us the values in the range 0 to 6 with equal probability.
+Note that because we discard values in this approach, we have no guarantee on the number of rand5() calls
+it may take to return a value. This is what is meant by a nondeterministic number of calls.
+1
+int rand7() {
+2
+while (true) {
+int num = 5 * rand5() + randsQ;
+4
+i f (num < 21) {
+5
+return num % 7;
+6
+}
+7
+}
+8
+>
+Observe that doing 5 * r a n d s ( ) + randS() gives us exactly one way of getting each number in its
+range {0 to 24). This ensures that each value is equally probable.
+Could we instead do 2 * rand5() + rand5{)? No, because the values wouldn't beequally distributed.
+For example, there would be three ways of getting a 6 (6 = 2 * 1 + 4,6 = 2 * 2 + 2, and 6 = 2
+* 3 + 0) but only one way of getting a 0(0=2*9+0). The values in the range are not equally probable.
+There Is a way that we can use 2 * rand5() and still get an identically distributed range, but it's much
+more complicated. See below.
+1
+int rand7() {
+2
+while (true) {
+3
+int rl = 2 * rand5()l /* evens between 0 and 9 * 7
+4
+int r2 = rand5(); /* used later to generate a 0 or 1 */
+S
+i f (r2 1= 4) { /* r2 has extra even num-discard the extra */
+6
+int randl = r2 % 2; /* Generate 0 or 1 */
+7
+int num = rl + randl; /* will be in the range 0 to 9 V
+8
+i f (num < 7) {
+9
+return num;
+10
+}
+11
+>
+12
+>
+13 }
+CrackingTheCodinglnterview.com | 6th Edition
+495

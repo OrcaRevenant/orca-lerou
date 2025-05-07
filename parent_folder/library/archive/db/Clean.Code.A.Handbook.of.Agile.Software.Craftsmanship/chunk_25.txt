@@ -1,0 +1,9 @@
+xxv
+Introduction
+Which door represents your code? Which door represents your team or your company?
+Why are we in that room? Is this just a normal code review or have we found a stream of
+horrible problems shortly after going live? Are we debugging in a panic, poring over code
+that we thought worked? Are customers leaving in droves and managers breathing down
+Reproduced with the kind permission of Thom Holwerda.
+http://www.osnews.com/story/19266/WTFs_m
+(c) 2008 Focus Shift

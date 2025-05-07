@@ -1,0 +1,33 @@
+Congratulations! You have installed Docker for Windows.
+Now that Docker for Windows is installed you can open a command prompt or
+PowerShell window and run some Docker commands. Try the following
+commands:
+C:\> docker version
+Client:
+Version:      17.05.0-ce
+API version:  1.29
+Go version:   go1.7.5
+Git commit:   89658be
+Built:        Thu May  4 21:43:09 2017
+OS/Arch:      windows/amd64
+Server:
+Version:      17.05.0-ce
+API version:  1.29 (minimum version 1.12)
+Go version:   go1.7.5
+Git commit:   89658be
+Built:        Thu May  4 21:43:09 2017
+OS/Arch:      linux/amd64
+Experimental: false
+Notice that the OS/Arch: for the Server component is showing as linux/amd64
+in the output above. This is because the default installation currently installs the
+Docker daemon inside of a lightweight Linux Hyper-V VM. In this default
+scenario you will only be able to run Linux containers on your Docker for
+Windows install.
+If you want to run native Windows containers you can right click the Docker
+whale icon in the Windows notifications tray and select the option to Switch to
+Windows containers.... You can achieve the same thing form the command
+line with the following command (located in the \Program
+Files\Docker\Docker directory):
+C:\Program Files\Docker\Docker>dockercli -SwitchDaemon
+You will get the following alert if you have not enabled the Windows
+Containers feature.

@@ -1,0 +1,53 @@
+Ill I Special Situations
+required specific technical skills unless you at least claim to possess the requisite skills.
+•
+Multi-Level Communication: PMs need to be able to communicate with people at all levels in the
+company, across many positions and ranges of technical skills. Your interviewer will want to see that you
+possess this flexibility in your communication. This is often examined directly, through a question such
+as, "Explain TCP/IP to your grandmother." Your communication skills may also be assessed by how you
+discuss your prior projects.
+•
+Passion for Technology: Happy employees are productive employees, so a company wants to make sure
+that you'il enjoy the job and be excited about your work. A passion for technology—and, ideally, the
+company or team—should come across in your answers. You may be asked a question directly like,"Why
+are you interested in Microsoft?" Additionally, your interviewers will look for enthusiasm in how you
+discuss your prior experience and how you discuss the team's challenges.They want to see that you will
+be eager to face the job's challenges.
+•
+Teamwork f Leadership: This may be the most important aspect of the interview, and—not surpris-
+ingly—the job itself. AM interviewers will be looking for your ability to work well with other people. Most
+commonly, this is assessed with questions like, "Tel! me about a time when a teammate wasn't pulling
+his / her own weight."Your interviewer is looking to see that you handle conflicts well, that you take
+initiative, that you understand people, and that people like working with you. Your work preparing for
+behavioral questions will be extremely important here.
+All of the above areas are important skills for PMs to master and are therefore key focus areas of the inter-
+view. The weighting of each of these areas will roughly match the importance that the area holds in the
+actual job.
+• Dev Lead and Managers
+Strong coding skills are almost always required for dev lead positions and often for management positions
+as well. If you'll be coding on the job, make sure to be very strong with coding and algorithms—just like a
+dev would be. Google, in particular, holds managers to high standards when it comes to coding.
+In addition, prepare to be examined for skills in the following areas:
+•
+Teamwork/Leadership: Anyone in a management-like role needs to be able to both lead and work with
+people. You will be examined implicitly and explicitly in these areas. Explicit evaluation will come in the
+form of asking you how you handled prior situations, such as when you disagreed with a manager. The
+implicit evaluation comes in the form of your interviewers watching how you interact with them. If you
+come off as too arrogant or too passive, your interviewer may feel you aren't great as a manager.
+•
+Prioritization: Managers are often faced with tricky issues, such as how to make sure a team meets a
+tough deadline. Your interviewers will want to see that you can prioritize a project appropriately, cutting
+the less important aspects. Prioritization means asking the right questions to understand what is critical
+and what you can reasonably expect to accomplish.
+•
+Communication: Managers need to communicate with people both above and befow them, and poten-
+tially with customers and other much less technical people. Interviewers will look to see that you can
+communicate at many levels and that you can do so in a way that is friendly and engaging. This is, in
+some ways, an evaluation of your personality.
+•
+"Getting rh/ngs Done": Perhaps the most important thing that a manager can do is be a person who "gets
+things done."This means striking the right balance between preparing for a project and actually imple-
+menting it. You need to understand how to structure a project and how to motivate people so you can
+accomplish the team's goals.
+CrackingTheCodinglnterview.com | 6th Edition
+19

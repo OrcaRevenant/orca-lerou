@@ -1,0 +1,90 @@
+428
+Index
+Single Responsibility Principle (SRP),
+continued
+Sql class violating, 147
+supporting, 157
+in test classes conforming to, 172
+violating, 38
+single value, ordered components of, 42
+single-letter names, 22, 25
+single-thread calculation, of throughput,
+334
+SINGLETON pattern, 274
+small classes, 136
+Smalltalk Best Practice Patterns, 296
+smart programmer, 25
+software project, maintenance of, 175
+software systems. See also system(s)
+compared to physical systems, 158
+SOLID class design principle, 150
+solution domain names, 27
+source code control systems, 64, 68, 69
+source files
+compared to newspaper articles,
+77–78
+multiple languages in, 288
+Sparkle program, 34
+spawned threads, deadlocked, 186
+special case objects, 110
+SPECIAL CASE PATTERN, 109
+specifications, purpose of, 2
+spelling errors, correcting, 20
+SpreadsheetDateFactory, 274–275
+Spring AOP, proxies in, 163
+Spring Framework, 157
+Spring model, following EJB3, 165
+Spring V2.5 configuration file, 163–164
+spurious failures, 187
+Sql class, changing, 147–149
+square root, as the iteration limit, 74
+SRP. See Single Responsibility Principle
+standard conventions, 299–300
+standard nomenclature, 175, 311–312
+standards, using wisely, 168
+startup process, separating from runtime
+logic, 154
+starvation, 183, 184, 338
+static function, 279
+static import, 308
+static methods, inappropriate, 296
+The Step-down Rule, 37
+stories, implementing only today’s, 158
+STRATEGY pattern, 290
+string arguments, 194, 208–212, 214–225
+string comparison errors, 252
+StringBuffers, 129
+Stroustrup, Bjarne, 7–8
+structure(s). See also data structures
+hiding, 99
+hybrid, 99
+making massive changes to, 212
+over convention, 301
+structured programming, 48–49
+SuperDashboard class, 136–137
+swapping, as permutations, 323
+switch statements
+burying, 37, 38
+considering polymorphism
+before, 299
+reasons to tolerate, 38–39
+switch/case chain, 290
+synchronization problems, avoiding with
+Servlets, 182
+synchronized block, 334
+synchronized keyword, 185
+adding, 323
+always acquiring a lock, 328
+introducing a lock via, 331
+protecting a critical section
+in code, 181
+synchronized methods, 185
+synchronizing, avoiding, 182
+synthesis functions, 265
+system(s). See also software systems
+file sizes of significant, 77
+keeping running during development,
+213
+needing domain-specific, 168
+system architecture, test driving,
+166–167

@@ -1,0 +1,39 @@
+14
+Chapter 1: Clean Code
+Ooops, he’s erasing what he typed!
+He types it again.
+He erases it again!
+He types half of something else but then erases that!
+He scrolls down to another function that calls the function he’s changing to see how it is
+called.
+He scrolls back up and types the same code he just erased.
+He pauses.
+He erases that code again!
+He pops up another window and looks at a subclass. Is that function overridden?
+. . .
+You get the drift. Indeed, the ratio of time spent reading vs. writing is well over 10:1.
+We are constantly reading old code as part of the effort to write new code.
+Because this ratio is so high, we want the reading of code to be easy, even if it makes
+the writing harder. Of course there’s no way to write code without reading it, so making it
+easy to read actually makes it easier to write.
+There is no escape from this logic. You cannot write code if you cannot read the sur-
+rounding code. The code you are trying to write today will be hard or easy to write
+depending on how hard or easy the surrounding code is to read. So if you want to go fast,
+if you want to get done quickly, if you want your code to be easy to write, make it easy to
+read.
+The Boy Scout Rule
+It’s not enough to write the code well. The code has to be kept clean over time. We’ve all
+seen code rot and degrade as time passes. So we must take an active role in preventing this
+degradation.
+The Boy Scouts of America have a simple rule that we can apply to our profession.
+Leave the campground cleaner than you found it.5
+If we all checked-in our code a little cleaner than when we checked it out, the code
+simply could not rot. The cleanup doesn’t have to be something big. Change one variable
+name for the better, break up one function that’s a little too large, eliminate one small bit of
+duplication, clean up one composite if statement.
+Can you imagine working on a project where the code simply got better as time
+passed? Do you believe that any other option is professional? Indeed, isn’t continuous
+improvement an intrinsic part of professionalism?
+5.
+This was adapted from Robert Stephenson Smyth Baden-Powell’s farewell message to the Scouts: “Try and leave this world a
+little better than you found it . . .”

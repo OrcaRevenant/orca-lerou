@@ -1,0 +1,23 @@
+dependency in either direction.
+That is power! That is the power that OO provides. That’s what OO is really all
+about—at least from the architect’s point of view.
+What can you do with that power? As an example, you can rearrange the source
+code dependencies of your system so that the database and the user interface
+(UI) depend on the business rules (Figure 5.3), rather than the other way around.
+Figure 5.3 The database and the user interface depend on the business rules
+This means that the UI and the database can be plugins to the business rules. It
+means that the source code of the business rules never mentions the UI or the
+database.
+As a consequence, the business rules, the UI, and the database can be compiled
+into three separate components or deployment units (e.g., jar files, DLLs, or
+Gem files) that have the same dependencies as the source code. The component
+containing the business rules will not depend on the components containing the
+UI and database.
+In turn, the business rules can be deployed independently of the UI and the
+database. Changes to the UI or the database need not have any effect on the
+business rules. Those components can be deployed separately and independently.
+In short, when the source code in a component changes, only that component
+needs to be redeployed. This is independent deployability.
+If the modules in your system can be deployed independently, then they can be
+developed independently by different teams. That’s independent developability.
+CONCLUSION

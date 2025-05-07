@@ -1,0 +1,77 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+4
+if (memo.containsKey{result + s)) return memo.get(result + s ) ;
+5
+6
+i n t ways = 0;
+7
+8
+f o r ( i n t t = 1; i < s . l e n g t h ( ) ;
+i += 2) {
+9
+char c = s . c h a r A t ( i ) ;
+10
+S t r i n g l e f t = s . s u b s t r i n g { 0 ,
+i ) ;
+11
+S t r i n g r i g h t = s . s u b s t r i n g ( i + 1, s . l e n g t h Q ) ;
+12
+i n t l e f t T r u e = c o u n t £ v a l ( l e f t , t r u e , memo);
+13
+i n t l e f t F a l s e = c o u n t E v a l ( l e f t , f a l s e , memo);
+14
+i n t rightTrue = c o u n t E v a l { r i g h t , t r u e , memo);
+15
+i n t r i g h t F a l s e = c o u n t E v a l ( r i g h t , f a l s e , memo);
+16
+i n t t o t a l = ( l e f t T r u e + l e f t F a l s e ) * {rightTrue + r i g h t F a l s e ) ;
+17
+18
+i n t totaITrue = 0;
+19
+i f (c ==
+{
+26
+t o t a l T r u e = l e f t T r u e * rightFalse + l e f t F a l s e * r i g h t T r u e ;
+21
+} else if (c == ' & ' ) {
+22
+totalTrue = l e f t T r u e * rightTrue;
+23
+} else if (c == <| J) {
+24
+t o t a l T r u e = l e f t T r u e * rightTrue + l e f t F a l s e * rightTrue +
+25
+l e f t T r u e * r i g h t F a l s e ;
+26
+}
+27
+28
+i n t subways = r e s u l t ? t o t a l T r u e : t o t a l - t o t a l T r u e ;
+29
+ways += subways;
+30
+>
+31
+32
+memo.putfresult + s, ways);
+33
+r e t u r n ways;
+34 >
+The added benefit of this is that we could actually end up with the same substring in multiple parts of the
+expression. For example, an expression like 0 A 1 A 0 & 0 A 1 A 0 has two instances of 0 * 1 * 0 . By caching the
+result of the substring value in a memoization table, we'll get to reuse the result for the right part of the
+expression after computing it for the left.
+There is one further optimization we can make, but it's far beyond the scope of the interview. There is
+a closed form expression for the number of ways of parenthesizing an expression, but you wouldn't be
+expected to know it. it is given by the Catalan numbers, where n is the number of operators:
+r
+-
+(2n)I
+- (n + 1) In I
+We could use this to compute the total ways of evaluating the expression. Then, rather than computing
+l e f t T r u e and l e f t F a l s e , we just compute one of those and calculate the other using the Catalan
+numbers. We would do the same thing for the right side.
+CrackingTheCodinglnterview.com [ 6th Edition
+3
+S1

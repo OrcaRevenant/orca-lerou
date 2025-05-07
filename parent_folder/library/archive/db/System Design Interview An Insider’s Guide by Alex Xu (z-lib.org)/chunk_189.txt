@@ -1,0 +1,17 @@
+How does autocomplete work with trie? Before diving into the algorithm, let us define some
+terms.
+• p: length of a prefix
+• n: total number of nodes in a trie
+• c: number of children of a given node
+Steps to get top k most searched queries are listed below:
+1. Find the prefix. Time complexity: O(p).
+2. Traverse the subtree from the prefix node to get all valid children. A child is valid if it
+can form a valid query string. Time complexity: O(c)
+3. Sort the children and get top k. Time complexity: O(clogc)
+Let us use an example as shown in Figure 13-7 to explain the algorithm. Assume k equals to
+2 and a user types “tr” in the search box. The algorithm works as follows:
+• Step 1: Find the prefix node “tr”.
+• Step 2: Traverse the subtree to get all valid children. In this case, nodes [tree: 10], [true:
+35], [try: 29] are valid.
+• Step 3: Sort the children and get top 2. [true: 35] and [try: 29] are the top 2 queries with
+prefix “tr”.

@@ -1,0 +1,77 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+7
+return permutations;
+8
+>
+9
+16
+char f i r s t = s t r . c h a r A t ( 0 ) ; // get the f i r s t char
+11
+String remainder = s t r . s u b s t r i n g ( l ) ; // remove the f i r s t char
+12
+ArrayList<String> words » getPerms(remainder);
+13
+for (String word ; words) {
+14
+f o r ( i n t j = 0; j <= word.length(); j++) {
+15
+String s = insertCharAt(word, f i r s t , j ) ;
+16
+permutations.add(s);
+17
+}
+18
+>
+19
+return permutations;
+20 >
+21
+22 /* Insert char c at index i in word. */
+23 String insertCharAt(String word, char c, i n t i) {
+24
+String s t a r t = word.substring(0, i ) ;
+25
+String end = word.substring(i);
+26
+return s t a r t + c + end;
+27 >
+Approach 2: Building from permutations of all n-1 character substrings.
+Base Case: single-character strings
+The only permutation of a^ is the string ar So;
+P<a.) = a,
+Case: two-character strings
+P i a ^ j ) = a.a; and a2at.
+P ( a 2 a j = aja ; and a3a3.
+P f a ^ j ) = a^a, and a ^ .
+Case: three-character strings
+Here is where the cases get more interesting. How can we generate all permutations of three-character
+strings, such as a.a;a3, given the permutations of two-character strings?
+Well, in essence, we just need to "try" each character as the first character and then append the permuta-
+tions.
+P f a ^ a , ) = { a , + P(a.,a3)} + a; + P ^ a , ) } + {a 3 + P(a 1a ;)>
+{ a 1 + P(a 2a 3)} -> a ^ a , , , a1a3aJ
+{s 3 + P ( i f a 3 ) }
+- >
+W l
+{a3 + P f a ^ ) }
+- > a ^ a , ,
+a ^ a ,
+Now that we can generate all permutations of three-character strings, we can use this to generate permuta-
+tions of four-character strings.
+P ^ a ^ a J ={a, + P C ^ A » + i a j
++ p( ai a3 a*>} + <a
+3
++ P f V A ) } + i a * + P(a,a2a3)>
+This is now a fairly straightforward algorithm to implement.
+1
+ArrayList<String> getPerms(String remainder) {
+2
+i n t len = remainder,lengthQ;
+3
+ArrayList<String> result = new ArrayList<String>();
+4
+5
+/* Base case. */
+3
+54
+Cracking the Coding Interview, 6th Edition

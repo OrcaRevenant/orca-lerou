@@ -1,0 +1,72 @@
+Solutions to Chapter 532 | Moderate
+In fact, there is an infinite number of ranges we can use.The key is to make sure that the range is big enough
+and that ail values are equally iikely,
+16.24 Pairs with Sum: Design an algorithm to find all pairs of integers within an array which sum to a
+specified value.
+pg 185
+SOLUTION
+Let's start with a definition. If we're trying to find a pair of numbers that sums to z, the complement of x will
+be z - x (that Is, the number that can be added to x to make z). For example, if we're trying to find a pair
+of numbers that sums to 12, the complement of -5 would be 17.
+Brute Force
+A brute force solution is to just iterate through all pairs and print the pair if its sum matches the target sum.
+1
+ArrayList<Pair> printPairSums(int[] array, i n t sum) {
+2
+ArrayList<Pair> result = new ArrayList<Pair>();
+for (int i = 0 ; i < array.length; i++) {
+4
+for (int j = i + 1; j < array,length; j++) {
+5
+if (array[i] + array[j]
+sum) {
+6
+result.add(new Pair(array[i], array[j]));
+7
+}
+8
+}
+9
+>
+19
+return result;
+11 }
+if there are duplicates in the array (e.g., { 5 , 6, 5}), it might print the same sum twice. You should discuss
+this with your interviewer.
+Optimized Solution
+We can optimize this with a hash map, where the value in the hash map reflects the number of "unpaired"
+instances of a key. We walk through the array. At each element x, check how many unpaired instances of
+x's complement preceded it in the array. If the count is at least one, then there is an unpaired instance of x's
+complement. We add this pair and decrement x's complement to signify that this element has been paired.
+If the count is zero, then increment the value of x in the hash table to signify that x is unpaired.
+1
+ArrayList<Pair> printPairSums(int[] array, i n t sum) {
+2
+ArrayList<Pair> result = new ArrayList<Pair>();
+HashMap<Integer, Integer* unpairedCount = new HashMapcInteger, Integer>();
+4
+for (int x : array) {
+5
+int complement
+sum - x;
+6
+if (unpairedCount.getOrDefault(complement, 0) > 0) {
+7
+result.add(new Pair(x, complement));
+8
+adjustCounterBy(unpairedCount, complement, -1); // decrement complement
+9
+> else {
+10
+adjustCounterBy(unpairedCount, x, 1); // increment count
+11
+}
+12
+>
+13
+return result;
+14
+}
+15
+5Î0
+492 Cracking the Coding Interview, 6th Edition

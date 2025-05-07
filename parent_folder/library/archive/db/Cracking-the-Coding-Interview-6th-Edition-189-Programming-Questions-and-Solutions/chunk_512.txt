@@ -1,0 +1,94 @@
+Solutions to Chapter 16 | Moderate
+Optimized (Alternate)
+If you don't like the work of building a string only to compare it (and then destroy it), we can eliminate this.
+Instead, we can iterate through the values for a and b as before. But this time, to check if the string matches
+the pattern (given those values for a and b), we walkthrough value, comparing each substring to the first
+instance of the a and b strings.
+1
+boolean doesMatch(String pattern, String value) {
+2
+if (pattern.length() == 0) return value.length() == 0;
+3
+4
+char mainChar = pattern.charAt(0);
+5
+char altChar = rrainChar == 'a' ? 'b' : ' a ' ;
+6
+int size » value.length();
+7
+8
+int countOfMain = countOf(pattern, mainChar);
+9
+int countOfAlt = pattern.length() - countOfMain;
+16
+int firstAlt = pattern.indexOf(altChar);
+11
+int maxMainSize = size / countOfMain;
+12
+13
+for (int mainSize = 0; mainSize <= maxMainSize; mainSize++) {
+14
+int remainingLength « size - mainSize * countOfMain;
+15
+if (countOfAlt == 0 |] remainingLength % countOfAlt == 0) (
+16
+int altlndex = firstAlt * mainSize;
+17
+int altSize = countOfAlt == 0 ? 0 ; remainingLength / countOfAlt;
+18
+if (matches(pattern, value, mainSize, altSize, altlndex)) {
+19
+return true;
+20
+>
+21
+)
+22
+}
+23
+return false;
+24 }
+25
+26 /* Iterates through pattern and value. At each character within pattern, checks if
+27
+* this is the main string or the alternate string. Then checks if the next set of
+28
+* characters in value match the original set of those characters (either the main
+29
+* or the alternate. */
+30 boolean matches(String pattern, String value, int mainSize, int altSize,
+31
+int firstAlt) {
+32
+int stringlndex = mainSize;
+33
+for (int 1 « 1; i < pattern.length(); i++) {
+34
+int size = pattern.charAt(i) == pattern.charAt(0) ? mainSize : altSize;
+35
+int offset = pattern.charAt(i) = pattern.charAt(0) ? 0 : firstAlt;
+36
+if (!isEqual(value, offset, stringlndex, size)) (
+37
+return false;
+38
+}
+39
+stringlndex += size;
+40
+}
+41
+return true;
+42 }
+43
+44 /* checks if two substrings are equal, starting at given offsets and continuing to
+45
+* size. »/
+46 boolean isEqual(String si, int offsetl, int offset2, int size) {
+47
+for (int i = 0; i < size; i++) {
+48
+if (si.charAt(offsetl + i) 1= sl.charAt(offset2 + i)) {
+49
+return false;
+492 Cracking the Coding Interview, 6th Edition

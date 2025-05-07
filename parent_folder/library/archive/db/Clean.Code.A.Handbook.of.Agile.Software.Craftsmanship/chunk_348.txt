@@ -1,0 +1,43 @@
+318
+Appendix A: Concurrency II
+This simple application waits for a connection, processes an incoming message, and then
+again waits for the next client request to come in. Here’s client code that connects to this
+server:
+private void connectSendReceive(int i) {
+try {
+Socket socket = new Socket("localhost", PORT);
+MessageUtils.sendMessage(socket, Integer.toString(i));
+MessageUtils.getMessage(socket);
+socket.close();
+} catch (Exception e) {
+e.printStackTrace();
+}
+}
+How well does this client/server pair perform? How can we formally describe that perfor-
+mance? Here’s a test that asserts that the performance is “acceptable”:
+@Test(timeout = 10000)
+public void shouldRunInUnder10Seconds() throws Exception {
+Thread[] threads = createThreads();
+startAllThreadsw(threads);
+waitForAllThreadsToFinish(threads);
+}
+The setup is left out to keep the example simple (see “ClientTest.java” on page 344). This
+test asserts that it should complete within 10,000 milliseconds.
+This is a classic example of validating the throughput of a system. This system should
+complete a series of client requests in ten seconds. So long as the server can process each
+individual client request in time, the test will pass.
+What happens if the test fails? Short of developing some kind of event polling loop,
+there is not much to do within a single thread that will make this code any faster. Will
+using multiple threads solve the problem? It might, but we need to know where the time is
+being spent. There are two possibilities:
+• I/O—using a socket, connecting to a database, waiting for virtual memory swapping,
+and so on.
+• Processor—numerical calculations, regular expression processing, garbage collection,
+and so on.
+Systems typically have some of each, but for a given operation one tends to dominate. If
+the code is processor bound, more processing hardware can improve throughput, making
+our test pass. But there are only so many CPU cycles available, so adding threads to a
+processor-bound problem will not make it go faster.
+On the other hand, if the process is I/O bound, then concurrency can increase efﬁ-
+ciency. When one part of the system is waiting for I/O, another part can use that wait time
+to process something else, making more effective use of the available CPU.

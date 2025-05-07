@@ -1,0 +1,90 @@
+Solutions to Chapter 15 | Threads and Locks
+25
+left.putDown();
+26
+return false;
+27
+}
+28
+return true;
+29
+}
+30 }
+In the above code, we need to be sure to release the left chopstick if we can't pickup the right one—and to
+not call putDown() on the chopsticks if we never had them in the first place.
+One issue with this is that if all the philosophers were perfectly synchronized, they could simultaneously
+pick up their left chopstick, be unable to pick up the right one, and then put back down the left one—only
+to have the process repeated again.
+Solution #2: Prioritized Chopsticks
+Alternatively, we can label the chopsticks with a number from 0 to N - 1. Each philosopher attempts to
+pick up the lower numbered chopstick first. This essentially means that each philosopher goes for the left
+chopstick before right one (assuming that's the way you labeled it), except for the last philosopher who
+does this in reverse. This will break the cycle.
+1
+public class Philosopher extends Thread {
+2
+private int bites = 10;
+3
+private Chopstick lower, higher;
+4
+private int index;
+public Philosopher(int i, Chopstick left, Chopstick right) {
+6
+index = i;
+7
+if (left.getNurnberQ < right.getNumberQ) {
+8
+this.lower = left;
+9
+this.higher = right;
+10
+> else {
+11
+this.lower = right;
+12
+this.higher = left;
+13
+}
+14
+}
+15
+16
+public void eat() {
+17
+pickUp{);
+18
+chew();
+19
+putDown();
+20
+>
+21
+22
+public void pickup() {
+23
+lower.pickUp();
+24
+higher,pickUp{);
+25
+>
+26
+27
+public void chewQ { ... }
+28
+29
+public void putOown() {
+30
+higher. putDownQ;
+31
+lower.putDown{);
+32
+>
+33
+34
+public void run() {
+35
+for (int i = 0; i < bites; i++) {
+36
+eat();
+CrackingTheCodinglrtterview.com | 6th Edition
+451

@@ -1,0 +1,8 @@
+Figure 10-12
+Events tracking
+Notification metrics, such as open rate, click rate, and engagement are important in
+understanding customer behaviors. Analytics service implements events tracking. Integration
+between the notification system and the analytics service is usually required. Figure 10-13
+shows an example of events that might be tracked for analytics purposes.
+Updated design
+Putting everything together, Figure 10-14 shows the updated notification system design.

@@ -1,0 +1,51 @@
+237
+String Arguments
+Now we can get rid of some crufty functions in IntegerArgumentMarshaler and clean it up
+a bit.
+private class IntegerArgumentMarshaler extends ArgumentMarshaler {
+private int intValue = 0
+public void set(Iterator<String> currentArgument) throws ArgsException {
+String parameter = null;
+try {
+parameter = currentArgument.next();
+intValue = Integer.parseInt(parameter);
+} catch (NoSuchElementException e) {
+errorCode = ErrorCode.MISSING_INTEGER;
+throw new ArgsException();
+} catch (NumberFormatException e) {
+errorParameter = parameter;
+errorCode = ErrorCode.INVALID_INTEGER;
+throw new ArgsException();
+}
+}
+public Object get() {
+return intValue;
+}
+}
+We can also turn ArgumentMarshaler into an interface.
+private interface ArgumentMarshaler {
+void set(Iterator<String> currentArgument) throws ArgsException;
+Object get();
+}
+So now let’s see how easy it is to add a new argument type to our structure. It should
+require very few changes, and those changes should be isolated. First, we begin by adding
+a new test case to check that the double argument works correctly.
+public void testSimpleDoublePresent() throws Exception {
+Args args = new Args("x##", new String[] {"-x","42.3"});
+assertTrue(args.isValid());
+assertEquals(1, args.cardinality());
+assertTrue(args.has('x'));
+assertEquals(42.3, args.getDouble('x'), .001);
+}
+Now we clean up the schema parsing code and add the ## detection for the double
+argument type.
+private void parseSchemaElement(String element) throws ParseException {
+char elementId = element.charAt(0);
+String elementTail = element.substring(1);
+validateSchemaElementId(elementId);
+if (elementTail.length() == 0)
+marshalers.put(elementId, new BooleanArgumentMarshaler());
+else if (elementTail.equals("*"))
+marshalers.put(elementId, new StringArgumentMarshaler());
+else if (elementTail.equals("#"))
+marshalers.put(elementId, new IntegerArgumentMarshaler());

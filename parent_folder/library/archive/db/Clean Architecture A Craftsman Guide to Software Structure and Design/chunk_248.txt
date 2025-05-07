@@ -1,0 +1,30 @@
+the HAL expressing services needed by the application. You can also see that
+layers may contain layers. It is more of a repeating fractal pattern than a limited
+set of predefined layers. The GPIO assignments are details that should be hidden
+from the software.
+DON’T REVEAL HARDWARE DETAILS TO THE USER OF
+THE HAL
+A clean embedded architecture’s software is testable off the target hardware. A
+successful HAL provides that seam or set of substitution points that facilitate off-
+target testing.
+The Processor Is a Detail
+When your embedded application uses a specialized tool chain, it will often
+provide header files to <i>help you</i>.4 These compilers often take liberties
+with the C language, adding new keywords to access their processor features.
+The code will look like C, but it is no longer C.
+Sometimes vendor-supplied C compilers provide what look like global variables
+to give access directly to processor registers, IO ports, clock timers, IO bits,
+interrupt controllers, and other processor functions. It is helpful to get access to
+these things easily, but realize that any of your code that uses these helpful
+facilities is no longer C. It won’t compile for another processor, or maybe even
+with a different compiler for the same processor.
+I would hate to think that the silicon and tool provider is being cynical, tying
+your product to the compiler. Let’s give the provider the benefit of a doubt by
+assuming that it is truly trying to help. But now it’s up to you to use that help in a
+way that does not hurt in the future. You will have to limit which files are
+allowed to know about the C extensions.
+Let’s look at this header file designed for the ACME family of DSPs—you
+know, the ones used by Wile E. Coyote:
+Click here to view code image
+#ifndef _ACME_STD_TYPES
+#define _ACME_STD_TYPES

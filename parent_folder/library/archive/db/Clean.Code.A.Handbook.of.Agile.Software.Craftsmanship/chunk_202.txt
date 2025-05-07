@@ -1,0 +1,36 @@
+172
+Chapter 12: Emergence
+According to Kent, a design is “simple” if it follows these rules:
+• Runs all the tests
+• Contains no duplication
+• Expresses the intent of the programmer
+• Minimizes the number of classes and methods
+The rules are given in order of importance.
+Simple Design Rule 1: Runs All the Tests
+First and foremost, a design must produce a system that acts as intended. A system might
+have a perfect design on paper, but if there is no simple way to verify that the system actu-
+ally works as intended, then all the paper effort is questionable.
+A system that is comprehensively tested and passes all of its tests all of the time is a test-
+able system. That’s an obvious statement, but an important one. Systems that aren’t testable
+aren’t veriﬁable. Arguably, a system that cannot be veriﬁed should never be deployed.
+Fortunately, making our systems testable pushes us toward a design where our classes
+are small and single purpose. It’s just easier to test classes that conform to the SRP. The
+more tests we write, the more we’ll continue to push toward things that are simpler to test.
+So making sure our system is fully testable helps us create better designs.
+Tight coupling makes it difﬁcult to write tests. So, similarly, the more tests we write,
+the more we use principles like DIP and tools like dependency injection, interfaces, and
+abstraction to minimize coupling. Our designs improve even more.
+Remarkably, following a simple and obvious rule that says we need to have tests and
+run them continuously impacts our system’s adherence to the primary OO goals of low
+coupling and high cohesion. Writing tests leads to better designs.
+Simple Design Rules 2–4: Refactoring
+Once we have tests, we are empowered to keep our code and classes clean. We do this by
+incrementally refactoring the code. For each few lines of code we add, we pause and reﬂect
+on the new design. Did we just degrade it? If so, we clean it up and run our tests to demon-
+strate that we haven’t broken anything. The fact that we have these tests eliminates the fear
+that cleaning up the code will break it!
+During this refactoring step, we can apply anything from the entire body of knowledge
+about good software design. We can increase cohesion, decrease coupling, separate con-
+cerns, modularize system concerns, shrink our functions and classes, choose better names,
+and so on. This is also where we apply the ﬁnal three rules of simple design: Eliminate
+duplication, ensure expressiveness, and minimize the number of classes and methods.

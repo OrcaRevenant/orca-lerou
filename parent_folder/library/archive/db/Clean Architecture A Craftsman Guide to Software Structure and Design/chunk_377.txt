@@ -1,0 +1,34 @@
+Structure. See Architecture
+Structured programming
+Dijkstra’s proclamation on goto statements, 28–29
+discipline of proof, 27–28
+functional decomposition in, 29
+history of, 22
+lack of formal proofs, 30
+overview of, 26
+role of science in, 30–31
+role of tests in, 31
+value of, 31–32
+Substitution
+LSP. See LSP (Liskov Substitution Principle)
+programming to interfaces and, 271–272
+Subtypes, defining, 78
+T
+Target-hardware bottleneck, 261, 262–272
+TAS (Teradyne Applied Systems), 334–338, 339–344
+Template Method pattern, OO approach for cross-cutting concerns, 244–245
+Test boundary
+conclusion, 253
+designing for testability, 251
+Fragile Tests Problem, 251
+overview of, 249–250
+testing API, 252–253
+tests as system components, 250
+Testable architecture
+clean architecture creating, 202
+clean embedded architecture as, 262–272
+overview of, 198
+Testing
+and architecture, 213
+Presenters and Views, 212–213
+in structured programming, 31

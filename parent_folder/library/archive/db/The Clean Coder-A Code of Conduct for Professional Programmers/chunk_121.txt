@@ -1,0 +1,30 @@
+THE CODING DOJO
+89
+When you are spinning around the code/test loop several times per minute, it is
+your body that knows what keys to hit. A primal part of your mind recognizes
+the situation and reacts within milliseconds with the appropriate solution while
+your mind is free to focus on the higher-level problem.
+In both the martial arts case and the programming case, speed depends on
+practice. And in both cases the practice is similar. We choose a repertoire of
+problem/solution pairs and execute them over and over again until we know
+them cold.
+Consider a guitarist like Carlos Santana. The music in his head simply comes
+out his fingers. He does not focus on finger positions or picking technique. His
+mind is free to plan out higher-level melodies and harmonies while his body
+translates those plans into lower-level finger motions.
+But to gain that kind of ease of play requires practice. Musicians practice scales
+and études and riffs over and over until they know them cold.
+TH E CO D I N G DOJ O
+Since 2001 I have been performing a TDD demonstration that I call The Bowling
+Game.3 It’s a lovely little exercise that takes about thirty minutes. It experiences
+conflict in the design, builds to a climax, and ends with a surprise. I wrote a
+whole chapter on this example in [PPP2003].
+Over the years I performed this demonstration hundreds, perhaps thousands, of
+times. I got very good at it! I could do it in my sleep. I minimized the keystrokes,
+tuned the variable names, and tweaked the algorithm structure until it was just
+right. Although I didn’t know it at the time, this was my first kata.
+In 2005 I attended the XP2005 Conference in Sheffield, England. I attended a
+session with the name Coding Dojo led by Laurent Bossavit and Emmanuel
+Gaillot. They had everyone open their laptops and code along with them as they
+3. This has become a very popular kata, and a Google search will find many instances of it. The original is
+here: http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata.

@@ -1,0 +1,17 @@
+Step 3 - Design deep dive
+In a system design interview, usually you are expected to dive deep into some of the
+components in the high-level design. For the chat system, service discovery, messaging
+flows, and online/offline indicators worth deeper exploration.
+Service discovery
+The primary role of service discovery is to recommend the best chat server for a client based
+on the criteria like geographical location, server capacity, etc. Apache Zookeeper [7] is a
+popular open-source solution for service discovery. It registers all the available chat servers
+and picks the best chat server for a client based on predefined criteria.
+Figure 12-11 shows how service discovery (Zookeeper) works.
+1. User A tries to log in to the app.
+2. The load balancer sends the login request to API servers.
+3. After the backend authenticates the user, service discovery finds the best chat server for
+User A. In this example, server 2 is chosen and the server info is returned back to User A.
+4. User A connects to chat server 2 through WebSocket.
+Message flows
+It is interesting to understand the end-to-end flow of a chat system. In this section, we will

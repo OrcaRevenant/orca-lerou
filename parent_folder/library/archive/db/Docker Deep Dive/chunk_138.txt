@@ -1,0 +1,31 @@
+You should also note the Networks portion of the docker inspect output above.
+This shows the uber-net network as well as the swarm-wide 80:80 port
+mapping.
+The future of services
+Services are the preferred way to deploy and manager Dockerized applications.
+We should expect to see significant development around them.
+In this chapter we’ve shown you how to declare a service using the docker
+service create command and passing it a lot of flags and options. In the future
+we should expect to be able to pass the command a JSON or YAML file that
+holds the entire service declaration. This will allow us to keep a repository of
+service definition files, version control them, and easily pass them to Docker to
+instantiate new services. Expect this very soon.
+In the more distant future we may even see non-container workloads running
+under the auspices of services. We said earlier in the chapter that service tasks =
+containers. However, the executor component of the swarm architecture, which
+currently executes container workloads, is pluggable. This means you might be
+able to swap it out in the future for executors that can run things like unikernel
+workloads. However, this is very forward thinking.
+A quick word on the maturity of swarm mode
+Swarm mode is based on the battle-hardened and production-tested code from
+the Docker Swarm project. At a high-level, all of the good stuff from Docker
+Swarm was extracted and dumped into a re-usable toolkit called SwarmKit. This
+was then implemented natively into the Docker platform, and swarm mode was
+born.
+But the point to note is that although swarm mode was new in Docker 1.12, it’s
+not like the project recklessly dropped in thousands of lines of brand new code
+that had never seen the light of day. The underlying code has been around for a
+while and was being actively deployed in production environments.
+That all said, you should still perform your normal testing before deciding to run
+your business-critical apps on it!
+Clean-up

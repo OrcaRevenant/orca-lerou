@@ -1,0 +1,100 @@
+Solutions to Chapter 15 | Threads and Locks
+14
+* ref_count is 0, then free the memory created by the integer and destroy the
+15
+* object. */
+16 >
+There's one additional way that references can be created: by setting one Smart P o i n t e r equal to another.
+We'll want to override the equal operator to handle this, but for now, let's sketch the code like this.
+1
+onSetEquals(SmartPoint<T> p t r l , SmartPoint<T> ptr2) {
+2
+/* If p t r l has an existing value, decrement i t s reference count. Then, copy the
+* pointers to obj and ref_count over. F i n a l l y , since we created a new
+4
+* reference, we need to increment ref_count. */
+5
+}
+Getting just the approach, even without filling in the complicated C++ syntax, would count for a lot.
+Finishing out the code is now just a matter of filling the details.
+1
+template <class T> class SmartPointer {
+2
+public:
+3
+SmartPointer(T * ptr) {
+4
+ref = ptr j
+5
+ref^count = (unsigned*)malloc(sizeof(unsigned));
+6
+*ref_count = 1;
+7
+>
+a
+9
+SmartPointer(SmartPointer<T> & sptr) {
+10
+ref = s p t r . r e f ;
+11
+ref„count = sptr.ref_count;
+12
+++(*ref_count);
+13
+}
+14
+15
+f* Override the equal operator, so that when you set one smart pointer equal to
+16
+* another the old smart pointer has i t s reference count decremented and the new
+17
+* smart pointer has i t s reference count incrememerted. */
+18
+SmartPointer<T> & operator=(SmartPointer<T> & sptr) {
+19
+if ( t h i s == &sptr) return * t h i s ;
+20
+21
+/* If already assigned to an object, remove one reference. */
+22
+if (*ref_count > 0) {
+23
+remove();
+24
+>
+25
+26
+ref = s p t r , r e f ;
+27
+ref_count = sptr.ref_count;
+28
+++(*ref_count);
+29
+return * t h i s ;
+30
+}
+31
+32
+~SmartPointer{) {
+33
+remove{); II Remove one reference to object.
+34
+>
+35
+36
+T getvalue() {
+37
+return * r e f ;
+38
+>
+39
+40
+protected:
+41
+void remove() {
+42
+—(*ref_count);
+43
+if (*ref_count == 0) {
+CrackingTheCodinglrtterview.com | 6th Edition
+429

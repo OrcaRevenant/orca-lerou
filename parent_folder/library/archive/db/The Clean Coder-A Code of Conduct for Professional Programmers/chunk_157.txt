@@ -1,0 +1,29 @@
+MEETINGS
+125
+STA N D - U P M E ETI N G S
+These meetings are part of the Agile cannon. Their name comes from the fact
+that the participants are expected to stand while the meeting is in session. Each
+participant takes a turn to answer three questions:
+1. What did I do yesterday?
+2. What am I going to do today?
+3. What’s in my way?
+That’s all. Each question should require no more than twenty seconds, so
+each participant should require no more than one minute. Even in a group
+of ten people this meeting should be over well before ten minutes has
+elapsed.
+ITE R ATI O N PL AN N I N G M E ETI N G S
+These are the most difficult meetings in the Agile canon to do well. Done
+poorly, they take far too much time. It takes skill to make these meetings go
+well, a skill that is well worth learning.
+Iteration planning meetings are meant to select the backlog items that will be
+executed in the next iteration. Estimates should already be done for the candi-
+date items. Assessment of business value should already be done. In really good
+organizations the acceptance/component tests will already be written, or at least
+sketched out.
+The meeting should proceed quickly with each candidate backlog item being
+briefly discussed and then either selected or rejected. No more than five or ten
+minutes should be spent on any given item. If a longer discussion is needed, it
+should be scheduled for another time with a subset of the team.
+My rule of thumb is that the meeting should take no more than 5% of the total
+time in the iteration. So for a one week iteration (forty hours) the meeting
+should be over within two hours.

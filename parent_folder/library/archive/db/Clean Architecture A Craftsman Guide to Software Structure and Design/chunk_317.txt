@@ -1,0 +1,31 @@
+large staff of programmers who are actively maintaining the old system. Here’s
+just one example of the difficulties they encountered.
+EUROPE
+At about the same time that the SAC was being redesigned in C, the company
+started to expand sales into Europe. They could not wait for the redesigned
+software to be finished, so of course, they deployed the old M365 systems into
+Europe.
+The problem was that the phone systems in Europe were very different from the
+phone systems in the United States. The organization of the craft and of the
+bureaucracies were different as well. So one of our best programmers was sent to
+the United Kingdom to lead a team of U.K. developers to modify the SAC
+software to deal with all these European issues.
+Of course, no serious attempt was made to integrate these changes into the U.S.-
+based software. This was long before networks made it feasible to transmit large
+code bases across the ocean. These U.K. developers simply forked the U.S.-
+based code and modified it as needed.
+This, of course, caused difficulties. Bugs were found on both sides of the
+Atlantic that needed repair on the other side. But the modules had changed
+significantly, so it was very difficult to determine whether the fix made in the
+United States would work in the United Kingdom.
+After a few years of heartburn, and the installation of a high-throughput line
+connecting the U.S. and U.K. offices, a serious attempt was made to integrate
+these two forks back together again, making the differences a matter of
+configuration. This effort failed the first, second, and third times it was tried. The
+two code bases, though remarkably similar, were still too different to reintegrate
+—especially in the rapidly changing market environment that existed at that
+time.
+Meanwhile, the “Tiger Team,” trying to rewrite everything in C and UNIX,
+realized that it also had to deal with this European/US dichotomy. And, of
+course, that did nothing to accelerate their progress.
+SAC CONCLUSION

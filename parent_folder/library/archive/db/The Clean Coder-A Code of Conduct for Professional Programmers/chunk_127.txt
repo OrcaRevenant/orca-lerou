@@ -1,0 +1,14 @@
+95
+7
+ACC EPTANC E
+TESTING
+The role of the professional developer is a communications role as well as a devel-
+opment role. Remember that garbage-in/garbage-out applies to programmers too,
+so professional programmers are careful to make sure that their communication
+with other members of the team, and the business, are accurate and healthy.
+CO M M U N I CATI N G R EQU I R E M E NTS
+One of the most common communication issues between programmers and
+business is the requirements. The business people state what they believe they
+need, and then the programmers build what they believe the business described.
+At least that’s how it’s supposed to work. In reality, the communication of
+requirements is extremely difficult, and the process is fraught with error.

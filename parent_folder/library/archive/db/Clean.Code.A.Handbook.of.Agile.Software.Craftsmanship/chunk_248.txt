@@ -1,0 +1,47 @@
+218
+Chapter 14: Successive Reﬁnement
+Next, I wanted to deploy the get method into BooleanArgumentMarshaler. Deploying
+get functions is always ugly because the return type has to be Object, and in this case
+needs to be cast to a Boolean.
+public boolean getBoolean(char arg) {
+Args.ArgumentMarshaler am = booleanArgs.get(arg);
+return am != null && (Boolean)am.get();
+}
+Just to get this to compile, I added the get function to the ArgumentMarshaler.
+private abstract class ArgumentMarshaler {
+...
+public Object get() {
+return null;
+}
+}
+This compiled and obviously failed the tests. Getting the tests working again was simply a
+matter of making get abstract and implementing it in BooleanAgumentMarshaler.
+private abstract class ArgumentMarshaler {
+protected boolean booleanValue = false;
+...
+public abstract Object get();
+}
+private class BooleanArgumentMarshaler extends ArgumentMarshaler {
+public void set(String s) {
+booleanValue = true;
+}
+public Object get() {
+return booleanValue;
+}
+}
+Once again the tests passed. So both get and set deploy to the BooleanArgumentMarshaler!
+This allowed me to remove the old getBoolean function from ArgumentMarshaler, move the
+protected booleanValue variable down to BooleanArgumentMarshaler, and make it private.
+I did the same pattern of changes for Strings. I deployed both set and get, deleted the
+unused functions, and moved the variables.
+private void setStringArg(char argChar) throws ArgsException {
+currentArgument++;
+try {
+stringArgs.get(argChar).set(args[currentArgument]);
+} catch (ArrayIndexOutOfBoundsException e) {
+valid = false;
+errorArgumentId = argChar;
+errorCode = ErrorCode.MISSING_STRING;
+throw new ArgsException();
+}
+}

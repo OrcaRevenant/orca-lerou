@@ -1,0 +1,27 @@
+that independence has not changed. The web is not an exception to that rule.
+Or is it? The argument can be made that a GUI, like the web, is so unique and
+rich that it is absurd to pursue a device-independent architecture. When you
+think about the intricacies of JavaScript validation or drag-and-drop AJAX calls,
+or any of the plethora of other widgets and gadgets you can put on a web page,
+it’s easy to argue that device independence is impractical.
+To some extent, this is true. The interaction between the application and the GUI
+is “chatty” in ways that are quite specific to the kind of GUI you have. The
+dance between a browser and a web application is different from the dance
+between a desktop GUI and its application. Trying to abstract out that dance, the
+way devices are abstracted out of UNIX, seems unlikely to be possible.
+But another boundary between the UI and the application can be abstracted. The
+business logic can be thought of as a suite of use cases, each of which performs
+some function on behalf of a user. Each use case can be described based on the
+input data, the processing preformed, and the output data.
+At some point in the dance between the UI and the application, the input data
+can be said to be complete, allowing the use case to be executed. Upon
+completion, the resultant data can be fed back into the dance between the UI and
+the application.
+The complete input data and the resultant output data can be placed into data
+structures and used as the input values and output values for a process that
+executes the use case. With this approach, we can consider each use case to be
+operating the IO device of the UI in a device-independent manner.
+CONCLUSION
+This kind of abstraction is not easy, and it will likely take several iterations to get
+just right. But it is possible. And since the world is full of marketing geniuses,
+it’s not hard to make the case that it’s often very necessary.

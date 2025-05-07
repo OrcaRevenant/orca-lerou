@@ -1,0 +1,33 @@
+point in time, but it also meets them over time.
+If you think good architecture is expensive, try bad architecture.
+—Brian Foote and Joseph Yoder
+The kinds of changes a system’s development typically experiences should not
+be the changes that are costly, that are hard to make, that take managed projects
+of their own rather than being folded into the daily and weekly flow of work.
+That point leads us to a not-so-small physics-related problem: time travel. How
+do we know what those typical changes will be so that we can shape those
+significant decisions around them? How do we reduce future development effort
+and cost without crystal balls and time machines?
+Architecture is the decisions that you wish you could get right early in a project, but that you are
+not necessarily more likely to get them right than any other.
+—Ralph Johnson
+Understanding the past is hard enough as it is; our grasp of the present is
+slippery at best; predicting the future is nontrivial.
+This is where the road forks many ways.
+Down the darkest path comes the idea that strong and stable architecture comes
+from authority and rigidity. If change is expensive, change is eliminated—its
+causes subdued or headed off into a bureaucratic ditch. The architect’s mandate
+is total and totalitarian, with the architecture becoming a dystopia for its
+developers and a constant source of frustration for all.
+Down another path comes a strong smell of speculative generality. A route filled
+with hard-coded guesswork, countless parameters, tombs of dead code, and more
+accidental complexity than you can shake a maintenance budget at.
+The path we are most interested is the cleanest one. It recognizes the softness of
+software and aims to preserve it as a first-class property of the system. It
+recognizes that we operate with incomplete knowledge, but it also understands
+that, as humans, operating with incomplete knowledge is something we do,
+something we’re good at. It plays more to our strengths than to our weaknesses.
+We create things and we discover things. We ask questions and we run
+experiments. A good architecture comes from understanding it more as a journey
+than as a destination, more as an ongoing process of enquiry than as a frozen
+artifact.

@@ -1,0 +1,36 @@
+338
+Appendix A: Concurrency II
+Breaking Lock & Wait
+You can also eliminate deadlock if you refuse to wait. Check each resource before you
+seize it, and release all resources and start over if you run into one that’s busy.
+This approach introduces several potential problems:
+• Starvation—One thread keeps being unable to acquire the resources it needs (maybe it
+has a unique combination of resources that seldom all become available).
+• Livelock—Several threads might get into lockstep and all acquire one resource and
+then release one resource, over and over again. This is especially likely with simplistic
+CPU scheduling algorithms (think embedded devices or simplistic hand-written
+thread balancing algorithms).
+Both of these can cause poor throughput. The ﬁrst results in low CPU utilization,
+whereas the second results in high and useless CPU utilization.
+As inefﬁcient as this strategy sounds, it’s better than nothing. It has the beneﬁt that it
+can almost always be implemented if all else fails.
+Breaking Preemption
+Another strategy for avoiding deadlock is to allow threads to take resources away from
+other threads. This is usually done through a simple request mechanism. When a thread
+discovers that a resource is busy, it asks the owner to release it. If the owner is also waiting
+for some other resource, it releases them all and starts over.
+This is similar to the previous approach but has the beneﬁt that a thread is allowed to
+wait for a resource. This decreases the number of startovers. Be warned, however, that
+managing all those requests can be tricky.
+Breaking Circular Wait
+This is the most common approach to preventing deadlock. For most systems it requires
+no more than a simple convention agreed to by all parties.
+In the example above with Thread 1 wanting both Resource 1 and Resource 2 and
+Thread 2 wanting both Resource 2 and then Resource 1, simply forcing both Thread 1 and
+Thread 2 to allocate resources in the same order makes circular wait impossible.
+More generally, if all threads can agree on a global ordering of resources and if they
+all allocate resources in that order, then deadlock is impossible. Like all the other strate-
+gies, this can cause problems:
+• The order of acquisition might not correspond to the order of use; thus a resource
+acquired at the start might not be used until the end. This can cause resources to be
+locked longer than strictly necessary.

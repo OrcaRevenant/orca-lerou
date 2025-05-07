@@ -1,0 +1,38 @@
+27
+Add Meaningful Context
+If you follow the “one word per concept” rule, you could end up with many classes
+that have, for example, an add method. As long as the parameter lists and return values of
+the various add methods are semantically equivalent, all is well.
+However one might decide to use the word add for “consistency” when he or she is not
+in fact adding in the same sense. Let’s say we have many classes where add will create a
+new value by adding or concatenating two existing values. Now let’s say we are writing a
+new class that has a method that puts its single parameter into a collection. Should we call
+this method add? It might seem consistent because we have so many other add methods,
+but in this case, the semantics are different, so we should use a name like insert or append
+instead. To call the new method add would be a pun.
+Our goal, as authors, is to make our code as easy as possible to understand. We want
+our code to be a quick skim, not an intense study. We want to use the popular paperback
+model whereby the author is responsible for making himself clear and not the academic
+model where it is the scholar’s job to dig the meaning out of the paper.
+Use Solution Domain Names
+Remember that the people who read your code will be programmers. So go ahead and use
+computer science (CS) terms, algorithm names, pattern names, math terms, and so forth. It
+is not wise to draw every name from the problem domain because we don’t want our
+coworkers to have to run back and forth to the customer asking what every name means
+when they already know the concept by a different name.
+The name AccountVisitor means a great deal to a programmer who is familiar with
+the VISITOR pattern. What programmer would not know what a JobQueue was? There are
+lots of very technical things that programmers have to do. Choosing technical names for
+those things is usually the most appropriate course.
+Use Problem Domain Names
+When there is no “programmer-eese” for what you’re doing, use the name from the prob-
+lem domain. At least the programmer who maintains your code can ask a domain expert
+what it means.
+Separating solution and problem domain concepts is part of the job of a good pro-
+grammer and designer. The code that has more to do with problem domain concepts
+should have names drawn from the problem domain.
+Add Meaningful Context
+There are a few names which are meaningful in and of themselves—most are not. Instead,
+you need to place names in context for your reader by enclosing them in well-named
+classes, functions, or namespaces. When all else fails, then preﬁxing the name may be nec-
+essary as a last resort.

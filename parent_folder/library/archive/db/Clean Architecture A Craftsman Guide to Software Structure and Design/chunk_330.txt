@@ -1,0 +1,33 @@
+The experience with the service-oriented architecture of ER made me want to try
+the same idea more aggressively. The state machine for a trouble ticket was
+much more involved than the state machine for handling a call with ER. I set
+about to create what would now be called a micro-service architecture.
+Every state transition of any call, no matter how insignificant, caused the system
+to start up a new service. Indeed, the state machine was externalized into a text
+file that the system read. Each event coming into the system from a phone line
+turned into a transition in that finite state machine. The existing process would
+start a new process dictated by the state machine to handle that event; then the
+existing process would either exit or wait on a queue.
+This externalized state machine allowed us to change the flow of the application
+without changing any code (the Open-Closed Principle). We could easily add a
+new service, independently of any of the others, and wire it into the flow by
+modifying the text file that contained the state machine. We could even do this
+while the system was running. In other words we had hot-swapping and an
+effective BPEL (Business Process Execution Language).
+The old ER approach of using disk files to communicate between services was
+too slow for this much more rapid flip-flopping of services, so we invented a
+shared memory mechanism that we called the 3DBB.12 The 3DBB allowed data
+to be accessed by name; the names we used were names assigned to each state
+machine instance.
+The 3DBB was great for storing strings and constants, but couldn’t be used for
+holding complex data structures. The reason for this is technical but easy to
+understand. Each process in MP/M lived in its own memory partition. Pointers to
+data in one memory partition had no meaning in another memory partition. As a
+consequence, the data in the 3DBB could not contain pointers. Strings were fine,
+but trees, linked lists, or any data structure with pointers would not work.
+The trouble tickets in the trouble ticket system came from many different
+sources. Some were automated, and some were manual. The manual entries were
+created by operators who were talking to customers about their troubles. As the
+customers described their problems, the operators would type in their complaints
+and observations in a structured text stream. It looked something like this:
+Click here to view code image

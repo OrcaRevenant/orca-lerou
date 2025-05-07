@@ -1,0 +1,23 @@
+As an example of these two fallacies, let’s look at our taxi aggregator system
+again. Remember, this system knows about many taxi providers in a given city,
+and allows customers to order rides. Let’s assume that the customers select taxis
+based on a number of criteria, such as pickup time, cost, luxury, and driver
+experience.
+We wanted our system to be scalable, so we chose to build it out of lots of little
+micro-services. We subdivided our development staff into many small teams,
+each of which is responsible for developing, maintaining, and operating a
+correspondingly1 small number of services.
+The diagram in Figure 27.1 shows how our fictitious architects arranged services
+to implement this application. The TaxiUI service deals with the customers, who
+use mobile devices to order taxis. The TaxiFinder service examines the
+inventories of the various TaxiSuppliers and determines which taxies are
+possible candidates for the user. It deposits these into a short-term data record
+attached to that user. The TaxiSelector service takes the user’s criteria of cost,
+time, luxury, and so forth, and chooses an appropriate taxi from among the
+candidates. It hands that taxi off to the TaxiDispatcher service, which orders
+the appropriate taxi.
+Figure 27.1 Services arranged to implement the taxi aggregator system
+Now let us suppose that this system has been in operation for more than a year.
+Our staff of developers have been happily developing new features while
+maintaining and operating all these services.
+One bright and cheerful day, the marketing department holds a meeting with the

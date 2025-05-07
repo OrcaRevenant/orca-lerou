@@ -1,0 +1,19 @@
+component graph in Figure 8.3. These arrows point toward the components that
+we want to protect from change.
+Figure 8.3 The component relationships are unidirectional
+Let me say that again: If component A should be protected from changes in
+component B, then component B should depend on component A.
+We want to protect the Controller from changes in the Presenters. We want to
+protect the Presenters from changes in the Views. We want to protect the
+Interactor from changes in—well, anything.
+The Interactor is in the position that best conforms to the OCP. Changes to the
+Database, or the Controller, or the Presenters, or the Views, will have no impact
+on the Interactor.
+Why should the Interactor hold such a privileged position? Because it contains
+the business rules. The Interactor contains the highest-level policies of the
+application. All the other components are dealing with peripheral concerns. The
+Interactor deals with the central concern.
+Even though the Controller is peripheral to the Interactor, it is nevertheless
+central to the Presenters and Views. And while the Presenters might be
+peripheral to the Controller, they are central to the Views.
+Notice how this creates a hierarchy of protection based on the notion of “level.”

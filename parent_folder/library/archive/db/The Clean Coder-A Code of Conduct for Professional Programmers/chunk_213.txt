@@ -1,0 +1,32 @@
+CHAPTER 14 MENTORING, APPRENTICESHIP, AND CRAFTSMANSHIP
+182
+bills, and accepts our payments. Software washes our clothes and tells us the
+time. It puts pictures on the TV, sends our text messages, makes our phone calls,
+and entertains us when we are bored. It’s everywhere.
+Given that we entrust software developers with all aspects of our lives, from the
+minutia to the momentous, I suggest that a reasonable period of training and
+supervised practice is not inappropriate.
+S O FT WA R E A PPR E NTI C E S H I P
+So how should the software profession induct young graduates into the ranks of
+professionalism? What steps should they follow? What challenges should they
+meet? What goals should they achieve? Let’s work it backwards.
+Masters
+These are programmers who have taken the lead on more than one significant
+software project. Typically they will have 10+ years of experience and will have
+worked on several different kinds of systems, languages, and operating systems.
+They know how to lead and coordinate multiple teams, are proficient designers
+and architects, and can code circles around everyone else without breaking a
+sweat. They have been offered management positions, but have either turned
+them down, have fled back after accepting them, or have integrated them with
+their primarily technical role. They maintain that technical role by reading,
+studying, practicing, doing, and teaching. It is to a master that the company will
+assign technical responsibility for a project. Think, “Scotty.”
+Journeymen
+These are programmers who are trained, competent, and energetic. During this
+period of their career they will learn to work well in a team and to become team
+leaders. They are knowledgeable about current technology but typically lack
+experience with many diverse systems. They tend to know one language, one
+system, one platform; but they are learning more. Experience levels vary widely
+among their ranks, but the average is about five years. On the far side of
+that average we have burgeoning masters; on the near side we have recent
+apprentices.

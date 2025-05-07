@@ -1,0 +1,71 @@
+Solutions to Chapter 15 | Threads and Locks
+P( will be able to easily compute T, since this is just the time between events 3 and 8. So, to solve for Tc, we
+must first determine the value of 1\ + T.
+a
+How can we 60 this? We can do this by measuring the length of time it takes
+to send and receive a token
+to itself.This will not induce a context switch since P1 is running on the CPU at the time it sent the token and
+will not block to receive it.
+The game is played a number of iterations to average out any variability in the elapsed time between steps
+2 and 9 that may result from unexpected kernel interrupts and additional kernel threads contending for the
+CPU. We select the smallest observed context switch time as our final answer.
+However, all we can ultimately say that this is an approximation which depends on the underlying system.
+For example, we make the assumption that P; is selected to run once a data token becomes available.
+However, this is dependent on the implementation of the task scheduler and we cannot make any guar-
+antees.
+That's okay; it's important in an interview to recognize when your solution might not be perfect,
+15,3
+Dining Philosophers; In the famous dining philosophers problem, a bunch of philosophers are
+sitting around a circular table with one chopstick between each of them. A philosopher needs both
+chopsticks to eat, and always picks up the left chopstick before the right one. A deadlock could
+potentially occur if all the philosophers reached for the left chopstick at the same time. Using threads
+and locks, implement a simulation of the dining philosophers problem that prevents deadlocks.
+pg 180
+SOLUTION
+First, let's implement a simple simulation of the dining philosophers problem in which we don't concern
+ourselves with deadlocks. We can implement this solution by having P h i l o s o p h e r extend Thread, and
+C h o p s t i c k call l o c k , l o c k () when it is picked up and l o c k , unlock (} when it is put down.
+1
+class Chopstick {
+2
+private Lock lock;
+3
+4
+public Chopstick() {
+5
+lock = new ReentrantLock();
+6
+}
+7
+8
+public void pickUp() {
+9
+void l o c k . l o c k Q ;
+16
+>
+11
+12
+public void putOown() {
+13
+lock.unlockQ;
+14
+>
+15 >
+16
+17 class Philosopher extends Thread {
+18
+private i n t bites = 10;
+19
+private Chopstick l e f t ,
+r i g h t ;
+20
+21
+public Philosopher(Chopstick l e f t , Chopstick r i g h t ) {
+22
+t h i s . l e f t = l e f t ;
+23
+t h i s . r i g h t = r i g h t ;
+24
+}
+CrackingTbeCoding lnterview.com 16th Edition
+449

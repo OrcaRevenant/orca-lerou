@@ -1,0 +1,70 @@
+Solutions to Chapter 3 | Stacks and Queues
+20
+private void shiftStacksQ {
+21
+if
+(stackOldest. isEmptyQ)
+{
+22
+while (IstackNewest.isEmptyO) {
+23
+stackOldest.push(stackNewest.pop());
+24
+}
+25
+}
+26
+>
+27
+28
+public T peek() {
+29
+s h i f t S t a c k s O ; // Ensure stackOldest has the current elements
+30
+return stackOldest.peekQ; // retrieve the oldest item.
+31
+>
+32
+33
+public T remove() {
+34
+s h i f t S t a c k s O ; // Ensure stackOldest has the current elements
+35
+return stackOldest.pop(); // pop the oldest item.
+36
+>
+37
+}
+During your actual interview, you may find that you forget the exact API calls. Don't stress too much if that
+happens to you. Most interviewers are okay with your asking for them to refresh your memory on little
+details. They're much more concerned with your big picture understanding.
+3.5
+Sort Stack; Write a program to sort a stack such that the smallest items are on the top. You can use
+an additional temporary stack, but you may not copy the elements into any other data structure
+(such as an array). The stack supports the following operations: push, pop, peek, and is Empty.
+pg99
+SOLUTION
+One approach is to implement a rudimentary sorting algorithm. We search through the entire stack to find
+the minimum element and then push that onto a new stack. Then, we find the new minimum element
+and push that. This will actually require a total of three stacks: si is the original stack, s2 is the final sorted
+stack, and s3 acts as a buffer during our searching of si.To search si for each minimum, we need to pop
+elements from si and push them onto the buffer, s3.
+Unfortunately, this requires two additionaf stacks, and we can only use one. Can we do better? Yes,
+Rather than searching for the minimum repeatedly, we can sort si by inserting each element from si in
+order into s2. How would this work?
+Imagine we have the following stacks, where s2 is "sorted"and si is not:
+Si
+S2
+12
+S
+8
+10
+3
+7
+1
+When we pop 5 from s i , we need to find the right place in s2 to insert this number. In this case, the correct
+place is on s2 just above 3. How do we get it there? We can do this by popping 5 from si and holding it
+in a temporary variable. Then, we move 12 and 8 over to si (by popping them from s2 and pushing them
+onto Si) and then push 5 onto s2.
+CrackingTheCodinglnterview.com ] 6th Edition
+239

@@ -1,0 +1,36 @@
+class MyCoolArray extends Array {
+// force `species` to be parent constructor
+static get [Symbol.species]() { return Array; }
+}
+var x = new MyCoolArray( 1, 2, 3 );
+x.slice( 1 ) instanceof MyCoolArray;                // false
+x.slice( 1 ) instanceof Array;                      // true
+It’s important to note that the @@species setting is only used for the prototype meth‐
+ods, like slice(..). It’s not used by of(..) and from(..); they both just use the this
+binding (whatever constructor is used to make the reference). Consider:
+class MyCoolArray extends Array {
+// force `species` to be parent constructor
+static get [Symbol.species]() { return Array; }
+}
+var x = new MyCoolArray( 1, 2, 3 );
+x.slice( 1 ) instanceof Array;                      // true
+MyCoolArray.from( x ) instanceof Array;             // false
+MyCoolArray.of( [2, 3] ) instanceof Array;          // false
+MyCoolArray.from( x ) instanceof MyCoolArray;       // true
+MyCoolArray.of( [2, 3] ) instanceof MyCoolArray;    // true
+copyWithin(..) Prototype Method
+Array#copyWithin(..) is a new mutator method available to all arrays (including
+Typed Arrays — see Chapter 5). copyWithin(..) copies a portion of an array to
+another location in the same array, overwriting whatever was there before.
+The arguments are target (the index to copy to), start (the inclusive index to start the
+copying from), and optionally end (the exclusive index to stop copying). If any of the
+arguments are negative, they’re taken to be relative from the end of the array.
+Consider:
+[1,2,3,4,5].copyWithin( 3, 0 );         // [1,2,3,1,2]
+[1,2,3,4,5].copyWithin( 3, 0, 1 );      // [1,2,3,1,5]
+[1,2,3,4,5].copyWithin( 0, -2 );        // [4,5,3,4,5]
+[1,2,3,4,5].copyWithin( 0, -2, -1 );    // [4,2,3,4,5]
+156
+|
+Chapter 6: API Additions
+www.it-ebooks.info

@@ -1,0 +1,51 @@
+261
+The JUnit Framework
+for (; !suffixOverlapsPrefix(suffixLength); suffixLength++) {
+if (charFromEnd(expected, suffixLength) !=
+charFromEnd(actual, suffixLength))
+break;
+}
+suffixIndex = suffixLength;
+}
+private char charFromEnd(String s, int i) {
+return s.charAt(s.length()-i);}
+private boolean suffixOverlapsPrefix(int suffixLength) {
+return actual.length() - suffixLength < prefixLength ||
+expected.length() - suffixLength < prefixLength;
+}
+This is much better. It exposes that the suffixIndex is really the length of the sufﬁx
+and is not well named. The same is true of the prefixIndex, though in that case “index” and
+“length” are synonymous. Even so, it is more consistent to use “length.” The problem is
+that the suffixIndex variable is not zero based; it is 1 based and so is not a true length. This
+is also the reason that there are all those +1s in computeCommonSuffix [G33]. So let’s ﬁx that.
+The result is in Listing 15-4.
+Listing 15-4
+ComparisonCompactor.java (interim)
+public class ComparisonCompactor {
+...
+private int suffixLength;
+...
+private void findCommonPrefixAndSuffix() {
+findCommonPrefix();
+suffixLength = 0;
+for (; !suffixOverlapsPrefix(suffixLength); suffixLength++) {
+if (charFromEnd(expected, suffixLength) !=
+charFromEnd(actual, suffixLength))
+break;
+}
+}
+private char charFromEnd(String s, int i) {
+return s.charAt(s.length() - i - 1);
+}
+private boolean suffixOverlapsPrefix(int suffixLength) {
+return actual.length() - suffixLength <= prefixLength ||
+expected.length() - suffixLength <= prefixLength;
+}
+...
+private String compactString(String source) {
+String result =
+DELTA_START +
+source.substring(prefixLength, source.length() - suffixLength) +
+DELTA_END;
+if (prefixLength > 0)
+result = computeCommonPrefix() + result;

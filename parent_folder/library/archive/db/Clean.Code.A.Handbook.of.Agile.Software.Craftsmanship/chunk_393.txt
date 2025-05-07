@@ -1,0 +1,67 @@
+365
+Appendix B: org.jfree.date.SerialDate
+972      * specified range (INCLUSIVE).  The date order of d1 and d2 is not
+973      * important.
+974      *
+975      * @param d1  a boundary date for the range.
+976      * @param d2  the other boundary date for the range.
+977      *
+978      * @return A boolean.
+979      */
+980     public abstract boolean isInRange(SerialDate d1, SerialDate d2);
+981
+982     /**
+983      * Returns <code>true</code> if this {@link SerialDate} is within the
+984      * specified range (caller specifies whether or not the end-points are
+985      * included).  The date order of d1 and d2 is not important.
+986      *
+987      * @param d1  a boundary date for the range.
+988      * @param d2  the other boundary date for the range.
+989      * @param include  a code that controls whether or not the start and end
+990      *                 dates are included in the range.
+991      *
+992      * @return A boolean.
+993      */
+994     public abstract boolean isInRange(SerialDate d1, SerialDate d2,
+995                                       int include);
+996
+997     /**
+998      * Returns the latest date that falls on the specified day-of-the-week and
+999      * is BEFORE this date.
+1000      *
+1001      * @param targetDOW  a code for the target day-of-the-week.
+1002      *
+1003      * @return the latest date that falls on the specified day-of-the-week and
+1004      *         is BEFORE this date.
+1005      */
+1006     public SerialDate getPreviousDayOfWeek(final int targetDOW) {
+1007         return getPreviousDayOfWeek(targetDOW, this);
+1008     }
+1009
+1010     /**
+1011      * Returns the earliest date that falls on the specified day-of-the-week
+1012      * and is AFTER this date.
+1013      *
+1014      * @param targetDOW  a code for the target day-of-the-week.
+1015      *
+1016      * @return the earliest date that falls on the specified day-of-the-week
+1017      *         and is AFTER this date.
+1018      */
+1019     public SerialDate getFollowingDayOfWeek(final int targetDOW) {
+1020         return getFollowingDayOfWeek(targetDOW, this);
+1021     }
+1022
+1023     /**
+1024      * Returns the nearest date that falls on the specified day-of-the-week.
+1025      *
+1026      * @param targetDOW  a code for the target day-of-the-week.
+1027      *
+1028      * @return the nearest date that falls on the specified day-of-the-week.
+1029      */
+1030     public SerialDate getNearestDayOfWeek(final int targetDOW) {
+1031         return getNearestDayOfWeek(targetDOW, this);
+1032     }
+1033
+1034 }
+Listing B-1 (continued)
+SerialDate.Java

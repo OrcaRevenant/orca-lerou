@@ -1,0 +1,37 @@
+foo = 10;
+bar = "cool";
+When you import this module, the default and bar exports will be bound to the
+local variables foo and bar, meaning they will reveal the updated 10 and "cool" val‐
+ues. The values at time of export are irrelevant. The values at time of import are irrel‐
+evant. The bindings are live links, so all that matters is what the current value is when
+you access the binding.
+These bindings are not allowed to be 2-way. If you import a foo
+from a module, and try to change the value of your imported foo
+variable, an error will be thrown! We’ll revisit that in the next sec‐
+tion.
+You can also re-export another module’s exports, such as:
+export { foo, bar } from "baz";
+export { foo as FOO, bar as BAR } from "baz";
+export * from "baz";
+Those forms are similar to just first importing from the "baz" module then listing its
+members explicitly for export from your module. However, in these forms, the mem‐
+bers of the "baz" module are never imported to your module’s local scope; they sort
+of pass-through untouched.
+`import`ing API Members
+To import a module, unsurprisingly you use the import statement. Just as export has
+several nuanced variations, so does import, so spend plenty of time considering the
+following issues and experimenting with your options.
+If you want to import certain specific named members of a module’s API into your
+top-level scope, you use this syntax:
+import { foo, bar, baz } from "foo";
+The { .. } syntax here may look like an object literal, or even an
+object destructuring syntax. However, it’s form is special just for
+modules, so be careful not to confuse it with other { .. } patterns
+elsewhere.
+The "foo" string is called a module specifier. Because the whole goal is statically ana‐
+lyzable syntax, the module specifier must be a string literal; it cannot be a variable
+holding the string value.
+Modules
+|
+107
+www.it-ebooks.info

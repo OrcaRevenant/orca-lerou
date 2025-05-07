@@ -1,0 +1,20 @@
+Figure 14.2 A dependency cycle
+But this is just part of the trouble. Consider what happens when we want to test
+the Entities component. To our chagrin, we find that we must build and
+integrate with Authorizer and Interactors. This level of coupling between
+components is troubling, if not intolerable.
+You may have wondered why you have to include so many different libraries,
+and so much of everybody else’s stuff, just to run a simple unit test of one of
+your classes. If you investigate the matter a bit, you will probably discover that
+there are cycles in the dependency graph. Such cycles make it very difficult to
+isolate components. Unit testing and releasing become very difficult and error
+prone. In addition, build issues grow geometrically with the number of modules.
+Moreover, when there are cycles in the dependency graph, it can be very difficult
+to work out the order in which you must build the components. Indeed, there
+probably is no correct order. This can lead to some very nasty problems in
+languages like Java that read their declarations from compiled binary files.
+BREAKING THE CYCLE
+It is always possible to break a cycle of components and reinstate the
+dependency graph as a DAG. There are two primary mechanisms for doing so:
+1. Apply the Dependency Inversion Principle (DIP). In the case in Figure 14.3,
+we could create an interface that has the methods that User needs. We could

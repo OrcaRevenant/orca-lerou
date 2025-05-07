@@ -1,0 +1,24 @@
+As a result, Docker. Inc. developed their own tool called libcontainer as a
+replacement for LXC. The goal of libcontainer was to be a platform-agnostic
+tool that provided Docker with access to the fundamental container building-
+blocks that exist inside the OS.
+Libcontainer replaced LXC as the default execution driver in Docker 0.9.
+Getting rid of the monolithic Docker daemon
+Over time, the monolithic nature of the Docker daemon became more and more
+problematic:
+1. It’s hard to innovate on.
+2. It got slower.
+3. It wasn’t what the ecosystem (or Docker, Inc.) wanted.
+Docker, Inc. was aware of these challenges, and began a huge effort to break
+apart the monolithic daemon and modularize it. The aim of this work is to break
+out as much of the functionality as possible from the daemon, and re-implement
+it in smaller specialized tools. These specialized tools can be swapped out, as
+well as easily used by third parties to build other tools. This plan follows the
+tried-and-tested Unix philosophy of building small specialized tools that can be
+pieced together into larger tools.
+This work of breaking apart and re-factoring the Docker engine is an ongoing
+process. However, it has already seen all of the container execution and
+container runtime code entirely removed from the daemon and refactored
+into small, specialized tools.
+Figure 5.3 shows a high-level view of the Docker engine architecture with brief
+descriptions.

@@ -1,0 +1,43 @@
+11: Security in Docker
+Good security is all about layers, and Docker has lots of layers. It supports all
+the major Linux security technologies, as well as having a lot of its own - and
+most of them are simple and easy to configure.
+In this chapter, we’ll look at some of the technologies that make running
+containers on Docker very secure.
+When we get to the deep dive part of the chapter we’ll divide things up into two
+categories:
+Linux security technologies
+Docker platform security technologies
+Note: Large parts of this chapter are Linux specific. However, the Docker
+platform security technologies section is platform agnostic and applies
+equally to Linux and Windows.
+
+Security in Docker - The TLDR
+Security is all about layers! The more security layers you have, the more secure
+you are. Well… Docker offers a lot of security layers. Figure 11.1 shows some of
+the security technologies that we’ll cover in the chapter.
+Figure 11.1
+Docker on Linux leverages most of the common Linux security technologies.
+These include namespaces, control groups (cgroups), capabilities, mandatory
+access control (MAC) systems, and seccomp. For each one, Docker implements
+sensible defaults for a seamless and moderately secure out-of-the-box
+experience. However, it also allows you to customize each one to your own
+specific requirements.
+The Docker platform itself offers some excellent native security technologies.
+And one of the best things about these is that they’re amazingly simple to use!
+Docker Swarm Mode is secure by default. You get all of the following with
+zero configuration required; cryptographic node IDs, mutual authentication,
+automatic CA configuration, automatic certificate rotation, encrypted cluster
+store, encrypted networks, and more.
+Docker Content Trust (DCT) lets you sign your images and verify the integrity
+and publisher of images you pull.
+Docker Security Scanning analyses Docker images, detects known
+vulnerabilities, and provides you with a detailed report.
+
+Docker secrets makes secrets first-class citizens in the Docker ecosystem. They
+get stored in the encrypted cluster store, encrypted in-flight when delivered to
+containers, and stored in in-memory filesystems when in use.
+The important thing to know is that Docker works with the major Linux security
+technologies as well as providing its own extensive and growing set of security
+technologies. While the Linux security technologies can be a bit complicated to
+configure, the Docker platforms security technologies are very simple.

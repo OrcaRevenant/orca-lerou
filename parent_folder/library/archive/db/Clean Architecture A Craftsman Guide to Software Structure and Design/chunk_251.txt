@@ -1,0 +1,30 @@
+SBUF0: Serial output buffer.
+TI_0: Serial transmit buffer empty interrupt. Reading a 1 indicates the buffer is
+empty.
+The uppercase variables actually access micro-controller built-in peripherals. If
+you want to control interrupts and output characters, you must use these
+peripherals. Yes, this is convenient—but it’s not C.
+A clean embedded architecture would use these device access registers directly
+in very few places and confine them totally to the firmware. Anything that
+knows about these registers becomes firmware and is consequently bound to the
+silicon. Tying code to the processor will hurt you when you want to get code
+working before you have stable hardware. It will also hurt you when you move
+your embedded application to a new processor.
+If you use a micro-controller like this, your firmware could isolate these low-
+level functions with some form of a processor abstraction layer (PAL).
+Firmware above the PAL could be tested off-target, making it a little less firm.
+The Operating System Is a Detail
+A HAL is necessary, but is it sufficient? In bare-metal embedded systems, a HAL
+may be all you need to keep your code from getting too addicted to the operating
+environment. But what about embedded systems that use a real-time operating
+system (RTOS) or some embedded version of Linux or Windows?
+To give your embedded code a good chance at a long life, you have to treat the
+operating system as a detail and protect against OS dependencies.
+The software accesses the services of the operating environment through the OS.
+The OS is a layer separating the software from firmware (Figure 29.5). Using an
+OS directly can cause problems. For example, what if your RTOS supplier is
+bought by another company and the royalties go up, or the quality goes down?
+What if your needs change and your RTOS does not have the capabilities that
+you now require? You’ll have to change lots of code. These won’t just be simple
+syntactical changes due to the new OS’s API, but will likely have to adapt
+semantically to the new OS’s different capabilities and primitives.

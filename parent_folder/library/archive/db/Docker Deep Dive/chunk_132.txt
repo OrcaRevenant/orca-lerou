@@ -1,0 +1,36 @@
+The above command will scale the number of tasks/replicas from 5 to 10. In the
+background it’s updating the service’s desired state from 5 to 10. Run another
+docker service ls command to verify the operation was successful.
+$ docker service ls
+ID        NAME     MODE        REPLICAS   IMAGE               PORTS
+z7o...uw  web-fe   replicated  10/10      nigel...ci:latest   *:8080->8080/t\
+cp
+Running a docker service ps command will show that the tasks in the service
+are balanced across all nodes in the swarm as evenly as possible.
+$ docker service ps web-fe
+ID         NAME      IMAGE             NODE  DESIRED  CURRENT
+nwf...tpn  web-fe.1  nigelpoulton/...  mgr1  Running  Running 7 mins
+yb0...e3e  web-fe.2  nigelpoulton/...  wrk3  Running  Running 7 mins
+mos...gf6  web-fe.3  nigelpoulton/...  wrk2  Running  Running 7 mins
+utn...6ak  web-fe.4  nigelpoulton/...  wrk3  Running  Running 7 mins
+2ge...fyy  web-fe.5  nigelpoulton/...  mgr3  Running  Running 7 mins
+64y...m49  web-fe.6  igelpoulton/...   wrk3  Running  Running about a min
+ild...51s  web-fe.7  nigelpoulton/...  mgr1  Running  Running about a min
+vah...rjf  web-fe.8  nigelpoulton/...  wrk2  Running  Running about a mins
+xe7...fvu  web-fe.9  nigelpoulton/...  mgr2  Running  Running 45 seconds ago
+l7k...jkv  web-fe.10 nigelpoulton/...  mgr2  Running  Running 46 seconds ago
+Behind the scenes, swarm-mode runs a scheduling algorithm that defaults to
+trying to balance tasks as evenly as possible across the nodes in the swarm. At
+the time of writing, this amounts to running an equal number of tasks on each
+node without taking into consideration things like CPU load etc.
+Run another docker service scale command to bring the number back down
+from 10 to 5.
+$ docker service scale web-fe=5
+web-fe scaled to 5
+Now that we know how to scale a service, let’s see how we remove one.
+Removing a service
+Removing a service is simple - may be too simple.
+The following docker service rm command will delete the service we
+deployed earlier.
+$ docker service rm web-fe
+web-fe

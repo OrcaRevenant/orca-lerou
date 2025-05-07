@@ -1,0 +1,76 @@
+Solutions to Chapter 17 | Hard
+union(A, 8) = A + B - i n t e r s e c t i o n ^ , B)
+This means that all we realiy need to do is compute the intersection. We can derive the union, and therefore
+similarity, from that immediately.
+This gives us an 0(AB) algorithm, just to compare two arrays (or documents).
+However, we need to do this for all pairs of D documents, if we assume each document has at most W words
+then the runtime is 0(D i W2).
+Slightly Better Brute Force
+As a quick win, we can optimize the computation for the similarity of two arrays. Specifically, we need to
+optimize the intersection computation.
+We need to know the number of elements in common between the two arrays. We can throw all of A's
+elements into a hash table. Then we iterate through B, incrementing i n t e r s e c t i o n every time we find
+an element in A,
+This takes 0( A + B) time. If each array has size Wand we do this for D arrays, then this takes 0(D2 W).
+Before implementing this, let's first think about the classes we'll need.
+We'll need to return a list of document pairs and their similarities. We'll use a DocPair class for this. The
+exact return type will be a hash table that maps from DocPair to a double representing the similarity.
+1
+public class DocPair {
+2
+public int docl, doc2j
+3
+4
+public DocPair(int dl, int d2) {
+5
+docl = d l ;
+6
+doc2 = d2;
+7
+}
+8
+9
+^Override
+10
+public boolean equals(Object o) {
+11
+if (o instanceof DocPair) {
+12
+DocPair p = (DocPair) o;
+13
+return p.docl == docl 8& p.doc2 == doc2;
+14
+}
+15
+return false;
+16
+}
+17
+18
+^Override
+19
+public int hashCode() { return (docl * 31) * doc2; >
+20 }
+It will also be useful to have a class that represents the documents,
+1
+public class Document {
+2
+private Arraylist<lnteger> words;
+3
+private int docld;
+4
+5
+public Document(int id, ArrayList<Integer> w) {
+6
+docld = id;
+7
+words = w;
+8
+>
+9
+10
+public ArrayList<Integer> getWords() { return words; }
+11
+public int getldf) { return docld; >
+CrackingTheCodinginterview.com | 6th Edition
+62 3

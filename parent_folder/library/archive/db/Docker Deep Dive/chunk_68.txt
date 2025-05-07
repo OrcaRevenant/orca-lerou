@@ -1,0 +1,31 @@
+You’ll probably notice that the Microsoft images we’ve used do not exist at the
+top-level of the Docker Hub namespace. At the time of writing, they exist under
+the microsoft second-level namespace.
+After all of that, we can finally look at how we address images on the Docker
+command line.
+Image naming and tagging
+Addressing images from official repositories is as simple as giving the repository
+name and tag separated by a colon (:). The format for docker image pull when
+working with an image from an official repository is:
+docker image pull <repository>:<tag>
+In the Linux examples from earlier, we pulled an Alpine and an Ubuntu images
+with the following two commands:
+docker image pull alpine:latest and docker image pull ubuntu:latest
+These two commands pull the images tagged as “latest” from the “alpine” and
+“ubuntu” repositories.
+The following examples show how to pull various different images from official
+repositories:
+$ docker image pull mongo:3.3.11
+//This will pull the image tagged as `3.3.11`
+//from the official `mongo` repository.
+$ docker image pull redis:latest
+//This will pull the image tagged as `latest`
+//from the official `redis` repository.
+$ docker image pull alpine
+//This will pull the image tagged as `latest`
+//from the official `alpine` repository.
+A couple of points to note about the commands above.
+First, if you do not specify an image tag after the repository name, Docker will
+assume you are referring to the image tagged as latest.
+Second, the latest tag doesn’t have any magical powers! Just because an image
+is tagged as latest does not guarantee it is the most recent image in a

@@ -1,0 +1,103 @@
+Solutions to Chapter 17 | Moderate
+21
+NameSet set2 = groups.get(name2);
+22
+if (setl 1= set2) {
+23
+/* Always merge the smaller set into the bigger one. */
+24
+NameSet smaller = set2.size() < setl.size() ? set2 : setl;
+25
+NameSet bigger = set2.size() < setl.size() ? setl : set2;
+26
+27
+/* Merge l i s t s */
+28
+Set<String> otherNames = smaller.getNames();
+29
+int frequency = smaller.getFrequencyQ;
+30
+bigger.copyNamesWithFrequency(otherNames, frequency);
+31
+32
+/* Update mapping */
+33
+for (String name : otherNames) {
+34
+groups.put{name,
+bigger);
+>
+36
+}
+37
+>
+38
+}
+39
+40 /* Read through (name, frequency) pairs and initialize a mapping of names to
+41
+* NameSets (equivalence classes).*/
+42 HashMapcString, NameSet> constructGroups(HashMap<String, Integer> names) {
+43
+HashMap<String, NameSet> groups = new HashMap<String, NameSet>();
+44
+for (EntrycString, lnteger> entry : names.entrySet(J) {
+45
+String name = entry.getKey();
+46
+int frequency = entry.getValue();
+47
+NameSet group = new NameSet(name, frequency);
+48
+groups.put(name,
+group);
+49
+)
+50
+return groups;
+51 }
+52
+53 HashMapcString, Integer> convertToMap(HashMap<String, NameSet> groups) {
+54
+HashMap<String, Integer> l i s t = new HashMap<String, lnteger>();
+55
+for (NameSet group : groups,values()) {
+56
+list.put(group.getRootName(),
+group.getFrequency());
+57
+}
+58
+return l i s t ;
+59 }
+60
+61 public class NameSet {
+62
+private Set<String> names = new HashSet<String>();
+63
+private int frequency = 0;
+64
+private String rootName;
+65
+66
+public NameSet(String name, int freq) {
+67
+names.add(name);
+68
+frequency = freq;
+69
+rootName = name;
+70
+)
+71
+72
+public void copyNamesWithFrequency(Set<String> more, int freq) {
+73
+names.addAll(more);
+74
+frequency += freq;
+75
+>
+76
+CrackingTheCodinglnterview.com | 6th Edition
+495

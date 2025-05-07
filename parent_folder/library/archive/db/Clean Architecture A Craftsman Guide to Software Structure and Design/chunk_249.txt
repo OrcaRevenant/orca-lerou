@@ -1,0 +1,36 @@
+Click here to view code image
+#if defined(_ACME_X42)
+typedef unsigned int Uint_32;
+typedef unsigned short Uint_16;
+typedef unsigned char Uint_8;
+typedef int Int_32;
+typedef short Int_16;
+typedef char Int_8;
+#elif defined(_ACME_A42)
+typedef unsigned long Uint_32;
+typedef unsigned int Uint_16;
+typedef unsigned char Uint_8;
+typedef long Int_32;
+typedef int Int_16;
+typedef char Int_8;
+#else
+#error <acmetypes.h> is not supported for this environment
+#endif
+#endif
+The acmetypes.h header file should not be used directly. If you do, your code
+gets tied to one of the ACME DSPs. You are using an ACME DSP, you say, so
+what is the harm? You can’t compile your code unless you include this header. If
+you use the header and define _ACME_X42 or _ACME_A42, your integers will be the
+wrong size if you try to test your code off-target. If that is not bad enough, one
+day you’ll want to port your application to another processor, and you will have
+made that task much more difficult by not choosing portability and by not
+limiting what files know about ACME.
+Instead of using acmetypes.h, you should try to follow a more standardized path
+and use stdint.h. But what if the target compiler does not provide stdint.h?
+You can write this header file. The stdint.h you write for target builds uses the
+acmetypes.h for target compiles like this:
+Click here to view code image
+#ifndef _STDINT_H_
+#define _STDINT_H_
+#include <acmetypes.h>
+typedef Uint_32 uint32_t;

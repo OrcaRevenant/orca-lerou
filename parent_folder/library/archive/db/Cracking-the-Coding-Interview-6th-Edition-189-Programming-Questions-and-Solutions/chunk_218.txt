@@ -1,0 +1,61 @@
+2
+Solutions to Linked Lists
+2.7
+Remove Dups: Write code to remove duplicates from an unsorted linked list.
+FOLLOW UP
+How would you solve this problem if a temporary buffer is not allowed?
+pg94
+SOLUTION
+In order to remove duplicates from a linked list, we need to be able to track duplicates. A simple hash table
+will work well here.
+In the below solution, we simply iterate through the linked list, adding each element to a hash table. When
+we discover a duplicate element, we remove the element and continue iterating. We can do this all in one
+pass since we are using a linked list.
+1
+void deleteDups(LinkedListNode n) {
+2
+HashSetcInteger> set = new HashSet<Integer>();
+3
+LinkedListNode previous = n u l l ;
+4
+while (n U n u l l ) {
+5
+if
+(set.containsfn.data))
+{
+6
+previous.next = n.next;
+7
+} else {
+8
+set.add(n.data);
+9
+previous = n;
+10
+}
+11
+n = n.next;
+12
+>
+13
+}
+The above solution takes 0(N) time, where N is the number of elements in the linked list.
+Follow Up: No Buffer Allowed
+!f we don't have a buffer, we can iterate with two pointers: c u r r e n t which iterates through the linked list,
+and runner which checks all subsequent nodes for duplicates.
+1
+void deleteDups(LinkedListNode head) {
+2
+LinkedListNode current = head;
+3
+while (current 1= n u l l ) {
+4
+/* Remove a l l future nodes that have the same value */
+5
+LinkedListNode runner = current;
+6
+while (runner.next != n u l l ) {
+7
+if (runner.next.data == current.data) {
+186
+Cracking the Coding Interview, 6th Edition

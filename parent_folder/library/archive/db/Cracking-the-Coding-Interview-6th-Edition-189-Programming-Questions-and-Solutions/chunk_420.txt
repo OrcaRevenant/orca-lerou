@@ -1,0 +1,104 @@
+Solutions to Chapter 10 | Sorting and Searching
+85 can't be in the black area, since 95 is in the upper left hand corner and is therefore the smallest element
+in that square.
+85 can't be in the light gray area either, since 35 is in the lower right hand corner of that square.
+85 must be in one of the two white areas.
+So, we partition our grid into four quadrants and recursively search the lower left quadrant and the upper
+right quadrant. These, too, will get divided into quadrants and searched.
+Observe that since the diagonal is sorted, we can efficiently search it using binary search.
+The code below implements this algorithm.
+1
+Coordinate f indElement(int [] [ ] matrix, Coordinate o r i g i n , Coordinate dest, i n t x ) {
+2
+if
+( l o r i g i n . i n b o u n d s ( m a t r i x )
+j|
+Idest.inbounds(matrix))
+{
+3
+r e t u r n n u l l ;
+4
+}
+5
+if ( r n a t r i x [ o r i g i n . r o w ] [ o r i g i n . c o l u m n j == x) {
+6
+return
+o r i g i n ;
+7
+} else if ( l o r i g i n . i s B e f o r e ( d e s t ) ) {
+8
+return
+n u l l ;
+9
+}
+10
+11
+/* Set s t a r t to s t a r t of diagonal and end to the end of the diagonal. Since the
+12
+* g r i d may not be square, the end of the diagonal may not equal dest. */
+13
+Coordinate s t a r t = (Coordinate) o r i g i n . c l o n e ( ) ;
+14
+i n t diagDist = Math.min(dest.row - o r i g i n . r o w , dest.column - origin.column);
+15
+Coordinate end = new Coordinate(start.row + diagDist, start.column + d i a g D i s t ) ;
+16
+Coordinate p = new C o o r d i n a t e d , 0 ) ;
+17
+18
+/* Do binary search on the diagonal, looking f o r the f i r s t element > x */
+19
+while ( s t a r t , i s B e f o r e ( e n d ) )
+{
+20
+p.setToAverage(start,
+end);
+21
+if (x > matrix[p.row][p.column]) {
+22
+s t a r t . r o w = p.row + 1;
+23
+start.column = p.column + 1;
+24
+> else {
+25
+end.row = p.row - 1;
+26
+end.column = p.column - 1;
+27
+}
+28
+>
+29
+30
+/* S p l i t the g r i d i n t o quadrants. Search the bottom l e f t and the top r i g h t .
+*/
+31
+return partitionAndSearch(matrix, o r i g i n , dest, s t a r t j x ) ;
+32
+}
+33
+34 Coordinate p a r t i t i o n A n d S e a r c h ( i n t [ ] [ ] matrix, Coordinate o r i g i n , Coordinate dest,
+35
+Coordinate p i v o t , i n t x) {
+36
+Coordinate l o w e r l e f t O r i g i n = new Coordinate(pivot.row, origin,column);
+Coordinate lowerLeftDest = new Coordinatefdest.row, pivot.column - 1);
+38
+Coordinate upperRightOrigin = new Coordinate(origin.row, pivot.column);
+39
+Coordinate upperRightDest = new Coordinate(pivot,row - 1, dest.column);
+40
+41
+Coordinate lowerLeft = findElementfmatrix,
+lowerLeftOrigin,
+lowerLeftDest, x ) ;
+42
+if (lowerLeft == n u l l ) {
+43
+return findElement(matrix, upperRightOrigin, upperRightDest,
+x ) ;
+44
+)
+416
+Cracking the Coding Interview, 6th Edition

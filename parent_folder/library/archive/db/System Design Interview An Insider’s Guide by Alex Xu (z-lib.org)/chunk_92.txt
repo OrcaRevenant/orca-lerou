@@ -1,0 +1,13 @@
+To compare two Merkle trees, start by comparing the root hashes. If root hashes match, both
+servers have the same data. If root hashes disagree, then the left child hashes are compared
+followed by right child hashes. You can traverse the tree to find which buckets are not
+synchronized and synchronize those buckets only.
+Using Merkle trees, the amount of data needed to be synchronized is proportional to the
+differences between the two replicas, and not the amount of data they contain. In real-world
+systems, the bucket size is quite big. For instance, a possible configuration is one million
+buckets per one billion keys, so each bucket only contains 1000 keys.
+Handling data center outage
+Data center outage could happen due to power outage, network outage, natural disaster, etc.
+To build a system capable of handling data center outage, it is important to replicate data
+across multiple data centers. Even if a data center is completely offline, users can still access
+data through the other data centers.

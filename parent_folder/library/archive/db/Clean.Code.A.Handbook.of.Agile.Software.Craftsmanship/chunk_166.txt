@@ -1,0 +1,39 @@
+136
+Chapter 10: Classes
+Class Organization
+Following the standard Java convention, a class should begin with a list of variables. Pub-
+lic static constants, if any, should come ﬁrst. Then private static variables, followed by pri-
+vate instance variables. There is seldom a good reason to have a public variable.
+Public functions should follow the list of variables. We like to put the private utilities
+called by a public function right after the public function itself. This follows the stepdown
+rule and helps the program read like a newspaper article.
+Encapsulation
+We like to keep our variables and utility functions private, but we’re not fanatic about it.
+Sometimes we need to make a variable or utility function protected so that it can be
+accessed by a test. For us, tests rule. If a test in the same package needs to call a function
+or access a variable, we’ll make it protected or package scope. However, we’ll ﬁrst look for
+a way to maintain privacy. Loosening encapsulation is always a last resort.
+Classes Should Be Small!
+The ﬁrst rule of classes is that they should be small. The second rule of classes is that they
+should be smaller than that. No, we’re not going to repeat the exact same text from the
+Functions chapter. But as with functions, smaller is the primary rule when it comes to
+designing classes. As with functions, our immediate question is always “How small?”
+With functions we measured size by counting physical lines. With classes we use a
+different measure. We count responsibilities.1
+Listing 10-1 outlines a class, SuperDashboard, that exposes about 70 public methods.
+Most developers would agree that it’s a bit too super in size. Some developers might refer
+to SuperDashboard as a “God class.”
+1.
+[RDD].
+Listing 10-1
+Too Many Responsibilities
+public class SuperDashboard extends JFrame implements MetaDataUser
+public String getCustomizerLanguagePath()
+public void setSystemConfigPath(String systemConfigPath)
+public String getSystemConfigDocument()
+public void setSystemConfigDocument(String systemConfigDocument)
+public boolean getGuruState()
+public boolean getNoviceState()
+public boolean getOpenSourceState()
+public void showObject(MetaObject object)
+public void showProgress(String s)

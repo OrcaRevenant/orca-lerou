@@ -1,0 +1,34 @@
+$ docker node ls
+ID               HOSTNAME     STATUS  AVAILABILITY  MANAGER STATUS
+0g4rl...babl8 *  mgr2         Ready   Active        Reachable
+2xlti...l0nyp    mgr3         Ready   Active        Reachable
+8yv0b...wmr67    wrk1         Ready   Active
+9mzwf...e4m4n    wrk3         Ready   Active
+d21ly...9qzkx    mgr1         Ready   Active        Leader
+e62gf...l5wt6    wrk2         Ready   Active
+Congratulations! You’ve just created a 6-node swarm with 3 managers and 3
+workers. As part of the process you put the Docker Engine on each node into
+swarm mode. As a bonus, the swarm is automatically secured with TLS.
+If you look in the MANAGER STATUS column in the previous output you’ll see that
+the three manager nodes are showing as either “Reachable” or “Leader”. We’ll
+learn more about leaders shortly. Nodes with nothing in the MANAGER STATUS
+column are workers. Also note the asterisk (*) after the ID on the line showing
+mgr2. This shows us which node we ran the docker node ls command from. In
+this instance the command was issued from mgr2.
+Note: It’s a pain to specify the --advertise-addr and --listen-addr flags
+every time you join a node to the swarm. However, it can be even more of a
+pain if you get the network configuration of your swarm wrong. Manually
+adding nodes to a swarm is unlikely to be a daily task so I think it’s worth
+the extra up-front effort to use the flags. It’s your choice though. In lab
+environments or nodes with only a single IP you probably don’t need to use
+the flags.
+Now that we have a swarm up and running, let’s take a look at manager high
+availability (H/A).
+Swarm manager high availability (H/A)
+So far, we’ve added three manager nodes to a swarm. Why did we add three and
+how do they work together? We’ll answer all of this, plus more in this section.
+Swarm managers have native support for high availability (H/A). This means
+that one or more can fail and the survivors will keep the swarm running.
+Technically speaking, swarm mode implements a form of active-passive multi-
+manager H/A. This means that although you might - and should - have multiple
+managers, only one of them is ever considered active. We call this active

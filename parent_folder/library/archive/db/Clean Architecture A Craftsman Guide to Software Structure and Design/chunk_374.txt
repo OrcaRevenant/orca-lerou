@@ -1,0 +1,36 @@
+Services
+component-based, 245–246
+conclusion, 247
+cross-cutting concerns, 246–247
+decoupling fallacy, 240–241
+as function calls vs. architecture, 240
+Humble Object boundaries for, 214–215
+independent development/deployment fallacy, 241
+kitty problem, 242–243
+objects to the rescue, 244–245
+overview of, 239
+as strongest boundary, 180–181
+Set program interrupt (SPI) instruction, aluminum die-cast archaeology project,
+339
+Shape, of change, 15
+Single Responsibility Principle. See SRP (Single Responsibility Principle)
+SOA (service-oriented architecture)
+decoupling mode, 153
+in Electronic Receptionist archaeology project, 360–361
+reasons for popularity of, 239
+Sockets, local processes communicate via, 180
+Software
+clean embedded architecture isolates OS from, 270
+components. See Components
+eliminating target-hardware bottleneck with layers, 262–263
+fuzzy line between firmware and, 263–264
+getting it right, 1–2
+SOLID principles, 58
+value of architecture vs. behavior, 14–18
+Software development
+fighting for architecture over function, 18
+like a science, 31
+Software reuse
+Common Reuse Principle, 107–108
+reusable components and, 104
+Reuse/Release Equivalence Principle, 104–105

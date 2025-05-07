@@ -1,0 +1,33 @@
+3
+PRE-REQUISITE INTRODUCTION
+1 for each new record. The records with the new IDs were to be written to a
+new tape.
+My supervisor showed me a shelf that held many stacks of red and blue
+punched cards. Imagine that you bought 50 decks of playing cards, 25 red
+decks, and 25 blue decks. Then you stacked those decks one on top of the other.
+That’s what these stacks of cards looked like. They were striped red and blue,
+and the stripes were about 200 cards each. Each one of those stripes contained
+the source code for the subroutine library that the programmers typically used.
+Programmers would simply take the top deck off the stack, making sure that
+they took nothing but red or blue cards, and then put that at the end of their
+program deck.
+I wrote my program on some coding forms. Coding forms were large
+rectangular sheets of paper divided into 25 lines and 80 columns. Each line
+represented one card. You wrote your program on the coding form using block
+capital letters and a #2 pencil. In the last 6 columns of each line you wrote a
+sequence number with that #2 pencil. Typically you incremented the sequence
+number by 10 so that you could insert cards later.
+The coding form went to the key punchers. This company had several dozen
+women who took coding forms from a big in-basket, and then “typed” them
+into key-punch machines. These machines were a lot like typewriters, except
+that the characters were punched into cards instead of printed on paper.
+The next day the keypunchers returned my program to me by inter-office mail.
+My small deck of punched cards was wrapped up by my coding forms and a
+rubber band. I looked over the cards for keypunch errors. There weren’t any. So
+then I put the subroutine library deck on the end of my program deck, and
+then took the deck upstairs to the computer operators.
+The computers were behind locked doors in an environmentally controlled
+room with a raised floor (for all the cables). I knocked on the door and an
+operator austerely took my deck from me and put it into another in-basket
+inside the computer room. When they got around to it, they would run my
+deck.

@@ -1,0 +1,40 @@
+11 The Interview Process
+Whiteboards let you focus on what matters.
+It's absolutely true that you'd struggle with writing perfect code on a whiteboard. Fortunately, your inter-
+viewer doesn't expect that. Virtually everyone has some bugs or minor syntactical errors.
+The nice thing about a whiteboard is that, in some ways, you can focus on the big picture. You don't have a
+compiler, so you don't need to make your code compile. You don't need to write the entire class definition
+and boilerplate code. You get to focus on the interesting, "meaty" parts of the code: the function that the
+question is really all about.
+That's not to say that you should just write pseudocode or that correctness doesn't matter. Most inter-
+viewers aren't okay with pseudocode, and fewer errors are better.
+Whiteboards also tend to encourage candidates to speak more and explain their thought process. When a
+candidate is given a computer, their communication drops substantially.
+But it's not for everyone or every company or every situation.
+The above sections are intended to help you understand the thought process of the company.
+My personal thoughts? For the right situation, when done well, it's a reasonable judge of someone's
+problem-solving skills, in that people who do well tend to be fairly smart.
+However, it's often not done very well. You have bad interviewers or people who just ask bad questions.
+It's also not appropriate for all companies. Some companies should value someone's prior experience more
+or need skills with particular technologies. These sorts of questions don't put much weight on that.
+It also won't measure someone's work ethic or ability to focus. Then again, almost no interview process can
+really evaluate this.
+This is not a perfect process by any means, but what is? All interview processes have their downsides.
+I'll leave you with this: it is what it is, so let's do the best we can with it.
+• How Questions are Selected
+Candidates frequently ask what the "recent" interview questions are at a specific company. Just asking this
+question reveals a fundamental misunderstanding of where questions come from.
+At the vast majority of companies, there are no lists of what interviewers should ask. Rather, each inter-
+viewer selects their own questions.
+Since it's somewhat of a "free for all" as far as questions, there's nothing that makes a question a "recent
+Google interview question" other than the fact that some interviewer who happens to work at Google just
+so happened to ask that question recently.
+The questions asked this year at Google do not really differ from those asked three years ago. !n fact, the
+questions asked at Google generally don't differ from those asked at similar companies (Amazon, Facebook,
+etc.).
+There are some broad differences across companies. Some companies focus on algorithms (often with some
+system design worked in), and others really like knowledge-based questions. But within a given category
+of question, there is little that makes it "belong" to one company instead of another. A Google algorithm
+question is essentially the same as a Facebook algorithm question.
+6
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,26 @@
+WHICH DATA CROSSES THE BOUNDARIES
+Typically the data that crosses the boundaries consists of simple data structures.
+You can use basic structs or simple data transfer objects if you like. Or the data
+can simply be arguments in function calls. Or you can pack it into a hashmap, or
+construct it into an object. The important thing is that isolated, simple data
+structures are passed across the boundaries. We don’t want to cheat and pass
+Entity objects or database rows. We don’t want the data structures to have any
+kind of dependency that violates the Dependency Rule.
+For example, many database frameworks return a convenient data format in
+response to a query. We might call this a “row structure.” We don’t want to pass
+that row structure inward across a boundary. Doing so would violate the
+Dependency Rule because it would force an inner circle to know something
+about an outer circle.
+Thus, when we pass data across a boundary, it is always in the form that is most
+convenient for the inner circle.
+A TYPICAL SCENARIO
+The diagram in Figure 22.2 shows a typical scenario for a web-based Java
+system using a database. The web server gathers input data from the user and
+hands it to the Controller on the upper left. The Controller packages that data
+into a plain old Java object and passes this object through the InputBoundary to
+the UseCaseInteractor. The UseCaseInteractor interprets that data and uses it
+to control the dance of the Entities. It also uses the DataAccessInterface to
+bring the data used by those Entities into memory from the Database. Upon
+completion, the UseCaseInteractor gathers data from the Entities and
+constructs the OutputData as another plain old Java object. The OutputData is
+then passed through the OutputBoundary interface to the Presenter.

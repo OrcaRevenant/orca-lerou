@@ -1,0 +1,44 @@
+{ x: 20, y: 30 },
+{ x: 30, y: 40 },
+{ x: 40, y: 50 },
+{ x: 50, y: 60 }
+];
+points.find( function matcher(point) {
+return (
+point.x % 3 == 0 &&
+point.y % 4 == 0
+);
+} );                                // { x: 30, y: 40 }
+As with other array methods that take callbacks, find(..) takes an
+optional second argument that if set will specify the this binding
+for the callback passed as the first argument. Otherwise, this will
+be undefined.
+findIndex(..) Prototype Method
+While the previous section illustrates how some(..) yields a boolean result for a
+search of an array, and find(..) yields the matched value itself from the array search,
+there’s also a need for finding the positional index of the matched value.
+indexOf(..) does that, but there’s no control over its matching logic; it always uses
+=== strict equality. So ES6’s findIndex(..) is the answer:
+var points = [
+{ x: 10, y: 20 },
+{ x: 20, y: 30 },
+{ x: 30, y: 40 },
+{ x: 40, y: 50 },
+{ x: 50, y: 60 }
+];
+points.findIndex( function matcher(point) {
+return (
+point.x % 3 == 0 &&
+point.y % 4 == 0
+);
+} );                                // 2
+points.findIndex( function matcher(point) {
+return (
+point.x % 6 == 0 &&
+point.y % 7 == 0
+);
+} );                                // -1
+Array
+|
+159
+www.it-ebooks.info

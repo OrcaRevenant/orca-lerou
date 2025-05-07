@@ -1,0 +1,40 @@
+while (match = re.exec( str )) {
+values.push( match[1] );
+}
+return values;
+}
+We use the magic string value "extractValues.parse" because it’s quite unlikely that
+any other symbol in the registry would ever collide with that description.
+If a user of this utility wants to override the parsing regular expression, they can also
+use the symbol registry:
+extractValues[Symbol.for( "extractValues.parse" )] =
+/..some pattern../g;
+extractValues( "..some string.." );
+Aside from the assistance the symbol registry provides in globally storing these val‐
+ues, nothing we’re seeing here couldn’t have been done by just actually using the
+magic string "extractValues.parse" as the key, rather than the symbol. The
+improvements exist at the metaprogramming level more than the functional level.
+You may have occassion to use a symbol value that has been stored in the registry to
+look up what description text (key) it’s stored under. For example, you may need to
+signal to another part of your application how to locate a symbol in the registry
+because you cannot pass the symbol value itself.
+You can retrieve a registered symbol’s description text (key) using Symbol.key
+For(..):
+var s = Symbol.for( "something cool" );
+var desc = Symbol.keyFor( s );
+console.log( desc );            // "something cool"
+// get the symbol from the registry again
+var s2 = Symbol.for( desc );
+s2 === s;                       // true
+Symbols as Object Properties
+If a symbol is used as a property/key of an object, it’s stored in a special way that the
+property will not show up in a normal enumeration of the object’s properties:
+var o = {
+foo: 42,
+[ Symbol( "bar" ) ]: "hello world",
+baz: true
+};
+Symbols
+|
+71
+www.it-ebooks.info

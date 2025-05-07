@@ -1,0 +1,66 @@
+346
+Appendix A: Concurrency II
+Client/Server Using Threads
+Changing the server to use threads simply requires a change to the process message (new
+lines are emphasized to stand out):
+void process(final Socket socket) {
+if (socket == null)
+return;
+Runnable clientHandler = new Runnable() {
+public void run() {
+} catch (IOException ignore) {
+}
+}
+private void closeIgnoringException(ServerSocket serverSocket) {
+if (serverSocket != null)
+try {
+serverSocket.close();
+} catch (IOException ignore) {
+}
+}
+}
+Listing A-5
+MessageUtils.java
+package common;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.net.Socket;
+public class MessageUtils {
+public static void sendMessage(Socket socket, String message)
+throws IOException {
+OutputStream stream = socket.getOutputStream();
+ObjectOutputStream oos = new ObjectOutputStream(stream);
+oos.writeUTF(message);
+oos.flush();
+}
+public static String getMessage(Socket socket) throws IOException {
+InputStream stream = socket.getInputStream();
+ObjectInputStream ois = new ObjectInputStream(stream);
+return ois.readUTF();
+}
+}
+Listing A-4 (continued)
+ClientTest.java
+
+347
+Tutorial: Full Code Examples
+try {
+System.out.printf("Server: getting message\n");
+String message = MessageUtils.getMessage(socket);
+System.out.printf("Server: got message: %s\n", message);
+Thread.sleep(1000);
+System.out.printf("Server: sending reply: %s\n", message);
+MessageUtils.sendMessage(socket, "Processed: " + message);
+System.out.printf("Server: sent\n");
+closeIgnoringException(socket);
+} catch (Exception e) {
+e.printStackTrace();
+}
+}
+};
+Thread clientConnection = new Thread(clientHandler);
+clientConnection.start();
+}

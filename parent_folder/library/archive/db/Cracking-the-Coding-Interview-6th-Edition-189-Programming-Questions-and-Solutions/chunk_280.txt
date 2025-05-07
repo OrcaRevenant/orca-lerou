@@ -1,0 +1,108 @@
+Solutions to Chapter 4 | Trees and Graphs
+1
+class TreeNode {
+2
+private i n t data;
+3
+public TreeNode l e f t ;
+4
+public TreeNode r i g h t ;
+5
+private i n t size = 0;
+6
+7
+public TreeNode(int d) {
+8
+data = d;
+9
+size = 1;
+10
+}
+11
+12
+public TreeNode getRandomNode() {
+13
+i n t l e f t S i z e = l e f t == n u l l ? 0 : l e f t . s i z e ( ) ;
+14
+Random random = new Random();
+15
+i n t index = random.nextlnt(size);
+16
+if (index < l e f t S i z e ) {
+17
+return left.getRandomNode();
+18
+} else if (index ™ l e f t S i z e ) {
+19
+return t h i s ;
+20
+} else {
+21
+return right.getRandomNode();
+22
+}
+23
+>
+24
+25
+public void i n s e r t l n 0 r d e r ( i n t d) {
+26
+if (d <= data) {
+27
+if ( l e f t == n u l l ) (
+28
+l e f t = new TreeNode(d);
+29
+} else {
+30
+l e f t . i n s e r t I n O r d e r ( d ) ;
+31
+>
+32
+} else {
+33
+if ( r i g h t == n u l l ) {
+34
+r i g h t = new TreeNode(d);
+35
+} else {
+36
+r i g h t . i n s e r t I n O r d e r ( d ) ;
+37
+>
+38
+>
+39
+size++;
+40
+>
+41
+42
+public i n t size() { return size; }
+43
+public i n t data() { return data; >
+44
+45
+public TreeNode f i n d ( i n t d) {
+46
+if (d == data) {
+47
+return t h i s ;
+48
+} else if (d <= data) {
+49
+return l e f t 1= n u l l ? l e f t . f i n d ( d ) : n u l l ;
+50
+} else if (d > data) {
+51
+return right != n u l l ? r i g h t , f i n d ( d ) ; n u l l ;
+52
+>
+53
+return n u l l ;
+54
+>
+55 >
+in a balanced tree, this algorithm will be 0( l o g N), where N is the number of nodes.
+274
+Cracking the Coding Interview, 6th Edition

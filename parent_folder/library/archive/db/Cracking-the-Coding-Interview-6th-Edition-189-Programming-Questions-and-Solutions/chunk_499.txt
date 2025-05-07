@@ -1,0 +1,82 @@
+Solutions to Chapter 16 | Moderate
+16.12 XML Encoding: Since XML is very verbose, you are given a way of encoding it where each tag gets
+mapped to a pre-defined integer vaiue. The language/grammar is as follows:
+Element
+--> Tag A t t r i b u t e s END Children END
+A t t r i b u t e
+--> Tag value
+END
+- - > 0
+Tag
+--> some predefined mapping to i n t
+Value
+—> s t r i n g value
+For example, the following XML might be converted into the compressed string below (assuming a
+mapping of f a m i l y -> 1,
+person
+->2,
+f i r s t N a m e -> 3,
+lastName -> 4,
+s t a t e
+~> 5).
+<family lastName="McDowell" state="CA">
+<person firstName="Gayle">Some Message</person>
+</family>
+Becomes:
+1 4 McDowell 5 CA 0 2 3 Gayle 0 Some Message 0 0
+Write code to print the encoded version of an XML element (passed in Element and A t t r i b u t e
+objects),
+Pg 182
+SOLUTION
+Since we know the element will be passed in as an Element and A t t r i b u t e , our code is reasonably
+simple. We can implement this by applying a tree like approach.
+We repeatedly call en code () on parts of the XML structure, handling the code in slightly different ways
+depending on the type of the XML element.
+1
+void encode(Element root, StringBuilder sb) {
+2
+encode(root.getNameCode(),
+sb);
+3
+for ( A t t r i b u t e a : r o o t . a t t r i b u t e s ) {
+4
+encode(a, sb);
+5
+}
+6
+encode ("0JI, sb);
+7
+if (root.value 1= n u l l && root.value 1= " " ) {
+S
+encode(root.value, sb);
+9
+) else {
+10
+for (Element e : root.children) {
+11
+encode(e, sb);
+12
+>
+13
+)
+14
+encode("0", sb);
+15 >
+16
+17 void encode(String v, StringBuilder sb) {
+18
+sb.append(v);
+19
+sb.append(" " ) ;
+20 }
+21
+22 void encode(Attribute a t t r , StringBuilder sb) {
+23
+encode(attr.getTagCode(),
+sb);
+24
+encode(attr.value,
+sb);
+25 >
+26
+CrackingTheCodinglnterview.com | 6th Edition 533

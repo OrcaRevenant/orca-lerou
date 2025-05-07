@@ -1,0 +1,7 @@
+177
+13
+Concurrency
+by Brett L. Schuchert
+“Objects are abstractions of processing. Threads are abstractions of schedule.”
+—James O. Coplien1
+1. Private correspondence.

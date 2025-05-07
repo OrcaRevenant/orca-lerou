@@ -1,0 +1,64 @@
+368
+Appendix B: org.jfree.date.SerialDate
+125      */
+126     public void testMondayPrecedingFriday9Nov2001() {
+127         SerialDate mondayBefore = SerialDate.getPreviousDayOfWeek(
+128             SerialDate.MONDAY, this.nov9Y2001
+129         );
+130         assertEquals(5, mondayBefore.getDayOfMonth());
+131     }
+132
+133     /**
+134      * Monday following Friday 9 November 2001 should be 12 November.
+135      */
+136     public void testMondayFollowingFriday9Nov2001() {
+137         SerialDate mondayAfter = SerialDate.getFollowingDayOfWeek(
+138             SerialDate.MONDAY, this.nov9Y2001
+139         );
+140         assertEquals(12, mondayAfter.getDayOfMonth());
+141     }
+142
+143     /**
+144      * Monday nearest Friday 9 November 2001 should be 12 November.
+145      */
+146     public void testMondayNearestFriday9Nov2001() {
+147         SerialDate mondayNearest = SerialDate.getNearestDayOfWeek(
+148             SerialDate.MONDAY, this.nov9Y2001
+149         );
+150         assertEquals(12, mondayNearest.getDayOfMonth());
+151     }
+152
+153     /**
+154      * The Monday nearest to 22nd January 1970 falls on the 19th.
+155      */
+156     public void testMondayNearest22Jan1970() {
+157         SerialDate jan22Y1970 = SerialDate.createInstance(22, MonthConstants.JANUARY, 1970);
+158         SerialDate mondayNearest=SerialDate.getNearestDayOfWeek(SerialDate.MONDAY, jan22Y1970);
+159         assertEquals(19, mondayNearest.getDayOfMonth());
+160     }
+161
+162     /**
+163      * Problem that the conversion of days to strings returns the right result.  Actually, this
+164      * result depends on the Locale so this test needs to be modified.
+165      */
+166     public void testWeekdayCodeToString() {
+167
+168         final String test = SerialDate.weekdayCodeToString(SerialDate.SATURDAY);
+169         assertEquals("Saturday", test);
+170
+171     }
+172
+173     /**
+174      * Test the conversion of a string to a weekday.  Note that this test will fail if the
+175      * default locale doesn't use English weekday names...devise a better test!
+176      */
+177     public void testStringToWeekday() {
+178
+179         int weekday = SerialDate.stringToWeekdayCode("Wednesday");
+180         assertEquals(SerialDate.WEDNESDAY, weekday);
+181
+182         weekday = SerialDate.stringToWeekdayCode(" Wednesday ");
+183         assertEquals(SerialDate.WEDNESDAY, weekday);
+184
+Listing B-2 (continued)
+SerialDateTest.java

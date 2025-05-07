@@ -1,0 +1,37 @@
+Swarm mode - The TLDR
+It’s one thing to follow along with the simple examples in this book, but it’s an
+entirely different thing running thousands of containers on tens or hundreds of
+Docker hosts! This is where orchestration comes into play!
+At a high-level, orchestration is all about automating and simplifying the
+management of containerized applications at scale. Things like automatically
+rescheduling containers when nodes break, scaling things up when demand
+increases, and smoothly pushing updates and fixes into live production
+environments.
+For the longest time orchestration like this was hard. Tools like Docker Swarm
+and Kubernetes were available, but they were complicated. Then along came
+Docker 1.12 and the new native swarm mode, and overnight things changed. All
+this orchestration stuff got a whole lot easier.
+That’s the quick explanation. Now let’s get into the detail.
+
+Swarm mode - The deep dive
+First up, as the title of the chapter suggests, we’re going to be focusing on swarm
+mode - the native clustering and orchestration technologies that first shipped as
+part Docker 1.12. Other orchestration solutions exist, most notably Kubernetes,
+but we’re not covering those here.
+Concepts and terminology
+Swarm mode brought a load of changes and improvements to the way we
+manage containers at scale. At the heart of those changes is native clustering of
+Docker hosts that’s deeply integrated into the Docker platform. We’re not talking
+about something like Kubernetes that’s a separate tool requiring a highly skilled
+specialist to configure it on top of existing Docker infrastructures. No! The
+clustering we’re talking about here is a true first-class citizen in the Docker
+technology stack. And it’s simple!
+But the folks at Docker, Inc. don’t really like using the term cluster. They’re
+calling a cluster of orchestrated Docker hosts a swarm, and the Docker hosts
+participating in a swarm are said to operate in swarm mode. We’ll try to be
+consistent and use these terms throughout the remainder of the book. We’ll also
+start using the term single-engine mode to refer to Docker hosts that are not
+running in swarm mode.
+Figure 9.1 shows a 4-node swarm with nodes running in swarm mode. It also
+shows two nodes not in the swarm operating in single-engine mode.
+Figure 9.1

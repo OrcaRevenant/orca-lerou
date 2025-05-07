@@ -1,0 +1,48 @@
+309
+Names
+public class HourlyEmployee extends Employee {
+private int tenthsWorked;
+HourlyPayGrade grade;
+public Money calculatePay() {
+int straightTime = Math.min(tenthsWorked, TENTHS_PER_WEEK);
+int overTime = tenthsWorked - straightTime;
+return new Money(
+grade.rate() * (tenthsWorked + OVERTIME_RATE * overTime)
+);
+}
+...
+}
+public enum HourlyPayGrade {
+APPRENTICE {
+public double rate() {
+return 1.0;
+}
+},
+LEUTENANT_JOURNEYMAN {
+public double rate() {
+return 1.2;
+}
+},
+JOURNEYMAN {
+public double rate() {
+return 1.5;
+}
+},
+MASTER {
+public double rate() {
+return 2.0;
+}
+};
+public abstract double rate();
+}
+Names
+N1: Choose Descriptive Names
+Don’t be too quick to choose a name. Make sure the name is descriptive. Remember that
+meanings tend to drift as software evolves, so frequently reevaluate the appropriateness of
+the names you choose.
+This is not just a “feel-good” recommendation. Names in software are 90 percent of
+what make software readable. You need to take the time to choose them wisely and keep
+them relevant. Names are too important to treat carelessly.
+Consider the code below. What does it do? If I show you the code with well-chosen
+names, it will make perfect sense to you, but like this it’s just a hodge-podge of symbols
+and magic numbers.

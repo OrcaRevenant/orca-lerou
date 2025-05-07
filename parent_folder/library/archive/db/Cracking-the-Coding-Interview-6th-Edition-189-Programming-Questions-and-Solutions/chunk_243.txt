@@ -1,0 +1,82 @@
+Solutions to Chapter 3 | Stacks and Queues
+We can (maybe) do a bit better than this by using an additional stack which keeps track of the mins.
+1
+public class StackWithMin2 extends Stack<lnteger> {
+2
+Stack<Integer> s2;
+public StackWithMin2() {
+4
+s2 = new Stack<lnteger>();
+5
+>
+6
+public void push(int value){
+8
+if (value <= irtinQ) {
+9
+s2.push(value);
+10
+}
+11
+super.push(value)j
+12
+}
+13
+14
+public Integer popQ {
+15
+i n t value = super.popQ;
+16
+if (value == minQ) {
+17
+s2.pop();
+18
+}
+19
+return value;
+20
+>
+21
+22
+public i n t minQ {
+23
+if
+(s2.isErrpty())
+{
+24
+return Integer.MAXVALUE;
+25
+} else {
+26
+return s2.peek();
+27
+>
+28
+>
+29 >
+Why might this be more space efficient? Suppose we had a very large stack and the first element inserted
+happened to be the minimum. In the first solution, we would be keeping n integers, where n is the size of
+the stack. In the second solution though, we store just a few pieces of data: a second stack with one element
+and the members within this stack.
+3.3
+Stack of Plates: Imagine a (literal) stack of plates. If the stack gets too high, it might topple.
+Therefore, in real life, we would likely start a new stack when the previous stack exceeds some
+threshold. Implement a data structure SetOfStacks that mimics this. SetOfStacks should be
+composed of several stacks and should create a new stack once the previous one exceeds capacity,
+SetOfStacks. push() and S e t O f S t a c k s . p o p O should behave identically to a single stack
+(that is, pop() should return the same values as it would if there were just a single stack).
+FOLLOW UP
+Implement a function popAt ( i n t
+i n d e x ) which performs a pop operation on a specific sub-
+stack.
+pg 99
+SOLUTION
+In this problem, we've been told what our data structure should look like:
+1
+class SetOfStacks {
+2
+ArrayList<5tack> stacks = new ArrayList<Stack>();
+3
+public void pushfint v) { . . . }
+CrackingTheCodinglnterview.com ] 6th Edition
+239

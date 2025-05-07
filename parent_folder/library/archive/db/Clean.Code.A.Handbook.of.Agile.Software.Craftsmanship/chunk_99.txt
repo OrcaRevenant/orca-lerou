@@ -1,0 +1,48 @@
+69
+Bad Comments
+else {
+this.pngBytes = null;
+}
+return this.pngBytes;
+Why are those two lines of code commented? Are they important? Were they left as
+reminders for some imminent change? Or are they just cruft that someone commented-out
+years ago and has simply not bothered to clean up.
+There was a time, back in the sixties, when commenting-out code might have been
+useful. But we’ve had good source code control systems for a very long time now. Those
+systems will remember the code for us. We don’t have to comment it out any more. Just
+delete the code. We won’t lose it. Promise.
+HTML Comments
+HTML in source code comments is an abomination, as you can tell by reading the code
+below. It makes the comments hard to read in the one place where they should be easy to
+read—the editor/IDE. If comments are going to be extracted by some tool (like Javadoc) to
+appear in a Web page, then it should be the responsibility of that tool, and not the program-
+mer, to adorn the comments with appropriate HTML.
+/**
+* Task to run fit tests.
+* This task runs fitnesse tests and publishes the results.
+* <p/>
+* <pre>
+* Usage:
+* &lt;taskdef name=&quot;execute-fitnesse-tests&quot;
+*     classname=&quot;fitnesse.ant.ExecuteFitnesseTestsTask&quot;
+*     classpathref=&quot;classpath&quot; /&gt;
+* OR
+* &lt;taskdef classpathref=&quot;classpath&quot;
+*             resource=&quot;tasks.properties&quot; /&gt;
+* <p/>
+* &lt;execute-fitnesse-tests
+*     suitepage=&quot;FitNesse.SuiteAcceptanceTests&quot;
+*     fitnesseport=&quot;8082&quot;
+*     resultsdir=&quot;${results.dir}&quot;
+*     resultshtmlpage=&quot;fit-results.html&quot;
+*     classpathref=&quot;classpath&quot; /&gt;
+* </pre>
+*/
+Nonlocal Information
+If you must write a comment, then make sure it describes the code it appears near. Don’t
+offer systemwide information in the context of a local comment. Consider, for example,
+the javadoc comment below. Aside from the fact that it is horribly redundant, it also offers
+information about the default port. And yet the function has absolutely no control over
+what that default is. The comment is not describing the function, but some other, far dis-
+tant part of the system. Of course there is no guarantee that this comment will be changed
+when the code containing the default is changed.

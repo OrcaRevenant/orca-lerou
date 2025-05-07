@@ -1,0 +1,34 @@
+Loaders
+linking, 100–102
+relocatable binaries, 99–100
+Local process boundaries, 179–180
+LSP (Liskov Substitution Principle)
+architecture and, 80
+conclusion, 82
+defined, 59
+guiding use of inheritance, 78
+overview of, 78
+square/rectangle example problem, 79
+violation of, 80–82
+M
+M365 computer
+4-TEL archaeology project, 340–341
+Laser Trim archaeology project, 335–338
+SAC archaeology project, 345–347
+Mailboxes, local processes communicate via, 180
+Main component
+conclusion, 237
+as concrete component, 91
+defined, 232
+object-oriented programming, 40
+polymorphism, 45
+small impact of releasing, 115
+as ultimate detail, 232–237
+Main Sequence
+avoiding Zones of Exclusion via, 130
+defining relationship between abstraction/stability, 127–128
+measuring distance from, 130–132
+Zone of Pain, 129
+Zone of Uselessness, 129–130
+Maintenance, impact of architecture on, 139–140
+Marketing campaigns, database vendor, 283

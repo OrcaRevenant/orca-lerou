@@ -1,0 +1,44 @@
+Chapter!7 | Hard
+17.17 Multi Search: Given a string b and an array of smaller strings T, design a method to search b for
+each small string inT,
+Hints: #480, #582, #617, #743
+17.18 Shortest Supersequence: You are given two arrays, one shorter (with all distinct elements) and one
+longer. Find the shortest subarray in the longer array that contains all the elements in the shorter
+array. The items can appear in any order.
+EXAMPLE
+Input: { 1 , 5, 9}
+|
+{ 7 ,
+S, 9, 0,
+2,
+3, 5. 7. 9.
+1. 1, 5, 8, 8, 9, 7}
+Output: [ 7 ,
+10] (the underlined portion above)
+Hints: #645, #652, #669, #681, #691, #725, #731, #741
+17.19 Missing Two: You are given an array with all the numbers from 1 to N appearing exactly once,
+except for one number that is missing. How can you find the missing number in 0(N) time and
+0 ( 1 ) space? What if there were two numbers missing?
+Hints: #503, #590, #609, #626, #649, #672, #689, #696, #702, #717
+fig 591
+17.20 Continuous Median: Numbers are randomly generated and passed to a method. Write a program
+to find and maintain the median value as new values are generated.
+Hints: #519, #546, #575, #709
+17.21 Volume of Histogram: Imagine a histogram (bar graph). Design an algorithm to compute the
+volume of water it could hold if someone poured water across the top. You can assume that each
+histogram bar has width 1.
+EXAMPLE (Black bars are the histogram. Gray is water.)
+Input: {0., 0, 4j 0, 0, 6, 0, 0, 3, 0,
+5, 0, 1, 0, 0, 0}
+0 0 4 0 0 6 0 0 3 0 5 0 1 0 0 0
+Output; 26
+Hints: #629, #640, #651, #658, #662, #676, #693, #734, #742
+17.22 Word Transformer: Given two words of equal length that are in a dictionary, write a method to
+transform one word into another word by changing only one letter at a time.The new word you get
+in each step must be in the dictionary.
+EXAMPLE
+Input: DAMP, LIKE
+Output: DAMP -> LAMP -> LIMP -> LIME -> LIKE
+Hints: #506, #535, #556, #580, #598, #618, #738
+CrackingTheCodinglnterview.com 16th Edition
+189

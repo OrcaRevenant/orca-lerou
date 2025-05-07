@@ -1,0 +1,13 @@
+CHAPTER 6 PRACTICING
+94
+CO N C LU S I O N
+In one way or another, all professionals practice. They do this because they
+care about doing the best job they possibly can. What’s more, they practice on
+their own time because they realize that it is their responsibility—and not their
+employer’s—to keep their skills sharp. Practicing is what you do when you aren’t
+getting paid. You do it so that you will be paid, and paid well.
+B I B LI OG R APH Y
+[K&R-C]: Brian W. Kernighan and Dennis M. Ritchie, The C Programming
+Language, Upper Saddle River, NJ: Prentice Hall, 1975.
+[PPP2003]: Robert C. Martin, Agile Software Development: Principles, Patterns,
+and Practices, Upper Saddle River, NJ: Prentice Hall, 2003.

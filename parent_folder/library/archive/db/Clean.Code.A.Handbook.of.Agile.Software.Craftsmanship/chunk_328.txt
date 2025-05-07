@@ -1,0 +1,44 @@
+298
+Chapter 17: Smells and Heuristics
+Before you consider yourself to be done with a function, make sure you understand
+how it works. It is not good enough that it passes all the tests. You must know10 that the
+solution is correct.
+Often the best way to gain this knowledge and understanding is to refactor the func-
+tion into something that is so clean and expressive that it is obvious how it works.
+G22: Make Logical Dependencies Physical
+If one module depends upon another, that dependency should be physical, not just logical.
+The dependent module should not make assumptions (in other words, logical dependen-
+cies) about the module it depends upon. Rather it should explicitly ask that module for all
+the information it depends upon.
+For example, imagine that you are writing a function that prints a plain text report of
+hours worked by employees. One class named HourlyReporter gathers all the data into a
+convenient form and then passes it to HourlyReportFormatter to print it. (See Listing 17-1.)
+10. There is a difference between knowing how the code works and knowing whether the algorithm will do the job required of it.
+Being unsure that an algorithm is appropriate is often a fact of life. Being unsure what your code does is just laziness.
+Listing 17-1
+HourlyReporter.java
+public class HourlyReporter {
+private HourlyReportFormatter formatter;
+private List<LineItem> page;
+private final int PAGE_SIZE = 55;
+public HourlyReporter(HourlyReportFormatter formatter) {
+this.formatter = formatter;
+page = new ArrayList<LineItem>();
+}
+public void generateReport(List<HourlyEmployee> employees) {
+for (HourlyEmployee e : employees) {
+addLineItemToPage(e);
+if (page.size() == PAGE_SIZE)
+printAndClearItemList();
+}
+if (page.size() > 0)
+printAndClearItemList();
+}
+private void printAndClearItemList() {
+formatter.format(page);
+page.clear();
+}
+private void addLineItemToPage(HourlyEmployee e) {
+LineItem item = new LineItem();
+item.name = e.getName();
+item.hours = e.getTenthsWorked() / 10;

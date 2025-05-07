@@ -1,0 +1,43 @@
+XI. Advanced Topics
+Insertion
+Inserting a new node into a red-black tree starts off with a typical binary search tree insertion.
+•
+New nodes are inserted at a leaf, which means that they replace a black node.
+•
+New nodes are always colored red and are given two black leaf (NULL) nodes.
+Once we've done that, we fix any resulting red-black property vioiations. We have two possible violations:
+•
+Red violations: A red node has a red child (or the root is red).
+•
+Black violations: One path has more blacks than another path.
+The node inserted is red. We didn't change the number of black nodes on any path to a leaf, so we know that
+we won't have a black violation. However, we might have a red violation.
+In the special case that where the root is red, we can always just turn it black to satisfy property 2, without
+violating the other constraints.
+Otherwise, ifthere's a red violation, then this means that we have a red node under another red node. Oops!
+Let's call N the current node, P is N's parent. G is N's grandparent. U is N's uncle and P's sibling. We know that
+•
+N is red and P is red, since we have a red violation.
+•
+G is definitely black, since we didn't prew'ous/y have a red violation.
+The unknown parts are:
+•
+U could be either red or black.
+•
+U could be either a left or right child.
+•
+N could be either a left or right child.
+By simple combinatorics, that's eight cases to consider. Fortunately some of these cases will be equivalent.
+•
+Case 1: U is red.
+It doesn't matter whether U is a left or right child, nor whether P is a left or right child. We can merge four
+of our eight cases into one.
+If U is red, we can just toggle the colors of P, U, and G. Flip G from black to red. Flip P and U from red to
+black. We haven't changed the number of black nodes in any path.
+However, by making G red, we might have created a red violation with G's parent. If so, we recursively
+apply the full logic to handle a red violation, where this G becomes the new N.
+Note that in the general recursive case, N, P, and U may also have subtrees in place of each black NULL
+(the leaves shown), in Case 1, these subtrees stay attached to the same parents, as the tree structure
+remains unchanged.
+6î0
+Cracking the Coding Interview, 6th Edition

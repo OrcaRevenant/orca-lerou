@@ -1,0 +1,51 @@
+264
+Chapter 15: JUnit Internals
+break;
+}
+}
+private char charFromEnd(String s, int i) {
+return s.charAt(s.length() - i - 1);
+}
+private boolean suffixOverlapsPrefix() {
+return actual.length() - suffixLength <= prefixLength ||
+expected.length() - suffixLength <= prefixLength;
+}
+private void findCommonPrefix() {
+prefixLength = 0;
+int end = Math.min(expected.length(), actual.length());
+for (; prefixLength < end; prefixLength++)
+if (expected.charAt(prefixLength) != actual.charAt(prefixLength))
+break;
+}
+private String compact(String s) {
+return new StringBuilder()
+.append(startingEllipsis())
+.append(startingContext())
+.append(DELTA_START)
+.append(delta(s))
+.append(DELTA_END)
+.append(endingContext())
+.append(endingEllipsis())
+.toString();
+}
+private String startingEllipsis() {
+return prefixLength > contextLength ? ELLIPSIS : "";
+}
+private String startingContext() {
+int contextStart = Math.max(0, prefixLength - contextLength);
+int contextEnd = prefixLength;
+return expected.substring(contextStart, contextEnd);
+}
+private String delta(String s) {
+int deltaStart = prefixLength;
+int deltaEnd = s.length() - suffixLength;
+return s.substring(deltaStart, deltaEnd);
+}
+private String endingContext() {
+int contextStart = expected.length() - suffixLength;
+int contextEnd =
+Math.min(contextStart + contextLength, expected.length());
+return expected.substring(contextStart, contextEnd);
+}
+Listing 15-5 (continued)
+ComparisonCompactor.java (final)

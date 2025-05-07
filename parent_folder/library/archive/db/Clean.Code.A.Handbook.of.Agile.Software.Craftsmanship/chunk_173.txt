@@ -1,0 +1,44 @@
+143
+Classes Should Be Small!
+This program, written as a single function, is a mess. It has a deeply indented struc-
+ture, a plethora of odd variables, and a tightly coupled structure. At the very least, the one
+big function should be split up into a few smaller functions.
+Listing 10-6 through Listing 10-8 show the result of splitting the code in Listing 10-5
+into smaller classes and functions, and choosing meaningful names for those classes, func-
+tions, and variables.
+Listing 10-6
+PrimePrinter.java (refactored)
+package literatePrimes;
+public class PrimePrinter {
+public static void main(String[] args) {
+final int NUMBER_OF_PRIMES = 1000;
+int[] primes = PrimeGenerator.generate(NUMBER_OF_PRIMES);
+final int ROWS_PER_PAGE = 50;
+final int COLUMNS_PER_PAGE = 4;
+RowColumnPagePrinter tablePrinter =
+new RowColumnPagePrinter(ROWS_PER_PAGE,
+COLUMNS_PER_PAGE,
+"The First " + NUMBER_OF_PRIMES +
+" Prime Numbers");
+tablePrinter.print(primes);
+}
+}
+Listing 10-7
+RowColumnPagePrinter.java
+package literatePrimes;
+import java.io.PrintStream;
+public class RowColumnPagePrinter {
+private int rowsPerPage;
+private int columnsPerPage;
+private int numbersPerPage;
+private String pageHeader;
+private PrintStream printStream;
+public RowColumnPagePrinter(int rowsPerPage,
+int columnsPerPage,
+String pageHeader) {
+this.rowsPerPage = rowsPerPage;
+this.columnsPerPage = columnsPerPage;
+this.pageHeader = pageHeader;
+numbersPerPage = rowsPerPage * columnsPerPage;
+printStream = System.out;
+}

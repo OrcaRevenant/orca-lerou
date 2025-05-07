@@ -1,0 +1,32 @@
+defined, 59
+language type and, 85
+overview of, 84–85
+Iteration, 27–28
+J
+Jacobson, Ivar, 196, 202
+Jar files
+component architecture, 301
+components as, 96
+creating partial boundary, 219
+defining function of components, 313
+designing component-based services, 245–246
+Download and Go rule for, 163
+in source-level decoupling mode, 176
+Java
+abstract components in, 125
+code organization approaches in. See Code organization
+components as jar files in, 96
+DIP and, 87
+import statements for dependencies, 184
+ISP example, 84–85
+marrying standard library framework in, 293
+module frameworks in, 319
+package by layer in, 304–306
+squares of integers example in, 50–51
+weakening encapsulation, 36–37
+Jitters, breaking cycle of components, 118
+Junk mail example, 144–145
+K
+Kitty problem example, 242–245
+L
+Languages

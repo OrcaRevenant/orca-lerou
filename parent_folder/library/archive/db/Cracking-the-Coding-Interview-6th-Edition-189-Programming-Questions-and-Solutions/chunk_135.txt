@@ -1,0 +1,32 @@
+7
+Object-Oriented Design
+O
+bject-oriented design questions require a candidate to sketch out the classes and methods to imple-
+ment technical problems or real-life objects. These problems give—or at least are believed to give—
+an interviewer insight into your coding style.
+These questions are not so much about regurgitating design patterns as they are about demonstrating that
+you understand how to create elegant, maintainable object-oriented code. Poor performance on this type
+of question may raise serious red flags.
+• How to Approach
+Regardless of whether the object is a physical item or a technical task, object-oriented design questions can
+be tackled in similar ways. The following approach will work well for many problems.
+Step 1; Handle Ambiguity
+Object-oriented design (OOD) questions are often intentionally vague in order to test whether you'll make
+assumptions or if you'll ask clarifying questions. After ail, a developer who just codes something without
+understanding what she is expected to create wastes the company's time and money, and may create much
+more serious issues.
+When being asked an object-oriented design question, you should inquire who is going to use it and how
+they are going to use it. Depending on the question, you may even want to go through the "six Ws"; who,
+what, where, when, how, why.
+For example, suppose you were asked to describe the object-oriented design for a coffee maker. This seems
+straightforward enough, right? Not quite.
+Your coffee maker might be an industrial machine designed to be used in a massive restaurant servicing
+hundreds of customers per hour and making ten different kinds of coffee products. Or it might be a very
+simple machine, designed to be used by the elderly for just simple black coffee. These use cases will signifi-
+cantly impact your design.
+Step 2: Define the Core Objects
+Now that we understand what we're designing, we should consider what the "core objects" in a system
+are. For example, suppose we are asked to do the object-oriented design for a restaurant. Our core objects
+might be things like Table, Guest, Party, Order, Meal, Employee, Server, and Host,
+CrackingTheCodinglrtterview.com | 6th Edition
+125

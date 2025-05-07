@@ -1,0 +1,45 @@
+28
+Chapter 2: Meaningful Names
+Imagine that you have variables named firstName, lastName, street, houseNumber, city,
+state, and zipcode. Taken together it’s pretty clear that they form an address. But what if
+you just saw the state variable being used alone in a method? Would you automatically
+infer that it was part of an address?
+You can add context by using preﬁxes: addrFirstName, addrLastName, addrState, and so
+on. At least readers will understand that these variables are part of a larger structure. Of
+course, a better solution is to create a class named Address. Then, even the compiler knows
+that the variables belong to a bigger concept.
+Consider the method in Listing 2-1. Do the variables need a more meaningful con-
+text? The function name provides only part of the context; the algorithm provides the rest.
+Once you read through the function, you see that the three variables, number, verb, and
+pluralModifier, are part of the “guess statistics” message. Unfortunately, the context must
+be inferred. When you ﬁrst look at the method, the meanings of the variables are opaque.
+The function is a bit too long and the variables are used throughout. To split the func-
+tion into smaller pieces we need to create a GuessStatisticsMessage class and make the
+three variables ﬁelds of this class. This provides a clear context for the three variables. They
+are deﬁnitively part of the GuessStatisticsMessage. The improvement of context also allows
+the algorithm to be made much cleaner by breaking it into many smaller functions. (See
+Listing 2-2.)
+Listing 2-1
+Variables with unclear context.
+private void printGuessStatistics(char candidate, int count) {
+String number;
+String verb;
+String pluralModifier;
+if (count == 0) {
+number = "no";
+verb = "are";
+pluralModifier = "s";
+} else if (count == 1) {
+number = "1";
+verb = "is";
+pluralModifier = "";
+} else {
+number = Integer.toString(count);
+verb = "are";
+pluralModifier = "s";
+}
+String guessMessage = String.format(
+"There %s %s %s%s", verb, number, candidate, pluralModifier
+);
+print(guessMessage);
+}

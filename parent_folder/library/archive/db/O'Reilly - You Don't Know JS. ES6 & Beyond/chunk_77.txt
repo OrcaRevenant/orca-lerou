@@ -1,0 +1,39 @@
+[...s1.normalize()][2];         // "ć"
+[...s2.normalize()][2];         // "ć"
+[...s3.normalize()][2];         // "𝒞"
+Reminder of an earlier warning: constructing and exhausting an
+iterator each time you want to get at a single character is… very not
+ideal performance wise. Let’s hope we get a built-in and optimized
+utility for this soon, post-ES6.
+What about a Unicode-aware version of the charCodeAt(..) utility? ES6 gives us
+codePointAt(..):
+var s1 = "abc\u0301d",
+s2 = "ab\u0107d",
+s3 = "ab\u{1d49e}d";
+s1.normalize().codePointAt( 2 ).toString( 16 );
+// "107"
+s2.normalize().codePointAt( 2 ).toString( 16 );
+// "107"
+s3.normalize().codePointAt( 2 ).toString( 16 );
+// "1d49e"
+What about the other direction? A Unicode-aware version of String.fromChar
+Code(..) is ES6’s String.fromCodePoint(..):
+String.fromCodePoint( 0x107 );      // "ć"
+String.fromCodePoint( 0x1d49e );    // "𝒞"
+So wait, can we just combine String.fromCodePoint(..) and codePointAt(..) to
+get a better version of a Unicode-aware charAt(..) from earlier? Yep!
+var s1 = "abc\u0301d",
+s2 = "ab\u0107d",
+s3 = "ab\u{1d49e}d";
+String.fromCodePoint( s1.normalize().codePointAt( 2 ) );
+// "ć"
+String.fromCodePoint( s2.normalize().codePointAt( 2 ) );
+// "ć"
+String.fromCodePoint( s3.normalize().codePointAt( 2 ) );
+// "𝒞"
+There’s quite a few other string methods we haven’t addressed here, including toUp
+perCase(), toLowerCase(), substring(..), indexOf(..), slice(..), and a dozen
+66
+|
+Chapter 2: Syntax
+www.it-ebooks.info

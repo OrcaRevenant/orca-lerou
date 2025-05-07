@@ -1,0 +1,95 @@
+Solutions to Chapter 10 | Sorting and Searching
+•
+The 1 is in the wrong place. We can swap it with either the 9 or 4. Let's swap it with the &.
+1
+9
+4
+7
+8
+9
+•
+The 4 is okay.
+•
+The 7 is in the wrong place. We can swap it with either the 4 or the 8. Let's swap it with the 4.
+1
+0
+7
+4
+8
+9
+•
+The 9 is in the wrong place. Let's swap it with the 8.
+1
+0
+7
+4
+9
+8
+Observe that there's nothing special about the array having these values. The relative order of the elements
+matters, but all sorted arrays will have the same relative order. Therefore, we can take this same approach
+on any sorted array.
+Before coding, we should clarify the exact algorithm, though.
+1. Sort the array in ascending order.
+2. Iterate through the elements, starting from index 1 (not 0) and jumping two elements at a time.
+3. At each element, swap it with the previous element. Since every three elements appear in the order
+s m a l l <= medium <= l a r g e , swapping these elements will always put medium as a peak: medium
+<= s m a l l <= l a r g e .
+This approach will ensure that the peaks are in the right place: indexes 1, 3, 5, and so on. As long as the odd-
+numbered elements (the peaks) are bigger than the adjacent elements, then the even-numbered elements
+(the valleys) must be smaller than the adjacent elements.
+The code to implement this is below.
+1
+void sortValleyPeak£int[] array) {
+2
+A r r a y s . s o r t ( a r r a y ) ;
+3
+f o r ( i n t i = lj
+i < a r r a y . l e n g t h ; i += 2) {
+4
+swap(array, i - 1, i ) ;
+5
+>
+6
+>
+7
+8
+void s w a p ( i n t [ ] array,
+i n t l e f t , i n t r i g h t ) {
+9
+i n t temp = a r r a y [ l e f t ] ;
+10
+a r r a y [ l e f t ] = a r r a y [ r i g h t ] ;
+11
+a r r a y [ r i g h t ] = temp;
+12 >
+Thisalgorithm runs in 0 ( n l o g n)time.
+Optimal Solution
+To optimize past the prior solution, we need to cut out the sorting step. The algorithm must operate on an
+unsorted array.
+Let's revisit an example.
+9
+1
+0
+4
+8
+7
+For each element, we'll look at the adjacent elements. Let's imagine some sequences. We'll just use the
+numbers 0,1 and 2. The specific values don't matter.
+0
+1
+2
+0
+2
+1
+II
+peak
+1
+0
+2
+1 2
+0
+I I peak
+2
+1
+0
+CrackingTheCodinglnterview.com | 6th Edition 397

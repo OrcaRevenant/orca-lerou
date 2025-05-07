@@ -1,0 +1,24 @@
+So what is Docker for Mac?
+First up, Docker for Mac is a packaged product from Docker, Inc. that is based
+on the Community Edition of Docker. This means it’s an easy way to install a
+single-engine version of Docker on you Mac. It also means that it’s not intended
+for production use. If you’ve heard of boot2docker then Docker for Mac is what
+you always wished boot2docker was - it’s smooth, simple and stable.
+It’s also worth noting that Docker for Mac will not give you the Docker Engine
+running natively on the Mac OS Darwin kernel. Behind the scenes it runs the
+Docker daemon inside of a lightweight Linux VM. It then seamlessly exposes
+the daemon and API to your Mac environment. But it does it all in a way that the
+mystery and magic that pulls it all together is hidden away behind the scenes. All
+you need to know is that you can open a terminal on your Mac and use the
+regular Docker commands to hit the Docker API.
+Although this seamlessly works on your Mac, it’s obviously Docker on Linux
+under the hood, so it’s only going work with Linux-based Docker containers.
+This is good though, as this is where most of the container action is.
+Figure 3.3 shows a high-level representation of the Docker for Mac architecture.
+Figure 3.3
+Note: For the curious reader, Docker for Mac leverages HyperKit to
+implement an extremely lightweight hypervisor. HyperKit is based on the
+xhive hypervisor. Docker for Mac also leverages features from DataKit and
+runs a highly tuned Linux distro called Moby that is based off of Alpine
+Linux.
+Let’s get Docker for Mac installed.

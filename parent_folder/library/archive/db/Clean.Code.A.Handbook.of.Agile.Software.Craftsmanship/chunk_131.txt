@@ -1,0 +1,36 @@
+101
+Bibliography
+Active Record
+Active Records are special forms of DTOs. They are data structures with public (or bean-
+accessed) variables; but they typically have navigational methods like save and find. Typi-
+cally these Active Records are direct translations from database tables, or other data
+sources.
+Unfortunately we often ﬁnd that developers try to treat these data structures as though
+they were objects by putting business rule methods in them. This is awkward because it
+creates a hybrid between a data structure and an object.
+The solution, of course, is to treat the Active Record as a data structure and to create
+separate objects that contain the business rules and that hide their internal data (which are
+probably just instances of the Active Record).
+Conclusion
+Objects expose behavior and hide data. This makes it easy to add new kinds of objects
+without changing existing behaviors. It also makes it hard to add new behaviors to existing
+objects. Data structures expose data and have no signiﬁcant behavior. This makes it easy to
+add new behaviors to existing data structures but makes it hard to add new data structures
+to existing functions.
+In any given system we will sometimes want the ﬂexibility to add new data types, and
+so we prefer objects for that part of the system. Other times we will want the ﬂexibility to
+add new behaviors, and so in that part of the system we prefer data types and procedures.
+Good software developers understand these issues without prejudice and choose the
+approach that is best for the job at hand.
+Bibliography
+[Refactoring]:  Refactoring: Improving the Design of Existing Code, Martin Fowler et al.,
+Addison-Wesley, 1999.
+public String getState() {
+return state;
+}
+public String getZip() {
+return zip;
+}
+}
+Listing 6-7 (continued)
+address.java

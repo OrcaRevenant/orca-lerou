@@ -1,0 +1,40 @@
+Chapter 17 | Hard
+17.23 Max Black Square: Imagine you have a square matrix, where each cell (pixel) is either black or white
+Design an algorithm to find the maximum subsquare such that all four borders are filled with black
+pixels.
+Hints: #684, #695, #705, #714, #721, #736
+17.24 Max Submatrix: Given an NxN matrix of positive and negative integers, write code to find the
+subrnatrix with the largest possible sum.
+Hints: #469, #S11, #525, #539, #565, #581, #595, #615, #621
+17.25 Word Rectangle: Given a list of millions of words, design an algorithm to create the largest possible
+rectangle of letters such that every row forms a word (reading left to right) and every column forms
+a word (reading top to bottom). The words need not be chosen consecutively from the list, but all
+rows must be the same length and all columns must be the same height.
+Hints; #477, #500, #748
+17.26 Sparse Similarity: The similarity of two documents (each with distinct words) is defined to be the
+size of the intersection divided by the size of the union. For example, if the documents consist of
+integers, the similarity of { I , 5, 3} and { 1 , 7, 2, 3} is 0.4, because the intersection has size
+2 and the union has size 5.
+We have a long list of documents (with distinct values and each with an associated ID) where the
+similarity is believed to be "sparse."That is, any two arbitrarily selected documents are very likely to
+have similarity 0. Design an algorithm that returns a list of pairs of document IDs and the associated
+similarity.
+Print only the pairs with similarity greater than 0, Empty documents should not be printed at all. For
+simplicity, you may assume each document is represented as an array of distinct integers.
+EXAMPLE
+Input:
+13: {14j 15, 100, 9, 3}
+16: <32, 1, 9, 3, 5}
+19: {15, 29, 2, 6, 8, 7}
+24: {7, 10}
+Output:
+ID1, ID2 : SIMILARITY
+13, 19
+: 0 . 1
+13, 16
+: 0.25
+19, 24
+: 0.14285714285714285
+Hints: #484, #498, #510, #518, #534, #547, #555, #561, #569, #577, #584, #603, #611, #636
+190
+Cracking the Coding Interview, 6 t h Edition

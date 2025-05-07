@@ -1,0 +1,17 @@
+156
+Chapter 11: Systems
+LineItem instances to add to an Order. In this case we can use the ABSTRACT FACTORY2
+pattern to give the application control of when to build the LineItems, but keep the details
+of that construction separate from the application code. (See Figure 11-2.)
+Again notice that all the dependencies point from main toward the OrderProcessing
+application. This means that the application is decoupled from the details of how to
+build a LineItem. That capability is held in the LineItemFactoryImplementation, which
+is on the main side of the line. And yet the application is in complete control of when
+the LineItem instances get built and can even provide application-speciﬁc constructor
+arguments.
+Figure 11-1
+Separating construction in main()
+2.
+[GOF].
+Figure 11-2
+Separation construction with factory

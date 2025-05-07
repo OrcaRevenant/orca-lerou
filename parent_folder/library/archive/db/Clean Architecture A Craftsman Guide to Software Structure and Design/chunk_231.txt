@@ -1,0 +1,7 @@
+Figure 27.2 Using an object-oriented approach to deal with cross-cutting concerns
+COMPONENT-BASED SERVICES
+The obvious question is: Can we do that for services? And the answer is, of
+course: Yes! Services do not need to be little monoliths. Services can, instead, be
+designed using the SOLID principles, and given a component structure so that
+new components can be added to them without changing the existing
+components within the service.

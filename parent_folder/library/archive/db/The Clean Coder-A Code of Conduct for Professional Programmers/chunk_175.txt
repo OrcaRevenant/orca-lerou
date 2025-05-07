@@ -1,0 +1,73 @@
+PERT
+143
+But Mike is not just managing one task. He’s managing a project of many tasks.
+Peter has three of those tasks that he must work on in sequence. Peter has
+estimated these tasks as shown in Table 10-1.
+Table 10-1 Peter’s Tasks
+Task
+Optimistic
+Nominal
+Pessimistic
+μ
+σ
+Alpha
+1
+3
+12
+4.2
+1.8
+Beta
+1
+1.5
+14
+3.5
+2.2
+Gamma
+3
+6.25
+11
+6.5
+1.3
+What’s up with that “beta” task? It looks like Peter is pretty confident about it,
+but that something could possibly go wrong that would derail him significantly.
+How should Mike interpret that? How long should Mike plan for Peter to
+complete all three tasks?
+It turns out that, with a few simple calculations, Mike can combine all of Peter’s
+tasks and come up with a probability distribution for the entire set of tasks. The
+math is pretty straightforward:
+• μ
+μ
+sequence
+task
+= ∑
+For any sequence of tasks the expected duration of that sequence is the
+simple sum of all the expected durations of the tasks in that sequence. So if
+Peter has three tasks to complete, and their estimates are 4.2/1.8, 3.5/2.2,
+and 6.5/1.3, then Peter will likely be done with all three in about 14 days:
+4.2 + 3.5 + 6.5.
+• σ
+σ
+sequence = ∑ task
+2
+The standard deviation of the sequence is the square root of the sum of the
+squares of the standard deviations of the tasks. So the standard deviation for
+all three of Peter’s tasks is about 3.
+(1.8
+2.2
+1.3 )
+(3.24
+2.48
+1.69)
+9.77
+2
+2
+2 1/2
+1/2
+1/2
++
++
+=
++
++
+=
+===  ∼ 3.13

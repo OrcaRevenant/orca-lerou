@@ -1,0 +1,8 @@
+Docker Deep Dive v4
+Nigel Poulton - @nigelpoulton
+This is version 4 of the book published on 3rd October 2017. This version. This
+version added a new chapter titled "Containerizing an app". It also added content
+about multi-architecture images and crypto ID's.
+Version 3 added The Docker Engine chapter.
+Version 2 added the Security in Docker chapter.
+© 2016 - 2017 Nigel Poulton (All typos are mine. Or is that typo's)

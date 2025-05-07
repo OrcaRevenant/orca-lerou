@@ -1,0 +1,13 @@
+171
+12
+Emergence
+by Jeff Langr
+Getting Clean via Emergent Design
+What if there were four simple rules that you could follow that would help you create good
+designs as you worked? What if by following these rules you gained insights into the struc-
+ture and design of your code, making it easier to apply principles such as SRP and DIP?
+What if these four rules facilitated the emergence of good designs?
+Many of us feel that Kent Beck’s four rules of Simple Design1 are of signiﬁcant help in
+creating well-designed software.
+1.
+[XPE].

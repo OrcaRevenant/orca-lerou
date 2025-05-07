@@ -1,0 +1,45 @@
+While Promise.all([]) will fulfill right away (with no values),
+Promise.race([]) will hang forever. This is a strange inconsis‐
+tency, and speaks to the suggestion that you should never use these
+methods with empty arrays.
+Generators + Promises
+It is possible to express a series of promises in a chain to represent the async flow
+control of your program. Consider:
+step1()
+.then(
+step2,
+step2Failed
+)
+.then(
+function(msg) {
+return Promise.all( [
+step3a( msg ),
+step3b( msg ),
+step3c( msg )
+] )
+}
+)
+.then(step4);
+However, there’s a much better option for expressing async flow control, and it will
+probably be much more preferable in terms of coding style than long promise chains.
+We can use what we learned in Chapter 3 about generators to express our async flow
+control.
+The important pattern to recognize: a generator can yield a promise, and that
+promise can then be wired to resume the generator with its fulfillment value.
+Consider the previous snippet’s async flow control expressed with a generator:
+function *main() {
+var ret = yield step1();
+try {
+ret = yield step2( ret );
+}
+catch (err) {
+ret = yield step2Failed( err );
+}
+ret = yield Promise.all( [
+step3a( ret ),
+step3b( ret ),
+step3c( ret )
+134
+|
+Chapter 4: Async Flow Control
+www.it-ebooks.info

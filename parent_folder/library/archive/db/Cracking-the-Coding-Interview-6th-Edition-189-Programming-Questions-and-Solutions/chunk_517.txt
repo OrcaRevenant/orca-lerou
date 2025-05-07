@@ -1,0 +1,79 @@
+Solutions to Chapter 16 | Moderate
+7
+void getValidWords(String number, int index, String prefix, TrieNode trieNode,
+8
+ArrayList<String> results) {
+9
+/* If i t ' s a complete word, print it. */
+10
+if (index == number.length()) {
+11
+if (trieNode. terminatesO) { 11 Is complete word
+12
+results.add(prefix);
+13
+}
+14
+return;
+15
+}
+16
+17
+/* Get characters that match this digit */
+18
+char digit = number.charAt(index);
+19
+char[] letters = getT9Chars(digit);
+20
+21
+/* Go through a l l remaining options. */
+22
+if (letters != null) {
+23
+for (char letter : letters) {
+24
+TrieNode child = trieNode,getchild(letter);
+25
+/* If there are words that start with prefix + letter,
+26
+* then continue recursing. */
+27
+if (child != null) {
+28
+getValidWords(number, index + 1, prefix + letter, child, results);
+29
+>
+30
+}
+31
+>
+32 }
+It's difficult to describe the runtime of this algorithm since it depends on what the language looks like.
+However, this "short-circuiting" will make it run much, much faster in practice.
+Most Optimal
+Believe or not, we can actually make it run even faster. We just need to do a little bit of preprocessing.That's
+not a big deal though. We were doing that to build the trie anyway.
+This problem is asking us to list all the words represented by a particular number inT9. Instead of trying to
+do this"on the fly "(and going through a lot of possibilities, many of which won't actually work), we can just
+do this in advance.
+Our algorithm now has a few steps:
+Pre-Computation:
+1. Create a hash table that maps from a sequence of digits to a list of strings.
+2. Go through each word in the dictionary and convert it to itsT9 representation (e.g., APPLE -> 27753).
+Store each of these in the above hash table. For example, 8733 would map to {used, t r e e } .
+Word Lookup:
+1. Just lookup the entry in the hash table and return the list.
+That's it!
+1
+/* WORD LOOKUP */
+2
+ArrayList<String> getValidT9Words(String numbers,
+3
+HashMapList<String, String> dictionary) {
+4
+return dictionary,get(numbers);
+5
+>
+6
+CrackingTheCodinglnterview.com | 6th Edition
+495

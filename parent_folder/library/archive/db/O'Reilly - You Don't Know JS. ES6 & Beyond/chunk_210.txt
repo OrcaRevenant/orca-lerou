@@ -1,0 +1,39 @@
+Moreover, the service provides tools and APIs to scan your files to determine what
+features you need, so you can fully automate your split delivery build processes.
+FeatureTests.io makes it practical to use feature tests for all parts of ES6 and beyond
+to make sure that only the best code is ever loaded and run for any given environ‐
+ment.
+Tail Call Optimization (TCO)
+Normally, when a function call is made from inside another function, a second stack
+frame is allocated to separately manage the variables/state of that other function invo‐
+cation. Not only does this allocation cost some processing time, but it also takes up
+some extra memory.
+A call stack chain typically has at most 10-15 jumps from one function to another and
+another. In those scenarios, the memory usage is not likely any kind of practical
+problem.
+However, when you consider recursive programming (a function calling itself repeat‐
+edly) — or mutual recursion with two or more functions calling each other — the call
+stack could easily be hundreds, thousands, or more levels deep. You can probably see
+the problems that could cause, if memory usage grows unbounded.
+JavaScript engines have to set an arbitrary limit to prevent such programming techni‐
+ques from crashing by running the browser and device out of memory. That’s why we
+get the frustrating “RangeError: Maximum call stack size exceeded” thrown if the
+limit is hit.
+The limit of call stack depth is not controlled by the specification.
+It’s implementation dependent, and will vary between browsers and
+devices. You should never code with strong assumptions of exact
+observable limits, as they may very well change from release to
+release.
+Certain patterns of function calls, called tail calls, can be optimized in a way to avoid
+the extra allocation of stack frames. If the extra allocation can be avoided, there’s no
+reason to arbitrarily limit the call stack depth, so the engines can let them run
+unbounded.
+It’s important to note that this optimization can only be applied in strict mode. Yet
+another reason to always be writing all your code as strict!
+A tail call is a function call in the tail position — at the end of a function’s code path
+— where nothing has to happen after the call except (optionally) returning its value
+along to a previous function invocation.
+Tail Call Optimization (TCO)
+|
+199
+www.it-ebooks.info

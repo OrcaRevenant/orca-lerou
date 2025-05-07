@@ -1,0 +1,43 @@
+304
+Chapter 17: Smells and Heuristics
+The problem with this was that VariableExpandingWidgetRoot had no need to be
+inside the scope of AliasLinkWidget. Moreover, other unrelated classes made use of
+AliasLinkWidget.VariableExpandingWidgetRoot. These classes had no need to know
+about AliasLinkWidget.
+Perhaps the programmer had plopped the VariableExpandingWidgetRoot
+into
+AliasWidget as a matter of convenience, or perhaps he thought it really needed to be
+scoped inside AliasWidget. Whatever the reason, the result wound up being arbitrary. Pub-
+lic classes that are not utilities of some other class should not be scoped inside another
+class. The convention is to make them public at the top level of their package.
+G33: Encapsulate Boundary Conditions
+Boundary conditions are hard to keep track of. Put the processing for them in one place.
+Don’t let them leak all over the code. We don’t want swarms of +1s and -1s scattered hither
+and yon. Consider this simple example from FIT:
+if(level + 1 < tags.length)
+{
+parts = new Parse(body, tags, level + 1, offset + endTag);
+body = null;
+}
+Notice that level+1 appears twice. This is a boundary condition that should be encapsu-
+lated within a variable named something like nextLevel.
+int nextLevel = level + 1;
+if(nextLevel < tags.length)
+{
+parts = new Parse(body, tags, nextLevel, offset + endTag);
+body = null;
+}
+G34: Functions Should Descend Only One Level of Abstraction
+The statements within a function should all be written at the same level of abstraction,
+which should be one level below the operation described by the name of the function. This
+may be the hardest of these heuristics to interpret and follow. Though the idea is plain
+enough, humans are just far too good at seamlessly mixing levels of abstraction. Consider,
+for example, the following code taken from FitNesse:
+public String render() throws Exception
+{
+StringBuffer html = new StringBuffer("<hr");
+if(size > 0)
+html.append(" size=\"").append(size + 1).append("\"");
+html.append(">");
+return html.toString();
+}

@@ -1,0 +1,29 @@
+CHAPTER 10 ESTIMATION
+144
+This tells Mike that Peter’s tasks will likely take 14 days, but could very well take
+17 days (1s) and could possibly even take 20 days (2s). It could even take
+longer, but that’s pretty unlikely.
+Look back at the table of estimates. Can you feel the pressure to get all three
+tasks done in five days? After all, the best-case estimates are 1, 1, and 3. Even the
+nominal estimates only add up to 10 days. How did we get all the way up to 14
+days, with a possibility of 17 or 20? The answer is that the uncertainty in those
+tasks compounds in a way that adds realism to the plan.
+If you are a programmer of more than a few years’ experience, you’ve likely seen
+projects that were estimated optimistically, and that took three to five times
+longer than hoped. The simple PERT scheme just shown is one reasonable way
+to help prevent setting optimistic expectations. Software professionals are very
+careful to set reasonable expectations despite the pressure to try to go fast.
+E STI MATI N G TA S K S
+Mike and Peter were making a terrible mistake. Mike was asking Peter how long
+his tasks would take. Peter gave honest trivariate answers, but what about the
+opinions of his teammates? Might they have a different idea?
+The most important estimation resource you have are the people around you.
+They can see things that you don’t. They can help you estimate your tasks more
+accurately than you can estimate them on your own.
+WI D E BAN D D E LPH I
+In the 1970s Barry Boehm introduced us to an estimation technique called
+“wideband delphi.”5 There have been many variations over the years. Some are
+formal, some are informal; but they all have one thing in common: consensus.
+The strategy is simple. A team of people assemble, discuss a task, estimate the
+task, and iterate the discussion and estimation until they reach agreement.
+5. [Boehm81]

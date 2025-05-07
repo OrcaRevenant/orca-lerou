@@ -1,0 +1,33 @@
+WORK ETHIC
+19
+• Disciplines. You should practice TDD, Object-Oriented design, Structured
+Programming, Continuous Integration, and Pair Programming.
+• Artifacts: You should know how to use: UML, DFDs, Structure Charts, Petri
+Nets, State Transition Diagrams and Tables, flow charts, and decision tables.
+CO NTI N U O U S L E A R N I N G
+The frenetic rate of change in our industry means that software developers
+must continue to learn copious quantities just to keep up. Woe to the architects
+who stop coding—they will rapidly find themselves irrelevant. Woe to the
+programmers who stop learning new languages—they will watch as the
+industry passes them by. Woe to the developers who fail to learn new disciplines
+and techniques—their peers will excel as they decline.
+Would you visit a doctor who did not keep current with medical journals?
+Would you hire a tax lawyer who did not keep current with the tax laws and
+precedents? Why should employers hire developers who don’t keep current?
+Read books, articles, blogs, tweets. Go to conferences. Go to user groups.
+Participate in reading and study groups. Learn things that are outside your
+comfort zone. If you are a .NET programmer, learn Java. If you are a Java
+programmer, learn Ruby. If you are a C programmer, learn Lisp. If you want to
+really bend your brain, learn Prolog and Forth!
+PR ACTI C E
+Professionals practice. True professionals work hard to keep their skills sharp
+and ready. It is not enough to simply do your daily job and call that practice.
+Doing your daily job is performance, not practice. Practice is when you
+specifically exercise your skills outside of the performance of your job for the
+sole purpose of refining and enhancing those skills.
+What could it possibly mean for a software developer to practice? At first
+thought the concept seems absurd. But stop and think for a moment. Consider
+how musicians master their craft. It’s not by performing. It’s by practicing. And
+how do they practice? Among other things, they have special exercises that they
+perform. Scales and etudes and runs. They do these over and over to train their
+fingers and their mind, and to maintain mastery of their skill.

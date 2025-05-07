@@ -1,0 +1,45 @@
+219
+String Arguments
+...
+public String getString(char arg) {
+Args.ArgumentMarshaler am = stringArgs.get(arg);
+return am == null ? "" : (String) am.get();
+}
+...
+private abstract class ArgumentMarshaler {
+private int integerValue;
+public void setInteger(int i) {
+integerValue = i;
+}
+public int getInteger() {
+return integerValue;
+}
+public abstract void set(String s);
+public abstract Object get();
+}
+private class BooleanArgumentMarshaler extends ArgumentMarshaler {
+private boolean booleanValue = false;
+public void set(String s) {
+booleanValue = true;
+}
+public Object get() {
+return booleanValue;
+}
+}
+private class StringArgumentMarshaler extends ArgumentMarshaler {
+private String stringValue = "";
+public void set(String s) {
+stringValue = s;
+}
+public Object get() {
+return stringValue;
+}
+}
+private class IntegerArgumentMarshaler extends ArgumentMarshaler {
+public void set(String s) {
+}
+public Object get() {
+return null;
+}
+}
+}

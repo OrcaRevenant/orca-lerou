@@ -1,0 +1,39 @@
+42
+Chapter 3: Functions
+Dyadic Functions
+A function with two arguments is harder to understand than a monadic function. For exam-
+ple, writeField(name) is easier to understand than writeField(output-Stream, name).10
+Though the meaning of both is clear, the ﬁrst glides past the eye, easily depositing its
+meaning. The second requires a short pause until we learn to ignore the ﬁrst parameter.
+And that, of course, eventually results in problems because we should never ignore any
+part of code. The parts we ignore are where the bugs will hide.
+There are times, of course, where two arguments are appropriate. For example,
+Point p = new Point(0,0); is perfectly reasonable. Cartesian points naturally take two
+arguments. Indeed, we’d be very surprised to see new Point(0). However, the two argu-
+ments in this case are ordered components of a single value! Whereas output-Stream and
+name have neither a natural cohesion, nor a natural ordering.
+Even obvious dyadic functions like assertEquals(expected, actual) are problematic.
+How many times have you put the actual where the expected should be? The two argu-
+ments have no natural ordering. The expected, actual ordering is a convention that
+requires practice to learn.
+Dyads aren’t evil, and you will certainly have to write them. However, you should be
+aware that they come at a cost and should take advantage of what mechanims may be
+available to you to convert them into monads. For example, you might make the
+writeField method a member of outputStream so that you can say outputStream.
+writeField(name). Or you might make the outputStream a member variable of the current
+class so that you don’t have to pass it. Or you might extract a new class like FieldWriter
+that takes the outputStream in its constructor and has a write method.
+Triads
+Functions that take three arguments are signiﬁcantly harder to understand than dyads. The
+issues of ordering, pausing, and ignoring are more than doubled. I suggest you think very
+carefully before creating a triad.
+For example, consider the common overload of assertEquals that takes three argu-
+ments: assertEquals(message, expected, actual). How many times have you read the
+message and thought it was the expected? I have stumbled and paused over that particular
+triad many times. In fact, every time I see it, I do a double-take and then learn to ignore the
+message.
+On the other hand, here is a triad that is not quite so insidious: assertEquals(1.0,
+amount, .001). Although this still requires a double-take, it’s one that’s worth taking. It’s
+always good to be reminded that equality of ﬂoating point values is a relative thing.
+10. I just ﬁnished refactoring a module that used the dyadic form. I was able to make the outputStream a ﬁeld of the class and
+convert all the writeField calls to the monadic form. The result was much cleaner.

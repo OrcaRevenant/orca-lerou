@@ -1,0 +1,66 @@
+Solutions to Chapter 14 j Databases
+57
+one.setLocation(two.x, two.y);
+58
+two.setLocation(x, y);
+59 >
+60
+61 public class Line {
+62
+public double slope, yintercept;
+63
+64
+public Line(Point start. Point end) {
+65
+double deltaY = end.y - start.y;
+66
+double deltaX = end.x - start.x;
+67
+slope = deltaY / deltaX; // Will be Infinity (not exception) when deltaX = 0
+68
+yintercept = end.y - slope * end.x;
+69
+}
+70
+71 public class Point {
+72
+public double x, y;
+73
+public Point(double x, double y) {
+74
+this.x = x;
+75
+this.y = y;
+76
+}
+77
+78
+public void setLocation(double x, double y) {
+79
+this.x = x;
+80
+this.y = y;
+81
+>
+82 }
+For simplicity and compactness (it really makes the code easier to read), we've chosen to make the variables
+within P o i n t and Line p u b l i c . You can discuss with your interviewer the advantages and disadvantages
+of this choice.
+16.4
+Tic Tac Win: Design an algorithm to figure out if someone has won a game oftic-tac-toe.
+pg 181
+SOLUTION
+At first glance, this problem seems really straightforward. We're just checking a tic-tac-toe board; how hard
+could it be? It turns out that the probfem is a bit more complex, and there is no single "perfect" answer.The
+optimal solution depends on your preferences.
+There are a few major design decisions to consider;
+1. Will hasWon be called just once or many times (for instance, as part of a tic-tac-toe website)? If the latter
+is the case, we may want to add pre-processing time to optimize the runtime of hasWon.
+2. Do we know the last move that was made?
+3. Tic-tac-toe is usually on a 3x3 board. Do we want to design for just that, or do we want to implement it
+as an NxN solution?
+4. In general, how much do we prioritize compactness of code versus speed of execution vs. clarity of
+code? Remember: The most efficient code may not always be the best. Your ability to understand and
+maintain the code matters, too.
+4 6 6
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,32 @@
+APPRENTICESHIP
+183
+Journeymen are supervised by masters, or other more senior journeymen.
+Young journeymen are seldom allowed autonomy. Their work is closely
+supervised. Their code is scrutinized. As they gain in experience, autonomy
+grows. Supervision becomes less direct and more nuanced. Eventually it
+transitions into peer review.
+Apprentices/Interns
+Graduates start their careers as apprentices. Apprentices have no autonomy.
+They are very closely supervised by journeymen. At first they take no tasks at
+all, they simply provide assistance to the journeymen. This should be a time of
+very intense pair-programming. This is when disciplines are learned and
+reinforced. This is when the foundation of values is created.
+Journeymen are the teachers. They make sure that the apprentices know design
+principles, design patterns, disciplines, and rituals. Journeymen teach TDD,
+refactoring, estimation, and so forth. They assign reading, exercises, and
+practices to the apprentices; they review their progress.
+Apprenticeship ought to last a year. By that time, if the journeymen are willing
+to accept the apprentice into their ranks, they will make a recommendation to
+the masters. The masters should examine the apprentice both by interview and
+by reviewing their accomplishments. If the masters agree, then the apprentice
+becomes a journeyman.
+TH E R E ALIT Y
+Again, all of this is idealized and hypothetical. However, if you change the
+names and squint at the words you’ll realize that it’s not all that different from
+the way we expect things to work now. Graduates are supervised by young team-
+leads, who are supervised by project-leads, and so on. The problem is that, in
+most cases, this supervision is not technical! In most companies there is no
+technical supervision at all. Programmers get raises and eventual promotions
+because, well, that’s just what you do with programmers.
+The difference between what we do today and my idealized program of appren-
+ticeship is the focus on technical teaching, training, supervision, and review.

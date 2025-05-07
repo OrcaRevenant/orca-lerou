@@ -1,0 +1,27 @@
+xviii
+FOREWORD
+Hey, look at that, here comes Joe again, stage left this time:
+Oh, here we are, back at BigCo, with Joe and me, once more on the big web site
+conversion project.
+Only this time, imagine it just a little bit differently.
+Instead of shirking from commitments, the technical staff actually makes them.
+Instead of shirking from estimates or letting someone else do the planning
+(then complaining about it), the technical team actually self-organizes and
+makes real commitments.
+Now imagine that the staff is actually working together. When the programmers
+are blocked by operations, they pick up the phone and the sysadmin actually
+gets started on the work.
+When Joe comes by to light a fire to get ticket 14321 worked on, he doesn’t need
+to; he can see that the DBA is working diligently, not surfing the web. Likewise,
+the estimates he gets from staff seem downright consistent, and he doesn’t get
+the feeling that the project is in priority somewhere between lunch and
+checking email. All the tricks and attempts to manipulate the schedule are not
+met with, “We’ll try,” but instead, “That’s our commitment; if you want to make
+up your own goals, feel free.”
+After a while, I suspect Joe would start to think of the technical team as, well,
+professionals. And he’d be right.
+Those steps to transform your behavior from technician to professional? You’ll
+find them in the rest of the book.
+Welcome to the next step in your career; I suspect you are going to like it.
+—Matthew Heusser
+Software Process Naturalist

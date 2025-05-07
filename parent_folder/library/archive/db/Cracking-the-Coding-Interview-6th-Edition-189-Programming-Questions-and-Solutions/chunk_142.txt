@@ -1,0 +1,41 @@
+Chapter 8 j Recursion and Dynamic Programming
+What is the runtime of this function? Think for a second before you answer.
+If you said 0 ( n ) or 0(n 3) (as many people do), think again. Study the code path that the code takes.
+Drawing the code paths as a tree {that is, the recursion tree) is useful on this and many recursive problems.
+Observe that the leaves on the tree are all f i b ( l ) and f i b (0). Those signify the base cases.
+The total number of nodes in the tree will represent the runtime, since each call only does 0 ( 1 ) work
+outside of its recursive calls. Therefore, the number of calls is the runtime.
+I
+Tip: Remember this for future problems. Drawing the recursive calls as a tree is a great way to
+figure out the runtime of a recursive algorithm.
+How many nodes are in the tree? Until we get down to the base cases (leaves), each node has two children.
+Each node branches out twice.
+The root node has two children. Each of those children has two children (so four children total in the "grand-
+children" level). Each of those grandchildren has two children, and so on. If we do this n times, we'll have
+roughly 0(2") nodes. This gives us a runtime of roughly 0(2").
+I
+Actually, it's slightly better than 0(2 n). If you look at the subtree, you might notice that (excluding
+the leaf nodes and those immediately above it) the right subtree of any node is always smaller
+than the left subtree. If they were the same size, we'd have an 0(2") runtime. But since the right
+and left subtrees are not the same size, the true runtime is closer to 0 ( 1 . 6 " ) . Saying 0(2") is still
+technically correct though as it describes an upper bound on the runtime (see "Big 0, Big Theta,
+and Big Omega" on page 39), Either way, we still have an exponential runtime.
+Indeed, if we implemented this on a computer, we'd seethe number of seconds increase exponentially.
+fib C 2 J
+fib(l)
+fib(l)
+fib(0)
+SO
+40
+20
+60
+0
+0
+10
+20
+30
+40
+Seconds to Generate Nth Fibonacci
+We should look for a way to optimize this,
+1 Î Ï
+Cracking the Coding interview, 6th Edition

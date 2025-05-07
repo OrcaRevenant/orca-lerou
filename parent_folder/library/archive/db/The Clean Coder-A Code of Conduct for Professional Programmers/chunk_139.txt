@@ -1,0 +1,31 @@
+ACCEPTANCE TESTS
+107
+Suffice it to say that the tools all provide some way to use pattern matching to
+recognize and parse the statements of the test, and then to call functions that
+feed the data in the test into the system being tested. The amount of effort is
+small, and the Scenarios and Fixtures are reusable across many different tests.
+The point of all this is that it is the developer’s job to connect the acceptance
+tests to the system, and then to make those tests pass.
+TE ST N EGOTIATI O N AN D PA S S IV E AGG R E S S ION
+Test authors are human and make mistakes. Sometimes the tests as written don’t
+make a lot of sense once you start implementing them. They might be too
+complicated. They might be awkward. They might contains silly assumptions.
+Or they might just be wrong. This can be very frustrating if you are the
+developer who has to make the test pass.
+As a professional developer, it is your job to negotiate with the test author for a
+better test. What you should never do is take the passive-aggressive option and
+say to yourself, “Well, that’s what the test says, so that’s what I’m going to do.”
+Remember, as a professional it is your job to help your team create the best
+software they can. That means that everybody needs to watch out for errors and
+slip-ups, and work together to correct them.
+Paula: “Tom, this test isn’t quite right.”
+ensure that the post operation finishes in 2 seconds.
+Tom: “It looks OK to me. Our requirement is that users should not have
+to wait more than two seconds. What’s the problem?”
+Paula: “The problem is we can only make that guarantee in a statistical
+sense.”
+Tom: “Huh? That sounds like weasel words. The requirement is two
+seconds.”
+Paula: “Right, and we can achieve that 99.5% of the time.”
+Tom: “Paula, that’s not the requirement.”
+Paula: “But it’s reality. There’s no way I can make the guarantee any other way.”

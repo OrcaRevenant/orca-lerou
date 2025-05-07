@@ -1,0 +1,52 @@
+Solutions to Chapter 17 | Hard
+17.26 Sparse Similarity: The similarity of two documents (each with distinct words) is defined to be the
+size of the intersection divided by the size of the union. For example, if the documents consist of
+integers, the similarityof { 1 ,
+5,
+3} and { 1 , 7,
+2,
+3} Is0.4, because the intersection hassize
+2 and the union has size 5.
+We have a long list of documents (with distinct values and each with an associated ID) where the
+similarity is believed to be "sparse."That is, any two arbitrarily selected documents are very likely to
+have similarity 0. Design an algorithm that returns a list of pairs of document IDs and the associated
+similarity.
+Print only the pairs with similarity greater than 0. Empty documents should not be printed at all. For
+simplicity, you may assume each document is represented as an array of distinct integers.
+EXAMPLE
+Input:
+13: {14, 15, 190, 9, 3}
+16: {32, 1, 9, 3, 5}
+19: {15, 29, 2, 6 , 8, 7}
+24: {7, 10}
+Output:
+ID1, ID2
+13, 19
+13, 16
+19, 24
+SIMILARITY
+0.1
+0.25
+0.14285714285714285
+pg 190
+SOLUTION
+This sounds like quite a tricky problem, so let's start off with a brute force algorithm. If nothing else, it will
+help wrap our heads around the problem.
+Remember that each document is an array of distinct"words" and each is just an integer.
+Brute Force
+A brute force algorithm is as simple as just comparing all arrays to all other arrays. At each comparison, we
+compute the size of the intersection and size of the union of the two arrays.
+Note that we only want to print this pair if the similarity is greater than O.The union of two arrays can never
+be zero (unless both arrays are empty, in which case we don't want them printed anyway).Therefore, we are
+really just printing the similarity if the intersection is greater than 0.
+How do we compute the size of the intersection and the union?
+The intersection means the number of elements in common. Therefore, we can just iterate through the first
+array (A) and check if each element is in the second array (B), If it is, increment an i n t e r s e c t i o n variable.
+To compute the union, we need to be sure that we don't double count elements that are in both. One way
+to do this is to count up all the elements in A that are not in B. Then, add in ail the elements in B. This will
+avoid double counting as the duplicate elements are only counted with 8.
+Alternatively, we can think about it this way. If we did double count elements, it would mean that elements
+in the intersection (in both A and B) were counted twice. Therefore, the easy fix is to just remove these
+duplicateelements.
+614
+Cracking the Coding Interview, 6th Edition

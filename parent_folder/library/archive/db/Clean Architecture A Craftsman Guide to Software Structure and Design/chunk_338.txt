@@ -1,0 +1,31 @@
+The two of us worked full time on Vignette Grande with an eye toward creating
+a reusable framework. It took us a year. At the end of that year we had 45,000
+lines of framework code and 6000 lines of application code. We delivered this
+product to ETS, and they contracted with us to write the other 17 applications
+post-haste.
+So Jim and I recruited a team of three other developers and we began to work on
+the next few vignettes.
+But something went wrong. We found that the reusable framework we had
+created was not particularly reusable. It did not fit well into the new applications
+being written. There were subtle frictions that just didn’t work.
+This was deeply discouraging, but we believed we knew what to do about it. We
+went to ETS and told them that there would be a delay—that the 45,000-line
+framework needed to be rewritten, or at least readjusted. We told them that it
+would take a while longer to get that done.
+I don’t need to tell you that ETS was not particularly happy with this news.
+So we began again. We set the old framework aside and began writing four new
+vignettes simultaneously. We would borrow ideas and code from the old
+framework but rework them so that they fit into all four without modification.
+This effort took another year. It produced another 45,000-line framework, plus
+four vignettes that were on the order of 3000 to 6000 lines each.
+Needless to say, the relationship between the GUI applications and the
+framework followed the Dependency Rule. The vignettes were plugins to the
+framework. All the high-level GUI policy was in the framework. The vignette
+code was just glue.
+The relationship between the scoring applications and the framework was a bit
+more complex. The high-level scoring policy was in the vignette. The scoring
+framework plugged into the scoring vignette.
+Of course, both of these applications were statically linked C++ applications, so
+the notion of plugin was nowhere in our minds. And yet, the way the
+dependencies ran was consistent with the Dependency Rule.
+Having delivered those four applications, we began on the next four. And this

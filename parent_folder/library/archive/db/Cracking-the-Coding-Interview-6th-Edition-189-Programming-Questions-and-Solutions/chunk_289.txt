@@ -1,0 +1,94 @@
+Solutions to Chapter 5 j Bit Manipulation
+2
+If (r == -1) return Integer.BYTES * 8;
+3
+ArrayList<Integer> sequences = getAlternatingSequences(n);
+4
+return findLongestSequence(sequences);
+5
+>
+6
+7
+/* Return a l i s t of the sizes of the sequences. The sequence starts o f f with the
+8
+number of 0s (which might be 0) and then alternates with the counts of each
+9
+value.*/
+10 ArrayList<Integer> getAlternatingSequences(int n) {
+11
+ArrayList<Integer> sequences = new ArrayList<lnteger>();
+12
+13
+i n t searchingFor = 0;
+14
+i n t counter = 0;
+15
+16
+f o r ( i n t i = 0; i < Integer.BYTES * 8; i++) {
+17
+if {(n & 1) != searchingFor) {
+18
+sequences.add(counter);
+19
+searchingFor = n & 1; // Flip 1 to 0 or 0 to 1
+20
+counter = 0;
+21
+>
+22
+counter++;
+23
+n » > = 1;
+24
+}
+25
+sequences.add(counter);
+26
+27
+return sequences;
+28 >
+29
+30 /* Given the lengths of alternating sequences of 0s and i s , f i n d the longest one
+31
+* we can build. */
+32 i n t findLongestSequence(ArrayList<Integer> seq) (
+33
+i n t maxSeq = 1;
+34
+35
+f o r ( i n t i = 0; i < seq,size(); i += 2) {
+36
+i n t zerosSeq = s e q . g e t ( i ) ;
+37
+i n t onesSeqRight = i - 1 >= 0 ? seq.get(i - 1) : 0;
+38
+i n t onesSeqLeft = i + 1 < seq.size() ? seq.get(i + 1) : 0;
+39
+40
+i n t thisSeq = 0;
+41
+if (zerosSeq == 1) { // Can merge
+42
+thisSeq = onesSeqLeft + 1 + onesSeqRight;
+43
+} if (zerosSeq > ! ) { / / Just add a zero to either side
+44
+thisSeq = 1 + Math,max(onesSeqRight, onesSeqLeft);
+45
+) else if (zerosSeq == 0) { // No zero, but take either side
+46
+thisSeq = Matb.max(onesSeqRightj onesSeqLeft);
+47
+>
+48
+maxSeq = Math.max(thisSeq, maxSeq);
+49
+>
+50
+51
+return maxSeq;
+52
+}
+This is pretty good. It's 0 ( b ) time and 0 ( b ) memory, where b is the length of the sequence.
+CrackingTheCodinginterview.com | 6th Edition
+279

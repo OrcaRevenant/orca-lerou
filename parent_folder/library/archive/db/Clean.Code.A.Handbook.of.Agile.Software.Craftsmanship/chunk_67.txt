@@ -1,0 +1,39 @@
+37
+Switch Statements
+like broken windows, once details are mixed with essential concepts, more and more
+details tend to accrete within the function.
+Reading Code from Top to Bottom: The Stepdown Rule
+We want the code to read like a top-down narrative.5 We want every function to be fol-
+lowed by those at the next level of abstraction so that we can read the program, descending
+one level of abstraction at a time as we read down the list of functions. I call this The Step-
+down Rule.
+To say this differently, we want to be able to read the program as though it were a set
+of TO paragraphs, each of which is describing the current level of abstraction and refer-
+encing subsequent TO paragraphs at the next level down.
+To include the setups and teardowns, we include setups, then we include the test page con-
+tent, and then we include the teardowns.
+To include the setups, we include the suite setup if this is a suite, then we include the
+regular setup.
+To include the suite setup, we search the parent hierarchy for the “SuiteSetUp” page
+and add an include statement with the path of that page.
+To search the parent. . .
+It turns out to be very difﬁcult for programmers to learn to follow this rule and write
+functions that stay at a single level of abstraction. But learning this trick is also very
+important. It is the key to keeping functions short and making sure they do “one thing.”
+Making the code read like a top-down set of TO paragraphs is an effective technique for
+keeping the abstraction level consistent.
+Take a look at Listing 3-7 at the end of this chapter. It shows the whole
+testableHtml function refactored according to the principles described here. Notice
+how each function introduces the next, and each function remains at a consistent level
+of abstraction.
+Switch Statements
+It’s hard to make a small switch statement.6 Even a switch statement with only two cases is
+larger than I’d like a single block or function to be. It’s also hard to make a switch state-
+ment that does one thing. By their nature, switch statements always do N things. Unfortu-
+nately we can’t always avoid switch statements, but we can make sure that each switch
+statement is buried in a low-level class and is never repeated. We do this, of course, with
+polymorphism.
+5.
+[KP78], p. 37.
+6.
+And, of course, I include if/else chains in this.

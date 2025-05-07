@@ -1,0 +1,42 @@
+10
+Chapter 1: Clean Code
+Michael Feathers, author of Working
+Effectively with Legacy Code
+I could list all of the qualities that I notice in
+clean code, but there is one overarching quality
+that leads to all of them. Clean code always
+looks like it was written by someone who cares.
+There is nothing obvious that you can do to
+make it better. All of those things were thought
+about by the code’s author, and if you try to
+imagine improvements, you’re led back to
+where you are, sitting in appreciation of the
+code someone left for you—code left by some-
+one who cares deeply about the craft.
+One word: care. That’s really the topic of
+this book. Perhaps an appropriate subtitle
+would be How to Care for Code.
+Michael hit it on the head. Clean code is
+code that has been taken care of. Someone has taken the time to keep it simple and orderly.
+They have paid appropriate attention to details. They have cared.
+Ron Jeffries, author of Extreme Programming
+Installed and Extreme Programming
+Adventures in C#
+Ron began his career programming in Fortran at
+the Strategic Air Command and has written code in
+almost every language and on almost every
+machine. It pays to consider his words carefully.
+In recent years I begin, and nearly end, with Beck’s
+rules of simple code. In priority order, simple code:
+• Runs all the tests;
+• Contains no duplication;
+• Expresses all the design ideas that are in the
+system;
+• Minimizes the number of entities such as classes,
+methods, functions, and the like.
+Of these, I focus mostly on duplication. When the same thing is done over and over,
+it’s a sign that there is an idea in our mind that is not well represented in the code. I try to
+ﬁgure out what it is. Then I try to express that idea more clearly.
+Expressiveness to me includes meaningful names, and I am likely to change the
+names of things several times before I settle in. With modern coding tools such as Eclipse,
+renaming is quite inexpensive, so it doesn’t trouble me to change. Expressiveness goes

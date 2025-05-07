@@ -1,0 +1,45 @@
+331
+Dependencies Between Methods Can Break Concurrent Code
+synchronized (iterator) {
+if (!iterator.hasNext())
+break;
+nextValue = iterator.next();
+}
+doSometingWith(nextValue);
+}
+Each client introduces a lock via the synchronized keyword. This duplication violates the
+DRY principle, but it might be necessary if the code uses non-thread-safe third-party tools.
+This strategy is risky because all programmers who use the server must remember to
+lock it before using it and unlock it when done. Many (many!) years ago I worked on a
+system that employed client-based locking on a shared resource. The resource was used in
+hundreds of different places throughout the code. One poor programmer forgot to lock the
+resource in one of those places.
+The system was a multi-terminal time-sharing system running accounting software
+for Local 705 of the trucker’s union. The computer was in a raised-ﬂoor, environment-
+controlled room 50 miles north of the Local 705 headquarters. At the headquarters they
+had dozens of data entry clerks typing union dues postings into the terminals. The termi-
+nals were connected to the computer using dedicated phone lines and 600bps half-duplex
+modems. (This was a very, very long time ago.)
+About once per day, one of the terminals would “lock up.” There was no rhyme or rea-
+son to it. The lock up showed no preference for particular terminals or particular times. It
+was as though there were someone rolling dice choosing the time and terminal to lock up.
+Sometimes more than one terminal would lock up. Sometimes days would go by without
+any lock-ups.
+At ﬁrst the only solution was a reboot. But reboots were tough to coordinate. We had
+to call the headquarters and get everyone to ﬁnish what they were doing on all the termi-
+nals. Then we could shut down and restart. If someone was doing something important
+that took an hour or two, the locked up terminal simply had to stay locked up.
+After a few weeks of debugging we found that the cause was a ring-buffer counter that
+had gotten out of sync with its pointer. This buffer controlled output to the terminal. The
+pointer value indicated that the buffer was empty, but the counter said it was full. Because
+it was empty, there was nothing to display; but because it was also full, nothing could be
+added to the buffer to be displayed on the screen.
+So we knew why the terminals were locking, but we didn’t know why the ring buffer
+was getting out of sync. So we added a hack to work around the problem. It was possible to
+read the front panel switches on the computer. (This was a very, very, very long time ago.)
+We wrote a little trap function that detected when one of these switches was thrown and
+then looked for a ring buffer that was both empty and full. If one was found, it reset that
+buffer to empty. Voila! The locked-up terminal(s) started displaying again.
+So now we didn’t have to reboot the system when a terminal locked up. The Local
+would simply call us and tell us we had a lock-up, and then we just walked into the com-
+puter room and ﬂicked a switch.

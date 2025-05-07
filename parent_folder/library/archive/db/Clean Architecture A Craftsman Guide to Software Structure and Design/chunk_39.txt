@@ -1,0 +1,30 @@
+3. Urgent and not important
+4. Not urgent and not important
+Note that the architecture of the code—the important stuff—is in the top two
+positions of this list, whereas the behavior of the code occupies the first and third
+positions.
+The mistake that business managers and developers often make is to elevate
+items in position 3 to position 1. In other words, they fail to separate those
+features that are urgent but not important from those features that truly are urgent
+and important. This failure then leads to ignoring the important architecture of
+the system in favor of the unimportant features of the system.
+The dilemma for software developers is that business managers are not equipped
+to evaluate the importance of architecture. That’s what software developers were
+hired to do. Therefore it is the responsibility of the software development team
+to assert the importance of architecture over the urgency of features.
+FIGHT FOR THE ARCHITECTURE
+Fulfilling this responsibility means wading into a fight—or perhaps a better
+word is “struggle.” Frankly, that’s always the way these things are done. The
+development team has to struggle for what they believe to be best for the
+company, and so do the management team, and the marketing team, and the sales
+team, and the operations team. It’s always a struggle.
+Effective software development teams tackle that struggle head on. They
+unabashedly squabble with all the other stakeholders as equals. Remember, as a
+software developer, you are a stakeholder. You have a stake in the software that
+you need to safeguard. That’s part of your role, and part of your duty. And it’s a
+big part of why you were hired.
+This challenge is doubly important if you are a software architect. Software
+architects are, by virtue of their job description, more focused on the structure of
+the system than on its features and functions. Architects create an architecture
+that allows those features and functions to be easily developed, easily modified,
+and easily extended.

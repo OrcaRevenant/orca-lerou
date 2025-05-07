@@ -1,0 +1,39 @@
+console.log( arr, yield 4 );
+}
+*foo() here has four yield .. expressions, each of which will result in a pause of the
+generator waiting for a resumption value, which will then be used in the various
+expression contexts as shown.
+yield is not an operator, though when used like yield 1 it sure looks like it. Since
+yield can be used all by itself as in var x = yield;, thinking of it as an operator can
+sometimes be misleading.
+Technically yield .. is of the same “expression precedence” --similar conceptually to
+operator precedence — as an assignment expression like a = 3. That means yield ..
+can basically appear anywhere a = 3 can validly appear.
+Let’s illustrate the symmetry:
+var a, b;
+a = 3;                  // valid
+b = 2 + a = 3;          // invalid
+b = 2 + (a = 3);        // valid
+yield 3;                // valid
+a = 2 + yield 3;        // invalid
+a = 2 + (yield 3);      // valid
+If you think about it, it makes a sort of conceptual sense that a
+yield .. expression would behave similar to an assignment
+expression. When a paused yield expression is resumed, it’s com‐
+pleted/replaced by the resumption value in a way that’s not terribly
+dissimilar from being “assigned” that value.
+The takeaway: if you need yield .. to appear in a position where an assignment like
+a = 3 would not itself be allowed, it needs to be wrapped in a ( ).
+Because of the low precedence of the yield keyword, almost any expression after a
+yield .. will be computed first before being sent with yield. Only the ... spread
+operator and the , comma operator have lower precedence, meaning they’d bind after
+the yield has been evaluated.
+So just like with multiple operators in normal statements, another case where ( )
+might be needed is to override (elevate) the low precedence of yield, such as the dif‐
+ference between these expressions:
+yield 2 + 3;            // same as `yield (2 + 3)`
+(yield 2) + 3;          // `yield 2` first, then `+ 3`
+86
+|
+Chapter 3: Organization
+www.it-ebooks.info

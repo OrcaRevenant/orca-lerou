@@ -1,0 +1,44 @@
+function tag(strings, ...values) {
+return strings.reduce( function(s,v,idx){
+return s + (idx > 0 ? values[idx-1] : "") + v;
+}, "" );
+}
+var desc = "awesome";
+var text = tag`Everything is ${desc}!`;
+console.log( text );            // Everything is awesome!
+In this snippet, tag(..) is a passthru operation, in that it doesn’t perform any special
+modifications, but just uses reduce(..) to splice/interleave strings and values
+together the same way an untagged string literal would have done.
+So what are some practical uses? There are many advanced ones that are beyond our
+scope to discuss here. But here’s a simple idea that formats numbers as US dollars
+(sort of like basic localization):
+function dollabillsyall(strings, ...values) {
+return strings.reduce( function(s,v,idx){
+if (idx > 0) {
+if (typeof values[idx-1] == "number") {
+// look, also using interpolated
+// string literals!
+s += `$${values[idx-1].toFixed( 2 )}`;
+}
+else {
+s += values[idx-1];
+}
+}
+return s + v;
+}, "" );
+}
+var amt1 = 11.99,
+amt2 = amt1 * 1.08,
+name = "Kyle";
+var text = dollabillsyall
+`Thanks for your purchase, ${name}! Your
+product cost was ${amt1}, which with tax
+comes out to ${amt2}.`
+console.log( text );
+// Thanks for your purchase, Kyle! Your
+// product cost was $11.99, which with tax
+// comes out to $12.95.
+Template Literals
+|
+45
+www.it-ebooks.info

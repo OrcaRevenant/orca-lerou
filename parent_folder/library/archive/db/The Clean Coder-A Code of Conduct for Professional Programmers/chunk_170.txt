@@ -1,0 +1,29 @@
+CHAPTER 10 ESTIMATION
+138
+WHAT I S AN E STI MATE ?
+The problem is that we view estimates in different ways. Business likes to view
+estimates as commitments. Developers like to view estimates as guesses. The
+difference is profound.
+A CO M M ITM E NT
+A commitment is something you must achieve. If you commit to getting
+something done by a certain date, then you simply have to get it done by that
+date. If that means you have to work 12 hours a day, on weekends, skipping family
+vacations, then so be it. You’ve made the commitment, and you have to honor it.
+Professionals don’t make commitments unless they know they can achieve them.
+It’s really as simple as that. If you are asked to commit to something that you
+aren’t certain you can do, then you are honor bound to decline. If you are asked
+to commit to a date that you know you can achieve, but would require long
+hours, weekends, and skipped family vacations, then the choice is yours; but
+you’d better be willing to do what it takes.
+Commitment is about certainty. Other people are going to accept your commitments
+and make plans based upon them. The cost of missing those commitments, to them,
+and to your reputation, is enormous. Missing a commitment is an act of
+dishonesty only slightly less onerous than an overt lie.
+A N E STI M ATE
+An estimate is a guess. No commitment is implied. No promise is made.
+Missing an estimate is not in any way dishonorable. The reason we make
+estimates is because we don’t know how long something will take.
+Unfortunately, most software developers are terrible estimators. This is not because
+there’s some secret skill to estimating—there’s not. The reason we are often so bad
+at estimating is because we don’t understand the true nature of an estimate.
+An estimate is not a number. An estimate is a distribution. Consider:

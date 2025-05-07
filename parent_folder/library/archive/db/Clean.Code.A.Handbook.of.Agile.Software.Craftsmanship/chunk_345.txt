@@ -1,0 +1,14 @@
+315
+Bibliography
+Bibliography
+[Refactoring]:  Refactoring: Improving the Design of Existing Code, Martin Fowler et al.,
+Addison-Wesley, 1999.
+[PRAG]:  The Pragmatic Programmer, Andrew Hunt, Dave Thomas, Addison-Wesley,
+2000.
+[GOF]:  Design Patterns: Elements of Reusable Object Oriented Software, Gamma et al.,
+Addison-Wesley, 1996.
+[Beck97]:  Smalltalk Best Practice Patterns, Kent Beck, Prentice Hall, 1997.
+[Beck07]:  Implementation Patterns, Kent Beck, Addison-Wesley, 2008.
+[PPP]:  Agile Software Development: Principles, Patterns, and Practices, Robert C. Martin,
+Prentice Hall, 2002.
+[DDD]:  Domain Driven Design, Eric Evans, Addison-Wesley, 2003.

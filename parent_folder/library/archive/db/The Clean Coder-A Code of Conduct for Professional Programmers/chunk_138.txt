@@ -1,0 +1,31 @@
+CHAPTER 7 ACCEPTANCE TESTING
+106
+The first few acceptance tests should be ready by the first day of the iteration.
+More should be completed each day until the midpoint of the iteration when all
+of them should be ready. If all the acceptance tests aren’t ready by the midpoint of
+the iteration, then some developers will have to pitch in to finish them off. If this
+happens frequently, then more BAs and/or QAs should be added to the team.
+TH E D E V E LOPE R ’S RO LE
+Implementation work on a feature begins when the acceptance tests for that
+feature are ready. The developers execute the acceptance tests for the new
+feature and see how they fail. Then they work to connect the acceptance test to
+the system, and then start making the test pass by implementing the desired
+feature.
+Paula: “Peter, would you give me a hand with this story?”
+Peter: “Sure, Paula, what’s up?”
+Paula: “Here’s the acceptance test. As you can see, it’s failing.”
+given the command LogFileDirectoryStartupCommand
+given that the old_inactive_logs directory does not exist
+when the command is executed
+then the old_inactive_logs directory should exist
+and it should be empty
+Peter: “Yeah, all red. None of the scenarios are written. Let me write the
+first one.”
+|scenario|given the command _|cmd|
+|create command|@cmd|
+Paula: “Do we already have a createCommand operation?”
+Peter: “Yeah, it’s in the CommandUtilitiesFixture that I wrote last week.”
+Paula: “OK, so let’s run the test now.”
+Peter: (runs test). “Yeah, the first line is green, let’s move on to the next.”
+Don’t worry too much about Scenarios and Fixtures. Those are just some of
+the plumbing you have to write to connect the tests to the system being tested.

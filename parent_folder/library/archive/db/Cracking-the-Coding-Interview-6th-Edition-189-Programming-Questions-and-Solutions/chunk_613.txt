@@ -1,0 +1,82 @@
+Solutions to Chapter 17 | Hard
+16
+String stopWord, Set<String> dictionary) {
+17
+if (startWord.equals(stopWord)) {
+18
+LinkedList<String> path = new LinkedList<String>();
+19
+path.add(startWord);
+26
+return path;
+21
+} else if (visited.contains(startWord) |( [dictionary.contains(startword)) {
+22
+return null;
+23
+}
+24
+25
+visited.add(startWord);
+26
+Arraylist<String> words = wordsOneAway(startWord);
+27
+28
+for (String word : words) {
+29
+LinkedList<String> path = transform(visited, word, stopWord, dictionary);
+30
+if (path != null) {
+31
+path.addFirst(startWord);
+32
+return path;
+33
+}
+34
+}
+35
+36
+return null;
+37 >
+38
+39 ArrayList<String> wordsOneAway(String word) {
+40
+ArrayList<String> words = new ArrayList<String>();
+41
+for (int i = 0; i < word.lengthQ; i++) {
+42
+for (char c = 'a'; c <= 'z'; C++) {
+43
+String w = word.substring(0, i) + c + word.substring(i + 1);
+44
+words.add(w);
+45
+>
+46
+}
+47
+return words;
+48 )
+One major inefficiency in this algorithm is finding all strings that are one edit away. Right now, we're finding
+the strings that are one edit away and then eliminating the invalid ones.
+Ideally, we want to only go to the ones that are valid.
+Optimized Solution
+To travel to only valid words, we dearly need a way of going from each word to a list of all the valid related
+words.
+What makes two words "related" (one edit away)?They are one edit away if all but one character is the same.
+For example, b a l l and b i l l are one edit away, because they are both in the form b _ l l . Therefore, one
+approach is to group all words that look like b _ l l together.
+We can do this for the whole dictionary by creating a mapping from a "wildcard word" (like b _ l l ) to a list
+of all words in this form. For example, for a very small dictionary tike { a l l , i l l , a i l , ape, a l e } the
+mapping might look like this:
+_ i l -> a i l
+_le -> ale
+111
+a l l , i l l
+_pe -> ape
+a_e -> ape, ale
+a_l -> a l l , a i l
+CrackingTheCodinglnterview.com | 6th Edition
+S
+3 7

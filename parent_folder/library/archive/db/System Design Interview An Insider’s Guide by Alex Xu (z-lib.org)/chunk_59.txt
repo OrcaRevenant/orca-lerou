@@ -1,0 +1,25 @@
+Rate limiter in a distributed environment
+Building a rate limiter that works in a single server environment is not difficult. However,
+scaling the system to support multiple servers and concurrent threads is a different story.
+There are two challenges:
+• Race condition
+• Synchronization issue
+Race condition
+As discussed earlier, rate limiter works as follows at the high-level:
+• Read the counter value from Redis.
+• Check if ( counter + 1 ) exceeds the threshold.
+• If not, increment the counter value by 1 in Redis.
+Race conditions can happen in a highly concurrent environment as shown in Figure 4-14.
+Assume the counter value in Redis is 3. If two requests concurrently read the counter value
+before either of them writes the value back, each will increment the counter by one and write
+it back without checking the other thread. Both requests (threads) believe they have the
+correct counter value 4. However, the correct counter value should be 5.
+Locks are the most obvious solution for solving race condition. However, locks will
+significantly slow down the system. Two strategies are commonly used to solve the problem:
+Lua script [13] and sorted sets data structure in Redis [8]. For readers interested in these
+strategies, refer to the corresponding reference materials [8] [13].
+Synchronization issue
+Synchronization is another important factor to consider in a distributed environment. To
+support millions of users, one rate limiter server might not be enough to handle the traffic.
+When multiple rate limiter servers are used, synchronization is required. For example, on the
+left side of Figure 4-15, client 1 sends requests to rate limiter 1, and client 2 sends requests to

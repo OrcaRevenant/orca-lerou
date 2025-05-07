@@ -1,0 +1,19 @@
+An analogy that’s often used when referring to these two standards is rail tracks.
+These two standards are like agreeing on standard sizes and properties of rail
+tracks. Leaving everyone else free to build better trains, better carriages, better
+signalling systems, better stations… all safe in the knowledge that they’ll work
+on the standardized tracks. Nobody wants two competing standards for rail track
+sizes!
+It’s fair to say that the two OCI specifications have had a major impact on the
+architecture and design of the core Docker product. As of Docker 1.11, the
+Docker Engine architecture conforms to the OCI runtime spec.
+So far, the OCI has achieved good things and gone some way to bringing the
+ecosystem together. However, standards always slow innovation! Especially with
+new technologies that are developing at close to warp speed. This has resulted in
+some raging arguments passionate discussions in the container community. In
+the opinion of your author, this is a good thing! The container industry is
+changing the world and it’s normal for the people at the vanguard to be
+passionate and opinionated. Expect more passionate discussions about standards
+and innovation!
+The OCI is organized under the auspices of the Linux Foundation and both
+Docker, Inc. and CoreOS, Inc. are major contributors.

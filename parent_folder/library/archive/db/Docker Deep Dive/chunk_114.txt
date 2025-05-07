@@ -1,0 +1,33 @@
+The storefront stage pulls the node:latest image which is over 600MB in
+size. It sets the working directory, copies in some app code, and uses two RUN
+instructions to perform some npm magic. This adds three layers and considerable
+size. The result is an even bigger image containing lots of build stuff and not
+very much app code.
+The appserver stage pulls the maven:latest image which is over 700MB in
+size. It adds four layers of content via two COPY instructions and two RUN
+instructions. This produces another very large image with lots of build tools and
+very little actual production code.
+The production stage starts by pulling the java:8-jdk-alpine image. This
+image is approximately 150MB - considerably smaller than the node and maven
+images used by the previous build stages. It adds a user, sets the working
+directory and copies in some app code from the image produced by the
+storefront stage. After that, it sets a different working directory and copies in
+the application code form the image produced by the appserver stage. Finally, it
+sets the main application for the image to run when it’s started as a container.
+The important things to note are that the COPY --from instructions only copy
+production-related application code from the images built by the previous
+stages. They do not copy across build artefacts that are not needed for
+production.
+It’s also important to note that we only need a single Dockerfile, and no extra
+arguments are needed for the docker image run command!
+Speaking of which… let’s build it.
+Clone the repo.
+$ git clone https://github.com/nigelpoulton/atsea-sample-shop-app.git
+Cloning into 'atsea-sample-shop-app'...
+remote: Counting objects: 632, done.
+remote: Total 632 (delta 0), reused 0 (delta 0), pack-reused 632
+Receiving objects: 100% (632/632), 7.23 MiB | 1.88 MiB/s, done.
+Resolving deltas: 100% (195/195), done.
+Checking connectivity... done.
+Change directory into the app folder of the cloned repo and verify that the
+Dockerfile exists.

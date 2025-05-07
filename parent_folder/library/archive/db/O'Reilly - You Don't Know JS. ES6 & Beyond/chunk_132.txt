@@ -1,0 +1,40 @@
+}
+}
+In this case, the fix is simple. Just swap the two statements in the subclass Bar con‐
+structor. However, if you’ve been relying pre-ES6 on being able to skip calling the
+“parent constructor”, beware because that won’t be allowed anymore.
+`extend`ing Natives
+One of the most heralded benefits to the new class and extend design is the ability
+to (finally!) subclass the built-in natives, like Array. Consider:
+class MyCoolArray extends Array {
+first() { return this[0]; }
+last() { return this[this.length]; }
+}
+var a = new MyCoolArray( 1, 2, 3 );
+a.length;                   // 3
+a;                          // [1,2,3]
+a.first();                  // 1
+a.last();                   // 3
+Prior to ES6, a fake “subclass” of Array using manual object creation and linking to
+Array.prototype only partially worked. It missed out on the special behaviors of a
+real array, such as the automatically updating length property. ES6 subclasses should
+fully work with “inherited” and augmented behaviors as expected!
+Another common pre-ES6 “subclass” limitation is with the Error object, in creating
+custom error “subclasses”. Genuine Error objects get special behavior by the browser
+that when created, they capture the special stack information, including the line
+number and file where the error is created. Pre-ES6 custom error “subclasses” get no
+such treatment, which severely limits their usefulness. ES6 to the rescue:
+class Oops extends Error {
+constructor(reason) {
+this.oops = reason;
+}
+}
+// later:
+var ouch = new Oops( "I messed up!" );
+throw ouch;
+The ouch custom error object in this previous snippet will behave like any other gen‐
+uine error object, including capturing stack. That’s a big improvement!
+Classes
+|
+121
+www.it-ebooks.info

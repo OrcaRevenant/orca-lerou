@@ -1,0 +1,36 @@
+But as is, the this.bar() call doesn’t find a bar() on obj1, so it falls over to check
+obj2, where it finds a match.
+obj1 and obj2 represent two parallel [[Prototype]] chains of obj3. obj1 and/or
+obj2 could themselves have normal [[Prototype]] delegation to other objects, or
+either could themself be a proxy (like obj3 is) that can multiple-delegate.
+Just as with the circular [[Prototype]] example earlier, the definitions of obj1, obj2,
+and obj3 are almost entirely separate from the generic proxy logic that handles the
+multiple-delegation. It would be trivial to define a utility like setPrototypesOf(..)
+(notice the “s”!) that takes a main object and a list of objects to fake the multiple
+[[Prototype]] linkage to. Again, we’ll leave that as an exercise for the reader.
+Hopefully the power of proxies is now becoming clearer after these various examples.
+There are many other powerful meta programming tasks that proxies enable.
+Reflect API
+The Reflect object is a plain object (like Math), not a function/constructor like the
+other built-in natives.
+It holds static functions which correspond to various meta programming tasks that
+you can control. These functions correspond one-to-one with the handler methods
+(traps) that Proxies can define.
+Some of the functions will look familiar as functions of the same names on Object:
+• Reflect.getOwnPropertyDescriptor(..)
+• Reflect.defineProperty(..)
+• Reflect.getPrototypeOf(..)
+• Reflect.setPrototypeOf(..)
+• Reflect.preventExtensions(..)
+• Reflect.isExtensible(..)
+These utilities in general behave the same as their Object.* counterparts. However,
+one difference is that the Object.* counterparts attempt to coerce their first argu‐
+ment (the target object) to an object if it’s not already one. The Reflect.* methods
+simply throw an error in that case.
+An object’s keys can be accessed/inspected using these utilities:
+• Reflect.ownKeys(..): returns the list of all owned keys (not “inherited”), as
+returned by both Object.getOwnPropertyNames(..) and Object.getOwnProper
+Reflect API
+|
+193
+www.it-ebooks.info

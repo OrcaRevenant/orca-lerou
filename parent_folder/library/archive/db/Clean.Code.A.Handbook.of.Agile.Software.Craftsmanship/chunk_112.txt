@@ -1,0 +1,43 @@
+82
+Chapter 5: Formatting
+public static Constructor<? extends TestCase>
+getTestConstructor(Class<? extends TestCase> theClass)
+throws NoSuchMethodException {
+...
+}
+public static Test warning(final String message) {
+...
+}
+private static String exceptionToString(Throwable t) {
+...
+}
+private String fName;
+private Vector<Test> fTests= new Vector<Test>(10);
+public TestSuite() {
+}
+public TestSuite(final Class<? extends TestCase> theClass) {
+...
+}
+public TestSuite(Class<? extends TestCase>  theClass, String name) {
+...
+}
+... ... ... ... ...
+}
+Dependent Functions. If one function calls another, they should be vertically close,
+and the caller should be above the callee, if at all possible. This gives the program a natural
+ﬂow. If the convention is followed reliably, readers will be able to trust that function deﬁni-
+tions will follow shortly after their use. Consider, for example, the snippet from FitNesse
+in Listing 5-5. Notice how the topmost function calls those below it and how they in turn
+call those below them. This makes it easy to ﬁnd the called functions and greatly enhances
+the readability of the whole module.
+Listing 5-5
+WikiPageResponder.java
+public class WikiPageResponder implements SecureResponder {
+protected WikiPage page;
+protected PageData pageData;
+protected String pageTitle;
+protected Request request;
+protected PageCrawler crawler;
+public Response makeResponse(FitNesseContext context, Request request)
+throws Exception {
+String pageName = getPageNameOrDefault(request, "FrontPage");

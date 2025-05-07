@@ -1,0 +1,40 @@
+Sometimes it will be helpful to assign the [[Prototype]] of an object at the same
+time you’re declaring its object literal. The following has been a non-standard exten‐
+sion in many JS engines for awhile, but is standardized as of ES6:
+var o1 = {
+// ..
+};
+var o2 = {
+__proto__: o1,
+// ..
+};
+o2 is declared with a normal object literal, but it’s also [[Prototype]]-linked to o1.
+The __proto__ property name here can also be a string "__proto__", but note that it
+cannot be the result of a computed property name (see the previous section).
+__proto__ is controversial, to say the least. It’s a decades-old proprietary extension to
+JS that is finally standardized, somewhat begrudgingly it seems, in ES6. Many devel‐
+opers feel it shouldn’t ever be used. In fact, it’s in “Annex B” of ES6, which is the sec‐
+tion that lists things JS feels it has to standardize for compatibility reasons only.
+Though I’m narrowly endorsing __proto__ as a key in an object lit‐
+eral definition, I definitely do not endorse using it in its object
+property form, like o.__proto__. That form is both a getter and
+setter (again for compat reasons), but there are definitely better
+options. See the this & Object Prototypes title of this series for more
+information.
+For setting the [[Prototype]] of an existing object, you can use the ES6 utility
+Object.setPrototypeOf(..). Consider:
+var o1 = {
+// ..
+};
+var o2 = {
+// ..
+};
+Object.setPrototypeOf( o2, o1 );
+See Chapter 6 "Object.setPrototypeOf(..) Static Function” in
+Chapter 6 for more details on Object.setPrototypeOf(..). Also
+see "Object.assign(..) Static Function” in Chapter 6 for another
+form that relates o2 prototypically to o1.
+Object Literal Extensions
+|
+39
+www.it-ebooks.info

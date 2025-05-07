@@ -1,0 +1,21 @@
+computer. But in the early days, this was one of the first decisions a programmer
+needed to make. In those days, programs were not relocatable.
+How did you access a library function in those olden days? The preceding code
+illustrates the approach used. Programmers included the source code of the
+library functions with their application code, and compiled them all as a single
+program.1 Libraries were kept in source, not in binary.
+The problem with this approach was that, during this era, devices were slow and
+memory was expensive and, therefore, limited. Compilers needed to make
+several passes over the source code, but memory was too limited to keep all the
+source code resident. Consequently, the compiler had to read in the source code
+several times using the slow devices.
+This took a long time—and the larger your function library, the longer the
+compiler took. Compiling a large program could take hours.
+To shorten the compile times, programmers separated the source code of the
+function library from the applications. They compiled the function library
+separately and loaded the binary at a known address—say, 20008. They created a
+symbol table for the function library and compiled that with their application
+code. When they wanted to run an application, they would load the binary
+function library,2 and then load the application. Memory looked like the layout
+shown in Figure 12.1.
+Figure 12.1 Early memory layout

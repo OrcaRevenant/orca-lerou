@@ -1,0 +1,7 @@
+• QPS: 1,000,000,000 / 30 days / 24 hours / 3600 seconds = ~400 pages per second.
+•  Peak QPS = 2 * QPS = 800
+• Assume the average web page size is 500k.
+• 1-billion-page x 500k = 500 TB storage per month. If you are unclear about digital
+storage units, go through “Power of 2” section in Chapter 2 again.
+• Assuming data are stored for five years, 500 TB * 12 months * 5 years = 30 PB. A 30 PB
+storage is needed to store five-year content.

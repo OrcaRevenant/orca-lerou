@@ -1,0 +1,39 @@
+// 1
+pobj.a;
+// accessing: a
+// 1
+We declare a get(..) handler as a named method on the handler object (second
+argument to Proxy(..)), which receives a reference to the target object (obj), the key
+property name ("a"), and the self/receiver/proxy (pobj).
+After the console.log(..) tracing statement, we “forward” the operation onto obj
+via Reflect.get(..). We will cover the Reflect API in the next section, but note
+that each available proxy trap has a corresponding Reflect function of the same
+name.
+These mappings are symmetric on purpose. The proxy handlers each intercept when
+a respective meta programming task is performed, and the Reflect utilities each per‐
+form the respective meta programming task on an object. Each proxy handler has a
+default definition that automatically calls the corresponding Reflect utility. You will
+almost certainly use both Proxy and Reflect in tandem.
+Here’s a list of handlers you can define on a proxy for a target object/function, and
+how/when they are triggered:
+• get(..): via [[Get]], a property is accessed on the proxy (Reflect.get(..), .
+property operator, or [ .. ] property operator)
+• set(..): via [[Set]], a property value is set on the proxy (Reflect.set(..), the
+= assignment operator, or destructuring assignment if it targets an object prop‐
+erty)
+• deleteProperty(..): via [[Delete]], a property is deleted from the proxy
+(Reflect.deleteProperty(..) or delete)
+• apply(..) (if target is a function): via [[Call]], the proxy is invoked as a normal
+function/method (Reflect.apply(..), call(..), apply(..), or the (..) call
+operator)
+• construct(..) (if target is a constructor function): via [[Construct]], the proxy
+is invoked as a constructor function (Reflect.construct(..) or new)
+• getOwnPropertyDescriptor(..): via [[GetOwnProperty]], a property descrip‐
+tor is retrieved from the proxy (Object.getOwnPropertyDescriptor(..) or
+Reflect.getOwnPropertyDescriptor(..))
+• defineProperty(..): via [[DefineOwnProperty]], a property descriptor is set
+on the proxy (Object.defineProperty(..) or Reflect.defineProperty(..))
+182
+|
+Chapter 7: Meta Programming
+www.it-ebooks.info

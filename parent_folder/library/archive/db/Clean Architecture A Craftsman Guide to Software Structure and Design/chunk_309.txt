@@ -1,0 +1,30 @@
+libraries, and no framework. It was just raw code.
+It was also interrupt-driven real-time code. Every time a die-cast machine
+cycled, we had to update a batch of statistics, and send messages to a great IBM
+370 in-the-sky, running a CICS-COBOL program that presented those statistics
+on the green screens.
+I hated this job. Oh, boy, did I. Oh, the work was fun! But the culture … Suffice
+it to say that I was required to wear a tie.
+Oh, I tried. I really did. But I was clearly unhappy working there, and my
+colleagues knew it. They knew it because I couldn’t remember critical dates or
+manage to get up early enough to attend important meetings. This was the only
+programming job I was ever fired from—and I deserved it.
+From an architectural point of view, there’s not a lot to learn here except for one
+thing. The System/7 had a very interesting instruction called set program
+interrupt (SPI). This allowed you to trigger an interrupt of the processor,
+allowing it to handle any other queued lower-priority interrupts. Nowadays, in
+Java we call this Thread.yield().
+4-TEL
+In October 1976, having been fired from OMC, I returned to a different division
+of Teradyne—a division I would stay with for 12 years. The product I worked on
+was named 4-TEL. Its purpose was to test every telephone line in a telephone
+service area, every night, and produce a report of all lines requiring repair. It also
+allowed telephone test personnel to test specific telephone lines in detail.
+This system started its life with the same kind of architecture as the Laser Trim
+system. It was a monolithic application written in assembly language without
+any significant boundaries. But at the time I joined the company, that was about
+to change.
+The system was used by testers located in a service center (SC). A service center
+covered many central offices (CO), each of which could handle as many as
+10,000 phone lines. The dialing and measurement hardware had to be located
+inside the CO. So that’s where the M365 computers were put. We called those

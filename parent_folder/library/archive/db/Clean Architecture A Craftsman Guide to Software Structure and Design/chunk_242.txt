@@ -1,0 +1,32 @@
+APP-TITUDE TEST
+Why does so much potential embedded software become firmware? It seems that
+most of the emphasis is on getting the embedded code to work, and not so much
+emphasis is placed on structuring it for a long useful life. Kent Beck describes
+three activities in building software (the quoted text is Kent’s words and the
+italics are my commentary):
+1. “First make it work.” You are out of business if it doesn’t work.
+2. “Then make it right.” Refactor the code so that you and others can understand
+it and evolve it as needs change or are better understood.
+3. “Then make it fast.” Refactor the code for “needed” performance.
+Much of the embedded systems software that I see in the wild seems to have
+been written with “Make it work” in mind—and perhaps also with an obsession
+for the “Make it fast” goal, achieved by adding micro-optimizations at every
+opportunity. In The Mythical Man-Month, Fred Brooks suggests we “plan to
+throw one away.” Kent and Fred are giving virtually the same advice: Learn
+what works, then make a better solution.
+Embedded software is not special when it comes to these problems. Most non-
+embedded apps are built just to work, with little regard to making the code right
+for a long useful life.
+Getting an app to work is what I call the App-titude test for a programmer.
+Programmers, embedded or not, who just concern themselves with getting their
+app to work are doing their products and employers a disservice. There is much
+more to programming than just getting an app to work.
+As an example of code produced while passing the App-titude test, check out
+these functions located in one file of a small embedded system:
+Click here to view code image
+ISR(TIMER1_vect) { ... }
+ISR(INT2_vect) { ... }
+void btn_Handler(void) { ... }
+float calc_RPM(void) { ... }
+static char Read_RawData(void) { ... }
+void Do_Average(void) { ... }

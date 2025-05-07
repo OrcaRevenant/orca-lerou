@@ -1,0 +1,12 @@
+23
+2
+SAY I N G NO
+“Do; or do not. There is no trying.”
+— Yoda
+In the early ’70s, I, and two of my nineteen-year-old friends were working on a
+real-time accounting system for the Teamster’s union in Chicago for a company
+named ASC. If names like Jimmy Hoffa come to mind, they should. You didn’t
+mess around with the teamsters in 1971.
+Our system was supposed to go live by a certain date. A lot of money was riding
+on that date. Our team had been working 60-, 70-, and 80-hour weeks to try to
+hold to that schedule.

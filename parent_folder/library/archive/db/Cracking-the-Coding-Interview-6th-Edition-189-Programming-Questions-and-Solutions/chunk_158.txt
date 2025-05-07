@@ -1,0 +1,71 @@
+Chapter 10 | Sorting and Searching
+The space complexity of merge sort is 0 ( n ) due to the auxiliary space used to merge parts of the array.
+Quicksort | Runtime: 0(n l o g ( n ) ) average, 0(n 2) worst case. Memory: 0 ( l o g ( n ) ) .
+In quicksort, we pick a random element and partition the array, such that all numbers that are iess than the
+partitioning element come before all elements that are greater than it. The partitioning can be performed
+efficiently through a series of swaps (see below).
+If we repeatedly partition the array (and its sub-arrays) around an element, the array will eventually become
+sorted. However, as the partitioned element is not guaranteed to be the median {or anywhere near the
+median), our sorting could be very slow. This is the reason for theO(n !) worst case runtime.
+1
+void q u i c k s o r t ( i n t [ ] a r r , i n t l e f t , i n t r i g h t ) {
+2
+i n t index = p a r t i t i o n ( a r r , l e f t , r i g h t ) ;
+3
+if ( l e f t < index - 1) { // Sort l e f t half
+4
+quickSort(arr, left, index - 1);
+5
+}
+6
+if (index < r i g h t ) ( // Sort r i g h t half
+quickSort(arr, index, r i g h t ) ;
+8
+}
+9
+}
+10
+11 int partition(int() arr, int left, int right) {
+12
+i n t pivot = a r r [ ( l e f t + r i g h t ) / 2 ] ; // Pick pivot point
+13
+while ( l e f t <= r i g h t ) {
+14
+// Find element on l e f t that should be on r i g h t
+15
+while (arr[left] < pivot) left++;
+16
+17
+// Find element on r i g h t that should be on l e f t
+18
+while ( a r r f r l g h t ] > pivot) r i g h t - - ;
+19
+20
+U Swap elements, and move l e f t and r i g h t indices
+21
+if (left <= right) {
+22
+swap(arr, l e f t , r i g h t ) ; // swaps elements
+23
+left++;
+24
+r i g h t - - ;
+25
+}
+26
+}
+27
+return left;
+28 >
+Radix Sort | Runtime: 0 ( k n ) (see below)
+Radix sort is a sorting algorithm for integers (and some other data types) that takes advantage of the
+fact that integers have a finite number of bits. In radix sort, we iterate through each digit of the number,
+grouping numbers by each digit. For example, if we have an array of integers, we might first sort by the
+first digit, so that the Os are grouped together. Then, we sort each of these groupings by the next digit. We
+repeat this process sorting by each subsequent digit, until finally the whole array is sorted.
+Unlike comparison sorting algorithms, which cannot perform better than 0 ( n
+l o g ( n ) ) in the average
+case, radix sort has a runtime of 0 ( k n ) , where n is the number of elements and k is the number of passes
+of the sorting algorithm.
+148
+Cracking the Coding Interview, 6th Edition

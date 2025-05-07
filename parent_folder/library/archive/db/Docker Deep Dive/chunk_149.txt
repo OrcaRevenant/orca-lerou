@@ -1,0 +1,27 @@
+$ root@396c8b142a85:/# traceroute 10.0.0.4
+traceroute to 10.0.0.4 (10.0.0.4), 30 hops max, 60 byte packets
+1  test-svc.2.97v...a5.uber-net (10.0.0.4)  1.110ms  1.034ms  1.073ms
+Windows example:
+PS C:\> tracert 10.0.0.3
+Tracing route to test.2.ttcpiv3p...7o4.uber-net [10.0.0.4]
+over a maximum of 30 hops:
+1  <1 ms  <1 ms  <1 ms  test.2.ttcpiv3p...7o4.uber-net [10.0.0.4]
+Trace complete.
+So far, we’ve created an overlay network with a single command. We then added
+containers to the overlay network on two hosts on two different Layer 2
+networks. Once we worked out the container’s IP addresses, we proved that they
+could talk directly over the overlay network.
+The theory of how it all works
+Now that we’ve seen how to build and use a container overlay network, let’s find
+out how it’s all put together behind the scenes.
+Note: In this section some of the detail will be specific to Linux. However,
+the same overall principles apply to Windows.
+VXLAN primer
+First and foremost, Docker overlay networking uses VXLAN tunnels to create
+virtual Layer 2 overlay networks. So, before we go any further, let’s do a quick
+VXLAN primer.
+At the highest level, VXLANs let you create a virtual Layer 2 network on top of
+an existing Layer 3 infrastructure. The example we used earlier created a new
+10.0.0.0/24 Layer 2 network on top of a Layer 3 IP network comprising two
+Layer 2 networks - 172.31.1.0/24 and 192.168.1.0/24. This is shown in Figure
+10.4 below.

@@ -1,0 +1,90 @@
+Solutions to Chapter 1 ] Arrays and Strings
+20
+foundDifference = true;
+21
+>
+22
+}
+23
+return true;
+24 >
+25
+26 /* Check if you can insert a character into si to make s2. */
+27 boolean oneEditlnsert(String s i , String s2) {
+28
+i n t indexl = 0;
+29
+i n t index2 = 0;
+30
+while (index2 < s2.1ength() && indexl < s i . lengthQ) {
+31
+if (sl.charAt(indexl)
+!» s2.charAt(index2)) {
+32
+if (indexl != index2) {
+33
+return f a l s e ;
+34
+}
+35
+index2++;
+36
+} else {
+37
+indexl++;
+38
+index2++;
+39
+>
+40
+}
+41
+return true;
+42
+}
+This algorithm (and almost any reasonable algorithm) takes 0 (n) time, where n is the length of the shorter
+string,
+I
+Why is the runtime dictated by the shorter string instead of the longer string? If the strings are
+the same length (plus or minus one character), then it doesn't matter whether we use the longer
+string or the shorter string to define the runtime. If the strings are very different lengths, then the
+algorithm will terminate in 0 ( 1 ) time. One really, really long string therefore won't significantly
+extend the runtime. It increases the runtime only if both strings are long.
+We might notice that the code for oneEditReplace is very similar to that for o n e E d i t l n s e r t . We can
+merge them into one method.
+To do this, observe that both methods follow similar logic compare each character and ensure that the
+strings are only different by one. The methods vary in how they handle that difference. The method
+oneEditReplace does nothing other than flag the difference, whereas o n e E d i t l n s e r t increments
+the pointer to the longer string. We can handle both of these in the same method.
+1
+boolean oneEditAway(String f i r s t , String second) {
+2
+I* Length checks.
+*/
+3
+if (Math.abs(first.length() - second. lengthQ) > 1) {
+4
+return false;
+5
+}
+6
+7
+/* Get shorter and longer s t r i n g . * /
+8
+String si = f i r s t . l e n g t h Q < second.length{) ? f i r s t : second;
+9
+String s2 = f i r s t . l e n g t h Q < second.length() ? second : f i r s t ;
+10
+11
+i n t indexl = d;
+12
+i n t index2 = 0;
+13
+boolean foundDifference = f a l s e ;
+14
+while (index2 < s2.1ength() && indexl < s l . l e n g t h ( ) ) {
+15
+if (sl.charAt(indexl)
+1= s2.charAt(index2)) {
+206
+Cracking t h e Coding Interview, 6th Edition

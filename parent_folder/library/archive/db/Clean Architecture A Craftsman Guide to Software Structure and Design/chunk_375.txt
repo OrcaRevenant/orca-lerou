@@ -1,0 +1,36 @@
+SOLID principles
+Dependency Inversion Principle. See DIP (Dependency Inversion Principle)
+designing component-based services using, 245–246
+history of, 57–59
+Interface Segregation Principle. See ISP (Interface Segregation Principle)
+Liskov Substitution Principle. See LSP (Liskov Substitution Principle)
+OO approach for cross-cutting concerns, 244–245
+Open-Closed Principle. See OCP (Open-Closed Principle)
+Single Responsibility Principle. See SRP (Single Responsibility Principle)
+Source code, compiling, 97–98
+Source code dependencies
+creating boundary crossing via, 176
+crossing circle boundaries, 206
+decoupling, 184–185, 319
+dependency inversion, 44–47
+local processes as, 180
+OCP example, 72
+referring only to abstractions, 87–88
+UI components reuse game rules via, 222–223
+Source code trees, decoupling dependencies, 319–321
+Source-level decoupling mode, 155–157, 176–178
+Spelunking, architecture mitigates costs of, 139–140
+SPI (set program interrupt) instruction, aluminum die-cast archaeology project,
+339
+Splitting data streams, 227–228
+Square/rectangle problem, LSP, 79
+Squares of integers, functional programming, 50–51
+SRP (Single Responsibility Principle)
+accidental duplication example, 63–65
+Common Closure Principle vs., 106–107
+conclusion, 66–67
+decoupling layers, 152
+defined, 59
+dependency management, 302
+in good software architecture, 71
+grouping policies into components, 186–187

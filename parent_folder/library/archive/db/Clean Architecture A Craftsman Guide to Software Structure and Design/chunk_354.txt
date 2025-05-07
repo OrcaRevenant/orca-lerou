@@ -1,0 +1,36 @@
+Dependency Injection framework, Main component, 232
+Dependency inversion, 44–47
+Dependency management
+metrics. See ADP (Acyclic Dependencies Principle)
+via full-fledged architectural boundaries, 218
+via polymorphism in monolithic systems, 177
+video sales case study, 302
+Dependency Rule
+clean architecture and, 203–206
+clean architecture scenario, 207–208
+crossing boundaries, 206
+defined, 91
+dependency management, 302
+designing services to follow, 247
+Entities, 204
+frameworks and drivers, 205
+frameworks tending to violate, 293
+in Hunt the Wumpus adventure game, 223
+interface adapters, 205
+OO approach for cross-cutting concerns, 244–245
+services may follow, 240
+tests following, 250
+use cases, 204
+which data crosses boundaries, 207
+Deployment
+architecture determines ease of, 150
+components, 178–180
+components as units of, 96
+impact of architecture on, 138
+tests use independent, 250
+Deployment-level decoupling mode, 156–157, 178–179
+Design
+approaches to. See Code organization
+architecture vs., 4
+decreasing productivity/increases cost of code, 5–7
+getting it right, 2

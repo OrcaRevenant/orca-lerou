@@ -1,0 +1,95 @@
+Solutions to Chapter 7 j Object-Oriented Design
+30
+31
+public Cardfint c, Suit s) {
+32
+faceValue = c;
+33
+s u i t = s;
+34
+}
+35
+36
+public abstract i n t value();
+37
+public Suit s u i t ( ) { return s u i t ; >
+38
+39
+/* Checks if the card is available to be given out to someone */
+46
+public boolean isAvailable() { return available; }
+41
+public void markUnavailableO { available = false; }
+42
+public void markAvailable() { available = true; }
+43 >
+44
+45 public class Hand <T extends Card> {
+46
+protected ArrayList<T> cards = new Arrayl_ist<T>()>
+47
+48
+public i n t scoreQ {
+49
+i n t score = 0;
+50
+f o r (T card : cards) {
+51
+score += card.value();
+52
+>
+53
+return score;
+54
+>
+55
+56
+public void addCard(T card) {
+57
+cards.add(card);
+58
+>
+59
+)
+In the above code, we have implemented Deck with generics but restricted the type of T to Card, We
+have also implemented Card as an abstract class, since methods like v a l u e () don't make much sense
+without a specific game attached to them. (You could make a compelling argument that they should be
+implemented anyway, by defaulting to standard poker rules.)
+Now, let's say we're building a blackjack game, so we need to know the value of the cards. Face cards are 10
+and an ace is 11 (most of the time, but that's the job of the Hand class, not the following class).
+1
+public class BlacklackHand extends Hand<BlackJackCard> {
+2
+/* There are multiple possible scores f o r a blackjack hand, since aces have
+* multiple values. Return the highest possible score t h a t ' s under 21, or the
+4
+* lowest score t h a t ' s over. */
+5
+public i n t score() {
+6
+Arraylist<Integer> scores = possibleScores{);
+7
+i n t maxUnder = Integer.MIN_VALUE;
+8
+i n t minOver = Integer.MAX_VALUE;
+9
+f o r ( i n t score : scores) {
+10
+if (score > 21 && score < minOver) {
+11
+minOver = score;
+12
+} else if (score <= 21 8& score > maxUnder) {
+13
+maxUnder = score;
+14
+>
+15
+}
+16
+return maxUnder == Integer.MIN_VALUE ? minOver : maxUnder;
+17
+}
+18
+306
+Cracking the Coding Interview, 6th Edition

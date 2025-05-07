@@ -1,0 +1,86 @@
+429
+Index
+system failures, not ignoring
+one-offs, 187
+system level, staying clean at, 154
+system-wide information, in a local
+comment, 69–70
+T
+tables, moving, 275
+target deployment platforms, running tests
+on, 341
+task swapping, encouraging, 188
+TDD (Test Driven Development), 213
+building logic, 106
+as fundamental discipline, 9
+laws of, 122–123
+team rules, 90
+teams
+coding standard for every, 299–300
+slowed by messy code, 4
+technical names, choosing, 27
+technical notes, reserving comments
+for, 286
+TEMPLATE METHOD pattern
+addressing duplication, 290
+removing higher-level duplication,
+174–175
+using, 130
+temporal coupling. See also coupling
+exposing, 259–260
+hidden, 302–303
+side effect creating, 44
+temporary variables, explaining, 279–281
+test cases
+adding to check arguments, 237
+in ComparisonCompactor, 252–254
+patterns of failure, 269, 314
+turning off, 58
+test code, 124, 127
+TEST DOUBLE, assigning, 155
+Test Driven Development. See TDD
+test driving, architecture, 166–167
+test environment, 127–130
+test functions, single concepts in, 131–132
+test implementation, of an interface, 150
+test suite
+automated, 213
+of unit tests, 124, 268
+verifying precise behavior, 146
+testable systems, 172
+test-driven development. See TDD
+testing
+arguments making harder, 40
+construction logic mixed with
+runtime, 155
+testing language, domain-specific, 127
+testNG project, 76, 77
+tests
+clean, 124–127
+cleanliness tied to, 9
+commented out for SerialDate,
+268–270
+dirty, 123
+enabling the -ilities, 124
+fast, 132
+fast versus slow, 314
+heuristics on, 313–314
+ignored, 313
+independent, 132
+insufficient, 313
+keeping clean, 123–124
+minimizing assert statements in,
+130–131
+not stopping trivial, 313
+refactoring, 126–127
+repeatable, 132
+requiring more than one step, 287
+running, 341
+self validating, 132
+simple design running all, 172
+suite of automated, 213
+timely, 133
+writing for multithreaded code,
+339–342
+writing for threaded code, 186–190
+writing good, 122–123

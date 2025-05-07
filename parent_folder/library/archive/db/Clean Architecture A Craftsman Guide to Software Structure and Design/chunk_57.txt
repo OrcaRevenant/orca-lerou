@@ -1,0 +1,34 @@
+inheritance.
+Well—sort of. Inheritance is simply the redeclaration of a group of variables and
+functions within an enclosing scope. This is something C programmers3 were
+able to do manually long before there was an OO language.
+Consider this addition to our original point.h C program:
+Click here to view code image
+namedPoint.h
+struct NamedPoint;
+struct NamedPoint* makeNamedPoint(double x, double y, char* name);
+void setName(struct NamedPoint* np, char* name);
+char* getName(struct NamedPoint* np);
+Click here to view code image
+namedPoint.c
+#include "namedPoint.h"
+#include <stdlib.h>
+struct NamedPoint {
+double x,y;
+char* name;
+};
+struct NamedPoint* makeNamedPoint(double x, double y, char* name) {
+struct NamedPoint* p = malloc(sizeof(struct NamedPoint));
+p->x = x;
+p->y = y;
+p->name = name;
+return p;
+}
+void setName(struct NamedPoint* np, char* name) {
+np->name = name;
+}
+char* getName(struct NamedPoint* np) {
+return np->name;
+}
+Click here to view code image
+main.c

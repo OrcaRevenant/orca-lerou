@@ -1,0 +1,9 @@
+151
+Bibliography
+Bibliography
+[RDD]:  Object Design: Roles, Responsibilities, and Collaborations, Rebecca Wirfs-
+Brock et al., Addison-Wesley, 2002.
+[PPP]:  Agile Software Development: Principles, Patterns, and Practices, Robert C. Martin,
+Prentice Hall, 2002.
+[Knuth92]:  Literate Programming, Donald E. Knuth, Center for the Study of language
+and Information, Leland Stanford Junior University, 1992.

@@ -1,0 +1,11 @@
+writing own, 163–165
+Weekly build, 112–113
+Wiki text, architectural success story, 164
+Y
+Yourdon, Ed, 29
+Z
+Zones of exclusion
+avoiding, 130
+relationship between abstraction/stability, 128
+Zone of Pain, 129
+Zone of Uselessness, 129–130

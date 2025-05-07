@@ -1,0 +1,37 @@
+second. The only thing that has an impact on container start time is the time it
+takes to start the application it’s running.
+This all amounts to the container model being leaner and more efficient than the
+VM model. We can pack more applications onto less resources, start them faster,
+and pay less in licensing and admin costs, as well as present less of an attack
+surface to the dark side. What’s not to like about that!
+With that theory out of the way, let’s have a play around with some containers.
+Running containers
+To follow along with these examples you’ll need a working Docker host. For
+most of the commands it won’t make a difference if it’s Linux or Windows.
+Checking the Docker daemon
+The first thing I always do when I log on to a Docker host is check that Docker
+is running.
+$ docker version
+Client:
+Version:      17.05.0-ce
+API version:  1.29
+Go version:   go1.7.5
+Git commit:   89658be
+Built:        Thu May  4 22:10:54 2017
+OS/Arch:      linux/amd64
+Server:
+Version:      17.05.0-ce
+API version:  1.29 (minimum version 1.12)
+Go version:   go1.7.5
+Git commit:   89658be
+Built:        Thu May  4 22:10:54 2017
+OS/Arch:      linux/amd64
+Experimental: false
+As long as you get a response back in the Client and Server sections you
+should be good to go. If you get an error code in the Server section there’s a
+good chance that the docker daemon (server) isn’t running, or that your user
+account doesn’t have permission to access it.
+If you’re running Linux and your user account doesn’t have permission to access
+the daemon, you need to make sure it’s a member of the local docker Unix
+group. If it isn’t, you can add it with usermod -aG docker <user> and then
+you’ll have to logout and log back in to your shell for the changes to take effect.

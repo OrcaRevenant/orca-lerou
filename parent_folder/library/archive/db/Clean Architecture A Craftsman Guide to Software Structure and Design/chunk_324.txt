@@ -1,0 +1,29 @@
+The architecture of this system was very simple, but there are some interesting
+quirks I want to highlight. First, both units used our 8085 technology, and both
+were written in C and used BOSS. But that’s where the similarity ended.
+There were two of us on the project. I was the project lead, and Mike Carew was
+my close associate. I took on the design and coding of the DLU; Mike did the
+DRU.
+The architecture of the DLU was based on a dataflow model. Each task did a
+small and focused job, and then passed its output to the next task in line, using a
+queue. Think of a pipes and filters model in UNIX. The architecture was
+intricate. One task might feed a queue that many others would service. Other
+tasks would feed a queue that just one task would service.
+Think of an assembly line. Each position on the assembly line has a single,
+simple, highly focused job to perform. Then the product moves to the next
+position in line. Sometimes the assembly line splits into many lines. Sometimes
+those lines merge back into a single line. That was the DLU.
+Mike’s DRU used a remarkably different scheme. He created one task per
+terminal, and simply did the entire job for that terminal in that task. No queues.
+No data flow. Just many identical large tasks, each managing its own terminal.
+This is the opposite of an assembly line. In this case the analogy is many expert
+builders, each of whom builds an entire product.
+At the time I thought my architecture was superior. Mike, of course, thought his
+was better. We had many entertaining discussions about this. In the end, of
+course, both worked quite well. And I was left with the realization that software
+architectures can be wildly different, yet equally effective.
+VRS
+As the 1980s progressed, newer and newer technologies appeared. One of those
+technologies was the computer control of voice.
+One of the features of the 4-Tel system was the ability of the craftsman to locate
+a fault in a cable. The procedure was as follows:

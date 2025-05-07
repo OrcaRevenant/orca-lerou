@@ -1,0 +1,65 @@
+Chapter 6 | Math and Logic Puzzles
+9
+/* Cross o f f remaining multiples of prime */
+10
+crossOff(flags,
+prime);
+11
+12
+/* Find next value which is true */
+13
+prime = getNextPrime(flags, prime);
+14
+>
+15
+16
+return f l a g s ;
+17
+}
+18
+19 void crossOff(boolean[] flags, i n t prime) {
+20
+/* Cross o f f remaining multiples of prime. We can s t a r t with (prime*prime),
+21
+* because if we have a k * prime, where k < prime, t h i s value would have
+22
+* already been crossed o f f in a prior i t e r a t i o n . */
+23
+f o r ( i n t i = prime * prime; i < flags.length; i += prime) {
+24
+f l a g s [ i ] = false;
+25
+>
+26 >
+27
+28 i n t getNextPrime(boolean[] flags, i n t prime) {
+29
+i n t next = prime + 1;
+30
+while (next < flags.length && 1flags[next]) {
+31
+next++;
+32
+>
+33
+return next;
+34
+}
+Of course, there are a number of optimizations that can be made to this. One simple one is to only use odd
+numbers in the array, which would allow us to reduce our space usage by half.
+• Probability
+Probability can be a complex topic, but it's based in a few basic laws that can be logically derived.
+Let's look at a Venn diagram to visualize two events A and B. The areas of the two circles represent their rela-
+tive probability, and the overlapping area is the event {A and B).
+Probability of A and B
+Imagine you were throwing a dart at this Venn diagram. What is the probability that you would land in the
+intersection between A and B? If you knew the odds of landing in A, and you also knew the percent of A
+that's also in B (that is, the odds of being in B given that you were in A), then you could express the prob-
+ability as:
+P(A and B) = P(B given A) P(A)
+For example, imagine we were picking a number between 1 and 10 (inclusive). What's the probability of
+picking an even number and a number between 1 and 5? The odds of picking a number between 1 and 5 is
+50%, and the odds of a number between 1 and 5 being even is 40%. So, the odds of doing both are:
+P(x is even and x <= 5)
+CrackingTheCoding I nterview.com 16th Edition
+119

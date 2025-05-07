@@ -1,0 +1,29 @@
+CHAPTER 1 PROFESSIONALISM
+8
+So, you want to be a professional software developer do you? You want to hold
+your head high and declare to the world: “I am a professional!” You want people
+to look at you with respect and treat you with deference. You want mothers
+pointing at you and telling their children to be like you. You want it all. Right?
+B E CAR E FU L WHAT YO U A S K FO R
+Professionalism is a loaded term. Certainly it is a badge of honor and pride, but
+it is also a marker of responsibility and accountability. The two go hand in
+hand, of course. You can’t take pride and honor in something that you can’t be
+held accountable for.
+It’s a lot easier to be a nonprofessional. Nonprofessionals don’t have to take
+responsibility for the job they do—they leave that to their employers. If a
+nonprofessional makes an error, the employer cleans up the mess. But when a
+professional makes a mistake, he cleans up the mess.
+What would happen if you allowed a bug to slip through a module, and it cost
+your company $10,000? The nonprofessional would shrug his shoulders, say
+“stuff happens,” and start writing the next module. The professional would
+write the company a check for $10,000!1
+Yeah, it feels a little different when it’s your own money, doesn’t it? But that
+feeling is the feeling a professional has all the time. Indeed, that feeling is the
+essence of professionalism. Because, you see, professionalism is all about taking
+responsibility.
+TA KI N G R E S PO N S I B I LIT Y
+You read the introduction, right? If not, go back and do so now; it sets the
+context for everything that follows in this book.
+I learned about taking responsibility by suffering through the consequences of
+not taking it.
+1. Hopefully he has a good Errors and Omissions policy!

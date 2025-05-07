@@ -1,0 +1,81 @@
+Solutions to Chapter 4 | Trees and Graphs
+33
+return p a r e n t . l e f t ==> node ? parent.right : p a r e n t . l e f t ;
+34 >
+This algorithm takes 0 { t ) time, where t is the size of the subtree for the first common ancestor. In the
+worst case, this will be 0 ( n ) , where n is the number of nodes in the tree. We can derive this runtime by
+noticing that each node in that subtree is searched once.
+Solution #3: Without Links to Parents
+Alternatively, you could follow a chain in which p and q are on the same side. That is, if p and q are both on
+the left of the node, branch left to look for the common ancestor. If they are both on the right, branch right
+to look for the common ancestor. When p and q are no longer on the same side, you must have found the
+first common ancestor.
+The code beiow implements this approach.
+1
+TreeNode commonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+2
+f* Error check - one node is not in the tree. */
+3
+if {!covers(root, p)
+j|
+icovers(root, q)) {
+4
+return n u l l ;
+5
+}
+6
+return ancestorHelperfroot, p, q);
+7
+>
+8
+9
+TreeNode ancestorHelperfTreeNode root, TreeNode p, TreeNode q) {
+16
+if {root == n u l l || root == p || root == q) {
+11
+return root;
+12
+>
+13
+14
+boolean pIsOnLeft = c o v e r s ( r o o t . l e f t , p);
+15
+boolean qlsOnLeft = c o v e r s ( r o o t . l e f t , q);
+16
+if (pIsOnLeft 1= qlsOnLeft) { // Nodes are on d i f f e r e n t side
+17
+return root;
+18
+}
+19
+TreeNode childSide = pIsOnLeft ? r o o t . l e f t : r o o t . r i g h t ;
+26
+return ancestorHelperfchildSide, p, q);
+21
+>
+22
+23 boolean coversfTreeNode root, TreeNode p) {
+24
+if (root == n u l l ) return f a l s e ;
+25
+if {root == p) return true;
+26
+return c o v e r s ( r o o t . l e f t , p)
+|| covers(root.right, p);
+27 >
+This algorithm runs in O(n) time on a balanced tree. This is because covers is called on 2n nodes in the
+first call (n nodes for the left side, and n nodes for the right side). After that, the algorithm branches left or
+right, at which point covers will be called on l n/i nodes, then l n/t, and so on. This results in a runtime
+ofO(n).
+We know at this point that we cannot do better than that in terms of the asymptotic runtime since we need
+to potentially look at every node in the tree. However, we may be able to improve it by a constant multiple.
+Solution #4; Optimized
+Although Solution #3 is optimal in its runtime, we may recognize that there is still some inefficiency in how
+it operates. Specifically, covers searches all nodes under r o o t for p and q, including the nodes in each
+subtree ( r o o t . l e f t and r o o t . r i g h t ) . Then, it picks one of those subtrees and searches all of its nodes.
+Each subtree is searched over and over again.
+CrackingTheCodinglnterview.com
+|
+6th
+Edition
+247

@@ -1,0 +1,32 @@
+MENTORING
+175
+D I G I -CO M P I, MY FI R ST CO M PUTE R
+In 1964 my mother gave me a little plastic computer for my twelfth birthday. It
+was called a Digi-Comp I.1 It had three plastic flip-flops and six plastic and-
+gates. You could connect the outputs of the flip-flops to the inputs of the and-
+gates. You could also connect the output of the and-gates to the inputs of the
+flip-flops. In short, this allowed you to create a three-bit finite state machine.
+The kit came with a manual that gave you several programs to run. You
+programmed the machine by pushing little tubes (short segments of soda straws)
+onto little pegs protruding from the flip flops. The manual told you exactly where
+to put each tube, but not what the tubes did. I found this very frustrating!
+I stared at the machine for hours and determined how it worked at the lowest
+level; but I could not, for the life of me, figure out how to make it do what
+I wanted it to do. The last page in the manual told me to send in a dollar and
+they would send back a manual telling me how to program the machine.2
+I sent in my dollar and waited with the impatience of a twelve year old. The day
+the manual arrived I devoured it. It was a simple treatise on boolean algebra
+covering basic factoring of boolean equations, associative and distributive laws,
+and DeMorgan’s theorem. The manual showed how to express a problem in
+terms of a sequence of boolean equations. It also described how to reduce those
+equations to fit into 6 and-gates.
+I conceived of my first program. I still remember the name: Mr. Patternson’s
+Computerized Gate. I wrote the equations, reduced them, and mapped them to
+the tubes and pegs of the machine. And it worked!
+Writing those three words just now sent chills down my spine. The same chills
+that coursed down that twelve year old nearly half a century ago. I was hooked.
+My life would never be the same.
+Do you remember the moment your first program worked? Did it change your
+life or set you on a course you could not turn away from?
+1. There are many web sites that offer simulators of this stimulating little computer.
+2. I still have this manual. It holds a place of honor on one of my bookshelves.

@@ -1,0 +1,66 @@
+Solutions to Chapter 7 j Object-Oriented Design
+14 >
+i s
+16 public class User {
+17
+private int userld;
+18
+private String d e t a i l s ;
+19
+private i n t accountType;
+20
+21
+public void renewMetnbersbipO {
+}
+22
+23
+public User(int i d . String d e t a i l s , i n t accountType) {
+24
+userld = id;
+25
+t h i s . d e t a i l s = d e t a i l s ;
+26
+this.accountType = accountType;
+27
+}
+28
+29
+/* Getters and setters */
+30
+public i n t get!D() { return userld; }
+31
+public void setID(int id) { userld = i d ; )
+32
+public String getDetailsQ {
+33
+return d e t a i l s ;
+34
+>
+35
+36
+public void setDetails(String d e t a i l s ) {
+37
+t h i s . d e t a i l s = d e t a i l s ;
+38
+>
+39
+public i n t getAccountType() { return accountType; }
+40
+public void setAccountType(int t) { accountType = t; }
+41
+}
+The decision to tear off user management, library, and display into their own classes, when this functionality
+could have been in the general OnlineReaderSystemclass,isan interesting one. On a very small system,
+making this decision could make the system overly complex. However, as the system grows, and more and
+more functionality gets added to OnlineReaderSystetn, breaking off such components prevents this
+main class from getting overwhelmingly lengthy,
+7.6
+Jigsaw: Implement an NxN jigsaw puzzle. Design the data structures and explain an aigorithm to
+solve the puzzle. You can assume that you have a f i t s W i t h method which, when passed two
+puzzle edges, returns true if the two edges belong together.
+pg 128
+SOLUTION
+We have a traditional jigsaw puzzle. The puzzle is grid-like, with rows and columns. Each piece is located in
+a single row and column and has four edges. Each edge comes in one of three types: inner, outer, and flat.
+A corner piece, for example, will have two flat edges and two other edges, which could be inner or outer.
+330 Cracking the Coding Interview, 6th Edition

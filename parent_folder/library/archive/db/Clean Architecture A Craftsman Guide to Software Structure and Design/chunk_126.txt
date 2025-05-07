@@ -1,0 +1,32 @@
+The second solution implies that the component structure is volatile in the
+presence of changing requirements. Indeed, as the application grows, the
+component dependency structure jitters and grows. Thus the dependency
+structure must always be monitored for cycles. When cycles occur, they must be
+broken somehow. Sometimes this will mean creating new components, making
+the dependency structure grow.
+TOP-DOWN DESIGN
+The issues we have discussed so far lead to an inescapable conclusion: The
+component structure cannot be designed from the top down. It is not one of the
+first things about the system that is designed, but rather evolves as the system
+grows and changes.
+Some readers may find this point to be counterintuitive. We have come to expect
+that large-grained decompositions, like components, will also be high-level
+functional decompositions.
+When we see a large-grained grouping such as a component dependency
+structure, we believe that the components ought to somehow represent the
+functions of the system. Yet this does not seem to be an attribute of component
+dependency diagrams.
+In fact, component dependency diagrams have very little do to with describing
+the function of the application. Instead, they are a map to the buildability and
+maintainability of the application. This is why they aren’t designed at the
+beginning of the project. There is no software to build or maintain, so there is no
+need for a build and maintenance map. But as more and more modules
+accumulate in the early stages of implementation and design, there is a growing
+need to manage the dependencies so that the project can be developed without
+the “morning after syndrome.” Moreover, we want to keep changes as localized
+as possible, so we start paying attention to the SRP and CCP and collocate
+classes that are likely to change together.
+One of the overriding concerns with this dependency structure is the isolation of
+volatility. We don’t want components that change frequently and for capricious
+reasons to affect components that otherwise ought to be stable. For example, we
+don’t want cosmetic changes to the GUI to have an impact on our business rules.

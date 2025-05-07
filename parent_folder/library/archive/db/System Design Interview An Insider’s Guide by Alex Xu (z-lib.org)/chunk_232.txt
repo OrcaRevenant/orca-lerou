@@ -1,0 +1,3 @@
+backup queue stores the info so changes will be synced when the client is online.
+We have discussed the design of Google Drive at the high-level. Some of the components are
+complicated and worth careful examination; we will discuss these in detail in the deep dive.

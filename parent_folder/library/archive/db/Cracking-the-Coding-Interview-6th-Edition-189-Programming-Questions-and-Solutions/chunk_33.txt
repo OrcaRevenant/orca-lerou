@@ -1,0 +1,48 @@
+Ill I Special Situations
+•
+Low-level knowledge (memory allocation, etc.).
+•
+System design or scalability.
+•
+Proprietary systems (Google Maps, etc.).
+For example, one question I sometimes ask is to find all positive integer solutions under 1,000 to a} + b;
+= c3 + d1 (page 68).
+Many candidates will at first think they have to do some sort of fancy factorization of this or semi-advanced
+math. They don't. They need to understand the concept of exponents, sums, and equality, and that's it.
+When I ask this question, I explicitly say, "I know this sounds like a math problem. Don't worry. It's not. It's an
+algorithm question." If they start going down the path of factorization, I stop them and remind them that
+It's not a math question.
+Otherquestionsmightinvolveabitofprobability.lt might be stuff that a candidate would surely know (e.g.,
+to pick between five options, pick a random number between 1 and 5), But simply the fact that it involves
+probability will intimidate candidates.
+Be careful asking questions that sound intimidating. Remember that this is already a really intimidating
+situation for candidates. Adding on a "scary" question might just fluster a candidate and cause him to
+underperform.
+If you're going to ask a question that sounds "scary," make sure you really reassure candidates that it doesn't
+require the knowledge that they think it does.
+Offer positive reinforcement.
+Some interviewers put so much focus on the "right" question that they forget to think about their own
+behavior.
+Many candidates are intimidated by interviewing and try to read into the interviewer's every word. They
+can cling to each thing that might possibly sound positive or negative. They interpret that little comment of
+"good luck" to mean something, even though you say it to everyone regardless of performance.
+You want candidates to feel good about the experience, about you, and about their performance. You want
+them to feel comfortable. A candidate who is nervous will perform poorly, and it doesn't mean that they
+aren't good. Moreover, a good candidate who has a negative reaction to you or to the company is less likely
+to accept an offer—and they might dissuade their friends from interviewing/accepting as well.
+Try to be warm and friendly to candidates. This is easier for some people than others, but do your best.
+Even if being warm and friendly doesn't come naturally to you, you can still make a concerted effort to
+sprinkle in positive remarks throughout the interview:
+•
+"Right, exactly."
+•
+"Great point."
+•
+"Good work."
+•
+"Okay, that's a really interesting approach,"
+•
+"Perfect."
+No matter how poorly a candidate is doing, there is always something they got right. Find a way to infuse
+some positivity into the interview.
+CrackingTheCodinglnterview.com | 6th Edition 19

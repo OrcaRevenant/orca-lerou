@@ -1,0 +1,82 @@
+Solutions to Chapter 14 j Databases
+38
+parts. addLast( hundred);
+39
+number %= 100;
+40
+}
+41
+42
+/* Convert tens place */
+43
+if (number >= 10 && number <= 19) {
+44
+parts.addLast(smalls[number]);
+45
+) else if (number >= 20) {
+46
+parts.addLast(tens[nuraber / 10]);
+47
+number %= 10;
+48
+}
+49
+50
+/* Convert ones place */
+51
+if (number >= 1 &8 number <= 9) {
+52
+parts.addLast(smalls[number]);
+53
+}
+54
+55
+return listToString(parts);
+56 >
+57 /* Convert a linked list of strings to a string, dividing it up with spaces. */
+58 String listToString(LinkedList<String> parts) {
+59
+StringBuilder sb = new StringBuilder();
+60
+while (parts.size() > 1) {
+61
+sb.append(parts.pop());
+62
+sb.append(" ");
+63
+}
+64
+sb.append(parts.popQ);
+65
+return sb.toString();
+66 }
+The key in a problem like this is to make sure you consider all the special cases. There are a lot of them.
+16.9
+Operations: Write methods to implement the multiply, subtract, and divide operations for integers.
+The results of all of these are integers. Use only the add operator.
+pg 182
+SOLUTION
+The only operation we have to work with is the add operator. In each of these problems, it's useful to think
+in depth about what these operations really do or how to phrase them in terms of other operations (either
+add or operations we've already completed).
+Subtraction
+How can we phrase subtraction in terms of addition? This one is pretty straightforward. The operation a
+- b is the same thing as a + ( - 1 ) * b. However, because we are not allowed to use the * (multiply)
+operator, we must implement a negate function.
+1
+/* Flip a positive sign to negative or negative sign to pos. */
+2
+int negate(int a) {
+3
+int neg = 0;
+4
+int newSign = a < 0 ? 1 : -1;
+5
+while (a |« 0) {
+6
+neg += newSign;
+a +3 newSign;
+8
+>
+4 7 8
+Cracking the Coding Interview, 6th Edition

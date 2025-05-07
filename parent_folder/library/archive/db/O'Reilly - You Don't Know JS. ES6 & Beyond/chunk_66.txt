@@ -1,0 +1,37 @@
+The ^.-clef in the pattern says to match only a single character at the beginning
+before the normal "-clef" text. In standard BMP mode, the match fails (2 charac‐
+ters), but with u Unicode mode flagged on, the match succeeds (1 character).
+It’s also important to note that u makes quantifiers like + and * apply to the entire
+Unicode code point as a single character, not just the lower surrogate (aka rightmost
+halve of the symbol) of the character. The same goes for Unicode characters appear‐
+ing in character classes, like /[💩-💫]/u.
+There’s plenty more nitty gritty details about u behavior in regular
+expressions, which Mathias Bynens (https://twitter.com/mathias)
+has written extensively about (https://mathiasbynens.be/notes/es6-
+Unicode-regex).
+Sticky Flag
+Another flag mode added to ES6 regular expressions is y, which is often called “sticky
+mode”. Sticky essentially means the regular expression has a virtual anchor at its
+beginning that keeps it rooted to matching at only the position indicated by the regu‐
+lar expression’s lastIndex property.
+To illustrate, let’s consider two regular expressions, the first without sticky mode and
+the second with:
+var re1 = /foo/,
+str = "++foo++";
+re1.lastIndex;          // 0
+re1.test( str );        // true
+re1.lastIndex;          // 0 -- not updated
+re1.lastIndex = 4;
+re1.test( str );        // true -- ignored `lastIndex`
+re1.lastIndex;          // 4 -- not updated
+Three things to observe about this snippet:
+• test(..) doesn’t pay any attention to lastIndex’s value, and always just per‐
+forms its match from the beginning of the input string.
+• Since our pattern does not have a ^ start-of-input anchor, the search for "foo" is
+free to move ahead through the whole string looking for a match.
+• lastIndex is not updated by test(..).
+Now, let’s try a sticky mode regular expression:
+Regular Expressions
+|
+55
+www.it-ebooks.info

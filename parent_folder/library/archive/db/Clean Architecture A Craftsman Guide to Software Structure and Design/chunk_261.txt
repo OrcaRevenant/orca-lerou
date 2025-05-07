@@ -1,0 +1,31 @@
+quickly, but that’s a low-level concern. We can address that concern with low-
+level data access mechanisms. It has nothing whatsoever to do with the overall
+architecture of our systems.
+ANECDOTE
+In the late 1980s, I led a team of software engineers at a startup company that
+was trying to build and market a network management system that measured the
+communications integrity of T1 telecommunication lines. The system retrieved
+data from the devices at the endpoints of those lines, and then ran a series of
+predictive algorithms to detect and report problems.
+We were using UNIX platforms, and we stored our data in simple random access
+files. We had no need of a relational database because our data had few content-
+based relationships. It was better kept in trees and linked lists in those random
+access files. In short, we kept the data in a form that was most convenient to load
+into RAM where it could be manipulated.
+We hired a marketing manager for this startup—a nice and knowledgeable guy.
+But he immediately told me that we had to have a relational database in the
+system. It wasn’t an option and it wasn’t an engineering issue—it was a
+marketing issue.
+This made no sense to me. Why in the world would I want to rearrange my
+linked lists and trees into a bunch of rows and tables accessed through SQL?
+Why would I introduce all the overhead and expense of a massive RDBMS
+when a simple random access file system was more than sufficient? So I fought
+him, tooth and nail.
+We had a hardware engineer at this company who took up the RDBMS chant. He
+became convinced that our software system needed an RDBMS for technical
+reasons. He held meetings behind my back with the executives of the company,
+drawing stick figures on the whiteboard of a house balancing on a pole, and he
+would ask the executives, “Would you build a house on a pole?” His implied
+message was that an RDBMS that keeps its tables in random access files was
+somehow more reliable than the random access files that we were using.
+I fought him. I fought the marketing guy. I stuck to my engineering principles in

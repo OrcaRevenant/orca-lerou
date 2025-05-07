@@ -1,0 +1,36 @@
+Digest: sha256:d3c0d8c9d5719d31b79c...fef58a7e038cf0ef2ba5eb74c
+Status: Downloaded newer image for nigelpoulton/tu-demo
+$
+$ docker image ls
+REPOSITORY             TAG      IMAGE ID       CREATED        SIZE
+nigelpoulton/tu-demo   v2       6ac...ead   4 months ago   211.6 MB
+nigelpoulton/tu-demo   latest   9b9...e29   4 months ago   211.6 MB
+nigelpoulton/tu-demo   v1       9b9...e29   4 months ago   211.6 MB
+Notice the lines ending in Already exists.
+These lines tell us that Docker is smart enough recognize when it’s being asked
+to pull an image layer that it already has a copy of. In this example, Docker
+pulled the image tagged as latest first. Then, when it went to pull the v1 and v2
+images it noticed that it already had some of the layers that make up those
+images. This happens because the three images in this repository are almost
+identical, and therefore share many layers.
+As mentioned previously, Docker on Linux supports many different filesystems
+and storage drivers. Each is free to implement image layering, layer sharing, and
+copy-on-write behaviour in its own way. However, the overall result and user
+experience is essentially the same. Although Windows only supports a single
+storage driver, that driver provides the same experience as Linux.
+Pulling images by digest
+So far, we’ve shown you how to pull images by tag, and this is by far the most
+common way. But it has a problem - tags are mutable! This means it’s possible
+to accidentally tag an image with an incorrect tag. Sometimes it’s even possible
+to tag an image with the same tag as an existing, but different, image. This can
+cause problems!
+As an example, imagine that you’ve got an image called golftrack:1.5 and it
+has a known bug. You pull the image, apply a fix, and push the updated image
+back to its repository with the same tag.
+Take a second to understand what just happened there… You have an image
+called golftrack:1.5 that has a bug. That image is being used in your
+production environment. You pull the image and apply a fix. Then comes the
+mistake… you push the fixed image back to its repository with the same tag as
+the vulnerable image! How are you going to know which of your production
+systems are running the vulnerable image and which are running the patched
+image? Both images have the same tag!

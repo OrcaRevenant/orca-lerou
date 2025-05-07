@@ -1,0 +1,33 @@
+The stopped container is now restarted. Time to verify that the file we created
+earlier still exists. Connect to the restarted container with the docker container
+exec command.
+$ docker container exec -it percy bash
+root@9cb2d2fd1d65:/#
+Your shell prompt will change to show that you are now operating within the
+namespace of the container.
+Verify that the file you created earlier is still there and contains the data you
+wrote to it.
+root@9cb2d2fd1d65:/# cd tmp
+root@9cb2d2fd1d65:/# ls -l
+-rw-r--r-- 1 root root 14 Sep 13 04:22 newfile
+root@9cb2d2fd1d65:/#
+root@9cb2d2fd1d65:/# cat newfile
+sysadmins FTW
+As if by magic, the file you created is still there and the data it contains is
+exactly how you left it! This proves that stopping a container does not destroy
+the container or the data inside of it.
+While this example illustrates the persistent nature of containers, I should point
+out that volumes are the preferred way to store persistent data in containers. But
+at this stage of our journey I think this is an effective example of the persistent
+nature of containers.
+So far I think you’d be hard pressed to draw a major difference in the behavior
+of a container vs a VM.
+Now let’s kill the container and delete it from our system.
+It is possible to delete a running container with a single command by passing the
+-f flag to docker container rm. However, it’s considered a best practice to take
+the two-step approach of stopping the container first and then deleting it. This
+gives the application/process that the container is running a fighting chance of
+stopping cleanly. More on this in a second.
+The example below will stop the percy container, delete it, and verify the
+operation. If your terminal is still attached to the percy container you will need
+to get back to your Docker host’s terminal by pressing Ctrl-PQ.

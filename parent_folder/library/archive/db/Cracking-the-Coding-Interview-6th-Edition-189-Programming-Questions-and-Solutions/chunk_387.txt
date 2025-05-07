@@ -1,0 +1,68 @@
+Solutions to Chapter 9 | System Design and Scalability
+•
+Bidirectionalbreadth-first search: We go through 2 k nodes; each of S'sk friends and each of D'sk friends.
+Of course, 2k is much less than k+k*k.
+Generalizing this to a path of length q, we have this:
+•
+BFS:0(kn)
+-
+Bidirectional 6FS: 0 (k 0 / 3 + k" / 3), which is just 0 ( k ^ 2 )
+If you imagine a path like A->B->C->D->E where each person has 100 friends, this is a big difference.
+BFS will require looking at 100 million (1001} nodes. A bidirectional BFS wiil require looking at only 20,000
+nodes (2 x 100J).
+A bidirectional BFS will generally be faster than the traditional BFS. However, it requires actually having
+access to both the source node and the destination nodes, which is not always the case.
+Step 2: Handle the Millions of Users
+When we deal with a service the size of Linkedln or Facebook, we cannot possibly keep all of our data on
+one machine. That means that our simple Person data structure from above doesn't quite work—our
+friends may not live on the same machine as we do. Instead, we can replace our iist of friends with a list of
+their IDs, and traverse as follows:
+1. For each friend ID: i n t m a c h i n e _ i n d e x = getMachineIDForUser( p e r s o n I D ) ;
+2. Go to machine # m a c h i n e _ i n d e x
+3. On that machine, do: Person f r i e n d = g e t P e r s o n W i t h I D ( p e r s o n _ i d ) ;
+The code below outlines this process. We've defined a class Server, which holds a list of all the machines,
+and a class Machine, which represents a single machine. Both classes have hash tables to efficiently lookup
+data.
+I
+class Server {
+HashMapcInteger, Machine> machines = new HashMap<Integer, Machine>{);
+HashMapilnteger, Integer> personToMachineMap = new HashMap<Integer, I n t e g e r > ( ) ;
+4
+public Machine getMachineWithId{int machinelD) (
+6
+r e t u r n machines.get(machinelD);
+1
+>
+8
+9
+public i n t getMachineIDForUser(int personID) {
+16
+Integer machinelD = personToMachineMap.get(personlD);
+II
+r e t u r n machinelD == n u l l ? -1 : machinelD;
+12
+>
+13
+14
+public Person getPersonWithID(int personID) {
+15
+Integer machinelD = personToMachineMap.get(personID)\
+16
+if {machinelD == n u l l ) return n u l l ;
+17
+18
+Machine machine = getMachineWithld(machinelD);
+19
+if {machine == n u l l ) return n u l l ;
+20
+21
+return
+machine,getPersonWithlD(personlD);
+22
+>
+23
+}
+24
+25 class Person {
+CrackingTheCodinginterview.com | 6th Edition Î
+75

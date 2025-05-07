@@ -1,0 +1,92 @@
+Chapter 10 j Sorting and Searching
+The merge method operates by copying all the elements from the target array segment into a helper array,
+keeping track of where the start of the left and right halves should be (helper L e f t and h e l p e r R i g h t ) .
+We then iterate through helper, copying the smalier element from each half into the array. At the end, we
+copy any remaining elements into the target array.
+1
+void mergesort(int[] array) {
+2
+i n t [ ] helper = new i n t [ a r r a y . l e n g t h ] ;
+3
+mergesort(array, helper, 0, array.length - 1);
+4
+>
+5
+6
+void mergesort(int[] array, i n t [ ] helper, l n t low, i n t high) {
+7
+if (low < high) {
+8
+i n t middle = (low + high) / 2;
+9
+mergesort(array, helper, low, middle); // Sort l e f t half
+10
+mergesort(array, helper, middle+l, high); // Sort r i g h t half
+11
+merge(array, helper, low, middle, high); // Merge them
+12
+>
+13
+}
+14
+15 void merge(int[] array, i n t [ ] helper, i n t low, i n t middle, i n t high) {
+16
+/* Copy both halves into a helper array */
+17
+f o r ( i n t i = low; i <= high; i++) {
+18
+h e l p e r [ i ] = a r r a y [ i ] ;
+19
+>
+20
+21
+i n t helperLeft = low;
+22
+i n t helperRight = middle + 1;
+23
+i n t current = low;
+24
+25
+/* Iterate through helper array. Compare the l e f t and r i g h t h a l f , copying back
+26
+* the smaller element from the two halves into the original array. */
+27
+while (helperLeft <= middle S& helperRight <= high) {
+28
+if (helper[helperLeft] <= helper[helperRight]) {
+29
+array[current] = helper[helperLeft);
+30
+helperLeft++;
+31
+) else { // If r i g h t element is smaller than l e f t element
+32
+array[current] = helper[helperRight];
+33
+helperRight++;
+34
+>
+35
+current++;
+36
+>
+37
+38
+/* Copy the rest of the l e f t side of the array into the target array */
+39
+i n t remaining = middle - helperLeft;
+48
+for ( i n t i = 8; i <= remaining; i++) {
+41
+array[current + i] = helper[helperLeft + i ] ;
+42
+>
+43 >
+You may notice that only the remaining elements from the left half of the helper array are copied into the
+target array. Why not the right half? The right half doesn't need to be copied because it's already there.
+Consider, for example, an array like [ 1 , 4, 5 [[ 2, 8, 9] (the" | | "indicates the partition point). Prior
+to merging the two halves, both the helper array and the target array segment will end with [ 8 , 9], Once
+we copy over four elements (1, 4, 5, and 2) into the target array, the [ 8 , 9] will still be in place in both
+arrays. There's no need to copy them over.
+CrackingTheCodinglnterview.com 16th Edition
+147

@@ -1,0 +1,28 @@
+WHAT IF THERE WERE NO DISK?
+As prevalent as disks once were, they are now a dying breed. Soon they will
+have gone the way of tape drives, floppy drives, and CDs. They are being
+replaced by RAM.
+Ask yourself this question: When all the disks are gone, and all your data is
+stored in RAM, how will you organize that data? Will you organize it into tables
+and access it with SQL? Will you organize it into files and access it through a
+directory?
+Of course not. You’ll organize it into linked lists, trees, hash tables, stacks,
+queues, or any of the other myriad data structures, and you’ll access it using
+pointers or references—because that’s what programmers do.
+In fact, if you think carefully about this issue, you’ll realize that this is what you
+already do. Even though the data is kept in a database or a file system, you read
+it into RAM and then you reorganize it, for your own convenience, into lists,
+sets, stacks, queues, trees, or whatever data structure meets your fancy. It is very
+unlikely that you leave the data in the form of files or tables.
+DETAILS
+This reality is why I say that the database is a detail. It’s just a mechanism we
+use to move the data back and forth between the surface of the disk and RAM.
+The database is really nothing more than a big bucket of bits where we store our
+data on a long-term basis. But we seldom use the data in that form.
+Thus, from an architectural viewpoint, we should not care about the form that
+the data takes while it is on the surface of a rotating magnetic disk. Indeed, we
+should not acknowledge that the disk exists at all.
+BUT WHAT ABOUT PERFORMANCE?
+Isn’t performance an architectural concern? Of course it is—but when it comes
+to data storage, it’s a concern that can be entirely encapsulated and separated
+from the business rules. Yes, we need to get the data in and out of the data store

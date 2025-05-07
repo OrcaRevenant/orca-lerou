@@ -1,0 +1,39 @@
+98
+Chapter 6: Objects and Data Structures
+• An object passed as an argument to f
+• An object held in an instance variable of C
+The method should not invoke methods on objects that are returned by any of the
+allowed functions. In other words, talk to friends, not to strangers.
+The following code3 appears to violate the Law of Demeter (among other things)
+because it calls the getScratchDir() function on the return value of getOptions() and then
+calls getAbsolutePath() on the return value of getScratchDir().
+final String outputDir = ctxt.getOptions().getScratchDir().getAbsolutePath();
+Train Wrecks
+This kind of code is often called a train wreck because it look like a bunch of coupled train
+cars. Chains of calls like this are generally considered to be sloppy style and should be
+avoided [G36]. It is usually best to split them up as follows:
+Options opts = ctxt.getOptions();
+File scratchDir = opts.getScratchDir();
+final String outputDir = scratchDir.getAbsolutePath();
+Are these two snippets of code viola-
+tions of the Law of Demeter? Certainly
+the containing module knows that the
+ctxt object contains options, which con-
+tain a scratch directory, which has an
+absolute path. That’s a lot of knowledge
+for one function to know. The calling
+function knows how to navigate through
+a lot of different objects.
+Whether this is a violation of Demeter depends on whether or not ctxt, Options, and
+ScratchDir are objects or data structures. If they are objects, then their internal structure
+should be hidden rather than exposed, and so knowledge of their innards is a clear viola-
+tion of the Law of Demeter. On the other hand, if ctxt, Options, and ScratchDir are just
+data structures with no behavior, then they naturally expose their internal structure, and so
+Demeter does not apply.
+The use of accessor functions confuses the issue. If the code had been written as fol-
+lows, then we probably wouldn’t be asking about Demeter violations.
+final String outputDir = ctxt.options.scratchDir.absolutePath;
+This issue would be a lot less confusing if data structures simply had public variables
+and no functions, whereas objects had private variables and public functions. However,
+3.
+Found somewhere in the apache framework.

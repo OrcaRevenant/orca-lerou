@@ -1,0 +1,31 @@
+CHAPTER 6 PRACTICING
+92
+Programmers can practice in a similar fashion using a game known as ping-
+pong.8 The two partners choose a kata, or a simple problem. One programmer
+writes a unit test, and then the other must make it pass. Then they reverse
+roles.
+If the partners choose a standard kata, then the outcome is known and the
+programmers are practicing and critiquing each other’s keyboarding and
+mousing techniques, and how well they’ve memorized the kata. On the other
+hand, if the partners choose a new problem to solve, then the game can get a bit
+more interesting. The programmer writing a test has an inordinate amount of
+control over how the problem will be solved. He also has a significant amount
+of power to set constraints. For example, if the programmers choose to
+implement a sort algorithm, the test writer can easily put constraints on speed
+and memory space that will challenge his partner. This can make the game quite
+competative . . . and fun.
+R AN DOR I
+Randori is free-form combat. In our jujitsu dojo, we would set up a variety of
+combat scenarios and then enact them. Sometimes one person was told to defend,
+while each of the rest of us would attack him in sequence. Sometimes we would
+set two or more attackers against a single defender (usually the sensei, who almost
+always won). Sometimes we’d do two on two, and so forth.
+Simulated combat does not map well to programming; however, there is a game
+that is played at many coding dojos called randori. It is very much like two-man
+wasa in which the partners are solving a problem. However, it is played with
+many people and the rules have a twist. With the screen projected on the wall,
+one person writes a test and then sits down. The next person makes the test pass
+and then writes the next test. This can be done in sequence around the table, or
+people can simply line up as they feel so moved. In either case these exercises
+can be a lot of fun.
+8. http://c2.com/cgi/wiki?PairProgrammingPingPongPattern

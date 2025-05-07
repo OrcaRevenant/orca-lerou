@@ -1,0 +1,29 @@
+CHAPTER 4 CODING
+64
+Or, do you stop what you are doing and politely help someone who is stuck? Do
+you treat them as you would have them treat you if you were stuck?
+The rude response often comes from the Zone. You may resent being dragged
+out of the Zone, or you may resent someone interfering with your attempt to
+enter the Zone. Either way, the rudeness often comes from your relationship to
+the Zone.
+Sometimes, however, it’s not the Zone that’s at fault, it’s just that you are trying
+to understand something complicated that requires concentration. There are
+several solutions to this.
+Pairing can be very helpful as a way to deal with interruptions. Your pair partner
+can hold the context of the problem at hand, while you deal with a phone call,
+or a question from a coworker. When you return to your pair partner, he quickly
+helps you reconstruct the mental context you had before the interruption.
+TDD is another big help. If you have a failing test, that test holds the context of
+where you are. You can return to it after an interruption and continue to make
+that failing test pass.
+In the end, of course, there will be interruptions that distract you and cause you
+to lose time. When they happen, remember that next time you may be the one
+who needs to interrupt someone else. So the professional attitude is a polite
+willingness to be helpful.
+WR ITE R ’S B LOC K
+Sometimes the code just doesn’t come. I’ve had this happen to me and I’ve seen
+it happen to others. You sit at your workstation and nothing happens.
+Often you will find other work to do. You’ll read email. You’ll read tweets. You’ll
+look through books, or schedules, or documents. You’ll call meetings. You’ll
+start up conversations with others. You’ll do anything so that you don’t have to
+face that workstation and watch as the code refuses to appear.

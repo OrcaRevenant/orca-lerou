@@ -1,0 +1,30 @@
+First, let’s consider the notion that using services, by their nature, is an
+architecture. This is patently untrue. The architecture of a system is defined by
+boundaries that separate high-level policy from low-level detail and follow the
+Dependency Rule. Services that simply separate application behaviors are little
+more than expensive function calls, and are not necessarily architecturally
+significant.
+This is not to say that all services should be architecturally significant. There are
+often substantial benefits to creating services that separate functionality across
+processes and platforms—whether they obey the Dependency Rule or not. It’s
+just that services, in and of themselves, do not define an architecture.
+A helpful analogy is the organization of functions. The architecture of a
+monolithic or component-based system is defined by certain function calls that
+cross architectural boundaries and follow the Dependency Rule. Many other
+functions in those systems, however, simply separate one behavior from another
+and are not architecturally significant.
+So it is with services. Services are, after all, just function calls across process
+and/or platform boundaries. Some of those services are architecturally
+significant, and some aren’t. Our interest, in this chapter, is with the former.
+SERVICE BENEFITS?
+The question mark in the preceding heading indicates that this section is going to
+challenge the current popular orthodoxy of service architecture. Let’s tackle the
+benefits one at a time.
+THE DECOUPLING FALLACY
+One of the big supposed benefits of breaking a system up into services is that
+services are strongly decoupled from each other. After all, each service runs in a
+different process, or even a different processor; therefore those services do not
+have access to each other’s variables. What’s more, the interface of each service
+must be well defined.
+There is certainly some truth to this—but not very much truth. Yes, services are
+decoupled at the level of individual variables. However, they can still be coupled

@@ -1,0 +1,40 @@
+In this previous snippet, I used the name foo for the function that
+default labels. That foo name however is ignored for the purposes
+of export — default is actually the exported name. When you
+import this default binding, you can give it whatever name you
+want, as you’ll see in the next section.
+Alternatively, some will prefer:
+function foo() { .. }
+function bar() { .. }
+function baz() { .. }
+export { foo as default, bar, baz, .. };
+The effects of mixing default and named exports will be more clear when we cover
+import shortly. But essentially it means that the most concise default import form
+would only retrieve the foo() function. The user could additionally manually list bar
+and baz as named imports, if they want them.
+You can probably imagine how tedious that’s going to be for consumers of your mod‐
+ule if you have lots of named export bindings. There is a wildcard import form where
+you import all of a module’s exports within a single namespace object, but there’s no
+way to wildcard import to top-level bindings.
+Again, the ES6 module mechanism is intentionally designed to discourage modules
+with lots of exports; it’s desired that such approaches be relatively a little more diffi‐
+cult, as a sort of social engineering to encourage simple module design in favor of
+large/complex module design.
+I would probably recommend you not mix default export with named exports, espe‐
+cially if you have a large API and refactoring to separate modules isn’t practical or
+desired. In that case, just use all named exports, and document that consumers of
+your module should probably use the import * as .. (namespace import, discussed
+in the next section) approach to bring the whole API in at once on a single name‐
+space.
+We mentioned this earlier, but let’s come back to it in more detail. Other than the
+export default ... form that exports an expression value binding, all other export
+forms are exporting bindings to local identifiers. For those bindings, if you change
+the value of a variable inside a module after exporting, the external imported binding
+will access the updated value:
+var foo = 42;
+export { foo as default };
+export var bar = "hello world";
+106
+|
+Chapter 3: Organization
+www.it-ebooks.info

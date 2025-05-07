@@ -1,0 +1,12 @@
+17
+BOUNDARIES: DRAWING LINES
+Software architecture is the art of drawing lines that I call boundaries. Those
+boundaries separate software elements from one another, and restrict those on
+one side from knowing about those on the other. Some of those lines are drawn
+very early in a project’s life—even before any code is written. Others are drawn
+much later. Those that are drawn early are drawn for the purposes of deferring
+decisions for as long as possible, and of keeping those decisions from polluting
+the core business logic.
+Recall that the goal of an architect is to minimize the human resources required
+to build and maintain the required system. What it is that saps this kind of
+people-power? Coupling—and especially coupling to premature decisions.

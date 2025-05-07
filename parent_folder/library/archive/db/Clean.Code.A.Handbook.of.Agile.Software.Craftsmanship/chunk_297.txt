@@ -1,0 +1,10 @@
+267
+16
+Refactoring SerialDate
+If you go to http://www.jfree.org/jcommon/index.php, you will ﬁnd the JCommon library.
+Deep within that library there is a package named org.jfree.date. Within that package
+there is a class named SerialDate. We are going to explore that class.
+The author of SerialDate is David Gilbert. David is clearly an experienced and com-
+petent programmer. As we shall see, he shows a signiﬁcant degree of professionalism and
+discipline within his code. For all intents and purposes, this is “good code.” And I am
+going to rip it to pieces.

@@ -1,0 +1,40 @@
+189
+Testing Threaded Code
+Hand-Coded
+You can insert calls to wait(), sleep(), yield(), and priority() in your code by hand. It
+might be just the thing to do when you’re testing a particularly thorny piece of code.
+Here is an example of doing just that:
+public synchronized String nextUrlOrNull() {
+if(hasNext()) {
+String url = urlGenerator.next();
+Thread.yield(); // inserted for testing.
+updateHasNext();
+return url;
+}
+return null;
+}
+The inserted call to yield() will change the execution pathways taken by the code and
+possibly cause the code to fail where it did not fail before. If the code does break, it was
+not because you added a call to yield().17 Rather, your code was broken and this simply
+made the failure evident.
+There are many problems with this approach:
+• You have to manually ﬁnd appropriate places to do this.
+• How do you know where to put the call and what kind of call to use?
+• Leaving such code in a production environment unnecessarily slows the code down.
+• It’s a shotgun approach. You may or may not ﬁnd ﬂaws. Indeed, the odds aren’t with you.
+What we need is a way to do this during testing but not in production. We also need to
+easily mix up conﬁgurations between different runs, which results in increased chances of
+ﬁnding errors in the aggregate.
+Clearly, if we divide our system up into POJOs that know nothing of threading and
+classes that control the threading, it will be easier to ﬁnd appropriate places to instrument
+the code. Moreover, we could create many different test jigs that invoke the POJOs under
+different regimes of calls to sleep, yield, and so on.
+Automated
+You could use tools like an Aspect-Oriented Framework, CGLIB, or ASM to programmat-
+ically instrument your code. For example, you could use a class with a single method:
+public class ThreadJigglePoint {
+public static void jiggle() {
+}
+}
+17. This is not strictly the case. Since the JVM does not guarantee preemptive threading, a particular algorithm might always
+work on an OS that does not preempt threads. The reverse is also possible but for different reasons.

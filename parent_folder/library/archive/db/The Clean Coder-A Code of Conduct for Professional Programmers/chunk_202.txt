@@ -1,0 +1,26 @@
+171
+BIBLIOGRAPHY
+their project can count on the effort of that team. They know that because
+forming and disbanding a team is an expensive operation, the business will not
+take the team away for short-term reasons.
+On the other hand, if projects are given to gelled teams, and if those teams take
+on several projects at the same time, then the business is free to change
+priorities on a whim. This can make the project owner insecure about the
+future. The resources that project owner is depending on might be suddenly
+removed from him.
+Frankly, I prefer the latter situation. The business should not have its hands tied
+by the artificial difficulty of forming and disbanding teams. If the business
+decides that one project is higher priority than another, it should be able to
+reallocate resources quickly. It is the project owner’s responsibility to make the
+case for his project.
+CO N C LU S I O N
+Teams are harder to build than projects. Therefore, it is better to form persistent
+teams that move together from one project to the next and can take on more
+than one project at a time. The goal in forming a team is to give that team
+enough time to gel, and then keep it together as an engine for getting many
+projects done.
+B I B LI OG R APH Y
+[RCM2003]: Robert C. Martin, Agile Software Development: Principles, Patterns,
+and Practices, Upper Saddle River, NJ: Prentice Hall, 2003.
+[COHN2006]: Mike Cohn, Agile Estimating and Planning, Upper Saddle River,
+NJ: Prentice Hall, 2006.

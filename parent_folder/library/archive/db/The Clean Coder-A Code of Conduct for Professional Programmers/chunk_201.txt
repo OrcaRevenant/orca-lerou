@@ -1,0 +1,29 @@
+project for a short time, and only for a percentage of their time, and therefore
+never learn how to deal with each other.
+Professional development organizations allocate projects to existing gelled
+teams, they don’t form teams around projects. A gelled team can accept many
+projects simultaneously and will divvy up the work according to their own
+opinions, skills, and abilities. The gelled team will get the projects done.
+B UT H OW D O YO U MANAG E THAT ?
+Teams have velocities.1 The velocity of a team is simply the amount of work it
+can get done in a fixed period of time. Some teams measure their velocity in
+points per week, where points are a unit of complexity. They break down the
+features of each project they are working on and estimate them in points. Then
+they measure how many points they get done per week.
+Velocity is a statistical measure. A team might get 38 points done one week, 42
+done the next, and 25 done the next. Over time this will average out.
+Management can set targets for each project given to a team. For example, if the
+average velocity of a team is 50 and they have three projects they are working
+on, then management can ask the team to split their effort into 15, 15, and 20.
+Aside from having a gelled team working on your projects, the advantage of this
+scheme is that in an emergency the business can say, “Project B is in crisis; put
+100% of your effort on that project for the next three weeks.”
+Reallocating priorities that quickly is virtually impossible with the teams that
+came out of the blender, but gelled teams that are working on two or three
+projects concurrently can turn on a dime.
+TH E PROJ ECT O W N E R D I LE M MA
+One of the objections to the approach I’m advocating is that the project owners
+lose some security and power. Project owners who have a team dedicated to
+1. [RCM2003] pp. 20–22; [COHN2006] Look in the index for many excellent references to velocity.
+CHAPTER 13 TEAMS AND PROJECTS
+170

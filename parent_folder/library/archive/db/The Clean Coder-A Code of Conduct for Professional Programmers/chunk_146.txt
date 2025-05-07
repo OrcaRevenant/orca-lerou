@@ -1,0 +1,30 @@
+CHAPTER 8 TESTING STRATEGIES
+114
+bugs. The person who found a crashing bug could win a dinner for two. The
+person who found the most bugs might win a weekend in Monterrey.
+QA S H O U LD FI N D N OTH I N G
+I’ve said this before, and I’ll say it again. Despite the fact that your company
+may have a separate QA group to test the software, it should be the goal of the
+development group that QA find nothing wrong.
+Of course, it’s not likely that this goal will be constantly achieved. After all, when
+you have a group of intelligent people bound and determined to find all the
+wrinkles and deficits in a product, they are likely going to find some. Still, every
+time QA finds something the development team should react in horror. They
+should ask themselves how it happened and take steps to prevent it in the future.
+QA Is PA RT O F TH E TE AM
+The previous section might have made it seem that QA and Development are at
+odds with each other, that their relationship is adversarial. This is not the intent.
+Rather, QA and Development should be working together to ensure the quality
+of the system. The best role for the QA part of the team is to act as specifiers
+and characterizers.
+QA as Specifiers
+It should be QA’s role to work with business to create the automated acceptance
+tests that become the true specification and requirements document for the
+system. Iteration by iteration they gather the requirements from business and
+translate them into tests that describe to developers how the system should
+behave (See Chapter 7, “Acceptance Testing”). In general, the business writes the
+happy-path tests, while QA writes the corner, boundary, and unhappy-path tests.
+QA as Characterizers
+The other role for QA is to use the discipline of exploratory testing1 to
+characterize the true behavior of the running system and report that behavior
+1. http://www.satisfice.com/articles/what_is_et.shtml

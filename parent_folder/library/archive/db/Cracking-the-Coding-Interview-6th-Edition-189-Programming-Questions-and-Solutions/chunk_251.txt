@@ -1,0 +1,67 @@
+Solutions to Trees and Graphs
+4.1
+Route Between Nodes: Given a directed graph, design an algorithm to find out whether there is a
+route between two nodes.
+This problem can be solved by just simple graph traversal, such as depth-first search or breadth-first search.
+We start with one of the two nodes and, during traversal, check if the other node is found. We should mark
+any node found in the course of the algorithm as "already visited" to avoid cycles and repetition of the
+nodes.
+The code below provides an iterative implementation of breadth-first search.
+1
+enum State { Unvisited, Visited, V i s i t i n g ; >
+2
+3
+boolean search(Graph g, Node s t a r t , Node end) {
+4
+if ( s t a r t == end) return true;
+LinkedList<Node> q = new LinkedList<Node>();
+8
+9
+for (Node u : g.getNodesQ) {
+10
+u.state = State.Unvisited;
+U
+>
+12
+s t a r t . s t a t e = S t a t e . V i s i t i n g ;
+13
+q.add(start);
+14
+Node u;
+15
+while (Iq.isEmptyO) {
+16
+u = q.removeFirstO; II i . e . , dequeue()
+17
+if (u != n u l l ) {
+18
+f o r (Node v : u.getAdjacent()) {
+19
+if (v.state == state.unvisited) {
+20
+i f (v == end) {
+21
+return t r u e ;
+22
+) else {
+23
+v . s t a t e = S t a t e . V i s i t i n g ;
+24
+q.add(v);
+pg 109
+SOLUTION
+5
+6
+II operates as Queue
+25
+26
+21
+28
+29
+>
+>
+>
+u.state = S t a t e . v i s i t e d ;
+>
+CrackingTheCodinglnterview.com | 6th Edition
+241

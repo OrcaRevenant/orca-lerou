@@ -1,0 +1,42 @@
+Chapter 9 | System Design and Scalability
+can continue using (with modifications) the approach you outlined in Step 1, but occasionally you will need
+to fundamentally alter the approach.
+Note that an iterative approach is typically useful. That is, once you have solved the problems from Step 3,
+new problems may have emerged, and you must tackle those as well.
+Your goal is not to re-architect a complex system that companies have spent millions of dollars building,
+but rather to demonstrate that you can analyze and solve problems, Poking holes in your own solution is a
+fantastic way to demonstrate this.
+• Key Concepts
+While system design questions aren't really tests of what you know, certain concepts can make things a lot
+easier. We will give a brief overview here. All of these are deep, complex topics, so we encourage you to use
+online resources for more research.
+Horizontal vs. Vertical Scaling
+A system can be scaled one of two ways.
+•
+Vertical scaling means increasing the resources of a specific node. For example, you might add addi-
+tional memory to a server to improve its ability to handle load changes.
+*
+Horizontal scaling means increasing the number of nodes. For example, you might add additional
+servers, thus decreasing the load on any one server.
+Vertical scaling is generally easier than horizontal scaling, but it's limited. You can only add so much memory
+or disk space.
+Load Balancer
+Typically, some frontend parts of a scalable website will be thrown behind a load balancer. This allows a
+system to distribute the load evenly so that one server doesn't crash and take down the whole system. To
+do so, of course, you have to build out a network of cloned servers that all have essentially the same code
+and access to the same data.
+Database Denormalization and NoSQL
+Joins in a relational database such as SQL can get very slow as the system grows bigger. For this reason, you
+would generally avoid them.
+Denormalization is one part of this. Denormalization means adding redundant information into a database
+to speed up reads. For example, imagine a database describing projects and tasks (where a project can have
+multiple tasks). You might need to get the project name and the task information. Rather than doing a join
+across these tables, you can store the project name within the task table {in addition to the project table).
+Or, you can go with a NoSQL database. A NoSQL database does not support joins and might structure data
+in a different way. It is designed to scale better.
+Database Partitioning (Sharding)
+Sharding means splitting the data across multiple machines while ensuring you have a way of figuring out
+which data is on which machine.
+A few common ways of partitioning include:
+1Ï8
+Cracking the Coding Interview, 6th Edition

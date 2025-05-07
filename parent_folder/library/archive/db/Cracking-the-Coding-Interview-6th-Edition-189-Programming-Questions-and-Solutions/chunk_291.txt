@@ -1,0 +1,92 @@
+Solutions to Chapter 5 j Bit Manipulation
+I
+The terminology can be confusing for this problem. We'll call getNext the bigger number and
+getPrev the smaller number.
+The Brute Force Approach
+An easy approach is simply brute force: count the number of Is in n, and then increment (or decrement)
+until you find a number with the same number of Is. Easy—but not terribly interesting. Can we do some-
+thing a bit more optimal? Yes!
+Let's start with the code for getNext, and then move on to getPrev.
+Bit Manipulation Approach for Get Next Number
+If we think about what the next number should be, wecan observe the following. Given the number 13948,
+the binary representation looks like;
+1
+1
+0
+1
+1
+0
+0
+1
+1
+1
+1
+1
+0
+0
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+We want to make this number bigger (but not too big}. We also need to keep the same number of ones.
+Observation: Given a number n and two bit locations i and j, suppose we flip bit i from a 1 to a 0, and bit
+j from a 0 to a 1. If i > j, then n will have decreased, if i < j, then n will have increased.
+We know the following:
+1. If we flip a zero to a one, we must flip a one to a zero.
+2. When we do that, the number will be bigger if and only if the zero-to-one bit was to the left of the one-
+to-zero bit.
+3. We want to make the number bigger, but not unnecessarily bigger. Therefore, we need to flip the right-
+most zero which has ones on the right of it.
+To put this in a different way, we are flipping the rightmost non-trailing zero. That is, using the above
+example, the trailing zeros are in the 0th and 1st spot. The rightmost non-trailing zero is at bit 7. Let's call
+this position p.
+Step
+1: Flip rightmost non-trailing zero
+1
+1
+0
+1
+1
+0
+1
+1
+1
+1
+1
+1
+0
+0
+13
+12
+11
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+With this change, we have increased the size of n. But, we also have one too many ones, and one too few
+zeros. We'll need to shrink the size of our number as much as possible while keeping that in mind,
+Wecan shrink the number by rearranging all the bits to the right of bit psuch that the 0s are on the left and
+the Is are on the right. As we do this, we want to replace one of the 1s with a 0.
+A relatively easy way of doing this is to count how many ones are to the right of p, clear all the bits from
+0 until p, and then add back in c l - 1 ones. Let cl be the number of ones to the right of p and c0 be the
+number of zeros to the right of p.
+Let's walk through this with an example.
+CrackingTheCodinginterview.com | 6th Edition
+279

@@ -1,0 +1,102 @@
+Solutions to Chapter 10 | Sorting and Searching
+IS
+20
+70
+85
+20
+35
+80
+95
+30
+55
+95
+105
+40
+80
+100
+120
+We want to be able to leverage the sorting property to more efficiently find an element. So, we might ask
+ourselves, what does the unique ordering property of this matrix imply about where an element might be
+located?
+We are told that every row and column is sorted. This means that element a[ i] [ j ] will be greater than
+the elements in row i between columns 0 and j
+-
+1 and the elements in column j between rows 0 and
+i
+-
+1.
+Or, in other words:
+a C U t e ] <= a [ i ] [1] <= . . . <= a [ i ] [ j - l ] <= a [ i ] [ j ]
+a [ 0 ] [ j ] <=
+<= ••• <= a £ i - l ] [ j ] <= * [ * ] [ } ]
+Looking at this visually, the dark gray element below is bigger than ail the light gray elements.
+15
+20
+70
+85
+20
+35
+80
+95
+30
+« •
+105
+40
+80
+100
+120
+The light gray elements also have an ordering to them: each is bigger than the elements to the left of it,
+as well as the elements above it. So, by transitivity, the dark gray element is bigger than the entire square.
+15
+20
+70
+85
+20
+35
+80
+95
+30
+SS
+105
+40
+80
+100
+120
+This means that for any rectangle we draw in the matrix, the bottom right hand corner will always be the
+biggest.
+Likewise, the top left hand corner will always be the smallest. The colors below indicate what we know
+about the ordering of elements (light gray < dark gray < black):
+15
+20
+70
+85
+20
+35
+80
+95
+30
+55 E
+05
+40
+80 E
+20
+Let's return to the original problem: suppose we were searching for the value 85. If we look along the diag-
+onal, we'll find the elements 35 and 95. What does this tell us about the location of 85?
+15
+20
+70
+85
+25
+35
+80
+95
+30
+55
+95
+105
+40
+80
+120
+120
+CrackingTheCodinglnterview.com | 6th Edition 3
+97

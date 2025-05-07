@@ -1,0 +1,8 @@
+Figure 11.11
+Because the Alpine image is an official image it gets scanned and scan reports
+are available. As you can see, the images tagged as edge, latest, and 3.6 are
+free from known vulnerabilities. However, the alpine:3.5 image has known
+vulnerabilities (red).
+If you drill into the alpine:3.5 image you get a more detailed report as shown
+in Figure 11.12.
+Figure 11.12

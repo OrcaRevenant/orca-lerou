@@ -1,0 +1,81 @@
+Solutions to Chapter 3 | Stacks and Queues
+Step i
+Step 2
+Step 3
+S i
+52
+Si
+52
+s l
+S2
+12
+8
+8
+8
+- >
+12
+- >
+12
+5
+l e
+3
+10
+3
+10
+3
+7
+1
+7
+1
+7
+1
+tmp = S
+tmp = 5
+ttnp = --
+Note that 8 and 12 are still in si—and that's okay! We just repeat the same steps for those two numbers as
+we did for 5, each time popping off the top of si and putting it into the "right place 'on s2. (Of course, since
+8 and 12 were moved from s2 to si precisely because they were larger than S, the "right place"for these
+elements will be right on top of 5, We won't need to muck around with s2's other elements, and the inside
+of the below w h i l e loop wili not be run when tmp is 8 or 12.)
+1
+void sort(Stack<lnteger> s) {
+2
+Stack<Integer> r = new Stack<lnteger>();
+3
+while(Ss.isEmptyO) {
+4
+/* insert each element in s in sorted order into r. */
+5
+i n t tmp = s.pop();
+6
+while(!r.isEmpty() && r.peek() > tmp) {
+7
+s.push(r.pop())j
+8
+}
+9
+r.push(tmp);
+10
+)
+11
+12
+/* Copy the elements from r back into s. */
+13
+while (Ir.isEmptyQ) {
+14
+s.push(r.popO);
+15
+>
+16
+}
+This algorithm is 0( N2) time and 0(N) space.
+If we were allowed to use unlimited stacks, we could implement a modified quicksort or mergesort.
+With the mergesort solution, we would create two extra stacks and divide the stack into two parts. We
+would recursively sort each stack, and then merge them back together in sorted order into the original
+stack. Note that this would require the creation of two additional stacks per level of recursion.
+With the quicksort solution, we would create two additional stacks and divide the stack into the two stacks
+based on a pivot element. The two stacks would be recursively sorted, and then merged back together
+into the original stack. Like the earlier solution, this one involves creating two additional stacks per level of
+recursion.
+2 2 S
+Cracking the Coding Interview, 6th Edition

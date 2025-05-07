@@ -1,0 +1,37 @@
+Be sure include the period (.) at the end of the command, and be sure to run the
+command from the psweb directory that contains the Dockerfile and application
+code.
+$ docker image build -t web:latest .
+Sending build context to Docker daemon  74.75kB
+Step 1/8 : FROM alpine
+latest: Pulling from library/alpine
+88286f41530e: Pull complete
+Digest: sha256:f006ecbb8...d935c0c103f4820a417d
+Status: Downloaded newer image for alpine:latest
+---> 76da55c8019d
+<Snip>
+Step 8/8 : ENTRYPOINT node ./app.js
+---> Running in c576be4427a7
+---> e33cdd8266d0
+Removing intermediate container c576be4427a7
+Successfully built e33cdd8266d0
+Successfully tagged web:latest
+Check that the image exists in your Docker host’s local repository.
+$ docker image ls
+REPO    TAG       IMAGE ID          CREATED              SIZE
+web     latest    e33cdd8266d0      About a minute ago   55.6MB
+Congratulations, the app is containerized!
+You can use the docker image inspect web:latest command to verify the
+configuration of the image. It will list all of the settings that were configured
+from the Dockerfile.
+Run the app
+The example application that we’ve containerized is a simple web server that
+listens on TCP port 8080. You can verify this in the app.js file.
+The following command will start a new container called c1 based on the
+web:latest image we just created. It maps port 80 on the Docker host, to port
+8080 inside the container. This means that you will be able to point a web
+browser at the DNS name or IP address of the Docker host and access the app.
+Note: If your host is already running a service on port 80, you can specify a
+different port as part of the docker container run command. For
+example, to map the app to port 5000 on the Docker host, use the -p
+5000:8080 flag.

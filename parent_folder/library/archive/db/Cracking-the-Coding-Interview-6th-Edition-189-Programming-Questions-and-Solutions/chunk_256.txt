@@ -1,0 +1,79 @@
+Solutions to Chapter 4 | Trees and Graphs
+Solution #1: in-Order Traversal
+Our first thought might be to do an in-order traversal, copy the elements to an array, and then check to see
+if the array is sorted. This solution takes up a bit of extra memory, but it works—mostly.
+The only problem is that it can't handle duplicate values in the tree properly. For example, the algorithm
+cannot distinguish between the two trees below {one of which is invalid) since they have the same in-order
+traversal.
+Valid BST
+Invalid BST
+However, if we assume that the tree cannot have duplicate values, then this approach works. The pseudo-
+code for this method looks something like:
+1
+i n t index = 0;
+2
+void copyBST(TreeNode root, i n t [ ] array) {
+3
+if (root == n u l l ) return;
+4
+copyBST(root.leftj
+array);
+S
+array[indexj = root.data;
+6
+index++;
+7
+copyBST(root.right,
+array);
+8
+9
+}
+10 boolean checkBST(TreeNode root) {
+11
+i n t [ ] array = new i n t [ r o o t . s i z e ] ;
+12
+copyBST(root, array);
+13
+for ( i n t i = 1; i < array.length; i++) {
+14
+if ( a r r a y f i ] <= a r r a y [ i - 1]) return f a l s e ;
+15
+>
+16
+return true;
+17 >
+Note that it is necessary to keep track of the logical "end" of the array, since it would be allocated to hold ali
+the elements.
+When we examine this solution, we find that the array is not actually necessary. We never use it other than
+to compare an element to the previous element. So why not just track the last element we saw and compare
+it as we go?
+The code below implements this algorithm.
+1
+Integer last_printed = n u l l ;
+2
+boolean checkBST(TreeNode n) {
+3
+i-f (n =t= null) return true;
+4
+5
+// Check / recurse l e f t
+6
+if
+(kheckBST(n.left))
+return false;
+7
+8
+// Check current
+9
+if (last_printed 1= n u l l &S n.data <= last^printed) {
+19
+return f a l s e ;
+11
+>
+12
+last_printed = n.data;
+13
+14
+II Check / recurse right
+274
+Cracking the Coding Interview, 6th Edition

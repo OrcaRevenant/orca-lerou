@@ -1,0 +1,69 @@
+Solutions to Chapter 14 j Databases
+3
+4
+5
+6
+7
+8
+9
+10
+11
+new HashMap<String, Integer>();
+for (String word : book) {
+word = word.toLowerCase();
+if (word.trimQ != "") {
+if (!table.containsKey(word)) {
+table.put(wordj 0);
+}
+table.put(wordj table.get(word) + l);
+>
+12
+}
+13
+return table;
+14 >
+15
+16 int getFrequency(HashMap<String, Integer> table, String word) {
+17
+if (table == null ]| word == null) return -1;
+18
+word = word.toLowerCase();
+19
+if (table.containsKey(word)) {
+20
+return table.get(word);
+21
+}
+22
+return 0;
+23 }
+Note that a problem like this is actually relatively easy. Thus, the interviewer is going to be looking heavily
+at how careful you are. Did you check for error conditions?
+16.3
+Intersection: Given two straight line segments (represented as a start point and an end point),
+compute the point of intersection, if any.
+SOLUTION
+We first need to think about what it means for two line segments to intersect.
+For two infinite lines to intersect, they only have to have different slopes. If they have the same slope, then
+they must be the exact same line (same y-intercept). That is:
+slope 1 1= slope 2
+OR
+slope 1 == slope 2 AND intersect 1 == intersect 2
+For two straight lines to intersect, the condition above must be true, plus the point of intersection must be
+within the ranges of each line segment.
+extended infinite segments intersect
+AND
+intersection is within line segment 1 (x and y coordinates)
+AND
+intersection is within l i n e segment 2 (x and y coordinates)
+What if the two segments represent the same infinite line? In this case, we have to ensure that some portion
+of their segments overlap. If we order the line segments by their x locations (start is before end, point 1 is
+before point 2), then an intersection occurs only if:
+pg 181
+Assume;
+startl.x < start2.x && startl.x < endl.x && start2.x < end2.x
+Then intersection occurs if:
+start2 is between startl and endl
+We can now go ahead and implement this algorithm.
+4 6 4
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,67 @@
+CONTENTS
+xi
+The Test Automation Pyramid
+115
+Conclusion
+119
+Bibliography
+119
+Chapter 9
+Time Management
+121
+Meetings
+122
+Focus-Manna
+127
+Time Boxing and Tomatoes
+130
+Avoidance
+131
+Blind Alleys
+131
+Marshes, Bogs, Swamps, and Other Messes
+132
+Conclusion
+133
+Chapter 10
+Estimation
+135
+What Is an Estimate?
+138
+PERT
+141
+Estimating Tasks
+144
+The Law of Large Numbers
+147
+Conclusion
+147
+Bibliography
+148
+Chapter 11
+Pressure
+149
+Avoiding Pressure
+151
+Handling Pressure
+153
+Conclusion
+155
+Chapter 12
+Collaboration
+157
+Programmers versus People
+159
+Cerebellums
+164
+Conclusion
+166
+Chapter 13
+Teams and Projects
+167
+Does It Blend?
+168
+Conclusion
+171
+Bibliography
+171

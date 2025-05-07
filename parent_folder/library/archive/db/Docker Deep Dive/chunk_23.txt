@@ -1,0 +1,13 @@
+3: Installing Docker
+There are loads of ways and places to install Docker. There’s Windows, there’s
+Mac, and there’s obviously Linux. But there’s also in the cloud, on premises, on
+your laptop. Not to mention manual installs, scripted installs, wizard-based
+installs. There literally are loads of ways and places to install Docker!
+But don’t let that scare you! They’re all easy.
+In this chapter we’ll cover some of the most important installs:
+Desktop installs
+Docker for Windows
+Docker for Mac
+Server installs
+Linux
+Windows Server 2016

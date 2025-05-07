@@ -1,0 +1,36 @@
+BOSS (Basic Operating System and Scheduler)
+archaeology project, 351–352
+in DLU/DRU archaeology project, 356
+Boundaries
+in 4-TEL archaeology project, 340–341
+conclusion, 173
+dividing services into components, 246
+in Electronic Receptionist archaeology project, 361
+FitNesse program, 163–165
+input and output, 169–170
+in Laser Trim archaeology project, 338
+layers and. See Layers and boundaries
+overview of, 159–160
+partial, 218–220
+plugin architecture, 170–171
+plugin argument, 172–173
+sad stories of architectural failures, 160–163
+services as function calls across, 240
+test, 249–253
+Union Accounting system archaeology project, 333–334
+which lines to draw, and when, 165–169
+Boundary anatomy
+boundary crossing, 176
+conclusion, 181
+deployment components, 178–179
+dreaded monolith, 176–178
+local processes, 179–180
+services, 180–181
+threads, 179
+Boundary crossing
+in clean architecture, 206
+clean architecture scenario, 207–208
+creating appropriate, 176
+Dependency Rule for data in, 207
+Breaking cycle, Acyclic Dependencies Principle, 117–118
+Business managers

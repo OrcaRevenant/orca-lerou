@@ -1,0 +1,41 @@
+// force `@@species` to be parent constructor
+static get [Symbol.species]() { return Cool; }
+}
+var a = new Fun(),
+b = new Awesome(),
+c = a.again(),
+d = b.again();
+c instanceof Fun;           // true
+d instanceof Awesome;       // false
+d instanceof Cool;          // true
+The Symbol.species setting defaults on the built-in native constructors to the return
+this behavior as illustrated in the previous snippet in the Cool definition. It has no
+default on user classes, but as shown that behaivor is easy to emulate.
+If you need to define methods that generate new instances, use the meta program‐
+ming of the new this.constructor[Symbol.species](..) pattern instead of the
+hard-wiring of new this.constructor(..) or new XYZ(..). Derived classes will
+then be able to customize Symbol.species to control which constructor vends those
+instances.
+Symbol.toPrimitive
+In the Types & Grammar title of this series, we discussed the ToPrimitive abstract
+coercion operation, which is used when an object must be coerced to a primitive
+value for some operation (such as == comparison or + addition). Prior to ES6, there
+was no way to control this behavior.
+As of ES6, the @@toPrimitive symbol as a property on any object value can custom‐
+ize that ToPrimitve coercion by specifying a method.
+Consider:
+var arr = [1,2,3,4,5];
+arr + 10;               // 1,2,3,4,510
+arr[Symbol.toPrimitive] = function(hint) {
+if (hint == "default" || hint == "number") {
+// sum all numbers
+return this.reduce( function(acc,curr){
+return acc + curr;
+}, 0 );
+}
+};
+arr + 10;               // 25
+178
+|
+Chapter 7: Meta Programming
+www.it-ebooks.info

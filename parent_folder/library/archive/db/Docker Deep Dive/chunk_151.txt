@@ -1,0 +1,13 @@
+Figure 10.7
+Communication example
+Now that we’ve seen the main plumbing elements let’s see how the two
+containers communicate.
+For this example, we’ll call the container on node1 “C1” and the container on
+node2 “C2”. And let’s assume C1 wants to ping C2 like we did in the practical
+example earlier in the chapter.
+Figure 10.8
+Container C1 creates the ping requests and sets the destination IP address to be
+the 10.0.0.4 address of C2. It sends the traffic over its veth interface which is
+connected to the Br0 virtual switch. The virtual switch doesn’t know where to
+send the packet as it doesn’t have an entry in its MAC address table (ARP table)
+that corresponds to the destination IP address. As a result, it floods the packet to

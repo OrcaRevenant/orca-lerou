@@ -1,0 +1,35 @@
+machine. In the Docker world, an image is effectively a stopped container. If
+you’re a developer, you can think of an image as a class.
+Run the docker image ls command on your Docker host.
+$ docker image ls
+REPOSITORY    TAG        IMAGE ID       CREATED       SIZE
+If you are working from a freshly installed Docker host it will have no images
+and will look like the output above.
+Getting images onto your Docker host is called “pulling”. If you are following
+along with Linux, pull the ubuntu:latest. If you are following along on
+Windows, pull the microsoft/powershell:nanoserver image.
+$ docker image pull ubuntu:latest
+latest: Pulling from library/ubuntu
+b6f892c0043b: Pull complete
+55010f332b04: Pull complete
+2955fb827c94: Pull complete
+3deef3fcbd30: Pull complete
+cf9722e506aa: Pull complete
+Digest: sha256:382452f82a8b....463c62a9848133ecb1aa8
+Status: Downloaded newer image for ubuntu:latest
+Run the docker image ls command again to see the image you just pulled.
+$ docker images
+REPOSITORY      TAG      IMAGE ID        CREATED         SIZE
+ubuntu          latest   bd3d4369aebc    11 days ago     126.6 MB
+We’ll get into the details of where the image is stored and what’s inside of it in
+later chapters. For now, it’s enough to understand that an image contains enough
+of an operating system (OS), as well as all the code and dependencies to run
+whatever application it’s designed for. The ubuntu image that we’ve pulled has a
+stripped-down version of the Ubuntu Linux filesystem including a few of the
+common Ubuntu utilities. The microsoft/powershell image pulled in the
+Windows example contains a Windows Nano Server OS with PowerShell.
+If you pull an application container such as nginx or microsoft/iis, you will
+get an image that contains some OS as well as the code to run either nginx or
+IIS.
+It’s also worth noting that each image gets its own unique ID. When working
+with the images you can refer to them using either IDs or names.

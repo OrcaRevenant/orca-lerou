@@ -1,0 +1,28 @@
+Note: Hyper-V containers run inside of a dedicated lightweight VM and
+leverage the kernel of the OS running inside the VM.
+The official Alpine Linux Docker image is about 4MB in size and is an extreme
+example of how small Docker images can be. That’s not a typo! It really is about
+4 megabytes! However, a more typical example might be something like the
+official Ubuntu Docker image which is currently about 120MB. These are
+clearly stripped of most non-essential parts!
+Windows-based images tend to be bigger than Linux-based images because of
+the way that the Windows OS works. For example, the latest Microsoft .NET
+image (microsoft/dotnet:latest) is over 2GB when pulled an uncompressed.
+The Windows Server 2016 Nano Server image is slightly over 1GB when pulled
+and uncompressed.
+Pulling images
+A cleanly installed Docker host has no images in its local repository.
+The local image repository on a Linux-based Docker host is usually located at
+/var/lib/docker/<storage-driver>. On Windows-based Docker hosts this is
+C:\ ProgramData\docker\windowsfilter.
+You can check if your Docker host has any images in its local repository with the
+following command.
+$ docker image ls
+REPOSITORY  TAG      IMAGE ID       CREATED         SIZE
+The process of getting images onto a Docker host is called pulling. So, if you
+want the latest Ubuntu image on your Docker host, you’d have to pull it. Use the
+commands below to pull some images and then check their sizes.
+If you are following along on Linux and haven’t added your user account to
+the local docker Unix group, you may need to add sudo to the beginning of
+all the following commands.
+Linux example:

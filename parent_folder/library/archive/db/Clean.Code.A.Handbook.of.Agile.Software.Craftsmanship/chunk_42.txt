@@ -1,0 +1,40 @@
+12
+Chapter 1: Clean Code
+“. . . pretty much what you expected.” When was the last time you saw a module that
+was pretty much what you expected? Isn’t it more likely that the modules you look at will
+be puzzling, complicated, tangled? Isn’t misdirection the rule? Aren’t you used to ﬂailing
+about trying to grab and hold the threads of reasoning that spew forth from the whole sys-
+tem and weave their way through the module you are reading? When was the last time you
+read through some code and nodded your head the way you might have nodded your head
+at Ward’s statement?
+Ward expects that when you read clean code you won’t be surprised at all. Indeed, you
+won’t even expend much effort. You will read it, and it will be pretty much what you
+expected. It will be obvious, simple, and compelling. Each module will set the stage for
+the next. Each tells you how the next will be written. Programs that are that clean are so
+profoundly well written that you don’t even notice it. The designer makes it look ridicu-
+lously simple like all exceptional designs.
+And what about Ward’s notion of beauty? We’ve all railed against the fact that our lan-
+guages weren’t designed for our problems. But Ward’s statement puts the onus back on us.
+He says that beautiful code makes the language look like it was made for the problem! So
+it’s our responsibility to make the language look simple! Language bigots everywhere,
+beware! It is not the language that makes programs appear simple. It is the programmer
+that make the language appear simple!
+Schools of Thought
+What about me (Uncle Bob)? What do I think
+clean code is? This book will tell you, in hideous
+detail, what I and my compatriots think about
+clean code. We will tell you what we think makes
+a clean variable name, a clean function, a clean
+class, etc. We will present these opinions as abso-
+lutes, and we will not apologize for our stridence.
+To us, at this point in our careers, they are abso-
+lutes. They are our school of thought about clean
+code.
+Martial artists do not all agree about the best
+martial art, or the best technique within a martial
+art. Often master martial artists will form their
+own schools of thought and gather students to
+learn from them. So we see Gracie Jiu Jistu,
+founded and taught by the Gracie family in Brazil. We see Hakkoryu Jiu Jistu, founded
+and taught by Okuyama Ryuho in Tokyo. We see Jeet Kune Do, founded and taught by
+Bruce Lee in the United States.

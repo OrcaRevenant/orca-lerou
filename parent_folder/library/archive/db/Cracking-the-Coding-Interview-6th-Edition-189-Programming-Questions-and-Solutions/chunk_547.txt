@@ -1,0 +1,170 @@
+Solutions to Chapter 17 | Moderate
+33
+>
+34
+return subarray;
+35 }
+Despite the one optimization we made, this algorithm is still 0{N ;), where N is the length of the array.
+Optima! Solution
+What we're trying to do is find a subarray where the count of letters equals the count of numbers. What if
+we just started from the beginning, counting the number of letters and numbers?
+.
+3
+a. 3
+3
+1
+I
+3
+1
+I
+3
+3
+3
+1
+3
+3
+3
+3 3
+#a
+1
+2
+3 4 4 4
+5
+5
+5 6 7 7 8 9 9 10 11 12 13 14
+# 1
+0
+0
+0
+0
+1
+2
+2
+3
+4
+4
+4
+5
+5
+5
+6
+6
+6
+6
+6
+6
+Certainly, whenever the number of letters equals the number of numbers, we can say that from index 0 to
+that index is an "equal" subarray.
+That will only tell us equal subarrays that start at index 0. How can we identify all equal subarrays?
+Let's picture this. Suppose we inserted an equal subarray (like a l l a l a ) after an array like a l a a a l . How
+would that impact the counts?
+a l a a a l I a l l a l a
+#a 1 1 2 3 4 4 | 5 5 5 6 6 7
+# 1 0 1 1 1 1 2 | 2 3 4 4 5 5
+Study the numbers before the subarray (4, 2) and the end (7, 5). You might notice that, while the values
+aren't the same, the differences are: 4
+-2 =
+7-
+5. This makes sense. Since they've added the same
+number of letters and numbers, they should maintain the same difference.
+I
+Observe that when the difference is the same, the subarray starts one after the initial matching
+index and continues through the final matching index. This explains line 10 in the code below.
+Let's update the earlier array with the differences.
+a
+a
+|
+a
+1
+l....a .1. 1, a
+g
+3
+1
+a
+3
+a
+a a
+#a
+1
+2
+3
+4
+4
+4
+5
+5
+5
+6
+7
+7
+8
+9
+9 10 11 12 13 14
+# 1
+0
+0
+0
+0
+1
+2
+2
+3
+4
+4
+4
+5
+5
+5
+6
+6
+6
+6
+6
+6
+-
+1
+2
+3
+4
+3
+2
+3
+2
+1
+2
+3
+2
+3
+4
+3
+4
+5
+6
+7
+8
+Whenever we return the same difference, then we know we have found an equal subarray. To find the
+biggest subarray, we just have to find the two indices farthest apart with the same value.
+To do so, we use a hash table to store the first time we see a particular difference. Then, each time we seethe
+same difference, we see if this subarray (from first occurrence of this index to current index) is bigger than
+the current max. If so, we update the max.
+1
+char[] findlongestSubarray(char[] array) {
+2
+/* Compute deltas between count of numbers and count of letters. */
+3
+int[] deltas = computeDeltaArray(array);
+4
+/* Find pair in deltas with matching values and largest span. */
+6
+int[] match = findLongestMatch(deltas);
+7
+8
+/* Return the subarray. Note that it starts one *after* the initial occurence of
+9
+* this delta. */
+10
+return extract(array, match[0] + 1, match[l]);
+11 >
+12
+CrackingTheCodinglnterview.com | 6th Edition
+495

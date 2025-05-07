@@ -1,0 +1,44 @@
+161
+Java Proxies
+Using persistence as an example, you would declare which objects and attributes (or
+patterns thereof) should be persisted and then delegate the persistence tasks to your persis-
+tence framework. The behavior modiﬁcations are made noninvasively8 to the target code
+by the AOP framework. Let us look at three aspects or aspect-like mechanisms in Java.
+Java Proxies
+Java proxies are suitable for simple situations, such as wrapping method calls in individual
+objects or classes. However, the dynamic proxies provided in the JDK only work with
+interfaces. To proxy classes, you have to use a byte-code manipulation library, such as
+CGLIB, ASM, or Javassist.9
+Listing 11-3 shows the skeleton for a JDK proxy to provide persistence support for
+our Bank application, covering only the methods for getting and setting the list of accounts.
+8.
+Meaning no manual editing of the target source code is required.
+9.
+See [CGLIB], [ASM], and [Javassist].
+Listing 11-3
+JDK Proxy Example
+// Bank.java (suppressing package names...)
+import java.utils.*;
+// The abstraction of a bank.
+public interface Bank {
+Collection<Account> getAccounts();
+void setAccounts(Collection<Account> accounts);
+}
+// BankImpl.java
+import java.utils.*;
+// The “Plain Old Java Object” (POJO) implementing the abstraction.
+public class BankImpl implements Bank {
+private List<Account> accounts;
+public Collection<Account> getAccounts() {
+return accounts;
+}
+public void setAccounts(Collection<Account> accounts) {
+this.accounts = new ArrayList<Account>();
+for (Account account: accounts) {
+this.accounts.add(account);
+}
+}
+}
+// BankProxyHandler.java
+import java.lang.reflect.*;
+import java.util.*;

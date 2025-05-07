@@ -1,0 +1,19 @@
+The plugin architecture was invented to support this kind of IO device
+independence, and has been implemented in almost every operating system since
+its introduction. Even so, most programmers did not extend the idea to their own
+programs, because using pointers to functions was dangerous.
+OO allows the plugin architecture to be used anywhere, for anything.
+DEPENDENCY INVERSION
+Imagine what software was like before a safe and convenient mechanism for
+polymorphism was available. In the typical calling tree, main functions called
+high-level functions, which called mid-level functions, which called low-level
+functions. In that calling tree, however, source code dependencies inexorably
+followed the flow of control (Figure 5.1).
+Figure 5.1 Source code dependencies versus flow of control
+For main to call one of the high-level functions, it had to mention the name of
+the module that contained that function In C, this was a #include. In Java, it was
+an import statement. In C#, it was a using statement. Indeed, every caller was
+forced to mention the name of the module that contained the callee.
+This requirement presented the software architect with few, if any, options. The
+flow of control was dictated by the behavior of the system, and the source code
+dependencies were dictated by that flow of control.

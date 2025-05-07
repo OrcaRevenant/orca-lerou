@@ -1,0 +1,102 @@
+Solutions to Chapter 535 | Moderate
+(see below).
+•
+Finding Least Recently Used: Least recently used item will be found at the end of the linked list.
+-
+Updating Most Recently Used: Move node to front of linked list. Hash table does not need to be
+updated.
+•
+Eviction: Remove tail of linked list. Get key from linked list node and remove key from hash table.
+The code below implements these classes and algorithms.
+1
+public class Cache {
+2
+private int maxCacheSize;
+3
+private HashMapdnteger, LinkedListNode:» map =
+4
+new HashMapcInteger, LinkedHstNode>();
+5
+private LinkedListNode listHead = null;
+6
+public LinkedListNode listTail = null;
+7
+8
+public Cache(int maxSize) {
+9
+maxCacheSize = maxSize;
+10
+>
+11
+12
+/* Get value For key and mark as most recently used. */
+13
+public String getValue(int key) {
+14
+LinkedListNode item = map.get(key);
+15
+if (item == null) return null;
+16
+17
+/* Move to front of l i s t to mark as most recently used. */
+18
+if (item 1= listHead) {
+19
+removeFromHnkedList(item);
+20
+insertAtFrontOfLinkedList(item);
+21
+}
+22
+return item.value;
+23
+>
+24
+25
+/* Remove node from linked l i s t . */
+26
+private void removeFromLinkedList(LinkedListNode node) {
+27
+if (node == null)
+return;
+28
+29
+if (node.prev 1= null) node.prev.next = node.next;
+30
+if (node.next 1= null) node.next.prev = node.prev;
+31
+if (node == listTail) listTail = node.prev;
+32
+if (node == listHead) listHead = node.next;
+33
+>
+34
+35
+f* Insert node at front of linked l i s t . */
+36
+private void insertAtFrontOfLinkedList(LinkedListNode node) {
+37
+if (listHead == null) {
+38
+listHead = node;
+39
+listTail = node;
+40
+> else {
+41
+listHead.prev = node;
+42
+node.next = listHead;
+43
+listHead => node;
+44
+}
+45
+}
+46
+47
+/* Remove key/value pair from cache, deleting from hashtable and linked l i s t . */
+48
+public boolean removeKey(int key) {
+CrackingTheCodinglnterview.com | 6th Edition
+495

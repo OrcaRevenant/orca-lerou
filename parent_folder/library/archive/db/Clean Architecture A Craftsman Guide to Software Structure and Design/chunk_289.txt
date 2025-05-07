@@ -1,0 +1,31 @@
+implemented by one or more classes (or code). Whether each component resides
+in a separate jar file is an orthogonal concern.
+A key benefit of the “package by component” approach is that if you’re writing
+code that needs to do something with orders, there’s just one place to go—the
+OrdersComponent. Inside the component, the separation of concerns is still
+maintained, so the business logic is separate from data persistence, but that’s a
+component implementation detail that consumers don’t need to know about. This
+is akin to what you might end up with if you adopted a micro-services or
+Service-Oriented Architecture—a separate OrdersService that encapsulates
+everything related to handling orders. The key difference is the decoupling
+mode. You can think of well-defined components in a monolithic application as
+being a stepping stone to a micro-services architecture.
+THE DEVIL IS IN THE
+IMPLEMENTATION DETAILS
+On the face of it, the four approaches do all look like different ways to organize
+code and, therefore, could be considered different architectural styles. This
+perception starts to unravel very quickly if you get the implementation details
+wrong, though.
+Something I see on a regular basis is an overly liberal use of the public access
+modifier in languages such as Java. It’s almost as if we, as developers,
+instinctively use the public keyword without thinking. It’s in our muscle
+memory. If you don’t believe me, take a look at the code samples for books,
+tutorials, and open source frameworks on GitHub. This tendency is apparent,
+regardless of which architectural style a code base is aiming to adopt—
+horizontal layers, vertical layers, ports and adapters, or something else. Marking
+all of your types as public means you’re not taking advantage of the facilities
+that your programming language provides with regard to encapsulation. In some
+cases, there’s literally nothing preventing somebody from writing some code to
+instantiate a concrete implementation class directly, violating the intended
+architecture style.
+ORGANIZATION VERSUS

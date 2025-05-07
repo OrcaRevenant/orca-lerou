@@ -1,0 +1,22 @@
+particular application is a Linux app, so it is important that the FROM
+instruction refers to a Linux-based image. If you are containerizing a Windows
+application, you will need to specify the appropriate Windows base image - such
+as microsoft/aspnetcore-build.
+At this point, the image looks like Figure 8.2 .
+Figure 8.2
+Next, the Dockerfile creates a LABEL and specifies
+“nigelpoulton@hotmail.com” as the maintainer of the image. Labels are simple
+key-value pairs and are an excellent way of adding custom metadata to an image.
+It is considered a best practice to list a maintainer of an image so that other
+potential users have a point of contact when working with it.
+Note: I will not be maintaining this image. I’m including the label to show
+you how to use labels as well as showing you a best practice.
+The RUN apk add --update nodejs nodejs-npm instruction uses the Alpine
+apk package manager to install nodejs and nodejs-npm into the image. The
+RUN instruction installs these packages as a new image layer on top of the
+alpine base image created by the FROM alpine instruction. The image now
+looks like Figure 8.3.
+Figure 8.3
+The COPY . /src instruction copies in the app files from the build context. The
+RUN instruction copies these files into the image as a new layer. The image now
+has three layers as shown in Figure 8.4.

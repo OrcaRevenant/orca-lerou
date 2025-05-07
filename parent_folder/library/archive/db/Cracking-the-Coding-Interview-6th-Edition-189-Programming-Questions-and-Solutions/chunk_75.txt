@@ -1,0 +1,50 @@
+VII j Technical Questions
+random value from a set such that all values are equally likely, an incorrect solution might be one that
+returns a semi-random value: Any value could be returned, but some are more likely than others. You
+can then think about why that solution isn't perfectly random. Can you rebalance the probabilities?
+4, Make time vs. space tradeoff. Sometimes storing extra state about the problem can help you optimize
+the runtime.
+5, Precompute information. Is there a way that you can reorganize the data (sorting, etc.) or compute some
+values upfront that will help save time in the long run?
+6, Use a hash table. Hash tables are widely used in interview questions and should be at the top of your
+mind.
+7, Think about the best conceivable runtime (discussed on page 72).
+Walk through the brute force with these ideas in mind and look for BUD (page 67).
+5. Walk Through
+After you've nailed down an optimal algorithm, don't just dive into coding. Take a moment to solidify your
+understanding of the algorithm.
+Whiteboard coding is slow—very slow. So is testing your code and fixing it. As a result, you need to make
+sure that you get it as close to "perfect" in the beginning as possible.
+Walkthrough your algorithm and get a feel for the structure of the code. Know what the variables are and
+when they change.
+I
+What about pseudocode? You can write pseudocode if you'd like. Be careful about what you
+write. Basic steps ("(1) Search array. (2) Find biggest, (3) Insert in heap.") or brief logic ("if p <
+q, move p. else move q") can be valuable. But when your pseudocode starts having for loops
+that are written in plain English, then you're essentially just writing sloppy code. It'd probably be
+faster to just write the code.
+if you don't understand exactly what you're about to write, you'll struggle to code it. It will take you longer
+to finish the code, and you're more likely to make major errors.
+6. Implement
+Now that you have an optimal algorithm and you know exactly what you're going to write, go ahead and
+implement it.
+Start coding in the far top left corner of the whiteboard (you'll need the space). Avoid "line creep" (where
+each line of code is written an awkward slant), it makes your code look messy and can be very confusing
+when working in a whitespace-sensitive language, like Python.
+Remember that you only have a short amount of code to demonstrate that you're a great developer. Every-
+thing counts. Write beautiful code.
+Beautiful code means:
+•
+Modularized code. This shows good coding style. It also makes things easier for you. If your algorithm
+uses a matrix initialized to { { 1 j
+2,
+3 } ,
+{ 4 ,
+5,
+6},
+}, don't waste your time writing this
+initialization code. Just pretend you have a function i n i t Increment a l M a t r i x ( i n t
+s i z e ) . Fill in
+the details later if you need to.
+CrackingTheCgdinglnterview.com ] 6th Edition
+81

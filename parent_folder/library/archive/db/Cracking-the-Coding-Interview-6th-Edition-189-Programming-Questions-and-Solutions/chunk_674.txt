@@ -1,0 +1,82 @@
+II | Hints for Concepts and Algorithms
+#176.
+9.6
+Think about what sort of expectations on freshness and accuracy of data is expected.
+Does the data always need to be 100% up to date? Is the accuracy of some products
+more important than others?
+#177,
+10,2
+How do you check if two words are anagrams of each other? Think about what the defi-
+nition of "anagram" is. Explain it in your own words.
+#178.
+8,1
+If we knew the number of paths to each of the steps before step 100, could we compute
+the number of steps to 100?
+#179.
+7.8
+Should white pieces and black pieces be the same class? What are the pros and cons of
+this?
+#180.
+9.7
+Observe that there is a lot of data coming in, but people probably aren't reading the
+data very frequently.
+#181.
+6.2
+Calculate the probability of winning the first game and winning the second game, then
+compare them.
+#182.
+10.2
+Two words are anagrams if they contain the same characters but in different orders.
+How can you put characters in order?
+#183.
+6.10
+Solution 2: Why do we have such a time lag between tests and results? There's a reason
+the question isn't phrased as just "minimize the number of rounds of testing/The time
+lag is there for a reason.
+#184.
+9.8
+How evenly do you think traffic is distributed? Do all documents get roughly the same
+age of traffic? Or is it likely there are some very popular documents?
+#185.
+8.7
+Approach 1 :The permutations of abc represent all ways of ordering abc. Now, we want
+to create all orderings of abed. Take a specific ordering of abed, such as bdca.This
+bdea string represents an ordering of abc, too: Remove the d and you get bea. Given
+the string be a, can you create all the "related" orderings that include d, too?
+#186,
+6,1
+You can only use the scale once. This means that ail, or almost all, of the bottles must
+be used. They also must be handled in different ways or else you couldn't distinguish
+between them.
+#187.
+8.9
+We could try generating the solution for three pairs by taking the list of two pairs of
+parentheses and adding a third pair. We'd have to add the third paren before, around,
+and after. That is: ()<S0LUTI0N>,
+(<SOLUTION>),
+<S0LUTI0N>( ). Will this
+work?
+#188.
+6.7
+Logic might be easier than math. Imagine we wrote every birth into a giant string of Bs
+and Gs. Note that the groupings of families are irrelevant for this problem. What is the
+probability of the next character added to the string being a 8 versus a G?
+#189.
+9.6
+Purchases will occur very frequently. You probably want to limit database writes.
+#190.
+8.8
+If you haven't solved 8.7 yet, do that one first.
+#191.
+6.10
+Solution 2; Consider running multiple tests at once.
+#192.
+7.6
+A common trick when solving a jigsaw puzzle is to separate edge and non-edge pieces.
+How will you represent this in an object-oriented manner?
+#193.
+10.9
+Start with a naive solution. (But hopefully not too naive. You should be able to use the
+fact that the matrix is sorted.)
+6 6 4
+Cracking the Coding interview, 6th Edition

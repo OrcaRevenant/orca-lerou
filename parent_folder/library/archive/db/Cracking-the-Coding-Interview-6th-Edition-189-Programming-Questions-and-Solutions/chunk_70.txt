@@ -1,0 +1,31 @@
+VII
+Technical Questions
+Technical questions form the basis for how many of the top tech companies interview. Many candidates are
+intimidated by the difficulty of these questions, but there are logical ways to approach them.
+• How to Prepare
+Many candidates just read through problems and solutions. That's like trying to learn calculus by reading a
+problem and its answer. You need to practice solving problems. Memorizing solutions won't help you much.
+For each problem in this book (and any other problem you might encounter), do the following:
+J. Try to solve the problem on your own. Hints are provided at the back of this book, but push yourself to
+develop a solution with as little help as possible. Many questions are designed to be tough—that's okay!
+When you're solving a problem, make sure to think about the space and time efficiency.
+2. Write the code on paper. Coding on a computer offers luxuries such as syntax highlighting, code comple-
+tion, and quick debugging. Coding on paper does not. Get used to this—and to how slow it is to write
+and edit code—by coding on paper.
+3. Test your code—on paper. This means testing the general cases, base cases, error cases, and so on. You'll
+need to do this during your interview, so it's best to practice this in advance.
+4. Type your paper code as-is into a computer. You will probably make a bunch of mistakes. Start a list of all
+the errors you make so that you can keep these in mind during the actuai interview.
+In addition, try to do as many mock interviews as possible. You and a friend can take turns giving each other
+mock interviews. Though your friend may not be an expert interviewer, he or she may still be able to walk
+you through a coding or algorithm problem. You'll also learn a lot by experiencing what it's like to be an
+interviewer.
+• What You Need To Know
+The sorts of data structure and algorithm questions that many companies focus on are not knowledge
+tests. However, they do assume a baseline of knowledge.
+Core Data Structures, Algorithms, and Concepts
+Most interviewers won't ask about specific algorithms for binary tree balancing or other complex algo-
+rithms. Frankly, being several years out of school, they probably don't remember these algorithms either.
+You're usually only expected to know the basics. Here's a list of the absolute, must-have knowledge:
+ÎOO
+Cracking the Coding Interview, 6th Edition

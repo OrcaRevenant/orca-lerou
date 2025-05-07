@@ -1,0 +1,2 @@
+1. xUnit Patterns, Meszaros, Addison-Wesley, 2007, p. 695.
+2. Patterns of Enterprise Application Architecture, Martin Fowler, et. al., Addison-Wesley, 2003, p. 466.

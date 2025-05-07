@@ -1,0 +1,53 @@
+Solutions to Chapter 4 | Trees and Graphs
+4.7
+Build Order: You are given a list of projects and a list of dependencies (which is a list of pairs of
+projects, where the second project is dependent on the first project). All of a project's dependencies
+must be built before the project is. Find a build order that will allow the projects to be built. If there
+is no valid build order, return an error.
+EXAMPLE
+Input;
+p r o j e c t s : a,
+b,
+c, d,
+e, f
+dependencies:
+( a ,
+d ) ,
+( f ,
+b ) ,
+( b ,
+d ) ,
+( f ,
+a ) ,
+( d ,
+c )
+Outputif, e, a, bj d, c
+Visualizing the information as a graph probably works best. Be careful with the direction of the arrows. In
+the graph below, an arrow from d to g means that d must be compiled before g. You can also draw them
+in the opposite direction, but you need to consistent and clear about what you mean. Let's draw a fresh
+example.
+In drawing this example (which is not the example from the problem description), I looked for a few things.
+•
+I wanted the nodes labeled somewhat randomly. If I had instead put a at the top, with b and c as chil-
+dren, then d and e, it could be misleading. The alphabetical order would match the compile order.
+•
+i wanted a graph with multiple parts/components, since a connected graph is a bit of a special case.
+•
+I wanted a graph where a node links to a node that cannot immediately follow it. For example, f links to
+a but a cannot immediately follow it (since b and c must come before a and after f).
+•
+I wanted a larger graph since I need to figure out the pattern.
+•
+I wanted nodes with multiple dependencies.
+Now that we have a good example, iet's get started with an algorithm.
+Solution #1
+Where do we start? Are there any nodes that we can definitely compile immediately?
+Yes, Nodes with no incoming edges can be built immediately since they don't depend on anything. Let's
+add all such nodes to the build order. In the earlier example, this means we have an order of f, d (or d, f).
+Once we've done that, it's irrelevant that some nodes are dependent on d and f since d and f have already
+been built. We can reflect this new state by removing d and f's outgoing edges.
+pg 110
+SOLUTION
+build order: f, d
+274
+Cracking the Coding Interview, 6th Edition

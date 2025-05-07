@@ -1,0 +1,44 @@
+200
+Chapter 14: Successive Reﬁnement
+It’s remarkable how much code is required to ﬂesh out the details of this simple con-
+cept. One of the reasons for this is that we are using a particularly wordy language. Java,
+being a statically typed language, requires a lot of words in order to satisfy the type sys-
+tem. In a language like Ruby, Python, or Smalltalk, this program is much smaller.1
+Please read the code over one more time. Pay special attention to the way things are
+named, the size of the functions, and the formatting of the code. If you are an experienced
+programmer, you may have some quibbles here and there with various parts of the style or
+structure. Overall, however, I hope you conclude that this program is nicely written and
+has a clean structure.
+For example, it should be obvious how you would add a new argument type, such as a
+date argument or a complex number argument, and that such an addition would require a
+trivial amount of effort. In short, it would simply require a new derivative of Argument-
+Marshaler, a new getXXX function, and a new case statement in the parseSchemaElement
+function. There would also probably be a new ArgsException.ErrorCode and a new error
+message.
+How Did I Do This?
+Let me set your mind at rest. I did not simply write this program from beginning to end in
+its current form. More importantly, I am not expecting you to be able to write clean and
+elegant programs in one pass. If we have learned anything over the last couple of decades,
+it is that programming is a craft more than it is a science. To write clean code, you must
+ﬁrst write dirty code and then clean it.
+This should not be a surprise to you. We learned this truth in grade school when our
+teachers tried (usually in vain) to get us to write rough drafts of our compositions. The
+process, they told us, was that we should write a rough draft, then a second draft, then sev-
+eral subsequent drafts until we had our ﬁnal version. Writing clean compositions, they
+tried to tell us, is a matter of successive reﬁnement.
+case INVALID_ARGUMENT_FORMAT:
+return String.format("'%s' is not a valid argument format.",
+errorParameter);
+}
+return "";
+}
+public enum ErrorCode {
+OK, INVALID_ARGUMENT_FORMAT, UNEXPECTED_ARGUMENT, INVALID_ARGUMENT_NAME,
+MISSING_STRING,
+MISSING_INTEGER, INVALID_INTEGER,
+MISSING_DOUBLE, INVALID_DOUBLE}
+}
+1.
+I recently rewrote this module in Ruby. It was 1/7th the size and had a subtly better structure.
+Listing 14-7 (continued)
+ArgsException.java

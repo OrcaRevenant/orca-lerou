@@ -1,0 +1,75 @@
+Solutions to Chapter 4 | Trees and Graphs
+4.8
+First Common Ancestor: Design an algorithm and write code to find the first common ancestor
+of two nodes in a binary tree. Avoid storing additional nodes in a data structure. NOTE: This is not
+necessarily a binary search tree.
+pg no
+SOLUTION
+if this were a binary search tree, we could modify the f i n d operation for the two nodes and see where the
+paths diverge. Unfortunately, this is not a binary search tree, so we must try other approaches.
+Let's assume we're looking for the common ancestor of nodes p and q. One question to ask here is if each
+node in our tree has a link to its parents.
+Solution #1: With Links to Parents
+If each node has a link to its parent, we could trace p and q's paths up until they intersect. This is essentially
+the same problem as question 2.7 which find the intersection of two linked lists. The "linked list" in this case
+is the path from each node up to the root. (Review this solution on page 221.)
+1
+TreeNode commonAncestor(TreeNode p, TreeNode q) {
+2
+i n t delta = depth(p) - depth(q); // get difference in depths
+3
+TreeNode f i r s t = delta > 0 ? q : p; // get shallower node
+4
+TreeNode second = delta > 0 ? p : q; // get deeper node
+second = goUpBy(second, Math.abs(delta)); // move deeper node up
+6
+7
+/* Find where paths intersect.
+*/
+8
+while ( f i r s t != second && f i r s t != n u l l && second 1= n u l l ) {
+9
+f i r s t = f i r s t . p a r e n t ;
+10
+second = second.parent;
+11
+>
+12
+return f i r s t == n u l l J | second == n u l l ? n u l l : f i r s t ;
+13 >
+14
+15 TreeNode goUpBy(TreeNode node, i n t delta) {
+16
+while (delta > 0 && node != n u l l ) {
+17
+node • node.parent;
+18
+d e l t a - - ;
+19
+>
+20
+return node;
+21
+)
+22
+23 i n t depth(TreeNode node) {
+24
+i n t depth = 0;
+25
+while (node 1= n u l l ) {
+26
+node = node.parent;
+27
+depth++;
+28
+>
+29
+return depth;
+30 >
+This approach will take 0 ( d ) time, where d is the depth of the deeper node.
+Solution #2: With Links to Parents (Better Worst-Case Runtime)
+Similar to the earlier approach, we could trace p's path upwards and check if any of the nodes cover q.
+The first node that covers q (we already know that every node on this path will cover p) must be the first
+common ancestor.
+CrackingTheCodinglnterview.com | 6th Edition
+2 4 7

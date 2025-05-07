@@ -1,0 +1,38 @@
+Solutions to Chapter 14 j Databases
+In some ways, this is great; if a teacher changes his or her name, we only have to update the name in one
+place.
+The drawback, however, is that if the tables are large, we may spend an unnecessarily long time doing joins
+on tables.
+Denormalization, then, strikes a different compromise. Under denormalization, we decide that we're okay
+with some redundancy and some extra effort to update the database in order to get the efficiency advan-
+tages of fewer joins.
+Cons of Denormalization
+Pros of Denormalization
+Updates and inserts are more expensive.
+Retrieving data is faster since we do fewer joins.
+Denormalization can make update and insert code
+harder to write.
+Queries to retrieve can be simpler (and therefore
+less likely to have bugs), since we need to look at
+fewer tables.
+Data may be inconsistent. Which is the "correct"
+value for a piece of data?
+Data redundancy necessitates more storage.
+In a system that demands scalability, like that of any major tech companies, we almost always use elements
+of both normalized and denormalized databases.
+14.6
+Entity-Relationship Diagram: Draw an entity-relationship diagram for a database with companies,
+people, and professionals (people who work for companies),
+pgl73
+SOLUTION
+People who work for Companies are P r o f e s s i o n a l s , So, there is an ISA ("is a") relationship between
+People and P r o f e s s i o n a l s (or we could say thata Prof e s s i o n a l is derived from People).
+Each P r o f e s s i o n a l has additional information such as degree and work experiences in addition to the
+properties derived from People.
+A P r o f e s s i o n a l works for one company at a time (probably—you might want to validate this assump-
+tion), but Companies can hire many P r o f e s s i o n a l s . So, there is a many-to-one relationship between
+P r o f e s s i o n a l s and Companies, This "Works For" relationship can store attributes such as an employee's
+start date and salary.These attributes are defined only when we relate a P r o f e s s i o n a l with a Company,
+A Person can have multiple phone numbers, which is why Phone is a multi-valued attribute.
+444
+Cracking the Coding Interview, 6th Edition

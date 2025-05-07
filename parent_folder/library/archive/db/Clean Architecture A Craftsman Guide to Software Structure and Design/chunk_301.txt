@@ -1,0 +1,12 @@
+Figure A.4 Datapoint CRT terminal
+Courtesy of Bill Degnan, vintagecomputer.net
+The Union Accounting system had three kinds of records: Agents, Employers,
+and Members. The system was a CRUD system for these records, but also
+included operations for posting dues, computing changes in the general ledger,
+and so on.
+The original system was written in assembler by a consultant who somehow
+managed to cram the whole thing into 16K.
+As you might imagine, that big Datanet 30 was an expensive machine to operate
+and maintain. The software consultant who kept the software running was
+expensive, too. What’s more, minicomputers were becoming popular, and were
+much cheaper.

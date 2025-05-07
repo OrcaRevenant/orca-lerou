@@ -1,0 +1,32 @@
+CHAPTER 5 TEST DRIVEN DEVELOPMENT
+78
+But I’d been a professional programmer for thirty years by then, and I’d seen
+things come and go in the industry. I knew better than to dismiss anything out
+of hand, especially when someone like Kent Beck says it.
+So in 1999 I travelled to Medford, Oregon, to meet with Kent and learn the
+discipline from him. The whole experience was a shocker!
+Kent and I sat down in his office and started to code some simple little problem
+in Java. I wanted to just write the silly thing. But Kent resisted and took me, step
+by step, through the process. First he wrote a small part of a unit test, barely
+enough to qualify as code. Then he wrote just enough code to make that test
+compile. Then he wrote a little more test, then more code.
+The cycle time was completely outside my experience. I was used to writing
+code for the better part of an hour before trying to compile or run it. But Kent
+was literally executing his code every thirty seconds or so. I was flabbergasted!
+What’s more, I recognized the cycle time! It was the kind of cycle time I’d used
+years before as a kid1 programming games in interpreted languages like Basic or
+Logo. In those languages there is no build time, so you just add a line of code
+and then execute. You go around the cycle very quickly. And because of that,
+you can be very productive in those languages.
+But in real programming that kind of cycle time was absurd. In real
+programming you had to spend lots of time writing code, and then lots more
+time getting it to compile. And then even more time debugging it. I was a C++
+programmer, dammit! And in C++ we had build and link times that took
+minutes, sometimes hours. Thirty-second cycle times were unimaginable.
+Yet there was Kent, cooking away at this Java program in thirty-second cycles
+and without any hint that he’d be slowing down any time soon. So it dawned on
+me, while I sat there in Kent’s office, that using this simple discipline I could
+code in real languages with the cycle time of Logo! I was hooked!
+1. From my vantage point at the time a kid is anyone younger than 35. During my twenties I spent a signifi-
+cant amount of time writing silly little games in interpreted languages. I wrote space war games, adventure
+games, horse race games, snake games, gambling games, you name it.

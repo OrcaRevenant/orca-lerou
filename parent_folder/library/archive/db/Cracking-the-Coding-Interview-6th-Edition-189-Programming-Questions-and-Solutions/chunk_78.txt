@@ -1,0 +1,72 @@
+VII j Technical Questions
+Throw everything in thearray into the hash table. Then, to look up if x + k or x - k exist in the array, we
+just look it up in the hash table. We can do this in 0(N) time.
+Unnecessary Work
+I
+Example: Print all positive integer solutions to the equation a* + b* = c3 + d-1 where a, b, c,
+and d are integers between 1 and 1000.
+A brute force solution will just have four nested for loops. Something like:
+1
+n » 1006
+2
+for a from 1 to n
+3
+f o r b from 1 to n
+4
+f o r c from 1 to n
+5
+f o r d from 1 to n
+6
+i f a3 + b1 — c5 + d5
+7
+print a, b, c, d
+This algorithm iterates through all possible values of a, b, c, and d and checks if that combination happens
+to work.
+It's unnecessary to continue checking for other possible values of d. Only one could work. We should at least
+break after we find a valid solution,
+1
+n = 1000
+2
+f o r a from 1 to n
+3
+f o r b from 1 to n
+4
+f o r c from 1 to n
+5
+f o r d from 1 to n
+6
+i f a3 + b3 =» c3 + d3
+7
+p r i n t a, b, c, d
+8
+break // break out of d Js loop
+This won't make a meaningful change to the runtime—our algorithm is still 0(N J)—but it's still a good,
+quick fix to make.
+Is there anything else that is unnecessary? Yes. If there's only one valid d value for each (a, b, c), then we can
+just compute it. This is just simple math: d = V a 1 + b ! - C * .
+1
+n = 1000
+2
+for a from l to n
+3
+f o r b from 1 to n
+4
+f o r c from 1 to n
+5
+d = pow(a3 + b5 - c 3j 1/3) // W i l l round to i n t
+6
+if a3 + b3 == cs + d3 // Validate t h a t the value works
+7
+p r i n t a, bj Cj d
+The if statement on line 6 is important. Line 5 will always find a value for d, but we need to check that it's
+the right integer value.
+This will reduce our runtime from 0(N 4) to 0(1^).
+Duplicated Work
+Using the same problem and brute force algorithm as above, let's look for duplicated work this time.
+The algorithm operates by essentially iterating through all ( a ,
+b) pairs and then searching all ( c ,
+d)
+pairs to find if there are any matches to that { a ,
+b) pair.
+61
+Cracking the Coding Interview, 6th Edition

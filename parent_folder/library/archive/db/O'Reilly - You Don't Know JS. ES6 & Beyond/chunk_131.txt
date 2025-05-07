@@ -1,0 +1,43 @@
+Subclass Constructor
+Constructors are not required for classes or subclasses; a default constructor is substi‐
+tuted in both cases if omitted. However, the default substituted constructor is differ‐
+ent for a direct class versus an extended class.
+Specifically, the default subclass constructor automatically calls the parent construc‐
+tor, and passes along any arguments. In other words, you could think of the default
+subclass constructor sort of like this:
+constructor(...args) {
+super(...args);
+}
+This is an important detail to note. Not all class languages have the subclass construc‐
+tor automatically call the parent constructor. C++ does, but Java does not. But more
+importantly, in pre-ES6 classes, such automatic “parent constructor” calling does not
+happen. Be careful when converting to ES6 class if you’ve been relying on such calls
+not happening.
+Another perhaps surprising deviation/limitation of ES6 subclass constructors: in a
+constructor of a subclass, you cannot access this until super(..) has been called.
+The reason is nuanced and complicated, but it boils down to the fact that the parent
+constructor is actually the one creating/initializing your instance’s this. Pre-ES6, it
+works oppositely; the this object is created by the “subclass constructor”, and then
+you call a “parent constructor” with the context of the “subclass” this.
+Let’s illustrate. This works pre-ES6:
+function Foo() {
+this.a = 1;
+}
+function Bar() {
+this.b = 2;
+Foo.call( this );
+}
+// `Bar` "extends" `Foo`
+Bar.prototype = Object.create( Foo.prototype );
+But this ES6 equivalent is not allowed:
+class Foo {
+constructor() { this.a = 1; }
+}
+class Bar extends Foo {
+constructor() {
+this.b = 2;         // not allowed before `super()`
+super();            // to fix, swap these two statements.
+120
+|
+Chapter 3: Organization
+www.it-ebooks.info

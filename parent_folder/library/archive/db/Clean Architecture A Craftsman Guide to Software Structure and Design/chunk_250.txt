@@ -1,0 +1,37 @@
+typedef Uint_16 uint16_t;
+typedef Uint_8 uint8_t;
+typedef Int_32 int32_t;
+typedef Int_16 int16_t;
+typedef Int_8 int8_t;
+#endif
+Having your embedded software and firmware use stdint.h helps keep your
+code clean and portable. Certainly, all of the software should be processor
+independent, but not all of the firmware can be. This next code snippet takes
+advantage of special extensions to C that gives your code access to the
+peripherals in the micro-controller. It’s likely your product uses this micro-
+controller so that you can use its integrated peripherals. This function outputs a
+line that says "hi" to the serial output port. (This example is based on real code
+from the wild.)
+Click here to view code image
+void say_hi()
+{
+IE = 0b11000000;
+SBUF0 = (0x68);
+while(TI_0 == 0);
+TI_0 = 0;
+SBUF0 = (0x69);
+while(TI_0 == 0);
+TI_0 = 0;
+SBUF0 = (0x0a);
+while(TI_0 == 0);
+TI_0 = 0;
+SBUF0 = (0x0d);
+while(TI_0 == 0);
+TI_0 = 0;
+IE = 0b11010000;
+}
+There are lots of problems with this small function. One thing that might jump
+out at you is the presence of 0b11000000. This binary notation is cool; can C do
+that? Unfortunately, no. A few other problems relate to this code directly using
+the custom C extensions:
+IE: Interrupt enable bits.

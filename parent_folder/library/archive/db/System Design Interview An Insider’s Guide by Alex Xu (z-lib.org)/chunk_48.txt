@@ -1,0 +1,17 @@
+Step 2 - Propose high-level design and get buy-in
+Let us keep things simple and use a basic client and server model for communication.
+Where to put the rate limiter?
+Intuitively, you can implement a rate limiter at either the client or server-side.
+• Client-side implementation. Generally speaking, client is an unreliable place to enforce
+rate limiting because client requests can easily be forged by malicious actors. Moreover,
+we might not have control over the client implementation.
+• Server-side implementation. Figure 4-1 shows a rate limiter that is placed on the server-
+side.
+Besides the client and server-side implementations, there is an alternative way. Instead of
+putting a rate limiter at the API servers, we create a rate limiter middleware, which throttles
+requests to your APIs as shown in Figure 4-2.
+Let us use an example in Figure 4-3 to illustrate how rate limiting works in this design.
+Assume our API allows 2 requests per second, and a client sends 3 requests to the server
+within a second. The first two requests are routed to API servers. However, the rate limiter
+middleware throttles the third request and returns a HTTP status code 429. The HTTP 429
+response status code indicates a user has sent too many requests.

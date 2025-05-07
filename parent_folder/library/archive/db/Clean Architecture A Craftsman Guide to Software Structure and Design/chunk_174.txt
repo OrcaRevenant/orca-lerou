@@ -1,0 +1,10 @@
+18
+BOUNDARY ANATOMY
+The architecture of a system is defined by a set of software components and the
+boundaries that separate them. Those boundaries come in many different forms.
+In this chapter we’ll look at some of the most common.
+BOUNDARY CROSSING
+At runtime, a boundary crossing is nothing more than a function on one side of
+the boundary calling a function on the other side and passing along some data.
+The trick to creating an appropriate boundary crossing is to manage the source
+code dependencies.

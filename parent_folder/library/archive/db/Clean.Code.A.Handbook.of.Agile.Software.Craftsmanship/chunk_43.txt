@@ -1,0 +1,41 @@
+13
+We Are Authors
+Students of these approaches immerse themselves in the teachings of the founder.
+They dedicate themselves to learn what that particular master teaches, often to the exclu-
+sion of any other master’s teaching. Later, as the students grow in their art, they may
+become the student of a different master so they can broaden their knowledge and practice.
+Some eventually go on to reﬁne their skills, discovering new techniques and founding their
+own schools.
+None of these different schools is absolutely right. Yet within a particular school we
+act as though the teachings and techniques are right. After all, there is a right way to prac-
+tice Hakkoryu Jiu Jitsu, or Jeet Kune Do. But this rightness within a school does not inval-
+idate the teachings of a different school.
+Consider this book a description of the Object Mentor School of Clean Code. The
+techniques and teachings within are the way that we practice our art. We are willing to
+claim that if you follow these teachings, you will enjoy the beneﬁts that we have enjoyed,
+and you will learn to write code that is clean and professional. But don’t make the mistake
+of thinking that we are somehow “right” in any absolute sense. There are other schools and
+other masters that have just as much claim to professionalism as we. It would behoove you
+to learn from them as well.
+Indeed, many of the recommendations in this book are controversial. You will proba-
+bly not agree with all of them. You might violently disagree with some of them. That’s ﬁne.
+We can’t claim ﬁnal authority. On the other hand, the recommendations in this book are
+things that we have thought long and hard about. We have learned them through decades of
+experience and repeated trial and error. So whether you agree or disagree, it would be a
+shame if you did not see, and respect, our point of view.
+We Are Authors
+The @author ﬁeld of a Javadoc tells us who we are. We are authors. And one thing about
+authors is that they have readers. Indeed, authors are responsible for communicating well
+with their readers. The next time you write a line of code, remember you are an author,
+writing for readers who will judge your effort.
+You might ask: How much is code really read? Doesn’t most of the effort go into
+writing it?
+Have you ever played back an edit session? In the 80s and 90s we had editors like Emacs
+that kept track of every keystroke. You could work for an hour and then play back your whole
+edit session like a high-speed movie. When I did this, the results were fascinating.
+The vast majority of the playback was scrolling and navigating to other modules!
+Bob enters the module.
+He scrolls down to the function needing change.
+He pauses, considering his options.
+Oh, he’s scrolling up to the top of the module to check the initialization of a variable.
+Now he scrolls back down and begins to type.

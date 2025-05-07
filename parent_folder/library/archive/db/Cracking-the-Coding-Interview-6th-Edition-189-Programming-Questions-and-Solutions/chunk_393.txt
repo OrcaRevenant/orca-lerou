@@ -1,0 +1,40 @@
+Solutions to Chapter 9 | System Design and Scalability
+44
+>
+45 >
+Step 2: Expand to Many Machines
+Now that we understand how to design this for a single machine, we need to understand how we would
+design this when queries could be sent to many different machines. Recall from the problem statement that
+there's no guarantee that a particular query will be consistently sent to the same machine.
+The first thing we need to decide is to what extent the cache is shared across machines. We have several
+options to consider.
+Option 1: Each machine has its own cache.
+A simple option is to give each machine its own cache.This means that if "foo"is sent to machine 1 twice in
+a short amount of time, the result would be recalled from the cache on the second time. But, if"foo"is sent
+first to machine 1 and then to machine 2, it would be treated as a totally fresh query both times.
+This has the advantage of being relatively quick, since no machine-to-machine calls are used. The cache,
+unfortunately, is somewhat less effective as an optimization tool as many repeat queries would be treated
+as fresh queries.
+Option 2: Each machine has a copy of the cache.
+On the other extreme, we could give each machine a complete copy of the cache. When new items are
+added to the cache, they are sent to all machines. The entire data structure—linked list and hash t a b l e -
+would be duplicated.
+This design means that common queries would nearly always be in the cache, as the cache is the same
+everywhere. The major drawback however is that updating the cache means firing off data to N different
+machines, where N is the size of the response cluster. Additionally, because each item effectively takes up N
+times as much space, our cache would hold much less data.
+Option 3: Each machine stores a segment of the cache.
+A third option is to divide up the cache, such that each machine holds a different part of it. Then, when
+machine i needs to look up the results for a query, machine i would figure out which machine holds this
+value, and then ask this other machine (machine j) to look up the query in j's cache.
+But how would machine i know which machine holds this part of the hash table?
+One option is to assign queries based on the formula h a s h ( q u e r y ) % M, Then, machine i only needs to
+apply this formula to know that machine j should store the results for this query.
+So, when a new query comes in to machine i, this machine would apply the formula and call out to machine
+j. Machine j would then return the value from its cache or call p r o c e s s S e a r c h ( q u e r y ) to get the
+resuits. Machine j would update its cache and return the results back to i.
+Alternatively, you could design the system such that machine j just returns n u l l if it doesn't have the
+query in its current cache. This would require machine i to call processSearch and then forward
+the results to machine j for storage. This implementation actually increases the number of machine-to-
+machine calls, with few advantages.
+CrackingTheCodinginterview.com | 6th Edition Î75

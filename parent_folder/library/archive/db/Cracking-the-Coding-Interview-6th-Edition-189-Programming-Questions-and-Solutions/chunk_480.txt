@@ -1,0 +1,98 @@
+Solutions to Chapter 14 j Databases
+25
+break;
+26
+} else if (j == size - % ) { / / Last element
+27
+return first;
+28
+}
+29
+}
+30
+}
+31
+32
+/* Check diagonals. */
+33
+first = board[0][0];
+34
+if (first != Piece.Empty) {
+35
+for (int i = 1; i < size; i++) {
+36
+if (board[i][i] != first) {
+37
+break;
+38
+} else if (i == size - ! ) { / / Last element
+39
+return first;
+40
+}
+41
+>
+42
+>
+43
+44
+first = board[0][size - 1];
+45
+if (first != Piece.Empty) {
+46
+for (int 1 = 1 ; i < size; i++) {
+47
+if (board[i][size - i - 1] != first) {
+48
+break;
+49
+) else if (i == size - ! ) { / / Last element
+50
+return first;
+51
+>
+52
+}
+53
+>
+54
+55
+return Piece.Empty;
+56 >
+This is, to the say the least, pretty ugly. We're doing nearly the same work each time. We should look for a
+way of reusing the code.
+Increment and Decrement Function
+One way that we can reuse the code better is to just pass in the values to another function that increments/
+decrements the rows and columns. The hasWon function now just needs the starting position and the
+amount to increment the row and column by.
+1
+class Check {
+2
+public int row, column;
+private int rowlncrement, columnlncrement;
+4
+public Check(int row, int column, int rowl, int coll) {
+5
+this.row = row;
+6
+this.column = column;
+7
+this.rowlncrement = rowl;
+8
+this.columnlncrement = coll;
+9
+>
+10
+11
+public void incremento {
+12
+row += rowlncrement;
+13
+column += columnlncrement;
+14
+}
+15
+16
+public boolean inBounds(int size) {
+470
+Cracking the Coding Interview, 6th Edition

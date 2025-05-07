@@ -1,0 +1,83 @@
+422
+Index
+integer argument type, adding
+to Args, 212
+integers, pattern of changes for, 220
+IntelliJ, 26
+intent
+explaining in code, 55
+explanation of, 56–57
+obscured, 295
+intention-revealing function, 19
+intention-revealing names, 18–19
+interface(s)
+defining local or remote, 158–160
+encoding, 24
+implementing, 149–150
+representing abstract concerns, 150
+turning ArgumentMarshaler into, 237
+well-defined, 291–292
+writing, 119
+internal structures, objects hiding, 97
+intersection, of domains, 160
+intuition, not relying on, 289
+inventor of C++, 7
+Inversion of Control (IoC), 157
+InvocationHandler object, 162
+I/O bound, 318
+isolating, from change, 149–150
+isxxxArg methods, 221–222
+iterative process, refactoring as, 265
+J
+jar files, deploying derivatives and bases
+in, 291
+Java
+aspects or aspect-like mechanisms,
+161–166
+heuristics on, 307–309
+as a wordy language, 200
+Java 5, improvements for concurrent
+development, 182–183
+Java 5 Executor framework, 320–321
+Java 5 VM, nonblocking solutions in,
+327–328
+Java AOP frameworks, 163–166
+Java programmers, encoding not
+needed, 24
+Java proxies, 161–163
+Java source files, 76–77
+javadocs
+as clutter, 276
+in nonpublic code, 71
+preserving formatting in, 270
+in public APIs, 59
+requiring for every function, 63
+java.util.concurrent package, collections
+in, 182–183
+JBoss AOP, proxies in, 163
+JCommon library, 267
+JCommon unit tests, 270
+JDepend project, 76, 77
+JDK proxy, providing persistence support,
+161–163
+Jeffries, Ron, 10–11, 289
+jiggling strategies, 190
+JNDI lookups, 157
+journal comments, 63–64
+JUnit, 34
+JUnit framework, 252–265
+Junit project, 76, 77
+Just-In-Time Compiler, 180
+K
+keyword form, of a function name, 43
+L
+L, lower-case in variable names, 20
+language design, art of programming as, 49
+languages
+appearing to be simple, 12
+level of abstraction, 2
+multiple in one source file, 288
+multiples in a comment, 270
+last-in, first-out (LIFO) data structure,
+operand stack as, 324
+Law of Demeter, 97–98, 306

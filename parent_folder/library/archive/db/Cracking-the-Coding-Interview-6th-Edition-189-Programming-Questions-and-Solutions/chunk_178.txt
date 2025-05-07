@@ -1,0 +1,29 @@
+Chapter 13 j Java
+13.6
+Object Reflection: Explain what object reflection is in Java and why it is useful.
+Hints: #435
+13.7
+Lambda Expressions: There is a class Country that has methods g e t C o n t i n e n t ( } and
+g e t P o p u l a t i o n ( ) . Write a function i n t
+get P o p u l a t i o n ( L i s t < C o u n t r y >
+c o u n t r i e s ,
+S t r i n g c o n t i n e n t ) that computes the total population of a given continent, given a list of all
+countries and the name of a continent.
+Hints: #448, #461, #464
+13.8
+Lambda
+Random:
+Using
+Lambda
+expressions,
+write
+a
+function
+L i s t < I n t e g e r >
+g e t R a n d o m S u b s e t ( L i s t < I n t e g e r > l i s t ) that returns a random subset of arbitrary size. Alt
+subsets (including the empty set) should be equally likely to be chosen.
+Hints: #443, #450, #457
+Additional Questions: Arrays and Strings (#1.3), Object-Oriented Design (#7.12), Threads and Locks (#15,3)
+Hints start on page 676.
+168
+Cracking the Coding Interview, 6th Edition

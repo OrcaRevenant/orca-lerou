@@ -1,0 +1,43 @@
+Sha1: ffbc5f5871f44611dfb2bbf49e8312332531c112
+OS Name: Windows 10 Pro
+Windows Edition: Professional
+Windows Build Number: 15063
+As shown below, other regular Docker commands work as normal.
+C:\>docker info
+Containers: 1
+Running: 0
+Paused: 0
+Stopped: 1
+Images: 1
+Server Version: 17.05.0-ce
+Storage Driver: windowsfilter
+Windows:
+Logging Driver: json-file
+Plugins:
+Volume: local
+Network: l2bridge l2tunnel nat null overlay transparent
+<SNIP>
+Experimental: true
+Insecure Registries:
+127.0.0.0/8
+Live Restore Enabled: false
+Docker for Windows includes the Docker Engine (client and daemon), Docker
+Compose, Docker Machine, and the Docker Notary command line. Use the
+following commands to verify that each was successfully installed and which
+versions of each you have:
+C:\> docker --version
+Docker version 1.12.1, build 23cf638, experimental
+C:\> docker-compose --version
+docker-compose version 1.13.0, build 1719ceb8
+C:\> docker-machine --version
+docker-machine version 0.11.0, build 5b27455
+C:\> notary version
+notary
+Version:    0.4.3
+Git commit: 9211198
+Docker for Mac (DfM)
+Docker for Mac is also a packaged product from Docker, Inc. So relax, you don’t
+need to be a kernel engineer, and we’re not about to walk through a complex
+hack for getting Docker onto your Mac. We’ll walk you through the process of
+installing Docker for Mac on your Mac desktop or laptop, and it’s ridiculously
+easy.

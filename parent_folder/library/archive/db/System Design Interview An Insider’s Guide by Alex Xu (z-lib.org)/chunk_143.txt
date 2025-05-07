@@ -1,0 +1,37 @@
+user can have multiple devices, indicating that a push notification can be sent to all the user
+devices.
+Notification sending/receiving flow
+We will first present the initial design; then, propose some optimizations.
+High-level design
+Figure 10-9 shows the design, and each system component is explained below.
+Service 1 to N: A service can be a micro-service, a cron job, or a distributed system that
+triggers notification sending events. For example, a billing service sends emails to remind
+customers of their due payment or a shopping website tells customers that their packages will
+be delivered tomorrow via SMS messages.
+
+Notification system: The notification system is the centerpiece of sending/receiving
+notifications. Starting with something simple, only one notification server is used. It provides
+APIs for services 1 to N, and builds notification payloads for third party services.
+Third-party services: Third party services are responsible for delivering notifications to
+users. While integrating with third-party services, we need to pay extra attention to
+extensibility. Good extensibility means a flexible system that can easily plugging or
+unplugging of a third-party service. Another important consideration is that a third-party
+service might be unavailable in new markets or in the future. For instance, FCM is
+unavailable in China. Thus, alternative third-party services such as Jpush, PushY, etc are used
+there.
+iOS, Android, SMS, Email: Users receive notifications on their devices.
+Three problems are identified in this design:
+• Single point of failure (SPOF): A single notification server means SPOF.
+• Hard to scale: The notification system handles everything related to push notifications in
+one server. It is challenging to scale databases, caches, and different notification
+processing components independently.
+• Performance bottleneck: Processing and sending notifications can be resource intensive.
+For example, constructing HTML pages and waiting for responses from third party
+services could take time. Handling everything in one system can result in the system
+overload, especially during peak hours.
+High-level design (improved)
+After enumerating challenges in the initial design, we improve the design as listed below:
+• Move the database and cache out of the notification server.
+• Add more notification servers and set up automatic horizontal scaling.
+• Introduce message queues to decouple the system components.
+Figure 10-10 shows the improved high-level design.

@@ -1,0 +1,14 @@
+As the number of virtual nodes increases, the distribution of keys becomes more balanced.
+This is because the standard deviation gets smaller with more virtual nodes, leading to
+balanced data distribution. Standard deviation measures how data are spread out. The
+outcome of an experiment carried out by online research [2] shows that with one or two
+hundred virtual nodes, the standard deviation is between 5% (200 virtual nodes) and 10%
+(100 virtual nodes) of the mean. The standard deviation will be smaller when we increase the
+number of virtual nodes. However, more spaces are needed to store data about virtual nodes.
+This is a tradeoff, and we can tune the number of virtual nodes to fit our system requirements.
+Find affected keys
+When a server is added or removed, a fraction of data needs to be redistributed. How can we
+find the affected range to redistribute the keys?
+In Figure 5-14, server 4 is added onto the ring. The affected range starts from s4 (newly
+added node) and moves anticlockwise around the ring until a server is found (s3). Thus, keys
+located between s3 and s4 need to be redistributed to s4.

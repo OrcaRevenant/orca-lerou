@@ -1,0 +1,9 @@
+T
+he Robert C. Martin Series is directed at software developers, team-
+leaders, business analysts, and managers who want to increase their
+skills and proficiency to the level of a Master Craftsman. The series contains
+books that guide software professionals in the principles, patterns, and
+practices of programming, software project management, requirements
+gathering, design, analysis, testing and others.
+Visit informit.com/martinseries for a complete list of available publications.
+The Robert C. Martin Series

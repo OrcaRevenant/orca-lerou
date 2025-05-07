@@ -1,0 +1,23 @@
+manager the leader. And the leader’s the only one that will ever issue live
+commands against the swarm such as changing the configuration of the swarm
+or issuing tasks to workers. If a non-active manager receives commands for the
+swarm it’ll proxy them across to the leader.
+This process is shown in Figure 9.3 where step 1 is the command coming in to a
+manager from a remote Docker client. Step 2 is the non-leader manager
+proxying the command to the leader. Step 3 is the leader pushing that command
+to the relevant node in the swarm.
+Figure 9.3
+Swarm uses an implementation of the Raft consensus algorithm to power
+manager HA, and the following two best practices apply:
+1. Deploy an odd number of managers.
+2. Don’t deploy too many managers (3 or 5 is recommended)
+Having an odd number of managers increases the chance of reaching quorum
+and avoiding a split-brain. For example, if you had 4 managers and the network
+partitioned, you could be left with two managers on each side of the partition.
+This is known as a split brain - each side knows there used to be 4 but can now
+only see 2. Neither side has any way of knowing if the two it can no longer see
+are still alive and which side holds the majority share (quorum). However, if you
+had 3 or 5 managers and the same network partition occurred, it would be
+impossible to have the same number of managers on both sides of the split. This
+means that one side would have a far better chance of knowing if it had more or
+less than the other side and achieving quorum.

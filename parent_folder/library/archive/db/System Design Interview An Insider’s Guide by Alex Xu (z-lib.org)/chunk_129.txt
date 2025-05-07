@@ -1,0 +1,19 @@
+• Standard BFS does not take the priority of a URL into consideration. The web is large
+and not every page has the same level of quality and importance. Therefore, we may want
+to prioritize URLs according to their page ranks, web traffic, update frequency, etc.
+URL frontier
+URL frontier helps to address these problems. A URL frontier is a data structure that stores
+URLs to be downloaded. The URL frontier is an important component to ensure politeness,
+URL prioritization, and freshness. A few noteworthy papers on URL frontier are mentioned
+in the reference materials [5] [9]. The findings from these papers are as follows:
+Politeness
+Generally, a web crawler should avoid sending too many requests to the same hosting server
+within a short period. Sending too many requests is considered as “impolite” or even treated
+as denial-of-service (DOS) attack. For example, without any constraint, the crawler can send
+thousands of requests every second to the same website. This can overwhelm the web
+servers.
+The general idea of enforcing politeness is to download one page at a time from the same
+host. A delay can be added between two download tasks. The politeness constraint is
+implemented by maintain a mapping from website hostnames to download (worker) threads.
+Each downloader thread has a separate FIFO queue and only downloads URLs obtained from
+that queue. Figure 9-6 shows the design that manages politeness.

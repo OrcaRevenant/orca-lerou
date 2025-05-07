@@ -1,0 +1,18 @@
+Step 4 - Wrap up
+In this chapter, we talked about the API design, data model, hash function, URL shortening,
+and URL redirecting.
+If there is extra time at the end of the interview, here are a few additional talking points.
+• Rate limiter: A potential security problem we could face is that malicious users send an
+overwhelmingly large number of URL shortening requests. Rate limiter helps to filter out
+requests based on IP address or other filtering rules. If you want to refresh your memory
+about rate limiting, refer to “Chapter 4: Design a rate limiter”.
+• Web server scaling: Since the web tier is stateless, it is easy to scale the web tier by
+adding or removing web servers.
+• Database scaling: Database replication and sharding are common techniques.
+• Analytics: Data is increasingly important for business success. Integrating an analytics
+solution to the URL shortener could help to answer important questions like how many
+people click on a link? When do they click the link? etc.
+• Availability, consistency, and reliability. These concepts are at the core of any large
+system’s success. We discussed them in detail in Chapter 1, please refresh your memory
+on these topics.
+Congratulations on getting this far! Now give yourself a pat on the back. Good job!

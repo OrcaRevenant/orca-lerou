@@ -1,0 +1,76 @@
+Solutions to Chapter 10 | Sorting and Searching
+15
+i n t [ ]
+b i t s e t ;
+16
+17
+public B i t S e t ( i n t size)
+{
+18
+b i t s e t = new i n t [ ( s i z e >> 5) + 1); // d i v i d e by 32
+19
+>
+28
+21
+boolean g e t ( i n t pos) {
+22
+i n t wordNumber = (pos >> S)j // divide by 32
+23
+i n t bitNumber = (pos 8 0 x l F ) ; H mod 32
+24
+return (bitset[wordNumber] & (1 << bitNumber)) != 0;
+25
+>
+26
+27
+void 5 e t ( i n t pos) (
+28
+i n t wordNumber = (pos >> 5); // divide by 32
+29
+i n t bitNumber • (pos & 0 x l F ) ; // mod 32
+30
+bitset[wordNumber] |= 1 << bitNumber;
+31
+>
+32
+}
+Note that while this isn't an especially difficult problem, it's important to implement this cleanly.This is why
+we defined our own bit vector class to hold a large bit vector. If our interviewer lets us (she may or may not),
+we could have of course used Java's built in B i t S e t class.
+10.9
+Sorted Matrix Search: Given an M x N matrix in which each row and each column is sorted in
+ascending order, write a method to find an element.
+pg 151
+SOLUTION
+We can approach this in two ways: a more naive solution that only takes advantage of part of the sorting,
+and a more optimal way that takes advantage of both parts of the sorting.
+Solution #1: Naive Solution
+As a first approach, we can do binary search on every row to find the element. This algorithm will be 0(M
+l o g ( N ) ) , since there are M rows and i t t a k e s O ( l o g ( N ) ) time to search each one.This is a good approach
+to mention to your interviewer before you proceed with generating a better algorithm.
+To develop an algorithm, let's start with a simple example.
+15
+20
+40
+85
+20
+35
+80
+95
+30
+55
+95
+105
+40
+80
+100
+120
+Suppose we are searching for the element 55. How can we identify where it is?
+If we look at the start of a row or the start of a column, we can start to deduce the location. If the start of a
+column is greater than 55, we know that 55 can't be in that column, since the start of the column is always
+the minimum element. Additionally, we know that 55 can't be in any columns on the right, since the first
+element of each column must increase in size from left to right. Therefore, if the start of the column is
+greater than the element x that we are searching for, we know that we need to move further to the left.
+For rows, we use identical logic. If the start of a row is bigger than x, we know we need to move upwards.
+CrackingTheCodinglnterview.com | 6th Edition
+397

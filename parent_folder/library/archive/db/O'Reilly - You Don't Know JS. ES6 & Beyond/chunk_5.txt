@@ -1,0 +1,45 @@
+Template Literals                                                                                                              40
+Interpolated Expressions                                                                                             42
+Tagged Template Literals                                                                                             43
+Arrow Functions                                                                                                              46
+Not Just Shorter Syntax, But this                                                                              49
+for..of Loops                                                                                                                  51
+Regular Expressions                                                                                                        53
+Unicode Flag                                                                                                                 54
+Sticky Flag                                                                                                                      55
+Regular Expression flags                                                                                           60
+Number Literal Extensions                                                                                             61
+Unicode                                                                                                                             62
+Unicode-Aware String Operations                                                                            63
+Character Positioning                                                                                                  65
+Unicode Identifier Names                                                                                           67
+Symbols                                                                                                                             67
+Symbol Registry                                                                                                            70
+Symbols as Object Properties                                                                                     71
+Review                                                                                                                                72
+3. Organization. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  73
+Iterators                                                                                                                             73
+Interfaces                                                                                                                       74
+next() Iteration                                                                                                            75
+Optional: return(..) and throw(..)                                                                      76
+Iterator Loop                                                                                                                 77
+Custom Iterators                                                                                                           78
+Iterator Consumption                                                                                                  82
+Generators                                                                                                                         83
+Syntax                                                                                                                             83
+Iterator Control                                                                                                             89
+Early Completion                                                                                                         92
+Error Handling                                                                                                             94
+Transpiling a Generator                                                                                              96
+Generator Uses                                                                                                              98
+Modules                                                                                                                             98
+The Old Way                                                                                                                 99
+Moving Forward                                                                                                           99
+The New Way                                                                                                              102
+Circular Module Dependency                                                                                  111
+Module Loading                                                                                                         113
+Classes                                                                                                                             115
+iv
+|
+Table of Contents
+www.it-ebooks.info

@@ -1,0 +1,95 @@
+Solutions to Chapter 14 | Databases
+17
+return row >= 0 && column >= 0 &S row < size && column < size;
+18
+>
+19 >
+20
+21 Piece hasWon(Piece[][] board) {
+22
+if (board.length != board[0].length) return Piece.Empty;
+23
+int size = board.length;
+24
+25
+/* Create list of things to check. */
+26
+ArrayList<Check> instructions = new ArrayList<Check>();
+27
+for (int i = 0; i < board.length; i++) {
+28
+instructions.add(new Check(0, i, 1, 0));
+29
+instructions.add(new Check(i, 0, 0, 1));
+30
+>
+31
+instructions.add(new Check(0, 0, 1, 1));
+32
+instructions.add(new Check(0, size - 1, 1, -1));
+33
+34
+/* Check them. V
+35
+for (Check instr : instructions) {
+36
+Piece winner = hasWon(board, instr);
+37
+if (winner != Piece.Empty) {
+38
+return winner;
+39
+>
+40
+}
+41
+return Piece.Empty;
+42 }
+43
+44 Piece hasWon(Piece[][] board, Check instr) {
+45
+Piece first = board[instr.row][instr.column];
+46
+while (instr.inBounds(board.length)) {
+47
+if (board[instr.row][instr.column] != first) {
+48
+return Piece.Empty;
+49
+}
+50
+i n st r.inc reme nt();
+51
+}
+52
+return first;
+53 }
+The Check function is essentially operating as an iterator.
+Iterator
+Another way of doing it is, of course, to actually buitd an iterator,
+1
+Piece hasWon(Piece[][] board) {
+2
+if (board.length != board[0].length) return Piece.Empty;
+3
+int size = board.length;
+4
+5
+ArrayList<PositionIterator> instructions = new ArrayList<PositionIterator>();
+6
+for (int i = 0; i < board.length; i++) {
+instructions.add(new Positionlterator(new Position(0, i), 1, 0, size));
+8
+instructions.add(new Positionlteratorfnew Position(i, 0), 0, 1, size));
+9
+>
+10
+instructions.add(new Positionlteratorfnew Position(0, 0), 1, 1, size));
+11
+instructions.add(new Positionlterator(new Position(0, size - 1), 1, -1, size));
+12
+13
+for (Positionlterator iterator : instructions) {
+14
+Piece winner = hasWon(board, iterator);
+CrackingTheCodinglnterview.com \ 6th Edition 415

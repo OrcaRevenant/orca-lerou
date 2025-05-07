@@ -1,0 +1,45 @@
+46
+Chapter 3: Functions
+could try to resolve this by renaming the set function to setAndCheckIfExists, but that
+doesn’t much help the readability of the if statement. The real solution is to separate the
+command from the query so that the ambiguity cannot occur.
+if (attributeExists("username")) {
+setAttribute("username", "unclebob");
+...
+}
+Prefer Exceptions to Returning Error Codes
+Returning error codes from command functions is a subtle violation of command query
+separation. It promotes commands being used as expressions in the predicates of if state-
+ments.
+if (deletePage(page) == E_OK)
+This does not suffer from verb/adjective confusion but does lead to deeply nested struc-
+tures. When you return an error code, you create the problem that the caller must deal with
+the error immediately.
+if (deletePage(page) == E_OK) {
+if (registry.deleteReference(page.name) == E_OK) {
+if (configKeys.deleteKey(page.name.makeKey()) == E_OK){
+logger.log("page deleted");
+} else {
+logger.log("configKey not deleted");
+}
+} else {
+logger.log("deleteReference from registry failed");
+}
+} else {
+logger.log("delete failed");
+return E_ERROR;
+}
+On the other hand, if you use exceptions instead of returned error codes, then the error
+processing code can be separated from the happy path code and can be simpliﬁed:
+try {
+deletePage(page);
+registry.deleteReference(page.name);
+configKeys.deleteKey(page.name.makeKey());
+}
+catch (Exception e) {
+logger.log(e.getMessage());
+}
+Extract Try/Catch Blocks
+Try/catch blocks are ugly in their own right. They confuse the structure of the code and
+mix error processing with normal processing. So it is better to extract the bodies of the try
+and catch blocks out into functions of their own.

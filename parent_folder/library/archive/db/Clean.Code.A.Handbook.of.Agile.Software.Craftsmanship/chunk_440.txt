@@ -1,0 +1,67 @@
+413
+Index
+## detection, 237–238
+++ (pre- or post-increment) operator,
+325, 326
+A
+aborted computation, 109
+abstract classes, 149, 271, 290
+ABSTRACT FACTORY pattern, 38, 156,
+273, 274
+abstract interfaces, 94
+abstract methods
+adding to ArgumentMarshaler, 234–235
+modifying, 282
+abstract terms, 95
+abstraction
+classes depending on, 150
+code at wrong level of, 290–291
+descending one level at a time, 37
+functions descending only one level
+of, 304–306
+mixing levels of, 36–37
+names at the appropriate level of, 311
+separating levels of, 305
+wrapping an implementation, 11
+abstraction levels
+raising, 290
+separating, 305
+accessor functions, Law of Demeter
+and, 98
+accessors, naming, 25
+Active Records, 101
+adapted server, 185
+affinity, 84
+Agile Software Development: Principles,
+Patterns, Practices (PPP), 15
+algorithms
+correcting, 269–270
+repeating, 48
+understanding, 297–298
+ambiguities
+in code, 301
+ignored tests as, 313
+amplification comments, 59
+analysis functions, 265
+“annotation form”, of AspectJ, 166
+Ant project, 76, 77
+AOP (aspect-oriented programming),
+160, 163
+APIs. See also public APIs
+calling a null-returning method
+from, 110
+specialized for tests, 127
+wrapping third-party, 108
+applications
+decoupled from Spring, 164
+decoupling from construction
+details, 156
+infrastructure of, 163
+keeping concurrency-related code
+separate, 181
+arbitrary structure, 303–304
+args array, converting into a list, 231–232
+Args class
+constructing, 194
+implementation of, 194–200
+rough drafts of, 201–212, 226–231

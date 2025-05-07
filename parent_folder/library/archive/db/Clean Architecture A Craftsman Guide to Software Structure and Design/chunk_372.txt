@@ -1,0 +1,34 @@
+Real-time operating system (RTOS) is detail, 269–271
+Relational database management systems (RDBMS), 279–283
+Relational databases, 278, 281–283
+Relaxed layered architecture, 311–312
+Releases
+effect of cycle in component dependency graph, 115–117
+eliminating dependency cycles, 113–115
+numbering new component, 113
+Reuse/Release Equivalence Principle for new, 104–105
+Remote terminals, DLU/DRU archaeology project, 354–356
+REP (Reuse/Release Equivalence Principle), 104–105, 108–110
+Request models, business rules, 193–194
+ReSharper, plugin argument, 172–173
+Response models, business rules, 193–194
+REST, leave options open in development, 141
+Reusability. See CRP (Common Reuse Principle)
+Reuse/Release Equivalence Principle (REP), 104–105, 108–110
+Risks
+architecture should mitigate costs of, 139–140
+of frameworks, 293–294
+ROM boards, 4-TEL archaeology project, 341
+ROSE product, archaeology project, 368–370
+RTOS (real-time operating system) is detail, 269–271
+Ruby
+components as gem files, 96
+DIP and, 88
+ISP and, 85
+RVM tool, module management, 104
+S
+SAC (service area computer), archaeology project
+4-TEL using, 340–341
+architecture, 345–347
+conclusion, 349
+dispatch determination, 345

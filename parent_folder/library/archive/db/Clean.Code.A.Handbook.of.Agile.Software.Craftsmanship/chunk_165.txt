@@ -1,0 +1,9 @@
+135
+10
+Classes
+with Jeff Langr
+So far in this book we have focused on how to write lines and blocks of code well. We have
+delved into proper composition of functions and how they interrelate. But for all the atten-
+tion to the expressiveness of code statements and the functions they comprise, we still
+don’t have clean code until we’ve paid attention to higher levels of code organization. Let’s
+talk about clean classes.

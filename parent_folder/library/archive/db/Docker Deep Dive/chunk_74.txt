@@ -1,0 +1,30 @@
+Figure 6.7
+Docker employs a storage driver that is responsible for stacking layers and
+presenting them as a single unified filesystem. Examples of storage drivers on
+Linux include AUFS, overlay2, devicemapper, btrfs and zfs. As their names
+suggest, each one is based on a Linux filesystem or block-device technology, and
+each has its own unique performance characteristics. The only driver supported
+by Docker on Windows is windowsfilter and implements layering and CoW on
+top of NTFS.
+Sharing image layers
+Multiple images can, and do, share layers. This leads to efficiencies in space and
+performance.
+Let’s take a second look at the docker image pull command with the -a flag
+that we ran a minute or two ago to pull all tagged images in the
+nigelpoulton/tu-demo repository.
+$ docker image pull -a nigelpoulton/tu-demo
+latest: Pulling from nigelpoulton/tu-demo
+237d5fcd25cf: Pull complete
+a3ed95caeb02: Pull complete
+<Snip>
+Digest: sha256:42e34e546cee61adb100...a0c5b53f324a9e1c1aae451e9
+v1: Pulling from nigelpoulton/tu-demo
+237d5fcd25cf: Already exists
+a3ed95caeb02: Already exists
+<Snip>
+Digest: sha256:9ccc0c67e5c5eaae4beb...24c1d5c80f2c9623cbcc9b59a
+v2: Pulling from nigelpoulton/tu-demo
+237d5fcd25cf: Already exists
+a3ed95caeb02: Already exists
+<Snip>
+eab5aaac65de: Pull complete

@@ -1,0 +1,25 @@
+change. Policies that change for the same reasons, and at the same times, are at
+the same level and belong together in the same component. Policies that change
+for different reasons, or at different times, are at different levels and should be
+separated into different components.
+The art of architecture often involves forming the regrouped components into a
+directed acyclic graph. The nodes of the graph are the components that contain
+policies at the same level. The directed edges are the dependencies between
+those components. They connect components that are at different levels.
+Those dependencies are source code, compile-time dependencies. In Java, they
+are import statements. In C#, they are using statements. In Ruby, they are
+require statements. They are the dependencies that are necessary for the
+compiler to function.
+In a good architecture, the direction of those dependencies is based on the level
+of the components that they connect. In every case, low-level components are
+designed so that they depend on high-level components.
+LEVEL
+A strict definition of “level” is “the distance from the inputs and outputs.” The
+farther a policy is from both the inputs and the outputs of the system, the higher
+its level. The policies that manage input and output are the lowest-level policies
+in the system.
+The data flow diagram in Figure 19.1 depicts a simple encryption program that
+reads characters from an input device, translates the characters using a table, and
+then writes the translated characters to an output device. The data flows are
+shown as curved solid arrows. The properly designed source code dependencies
+are shown as straight dashed lines.

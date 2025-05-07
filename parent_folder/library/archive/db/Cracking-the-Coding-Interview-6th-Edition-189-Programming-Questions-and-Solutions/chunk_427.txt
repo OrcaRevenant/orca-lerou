@@ -1,0 +1,51 @@
+11
+Solutions to Testing
+11.1
+Mistake: Find the mistake(s) in the following code:
+unsigned
+i n t
+i ;
+f o r ( i = 100; i >= 0; - - i )
+printf("5Sd\n J I,
+i ) ;
+pg157
+SOLUTION
+There are two mistakes in this code.
+First, note that an u n s i g n e d i n t is, by definition, always greater than or equal to zero.The for loop condi-
+tion will therefore always be true, and it will loop infinitely.
+The correct code to print all numbers from 100 to 1, is i > 0. If we truly wanted to print zero, we could add
+an additional p r i n t f statement after the for loop.
+1
+unsigned
+i n t
+i;
+2
+f o r ( i = 100; i > 0; - - i )
+3
+p r i n t f ( r ' 5 i d \ n " ,
+i ) ;
+One additional correction is to use%u in place of %d, as we are printing u n s i g n e d i n t .
+1
+unsigned
+i n t i;
+2
+f o r ( i = 100; i > 0; - - i )
+3
+p r i n t f ("3£u\n",
+i ) ;
+This code will now correctly print the list of all numbers from 100 to 1, in descending order.
+11.2
+Random Crashes: You are given the source to an application which crashes when it is run. After
+running it ten times in a debugger, you find it never crashes in the same place. The application is
+single threaded, and uses only the C standard library. What programming errors could be causing
+this crash? How would you test each one?
+pg!57
+SOLUTION
+The question largely depends on the type of application being diagnosed. However, we can give some
+genera! causes of random crashes.
+1.
+"Random Variab!e:"Jhe application may use some random number or variable component that may not
+be fixed for every execution of the program. Examples include user input, a random number generated
+by the program, or the time of day.
+CrackingTheCodinglnterview.com 16th Edition
+4 1 7

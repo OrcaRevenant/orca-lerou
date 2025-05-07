@@ -1,0 +1,36 @@
+The only difference here is stylistic preference. Most other literature seems to prefer
+function* foo(..) { .. }. I prefer function *foo(..) { .. }, so that’s how I’ll
+present them for the rest of this title.
+My reason is purely didactic in nature. In this text, when referring to a generator
+function, I will use *foo(..), as opposed to foo(..) for a normal function. I observe
+that *foo(..) more closely matches the * positioning of function *foo(..) { .. }.
+Moreover, as we saw in Chapter 2 with concise methods, there’s a concise generator
+form in object literals:
+var a = {
+*foo() { .. }
+};
+I would say that with concise generators, *foo() { .. } is rather more natural than
+* foo() { .. }. So that further argues for matching the consistency with *foo().
+Consistency eases understanding and learning.
+Executing a Generator
+Though a generator is declared with *, you still execute it like a normal function:
+foo();
+You can still pass it arguments, as in:
+function *foo(x,y) {
+// ..
+}
+foo( 5, 10 );
+The major difference is that executing a generator, like foo(5,10) doesn’t actually run
+the code in the generator. Instead, it produces an iterator which will control the gen‐
+erator to execute its code.
+We’ll come back to this a few sections from now, but briefly:
+function *foo() {
+// ..
+}
+var it = foo();
+// to start/advanced `*foo()`, call
+// `it.next(..)`
+84
+|
+Chapter 3: Organization
+www.it-ebooks.info

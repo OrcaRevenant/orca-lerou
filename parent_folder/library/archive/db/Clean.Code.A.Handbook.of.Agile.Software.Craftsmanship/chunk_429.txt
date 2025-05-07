@@ -1,0 +1,36 @@
+402
+Appendix B: org.jfree.date.SerialDate
+Listing B-13
+DateUtil.java (Final)
+1 package org.jfree.date;
+2
+3 import java.text.DateFormatSymbols;
+4
+5 public class DateUtil {
+6   private static DateFormatSymbols dateFormatSymbols = new DateFormatSymbols();
+7
+8   public static String[] getMonthNames() {
+9     return dateFormatSymbols.getMonths();
+10   }
+11
+12   public static boolean isLeapYear(int year) {
+13     boolean fourth = year % 4 == 0;
+14     boolean hundredth = year % 100 == 0;
+15     boolean fourHundredth = year % 400 == 0;
+16     return fourth && (!hundredth || fourHundredth);
+17   }
+18
+19   public static int lastDayOfMonth(Month month, int year) {
+20     if (month == Month.FEBRUARY && isLeapYear(year))
+21       return month.lastDay() + 1;
+22     else
+23       return month.lastDay();
+24   }
+25
+26   public static int leapYearCount(int year) {
+27     int leap4 = (year - 1896) / 4;
+28     int leap100 = (year - 1800) / 100;
+29     int leap400 = (year - 1600) / 400;
+30     return leap4 - leap100 + leap400;
+31   }
+32 }

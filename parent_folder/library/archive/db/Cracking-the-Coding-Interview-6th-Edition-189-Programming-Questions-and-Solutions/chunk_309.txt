@@ -1,0 +1,100 @@
+Solutions to Chapter 6 j Math and Logic Puzzles
+we have located the poisoned bottle. If it's greater than one, go to step 1.
+To simulate this, we'll build classes for B o t t l e and TestSt r i p that mirror the problem's functionality.
+1
+class Bottle {
+2
+private boolean poisoned = f a l s e ;
+3
+private i n t i d ;
+4
+5
+public B o t t l e ( i n t id) { t h i s . i d = i d ; }
+6
+public i n t getld() { return i d ; }
+public void setAsPoisonedf) { poisoned = true; }
+8
+public boolean isPoisonedQ { return poisoned; }
+9
+}
+10
+11 class TestStrip {
+12
+public Static i n t DAYS_FOR_RESULT = 7;
+IB
+private ArrayList<ArrayList<Bottle>> dropsByDay =
+14
+new ArrayList<ArrayList<Bottle>>();
+15
+private i n t i d ;
+16
+17
+public TestStrip(int id) { t h i s . i d = i d ; }
+18
+public i n t g e t l d Q { return i d ; >
+19
+20
+/* Resize l i s t of days/drops to be large enough, */
+21
+private void sizeDropsForDay(int day) {
+22
+while (dropsByDay,size() <= day) {
+23
+dropsByDay.add(new ArrayList<Bottle>Q);
+24
+}
+25
+}
+26
+27
+/* Add drop from b o t t l e on specific day. */
+28
+public void addDropOnDay(int day, Bottle bottle) {
+29
+sizeDropsForDay(day);
+30
+ArrayList<Bottle> drops = dropsByDay.get(day);
+31
+drops.add(bottle);
+32
+>
+33
+34
+/* Checks if any of the bottles in the set are poisoned. */
+private boolean hasPoison(ArrayList<Eottle> bottles) {
+36
+for (Bottle b : bottles) {
+37
+if (b. isPoisonedQ) {
+38
+return true;
+39
+>
+40
+>
+41
+return f a l s e ;
+42
+>
+43
+44
+/* Gets bottles used in the t e s t DAYS_FOR_RESULT days ago. */
+45
+public ArrayList<Bottle> getLastWeeksBottles(int day) {
+46
+if (day < DAYS_FOR_RESULT) {
+47
+return n u l l ;
+48
+>
+49
+return dropsByDay.get(day - DAYS_FOR_RESULT);
+50
+}
+51
+52
+/* Checks for poisoned bottles since before DAYS_FOR_RESULT */
+53
+public boolean isPositiveOnDay(int day) {
+CrackingTheCodinglnterview.com | 6th Edition
+291

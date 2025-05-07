@@ -1,0 +1,11 @@
+1
+PR E -R EQUI S ITE
+INTRODUCTION
+(Don’t skip this, you’re going to need it.)
+I presume you just picked up this book because you are a computer
+programmer and are intrigued by the notion of professionalism. You should be.
+Professionalism is something that our profession is in dire need of.
+I’m a programmer too. I’ve been a programmer for 421 years; and in that time—
+let me tell you—I’ve seen it all. I’ve been fired. I’ve been lauded. I’ve been a
+team leader, a manager, a grunt, and even a CEO. I’ve worked with brilliant
+1. Don’t Panic.

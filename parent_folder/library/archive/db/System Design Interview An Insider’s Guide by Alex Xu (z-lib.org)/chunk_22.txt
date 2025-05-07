@@ -1,0 +1,14 @@
+Several technical challenges must be resolved to achieve multi-data center setup:
+• Traffic redirection: Effective tools are needed to direct traffic to the correct data center.
+GeoDNS can be used to direct traffic to the nearest data center depending on where a user
+is located.
+• Data synchronization: Users from different regions could use different local databases or
+caches. In failover cases, traffic might be routed to a data center where data is unavailable.
+A common strategy is to replicate data across multiple data centers. A previous study
+shows how Netflix implements asynchronous multi-data center replication [11].
+• Test and deployment: With multi-data center setup, it is important to test your
+website/application at different locations. Automated deployment tools are vital to keep
+services consistent through all the data centers [11].
+To further scale our system, we need to decouple different components of the system so they
+can be scaled independently. Messaging queue is a key strategy employed by many real-
+world distributed systems to solve this problem.

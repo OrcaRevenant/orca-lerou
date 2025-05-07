@@ -1,0 +1,41 @@
+II | Behind the Scenes
+•
+Design/Architecture ("Pirate"): For a backend software engineer, you might be asked system design
+questions. Front-end or other specialties will be asked design questions related to that discipline. You
+should openly discuss different solutions and their tradeoffs.
+You can typically expect two "ninja" interviews and one "jedi" interview. Experienced candidates will also
+usually get a "pirate" interview.
+After your interview, interviewers submit written feedback, prior to discussing your performance with each
+other. This ensures that your performance in one interview will not bias another interviewer's feedback.
+Once everyone's feedback is submitted, your interviewing team and a hiring manager get together to
+collaborate on a final decision. They come to a consensus decision and submit a final hire recommendation
+to the hiring committee.
+Definitely Prepare:
+The youngest of the "elite" tech companies, Facebook wants developers with an entrepreneurial spirit. In
+your interviews, you should show that you love to build stuff fast.
+They want to know you can hack together an elegant and scalable solution using any language of choice.
+Knowing PHP is not especially important, particularly given that Facebook also does a lot of backend work
+in C++, Python, Erlang, and other languages.
+What's Unique:
+Facebook interviews developers for the company "in general," not for a specific team. If you are hired, you
+will go through a six-week "bootcamp" which will help ramp you up in the massive code base. You'll get
+mentorship from senior devs, learn best practices, and, ultimately, get a greater flexibility in choosing a
+project than if you were assigned to a project in your interview.
+• The Palantir Interview
+Unlike some companies which do "pooled" interviews (where you interview with the company as a whole,
+not with a specific team), Palantir interviews for a specific team. Occasionally, your application might be
+re-routed to another team where there is a better fit.
+The Palantir interview process typically starts with two phone interviews. These interviews are about 30 to
+45 minutes and will be primarily technical. Expect to cover a bit about your prior experience, with a heavy
+focus on algorithm questions.
+You might also be sent a HackerRank coding assessment, which will evaluate your ability to write optimal
+algorithms and correct code. Less experienced candidates, such as those in college, are particularly likely
+to get such a test.
+After this, successful candidates are invited to campus and will interview with up to five people. Onsite
+interviews cover your prior experience, relevant domain knowledge, data structures and algorithms, and
+design.
+You may also likely get a demo of Palantir's products. Ask good questions and demonstrate your passion
+for the company.
+After the interview, the interviewers meet to discuss your feedback with the hiring manager.
+CrackingTheCodinglnterview.com | 6th Edition
+11

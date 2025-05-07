@@ -1,0 +1,30 @@
+Click here to view code image
+void Sensor_init(void) { ... }
+Looking at some of the other files in this application, I found many impediments
+to understanding the code. I also found a file structure that implied that the only
+way to test any of this code is in the embedded target. Virtually every bit of this
+code knows it is in a special microprocessor architecture, using “extended” C
+constructs3 that tie the code to a particular tool chain and microprocessor. There
+is no way for this code to have a long useful life unless the product never needs
+to be moved to a different hardware environment.
+This application works: The engineer passed the App-titude test. But the
+application can’t be said to have a clean embedded architecture.
+THE TARGET-HARDWARE
+BOTTLENECK
+There are many special concerns that embedded developers have to deal with
+that non-embedded developers do not—for example, limited memory space,
+real-time constraints and deadlines, limited IO, unconventional user interfaces,
+and sensors and connections to the real world. Most of the time the hardware is
+concurrently developed with the software and firmware. As an engineer
+developing code for this kind of system, you may have no place to run the code.
+If that’s not bad enough, once you get the hardware, it is likely that the hardware
+will have its own defects, making software development progress even slower
+than usual.
+Yes, embedded is special. Embedded engineers are special. But embedded
+development is not so special that the principles in this book are not applicable
+to embedded systems.
+One of the special embedded problems is the target-hardware bottleneck. When
+embedded code is structured without applying clean architecture principles and
+practices, you will often face the scenario in which you can test your code only
+on the target. If the target is the only place where testing is possible, the target-
+hardware bottleneck will slow you down.

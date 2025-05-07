@@ -1,0 +1,21 @@
+moment and look at a number of approaches to design and code organization.
+PACKAGE BY LAYER
+The first, and perhaps simplest, design approach is the traditional horizontal
+layered architecture, where we separate our code based on what it does from a
+technical perspective. This is often called “package by layer.” Figure 34.1 shows
+what this might look like as a UML class diagram.
+In this typical layered architecture, we have one layer for the web code, one
+layer for our “business logic,” and one layer for persistence. In other words, code
+is sliced horizontally into layers, which are used as a way to group similar types
+of things. In a “strict layered architecture,” layers should depend only on the
+next adjacent lower layer. In Java, layers are typically implemented as packages.
+As you can see in Figure 34.1, all of the dependencies between layers (packages)
+point downward. In this example, we have the following Java types:
+• OrdersController: A web controller, something like a Spring MVC controller,
+that handles requests from the web.
+• OrdersService: An interface that defines the “business logic” related to
+orders.
+• OrdersServiceImpl: The implementation of the orders service.1
+• OrdersRepository: An interface that defines how we get access to persistent
+order information.
+• JdbcOrdersRepository: An implementation of the repository interface.

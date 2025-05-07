@@ -1,0 +1,40 @@
+48
+Chapter 3: Functions
+to add new errors because then they have to rebuild and redeploy everything. So they reuse
+old error codes instead of adding new ones.
+When you use exceptions rather than error codes, then new exceptions are derivatives of
+the exception class. They can be added without forcing any recompilation or redeployment.12
+Don’t Repeat Yourself13
+Look back at Listing 3-1 carefully and you
+will notice that there is an algorithm that
+gets repeated four times, once for each of
+the
+SetUp,
+SuiteSetUp,
+TearDown, and
+SuiteTearDown cases. It’s not easy to spot
+this duplication because the four instances
+are intermixed with other code and aren’t
+uniformly duplicated. Still, the duplication
+is a problem because it bloats the code and
+will require four-fold modiﬁcation should the algorithm ever have to change. It is also a
+four-fold opportunity for an error of omission.
+This duplication was remedied by the include method in Listing 3-7. Read through
+that code again and notice how the readability of the whole module is enhanced by the
+reduction of that duplication.
+Duplication may be the root of all evil in software. Many principles and practices have
+been created for the purpose of controlling or eliminating it. Consider, for example, that
+all of Codd’s database normal forms serve to eliminate duplication in data. Consider also
+how object-oriented programming serves to concentrate code into base classes that would
+otherwise be redundant. Structured programming, Aspect Oriented Programming, Compo-
+nent Oriented Programming, are all, in part, strategies for eliminating duplication. It
+would appear that since the invention of the subroutine, innovations in software develop-
+ment have been an ongoing attempt to eliminate duplication from our source code.
+Structured Programming
+Some programmers follow Edsger Dijkstra’s rules of structured programming.14 Dijkstra
+said that every function, and every block within a function, should have one entry and one
+exit. Following these rules means that there should only be one return statement in a func-
+tion, no break or continue statements in a loop, and never, ever, any goto statements.
+12. This is an example of the Open Closed Principle (OCP) [PPP02].
+13. The DRY principle. [PRAG].
+14. [SP72].

@@ -1,0 +1,39 @@
+• setPrototype
+• preventExtensions
+By default, you’ll be notified of all these change types, but you can filter down to only
+the ones you care about.
+Consider:
+var obj = { a: 1, b: 2 };
+Object.observe(
+obj,
+function(changes){
+for (var change of changes) {
+console.log( change );
+}
+},
+[ "add", "update", "delete" ]
+);
+obj.c = 3;
+// { name: "c", object: obj, type: "add" }
+obj.a = 42;
+// { name: "a", object: obj, type: "update", oldValue: 1 }
+delete obj.b;
+// { name: "b", object: obj, type: "delete", oldValue: 2 }
+In addition to the main "add", "update", and "delete" change types:
+• The "reconfigure" change event is fired if one of the object’s properties is
+reconfigured with Object.defineProperty(..), such as changing its writable
+attribute. See the this & Object Prototypes title of this series for more information.
+• The "preventExtensions" change event is fired if the object is made non-
+extensible via Object.preventExtensions(..).
+Since both Object.seal(..) and Object.freeze(..) also imply Object.preventEx
+tensions(..), they’ll also fire its corresponding change event. In addition, "recon
+figure" change events will also be fired for each property on the object. * The
+"setPrototype" change event is fired if the [[Prototype]] of an object is changed,
+either by setting it with the __proto__ setter, or using Object.setPrototypeOf(..).
+Notice that these change events are notified immediately after said change. Don’t con‐
+fuse this with proxies (see Chapter 7) where you can intercept the actions before they
+occur. Object observation lets you respond after a change (or set of changes) occurs.
+212
+|
+Chapter 8: Beyond ES6
+www.it-ebooks.info

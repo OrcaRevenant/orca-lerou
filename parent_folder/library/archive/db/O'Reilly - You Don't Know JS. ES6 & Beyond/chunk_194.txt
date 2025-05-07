@@ -1,0 +1,51 @@
+• getPrototypeOf(..): via [[GetPrototypeOf]], the [[Prototype]] of the proxy
+is
+retrieved
+(Object.getPrototypeOf(..),
+Reflect.getPrototypeOf(..),
+__proto__, Object#isPrototypeOf(..), or instanceof)
+• setPrototypeOf(..): via [[SetPrototypeOf]], the [[Prototype]] of the proxy
+is
+set
+(Object.setPrototypeOf(..),
+Reflect.setPrototypeOf(..),
+or
+__proto__)
+• preventExtensions(..): via [[PreventExtensions]], the proxy is made non-
+extensible
+(Object.preventExtensions(..)
+or
+Reflect.preventExten
+sions(..))
+• isExtensible(..): via [[IsExtensible]], the extensibility of the proxy is pro‐
+bed (Object.isExtensible(..) or Reflect.isExtensible(..))
+• ownKeys(..): via [[OwnPropertyKeys]], the set of owned properties and/or
+owned symbol properties of the proxy is retrieved (Object.keys(..),
+Object.getOwnPropertyNames(..),
+Object.getOwnSymbolProperties(..),
+Reflect.ownKeys(..), or JSON.stringify(..))
+• enumerate(..): via [[Enumerate]], an iterator is requested for the proxy’s enu‐
+merable owned and “inherited” properties (Reflect.enumerate(..) or for..in)
+• has(..): via [[HasProperty]], the proxy is probed to see if it has an owned or
+“inherited” property (Reflect.has(..), Object#hasOwnProperty(..), or "prop"
+in obj)
+For more information about each of these meta programming
+tasks, see the “Reflect” section below.
+In addition to the notations in the above list about actions that will trigger the various
+traps, some traps are triggered indirectly by the default actions of another trap. For
+example:
+var handlers = {
+getOwnPropertyDescriptor(target,prop) {
+console.log(
+"getOwnPropertyDescriptor"
+);
+return Object.getOwnPropertyDescriptor(
+target, prop
+);
+},
+defineProperty(target,prop,desc){
+console.log( "defineProperty" );
+Proxies
+|
+183
+www.it-ebooks.info

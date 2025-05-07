@@ -1,0 +1,75 @@
+Solutions to Chapter 2 | Linked Lists
+30 class Result (
+31
+public LinkedListNode t a i l ;
+32
+public i n t size;
+33
+public Result(LinkedListNode t a i l ,
+i n t size) {
+34
+t h i s . t a i l = t a i l ;
+35
+t h i s , s i z e = size;
+36
+}
+37 >
+38
+39
+Result getTailAndSize(LinkedListNode l i s t ) {
+40
+i f ( l i s t = = n u l l ) return n u l l ;
+41
+42
+i n t size = 1;
+4 ï
+LinkedListNode current = l i s t ;
+44
+while (current.next 1= n u l l ) {
+45
+size++;
+46
+current = current.next;
+47
+>
+48
+return new Result(currentj size);
+49 >
+50
+51 LinkedListNode getKthNode(LinkedListNode head, i n t k) {
+52
+LinkedListNode current = head;
+53
+while (k > 0 && current != n u l l ) {
+54
+current = current.next;
+55
+k - - ;
+56
+}
+57
+return current;
+58 >
+This algorithm takes 0(A + B) time, where A and B are the lengths of the two linked lists, it takes 0 ( 1 )
+additional space.
+2.8
+Loop Detection: Given a circular linked list, implement an algorithm that returns the node at the
+beginning of the loop.
+DEFINITION
+Circular linked list: A (corrupt) linked list in which a node's next pointer points to an earlier node, so
+as to make a loop in the linked list.
+EXAMPLE
+Input:
+A -> B -> C -> D -> E -> C [the same C as earlier]
+Output:
+C
+pg95
+SOLUTION
+This is a modification of a classic interview problem: detect if a linked list has a loop. Let's apply the Pattern
+Matching approach.
+Part 1: Detect If Linked List Has A Loop
+An easy way to detect if a linked list has a loop is through the FastRunner / SlowRunner approach.
+Fast Runner moves two steps at a time, while SlowRunner moves one step. Much like two cars racing
+around a track at different steps, they must eventually meet.
+CrackingTheCodinglnterview.com | 6th Edition
+22 3

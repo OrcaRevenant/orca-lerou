@@ -1,0 +1,80 @@
+II | Hints for Concepts and Algorithms
+#333.
+6,8
+If we drop Egg 1 at fixed intervals (e.g., every 10 floors), then the worst case is the worst
+case for Egg 1 + the worst case for Egg 2.The problem with our earlier solutions is that as
+Egg 1 does more work, Egg 2 doesn't do any iess work. Ideally, we'd like to balance this
+a bit. As Egg 1 does more work (has survived more drops), Egg 2 should have less work
+to do. What might this mean?
+#334.
+9.3
+Think about how infinite loops might occur.
+#335.
+8.7
+Approach 2: To generate all permutations of abed, pick each character (a, b, c, or d)
+as a starting character. Permute the remaining characters and prepend the starting
+character. How do you permute the remaining characters? With a recursive process that
+follows the same logic.
+#336.
+5.6
+How would you figure out how many bits are different between two numbers?
+#337.
+10.4
+Binary search requires comparing an element to the midpoint. Getting the midpoint
+requires knowing the length. We don't know the length. Can we find it?
+#338.
+8.4
+Subsets thatcontain c will besubsets { a , b, c } b u t n o t { a , b},Canyou build these
+subsets from the subsets of ( a ,
+b}?
+#339.
+5.4
+Get Next: Flipping a 0 to a 1 will create a bigger number. The farther right the index is
+the smaller the bigger number is. If we have a number like 1001, we want to flip the
+rightmost 0 (to create 1011). But if we have a number like 1010, we should not flip the
+rightmost 1.
+#340.
+8.3
+Given a specific index and value, can you identify if the magic index would be before or
+after it?
+#341,
+6.6
+Now suppose there were two blue-eyed people. What would they see? What would they
+know? When would they leave? Remember your answer from the prior hint. Assume
+they know the answer to the earlier hint.
+#342.
+10.2
+Do you even need to truly "sort"? Of is just reorganizing the list sufficient?
+#343.
+8.11
+Once you've decided to use two quarters to make change for 98 cents, you now need
+to figure out how many ways to make change for 48 cents using nickels, dimes, and
+pennies.
+#344,
+7,5
+Think about all the different functionality a system to read books online would have
+to support. You don't have to do everything, but you should think about making your
+assumptions explicit.
+#345.
+11.4
+Could you build your own? What might that look like?
+#346.
+5.5
+What is the relationship between how n looks and how n - 1 looks? Walk through a
+binary subtraction.
+#347.
+9.4
+Will you need multiple passes? Multiple machines?
+#348.
+10.4
+We can find the length by using an exponential backoff. First check index 2, then 4, then
+8, then 16, and so on. What will be the runtime of this algorithm?
+#349.
+11.6
+What can we automate?
+#350,
+8.12
+Each row must have a queen. Start with the last row. There are eight different columns
+on which you can put a queen. Can you try each of these?
+664
+Cracking the Coding interview, 6th Edition

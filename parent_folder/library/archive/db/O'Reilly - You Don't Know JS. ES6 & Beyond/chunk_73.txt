@@ -1,0 +1,43 @@
+And the string representations of these forms are all able to be coerced/converted to
+their number equivalent:
+Number( "42" );         // 42
+Number( "0o52" );       // 42
+Number( "0x2a" );       // 42
+Number( "0b101010" );   // 42
+Though not strictly new to ES6, it’s a little known fact that you can actually go the
+opposite direction of conversion (well, sort of):
+var a = 42;
+a.toString();           // "42" -- also `a.toString( 10 )`
+a.toString( 8 );        // "52"
+a.toString( 16 );       // "2a"
+a.toString( 2 );        // "101010"
+In fact, you can represent a number this way in any base from 2 to 36, though it’d be
+rare that you’d go outside the standard bases: 2, 8, 10, and 16.
+Unicode
+Let me just say that this section is not an exhaustive everything-you-ever-wanted-to-
+know-about-Unicode resource. I want to cover what you need to know that’s changing
+for Unicode in ES6, but we won’t go much deeper than that. Mathias Bynens (http://
+twitter.com/mathias) has written/spoken extensively and brilliantly about JS and Uni‐
+code
+(https://mathiasbynens.be/notes/javascript-unicode)
+(http://fluentconf.com/
+javascript-html-2015/public/content/2015/02/18-javascript-loves-unicode).
+The Unicode characters that range from 0x0000 to 0xFFFF contain all the standard
+printed characters (in various languages) that you’re likely to have seen or interacted
+with. This group of characters is called the Basic Multilingual Plane (BMP). The BMP
+even contains fun symbols like this cool snowman ☃ (U+2603).
+There are lots of other extended Unicode characters beyond this BMP set, which
+range up to 0x10FFFF. These symbols are often referred to as astral symbols, since
+that’s the name given to set of 16 planes (e.g., layers/groupings) of characters beyond
+the BMP. Examples of astral symbols include 𝄞 (U+1D11E) and 💩 (U+1F4A9).
+Prior to ES6, JavaScript strings could specify Unicode characters using Unicode
+escaping, such as:
+var snowman = "\u2603";
+console.log( snowman );         // "☃"
+However, the \uXXXX Unicode escaping only supports four hexadecimal characters, so
+you can only represent the BMP set of characters in this way. To represent an astral
+character using Unicode escaping prior to ES6, you need to use a surrogate pair —
+62
+|
+Chapter 2: Syntax
+www.it-ebooks.info

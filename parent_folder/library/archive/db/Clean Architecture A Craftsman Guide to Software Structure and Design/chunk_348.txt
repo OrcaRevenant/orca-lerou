@@ -1,0 +1,36 @@
+partitioning processes into, 71–72
+Reuse/Release Equivalence Principle, 105
+SRP examples, 67
+Clean architecture
+characteristics of, 201–203
+conclusion, 209
+Dependency Rule, 203–207
+frameworks tend to violate, 293
+typical scenario, 208
+using layers and boundaries, 223–226
+Clean embedded architecture
+app-titude test, 258–261
+conclusion, 273
+don’t reveal hardware details to user of HAL, 265–269
+DRY conditional compilation directives, 272
+hardware is detail, 263–264
+is testable embedded architecture, 262
+layers, 262–263
+operating system is detail, 269–271
+overview of, 255–258
+programming to interfaces and substitutability, 271–272
+target-hardware bottleneck, 261
+Cleancoders.com, 297
+Clear Communications, 364–367
+phone call, 367
+setup, 366
+Uncle Bob, 367
+Clojure, 50–51, 53–54
+Codd, Edgar, 278
+Code
+in aluminum die-cast archaeology project, 338–339
+decreasing productivity/increased cost of, 5–7
+foolishness of overconfidence, 9–12
+rising costs of development payroll, 8–9
+in SAC archaeology project, 345
+signature of messy, 7–8

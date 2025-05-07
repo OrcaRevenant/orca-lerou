@@ -1,0 +1,76 @@
+Solutions to Chapter 1 | Arrays and Strings
+We will use this approach in this problem. The algorithm employs a two-scan approach. In the first scan, we
+count the number of spaces. By tripling this number, we can compute how many extra characters we will
+have in the final string. In the second pass, which Is done in reverse order, we actually edit the string. When
+we see a space, we replace it with %20. If there is no space, then we copy the original character.
+The code below implements this algorithm.
+1
+void replaceSpaces(char[] s t r , i n t trueLength) {
+2
+i n t spaceCount = 0, index, i = 0;
+3
+for ( 1 = 0 ; i < trueLength; i++) {
+4
+i f
+< s t r [ i ]
+= = ' ' ) {
+5
+spaceCount++;
+6
+>
+7
+>
+8
+index = trueLength + spaceCount * 2;
+9
+if (trueLength < s t r . l e n g t h ) str[trueLength] = * \ 0 ' ; // End array
+19
+for (i = trueLength - 1; i >= 0; i - - ) {
+11
+if ( s t r [ i ] == '
+') {
+12
+str[index - 1] = ' 0 ' ;
+13
+strfindex - 2] = ' 2 ' ;
+14
+str[index - 3] = '%';
+15
+index = index - 3;
+16
+} else {
+17
+str[index - 1] = s t r [ i ] ;
+18
+index--;
+19
+>
+20
+}
+21
+>
+We have implemented this problem using character arrays, because Java strings are immutable, if we used
+strings directly, the function would have to return a new copy of the string, but it woufd allow us to imple-
+ment this in just one pass.
+1.4
+Palindrome Permutation: Given a string, write a function to check if it is a permutation of
+a palindrome. A palindrome is a word or phrase that is the same forwards and backwards, A
+permutation is a rearrangement of letters. The palindrome does not need to be limited to just
+dictionary words.
+EXAMPLE
+Input:
+Tact Coa
+Output:
+True (permutations: "taco c a t " " a t c o eta" etc.)
+pg91
+SOLUTION
+This is a question where it helps to figure out what it means for a string to be a permutation of a palindrome.
+This is like asking what the "defining features" of such a string would be.
+A palindrome is a string that is the same forwards and backwards. Therefore, to decide if a string is a permu-
+tation of a palindrome, we need to know if it can be written such that it's the same forwards and backwards.
+What does it take to be able to write a set of characters the same way forwards and backwards? We need to
+have an even number of almost all characters, so that half can be on one side and half can be on the other
+side. At most one character (the middle character) can have an odd count.
+For example, we know t a c t coapapa is a permutation of a palindrome because it has two Ts,four As, two
+CrackingTheCodinglnterview.com | 6th Edition
+199

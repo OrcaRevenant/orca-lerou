@@ -1,0 +1,16 @@
+A vector clock is a [server, version] pair associated with a data item. It can be used to check
+if one version precedes, succeeds, or in conflict with others.
+Assume a vector clock is represented by D([S1, v1], [S2, v2], …, [Sn, vn]), where D is a data
+item, v1 is a version counter, and s1 is a server number, etc. If data item D is written to server
+Si, the system must perform one of the following tasks.
+• Increment vi if [Si, vi] exists.
+• Otherwise, create a new entry [Si, 1].
+The above abstract logic is explained with a concrete example as shown in Figure 6-9.
+1. A client writes a data item D1 to the system, and the write is handled by server Sx,
+which now has the vector clock D1[(Sx, 1)].
+2. Another client reads the latest D1, updates it to D2, and writes it back. D2 descends
+from D1 so it overwrites D1. Assume the write is handled by the same server Sx, which
+now has vector clock D2([Sx, 2]).
+3. Another client reads the latest D2, updates it to D3, and writes it back. Assume the write
+is handled by server Sy, which now has vector clock D3([Sx, 2], [Sy, 1])).
+4. Another client reads the latest D2, updates it to D4, and writes it back. Assume the write

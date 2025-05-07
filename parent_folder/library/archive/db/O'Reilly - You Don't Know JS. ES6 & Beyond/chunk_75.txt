@@ -1,0 +1,41 @@
+Unfortunately, the full answer is not as simple or straightforward. In addition to the
+surrogate pairs (which the string iterator takes care of), there are special Unicode
+code points which behave in other special ways, which is much harder to account for.
+For example, there’s a set of code points which modify the previous adjacent charac‐
+ter, known as the Combining Diacritical Marks.
+Consider these two string outputs:
+console.log( s1 );              // "é"
+console.log( s2 );              // "é"
+They look the same, but they’re not! Here’s how we created s1 and s2:
+var s1 = "\xE9",
+s2 = "e\u0301";
+As you can probably guess, our previous length trick doesn’t work with s2:
+[...s1].length;                 // 1
+[...s2].length;                 // 2
+So what can we do? In this case, we can perform a Unicode normalization on the value
+before inquiring about its length, using the ES6 String#normalize(..) utility (which
+we’ll cover more in Chapter 6):
+var s1 = "\xE9",
+s2 = "e\u0301";
+s1.normalize().length;          // 1
+s2.normalize().length;          // 1
+s1 === s2;                      // false
+s1 === s2.normalize();          // true
+Essentially, normalize(..) takes a sequence like "e\u0301" and normalizes it to
+"\xE9". Normalization can even combine multiple adjacent combining marks if
+there’s a suitable Unicode character they combine to:
+var s1 = "o\u0302\u0300",
+s2 = s1.normalize(),
+s3 = "ồ";
+s1.length;                      // 3
+s2.length;                      // 1
+s3.length;                      // 1
+s2 === s3;                      // true
+Unfortunately, normalization isn’t fully perfect here, either. If you have multiple com‐
+bining marks modifying a single character, you may not get the length count you’d
+expect, because there may not be a single defined normalized character that repre‐
+sents the combination of all the marks. For example:
+64
+|
+Chapter 2: Syntax
+www.it-ebooks.info

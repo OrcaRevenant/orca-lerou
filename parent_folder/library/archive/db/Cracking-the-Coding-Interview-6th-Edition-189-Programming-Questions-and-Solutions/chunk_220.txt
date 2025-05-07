@@ -1,0 +1,83 @@
+Solutions to Chapter 2 | Linked Lists
+Of course, this is only a valid solution if the interviewer says it is valid
+Approach B: Use C++.
+A second way to solve this is to use C++ and to pass values by reference. This allows us to return the node
+value, but also update the counter by passing a pointer to it.
+1
+node* nthloLast(node* head, i n t k, intS i) {
+2
+if (head == NULL) {
+3
+return NULL;
+4
+>
+5
+node* nd = nthToLast(head->next, k, i ) ;
+6
+i = i + 1;
+7
+i f ( i == k) {
+8
+return head;
+9
+>
+10
+return nd;
+11
+>
+12
+13 node* nthToLast(node* head, i n t k) {
+14
+i n t i = 0;
+15
+return nthToLast(head, k, i ) ;
+16
+>
+Approach C: Create a Wrapper Class.
+We described earlier that the issue was that we couldn't simultaneously return a counter and an index. If
+we wrap the c o u n t e r value with simple class (or even a single element array), we can mimic passing by
+reference.
+1
+class Index {
+2
+public i n t value = 0;
+3
+}
+4
+5
+LinkedListNode kthToLast(LinkedListNode head, i n t k) {
+6
+Index idx = new IndexQ;
+7
+return kthToLast(head, k, i d x ) ;
+8
+>
+9
+10 LinkedListNode kthToLast(LinkedListNode head, i n t k, Index idx) {
+11
+if (head == null) {
+12
+return n u l l ;
+13
+>
+14
+LinkedListNode node = kthToLast(head.next, k, i d x ) ;
+15
+idx.value = idx.value + 1;
+16
+if (idx.value == k) {
+17
+return head;
+18
+>
+19
+return node;
+20
+)
+Each of these recursive solutions takes 0 ( n ) space due to the recursive calls.
+There are a number of other solutions that we haven't addressed. We could store the counter in a static vari-
+able. Or, we could create a class that stores both the node and the counter, and return an instance of that
+class. Regardless of which solution we pick, we need a way to update both the node and the counter in a
+way that all levels of the recursive stack will see.
+Î26
+Cracking the Coding Interview, 6th Edition

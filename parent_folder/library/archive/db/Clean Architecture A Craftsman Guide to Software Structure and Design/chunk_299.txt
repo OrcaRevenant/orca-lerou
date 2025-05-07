@@ -1,0 +1,14 @@
+one had its own individual seek arm that was driven by pneumatic actuators. You
+could watch those seek heads move across the platters. The seek time was
+probably about half a second to a second.
+When this beast was turned on, it sounded like a jet engine. The floor would
+rumble and shake until it got up to speed.3
+Figure A.2 The data storage unit with its platters
+Courtesy Ed Thelen, ed-thelen.org
+The great claim to fame of the Datanet 30 was its capability to drive a large
+number of asynchronous terminals at relatively high speed. That’s exactly what
+ASC needed.
+ASC was based in Lake Bluff, Illinois, 30 miles north of Chicago. The Local 705
+office was in downtown Chicago. The union wanted a dozen or so of their data
+entry clerks to use CRT4 terminals (Figure A.4) to enter data into the system.
+They would print reports on ASR35 teletypes (Figure A.5).

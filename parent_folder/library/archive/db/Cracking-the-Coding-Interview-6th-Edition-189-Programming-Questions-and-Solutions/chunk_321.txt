@@ -1,0 +1,80 @@
+Solutions to Chapter 7 | Object-Oriented Design
+•
+Playlist creation (includes add, delete, and shuffle)
+•
+CD selector
+•
+Song selector
+•
+Queuing up a song
+•
+Get next song from playlist
+A user also can be introduced:
+• Adding
+•
+Deleting
+•
+Credit information
+Each of the main system components translates roughly to an object, and each action translates to a
+method. Let's walk through one potential design.
+The J ukebox class represents the body of the problem. Many of the interactions between the components
+of the system, or between the system and the user, are channeled through here.
+2
+public class Jukebox {
+2
+private CDPlayer cdPlayer;
+3
+private User user;
+4
+private Set<CD> cdCollection;
+5
+private SongSelector ts;
+6
+public Jukebox(CDPlayer cdPlayer, user user, Set<CD> cdCollection,
+8
+SongSelector ts) { ... }
+9
+10
+public Song getCurrentSong() { return ts.getCurrentSong(); }
+11
+public void setUser(User u) { this.user = u; >
+12 }
+Like a real CD player, the CDPlayer class supports storing just one CD at a time. The CDs that are not in
+play are stored in the jukebox,
+1
+public class CDPlayer {
+2
+private Playlist p;
+3
+private CD c;
+4
+5
+/* Constructors. */
+6
+public CDPlayer(CD c, Playlist p) { ... }
+7
+public COPlayer(Playlist p) { this.p = p; )
+8
+public CDPlayer(CD c) { this.c = c; }
+9
+10
+/» Play song */
+11
+public void playSong(Song s) { ... >
+12
+13
+/* Getters and setters */
+14
+public Playlist getPlaylistQ { return p; }
+15
+public void setPlaylist(Playlist p) { this.p = p; )
+16
+17
+public CD getCD() { return c; )
+18
+public void setCD(CD c) { this.c = c; }
+19 >
+The P l a y l i s t manages the current and next songs to play. It is essentially a wrapper class for a queue and
+offers some additional methods for convenience.
+CrackingTheCodinglntefview.com 16th Edition
+311

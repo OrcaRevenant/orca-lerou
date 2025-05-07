@@ -1,0 +1,96 @@
+Solutions to Chapter 15 | Threads and Locks
+25
+26
+public void eat() {
+27
+pickUpO;
+28
+chew();
+29
+putDown();
+30
+>
+31
+32
+public void pickup{) {
+33
+left.pickUp();
+34
+right.picklip();
+35
+>
+36
+37
+public void chew() { }
+38
+39
+public void putOown() {
+40
+right.putDown();
+41
+left.putDownC);
+42
+>
+43
+44
+public void run() {
+45
+for (int i = 0; i < bites; i++) {
+46
+eat();
+47
+>
+48
+}
+49 >
+Running the above code may lead to a deadlock if all the philosophers have a left chopstick and are waiting
+for the right one.
+Solution #1: All or Nothing
+To prevent deadlocks, we can implement a strategy where a philosopher wili put down his left chopstick if
+he is unable to obtain the right one.
+1
+public class Chopstick {
+2
+/* same as before */
+3
+4
+public boolean picklipQ {
+5
+return lock.tryLock();
+6
+>
+7
+}
+S
+9
+public class Philosopher extends Thread {
+10
+/* same as before */
+11
+12
+public void eat{) {
+13
+if (pickUpO) {
+14
+chew();
+15
+putDown();
+16
+}
+17
+}
+18
+19
+public boolean pickUpO {
+20
+/* attempt to pick up */
+21
+if (Heft.pickUpO) {
+22
+return false;
+23
+>
+24
+if (Iright.pickUpO) {
+420
+Cracking the Coding interview, 6th Edition

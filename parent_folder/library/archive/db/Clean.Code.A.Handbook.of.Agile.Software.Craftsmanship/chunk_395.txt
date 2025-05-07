@@ -1,0 +1,66 @@
+367
+Appendix B: org.jfree.date.SerialDate
+63 /**
+64  * Some JUnit tests for the {@link SerialDate} class.
+65  */
+66 public class SerialDateTests extends TestCase {
+67
+68     /** Date representing November 9. */
+69     private SerialDate nov9Y2001;
+70
+71     /**
+72      * Creates a new test case.
+73      *
+74      * @param name  the name.
+75      */
+76     public SerialDateTests(final String name) {
+77         super(name);
+78     }
+79
+80     /**
+81      * Returns a test suite for the JUnit test runner.
+82      *
+83      * @return The test suite.
+84      */
+85     public static Test suite() {
+86         return new TestSuite(SerialDateTests.class);
+87     }
+88
+89     /**
+90      * Problem set up.
+91      */
+92     protected void setUp() {
+93         this.nov9Y2001 = SerialDate.createInstance(9, MonthConstants.NOVEMBER, 2001);
+94     }
+95
+96     /**
+97      * 9 Nov 2001 plus two months should be 9 Jan 2002.
+98      */
+99     public void testAddMonthsTo9Nov2001() {
+100         final SerialDate jan9Y2002 = SerialDate.addMonths(2, this.nov9Y2001);
+101         final SerialDate answer = SerialDate.createInstance(9, 1, 2002);
+102         assertEquals(answer, jan9Y2002);
+103     }
+104
+105     /**
+106      * A test case for a reported bug, now fixed.
+107      */
+108     public void testAddMonthsTo5Oct2003() {
+109         final SerialDate d1 = SerialDate.createInstance(5, MonthConstants.OCTOBER, 2003);
+110         final SerialDate d2 = SerialDate.addMonths(2, d1);
+111         assertEquals(d2, SerialDate.createInstance(5, MonthConstants.DECEMBER, 2003));
+112     }
+113
+114     /**
+115      * A test case for a reported bug, now fixed.
+116      */
+117     public void testAddMonthsTo1Jan2003() {
+118         final SerialDate d1 = SerialDate.createInstance(1, MonthConstants.JANUARY, 2003);
+119         final SerialDate d2 = SerialDate.addMonths(0, d1);
+120         assertEquals(d2, d1);
+121     }
+122
+123     /**
+124      * Monday preceding Friday 9 November 2001 should be 5 November.
+Listing B-2 (continued)
+SerialDateTest.java

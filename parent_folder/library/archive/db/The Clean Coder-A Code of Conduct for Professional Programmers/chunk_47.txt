@@ -1,0 +1,31 @@
+FIRST, DO NO HARM
+15
+Much has been written about the principles and patterns of software design that
+support structures that are flexible and maintainable.2 Professional software
+developers commit these things to memory and strive to conform their software
+to them. But there’s a trick to this that far too few software developers follow: If
+you want your software to be flexible, you have to flex it!
+The only way to prove that your software is easy to change is to make easy
+changes to it. And when you find that the changes aren’t as easy as you thought,
+you refine the design so that the next change is easier.
+When do you make these easy changes? All the time! Every time you look at a
+module you make small, lightweight changes to it to improve its structure.
+Every time you read through the code you adjust the structure.
+This philosophy is sometimes called merciless refactoring. I call it “the Boy Scout
+rule”: Always check in a module cleaner than when you checked it out. Always
+make some random act of kindness to the code whenever you see it.
+This is completely counter to the way most people think about software. They
+think that making a continuous series of changes to working software is
+dangerous. No! What is dangerous is allowing the software to remain static. If
+you aren’t flexing it, then when you do need to change it, you’ll find it rigid.
+Why do most developers fear to make continuous changes to their code? They
+are afraid they’ll break it! Why are they afraid they’ll break it? Because they
+don’t have tests.
+It all comes back to the tests. If you have an automated suite of tests that covers
+virtually 100% of the code, and if that suite of tests can be executed quickly on
+a whim, then you simply will not be afraid to change the code. How do you prove
+you are not afraid to change the code? You change it all the time.
+Professional developers are so certain of their code and tests that they are
+maddeningly casual about making random, opportunistic changes. They’ll
+change the name of a class, on a whim. They’ll notice a long-ish method while
+2. [PPP2001]

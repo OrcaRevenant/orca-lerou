@@ -1,0 +1,76 @@
+Introduction
+Multi-Part Algorithms: Add vs. Multiply
+42
+Amortized Time
+43
+Log N Runtimes
+44
+Recursive Runtimes
+44
+Examples and Exercises
+45
+Vlt. Technical Questions
+60
+How to Prepare
+60
+What You Need To Know
+60
+Walking Through a Problem
+62
+Optimize & Solve Technique #1: Look for BUD
+67
+Optimize & Solve Technique #2: DfY (Do It Yourself)
+69
+Optimizes Solve Technique #3: Simplify and Generalize
+71
+Optimized Solve Technique #4: Base Case and Build
+71
+Optimize & Solve Technique #5: Data Structure Brainstorm
+72
+Best Conceivable Runtime (BCR)
+72
+Handling Incorrect Answers
+76
+When You've Heard a Question Before
+76
+The "Perfect" Language for Interviews
+76
+What Good Coding Looks Like
+77
+Don't Give Up!
+81
+VIII. The Offer and Beyond
+82
+Handling Offers and Rejection
+82
+Evaluating the Offer
+83
+Negotiation
+84
+On the Job
+85
+IX.
+Interview Questions
+87
+Data Structures
+88
+Chapter 1 | Arrays and Strings
+88
+Hash Tables
+88
+ArrayList & Resizable Arrays
+89
+StringBuilder
+89
+Chapter 2 I Linked Lists
+92
+Creating a Linked List
+92
+Deleting a Node from a Singly Linked List
+93
+The "Runner" Technique
+93
+Recursive Problems
+93
+CrackingTheCodinglnterview.com 16th Edition
+V I I

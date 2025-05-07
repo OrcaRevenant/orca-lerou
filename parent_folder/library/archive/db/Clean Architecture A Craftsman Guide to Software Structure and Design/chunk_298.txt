@@ -1,0 +1,20 @@
+In the late 1960s, a company by the name of ASC Tabulating signed a contract
+with Local 705 of the Teamsters Union to provide an accounting system. The
+computer ASC chose to implement this system on was a GE Datanet 30, as
+shown in Figure A.1.
+Figure A.1 GE Datanet 30
+Courtesy Ed Thelen, ed-thelen.org
+As you can see from the picture, this was a huge1 machine. It filled a room, and
+the room needed strict environmental controls.
+This computer was built in the days before integrated circuits. It was built out of
+discrete transistors. There were even some vacuum tubes in it (albeit only in the
+sense amplifiers of the tape drives).
+By today’s standards the machine was huge, slow, small, and primitive. It had
+16K × 18 bits of core, with a cycle time of about 7 microseconds.2 It filled a big,
+environmentally controlled room. It had 7 track magnetic tape drives and a disk
+drive with a capacity of 20 megabytes or so.
+That disk was a monster. You can see it in the picture in Figure A.2—but that
+doesn’t quite give you the scale of the beast. The top of that cabinet was over my
+head. The platters were 36 inches in diameter, and 3/8 of an inch thick. One of
+the platters is pictured in Figure A.3.
+Now count the platters in that first picture. There are more than a dozen. Each

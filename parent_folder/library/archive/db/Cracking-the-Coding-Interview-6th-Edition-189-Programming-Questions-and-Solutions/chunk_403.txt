@@ -1,0 +1,30 @@
+Solutions to Chapter 9 | System Design and Scalability
+ment URLs easily,
+•
+The system has a frontend as well as an API,
+•
+The analytics for each URL can be accessed through a "stats' link on each page. It is not shown by default,
+though.
+Step 2: Make Reasonable Assumptions
+•
+The system gets heavy traffic and contains many millions of documents.
+•
+Traffic is not equally distributed across documents. Some documents get much more access than others.
+Step 3: Draw the Major Components
+We can sketch out a simpte design. Well need to keep track of URLs and the files associated with them, as
+well as analytics for how often the files have been accessed.
+How should we store the documents? We have two options: we can store them in a database or we can
+store them on a file. Since the documents can be large and it's unlikely we need searching capabilities,
+storing them on a file is probably the better choice.
+A simple design like this might work well:
+Here, we have a simple database that looks up the location {server and path) of each file. When we have a
+request for a URL, we look up the location of the URL within the datastoreand then access the file.
+Additionally, we will need a database that tracks analytics. We can do this with a simple datastore that adds
+each visit {including timestamp, IP address, and location) as a row in a database. When we need to access
+the stats of each visit, we pull the relevant data in from this database.
+Step 4: identify the Key Issues
+The first issue that comes to mind is that some documents will be accessed much more frequently than
+others. Reading data from the filesystem is relatively slow compared with reading from data in memory.
+Therefore, we probably want to use a cache to store the most recently accessed documents.This will ensure
+CrackingTheCodinginterview.com | 6th Edition
+Î75

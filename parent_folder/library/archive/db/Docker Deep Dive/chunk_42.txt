@@ -1,0 +1,40 @@
+PS C:\> ps
+Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
+-------  ------    -----      -----     ------     --  -- -----------
+0       5      964       1292       0.00   4716   4 CExecSvc
+0       5      592        956       0.00   4524   4 csrss
+0       0        0          4                 0   0 Idle
+0      18     3984       8624       0.13    700   4 lsass
+0      52    26624      19400       1.64   2100   4 powershell
+0      38    28324      49616       1.69   4464   4 powershell
+0       8     1488       3032       0.06   2488   4 services
+0       2      288        504       0.00   4508   0 smss
+0       8     1600       3004       0.03    908   4 svchost
+0      12     1492       3504       0.06   4572   4 svchost
+0      15    20284      23428       5.64   4628   4 svchost
+0      15     3704       7536       0.09   4688   4 svchost
+0      28     5708       6588       0.45   4712   4 svchost
+0      10     2028       4736       0.03   4840   4 svchost
+0      11     5364       4824       0.08   4928   4 svchost
+0       0      128        136      37.02      4   0 System
+0       7      920       1832       0.02   3752   4 wininit
+0       8     5472      11124       0.77   5568   4 WmiPrvSE
+Inside the Linux container there are only two processes running:
+PID 1. This is the /bin/bash process that we told the container to run with
+the docker container run command.
+PID 9. This is the ps -elf command/process that we ran to list the running
+processes.
+The presence of the ps -elf process in the Linux output above could be a bit
+misleading as it is a short-lived process that dies as soon as the ps command
+exits. This means that the only long-running process inside of the container is the
+/bin/bash process.
+The Windows container has a lot more internal processes running. This is an
+artefact of the way the Windows Operating System works. Although the
+Windows container has a lot more processes than the Linux container, it is still a
+lot less than a regular Windows Server.
+Press Ctrl-PQ to exit the container without terminating it. This will land you
+back in the shell of your Docker host. You can verify this by looking at your
+shell prompt.
+Now that you are back at the shell prompt of your Docker host, run the ps
+command again.
+Linux example:

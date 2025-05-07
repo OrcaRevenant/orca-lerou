@@ -1,0 +1,32 @@
+198
+For the FitNesse project I have every developer run the continuous-build script
+before they commit. The build takes less than 5 minutes, so this is not onerous.
+If there are problems, the developers resolve them before the commit. So the
+automatic build seldom has any problems. The most common source of automatic
+build failures turns out to be environment-related issues since my automatic
+build environment is quite different from the developer’s development
+environments.
+U N IT TE STI N G TOO L S
+Each language has it’s own particular unit testing tool. My favorites are JUnit
+for Java, rspec for Ruby, NUnit for .Net, Midje for Clojure, and CppUTest for C
+and C++.
+Whatever unit testing tool you choose, there are a few basic features they all
+should support.
+1. It should be quick and easy to run the tests. Whether this is done through
+IDE plugins or simple command line tools is irrelevant, as long as developers
+can run those tests on a whim. The gesture to run the tests should be trivial.
+For example, I run my CppUTest tests by typing command-M in TextMate.
+I have this command set up to run my makefile which automatically runs the
+tests and prints a one-line report if all tests pass. JUnit and rspec are both
+supported by IntelliJ, so all I have to do is push a button. For NUnit, I use
+the Resharper plugin to give me the test button.
+2. The tool should give you a clear visual pass/fail indication. It doesn’t matter if
+this is a graphical green bar or a console message that says “All Tests Pass.” The
+point is that you must be able to tell that all tests passed quickly and unam-
+biguously. If you have to read a multiline report, or worse, compare the
+output of two files to tell whether the tests passed, then you have failed this
+point.
+3. The tool should give you a clear visual indication of progress. It doesn’t matter
+whether this is a graphical meter or a string of dots as long as you can tell that
+progress is still being made and that the tests have not stalled or aborted.
+APPENDIX A TOOLING

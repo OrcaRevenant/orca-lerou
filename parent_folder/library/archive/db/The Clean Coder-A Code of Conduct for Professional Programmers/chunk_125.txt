@@ -1,0 +1,30 @@
+BROADENING YOUR EXPERIENCE
+93
+It is remarkable how much you can learn from these sessions. You can gain an
+immense insight into the way other people solve problems. These insights can
+only serve to broaden your own approach and improve your skill.
+B ROA D E N I N G YO U R E XPE R I E N C E
+Professional programmers often suffer from a lack of diversity in the kinds
+of problems that they solve. Employers often enforce a single language, platform,
+and domain in which their programmers must work. Without a broadening
+influence, this can lead to a very unhealthy narrowing of your resume and your
+mindset. It is not uncommon for such programmers to find themselves unprepared
+for the changes that periodically sweep the industry.
+O PE N S O U RC E
+One way to stay ahead of the curve is to do what lawyers and doctors do: Take on
+some pro-bono work by contributing to an open-source project. There are lots of
+them out there, and there is probably no better way to increase your repertoire of
+skills than to actually work on something that someone else cares about.
+So if you are a Java programmer, contribute to a Rails project. If you write a lot
+of C++ for your employer, find a Python project and contribute to it.
+PR ACTI C E ETH I C S
+Professional programmers practice on their own time. It is not your employer’s
+job to help you keep your skills sharp for you. It is not your employer’s job to
+help you keep your resume tuned. Patients do not pay doctors to practice sutures.
+Football fans do not (usually) pay to see players run through tires. Concert-goers
+do not pay to hear musicians play scales. And employers of programmers don’t
+have to pay you for your practice time.
+Since your practice time is your own time, you don’t have to use the same languages
+or platforms that you use with your employer. Pick any language you like and
+keep your polyglot skills sharp. If you work in a .NET shop, practice a little Java
+or Ruby at lunch, or at home.

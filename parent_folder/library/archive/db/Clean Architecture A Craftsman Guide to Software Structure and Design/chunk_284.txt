@@ -1,0 +1,36 @@
+and CRP and most of the advice in this book, I come to a slightly different
+conclusion about how to organize code. So I’m going to present another option
+here, which I call “package by component.” To give you some background, I’ve
+spent most of my career building enterprise software, primarily in Java, across a
+number of different business domains. Those software systems have varied
+immensely, too. A large number have been web-based, but others have been
+client–server4, distributed, message-based, or something else. Although the
+technologies differed, the common theme was that the architecture for most of
+these software systems was based on a traditional layered architecture.
+I’ve already mentioned a couple of reasons why layered architectures should be
+considered bad, but that’s not the whole story. The purpose of a layered
+architecture is to separate code that has the same sort of function. Web stuff is
+separated from business logic, which is in turn separated from data access. As
+we saw from the UML class diagram, from an implementation perspective, a
+layer typically equates to a Java package. From a code accessibility perspective,
+for the OrdersController to be able to have a dependency on the
+OrdersService interface, the OrdersService interface needs to be marked as
+public, because they are in different packages. Likewise, the OrdersRepository
+interface needs to be marked as public so that it can be seen outside of the
+repository package, by the OrdersServiceImpl class.
+In a strict layered architecture, the dependency arrows should always point
+downward, with layers depending only on the next adjacent lower layer. This
+comes back to creating a nice, clean, acyclic dependency graph, which is
+achieved by introducing some rules about how elements in a code base should
+depend on each other. The big problem here is that we can cheat by introducing
+some undesirable dependencies, yet still create a nice, acyclic dependency graph.
+Suppose that you hire someone new who joins your team, and you give the
+newcomer another orders-related use case to implement. Since the person is
+new, he wants to make a big impression and get this use case implemented as
+quickly as possible. After sitting down with a cup of coffee for a few minutes,
+the newcomer discovers an existing OrdersController class, so he decides
+that’s where the code for the new orders-related web page should go. But it
+needs some orders data from the database. The newcomer has an epiphany:
+“Oh, there’s an OrdersRepository interface already built, too. I can simply
+dependency-inject the implementation into my controller. Perfect!” After a few
+more minutes of hacking, the web page is working. But the resulting UML

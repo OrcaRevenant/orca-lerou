@@ -1,0 +1,67 @@
+376
+Appendix B: org.jfree.date.SerialDate
+128     assertEquals("Nov", monthCodeToString(NOVEMBER, true));
+129     assertEquals("Dec", monthCodeToString(DECEMBER, true));
+130
+131     try {
+132       monthCodeToString(-1);
+133       fail("Invalid month code should throw exception");
+134     } catch (IllegalArgumentException e) {
+135     }
+136
+137   }
+138
+139   public void testStringToMonthCode() throws Exception {
+140     assertEquals(JANUARY,stringToMonthCode("1"));
+141     assertEquals(FEBRUARY,stringToMonthCode("2"));
+142     assertEquals(MARCH,stringToMonthCode("3"));
+143     assertEquals(APRIL,stringToMonthCode("4"));
+144     assertEquals(MAY,stringToMonthCode("5"));
+145     assertEquals(JUNE,stringToMonthCode("6"));
+146     assertEquals(JULY,stringToMonthCode("7"));
+147     assertEquals(AUGUST,stringToMonthCode("8"));
+148     assertEquals(SEPTEMBER,stringToMonthCode("9"));
+149     assertEquals(OCTOBER,stringToMonthCode("10"));
+150     assertEquals(NOVEMBER, stringToMonthCode("11"));
+151     assertEquals(DECEMBER,stringToMonthCode("12"));
+152
+153 //todo    assertEquals(-1, stringToMonthCode("0"));
+154 //    assertEquals(-1, stringToMonthCode("13"));
+155
+156     assertEquals(-1,stringToMonthCode("Hello"));
+157
+158     for (int m = 1; m <= 12; m++) {
+159       assertEquals(m, stringToMonthCode(monthCodeToString(m, false)));
+160       assertEquals(m, stringToMonthCode(monthCodeToString(m, true)));
+161     }
+162
+163 //    assertEquals(1,stringToMonthCode("jan"));
+164 //    assertEquals(2,stringToMonthCode("feb"));
+165 //    assertEquals(3,stringToMonthCode("mar"));
+166 //    assertEquals(4,stringToMonthCode("apr"));
+167 //    assertEquals(5,stringToMonthCode("may"));
+168 //    assertEquals(6,stringToMonthCode("jun"));
+169 //    assertEquals(7,stringToMonthCode("jul"));
+170 //    assertEquals(8,stringToMonthCode("aug"));
+171 //    assertEquals(9,stringToMonthCode("sep"));
+172 //    assertEquals(10,stringToMonthCode("oct"));
+173 //    assertEquals(11,stringToMonthCode("nov"));
+174 //    assertEquals(12,stringToMonthCode("dec"));
+175
+176 //    assertEquals(1,stringToMonthCode("JAN"));
+177 //    assertEquals(2,stringToMonthCode("FEB"));
+178 //    assertEquals(3,stringToMonthCode("MAR"));
+179 //    assertEquals(4,stringToMonthCode("APR"));
+180 //    assertEquals(5,stringToMonthCode("MAY"));
+181 //    assertEquals(6,stringToMonthCode("JUN"));
+182 //    assertEquals(7,stringToMonthCode("JUL"));
+183 //    assertEquals(8,stringToMonthCode("AUG"));
+184 //    assertEquals(9,stringToMonthCode("SEP"));
+185 //    assertEquals(10,stringToMonthCode("OCT"));
+186 //    assertEquals(11,stringToMonthCode("NOV"));
+187 //    assertEquals(12,stringToMonthCode("DEC"));
+188
+189 //    assertEquals(1,stringToMonthCode("january"));
+190 //    assertEquals(2,stringToMonthCode("february"));
+Listing B-4 (continued)
+BobsSerialDateTest.java

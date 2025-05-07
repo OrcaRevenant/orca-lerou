@@ -1,0 +1,36 @@
+function calls, 240
+OO approach for cross-cutting concerns, 244–245
+Component cohesion
+Common Closure Principle, 105–107
+Common Reuse Principle, 107–108
+conclusion, 110
+overview of, 104
+Reuse/Release Equivalence Principle, 104–105
+tension diagram, 108–110
+Component coupling
+ADP. See ADP (Acyclic Dependencies Principle)
+conclusion, 132
+Fragile Tests Problem, 251
+overview of, 111
+Stable Abstractions Principle. See SAP (Stable Abstractions Principle)
+Stable Dependencies Principle, 120–126
+top-down design, 118–119
+Component dependency graph
+break cycle of components/reinstate as DAG, 117–118
+effect of cycle in, 115–117
+Component-per-team architecture, 137–138
+Components
+concrete, 91
+deployment of, 178–179
+history of, 96–99
+linkers, 100–102
+overview of, 96
+package by, 313–315
+partitioning processes into classes/separating classes into, 71–72
+principles, 93
+relocatability, 99–100
+tests as system, 250
+Computer Aided Software Engineering (CASE) tool, 368
+Concrete components, Dependency Inversion Principle, 91
+Concurrent tasks, BOSS archaeology project, 351–352
+Concurrent updates, 52–53

@@ -1,0 +1,78 @@
+Solutions to Chapter 15 j Threads and Locks
+128
+>
+129
+return false;
+130
+>
+131
+132
+public Lock getLock() {
+133
+if (lock == n u l l ) lock = new ReentrantLockO;
+134
+return lock;
+135
+}
+136
+137
+public i n t getld() { return lockld; }
+138 }
+As always, when you see code this complicated and lengthy, you wouldn't be expected to write all of it.
+More likely, you would be asked to sketch out pseudocode and possibly implement one of these methods.
+15.5
+Call In Order: Suppose we have the following code:
+public class Foo {
+public Foo() { ... }
+public void first() { ... }
+public void second() {
+>
+public void t h l r d ( ) { . . . >
+>
+The same instance of Foo will be passed to three different threads. ThreadAwillcall first, tfireadB
+will call second, and threadC will call third. Design a mechanism to ensure that f i r s t is called
+before second and second is called before t h i r d .
+pg 180
+SOLUTION
+The general logic is to check if f i r s t ( ) has completed before executing second(), and if second()
+has completed before calling t h i r d ( ) . Because we need to be very careful about thread safety, simple
+boolean flags won't do the job.
+What about using a l o c k to do something like the below code?
+1
+public class FooBad {
+2
+public i n t pauseTitrte = 1000;
+public Reentrantiock l o c k l , lock2;
+4
+5
+public FooBadO {
+6
+try {
+7
+l o c k l = new ReentrantLockO;
+8
+lock2 = new ReentrantLockO;
+9
+10
+l o c k l . l o c k ( ) ;
+11
+lock2.1ock();
+12
+} catch ( . . . ) { . . . >
+13
+>
+14
+15
+public void f i r s t ( ) {
+16
+t r y
+I
+17
+18
+l o c k l , u n l o c k ( ) ; II mark finished with f i r s t ( )
+19
+> catch ( . . . ) { . . . >
+20
+>
+4S6
+Cracking theCoding Interview,6th Edition

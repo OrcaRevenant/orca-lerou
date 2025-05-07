@@ -1,0 +1,19 @@
+Figure 25.4 Simplified diagram
+Notice that the diagram is oriented in Figure 25.4 so that all the arrows point up.
+This puts GameRules at the top. This orientation makes sense because GameRules
+is the component that contains the highest-level policies.
+Consider the direction of information flow. All input comes from the user
+through the TextDelivery component at the bottom left. That information rises
+through the Language component, getting translated into commands to
+GameRules. GameRules processes the user input and sends appropriate data down
+to DataStorage at the lower right.
+GameRules then sends output back down to Language, which translates the API
+back to the appropriate language and then delivers that language to the user
+through TextDelivery.
+This organization effectively divides the flow of data into two streams.2 The
+stream on the left is concerned with communicating with the user, and the stream
+on the right is concerned with data persistence. Both streams meet at the top3 at
+GameRules, which is the ultimate processor of the data that goes through both
+streams.
+CROSSING THE STREAMS
+Are there always two data streams as in this example? No, not at all. Imagine

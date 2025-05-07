@@ -1,0 +1,14 @@
+Figure 34.8 Grayed-out types are where the access modifier can be made more restrictive
+Finally, in the “package by component” approach, the OrdersComponent
+interface has an inbound dependency from the controller, but everything else can
+be made package protected. The fewer public types you have, the smaller the
+number of potential dependencies. There’s now no way9 that code outside this
+package can use the OrdersRepository interface or implementation directly, so
+we can rely on the compiler to enforce this architectural principle. You can do
+the same thing in .NET with the internal keyword, although you would need to
+create a separate assembly for every component.
+Just to be absolutely clear, what I’ve described here relates to a monolithic
+application, where all of the code resides in a single source code tree. If you are
+building such an application (and many people are), I would certainly encourage
+you to lean on the compiler to enforce your architectural principles, rather than
+relying on self-discipline and post-compilation tooling.

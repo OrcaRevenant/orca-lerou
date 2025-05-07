@@ -1,0 +1,34 @@
+Behind the Scenes
+Most companies conduct their interviews in very simitar ways. We will offer an overview of how companies
+interview and what they're looking for. This information should guide your interview preparation and your
+reactions during and after the Interview.
+Once you are selected for an interview, you usually go through a screening interview. This is typically
+conducted over the phone. College candidates who attend top schools may have these interviews in-person.
+Don't let the name fool you; the "screening" interview often involves coding and algorithms questions, and
+the bar can be just as high as it is for in-person interviews. If you're unsure whether or not the interview will
+be technical, ask your recruiting coordinator what position your interviewer holds (or what the interview
+might cover). An engineer will usually perform a technical interview.
+Many companies have taken advantage of online synchronized document editors, but others will expect
+you to write code on paper and read it back over the phone. Some interviewers may even give you "home-
+work" to solve after you hang up the phone or just ask you to email them the code you wrote.
+You typically do one or two screening interviewers before being brought on-site.
+In an on-site interview round, you usually have 3 to 6 in-person interviews. One of these is often over lunch.
+The lunch interview is usually not technical, and the interviewer may not even submit feedback. This is a
+good person to discuss your interests with and to ask about the company culture. Your other interviews wilt
+be mostly technical and will involve a combination of coding, algorithm, design/architecture, and behav-
+ioral/experience questions.
+The distribution of questions between the above topics varies between companies and even teams due to
+company priorities, size, and just pure randomness, interviewers are often given a good deal of freedom in
+their interview questions.
+After your interview, your interviewers will provide feedback in some form, tn some companies, your inter-
+viewers meet together to discuss your performance and come to a decision. In other companies, inter-
+viewers submit a recommendation to a hiring manager or hiring committee to make a final decision. In
+some companies, interviewers don't even make the decision; their feedback goes to a hiring committee to
+make a decision.
+Most companies get back after about a week with next steps (offer, rejection, further interviews, or just an
+update on the process). Some companies respond much sooner (sometimes same day!) and others take
+much longer.
+If you have waited more than a week, you should follow up with your recruiter. If your recruiter does not
+respond, this does not mean that you are rejected (at least not at any major tech company, and almost any
+26
+Cracking the Coding Interview, 6th Edition

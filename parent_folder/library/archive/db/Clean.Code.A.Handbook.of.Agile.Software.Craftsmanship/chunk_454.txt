@@ -1,0 +1,86 @@
+427
+Index
+reuse, 174
+risk of change, reducing, 147
+robust clear code, writing, 112
+rough drafts, writing, 200
+runnable interface, 326
+run-on expressions, 295
+run-on journal entries, 63–64
+runtime logic, separating startup from, 154
+S
+safety mechanisms, overridden, 289
+scaling up, 157–161
+scary noise, 66
+schema, of a class, 194
+schools of thought, about clean code,
+12–13
+scissors rule, in C++, 81
+scope(s)
+defined by exceptions, 105
+dummy, 90
+envying, 293
+expanding and indenting, 89
+hierarchy in a source file, 88
+limiting for data, 181
+names related to the length of,
+22–23, 312
+of shared variables, 333
+searchable names, 22–23
+Second Law, of TDD, 122
+sections, within functions, 36
+selector arguments, avoiding, 294–295
+self validating tests, 132
+Semaphore class, 183
+semicolon, making visible, 90
+“serial number”, SerialDate using, 271
+SerialDate class
+making it right, 270–284
+naming of, 270–271
+refactoring, 267–284
+SerialDateTests class, 268
+serialization, 272
+server, threads created by, 319–321
+server application, 317–318, 343–344
+server code, responsibilities of, 319
+server-based locking, 329
+as preferred, 332–333
+with synchronized methods, 185
+“Servlet” model, of Web applications, 178
+Servlets, synchronization problems, 182
+set functions, moving into appropriate
+derivatives, 232, 233–235
+setArgument, changing, 232–233
+setBoolean function, 217
+setter methods, injecting dependencies,
+157
+setup strategy, 155
+SetupTeardownIncluder.java listing,
+50–52
+shape classes, 95–96
+shared data, limiting access, 181
+shared variables
+method updating, 328
+reducing the scope of, 333
+shotgun approach, hand-coded instrumen-
+tation as, 189
+shut-down code, 186
+shutdowns, graceful, 186
+side effects
+having none, 44
+names describing, 313
+Simmons, Robert, 276
+simple code, 10, 12
+Simple Design, rules of, 171–176
+simplicity, of code, 18, 19
+single assert rule, 130–131
+single concepts, in each test function,
+131–132
+Single Responsibility Principle (SRP), 15,
+138–140
+applying, 321
+breaking, 155
+as a concurrency defense principle,
+181
+recognizing violations of, 174
+server violating, 320

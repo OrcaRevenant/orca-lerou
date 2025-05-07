@@ -1,0 +1,88 @@
+Solutions to Chapter 2 | Linked Lists
+23
+return sum.sum;
+24
+> else {
+25
+LinkedListNode result = insertBefore(sum.sum, sum.carry);
+26
+return r e s u l t ;
+27
+>
+28
+}
+29
+36
+Partialsum addListsHelper(LinkedListNode 11, LinkedListNode 12) {
+31
+if (11 == n u l l S8 12 == n u l l ) {
+32
+PartialSum sum = new PartialSumQ;
+33
+return sum;
+34
+}
+35
+/* Add smaller d i g i t s recursively */
+36
+PartialSum sum = addListsHelper(Il.next, 12.next);
+37
+38
+/* Add carry to current data */
+39
+i n t val = sum.carry + 11.data + 12.data;
+40
+41
+/* Insert sum of current d i g i t s */
+42
+LinkedListNode f u l l _ r e s u l t = insertBefore(sum.sum, val % 10);
+43
+44
+/* Return sum so f a r , and the carry value */
+45
+sum.sum = f u l l _ r e s u l t ;
+46
+sum.carry = val / 10;
+47
+return sura;
+48
+)
+49
+50 /* Pad the l i s t with zeros */
+51 LinkedListNode padList(LinkedlistNode lj i n t padding) {
+52
+LinkedListNode head = 1;
+53
+f o r ( i n t i = 0; i < padding; i++) {
+54
+head = insertBefore(head, 6);
+55
+>
+56
+return head;
+57 >
+58
+59 /* Helper function to insert node in the f r o n t of a linked l i s t */
+60 LinkedListNode insertBefore(LinkedListNode l i s t , i n t data) {
+61
+LinkedListNode node = new LinkedListNode(data);
+62
+if ( l i s t != n u l l ) {
+63
+node.next = l i s t ;
+64
+>
+65
+return node;
+66
+}
+Note how we have pulled i n s e r t Before ( ) , pad L i s t ( ) , and l e n g t h { ) (not listed) into their own
+methods. This makes the code cleaner and easier to read—a wise thing to do in your interviews!
+2.6
+Palindrome: Implement a function to check if a linked list is a palindrome,
+pg9S
+SOLUTION
+To approach this problem, we can picture a palindrome like 0 -> 1 -> 2 -> 1 -> 0. We know that,
+since it's a palindrome, the list must be the same backwards and forwards. This leads us to our first solution.
+Î26
+Cracking the Coding Interview, 6th Edition

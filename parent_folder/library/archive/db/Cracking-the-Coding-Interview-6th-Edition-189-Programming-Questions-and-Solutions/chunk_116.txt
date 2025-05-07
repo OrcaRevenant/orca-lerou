@@ -1,0 +1,49 @@
+Chapter 4 | Trees and Graphs
+one-way street, undirected edges are like a two-way street.
+•
+The graph might consist of multiple isolated subgraphs. If there is a path between every pair of vertices,
+it is called a "connected graph."
+•
+The graph can also have cycles (or not). An "acyclic graph" is one without cycles.
+Visually, you could draw a graph like this:
+Adjacency List
+This is the most common way to represent a graph. Every vertex (or node] stores a list of adjacent vertices.
+In an undirected graph, an edge like ( a , b) would be stored twice: once in a's adjacent vertices and once
+in b s adjacent vertices.
+A simple class definition for a graph node could look essentially the same as a tree node.
+1
+class Graph {
+2
+public Node[] nodes;
+3
+>
+4
+5
+class Node {
+6
+public String name;
+7
+public Node[] c h i l d r e n ;
+a
+>
+The Graph class is used because, unlike in a tree, you can't necessarily reach all the nodes from a single node.
+You don't necessarily need any additional classes to represent a graph. An array (or a hash table) of lists
+(arrays, array lists, linked lists, etc.) can store the adjacency list. The graph above could be represented as:
+6: 1
+1: 2
+2:
+3
+3: 2
+4: 6
+5: 4
+6: S
+This is a bit more compact, but it isn't quite as clean. We tend to use node classes unless there's a compelling
+reason not to.
+Adjacency Matrices
+An adjacency matrix is an NxN boolean matrix (where N is the number of nodes), where a t r u e value at
+m a t r i x [ i ] [ j ] indicates an edge from node i to node j. (You can also use an integer matrix with Os and
+1s.)
+In an undirected graph, an adjacency matrix will be symmetric. In a directed graph, it will not (necessarily)
+be.
+102
+Cracking the Coding Interview, 6th Edition

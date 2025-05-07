@@ -1,0 +1,36 @@
+THE COST OF SAYING YES
+39
+hasn’t seen the app, but he thinks this would be a great idea! We also want a reporting
+system to get those emails from the server. One that’s nice and not too expensive.
+(Wait, that last part was Monty Python.) Speaking of coupons, they need to be able to
+expire after a number of days we specify. Oh, and …”
+Let’s step back. What do we know about what good code is? Good code should be
+extendable. Maintainable. It should lend itself to modification. It should read like prose.
+Well, this wasn’t good code.
+Another thing. If you want to be a better developer, you must always keep this inevitably in
+mind: The client will always extend the deadline. They will always want more features. They
+will always want change—LATE. And here’s the formula for what to expect:
+(# of Executives)2
++ 2 * # of New Executives
++ # of Bob’s Kids
+= DAYS ADDED AT LAST MINUTE
+Now, executives are decent people. I think. They provide for their family (assuming Satan has
+approved of their having one). They want the app to succeed (promotion time!). The
+problem is that they all want a direct claim to the project’s success. When all is said and done,
+they all want to point at some feature or design decision they can each call their very own.
+So, back to the story, we added a couple more days to the project and got the email feature
+done. And then I collapsed from exhaustion.
+The Clients Never Care as Much as You Do
+The clients, despite their protestations, despite their apparent urgency, never care as much as
+you do about the app being on time. The afternoon that I dubbed the app completed, I sent
+an email with the final build to all the stakeholders, Executives (hiss!), managers, and so on.
+“IT IS DONE! I BRING YOU V1.0! PRAISE THY NAME.” I hit Send, lay back in my chair,
+and with a smug grin began to fantasize how the company would run me up onto their
+shoulders and lead a procession down 42nd Street while I was crowned “Greatest Developer
+Ev-ar.” At the very least, my face would be on all their advertising, right?
+Funny, they didn’t seem to agree. In fact, I wasn’t sure what they thought. I heard nothing. Not a
+peep. Turns out, the folks at Gorilla Mart were eager to and had already moved on to the next thing.
+You think I lie? Check this out. I pushed to the Apple store without filling in an app
+description. I had requested one from Gorilla Mart, and they hadn’t gotten back to me and
+there was no time to wait. (See previous paragraph.) I wrote them again. And again. I got
+Continues

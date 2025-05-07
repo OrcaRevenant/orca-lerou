@@ -1,0 +1,148 @@
+XI, Advanced Topics
+Observe that 6 is path_weight [ e ] (which is 2) + the weight of the edge (e, h) (which is 4).
+3. The next smallest node is c, which has path_weight 3. Its adjacent nodes are b and d. The value of
+p a t h _ w e i g h t [ d ] is infinity, so weupdateitto4 (which is p a t h _ w e i g h t [ c ] + weight(edge c,
+d). The value of path_weight [ b] has been previously set to 5. However, since path_weight [ c ]
++ weight (edge c,
+b) (which is 3 + 1 = 4) is less than 5, we update path_weight [ b ] to 4 and
+previous to c.This indicates that we would improve the path from a to b by going through c.
+We continue doing this until remaining is empty. The following diagram shows the changes to the pat h_
+weight (left) and previous (right) at each step. The topmost row shows the current value for n (the node
+we are removing from remaining). We black out a row after it has been removed from remaining.
+INITIAL
+n = a
+n = e
+n =c
+n = b
+n = d
+n = h
+n = g
+n = f
+FINAL
+wt j pr
+Wt ! pr
+wt
+t Pr
+i
+wt , pr
+]
+wt t pr
+i
+wt ( pr
+1
+wt t pr
+wt t pr
+!
+w t , pr
+!
+wt t pr
+a
+0
+' f l u , . ' * "
+0 ' -
+b
+oo
+5 , a
+D
+B
+removed
+4 , c
+c
+oo
+1
+3
+a
+removed
+3
+a
+d
+oo
+I
+M
+l
+l
+f
+l
+H
+I
+removed
+4
+c
+e
+oo
+- EC •
+l-TIOVrd
+2 [ a
+f
+oo
+H
+M
+I
+M
+B
+E
+M
+removed
+7
+h
+g
+oo
+M
+l
+m a ' M M .
+r&naved
+6
+d
+h
+oo
+6
+i
+l
+e
+1
+1
+5
+d
+removed
+5
+d
+i
+oo
+Oo
+9
+1
+, e
+i
+i
+1
+1
+1
+i
+i
+8 , g
+8 i 9
+Once we're done, we can follow this chart backwards, starting at i to find the actual path. In this case, the
+smallest weight path has weight Sand is a -> c -> d -> g -> i.
+Priority Queue and Runtime
+As mentioned earlier, our algorithm used a priority queue, but this data structure can be implemented in
+different ways.
+The runtime of this algorithm depends heavily on the implementation of the priority queue. Assume you
+have v vertices and e nodes.
+•
+If you implemented the priority queue with an array, then you would call remove_min up to v times.
+Each operation would take 0 ( v ) time, so you'd spend 0(v 2) time in the removejnin calls. Addition-
+ally, you would update the values of path_weight and previous at most once per edge, so that's
+0(e) time doing those updates. Observe that e must be less than of equal to v! since you can't have
+more edges than there are pairs of vertices. Therefore, the total runtime isO(v2).
+•
+If you implemented the priority queue with a min heap, then the remove_min calls will each take
+0 ( l o g v) time (as will inserting and updating a key). We will do one remove_min call for each vertex,
+so that's 0(v l o g v) (v vertices at 0 ( l o g v) time each). Additionally, on each edge, we might call
+one update key or insert operation, so that'sO(e l o g v).The total runtimeis 0( (v + e) log v).
+Which one is better? Well, that depends. If the graph has a lot of edges, then m7 will be close to e. In this
+case, you might be better off with the array implementation, as 0(v J) is better than 0( (v + v 1)
+l o g
+v). However, if the graph is sparse, then e is much less than v!. In this case, the min heap implementation
+may be better.
+CrackingTheCodinginterview.com | 6th Edition
+639

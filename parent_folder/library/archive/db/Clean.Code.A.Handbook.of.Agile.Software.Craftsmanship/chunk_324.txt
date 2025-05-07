@@ -1,0 +1,44 @@
+294
+Chapter 17: Smells and Heuristics
+All else being equal, we want to eliminate Feature Envy because it exposes the internals
+of one class to another. Sometimes, however, Feature Envy is a necessary evil. Consider the
+following:
+public class HourlyEmployeeReport {
+private HourlyEmployee employee ;
+public HourlyEmployeeReport(HourlyEmployee e) {
+this.employee = e;
+}
+String reportHours() {
+return String.format(
+"Name: %s\tHours:%d.%1d\n",
+employee.getName(),
+employee.getTenthsWorked()/10,
+employee.getTenthsWorked()%10);
+}
+}
+Clearly, the reportHours method envies the HourlyEmployee class. On the other hand, we
+don’t want HourlyEmployee to have to know about the format of the report. Moving that for-
+mat string into the HourlyEmployee class would violate several principles of object oriented
+design.7 It would couple HourlyEmployee to the format of the report, exposing it to changes
+in that format.
+G15: Selector Arguments
+There is hardly anything more abominable than a dangling false argument at the end of a
+function call. What does it mean? What would it change if it were true? Not only is the
+purpose of a selector argument difﬁcult to remember, each selector argument combines
+many functions into one. Selector arguments are just a lazy way to avoid splitting a large
+function into several smaller functions. Consider:
+public int calculateWeeklyPay(boolean overtime) {
+int tenthRate = getTenthRate();
+int tenthsWorked = getTenthsWorked();
+int straightTime = Math.min(400, tenthsWorked);
+int overTime = Math.max(0, tenthsWorked - straightTime);
+int straightPay = straightTime * tenthRate;
+double overtimeRate = overtime ? 1.5 : 1.0 * tenthRate;
+int overtimePay = (int)Math.round(overTime*overtimeRate);
+return straightPay + overtimePay;
+}
+You call this function with a true if overtime is paid as time and a half, and with a
+false if overtime is paid as straight time. It’s bad enough that you must remember what
+calculateWeeklyPay(false) means whenever you happen to stumble across it. But the
+7.
+Speciﬁcally, the Single Responsibility Principle, the Open Closed Principle, and the Common Closure Principle. See [PPP].

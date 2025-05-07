@@ -1,0 +1,31 @@
+ESTIMATING TASKS
+145
+The original approach outlined by Boehm involved several meetings and
+documents that involve too much ceremony and overhead for my tastes. I prefer
+simple low-overhead approaches such as the following.
+Flying Fingers
+Everybody sits around a table. Tasks are discussed one at a time. For each task
+there is discussion about what the task involves, what might confound or
+complicate it, and how it might be implemented. Then the participants put
+their hands below the table and raise 0 to 5 fingers based on how long they
+think the task will take. The moderator counts 1-2-3, and all the participants
+show their hands at once.
+If everyone agrees, then they go on to the next task. Otherwise they continue
+the discussion to determine why they disagree. They repeat this until they agree.
+Agreement does not need to be absolute. As long as the estimates are close, it’s
+good enough. So, for example, a smattering of 3s and 4s is agreement. However
+if everyone holds up 4 fingers except for one person who holds up 1 finger, then
+they have something to talk about.
+The scale of the estimate is decided on at the beginning of the meeting. It might
+be the number of days for a task, or it might be some more interesting scale
+such as “fingers times three” or “fingers squared.”
+The simultaneity of displaying the fingers is important. We don’t want people
+changing their estimates based on what they see other people do.
+Planning Poker
+In 2002 James Grenning wrote a delightful paper6 describing “Planning Poker.”
+This variation of wideband delphi has become so popular that several different
+companies have used the idea to make marketing giveaways in the form of
+planning poker card decks.7 There is even a web site named planningpoker.com
+that you can use to do planning poker on the Net with distributed teams.
+6. [Grenning2002]
+7. http://store.mountaingoatsoftware.com/products/planning-poker-cards

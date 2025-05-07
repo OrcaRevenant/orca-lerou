@@ -1,0 +1,43 @@
+11
+The Total Cost of Owning a Mess
+beyond names, however. I also look at whether an object or method is doing more than one
+thing. If it’s an object, it probably needs to be broken into two or more objects. If it’s a
+method, I will always use the Extract Method refactoring on it, resulting in one method
+that says more clearly what it does, and some submethods saying how it is done.
+Duplication and expressiveness take me a very long way into what I consider clean
+code, and improving dirty code with just these two things in mind can make a huge differ-
+ence. There is, however, one other thing that I’m aware of doing, which is a bit harder to
+explain.
+After years of doing this work, it seems to me that all programs are made up of very
+similar elements. One example is “ﬁnd things in a collection.” Whether we have a data-
+base of employee records, or a hash map of keys and values, or an array of items of some
+kind, we often ﬁnd ourselves wanting a particular item from that collection. When I ﬁnd
+that happening, I will often wrap the particular implementation in a more abstract method
+or class. That gives me a couple of interesting advantages.
+I can implement the functionality now with something simple, say a hash map, but
+since now all the references to that search are covered by my little abstraction, I can
+change the implementation any time I want. I can go forward quickly while preserving my
+ability to change later.
+In addition, the collection abstraction often calls my attention to what’s “really”
+going on, and keeps me from running down the path of implementing arbitrary collection
+behavior when all I really need is a few fairly simple ways of ﬁnding what I want.
+Reduced duplication, high expressiveness, and early building of simple abstractions.
+That’s what makes clean code for me.
+Here, in a few short paragraphs, Ron has summarized the contents of this book. No
+duplication, one thing, expressiveness, tiny abstractions. Everything is there.
+Ward Cunningham, inventor of Wiki,
+inventor of Fit, coinventor of eXtreme
+Programming. Motive force behind
+Design Patterns. Smalltalk and OO
+thought leader. The godfather of all
+those who care about code.
+You know you are working on clean code when each
+routine you read turns out to be pretty much what
+you expected. You can call it beautiful code when
+the code also makes it look like the language was
+made for the problem.
+Statements like this are characteristic of Ward.
+You read it, nod your head, and then go on to the
+next topic. It sounds so reasonable, so obvious, that it barely registers as something
+profound. You might think it was pretty much what you expected. But let’s take a closer
+look.

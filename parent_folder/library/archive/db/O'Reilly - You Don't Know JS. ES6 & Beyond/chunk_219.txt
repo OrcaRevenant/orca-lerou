@@ -1,0 +1,44 @@
+These features are all in various stages of development. While
+they’re likely to land, and probably will look similar, take the con‐
+tents of this chapter with more than a few grains of salt. This chap‐
+ter will evolve in future editions of this title as these (and other!)
+features finalize.
+`async function`s
+In “Generators + Promises” in Chapter 4, we mentioned that there’s a proposal for
+direct syntactic support for the pattern of generators yield`ing promises to a
+runner-like utility that will resume it on promise completion. Let's
+take a brief look at that proposed feature, called `async function.
+Recall this generator example from Chapter 4:
+run( function *main() {
+var ret = yield step1();
+try {
+ret = yield step2( ret );
+}
+catch (err) {
+ret = yield step2Failed( err );
+}
+ret = yield Promise.all([
+step3a( ret ),
+step3b( ret ),
+step3c( ret )
+]);
+yield step4( ret );
+} )
+.then(
+function fulfilled(){
+// `*main()` completed successfully
+},
+function rejected(reason){
+// Oops, something went wrong
+}
+);
+The proposed async function syntax can express this same flow control logic
+without needing the run(..) utility, since JS will automatically know how to look for
+promises to wait-and-resume. Consider:
+async function main() {
+var ret = await step1();
+try {
+208
+|
+Chapter 8: Beyond ES6
+www.it-ebooks.info

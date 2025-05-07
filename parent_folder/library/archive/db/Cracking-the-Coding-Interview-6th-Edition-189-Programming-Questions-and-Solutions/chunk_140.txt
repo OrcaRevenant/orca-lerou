@@ -1,0 +1,33 @@
+8
+Recursion and Dynamic Programming
+W
+hite there are a targe number of recursive problems, many follow similar patterns. A good hint that a
+problem is recursive is that it can be built off of subproblems.
+When you hear a problem beginning with the following statements, it's often (though not always) a good
+candidate for recursion: "Design an algorithm to compute the nth ..""Write code to list the first n..." "Imple-
+ment a method to compute all...", and so on.
+I
+Tip: in my experience coaching candidates, people typically have about 50% accuracy in their
+"this sounds like a recursive problem" instinct. Use that instinct, since that 50% is valuable. But
+don't be afraid to look at the problem in a different way, even if you initially thought it seemed
+recursive. There's also a 50% chance that you were wrong.
+Practice makes perfect! The more problems you do, the easier it will be to recognize recursive problems.
+• How to Approach
+Recursive solutions, by definition, are built off of solutions to subproblems. Many times, this will mean
+simply to compute f (n) by adding something, removing something, or otherwise changing the solution
+for f ( n - 1 ) . In other cases, you might solve the problem for the first half of the data set, then the second
+half, and then merge those results.
+There are many ways you might divide a problem into subproblems. Three of the most common approaches
+to develop an algorithm are bottom-up, top-down, and half-and-half.
+8ottom-Up Approach
+The bottom-up approach is often the most intuitive. We start with knowing how to solve the problem
+for a simple case, like a list with only one element. Then we figure out how to solve the problem for two
+elements, then for three elements, and so on. The key here is to think about how you can build the solution
+for one case off of the previous case (or multiple previous cases).
+Top-Down Approach
+The top-down approach can be more complex since it's less concrete. But sometimes, it's the best way to
+think about the problem.
+In these problems, we think about how we can divide the problem for case N into subproblems.
+Be careful of overlap between the cases.
+1S 2
+Cracking the Coding Interview, 6th Edition

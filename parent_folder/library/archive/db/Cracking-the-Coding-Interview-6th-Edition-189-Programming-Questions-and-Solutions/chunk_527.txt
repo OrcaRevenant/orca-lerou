@@ -1,0 +1,84 @@
+Solutions to Chapter 7 | Moderate
+if (r == ant.position.row && c == ant.position.column) {
+58
+sb.append(ant.orientation);
+59
+} else if (isWhite(r, c)) {
+69
+sb.append("X");
+61
+} else {
+62
+sb.append("_");
+63
+)
+64
+}
+65
+sb.append("\n");
+66
+}
+67
+sb.append("Ant: " + ant.orientation + ". \n");
+68
+return sb.toString();
+69
+}
+The implementation of Ant and O r i e n t a t i o n is the same.
+The implementation of P o s i t i o n gets updated slightly, in order to support the HashSet functionality.
+The position will be the key, so we need to implement a hashCode() function.
+1
+public class Position {
+2
+public int row;
+3
+public int column;
+4
+5
+public Position(int row, int column) {
+6
+this.row = row;
+7
+this.column = column;
+8
+>
+9
+10
+^Override
+11
+public boolean equals(object o) {
+12
+if (o instanceof Position) {
+13
+Position p = (Position) o;
+14
+return p.row == row S& p.column == column;
+15
+}
+16
+return false;
+17
+}
+18
+19
+^Override
+20
+public int hashCode() {
+21
+/* There are many options for hash functions. This is one. */
+22
+return (row * 31) A column;
+23
+}
+24
+25
+public Position cloneQ {
+26
+return new Position(row, column);
+27
+>
+28 >
+The nice thing about this implementation Is that if we do need to access a particular cell elsewhere, we have
+consistent row and column labeling.
+CrackingTheCodinglnterview.com | 6th Edition
+495

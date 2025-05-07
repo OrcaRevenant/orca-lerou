@@ -1,0 +1,88 @@
+Solutions to Chapter 7 ] Object-Oriented Design
+The code below outlines this algorithm.
+1
+/* Find the matching piece within piecesToSearch and insert it at row, column. */
+2
+boolean fitNextEdge(LinkedList<Piece> piecesToSearch, int row, int column) {
+3
+if (row == 0 && column == 0) { II On top left corner, just put in a piece
+4
+Piece p = piecesToSearch.remove();
+5
+orientTopLeftCorner(p);
+6
+solution[0][0] • p;
+7
+} else {
+8
+t* Get the right edge and list to match. */
+9
+Piece pieceToMatch = column == 0 ? solution[row - 1][0] :
+10
+solution[row][column - 1J;
+11
+Orientation orientationToMatch = column == 0 ? Orientation.BOTTOM :
+12
+Orientation.RIGHT;
+13
+Edge edgeToMatch = pieceToMatch.getEdgeWithOrientation(orientationToMatch);
+14
+15
+/* Get matching edge. */
+16
+Edge edge = getMatchingEdge(edgeToMatch, piecesToSearch);
+17
+if (edge == null) return false; // Can't solve
+18
+19
+/* Insert piece and edge. */
+20
+Orientation orientation = orientationToMatch.getOpposite();
+21
+setEdgeInSolution(piecesToSearch, edge, row, column, orientation);
+22
+>
+23
+return true;
+24 >
+25
+26 boolean solve() {
+27
+/* Group pieces. */
+28
+LinkedList<Piece> cornerPieces = new LinkedHst<Piece>();
+29
+LinkedList<Piece> borderPieces = new LinkedList<Piece>();
+30
+LinkedList<Piece> insidePieces « new LinkedList<Piece>();
+31
+groupPieces(cornerPieces, borderPieces, insidePieces);
+32
+33
+/* Walk through puzzle, finding the piece that joins the previous one. */
+34
+solution = new Piece[size][size];
+35
+for (int row = 0; row < size; row++) {
+36
+for (int column = 0; column < size; column++) {
+37
+LinkedList<Piece> piecesToSearch = getPieceListToSearch(cornerPieces,
+38
+borderPieces, insidePieces, row, column);
+39
+if (!fitNextEdge(piecesToSearch, row, column)) {
+40
+return false;
+41
+)
+42
+>
+43
+)
+44
+45
+return true;
+46 }
+The full code for this solution can be found in the downloadable code attachment.
+CrackingTheCodinglnterview.com | 6th Edition 3 37

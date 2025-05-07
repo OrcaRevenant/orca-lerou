@@ -1,0 +1,84 @@
+Solutions to Chapter 7 j Object-Oriented Design
+23
+}
+24
+}
+25 }
+26
+27 public class Puzzle {
+28
+private LinkedList<Piece> pieces; /* Remaining pieces to put away. */
+29
+private Piece[}[] solution;
+30
+private int size;
+31
+32
+public Puzzle(int size, LinkedList<Piece> pieces) { ... }
+33
+34
+35
+/* Put piece into the solution, turn it appropriately, and remove from list. */
+36
+private void setEdgeInSolution(l_inkedList<Piece> pieces. Edge edge, int row,
+37
+int column. Orientation orientation) {
+38
+Piece piece = edge.getParentPiece();
+39
+piece.setEdgeAsOrientation(edge, orientation);
+46
+pieces.remove(piece);
+41
+solution[row][column] = piece;
+42
+>
+43
+44
+/* Find the matching piece in piecesToSearch and insert it at row, column. */
+45
+private boolean fitNextEdge(LinkedList<Piece> piecesToSearch, int row, int col);
+46
+47
+/* Solve puzzle.
+*/
+48
+public boolean solveQ { ... }
+49 )
+50
+51 public class Piece {
+52
+private HashMapcOrientation, Edge> edges = new HashMap<Orientation, Edge>();
+53
+54
+public Piece(Edge[] edgeList) { ... }
+55
+56
+!* Rotate edges by "numberRotations". */
+57
+public void rotateEdgesBy(int numberRotations) { ... }
+58
+59
+public boolean isCorner() { ... )
+60
+public boolean isBorder() { ... )
+61 >
+62
+63 public class Edge {
+64
+private Shape shape;
+65
+private Piece parentPiece;
+66
+public Edge(Shape shape) { ... }
+67
+public boolean fitsWith(Edge edge) { ... )
+68 >
+Algorithm to Solve the Puzzle
+Just as a kid might in solving a puzzle, we'll start with grouping the pieces into corner pieces, border pieces,
+and inside pieces.
+Once we've done that, we'll pick an arbitrary corner piece and put it in the top left corner. We will then walk
+through the puzzle in order, filling in piece by piece. At each location, we search through the correct group
+of pieces to find the matching piece. When we insert the piece into the puzzle, we need to rotate the piece
+to fit correctly.
+332 Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,80 @@
+INDEX
+206
+Commitment(s), 41–46
+control and, 44
+discipline and, 47–50
+estimation and, 132
+expectations and, 45
+identifying, 43–44
+implied, 134–135
+importance of, 132
+lack of, 42–43
+pressure and, 146
+Communication
+acceptance tests and, 97
+pressure and, 148
+of requirements, 89–94
+Component tests
+in testing strategy, 110–111
+tools for, 199–200
+Conflict, in meetings, 120–121
+Continuous build, 197–198
+Continuous integration, 104–105
+Continuous learning, 13
+Control, commitment and, 44
+Courage, 75–76
+Craftsmanship, 184
+Creative input, 59–60, 123
+Crisis discipline, 147
+Cucumber, 200
+Customer, identification with, 15
+CVS, 191
+Cycle time, in test-driven
+development, 72
+D
+Deadlines
+false delivery and, 67
+hoping and, 65
+overtime and, 66
+rushing and, 65–66
+Debugging, 60–63
+Defect injection rate, 75
+Demo meetings, 120
+Design, test-driven development and,
+76–77
+Design patterns, 12
+Design principles, 12
+Details, 201–203
+Development. see test driven
+development (TDD)
+Disagreements, in meetings, 120–121
+Discipline
+commitment and, 47–50
+crisis, 147
+Disengagement, 64
+Documentation, 76
+Domain, knowledge of, 15
+“Done,” defining, 67, 94–97
+“Do no harm” approach, 5–10
+to function, 5–8
+to structure, 8–10
+Driving, 64
+E
+Eclipse, 195–196
+Emacs, 195
+Employer(s)
+identification with, 15
+programmers vs., 153–156
+Estimation
+affinity, 140–141
+anxiety, 92
+commitment and, 132
+definition of, 132–133
+law of large numbers and, 141
+nominal, 136
+optimistic, 135–136
+PERT and, 135–138
+pessimistic, 136
+probability and, 133
+of tasks, 138–141
+trivariate, 141

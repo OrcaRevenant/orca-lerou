@@ -1,0 +1,45 @@
+Solutions to Chapter 17 | Hard
+We cannot necessarily assume that the second part "dominates" the first one, because it doesn't neces-
+sarily, It depends on the relative size of D and l o g W. Therefore, we need to keep both terms in our runtime
+expression.
+Optimized (Somewhat)
+It is useful to create a larger example to really understand the problem.
+13: {14, 15, 160, 9, 3}
+16: {32, 1, 9, 3, 5}
+19: {15, 29, 2, 6, 8, 7}
+24: {7, 10, 3}
+At first, we might try various techniques that allow us to more quickly eliminate potential comparisons.
+For example, could we compute the min and max values in each array? If we did that, then we'd know that
+arrays with no overlap in ranges don't need to be compared.
+The problem is that this doesn't really fix our runtime issue. Our best runtime thus far is 0(D2 W). With this
+change, we're still going to be comparing all 0(D J) pairs, but theO(W) part might go to 0 ( 1 ) sometimes.
+That 0(D 2) part is going to be a really big problem when D gets large.
+Therefore, let's focus on reducing that 0(D ;) factor. That is the "bottleneck" in our solution. Specifically, this
+means that, given a document docA, we want to find all documents with some similarity—and we want to
+do this without "talking"to each document.
+What would make a document similar to docA? That is, what characteristics define the documents with
+similarity >0?
+Suppose docA is {14, 15, 160, 9, 3>. For a document to have similarity > 0, it needs to have a 14, a 15,
+a 100,3 9, or a 3. How can we quickly gather a list of all documents with one of those elements?
+The slow (and, really, only way) is to read every single word from every single document to find the docu-
+ments that contain a 14, a 15, a 100, a 9, or a 3. That will take 0 (DW) time. Not good.
+However, note that we're doing this repeatedly. We can reuse the work from one call to the next.
+If we build a hash table that maps from a word to all documents that contain that word, we can very quickly
+know the documents that overlap with docA.
+1 - > 16
+2 - > 19
+3 - > 13, 16,
+5 - > 16
+6 - > 19
+7 - > 19, 24
+8 - > 19
+9 - > 13, 16
+When we want to know all the documents that overlap with doc A, we just look up each of doc A's items in
+this hash table, We'll then get a list of all documents with some overlap. Now, all we have to do is compare
+doc A to each of those documents.
+If there are P pairs with similarity > 0, and each document has W words, then this will take 0(PW) time (plus
+0(DW) time to create and read this hash table). Since we expect P to be much less than
+this is much
+better than before.
+CrackingTheCodinginterview.com | 6th Edition
+62 3

@@ -1,0 +1,25 @@
+337
+Deadlock
+Lock & Wait
+Once a thread acquires a resource, it will not release the resource until it has acquired all
+of the other resources it requires and has completed its work.
+No Preemption
+One thread cannot take resources away from another thread. Once a thread holds a
+resource, the only way for another thread to get it is for the holding thread to release it.
+Circular Wait
+This is also referred to as the deadly embrace. Imagine two threads, T1 and T2, and two
+resources, R1 and R2. T1 has R1, T2 has R2. T1 also requires R2, and T2 also requires R1.
+This gives something like Figure A-3:
+All four of these conditions must hold for deadlock to be possible. Break any one of these
+conditions and deadlock is not possible.
+Breaking Mutual Exclusion
+One strategy for avoiding deadlock is to sidestep the mutual exclusion condition. You
+might be able to do this by
+• Using resources that allow simultaneous use, for example, AtomicInteger.
+• Increasing the number of resources such that it equals or exceeds the number of com-
+peting threads.
+• Checking that all your resources are free before seizing any.
+Unfortunately, most resources are limited in number and don’t allow simultaneous
+use. And it’s not uncommon for the identity of the second resource to be predicated on the
+results of operating on the ﬁrst. But don’t be discouraged; there are three conditions left.
+Figure A-3

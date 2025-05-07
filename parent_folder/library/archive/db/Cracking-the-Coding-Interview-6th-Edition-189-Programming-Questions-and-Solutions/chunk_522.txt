@@ -1,0 +1,45 @@
+Solutions to Chapter 16 | Moderate
+16.22 Langton's Ant: An ant is sitting on an infinite grid of white and black squares. It initially faces right.
+At each step, it does the following:
+(1) At a white square, flip the color of the square, turn 90 degrees right (clockwise), and move forward
+one unit,
+(2) At a black square, flip the color of the square, turn 90 degrees left (counter-clockwise), and move
+forward one unit.
+Write a program to simulate the first K moves that the ant makes and print the final board as a grid.
+Note that you are not provided with the data structure to represent the grid. This is something you
+must design yourself. The only input to your method is K. You should print the final grid and return
+nothing. The method signature might be something like v o i d printKMoves ( i n t K),
+pg 785
+SOLUTION
+At first glance, this problem seems very straightforward: create a grid, remember the ant's position and
+orientation, flip the cells, turn, and move. The interesting part comes in how to handle an infinite grid.
+Solution #1: Fixed Array
+Technically, since we're only running the first K moves, we do have a max size for the grid. The ant cannot
+move more than K moves in either direction. If we create a grid that has width 2Kand height 2K (and place
+the ant at the center), we know it will be big enough.
+The problem with this is that it's not very extensible. If you run K moves and then want to run another K
+moves, you might be out of luck.
+Additionally, this solution wastes a good amount of space.The max might be K moves in a particular dimen-
+sion, but the ant is probably going in circles a bit. You probably won't need all this space.
+Solution #2: Resizable Array
+One thought is to use a resizable array, such as Java's Array L i s t class. This allows us to grow an array as
+necessary, white still offering 0 ( 1 ) amortized insertion.
+The problem is that our grid needs to grow in two dimensions, but the A r r a y L i s t is only a single array.
+Additionally, we need to grow"backward"into negative values. The A r r a y L i s t class doesn't support this.
+However, we take a similar approach by building our own resizable grid. Each time the ant hits an edge, we
+double the size of the grid in that dimension.
+What about the negative expansions? While conceptually we can talk about something being at negative
+positions, we cannot actually access array indices with negative values.
+One way we can handle this is to create "fake indices," Let us treat the ant as being at coordinates ( - 3 ,
+-10), but track some sort of offset or delta to translate these coordinates into array indices.
+This is actually unnecessary, though. The ant's location does not need to be publicly exposed or consistent
+(unless, of course, indicated by the interviewer). When the ant travels into negative coordinates, we can
+double the size of the array and just move the ant and all cells into the positive coordinates. Essentially, we
+are relabeling all the indices.
+This relabeling will not impact the big O time since we have to create a new matrix anyway.
+1
+public class Grid {
+2
+private boolean[][] grid;
+492
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,46 @@
+"passageway",
+"hall",
+"expanse"
+};
+private static final String[] adornments = new String[] {
+"smelling of sulfur",
+"with engravings on the walls",
+"with a bumpy floor",
+"",
+"littered with garbage",
+"spattered with guano",
+"with piles of Wumpus droppings",
+"with bones scattered around",
+"with a corpse on the floor",
+"that seems to vibrate",
+"that feels stuffy",
+"that fills you with dread"
+};
+Now here’s the main function. Notice how it uses the HtwFactory to create the
+game. It passes in the name of the class, htw.game.HuntTheWumpusFacade,
+because that class is even dirtier than Main. This prevents changes in that class
+from causing Main to recompile/redeploy.
+Click here to view code image
+public static void main(String[] args) throws IOException {
+game = HtwFactory.makeGame("htw.game.HuntTheWumpusFacade",
+new Main());
+createMap();
+BufferedReader br =
+new BufferedReader(new InputStreamReader(System.in));
+game.makeRestCommand().execute();
+while (true) {
+System.out.println(game.getPlayerCavern());
+System.out.println("Health: " + hitPoints + " arrows: " +
+game.getQuiver());
+HuntTheWumpus.Command c = game.makeRestCommand();
+System.out.println(">");
+String command = br.readLine();
+if (command.equalsIgnoreCase("e"))
+c = game.makeMoveCommand(EAST);
+else if (command.equalsIgnoreCase("w"))
+c = game.makeMoveCommand(WEST);
+else if (command.equalsIgnoreCase("n"))
+c = game.makeMoveCommand(NORTH);
+else if (command.equalsIgnoreCase("s"))
+c = game.makeMoveCommand(SOUTH);
+else if (command.equalsIgnoreCase("r"))

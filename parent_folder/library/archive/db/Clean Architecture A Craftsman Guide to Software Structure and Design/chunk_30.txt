@@ -1,0 +1,36 @@
+Figure 1.2 Productivity over the same period of time
+Clearly something is going wrong here. Even though every release is supported
+by an ever-increasing number of developers, the growth of the code looks like it
+is approaching an asymptote.
+Now here’s the really scary graph: Figure 1.3 shows how the cost per line of
+code has changed over time.
+These trends aren’t sustainable. It doesn’t matter how profitable the company
+might be at the moment: Those curves will catastrophically drain the profit from
+the business model and drive the company into a stall, if not into a downright
+collapse.
+What caused this remarkable change in productivity? Why was the code 40
+times more expensive to produce in release 8 as opposed to release 1?
+
+Figure 1.3 Cost per line of code over time
+THE SIGNATURE OF A MESS
+What you are looking at is the signature of a mess. When systems are thrown
+together in a hurry, when the sheer number of programmers is the sole driver of
+output, and when little or no thought is given to the cleanliness of the code or the
+structure of the design, then you can bank on riding this curve to its ugly end.
+Figure 1.4 shows what this curve looks like to the developers. They started out at
+nearly 100% productivity, but with each release their productivity declined. By
+the fourth release, it was clear that their productivity was going to bottom out in
+an asymptotic approach to zero.
+
+Figure 1.4 Productivity by release
+From the developers’ point of view, this is tremendously frustrating, because
+everyone is working hard. Nobody has decreased their effort.
+And yet, despite all their heroics, overtime, and dedication, they simply aren’t
+getting much of anything done anymore. All their effort has been diverted away
+from features and is now consumed with managing the mess. Their job, such as
+it is, has changed into moving the mess from one place to the next, and the next,
+and the next, so that they can add one more meager little feature.
+THE EXECUTIVE VIEW
+If you think that’s bad, imagine what this picture looks like to the executives!
+Consider Figure 1.5, which depicts monthly development payroll for the same
+period.

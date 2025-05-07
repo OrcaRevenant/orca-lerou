@@ -1,0 +1,23 @@
+If we have enough storage and enough processor power, we can make our
+applications entirely immutable—and, therefore, entirely functional.
+If this still sounds absurd, it might help if you remembered that this is precisely
+the way your source code control system works.
+CONCLUSION
+To summarize:
+• Structured programming is discipline imposed upon direct transfer of control.
+• Object-oriented programming is discipline imposed upon indirect transfer of
+control.
+• Functional programming is discipline imposed upon variable assignment.
+Each of these three paradigms has taken something away from us. Each restricts
+some aspect of the way we write code. None of them has added to our power or
+our capabilities.
+What we have learned over the last half-century is what not to do.
+With that realization, we have to face an unwelcome fact: Software is not a
+rapidly advancing technology. The rules of software are the same today as they
+were in 1946, when Alan Turing wrote the very first code that would execute in
+an electronic computer. The tools have changed, and the hardware has changed,
+but the essence of software remains the same.
+Software—the stuff of computer programs—is composed of sequence, selection,
+iteration, and indirection. Nothing more. Nothing less.
+1. I know... What’s a disk?
+2. Thanks to Greg Young for teaching me about this concept.

@@ -1,0 +1,22 @@
+Step 4 - Wrap up
+In this chapter, we first discussed the characteristics of a good crawler: scalability, politeness,
+extensibility, and robustness. Then, we proposed a design and discussed key components.
+Building a scalable web crawler is not a trivial task because the web is enormously large and
+full of traps. Even though we have covered many topics, we still miss many relevant talking
+points:
+• Server-side rendering: Numerous websites use scripts like JavaScript, AJAX, etc to
+generate links on the fly. If we download and parse web pages directly, we will not be able
+to retrieve dynamically generated links. To solve this problem, we perform server-side
+rendering (also called dynamic rendering) first before parsing a page [12].
+• Filter out unwanted pages: With finite storage capacity and crawl resources, an anti-spam
+component is beneficial in filtering out low quality and spam pages [13] [14].
+• Database replication and sharding: Techniques like replication and sharding are used to
+improve the data layer availability, scalability, and reliability.
+• Horizontal scaling: For large scale crawl, hundreds or even thousands of servers are
+needed to perform download tasks. The key is to keep servers stateless.
+• Availability, consistency, and reliability: These concepts are at the core of any large
+system’s success. We discussed these concepts in detail in Chapter 1. Refresh your
+memory on these topics.
+• Analytics: Collecting and analyzing data are important parts of any system because data
+is key ingredient for fine-tuning.
+Congratulations on getting this far! Now give yourself a pat on the back. Good job!

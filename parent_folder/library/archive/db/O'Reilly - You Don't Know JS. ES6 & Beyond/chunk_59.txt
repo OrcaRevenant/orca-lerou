@@ -1,0 +1,43 @@
+var a = [1,2,3,4,5];
+a = a.map( v => v * 2 );
+console.log( a );               // [2,4,6,8,10]
+In those cases, where you have such inline function expressions, and they fit the pat‐
+tern of computing a quick calculation in a single statement and returning that result,
+arrow functions indeed look to be an attractive and lightweight alternative to the
+more verbose function keyword and syntax.
+Most people tend to ooo and ahhh at nice terse examples like that, as I imagine you
+just did!
+However, I would caution you that it would seem to me somewhat a misapplication of
+this feature to use arrow function syntax with otherwise normal, multi-statement
+functions, especially those which would otherwise be naturally expressed as function
+declarations.
+Recall the dollabillyall(..) string literal tag function from earlier in this chapter
+— let’s change it to use => syntax:
+var dollabillsyall = (strings, ...values) =>
+strings.reduce( (s,v,idx) => {
+if (idx > 0) {
+if (typeof values[idx-1] == "number") {
+// look, also using interpolated
+// string literals!
+s += `$${values[idx-1].toFixed( 2 )}`;
+}
+else {
+s += values[idx-1];
+}
+}
+return s + v;
+}, "" );
+In this example, is the removal of function, return, and some { .. }, and then the
+insertion of => and a var — these were the only modifications I made — a significant
+improvement in the readability of the code? Meh.
+I’d actually argue that the lack of return and outer { .. } partially obscures the fact
+that the reduce(..) call is the only statement in the dollabillsyall(..) function
+and that its result is the intended result of the call. Also, the trained eye that is so used
+to hunting for the word function in code to find scope boundaries now needs to look
+for the => marker, which can definitely be harder to find in the thick of the code.
+While not a hard and fast rule, I’d say that the readability gains from => arrow func‐
+tion conversion are inversely proportional to the length of the function being con‐
+48
+|
+Chapter 2: Syntax
+www.it-ebooks.info

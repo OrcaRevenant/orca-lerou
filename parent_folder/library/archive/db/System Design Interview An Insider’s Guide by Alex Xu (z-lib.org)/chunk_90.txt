@@ -1,0 +1,19 @@
+• Node s0 maintains a node membership list shown on the left side.
+• Node s0 notices that node s2’s (member ID = 2) heartbeat counter has not increased for a
+long time.
+• Node s0 sends heartbeats that include s2’s info to a set of random nodes. Once other
+nodes confirm that s2’s heartbeat counter has not been updated for a long time, node s2 is
+marked down, and this information is propagated to other nodes.
+Handling temporary failures
+After failures have been detected through the gossip protocol, the system needs to deploy
+certain mechanisms to ensure availability. In the strict quorum approach, read and write
+operations could be blocked as illustrated in the quorum consensus section.
+A technique called “sloppy quorum” [4] is used to improve availability. Instead of enforcing
+the quorum requirement, the system chooses the first W healthy servers for writes and first R
+healthy servers for reads on the hash ring. Offline servers are ignored.
+If a server is unavailable due to network or server failures, another server will process
+requests temporarily. When the down server is up, changes will be pushed back to achieve
+data consistency. This process is called hinted handoff. Since s2 is unavailable in Figure 6-
+12, reads and writes will be handled by s3 temporarily. When s2 comes back online, s3 will
+hand the data back to s2.
+Handling permanent failures

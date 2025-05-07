@@ -1,0 +1,18 @@
+> docker info
+Containers: 0
+Running: 0
+Paused: 0
+Stopped: 0
+Images: 0
+Server Version: 17.03.1-ee-3
+Storage Driver: windowsfilter
+Windows:
+Logging Driver: json-file
+Plugins:
+Volume: local
+Network: l2bridge l2tunnel nat null overlay transparent
+<SNIP>
+Insecure Registries:
+127.0.0.0/8
+Live Restore Enabled: false
+Docker is now installed and you are ready to start using Windows containers.

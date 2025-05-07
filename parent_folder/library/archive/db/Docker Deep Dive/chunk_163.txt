@@ -1,0 +1,25 @@
+Swarm Mode is the future of Docker. It lets you cluster multiple Docker hosts
+and deploy your applications in a declarative way. Every Swarm is comprised of
+managers and workers that can be Linux or Windows. Managers make up the
+control plane of the cluster and are responsible for configuring the cluster and
+dispatching work to it. Workers are the nodes that run your application code as
+containers.
+As expected, Swarm Mode includes many security features that are enabled out-
+of-the-box with sensible defaults. These include:
+Cryptographic node IDs
+Mutual authentication via TLS
+Secure join tokens
+CA configuration with automatic certificate rotation
+Encrypted cluster store (config DB)
+Encrypted networks
+Let’s walk through the process of building a secure Swarm and configuring some
+of the security aspects.
+To follow along you will need at least three Docker hosts running Docker 1.13 or
+later. The examples cited here use three Docker hosts called “mgr1”, “mgr2”,
+and “wrk1”. Each one is running Docker 17.06.0-ce on Ubuntu 16.04. There is
+network connectivity between all three hosts and all three can ping each other by
+name. The setup is shown in Figure 11.6.
+Figure 11.6
+Configure a secure Swarm
+Run the following command from the node you want to be the first manager in
+the new Swarm. In the example, we will run it form “mgr1”.

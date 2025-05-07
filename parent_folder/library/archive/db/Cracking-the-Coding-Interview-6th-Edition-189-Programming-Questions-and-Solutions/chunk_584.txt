@@ -1,0 +1,78 @@
+Solutions to Chapter 17 j Hard
+17.16 The Masseuse: A popular masseuse receives a sequence of back-to-back appointment requests
+and is debating which ones to accept. She needs a 15-minute break between appointments and
+therefore she cannot accept any adjacent requests. Given a sequence of back-to-back appoint-
+ment requests (all multiples of 15 minutes, none overlap, and none can be moved), find the optima!
+{highest totaf booked minutes) set the masseuse can honor. Return the number of minutes.
+EXAMPLE
+input:
+{ 3 0 , 15, 60, 75, 45,
+15,
+15, 45}
+Output: 180 minutes
+( { 3 0 ,
+60, 45, 4 5 } ) .
+pg 188
+SOLUTION
+Let's start with an example. We'll draw it visually to get a better feel for the problem. Each number indicates
+the number of minutes in the appointment.
+r e = 75
+ri = 105
+r ? = 120
+r 3 = 75
+r 4 = 90
+l?s = 135
+Alternatively, we could have also divided all the values (including the break) by 15 minutes, to give us the
+array { 5 , 7,
+8,
+5, 6, 9}.This would be equivalent, but now we would want a 1-minute break.
+The best set of appointments for this probtem has 330 minutes total, formed with { r 0 = 75 „ r; = 120,
+rs = 135}. Note that we've intentionally chosen an example in which the best sequence of appointments
+was not formed through a strictly alternating sequence.
+We should also recognize that choosing the longest appointment first (the "greedy" strategy) would not
+necessarily be optimal. For example, a sequence like { 4 5 ,
+60,
+45,
+15} would not have 60 in the
+optimal set.
+Solution #1: Recursion
+The first thing that may come to mind is a recursive solution. We have essentially a sequence of choices as
+we walk down the list of appointments: Do we use this appointment or do we not? If we use appointment
+i, we must skip appointment i + 1 as we can't take back-to-back appointments. Appointment i + 2 is
+a possibility (but not necessarily the best choice).
+1
+i n t maxMinutes(int[] massages) {
+2
+return maxMinutes(massages, 9);
+3
+}
+4
+5
+i n t maxMinutes(int[] massages, i n t index) {
+6
+if (index >= massages.length) { // Out of bounds
+7
+return 0;
+8
+}
+9
+10
+/* Best with t h i s reservation, */
+11
+i n t bestWith = massages[index] + maxMinutes(massages, index + 2);
+12
+13
+/* Best without t h i s reservation,
+*/
+14
+i n t bestWithout = maxf!inutes(massages, index + 1);
+15
+16
+/* Return best of t h i s subarray, starting from index. */
+17
+return Math.max(bestWith,
+bestWithout);
+18
+}
+55 S
+Cracking the Coding interview, 6th Edition

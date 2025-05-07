@@ -1,0 +1,16 @@
+Consistent hashing
+Quoted from Wikipedia: "Consistent hashing is a special kind of hashing such that when a
+hash table is re-sized and consistent hashing is used, only k/n  keys need to be remapped on
+average, where k is the number of keys, and n is the number of slots. In contrast, in most
+traditional hash tables, a change in the number of array slots causes nearly all keys to be
+remapped [1]”.
+Hash space and hash ring
+Now we understand the definition of consistent hashing, let us find out how it works. Assume
+SHA-1 is used as the hash function f, and the output range of the hash function is: x0, x1, x2,
+x3, …, xn. In cryptography, SHA-1’s hash space goes from 0 to 2^160 - 1. That means x0
+corresponds to 0, xn corresponds to 2^160 – 1, and all the other hash values in the middle fall
+between 0 and 2^160 - 1. Figure 5-3 shows the hash space.
+By collecting both ends, we get a hash ring as shown in Figure 5-4:
+Hash servers
+Using the same hash function f, we map servers based on server IP or name onto the ring.
+Figure 5-5 shows that 4 servers are mapped on the hash ring.

@@ -1,0 +1,47 @@
+258
+Chapter 15: JUnit Internals
+private boolean shouldNotCompact() {
+return expected == null || actual == null || areStringsEqual();
+}
+I don’t much care for the this.expected and this.actual notation in the compact func-
+tion. This happened when we changed the name of fExpected to expected. Why are there
+variables in this function that have the same names as the member variables? Don’t they
+represent something else [N4]? We should make the names unambiguous.
+String compactExpected = compactString(expected);
+String compactActual = compactString(actual);
+Negatives are slightly harder to understand than positives [G29]. So let’s turn that if
+statement on its head and invert the sense of the conditional.
+public String compact(String message) {
+if (canBeCompacted()) {
+findCommonPrefix();
+findCommonSuffix();
+String compactExpected = compactString(expected);
+String compactActual = compactString(actual);
+return Assert.format(message, compactExpected, compactActual);
+} else {
+return Assert.format(message, expected, actual);
+}
+}
+private boolean canBeCompacted() {
+return expected != null && actual != null && !areStringsEqual();
+}
+The name of the function is strange [N7]. Although it does compact the strings, it
+actually might not compact the strings if canBeCompacted returns false. So naming this
+function compact hides the side effect of the error check. Notice also that the function
+returns a formatted message, not just the compacted strings. So the name of the function
+should really be formatCompactedComparison. That makes it read a lot better when taken
+with the function argument:
+public String formatCompactedComparison(String message) {
+The body of the if statement is where the true compacting of the expected and actual
+strings is done. We should extract that as a method named compactExpectedAndActual. How-
+ever, we want the formatCompactedComparison function to do all the formatting. The
+compact... function should do nothing but compacting [G30]. So let’s split it up as follows:
+...
+private String compactExpected;
+private String compactActual;
+...
+public String formatCompactedComparison(String message) {
+if (canBeCompacted()) {
+compactExpectedAndActual();
+return Assert.format(message, compactExpected, compactActual);
+} else {

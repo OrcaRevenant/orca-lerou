@@ -1,0 +1,40 @@
+One cool use for overriding the default algorithm is to provide additional replacer
+argument options, such as supporting "abaca".replace(/a/g,[1,2,3]) producing
+"1b2c3" by consuming the iterable for successive replacement values. * @@search:
+The Symbol.search value of a regular expression is the method used by String.pro
+totype.search(..) to search for a sub-string within another string as matched by
+the given regular expression.
+The default algorithm for searching is laid out in section 21.2.5.9 of the ES6 specifica‐
+tion
+(https://people.mozilla.org/~jorendorff/es6-draft.html#sec-regexp.prototype-
+@@search). * @@split: The Symbol.split value of a regular expression is the method
+used by String.prototype.split(..) to split a string into sub-strings at the loca‐
+tion(s) of the delimiter as matched by the given regular expression.
+The default algorithm for splitting is laid out in section 21.2.5.11 of the ES6 specifica‐
+tion
+(https://people.mozilla.org/~jorendorff/es6-draft.html#sec-regexp.prototype-
+@@split).
+Overriding the built-in regular expression algorithms is not for the faint of heart! JS
+ships with a highly optimized regular expression engine, so your own user code will
+likely be a lot slower. This kind of meta programming is neat and powerful, but it
+should only be used in cases where it’s really necessary or beneficial.
+Symbol.isConcatSpreadable
+The @@isConcatSpreadable symbol can be defined as a boolean property (Sym
+bol.isConcatSpreadable) on any object (like an array or other iterable) to indicate if
+it should be spread out if passed to an array concat(..).
+Consider:
+var a = [1,2,3],
+b = [4,5,6];
+b[Symbol.isConcatSpreadable] = false;
+[].concat( a, b );      // [1,2,3,[4,5,6]]
+Symbol.unscopables
+The @@unscopables symbol can be defined as an object property (Symbol.unscopa
+bles) on any object to indicate which properties can and cannot be exposed as lexical
+variables in a with statement.
+Consider:
+var o = { a:1, b:2, c:3 },
+a = 10, b = 20, c = 30;
+180
+|
+Chapter 7: Meta Programming
+www.it-ebooks.info

@@ -1,0 +1,59 @@
+Chapter 14 j Databases
+Step 3: Analyze Relationships
+Outlining the core objects should give us a good sense of what the tables should be. How do these tables
+relate to each other? Are they many-to-many? One-to-many?
+I f B u i l d i n g s hasa one-to-many relationship with Apartments (one B u i l d i n g has many Apartments),
+then we might represent this as follows:
+Apartments
+ApartmentID
+int
+ApartmentAddress varchar(iee)
+BuildingID
+int
+Buildings
+BuildingID
+int
+BuildingName
+varchar(100)
+BuildingAddress
+varchar(500)
+Note that the Apartments table links back to B u i l d i n g s with a B u i l d i n g I D column.
+If we want to allow for the possibility that one person rents more than one apartment, we might want to
+implement a many-to-many relationship as follows:
+TenantApartments
+TenantID
+int
+Apartment ID int
+Apartments
+ApartmentID
+int
+ApartmentAddress
+varchar(500)
+BuildingID
+int
+Tenants
+TenantID
+int
+TenantName
+varchar(160)
+TenantAddress
+varchar{500)
+The TenantApartments table stores a relationship between Tenants and Apartments.
+Step 4: Investigate Actions
+Finally, we fill in the details. Walk through the common actions that will be taken and understand how to
+store and retrieve the relevant data. We'll need to handle lease terms, moving out, rent payments, etc. Each
+of these actions requires new tables and columns.
+• Large Database Design
+When designing a large, scalable database, joins (which are required in the above examples) are generally
+very slow. Thus, you must denormalize your data, Think carefully about how data will be used—you'll prob-
+ably need to duplicate the data in multiple tables.
+Interview Questions
+Questions 1 through 3 refer to the database schema at the end of the chapter. Each apartment can have
+multiple tenants, and each tenant can have multiple apartments. Each apartment belongs to one building,
+and each building belongs to one complex.
+14.1
+Multiple Apartments: Write a SQL query to get a list of tenants who are renting more than one
+apartment.
+Hints: #408
+172
+Cracking the Coding Interview, 6th Edition

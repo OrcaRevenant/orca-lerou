@@ -1,0 +1,75 @@
+IV j Hints for Additional Review Problems
+#667,
+16.16
+Consider the three subarrays: LEFT, MIDDLE, RIGHT. Focus on just this question: Can
+you sort middle such that the entire array becomes sorted? How would you check this?
+#668.
+16.23
+Looking at this table again, note that the number of rows will be 5*, where k is the max
+number of calls to rand 5 ( ). In order to make each value between 0 and 6 have equal
+probability, % th of the rows must map to 0, r/7 th to 1, and so on. Is this possible?
+#669.
+17.18
+Another way of thinking about the brute force is that we take each starting index and
+find the next instance of each element in the target string. The maximum of all these
+next instances marks the end of a subsequence which contains all the target characters.
+What is the runtime of this? How can we make it faster?
+#670.
+16.6
+Think about how you would merge two sorted arrays.
+#671.
+17.5
+When the above tables have equal values for the number of As and Bs, the entire
+subarray (starting from index 0) has an equal number of As and Bs, How could you use
+this table to find qualifying subarrays that don't start at index 0?
+#672.
+17.19
+Part 2: Adding the numbers together will tell us the result of a + b. Multiplying the
+numbers together will tell us the result of a * b. How can we get the exact values for a
+and b?
+#673.
+16.24
+If we sorted the array, we could do repeated binary searches for the complement of
+a number. What if, instead, the array is given to us sorted? Could we then solve the
+problem in 0(N) time and 0 ( 1 ) space?
+#674.
+16.19
+!f you were given the row and column of a water cell, how can you find all connected
+spaces?
+#675.
+17.7
+We can treat adding X,Yas synonyms as adding an edge between the X node and theY
+node. How then do we figure out the groups of synonyms?
+#676.
+17.21
+Can you do precomputation to compute the next tallest bar on each side?
+#677.
+17.13
+Will the recursive algorithm hit the same subproblems repeatedly? Can you optimize
+with a hash table?
+#678.
+17.14
+What if, when you picked an element, you swapped elements around (as you do in
+quicksort) so that the elements below it would be located before the elements above
+it? If you did this repeatedly, could you find the smallest one million numbers?
+#679.
+16,6
+Imagine you had the two arrays sorted and you were walking through them. If the
+pointer in the first array points to 3 and the pointer in the second array points to 9, what
+effect will moving the second pointer have on the difference of the pair?
+#680.
+17,12
+To handle whether your recursive algorithm should return the start or the end of the
+linked list, you could try to pass a parameter down that acts as a flag. This won't work
+very wed, though. The problem is that when you call c o n v e r t ( c u r r e n t . l e f t ) , you
+want to get the end of l e f t ' s linked list. This way you can join the end of the linked list
+to c u r r e n t . But, if c u r r e n t is someone else's right subtree, c o n v e r t ( c u r r e n t )
+needs to pass back the start of the linked list (which is actually the start of c u r r e n t .
+l e f t ' s linked list). Really, you need both the start and end of the linked list.
+#681.
+17.18
+Consider the previously expfained brute force solution. A bottleneck is repeatedly
+asking for the next instance of a particular character. Is there a way you can optimize
+this? You should be able to do this in 0 ( 1 ) time.
+CrackingTheCodinglnterview.com | 6th Edition
+69S

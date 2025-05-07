@@ -1,0 +1,40 @@
+Solutions to Chapter 10 | Sorting and Searching
+10.10 Rank from Stream: Imagine you are reading in a stream of integers. Periodically, you wish
+to be able to look up the rank of a number x (the number of values less than or equal to x).
+Implement the data structures and algorithms to support these operations. That is, implement
+the method t r a c k ( i n t x), which is called when each number is generated, and the method
+getRankOfNumber(int x), which returns the number of values (ess than or equal to x (not
+including x itself).
+EXAMPLE
+Stream (in order of appearance): 5,
+1, 4, 4, 5, 9, 7 , 13,
+3
+getRankOfNumber(l) = 0
+getRank0fNumber(3) = 1
+getRank0fNumber(4) = 3
+pg 151
+SOLUTION
+A relatively easy way to implement this would be to have an array that holds all the elements in sorted
+order. When a new element comes in, we would need to shift the other elements to make room, imple-
+menting getRankOf Number would be quite efficient, though. We would simply perform a binary search
+for n, and return the index.
+However, this is very inefficient for inserting elements (that is, the t r a c k { i n t x) function). We need a
+data structure which is good at keeping relative ordering, as well as updating when we insert new elements.
+A binary search tree can do just that.
+Instead of inserting elements into an array, we insert elements into a binary search tree. The method
+t r a c k ( i n t
+x) will run in 0( l o g n) time, where n is the size of the tree (provided, of course, that the
+tree is balanced).
+To find the rank of a number, we could do an in-order traversal, keeping a counter as we traverse. The goal
+Is that, by the time we find x, counter will equal the number of elements less than x.
+As long as we're moving left during searching for x, the counter won't change. Why? Because all the values
+we're skipping on the right side are greater than x. After all, the very smallest element (with rank of 1) is the
+leftmost node.
+When we move to the right though, we skip over a bunch of elements on the left. All of these elements are
+less than x, so we'll need to increment c o u n t e r by the number of elements in the left subtree.
+Rather than counting the size of the left subtree (which would be inefficient), we can track this information
+as we add new elements to the tree.
+Let's walk through an example on the following tree. In the below example, the value in parentheses indi-
+cates the number of nodes in the left subtree (or, in other words, the rank of the node relative to its subtree).
+416
+Cracking the Coding Interview, 6th Edition

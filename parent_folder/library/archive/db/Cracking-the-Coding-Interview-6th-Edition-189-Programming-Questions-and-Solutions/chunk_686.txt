@@ -1,0 +1,67 @@
+Hints for Knowledge-Based Questions
+#402.
+12.9
+Focus on the concept firsts, then worry about the exact implementation. How should
+S m a r t P o i n t e r look?
+#403.
+15.2
+A context switch is the time spent switching between two processes. This happens
+when you bring one process into execution and swap out the existing process.
+#404.
+13.1
+Think about who can access private methods.
+#405.
+15.1
+How do these differ in terms of memory?
+#406.
+12.11
+Recall that a two dimensional array is essentially an array of arrays.
+#407.
+15.2
+Ideally, we would like to record the timestamp when one process "stops" and the time-
+stamp when another process "starts." But how do we know when this swapping will
+occur?
+#408.
+14.1
+A GROUP BY clause might be useful.
+#409.
+13,2
+When does a finally block get executed? Are there any cases where it won't get executed?
+#410.
+12.2
+Can we do this in place?
+#411.
+14.2
+It might be helpful to break the approach into two pieces. The first piece is to get each
+building 10 and the number of open requests. Then, we can get the building names.
+#412,
+13.3
+Consider that some of these might have different meanings depending on where they
+are applied.
+#413.
+12.10
+Typically, malloc will just give us an arbitrary block of memory. If we can't override this
+behavior, can we work with it to do what we need?
+#414.
+15.7
+First implement the single-threaded FizzBuzz problem,
+#415.
+15,2
+Try setting up two processes and have them pass a small amount of data back and forth.
+This will encourage the system to stop one process and bring the other one in.
+#416.
+13,4
+The purpose of these might be somewhat similar, but how does the implementation
+differ?
+#417.
+15,5
+How can we ensure that f i r s t () has terminated before calling second ()?
+#418.
+12.11
+One approach is to catl malloc for each array. How would we free the memory here?
+#419.
+15.3
+A deadlock can happen when there's a "cycle" in the order of who is waiting for whom.
+How can we break or prevent this cycle?
+646
+Cracking the Coding Interview, 6th Edition

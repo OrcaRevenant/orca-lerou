@@ -1,0 +1,74 @@
+Solutions to Chapter 6 j Math and Logic Puzzles
+"round up" case).
+Therefore, we should round X up to 14. That is, we go to floor 14, then 27, then 39, „..This takes 14 steps in
+the worse case.
+As in many other maximizing / minimizing problems, the key in this problem is "worst case balancing."
+The following code simulates this approach.
+1
+i n t breakingPoint =
+2
+i n t countDrops = 0;
+3
+4
+boolean drop{int f l o o r ) {
+5
+countDrops++;
+6
+return f l o o r >= breakingPoint;
+7
+>
+8
+9
+i n t findBreakingPoint(int f l o o r s ) {
+10
+i n t i n t e r v a l = 14;
+11
+i n t previousFloor = 0;
+12
+i n t eggl = i n t e r v a l ;
+13
+14
+/* Drop eggl at decreasing i n t e r v a l s . */
+15
+while (Idrop(eggl) && eggl <= f l o o r s ) {
+16
+i n t e r v a l -= 1;
+17
+previousFloor = eggl;
+18
+eggl += i n t e r v a l ;
+19
+>
+20
+21
+/* Drop egg2 at 1 unit increments. */
+22
+i n t egg2 = previousFloor + 1;
+23
+while (egg2 < eggl && egg2 <= f l o o r s && !drop(egg2)) {
+24
+egg2 += 1;
+25
+}
+26
+27
+/* If it d i d n ' t break, return -1.
+*/
+28
+return egg2 > f l o o r s ? -1 : egg2;
+29 >
+If we want to generalize this code for more building sizes, then we can solve for x in:
+* ( ' * 1 } X = n u m b e r o f f l o o r s
+This will involve the quadratic formula.
+6.9
+100 Lockers: There are 100 closed lockers in a hallway. A man begins by opening all 100 lockers.
+Next, he closes every second locker. Then, on his third pass, he toggles every third locker (closes it if
+it is open or opens it if it is closed). This process continues for 100 passes, such that on each pass i,
+the man toggles every i t h locker. After his 100th pass in the hallway, in which he toggles only locker
+#100, how many lockers are open?
+pg 124
+SOLUTION
+We can t3ckle this problem by thinking through what it means for a door to be toggled. This will help us
+deduce which doors at the very end will be left opened.
+CrackingTheCodinglnterview.com | 6th Edition
+291

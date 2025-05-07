@@ -1,0 +1,29 @@
+CHAPTER 1 PROFESSIONALISM
+20
+So what could software developers do to practice? There’s a whole chapter in
+this book dedicated to different practice techniques, so I won’t go into much
+detail here. One technique I use frequently is the repetition of simple exercises
+such as the Bowling Game or Prime Factors. I call these exercises kata. There are
+many such kata to choose from.
+A kata usually comes in the form of a simple programming problem to solve, such
+as writing the function that calculates the prime factors of an integer. The point of
+doing the kata is not to figure out how to solve the problem; you know how to do
+that already. The point of the kata is to train your fingers and your brain.
+I’ll do a kata or two every day, often as part of settling in to work. I might do it
+in Java, or in Ruby, or in Clojure, or in some other language for which I want to
+maintain my skills. I’ll use the kata to sharpen a particular skill, such as keeping
+my fingers used to hitting shortcut keys, or using certain refactorings.
+Think of the kata as a 10-minute warm-up exercise in the morning and a 10-minute
+cool-down in the evening.
+CO LL ABO R ATI O N
+The second best way to learn is to collaborate with other people. Professional
+software developers make a special effort to program together, practice together,
+design and plan together. By doing so they learn a lot from each other, and they
+get more done faster with fewer errors.
+This doesn’t mean you have to spend 100% of your time working with others.
+Alone time is also very important. As much as I like to pair program with
+others, it makes me crazy if I can’t get away by myself from time to time.
+M E NTO R I N G
+The best way to learn is to teach. Nothing will drive facts and values into your
+head faster and harder than having to communicate them to people you are
+responsible for. So the benefit of teaching is strongly in favor of the teacher.

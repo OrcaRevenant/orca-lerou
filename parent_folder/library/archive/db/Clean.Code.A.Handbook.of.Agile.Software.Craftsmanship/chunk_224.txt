@@ -1,0 +1,42 @@
+194
+Chapter 14: Successive Reﬁnement
+but none of them do exactly what I want. So, of course, I decided to write my own. I call
+it: Args.
+Args is very simple to use. You simply construct the Args class with the input argu-
+ments and a format string, and then query the Args instance for the values of the argu-
+ments. Consider the following simple example:
+You can see how simple this is. We just create an instance of the Args class with two
+parameters. The ﬁrst parameter is the format, or schema, string: "l,p#,d*." It deﬁnes three
+command-line arguments. The ﬁrst, –l, is a boolean argument. The second, -p, is an integer
+argument. The third, -d, is a string argument. The second parameter to the Args constructor
+is simply the array of command-line argument passed into main.
+If the constructor returns without throwing an ArgsException, then the incoming
+command-line was parsed, and the Args instance is ready to be queried. Methods like
+getBoolean, getInteger, and getString allow us to access the values of the arguments by
+their names.
+If there is a problem, either in the format string or in the command-line arguments
+themselves, an ArgsException will be thrown. A convenient description of what went
+wrong can be retrieved from the errorMessage method of the exception.
+Args Implementation
+Listing 14-2 is the implementation of the Args class. Please read it very carefully. I worked
+hard on the style and structure and hope it is worth emulating.
+Listing 14-1
+Simple use of Args
+public static void main(String[] args) {
+try {
+Args arg = new Args("l,p#,d*", args);
+boolean logging = arg.getBoolean('l');
+int port = arg.getInt('p');
+String directory = arg.getString('d');
+executeApplication(logging, port, directory);
+} catch (ArgsException e) {
+System.out.printf("Argument error: %s\n", e.errorMessage());
+}
+}
+Listing 14-2
+Args.java
+package com.objectmentor.utilities.args;
+import static com.objectmentor.utilities.args.ArgsException.ErrorCode.*;
+import java.util.*;
+public class Args {
+private Map<Character, ArgumentMarshaler> marshalers;

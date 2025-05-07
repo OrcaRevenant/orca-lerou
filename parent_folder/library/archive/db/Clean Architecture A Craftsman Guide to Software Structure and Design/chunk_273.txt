@@ -1,0 +1,10 @@
+Figure 33.1 A typical use-case analysis
+The four main actors are evident. According to the Single Responsibility
+Principle, these four actors will be the four primary sources of change for the
+system. Every time some new feature is added, or some existing feature is
+changed, that step will be taken to serve one of these actors. Therefore we want
+to partition the system such that a change to one actor does not affect any of the
+other actors.
+The use cases shown in Figure 33.1 are not a complete list. For example, you
+won’t find log-in or log-out use cases. The reason for this omission is simply to
+manage the size of the problem in this book. If I were to include all the different

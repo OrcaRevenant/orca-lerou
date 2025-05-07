@@ -1,0 +1,45 @@
+328
+Appendix A: Concurrency II
+The synchronized keyword always acquires a lock, even when a second thread is not
+trying to update the same value. Even though the performance of intrinsic locks has
+improved from version to version, they are still costly.
+The nonblocking version starts with the assumption that multiple threads generally do
+not modify the same value often enough that a problem will arise. Instead, it efﬁciently
+detects whether such a situation has occurred and retries until the update happens success-
+fully. This detection is almost always less costly than acquiring a lock, even in moderate to
+high contention situations.
+How does the Virtual Machine accomplish this? The CAS operation is atomic. Logi-
+cally, the CAS operation looks something like the following:
+int variableBeingSet;
+void simulateNonBlockingSet(int newValue) {
+int currentValue;
+do {
+currentValue = variableBeingSet
+} while(currentValue != compareAndSwap(currentValue, newValue));
+}
+int synchronized compareAndSwap(int currentValue, int newValue) {
+if(variableBeingSet == currentValue) {
+variableBeingSet = newValue;
+return currentValue;
+}
+return variableBeingSet;
+}
+When a method attempts to update a shared variable, the CAS operation veriﬁes that
+the variable getting set still has the last known value. If so, then the variable is changed. If
+not, then the variable is not set because another thread managed to get in the way. The
+method making the attempt (using the CAS operation) sees that the change was not made
+and retries.
+Nonthread-Safe Classes
+There are some classes that are inherently not thread safe. Here are a few examples:
+•
+SimpleDateFormat
+• Database Connections
+• Containers in java.util
+• Servlets
+Note that some collection classes have individual methods that are thread-safe. However,
+any operation that involves calling more than one method is not. For example, if you do
+not want to replace something in a HashTable because it is already there, you might write
+the following code:
+if(!hashTable.containsKey(someKey)) {
+hashTable.put(someKey, new SomeValue());
+}

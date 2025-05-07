@@ -1,0 +1,11 @@
+Business rules are the reason a software system exists. They are the core
+functionality. They carry the code that makes, or saves, money. They are the
+family jewels.
+The business rules should remain pristine, unsullied by baser concerns such as
+the user interface or database used. Ideally, the code that represents the business
+rules should be the heart of the system, with lesser concerns being plugged in to
+them. The business rules should be the most independent and reusable code in
+the system.
+1. This is Ivar Jacobson’s name for this concept (I. Jacobson et al., Object Oriented Software Engineering,
+Addison-Wesley, 1992).
+2. Ibid.

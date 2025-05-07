@@ -1,0 +1,32 @@
+CHAPTER 4 CODING
+62
+TH E FLOW ZO N E
+Much has been written about the hyper-productive state known as “flow.”
+Some programmers call it “the Zone.” Whatever it is called, you are probably
+familiar with it. It is the highly focused, tunnel-vision state of consciousness
+that programmers can get into while they write code. In this state they feel
+productive. In this state they feel infallible. And so they desire to attain that
+state, and often measure their self-worth by how much time they can
+spend there.
+Here’s a little hint from someone whose been there and back: Avoid the Zone.
+This state of consciousness is not really hyper-productive and is certainly not
+infallible. It’s really just a mild meditative state in which certain rational
+faculties are diminished in favor of a sense of speed.
+Let me be clear about this. You will write more code in the Zone. If you are
+practicing TDD, you will go around the red/green/refactor loop more quickly.
+And you will feel a mild euphoria or a sense of conquest. The problem is that
+you lose some of the big picture while you are in the Zone, so you will likely
+make decisions that you will later have to go back and reverse. Code written in
+the Zone may come out faster, but you’ll be going back to visit it more.
+Nowadays when I feel myself slipping into the Zone, I walk away for a few minutes.
+I clear my head by answering a few emails or looking at some tweets. If it’s close
+enough to noon, I’ll break for lunch. If I’m working on a team, I’ll find a pair
+partner.
+One of the big benefits of pair programming is that it is virtually impossible for
+a pair to enter the Zone. The Zone is an uncommunicative state, while pairing
+requires intense and constant communication. Indeed, one of the complaints I
+often hear about pairing is that it blocks entry into the Zone. Good! The Zone
+is not where you want to be.
+Well, that’s not quite true. There are times when the Zone is exactly where you
+want to be. When you are practicing. But we’ll talk about that in another
+chapter.

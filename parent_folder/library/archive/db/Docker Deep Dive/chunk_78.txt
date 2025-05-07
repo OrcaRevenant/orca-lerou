@@ -1,0 +1,32 @@
+To get around this, each layer also gets something called a distribution hash. This
+is a hash of the compressed version of the layer. When a layer is pushed and
+pulled from the registry, its distribution hash is included, and this is what is used
+to verify that the layer arrived without being tampered with.
+This content-addressable storage model vastly improves security by giving us a
+way to very image and layer data after push and pull operations. It also avoids
+ID collisions that could occur if image and layer IDs were randomly generated.
+Multi-architecture images
+Docker now includes support for multi-platform and multi-architecture images.
+This means a single image repository and tag to have an image for Linux on x64
+and Linux on PowerPC etc. Other examples exist.
+To enable this, the Registry API supports a fat manifest as well as an image
+manifest. Fat manifests list the architectures supported by a particular image,
+whereas image manifests list the layers that make up a particular image.
+Let’s look at a quick example.
+Assume you are running Docker on Linux x64. When you pull an image from
+Docker hub, your Docker client makes the relevant API requests to the Docker
+Registry API running on Docker Hub. If a fat manifest exists for that image, it
+will be parsed to see if an entry exists for Linux on x64. If it exists, the image
+manifest for that image is retrieved and parsed for the actual layers that make up
+the image. The layers are identified by their crypto IDs and are pulled from the
+Registry’s blob store.
+Deleting Images
+When you no longer need an image, you can delete it from your Docker host
+with the docker image rm command. rm is short for remove.
+Delete the images pulled in the previous steps with the docker image rm
+command. The example below deletes an image by its ID, this might be different
+on your system.
+$ docker image rm 02674b9cb179
+Untagged: alpine@sha256:c0537ff6a5218...c0a7726c88e2bb7584dc96
+Deleted: sha256:02674b9cb179d57...31ba0abff0c2bf5ceca5bad72cd9
+Deleted: sha256:e154057080f4063...2a0d13823bab1be5b86926c6f860

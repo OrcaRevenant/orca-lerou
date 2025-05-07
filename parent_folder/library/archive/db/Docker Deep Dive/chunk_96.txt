@@ -1,0 +1,36 @@
+The magic behind the scenes here can be explained with Linux/POSIX signals.
+docker container stop sends a SIGTERM signal to the process with PID 1
+inside of the container. As we just said, this gives the process a chance to clean
+things up and gracefully shut itself down. If it doesn’t exit within 10 seconds it
+will receive a SIGKILL. This is effectively the bullet to the head. But hey, it got
+10 seconds to sort itself out first!
+docker container rm <container> -f doesn’t bother asking nicely with a
+SIGTERM, it just goes straight to the SIGKILL. Like we said a second ago,
+this is like creeping up from behind and smashing it over the head. I’m not a
+violent person by the way!
+Web server example
+So far we’ve seen how to start a simple container and interact with it. We’ve also
+seen how to stop, restart and destroy containers. Now let’s take a look at a Linux
+web server example.
+In this example we’ll start a new container from an image I use in a few of my
+Pluralsight video courses. The image runs an insanely simple web server on port
+8080.
+Use the docker container stop and docker container rm commands to clean
+up any existing containers on your system. Then run the following docker
+container run command.
+$ docker container run -d --name webserver -p 80:8080 \
+nigelpoulton/pluralsight-docker-ci
+Unable to find image 'nigelpoulton/pluralsight-docker-ci:latest' locally
+latest: Pulling from nigelpoulton/pluralsight-docker-ci
+a3ed95caeb02: Pull complete
+3b231ed5aa2f: Pull complete
+7e4f9cd54d46: Pull complete
+929432235e51: Pull complete
+6899ef41c594: Pull complete
+0b38fccd0dab: Pull complete
+Digest: sha256:7a6b0125fe7893e70dc63b2...9b12a28e2c38bd8d3d
+Status: Downloaded newer image for nigelpoulton/plur...docker-ci:latest
+6efa1838cd51b92a4817e0e7483d103bf72a7ba7ffb5855080128d85043fef21
+Notice that your shell prompt hasn’t changed. This is because we started this
+container in the background with the -d flag. Starting a container in the
+background does not attach it to your terminal.

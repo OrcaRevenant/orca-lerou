@@ -1,0 +1,41 @@
+Step 1 - Understand the problem and establish design scope
+The first step to tackle any system design interview question is to ask enough questions to
+clarify requirements. Here is an example of candidate-interviewer interaction:
+Candidate: Is the matching only supported at the beginning of a search query or in the
+middle as well?
+Interviewer: Only at the beginning of a search query.
+Candidate: How many autocomplete suggestions should the system return?
+Interviewer: 5
+Candidate: How does the system know which 5 suggestions to return?
+Interviewer: This is determined by popularity, decided by the historical query frequency.
+Candidate: Does the system support spell check?
+Interviewer: No, spell check or autocorrect is not supported.
+Candidate: Are search queries in English?
+Interviewer: Yes. If time allows at the end, we can discuss multi-language support.
+Candidate: Do we allow capitalization and special characters?
+Interviewer: No, we assume all search queries have lowercase alphabetic characters.
+Candidate: How many users use the product?
+Interviewer: 10 million DAU.
+Requirements
+Here is a summary of the requirements:
+• Fast response time: As a user types a search query, autocomplete suggestions must show
+up fast enough. An article about Facebook’s autocomplete system [1] reveals that the
+system needs to return results within 100 milliseconds. Otherwise it will cause stuttering.
+• Relevant: Autocomplete suggestions should be relevant to the search term.
+• Sorted: Results returned by the system must be sorted by popularity or other ranking
+models.
+• Scalable: The system can handle high traffic volume.
+• Highly available: The system should remain available and accessible when part of the
+system is offline, slows down, or experiences unexpected network errors.
+Back of the envelope estimation
+• Assume 10 million daily active users (DAU).
+• An average person performs 10 searches per day.
+• 20 bytes of data per query string:
+• Assume we use ASCII character encoding. 1 character = 1 byte
+• Assume a query contains 4 words, and each word contains 5 characters on average.
+• That is 4 x 5 = 20 bytes per query.
+• For every character entered into the search box, a client sends a request to the backend
+for autocomplete suggestions. On average, 20 requests are sent for each search query. For
+example, the following 6 requests are sent to the backend by the time you finish typing
+“dinner”.
+search?q=d

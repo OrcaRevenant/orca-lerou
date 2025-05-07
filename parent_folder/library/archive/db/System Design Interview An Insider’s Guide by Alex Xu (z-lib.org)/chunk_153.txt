@@ -1,0 +1,9 @@
+Step 3 - Design deep dive
+The high-level design briefly covered two flows: feed publishing and news feed building.
+Here, we discuss those topics in more depth.
+Feed publishing deep dive
+Figure 11-4 outlines the detailed design for feed publishing. We have discussed most of
+components in high-level design, and we will focus on two components: web servers and
+fanout service.
+Web servers
+Besides communicating with clients, web servers enforce authentication and rate-limiting.

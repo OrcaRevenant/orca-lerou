@@ -1,0 +1,18 @@
+We shall call these rules Critical Business Rules, because they are critical to the
+business itself, and would exist even if there were no system to automate them.
+Critical Business Rules usually require some data to work with. For example,
+our loan requires a loan balance, an interest rate, and a payment schedule.
+We shall call this data Critical Business Data. This is the data that would exist
+even if the system were not automated.
+The critical rules and critical data are inextricably bound, so they are a good
+candidate for an object. We’ll call this kind of object an Entity.1
+ENTITIES
+An Entity is an object within our computer system that embodies a small set of
+critical business rules operating on Critical Business Data. The Entity object
+either contains the Critical Business Data or has very easy access to that data.
+The interface of the Entity consists of the functions that implement the Critical
+Business Rules that operate on that data.
+For example, Figure 20.1 shows what our Loan entity might look like as a class
+in UML. It has three pieces of Critical Business Data, and presents three related
+Critical Business Rules at its interface.
+Figure 20.1 Loan entity as a class in UML

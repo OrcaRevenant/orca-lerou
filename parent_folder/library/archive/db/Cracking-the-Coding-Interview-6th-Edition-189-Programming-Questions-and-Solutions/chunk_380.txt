@@ -1,0 +1,83 @@
+Solutions to Chapter 8 j Recursion and Dynamic Programming
+15
+i n t rightFalse = countEval(right, f a l s e ) ;
+16
+I n t t o t a l = ( l e f t T r u e + l e f t F a l s e ) * (rightTrue + r i g h t F a l s e ) ;
+17
+18
+i n t totalTrue = 0;
+19
+if (c «»
+{ // required: one t r u e and one f a l s e
+20
+t o t a l T r u e = l e f t T r u e * r i g h t F a l s e + l e f t F a l s e * rightTrue;
+21
+} else if (c == '& J) { // required: both t r u e
+22
+totalTrue = l e f t T r u e * rightTrue;
+23
+} else if (c ==
+r j J ) { II required: anything but both f a l s e
+24
+totalTrue = l e f t T r u e * rightTrue + l e f t F a l s e * rightTrue +
+25
+l e f t T r u e * r i g h t F a l s e ;
+26
+>
+27
+28
+i n t subways = r e s u l t ? t o t a l T r u e : t o t a l - t o t a l T r u e ;
+29
+ways += subways;
+30
+)
+31
+32
+return ways;
+33
+}
+34
+35 boolean stringToBool(String c) {
+36
+return c.equals("l J') ? t r u e : f a l s e ;
+37
+}
+Note that the tradeoff of computing the f a l s e results from the t r u e ones, and of computing the
+{ l e f t T r u e j
+r i g h t T r u e ,
+l e f t F a l s e ,
+and
+r i g h t F a l s e } values upfront, is a small amount of
+extra work in some cases. For example, if we're looking for the ways that an AND (&) can result in t r u e , we
+never would have needed the l e f t F a l s e and r i g h t F a l s e results. Likewise, if we're looking for the ways
+that an OR (J) can result in f a l s e , we never would have needed the l e f t T r u e and r i g h t T r u e results.
+Our current code is blind to what we do and don't actually need to do and instead just computes all of
+the values. This is probably a reasonable tradeoff to make (especially given the constraints of whiteboard
+coding) as it makes our code substantially shorter and less tedious to write. Whichever approach you make,
+you should discuss the tradeoffs with your interviewer.
+That said, there are more important optimizations we can make.
+Optimized Solutions
+If we follow the recursive path, well note that we end up doing the same computation repeatedly.
+Consider the expression 0 A0&0 A1 ] 1 and these recursion paths:
+•
+Add parens around char 1. ( 0 ) A ( 0 & 0 A 1 [ 1)
+»
+Add parens around char 3. (0)
+( 0 ) & { 0 A 1 1 1 ) )
+•
+Add parens around char 3. ( 0 A 0 ) & ( 0 A 1 1 1 )
+»
+Add parens around char 1. ( ( 0 ) A ( 0 ) ) & ( 0 A 1 1 1 )
+Although these two expressions are different, they have a similar component: (0 A111). We should reuse our
+effort on this.
+We can do this by using memoization, or a hash table. We just need to store the result of
+count Eva 1 ( e x p r e s s i o n ,
+r e s u l t ) for each expression and result. If we see an expression that we've
+calculated before, we just return it from the cache.
+1
+i n t countEval(String s, boolean r e s u l t , HashMap<String, Integer> (nemo) (
+2
+if ( s . l e n g t h Q == 0) return 0;
+if ( s . l e n g t h ( ) == 1) return stringToBool(s) == r e s u l t ? 1 : 0;
+370
+Cracking the Coding Interview, 6th Edition

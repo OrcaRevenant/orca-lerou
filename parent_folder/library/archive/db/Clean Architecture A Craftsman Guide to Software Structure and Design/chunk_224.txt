@@ -1,0 +1,17 @@
+// much code removed…
+}
+The point is that Main is a dirty low-level module in the outermost circle of the
+clean architecture. It loads everything up for the high level system, and then
+hands control over to it.
+CONCLUSION
+Think of Main as a plugin to the application—a plugin that sets up the initial
+conditions and configurations, gathers all the outside resources, and then hands
+control over to the high-level policy of the application. Since it is a plugin, it is
+possible to have many Main components, one for each configuration of your
+application.
+For example, you could have a Main plugin for Dev, another for Test, and yet
+another for Production. You could also have a Main plugin for each country you
+deploy to, or each jurisdiction, or each customer.
+When you think about Main as a plugin component, sitting behind an
+architectural boundary, the problem of configuration becomes a lot easier to
+solve.

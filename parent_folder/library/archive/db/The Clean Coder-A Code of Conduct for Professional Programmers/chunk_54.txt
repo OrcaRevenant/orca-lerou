@@ -1,0 +1,25 @@
+CHAPTER 1 PROFESSIONALISM
+22
+H U M I LIT Y
+Programming is an act of creation. When we write code we are creating
+something out of nothing. We are boldly imposing order upon chaos. We are
+confidently commanding, in precise detail, the behaviors of a machine that
+could otherwise do incalculable damage. And so, programming is an act of
+supreme arrogance.
+Professionals know they are arrogant and are not falsely humble. A professional
+knows his job and takes pride in his work. A professional is confident in his
+abilities, and takes bold and calculated risks based on that confidence. A
+professional is not timid.
+However, a professional also knows that there will be times when he will fail, his
+risk calculations will be wrong, his abilities will fall short; he’ll look in the
+mirror and see an arrogant fool smiling back at him.
+So when a professional finds himself the butt of a joke, he’ll be the first to laugh.
+He will never ridicule others, but will accept ridicule when it is deserved and
+laugh it off when it’s not. He will not demean another for making a mistake,
+because he knows he may be the next to fail.
+A professional understands his supreme arrogance, and that the fates will eventually
+notice and level their aim. When that aim connects, the best you can do is take
+Howard’s advice: Laugh.
+B I B LI OG R APH Y
+[PPP2001]: Robert C. Martin, Principles, Patterns, and Practices of Agile Software
+Development, Upper Saddle River, NJ: Prentice Hall, 2002.

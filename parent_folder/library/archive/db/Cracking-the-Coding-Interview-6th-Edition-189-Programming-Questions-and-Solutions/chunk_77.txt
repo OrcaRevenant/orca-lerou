@@ -1,0 +1,50 @@
+VII j Technical Questions
+When you find bugs (and you probably will), you should of course fix them. But don't just make the first
+correction you think of. Instead, carefully analyze why the bug occurred and ensure that your fix is the best
+one.
+• Optimize & Solve Tech nique # 1: Look for BU D
+This is perhaps the most useful approach I've found for optimizing problems. "BUD" is a silly acronym for:
+•
+Bottlenecks
+•
+Unnecessary work
+*
+Duplicated work
+These are three of the most common things that an algorithm can "waste" time doing. You can walk through
+your brute force looking for these things. When you find one of them, you can then focus on getting rid of it.
+If it's still not optimal, you can repeat this approach on your current best algorithm.
+Bottlenecks
+A bottleneck is a part of your algorithm that slows down the overall runtime. There are two common ways
+this occurs:
+*
+You have one-time work that slows down your algorithm. For example, suppose you have a two-step
+algorithm where you first sort the array and then you find elements with a particular property. The first
+stepisO(N l o g N) and the second step is 0(N). Perhaps you could reduce the second step to 0( l o g
+N) or 0 ( 1 ) , but would it matter? Not too much. It's certainty not a priority, as the 0(N l o g N) is the
+bottleneck. Until you optimize the first step, your overall algorithm will be 0(N l o g N).
+•
+You have a chunk of work that's done repeatedly, like searching. Perhaps you can reduce that from 0(N)
+t o 0 ( l o g N) or even 0 ( 1 ) . That will greatly speed up your overall runtime.
+Optimizing a bottleneck can make a big difference in your overall runtime.
+I
+Example: Given an array of distinct integer values, count the number of pairs of integers that
+have difference k. For example, given the array { 1 , 7, 5, 9, 2, 12, 3} and the difference
+k = 2, there are four pairs with difference 2: ( 1 , 3 ) j
+( 3 , S),
+( 5 , 7),
+( 7 , 9),
+A brute force algorithm is to go through the array, starting from the first element, and then search through
+the remaining elements (which will form the other side of the pair). For each pair, compute the difference.
+If the difference equals k, increment a counter of the difference.
+The bottleneck here is the repeated search for the "other side" of the pair. It's therefore the main thing to
+focus on optimizing.
+How can we more quickly find the right "other side"? Well, we actually know the other side of ( x ,
+?). It's
+x + k or x - k. If we sorted the array, we could find the other side for each of the N elements i n O ( l o g
+N) time by doing a binary search.
+We now have a two-step algorithm, where both steps take 0(N l o g H) time. Now, sorting is the new
+bottleneck. Optimizing the second step won't help because the first step is slowing us down anyway.
+We just have to get rid of the first step entirely and operate on an unsorted array. How can we find things
+quickly in an unsorted array? With a hash table.
+CrackingTheCgdinglnterview.com ] 6th Edition
+81

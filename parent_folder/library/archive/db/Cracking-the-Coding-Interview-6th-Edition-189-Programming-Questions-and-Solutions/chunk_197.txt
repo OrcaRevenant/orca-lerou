@@ -1,0 +1,60 @@
+Chapter 17 j Hard
+17.7
+Baby Names; Each year, the government releases a list of the 10000 most common baby names
+and their frequencies {the number of babies with that name). The only problem with this is that
+some names have multiple spellings. For example, "John" and "Jon" are essentially the same name
+but would be listed separately in the list. Given two lists, one of names/frequencies and the other
+of pairs of equivalent names, write an atgorithm to print a new list of the true frequency of each
+name. Note that if John and Jon are synonyms, and Jon and Johnny are synonyms, then John and
+Johnny are synonyms, (it is both transitive and symmetric.) In the final list, any name can be used
+as the "real" name,
+EXAMPLE
+Input:
+Names: John (15), Jon (12), Chris (13), Kris (4), Christopher (19)
+Synonyms: {Jon, John), (John, Johnny), (Chris, Kris), {Chris, Christopher)
+Output: John (27), Kris (36)
+Hints: #478, #493, #512, #537, #586, #605, #655, #675, #704
+17.8
+Circus Tower: A circus is designing a tower routine consisting of people standing atop one anoth-
+er's shoulders. For practical and aesthetic reasons, each person must be both shorter and lighter
+than the person below him or her. Given the heights and weights of each person in the circus, write
+a method to compute the largest possible number of people in such a tower.
+EXAMPLE
+Input (ht, wt): (65, 100)
+(70,
+150)
+(56, 90)
+(75, 190)
+(60, 95)
+(68,
+110)
+Output: The longest tower is length 6 and includes from top to bottom:
+( 5 6 , 90)
+( 6 0 , 9 5 )
+(65,100)
+(68,110)
+(70,150)
+(75,190)
+Hints: #638, #657, #666, #682, #699
+pg 546
+17.9
+Kth Multiple: Design an atgorithm to find the kth number such that the only prime factors are 3, 5,
+and 7. Note that 3, 5, and 7 do not have to be factors, but it should not have any other prime factors.
+For example, the first several multiples would be {in order) 1,3, 5, 7, 9,15,21.
+Hints: #488, #508, #550, #591, #622, #660, #686
+17.10 Majority Element: A majority element is an element that makes up more than half of the items in
+an array. Given a positive integers array, find the majority element. If there is no majority element,
+return -1. Do this in0(N) time and 0 ( 1 ) space.
+EXAMPLE
+Input:
+1 2 5 9 5 9 5 5 5
+Output:
+5
+Hints: #522, #566, #604, #620, #650
+pg 554
+17.11 Word Distance: You have a large text file containing words. Given any two words, find the shortest
+distance (in terms of number of words) between them in the file. If the operation will be repeated
+many times for the same file (but different pairs of words), can you optimize your solution?
+Hints: #486, #501, #538, #558, #633
+CrackingTheCodinglnterview.com | 6th Edition
+187

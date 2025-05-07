@@ -1,0 +1,68 @@
+Solutions to Chapter 7 | Object-Oriented Design
+25
+public String getContent() { ... }
+26
+public Date getDate() { ... }
+27 }
+Add Request and LSserStatus are simple classes with little functionality. Their main purpose is to group
+data that other classes will act upon.
+1
+public class AddRequest (
+2
+private User fromUser;
+3
+private User toUser;
+4
+private Date date;
+5
+RequestStatus status;
+6
+7
+public AddRequest(User from, User to, Date date) { ... }
+8
+public RequestStatus getStatusQ { ... >
+9
+public User getFromUserQ { ... )
+10
+public User getToUser() ( . . . )
+11
+public Date getDate{) ( . . . )
+12
+)
+13
+14 public class UserStatus {
+15
+private String message;
+16
+private UserStatusType type;
+17
+public UserStatus(UserStatusType type. String message) ( . . . )
+18
+public UserStatusType getStatusType() { ... )
+19
+public String getMessage() { ... }
+20
+}
+21
+22 public enum UserStatusType {
+23
+Offline, Away, Idle, Available, Busy
+24 }
+25
+26 public enum RequestStatus {
+27
+Unread, Read, Accepted, Rejected
+28 )
+The downloadable code attachment provides a more detailed look at these methods, including implemen-
+tations for the methods shown above.
+What problems would be the hardest to solve (or the most interesting)?
+The following questions may be interesting to discuss with your interviewer further.
+Q I: How do we know if someone is online—I mean, realty, really know?
+While we would like users to tell us when they sign off, we can't know for sure. A user's connection might
+have died, for example. To make sure that we know when a user has signed off, we might try regularly
+pinging the client to make sure it's still there.
+Q2: How do we deal with conflicting information?
+We have some information stored in the computer's memory and some in the database. What happens if
+they get out of sync? Which one is "right"?
+CrackingTheCodi ngfnterview.com 16th Edition
+325

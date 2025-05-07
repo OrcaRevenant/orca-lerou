@@ -1,0 +1,66 @@
+363
+Appendix B: org.jfree.date.SerialDate
+847      * Returns a description of the date.
+848      *
+849      * @return a description of the date.
+850      */
+851     public String getDescription() {
+852         return this.description;
+853     }
+854
+855     /**
+856      * Sets the description for the date.
+857      *
+858      * @param description  the new description for the date.
+859      */
+860     public void setDescription(final String description) {
+861         this.description = description;
+862     }
+863
+864     /**
+865      * Converts the date to a string.
+866      *
+867      * @return  a string representation of the date.
+868      */
+869     public String toString() {
+870         return getDayOfMonth() + "-" + SerialDate.monthCodeToString(getMonth())
+871                                + "-" + getYYYY();
+872     }
+873
+874     /**
+875      * Returns the year (assume a valid range of 1900 to 9999).
+876      *
+877      * @return the year.
+878      */
+879     public abstract int getYYYY();
+880
+881     /**
+882      * Returns the month (January = 1, February = 2, March = 3).
+883      *
+884      * @return the month of the year.
+885      */
+886     public abstract int getMonth();
+887
+888     /**
+889      * Returns the day of the month.
+890      *
+891      * @return the day of the month.
+892      */
+893     public abstract int getDayOfMonth();
+894
+895     /**
+896      * Returns the day of the week.
+897      *
+898      * @return the day of the week.
+899      */
+900     public abstract int getDayOfWeek();
+901
+902     /**
+903      * Returns the difference (in days) between this date and the specified
+904      * 'other' date.
+905      * <P>
+906      * The result is positive if this date is after the 'other' date and
+907      * negative if it is before the 'other' date.
+908      *
+Listing B-1 (continued)
+SerialDate.Java

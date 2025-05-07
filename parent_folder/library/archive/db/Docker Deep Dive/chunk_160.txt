@@ -1,0 +1,27 @@
+namespace of the Linux host or other containers - they can only see and
+access their own isolated mount namespace.
+Inter-process Communication namespace: Docker uses the ipc namespace
+for shared memory access within a container. It also isolates the container
+from shared memory outside of the container.
+User namespace: Docker lets you use user namespaces to map users inside
+of a container to a different user on the Linux host. A common example
+would be mapping the root user of a container to a non-root user on the
+Linux host. User namespaces are quite new to Docker and are currently
+optional.
+UTS namespace: Docker uses the uts namespace to provide each container
+with its own hostname.
+Remember… a container is an organized collection of namespaces!!!
+Figure 11.4
+Control Groups
+If namespaces are about isolation, control groups (cgroups) are about setting
+limits.
+Think of containers as similar to rooms in a hotel. Yes, each room is isolated, but
+each room also shares a common set of resources - things like water supply,
+electricity supply, shared swimming pool, shared gym, shared breakfast bar etc.
+Cgroups let us set limits on containers so that (sticking with the hotel analogy)
+no single container can use all of the water or eat everything at the breakfast bar.
+In the real world (not the silly hotel analogy) containers are isolated from each
+other but all share a common set of OS resources - things like CPU, RAM and
+disk I/O. Cgroups let us set limits on each of these so that a single container
+cannot use all of the CPU, RAM, or storage I/O of the Linux host.
+Capabilities

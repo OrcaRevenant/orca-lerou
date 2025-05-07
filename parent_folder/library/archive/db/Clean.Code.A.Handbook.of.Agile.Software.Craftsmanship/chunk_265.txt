@@ -1,0 +1,53 @@
+235
+String Arguments
+public Object get() {
+return intValue;
+}
+}
+And now we can eliminate setBooleanArg!
+private boolean setArgument(char argChar) throws ArgsException {
+ArgumentMarshaler m = marshalers.get(argChar);
+if (m == null)
+return false;
+try {
+if (m instanceof BooleanArgumentMarshaler)
+m.set(currentArgument);
+else if (m instanceof StringArgumentMarshaler)
+setStringArg(m);
+else if (m instanceof IntegerArgumentMarshaler)
+setIntArg(m);
+} catch (ArgsException e) {
+valid = false;
+errorArgumentId = argChar;
+throw e;
+}
+return true;
+}
+The tests all pass, and the set function is deploying to BooleanArgumentMarshaler!
+Now we can do the same for Strings and Integers.
+private boolean setArgument(char argChar) throws ArgsException {
+ArgumentMarshaler m = marshalers.get(argChar);
+if (m == null)
+return false;
+try {
+if (m instanceof BooleanArgumentMarshaler)
+m.set(currentArgument);
+else if (m instanceof StringArgumentMarshaler)
+m.set(currentArgument);
+else if (m instanceof IntegerArgumentMarshaler)
+m.set(currentArgument);
+} catch (ArgsException e) {
+valid = false;
+errorArgumentId = argChar;
+throw e;
+}
+return true;
+}
+---
+private class StringArgumentMarshaler extends ArgumentMarshaler {
+private String stringValue = "";
+public void set(Iterator<String> currentArgument) throws ArgsException {
+try {
+stringValue = currentArgument.next();
+} catch (NoSuchElementException e) {
+errorCode = ErrorCode.MISSING_STRING;

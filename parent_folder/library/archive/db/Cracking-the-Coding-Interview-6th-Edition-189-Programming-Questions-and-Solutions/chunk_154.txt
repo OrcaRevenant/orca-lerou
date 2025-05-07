@@ -1,0 +1,50 @@
+Chapter 9 | System Design and Scalability
+Step 3
+In Step 3, we find solutions to each of these issues. One solution is to divide up the words alphabetically by
+keyword, such that each machine controls a range of words (e.g., " a f t e r "through "apple").
+We can implement a simple algorithm in which we iterate through the keywords alphabetically, storing as
+much data as possible on one machine. When that machine is full, we can move to the next machine.
+The advantage of this approach is that the lookup table is small and simple (since it must only specify a
+range of values), and each machine can store a copy of the lookup table. However, the disadvantage is that
+if new documents or words are added, we may need to perform an expensive shift of keywords.
+To find all the documents that match a list of strings, we would first sort the list and then send each machine
+a lookup request for the strings that the machine owns. For example, if our string is " a f t e r
+b u i l d s
+boat amaze banana", machine 1 would get a lookup request for { " a f t e r " , "amaze"}.
+Machine 1 looks up the documents containing "after"and "amaze,"and performs an intersection on these
+document lists. Machine 3 does the same for {"banana",
+" b o a t " ,
+" b u i l d s " } , and intersects their
+lists.
+In the final step, the initial machine would do an intersection on the results from Machine 1 and Machine 3.
+The following diagram explains this process.
+" a f t e r b u i l d s boat amaze banana"
+1
+Machine 1: " a f t e r amaze"
+i
+Machine 3: " b u i l d s boat banana"
+" a f t e r " -> d o c l , docs, doc7
+"amaze" -> doc2, doc5j doc7
+" b u i l d s " -> doc3, doc4, docS
+" b o a t "
+-> doc2, doc3, doc5
+"banana" -> doc3, doc4j doc5
+{doc5, doe?}
+{doc3,
+docS}
+solution = does
+Interview Questions
+These questions are designed to mirror a real interview, so they will not always be well defined. Think about
+what questions you would ask your interviewer and then make reasonable assumptions. You may make
+different assumptions than us, and that will lead you to a very different design. That's okay!
+Stock Data: Imagine you are building some sort of service that will be called by up to 1,000 client
+applications to get simple end-of-day stock price information (open, close, high, low). You may
+assume that you already have the data, and you can store it in any format you wish. How would you
+design the client-facing service that provides the information to client applications? You are respon-
+sible for the development, rollout, and ongoing monitoring and maintenance of the feed. Describe
+the different methods you considered and why you would recommend your approach. Your service
+can use any technologies you wish, and can distribute the information to the client applications in
+any mechanism you choose.
+Hints: #385, #396
+1Ï8
+Cracking the Coding Interview, 6th Edition

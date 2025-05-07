@@ -1,0 +1,66 @@
+Introduction
+Additional Review Problems
+181
+Chapter 16 | Moderate
+181
+Chapter 17 | Hard
+186
+X.
+Solutions
+191
+Data Structures
+192
+Concepts and Algorithms
+276
+Knowledge Based
+422
+Additional Review Problems
+462
+XI.
+Advanced Topics
+628
+Useful Math
+629
+Topological Sort
+632
+Dijkstra's Algorithm
+633
+Hash Table Collision Resolution
+636
+Rabin-Karp Substring Search
+636
+AVL Trees
+637
+Red-Black Trees
+639
+MapReduce
+642
+Additional Studying
+644
+XII. Code Library
+645
+HashMapList<T, E>
+646
+TreeNode (Binary Search Tree)
+647
+LinkedListNode (Linked List)
+649
+Trie & TrieNode
+649
+XIII. Hints
+652
+Hints for Data Structures
+653
+Hints for Concepts and Algorithms
+662
+Hints for Knowledge-Based Questions
+676
+Hints for Additional Review Problems
+679
+XIV. About the Author
+696
+Join us at www.CrackingTheCodinglnterview.com to download the complete solutions,
+contribute or view solutions in other programming languages, discuss problems from this book
+with other readers, ask questions, report issues, view this book's errata, and seek additional advice.
+VIM
+Cracking the Coding Interview, 6th Edition

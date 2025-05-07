@@ -1,0 +1,72 @@
+V I I
+B i g O
+Example 1
+What is the runtime of the below code?
+1
+void foo(int[] array) {
+2
+int sum = 0;
+3
+int product = 1;
+4
+for (int i = 0; i < array.length; i++) {
+5
+sura += array[i];
+6
+}
+7
+for (int i = 0; i < array.length; i++) {
+8
+product *= a r r a y [ i ] ;
+9
+>
+10
+System.out.println(sura + ", " + product);
+11
+}
+This will takeO(N) time. The fact that we iterate through the array twice doesn't matter.
+Example 2
+What is the runtime of the below code?
+1
+void p r i n t P a i r s ( i n t [ ] array) {
+2
+for (int i = 0; i < array. length; i + O {
+3
+for (int j = 0; j < array.length; j++) {
+4
+System.out.println(array[i] + "," + arrayfj]);
+5
+}
+6
+>
+7
+>
+The inner for loop hasO(N) iterations and it is called N times. Therefore, the runtime isO(N2)-
+Another way we can see this is by inspecting what the "meaning" of the code is. It is printing all pairs (two-
+element sequences). There are 0(N 3) pairs; therefore, the runtime isO(N J).
+Example 3
+This is very similar code to the above example, but now the inner for loop starts at i + 1,
+1
+void p r i n t U n o r d e r e d P a i r s ( i n t [ ] array) {
+2
+for (int i = 0; 1 < array.length; i++) {
+for (int j = i + 1; j < array.length; j++) {
+4
+System.out.println(array[i] + "," + array[j]);
+^
+>
+6
+>
+7
+}
+We can derive the runtime several ways.
+I
+This pattern of for loop is very common. It's important that you know the runtime and that you
+deeply understand it. You can't rely on just memorizing common runtimes. Deep comprehen-
+sion is important.
+Counting the Iterations
+The first time through j runs for N -1 steps. The second time, it's N- 2 steps.Then N-3 steps. And so on.
+Therefore, the number of steps total is:
+(N-l) + (N-2) + (N-3) + ... + 2 + 1
+26
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,37 @@
+There’s a subtle but super important quirk to understand about this variation of the
+object destructuring form. To illustrate why it can be a gotcha you need to be careful
+of, let’s consider the “pattern” of how normal object literals are specified:
+var X = 10, Y = 20;
+var o = { a: X, b: Y };
+console.log( o.a, o.b );            // 10 20
+In { a: X, b: Y }, we know that a is the object property, and X is the source value
+that gets assigned to it. In other words, the syntactic pattern is target: source, or
+more obviously, property-alias: value. We intuitively understand this because it’s
+the same as = assignment, where the pattern is target = source.
+However, when you use object destructuring assignment — that is, putting the { .. }
+object literal looking syntax on the lefthand side of the = operator — you invert that
+target: source pattern.
+Recall:
+var { x: bam, y: baz, z: bap } = bar();
+The syntactic pattern here is source: target (or value: variable-alias). x: bam
+means the x property is the source value and bam is the target variable to assign to. In
+other words, object literals are target <= source, and object destructuring assign‐
+ments are source => target. See how that’s flipped?
+There’s another way to think about this syntax though, which may help ease the con‐
+fusion. Consider:
+var aa = 10, bb = 20;
+var o = { x: aa, y: bb };
+var     { x: AA, y: BB } = o;
+console.log( AA, BB );              // 10 20
+In the { x: aa, y: bb } line, the x and y represent the object properties. In the { x:
+AA, y: BB } line, the x and the y also represent the object properties.
+Recall earlier I asserted that { x, .. } was leaving off the x: part? In those two lines,
+if you erase the x: and y: parts in that snippet, you’re left only with aa, bb, AA, and BB,
+which in effect are assignments from aa to AA and from bb to BB. That’s actually what
+we’ve accomplished with the snippet.
+So, that symmetry may help to explain why the syntactic pattern was intentionally
+flipped for this ES6 feature.
+Destructuring
+|
+21
+www.it-ebooks.info

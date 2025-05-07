@@ -1,0 +1,43 @@
+280
+Chapter 16: Refactoring SerialDate
+The addYears function (lines 604–626) provides no surprises over the others.
+There is a little itch at the back of my mind that is bothering me about changing
+these methods from static to instance. Does the expression date.addDays(5) make it
+clear that the date object does not change and that a new instance of DayDate is returned?
+Or does it erroneously imply that we are adding ﬁve days to the date object? You might
+not think that is a big problem, but a bit of code that looks like the following can be very
+deceiving [G20].
+DayDate date = DateFactory.makeDate(5, Month.DECEMBER, 1952);
+date.addDays(7); // bump date by one week.
+Someone reading this code would very likely just accept that addDays is changing the
+date object. So we need a name that breaks this ambiguity [N4]. So I changed the names to
+plusDays and plusMonths. It seems to me that the intent of the method is captured nicely by
+DayDate date = oldDate.plusDays(5);
+whereas the following doesn’t read ﬂuidly enough for a reader to simply accept that the
+date object is changed:
+date.plusDays(5);
+The algorithms continue to get more interesting. getPreviousDayOfWeek (lines 628–
+660) works but is a bit complicated. After some thought about what was really going on
+[G21], I was able to simplify it and use EXPLAINING TEMPORARY VARIABLES [G19] to
+make it clearer. I also changed it from a static method to an instance method [G18], and
+got rid of the duplicate instance method [G5] (lines 997–1008).
+The exact same analysis and result occurred for getFollowingDayOfWeek (lines 662–693).
+int lastDayOfResultMonth = lastDayOfMonth(resultMonth, resultYear);
+int resultDay = Math.min(getDayOfMonth(), lastDayOfResultMonth);
+return DayDateFactory.makeDate(resultDay, resultMonth, resultYear);
+}
+public DayDate plusYears(int years) {
+int resultYear = getYear() + years;
+int lastDayOfMonthInResultYear = lastDayOfMonth(getMonth(), resultYear);
+int resultDay = Math.min(getDayOfMonth(), lastDayOfMonthInResultYear);
+return DayDateFactory.makeDate(resultDay, getMonth(), resultYear);
+}
+public DayDate getPreviousDayOfWeek(Day targetDayOfWeek) {
+int offsetToTarget = targetDayOfWeek.index - getDayOfWeek().index;
+if (offsetToTarget >= 0)
+offsetToTarget -= 7;
+return plusDays(offsetToTarget);
+}
+public DayDate getFollowingDayOfWeek(Day targetDayOfWeek) {
+int offsetToTarget = targetDayOfWeek.index - getDayOfWeek().index;
+if (offsetToTarget <= 0)

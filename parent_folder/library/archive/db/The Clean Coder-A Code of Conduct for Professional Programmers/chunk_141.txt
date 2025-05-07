@@ -1,0 +1,31 @@
+ACCEPTANCE TESTS
+109
+It can be tempting to try to eliminate “extra work” by assuming that the two
+kinds of tests are redundant. Although it is true that unit and acceptance tests
+often test the same things, they are not redundant at all.
+First, although they may test the same things, they do so through different
+mechanisms and pathways. Unit tests dig into the guts of the system making
+calls to methods in particular classes. Acceptance tests invoke the system much
+farther out, at the API or sometimes even UI level. So the execution pathways
+that these tests take are very different.
+But the real reason these tests aren’t redundant is that their primary function is
+not testing. The fact that they are tests is incidental. Unit tests and acceptance
+tests are documents first, and tests second. Their primary purpose is to formally
+document the design, structure, and behavior of the system. The fact that they
+automatically verify the design, structure, and behavior that they specify is
+wildly useful, but the specification is their true purpose.
+GUI S AN D O TH E R CO M PLI C ATI O N S
+It is hard to specify GUIs up front. It can be done, but it is seldom done well. The
+reason is that the aesthetics are subjective and therefore volatile. People want to
+fiddle with GUIs. They want to massage and manipulate them. They want to try
+different fonts, colors, page-layouts, and workflows. GUIs are constantly in flux.
+This makes it challenging to write acceptance tests for GUIs. The trick is to
+design the system so that you can treat the GUI as though it were an API rather
+than a set of buttons, sliders, grids, and menus. This may sound strange, but it’s
+really just good design.
+There is a design principle called the Single Responsibility Principle (SRP). This
+principle states that you should separate those things that change for different
+reasons, and group together those things that change for the same reasons.
+GUIs are no exception.
+The layout, format, and workflow of the GUI will change for aesthetic and
+efficiency reasons, but the underlying capability of the GUI will remain the same

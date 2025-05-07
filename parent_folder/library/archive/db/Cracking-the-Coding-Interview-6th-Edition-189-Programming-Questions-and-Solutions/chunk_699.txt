@@ -1,0 +1,85 @@
+IV j Hints for Additional Review Problems
+#636.
+17.26
+#637.
+16.23
+#638.
+17.8
+#639.
+16.15
+#640.
+17.21
+#641.
+17.6
+#642.
+17.1
+#643.
+16.18
+#644.
+16.24
+#645.
+17.18
+#646.
+17,12
+#647.
+17.14
+#648.
+16.9
+#649.
+17.19
+#650.
+17.10
+Solution 3: There's an alternative solution. Consider taking all of the words from ail of the
+documents, throwing them into one giant list, and sorting this list. Assume you could
+Still know which document each word came from. How could you track the similar pairs?
+Make a table indicating how each possibie sequence of calls to rands () would map
+to the result of r a n d 7 ( ) . For example, if you were implementing r a n d 3 { ) with
+( r a n d 2 ( ) + r a n d 2 ( ) ) % 3, then the table would look like the below. Analyze this
+table. What can it tell you?
+1st
+2nd
+Result
+6
+0
+0
+0
+1
+1
+1
+0
+1
+1
+1
+2
+This problem asks us to find the longest sequence of pairs you can build such that both
+sides of the pair are constantly increasing. What if you needed only one side of the pair
+to increase?
+Try first creating an array with the frequency that each item occurs.
+Picture the tallest bar, and then the next tailest bar on the left and the next tallest bar on
+the right. The water will fill the area between those. Can you calculate that area? What
+do you do about the rest?
+Is there a faster way of calculating how many twos are in a particular digit across a range
+of numbers? Observe that roughly Yie th of any digit should be a 2—but only roughly.
+How do you make that more exact?
+You can do the add step with an XOR.
+Observe that one of the substrings, either a or b, must start at the beginning of the
+string. That cuts down the number of possibilities.
+What if the array were sorted?
+Start with a brute force solution.
+Once you have a basic idea for a recursive algorithm, you might get stuck on this: some-
+times your recursive algorithm needs to return the start of the linked list, and some-
+times it needs to return the end. There are multiple ways of solving this issue. Brainstorm
+some of them.
+If you picked an arbitrary element, you would, on average, wind up with an element
+around the 50th percentile mark (half the elements above it and half the elements
+below). What if you did this repeatedly?
+Divide: If you're trying to compute, where X = Yh, remember that a = bx. Can you
+find the closest value for x? Remember that this is integer division and x should be an
+integer.
+Part 2: There are a lot of different calculations we could try. For example, we could
+multiply all the numbers, but that will only lead us to the product of a and b.
+Try this: Given an element, start checking if this is the st3rt of a subarray for which it's
+the majority element Once it's become "unlikely" (appears less than half the time), start
+checking at the next element (the element after the subarray).
+CrackingTheCodinglnterview.com | 6th Edition
+69S

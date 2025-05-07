@@ -1,0 +1,5 @@
+Hash keys
+One thing worth mentioning is that hash function used here is different from the one in “the
+rehashing problem,” and there is no modular operation. As shown in Figure 5-6, 4 cache keys
+(key0, key1, key2, and key3) are hashed onto the hash ring
+Server lookup

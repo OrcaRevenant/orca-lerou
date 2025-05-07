@@ -1,0 +1,57 @@
+Solutions to Chapter 3 | Stacks and Queues
+37
+38
+39
+40
+41
+42
+43
+44
+Dog dog = dogs.peekQj
+Cat cat = cats.peekQj
+if
+(dog.isOlderThan(cat))
+{
+return dequeueDogsQ;
+> else {
+return dequeueCatsQ;
+}
+4S
+}
+46
+47
+48
+public Dog dequeueDogsQ {
+return d o g s . p o l l Q ;
+>
+49
+}
+50
+51
+52
+public Cat dequeueCatsQ {
+return c a t s . p o l i Q ;
+53
+>
+54 >
+55
+56 public class Dog extends Animal {
+57
+public Dog(String n) { super(n); >
+58
+}
+59
+60 public class Cat extends Animal {
+61
+public Cat(String n) { super(n); >
+62
+>
+It is important that Dog and Cat both inherit from an Animal class since dequeueAny() needs to be able
+to support returning both Dog and Cat objects.
+If we wanted, o r d e r could be a true timestamp with the actual date and time. The advantage of this is that
+we wouldn't have to set and maintain the numerical order. If we somehow wound up with two animals with
+the same timestamp, then (by definition) we don't have an older animal and we could return either one.
+2
+2
+S
+Cracking the Coding Interview, 6th Edition

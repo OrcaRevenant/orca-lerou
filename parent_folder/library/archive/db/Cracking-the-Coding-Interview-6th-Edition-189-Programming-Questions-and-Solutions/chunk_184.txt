@@ -1,0 +1,44 @@
+1 5
+Threads and Locks
+I
+n a Microsoft, Google or Amazon interview, it's not terribly common to be asked to implement an algo-
+rithm with threads (unless you're working in a team for which this is a particularly important skill). It
+is, however, relatively common for interviewers at any company to assess your general understanding of
+threads, particularly your understanding of deadlocks.
+This chapter will provide an introduction to this topic.
+• Threads in Java
+Every thread in Java is created and controlled by a unique object of the j a v a , l a n g . Thread class. When
+a standalone application is run, a user thread is automatically created to execute the main () method. This
+thread is calted the main thread.
+In Java, we can implement threads in one of two ways:
+•
+By implementing the j ava . l a n g , Runnable interface
+•
+By extending the j a v a . l a n g . Thread class
+We wilt cover both of these below,
+Implementing the Runnable Interface
+The Runnable interface has the following very simple structure.
+1
+public interface Runnable {
+2
+v o i d
+r u n ( ) ;
+3
+}
+To create and use a thread using this interface, we do the following:
+1. Create a class which implements the Runnable interface. An object of this class is a Runnable object,
+2. Createan object of type Thread by passing a Runnable object as argument to the Thread constructor.
+The Thread object now has a Runnable object that implements the r u n ( ) method,
+3. The s t a r t () method is invoked on the Thread object created in the previous step.
+For example:
+1
+public class RunnableThreadExample implements Runnable {
+2
+public int count = 0;
+3
+4
+public void run() {
+5
+System.out.printIn("RunnableThread starting.");
+1S 2
+Cracking the Coding Interview, 6th Edition

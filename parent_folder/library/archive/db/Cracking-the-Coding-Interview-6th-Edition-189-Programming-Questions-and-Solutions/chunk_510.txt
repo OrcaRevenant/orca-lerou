@@ -1,0 +1,77 @@
+Solutions to Chapter 16 | Moderate
+One easy optimization is to notice that if the pattern starts with 'a', then the a string must start at the
+beginning of value. (Otherwise, the b string must start at the beginning of value.) Therefore, there aren't
+0(n ?) possible values for a; there are 0(n).
+The algorithm then is to check if the pattern starts with a or b. If it starts with b, we can "invert" it (flipping
+each'a' to a'b'and each'b'to an'a') so that it starts with'a'.Then, iterate through all possible substrings for
+a (each of which must begin at index 0) and all possible substrings for b (each of which must begin at some
+character after the end of a). As before, we then compare the string for this pattern with the original string.
+This algorithm now takes 0(n4) time.
+There's one more minor (optional) optimization we can make. We don't actually need to do this"inversion" if
+the string starts with'b'instead of'a'. The b u i l d F r o m P a t t e r n method can take care of this. We can think
+about the first character in the pattern as the"main"item and the other character as the alternate character.
+The b u i l d FromPattern method can build the appropriate string based on whether'a'is the main char-
+acter or alternate character.
+1
+boolean doesMatch(String pattern, String value) {
+2
+if (pattern.length() == 9) return value.length() == 0;
+3
+4
+int size = value.lengthQ;
+5
+f o r (int mainSize = 0; mainSize < size; mainSize++) {
+6
+String main = value.substring(0, mainSize);
+f o r (int altStart = mainSize; altStart <= size; altStart++) {
+8
+f o r (int altEnd = a l t S t a r t ; altEnd <= size; altEnd++) {
+9
+String alt = value.substring(altStart, altEnd);
+10
+String cand = buildFromPattern(pattern, main, a l t ) ;
+11
+if (cand.equals(value)) {
+12
+return true;
+13
+>
+14
+>
+15
+>
+16
+}
+17
+return f a l s e ;
+18 }
+19
+20 String buildFromPattern(String pattern. String main, String a l t ) {
+21
+StringBuffer sb = new StringBufferQ;
+22
+char f i r s t = pattern,charAt(0);
+23
+for (char c : pattern.toCharArrayO) {
+24
+if (c
+f i r s t ) {
+25
+sb,append(main);
+26
+> else {
+27
+sb.append(alt);
+28
+>
+29
+}
+30
+return sb.toStringQ;
+31 >
+We should look for a more optimal algorithm.
+Optimized
+Let's think through our current algorithm. Searching through all values for the main string is fairly fast (it
+takes 0(n) time). It's the alternate string that is so slow: 0(n 2) time. We should study how to optimize that.
+5 0 0
+492 Cracking the Coding Interview, 6th Edition

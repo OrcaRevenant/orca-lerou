@@ -1,0 +1,36 @@
+DAGs (directed acyclic graphs)
+architectural framework for policy, 184
+breaking cycle of components, 117–118
+defined, 114
+Dahl, Ole Johan, 22
+Data
+clean architecture scenario, 207–208
+Dependency Rule for crossing boundaries, 207
+management concerns in architecture, 24
+mappers, 214–215
+separating from functions, 66
+Data model, database vs., 278
+Data storage
+in Laser Trim archaeology project, 335
+prevalence of database systems due to disks, 279–280
+in Union Accounting archaeology project, 327–328
+Database
+clean architecture independent from, 202
+clean architecture scenario, 207–208
+creating testable architecture without, 198
+decoupling layers, 153
+decoupling use cases, 153
+Dependency Rule, 205
+drawing boundary line between business rules and, 165
+gateways, 214
+in Hunt the Wumpus adventure game, 222–223
+independent developability, 47
+leaving options open in development, 141, 197
+plugin architecture, 171
+relational, 278
+schema in Zone of Pain, 129
+separating components with boundary lines, 165–169
+Database is detail
+anecdote, 281–283
+conclusion, 283
+details, 281

@@ -1,0 +1,27 @@
+Step 4 - Wrap up
+In this chapter, we discussed different algorithms of rate limiting and their pros/cons.
+Algorithms discussed include:
+• Token bucket
+• Leaking bucket
+• Fixed window
+• Sliding window log
+• Sliding window counter
+Then, we discussed the system architecture, rate limiter in a distributed environment,
+performance optimization and monitoring. Similar to any system design interview questions,
+there are additional talking points you can mention if time allows:
+• Hard vs soft rate limiting.
+• Hard: The number of requests cannot exceed the threshold.
+• Soft:  Requests can exceed the threshold for a short period.
+• Rate limiting at different levels. In this chapter, we only talked about rate limiting at the
+application level (HTTP: layer 7). It is possible to apply rate limiting at other layers. For
+example, you can apply rate limiting by IP addresses using Iptables [15] (IP: layer 3).
+Note: The Open Systems Interconnection model (OSI model) has 7 layers [16]:  Layer 1:
+Physical layer, Layer 2: Data link layer, Layer 3: Network layer, Layer 4: Transport layer,
+Layer 5: Session layer, Layer 6: Presentation layer, Layer 7: Application layer.
+• Avoid being rate limited. Design your client with best practices:
+• Use client cache to avoid making frequent API calls.
+• Understand the limit and do not send too many requests in a short time frame.
+• Include code to catch exceptions or errors so your client can gracefully recover from
+exceptions.
+• Add sufficient back off time to retry logic.
+Congratulations on getting this far! Now give yourself a pat on the back. Good job!

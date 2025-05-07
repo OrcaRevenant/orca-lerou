@@ -1,0 +1,54 @@
+216
+Chapter 14: Successive Reﬁnement
+private void parseIntegerSchemaElement(char elementId) {
+intArgs.put(elementId, new IntegerArgumentMarshaler());
+}
+...
+private void setIntArg(char argChar) throws ArgsException {
+currentArgument++;
+String parameter = null;
+try {
+parameter = args[currentArgument];
+intArgs.get(argChar).setInteger(Integer.parseInt(parameter));
+} catch (ArrayIndexOutOfBoundsException e) {
+valid = false;
+errorArgumentId = argChar;
+errorCode = ErrorCode.MISSING_INTEGER;
+throw new ArgsException();
+} catch (NumberFormatException e) {
+valid = false;
+errorArgumentId = argChar;
+errorParameter = parameter;
+errorCode = ErrorCode.INVALID_INTEGER;
+throw new ArgsException();
+}
+}
+...
+public int getInt(char arg) {
+Args.ArgumentMarshaler am = intArgs.get(arg);
+return am == null ? 0 : am.getInteger();
+}
+...
+private class ArgumentMarshaler {
+private boolean booleanValue = false;
+private String stringValue;
+private int integerValue;
+public void setBoolean(boolean value) {
+booleanValue = value;
+}
+public boolean getBoolean() {
+return booleanValue;
+}
+public void setString(String s) {
+stringValue = s;
+}
+public String getString() {
+return stringValue == null ? "" : stringValue;
+}
+public void setInteger(int i) {
+integerValue = i;
+}
+public int getInteger() {
+return integerValue;
+}
+}

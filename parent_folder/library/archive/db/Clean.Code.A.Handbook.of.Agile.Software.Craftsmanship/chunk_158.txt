@@ -1,0 +1,43 @@
+128
+Chapter 9: Unit Tests
+Consider the test in Listing 9-3. I wrote this test as part of an environment control sys-
+tem I was prototyping. Without going into the details you can tell that this test checks that
+the low temperature alarm, the heater, and the blower are all turned on when the tempera-
+ture is “way too cold.”
+There are, of course, lots of details here. For example, what is that tic function all
+about? In fact, I’d rather you not worry about that while reading this test. I’d rather you just
+worry about whether you agree that the end state of the system is consistent with the tem-
+perature being “way too cold.”
+Notice, as you read the test, that your eye needs to bounce back and forth between
+the name of the state being checked, and the sense of the state being checked. You see
+heaterState, and then your eyes glissade left to assertTrue. You see coolerState and your
+eyes must track left to assertFalse. This is tedious and unreliable. It makes the test hard
+to read.
+I improved the reading of this test greatly by transforming it into Listing 9-4.
+Of course I hid the detail of the tic function by creating a wayTooCold function. But the
+thing to note is the strange string in the assertEquals. Upper case means “on,” lower case
+means “off,” and the letters are always in the following order: {heater, blower, cooler,
+hi-temp-alarm, lo-temp-alarm}.
+Even though this is close to a violation of the rule about mental mapping,3 it seems
+appropriate in this case. Notice, once you know the meaning, your eyes glide across
+Listing 9-3
+EnvironmentControllerTest.java
+@Test
+public void turnOnLoTempAlarmAtThreashold() throws Exception {
+hw.setTemp(WAY_TOO_COLD);
+controller.tic();
+assertTrue(hw.heaterState());
+assertTrue(hw.blowerState());
+assertFalse(hw.coolerState());
+assertFalse(hw.hiTempAlarm());
+assertTrue(hw.loTempAlarm());
+}
+Listing 9-4
+EnvironmentControllerTest.java (refactored)
+@Test
+public void turnOnLoTempAlarmAtThreshold() throws Exception {
+wayTooCold();
+assertEquals("HBchL", hw.getState());
+}
+3.
+“Avoid Mental Mapping” on page 25.

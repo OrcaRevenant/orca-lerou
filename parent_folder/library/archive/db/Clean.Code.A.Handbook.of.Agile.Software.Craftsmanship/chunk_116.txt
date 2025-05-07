@@ -1,0 +1,42 @@
+86
+Chapter 5: Formatting
+that they can get 200 characters across the screen. Don’t do that. I personally set my limit
+at 120.
+Horizontal Openness and Density
+We use horizontal white space to associate things that are strongly related and disassociate
+things that are more weakly related. Consider the following function:
+private void measureLine(String line) {
+lineCount++;
+int lineSize = line.length();
+totalChars += lineSize;
+lineWidthHistogram.addLine(lineSize, lineCount);
+recordWidestLine(lineSize);
+}
+I surrounded the assignment operators with white space to accentuate them. Assignment
+statements have two distinct and major elements: the left side and the right side. The
+spaces make that separation obvious.
+On the other hand, I didn’t put spaces between the function names and the opening
+parenthesis. This is because the function and its arguments are closely related. Separat-
+ing them makes them appear disjoined instead of conjoined. I separate arguments within
+the function call parenthesis to accentuate the comma and show that the arguments are
+separate.
+Another use for white space is to accentuate the precedence of operators.
+public class Quadratic {
+public static double root1(double a, double b, double c) {
+double determinant = determinant(a, b, c);
+return (-b + Math.sqrt(determinant)) / (2*a);
+}
+public static double root2(int a, int b, int c) {
+double determinant = determinant(a, b, c);
+return (-b - Math.sqrt(determinant)) / (2*a);
+}
+private static double determinant(double a, double b, double c) {
+return b*b - 4*a*c;
+}
+}
+Notice how nicely the equations read. The factors have no white space between them
+because they are high precedence. The terms are separated by white space because addi-
+tion and subtraction are lower precedence.
+Unfortunately, most tools for reformatting code are blind to the precedence of
+operators and impose the same spacing throughout. So subtle spacings like those
+shown above tend to get lost after you reformat the code.

@@ -1,0 +1,77 @@
+11 Hints for Data Structures
+#31.
+4.10
+Although the problem seems like it stems from duplicate values, it's really deeper than
+that. The issue is that the pre-order traversal is the same only because there are null
+nodes that we skipped over (because they're null}. Consider inserting a placeholder
+value into the pre-order traversal string whenever you reach a null node. Register the
+null node as a "real" node so that you can distinguish between the different structures.
+#32.
+3.5
+Imagine your secondary stack is sorted. Can you insert elements into it in sorted order?
+You might need some extra storage. What could you use for extra storage?
+#33.
+4.4
+If you've developed a brute force solution, be careful about its runtime. If you are
+computing the height of the subtrees for each node, you could have a pretty inefficient
+algorithm.
+#34,
+1.9
+If a string is a rotation of another, then it's a rotation at a particular point. For example,
+a rotation of water b o t t l e at character 3 means cutting water b o t t l e at character 3
+and putting the right half ( e r b o t t l e ) before the left half (wat).
+#35.
+4,5
+If you traversed the tree using an in-order traversal and the elements were truly in
+the right order, does this indicate that the tree is actually in order? What happens for
+duplicate elements? If duplicate elements are allowed, they must be on a specific side
+(usually the left).
+#36.
+4.8
+Start with the root. Can you identify if root is the first common ancestor? If it is not, can
+you identify which side of root the first common ancestor is on?
+#37.
+4.10
+Alternatively, we can handle this problem recursively. Given a specific node within Tl,
+can we check to see if its subtree matches T2?
+#38.
+3.1
+If you want to allow for flexible divisions, you can shift stacks around. Can you ensure
+that all available capacity is used?
+#39.
+4,9
+What is the very first value that must be in each array?
+#40.
+2.1
+Without extra space, you'll need
+time. Try using two pointers, where the second
+one searches ahead of the first one.
+#41,
+2.2
+Try implementing it recursively. If you could find the (K-l)th to last element, can you
+find the Kth element?
+#42.
+4.11
+Be very careful in this problem to ensure that each node is equally likely and that
+your solution doesn't slow down the speed of standard binary search tree algorithms
+(like i n s e r t , f i n d , and delete). Also, remember that even if you assume that it's a
+balanced binary search tree, this doesn't mean that the tree is full/complete/perfect,
+#43.
+3.5
+Keep the secondary stack in sorted order, with the biggest elements on the top. Use the
+primary stack for additional storage.
+#44.
+1.1
+Try a hash table.
+#45,
+2,7
+Examples will help you. Draw a picture of intersecting linked lists and two equivalent
+linked lists (by value) that do not intersect,
+#46.
+4.8
+Try a recursive approach. Check if p and q are descendants of the left subtree and the
+right subtree. If they are descendants of different subtrees, then the current node is the
+first common ancestor. If they are descendants of the same subtree, then that subtree
+holds the first common ancestor. Now, how do you implement this efficiently?
+CrackingTheCodinglnterview.com | 6th Edition
+659

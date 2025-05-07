@@ -1,0 +1,83 @@
+Solutions to Chapter 17 | Hard
+We can use this thought to plan in advance. Each time we add a number A; to the list, we hold on to the
+values 3Ar 5A., and 7A. in some sort of temporary list. To generate AU1, we search through this temporary
+list to find the smallest value.
+Our code looks like this:
+1
+i n t removeMin(Queue<Integer> q) {
+2
+i n t rain = q.peekQ;
+3
+f o r (Integer v : q) {
+4
+if (rain > v) {
+5
+rain
+= v;
+6
+>
+7
+>
+8
+while (q.contains(triin)) {
+9
+q.remove(min)j
+10
+}
+11
+return rain;
+12
+}
+13
+14 void addProducts(Queue<Integer> q, i n t v) {
+15
+q,add(v * 3)j
+16
+q.add(v * 5);
+17
+q.add(v * 7);
+18 >
+19
+20 i n t getKthMagicNumber(int k) {
+21
+if (k < 0) return 0;
+22
+23
+i n t val = 1;
+24
+Queue<Integer> q = new LinkedUst<Integer>();
+25
+addProductsfq,
+1);
+26
+for ( i n t i = 8; i < k; i++) {
+27
+val = removeMin(q);
+28
+addProductsiq,
+v a l ) ;
+29
+}
+30
+return val;
+31 }
+This algorithm is certainly much, much better than our first algorithm, but it's still not quite perfect.
+Optimal Algorithm
+To generate a new element Ay we are searching through a linked list where each element looks like one of:
+•
+3* previous element
+•
+5 * previous element
+•
+7 * previous element
+Where is there unnecessary work that we might be able to optimize out?
+Let's imagine our list looks like:
+% = {7A : J 5A3, 7A2J 7A3J 3 A „
+5A4J 7AflJ 5A;J 7 A J
+When we search this list for the min, we check if
+< min, and then later we check if 7A5 < min. That
+seems sort of silly, doesn't it? Since we know that A, < A,., we should only need to check 7A..
+If we separated the list from the beginning by the constant factors, then we'd only need to check the first of
+the multiples of 3,5 and 7. All subsequent elements would be bigger.
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

@@ -1,0 +1,66 @@
+388
+Appendix B: org.jfree.date.SerialDate
+374      * specified range (INCLUSIVE).  The date order of d1 and d2 is not
+375      * important.
+376      *
+377      * @param d1  a boundary date for the range.
+378      * @param d2  the other boundary date for the range.
+379      *
+380      * @return A boolean.
+381      */
+382     public boolean isInRange(final SerialDate d1, final SerialDate d2) {
+383         return isInRange(d1, d2, SerialDate.INCLUDE_BOTH);
+384     }
+385
+386     /**
+387      * Returns true if this SerialDate is within the specified range (caller
+388      * specifies whether or not the end-points are included).  The order of d1
+389      * and d2 is not important.
+390      *
+391      * @param d1  one boundary date for the range.
+392      * @param d2  a second boundary date for the range.
+393      * @param include  a code that controls whether or not the start and end
+394      *                 dates are included in the range.
+395      *
+396      * @return <code>true</code> if this SerialDate is within the specified
+397      *         range.
+398      */
+399     public boolean isInRange(final SerialDate d1, final SerialDate d2,
+400                              final int include) {
+401         final int s1 = d1.toSerial();
+402         final int s2 = d2.toSerial();
+403         final int start = Math.min(s1, s2);
+404         final int end = Math.max(s1, s2);
+405
+406         final int s = toSerial();
+407         if (include == SerialDate.INCLUDE_BOTH) {
+408             return (s >= start && s <= end);
+409         }
+410         else if (include == SerialDate.INCLUDE_FIRST) {
+411             return (s >= start && s < end);
+412         }
+413         else if (include == SerialDate.INCLUDE_SECOND) {
+414             return (s > start && s <= end);
+415         }
+416         else {
+417             return (s > start && s < end);
+418         }
+419     }
+420
+421     /**
+422      * Calculate the serial number from the day, month and year.
+423      * <P>
+424      * 1-Jan-1900 = 2.
+425      *
+426      * @param d  the day.
+427      * @param m  the month.
+428      * @param y  the year.
+429      *
+430      * @return the serial number from the day, month and year.
+431      */
+432     private int calcSerial(final int d, final int m, final int y) {
+433         final int yy = ((y - 1900) * 365) + SerialDate.leapYearCount(y - 1);
+434         int mm = SerialDate.AGGREGATE_DAYS_TO_END_OF_PRECEDING_MONTH[m];
+435         if (m > MonthConstants.FEBRUARY) {
+Listing B-5 (continued)
+SpreadsheetDate.java

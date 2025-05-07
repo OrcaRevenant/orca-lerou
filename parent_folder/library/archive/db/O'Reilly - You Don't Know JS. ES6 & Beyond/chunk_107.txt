@@ -1,0 +1,41 @@
+catch (err) {
+console.log( "never gets here" );
+}
+it.next();              // { value: undefined, done: true }
+When *foo() calls yield 1, the 1 value passes through *bar() untouched, as we’ve
+already seen.
+But what’s most interesting about this snippet is that when *foo() calls throw "foo:
+e2", this error propagates to *bar() and is immediately caught by *bar()’s
+try..catch block. The error doesn’t pass through *bar() like the 1 value did.
+*bar()’s catch then does a normal output of err ("foo: e2") and then *bar() fin‐
+ishes normally, which is why the { value: undefined, done: true } iterator result
+comes back from it.next().
+If *bar() didn’t have a try..catch around the yield *.. expression, the error
+would of course propagate all the way out, and on the way through it still would com‐
+plete (abort) *bar().
+Transpiling a Generator
+Is it possible to represent a generator’s capabilities prior to ES6? It turns out it is, and
+there are several great tools which do so, including most notably the Regenerator
+(https://facebook.github.io/regenerator/) tool from Facebook.
+But just to better understand generators, let’s try our hand at manually converting.
+Basically, we’re going to create a simple closure-based state machine.
+We’ll keep our source generator really simple:
+function *foo() {
+var x = yield 42;
+console.log( x );
+}
+To start, we’ll need a function called foo() that we can execute, which needs to return
+an iterator:
+function foo() {
+// ..
+return {
+next: function(v) {
+// ..
+}
+// we'll skip `return(..)` and `throw(..)`
+};
+}
+96
+|
+Chapter 3: Organization
+www.it-ebooks.info

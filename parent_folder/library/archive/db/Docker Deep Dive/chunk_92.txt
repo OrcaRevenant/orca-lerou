@@ -1,0 +1,33 @@
+The container(s) started in the previous examples will no longer be present on
+your system.
+Container lifecycle
+It’s a common myth that containers can’t persist data. They can!
+A big part of the reason people think containers aren’t good for persistent
+workloads, or persisting data, is because they’re so good at non-persistent stuff.
+But being good at one thing doesn’t mean you can’t do other things. A lot of VM
+admins out there will remember companies like Microsoft and Oracle telling you
+that you couldn’t run their applications inside of VMs - or at least they wouldn’t
+support you if you did. I wonder if we’re seeing something similar with the
+move to containerization - are there people out there trying to protect their
+empires of persistent workloads from what they perceive as the threat of
+containers?
+In this section we’ll look at the lifecycle of a container - from birth, through
+work and vacations, to eventual death.
+We’ve already seen how to start containers with the docker container run
+command. Let’s start another one so we can walk it through its entire lifecycle.
+The examples below will be from a Linux Docker host running an Ubuntu
+container. However, all of the examples will work with the Windows PowerShell
+container we’ve used in previous examples - though you’ll have to substitute
+Linux commands with their equivalent Windows commands.
+$ docker container run --name percy -it ubuntu:latest /bin/bash
+root@9cb2d2fd1d65:/#
+That’s our container created, and we named it “percy” for persistent :-S
+Now let’s put it to work by writing some data to it.
+From within the shell of your new container, follow the procedure below to write
+some data to a new file in the tmp directory and verify that the write operation
+succeeded.
+root@9cb2d2fd1d65:/# cd tmp
+root@9cb2d2fd1d65:/tmp#
+root@9cb2d2fd1d65:/tmp# ls -l
+total 0
+root@9cb2d2fd1d65:/tmp#

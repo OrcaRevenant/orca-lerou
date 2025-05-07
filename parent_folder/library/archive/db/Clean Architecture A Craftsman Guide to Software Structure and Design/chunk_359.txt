@@ -1,0 +1,34 @@
+as tools, not a way of life, 198
+Frameworks are details
+asymmetric marriage and, 292–293
+conclusion, 295
+framework authors, 292
+frameworks you must simply marry, 295
+popularity of, 292
+risks, 293–294
+solution, 294
+Function calls, services as, 240
+Functional decomposition
+programming best practice, 32
+in structured programming, 29
+Functional pointers, OOP, 22, 23
+Functional programming
+conclusion, 56
+event sourcing, 54–55
+history of, 22–23
+immutability, 52
+overview of, 50
+segregation of mutability, 52–54
+squares of integers example, 50–51
+Functions
+avoid overriding concrete, 89
+breaking down into parts (functional decomposition), 29
+one of three big concerns in architecture, 24
+principle of doing one thing, 62
+separating from data, 66
+SRP examples, 67
+G
+Gateways, database, 214
+GE Datanet 30 computer, Union Accounting archaeology project, 326–330
+Goto statements
+Dijkstra replaces with iteration control structures, 27

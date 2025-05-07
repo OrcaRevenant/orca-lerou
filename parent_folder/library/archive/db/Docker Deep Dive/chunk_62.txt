@@ -1,0 +1,27 @@
+6: Images
+In this chapter we’ll dive into Docker images. The aim of the game is to give
+you a solid understanding of what Docker images are and how to perform basic
+operations. In a later chapter we’ll see how to build new images with our own
+applications inside of them (containerizing an app).
+We’ll split this chapter into the usual three parts:
+The TLDR
+The deep dive
+The commands
+Let’s go learn about images!
+
+Docker images - The TLDR
+If you’re a former VM admin you can think of Docker images as being like VM
+templates. A VM template is like a stopped VM - a Docker image is like a
+stopped container. If you’re a developer you can think of them as being similar
+to classes.
+You start by pulling images from an image registry. The most popular registry is
+Docker Hub, but others do exist. The pull operation downloads the image to
+your local Docker host where you can use it to start one or more Docker
+containers.
+Images are made up of multiple layers that get stacked on top of each other and
+represented as a single object. Inside of the image is a cut-down operating
+system (OS) and all of the files and dependencies required to run an application.
+Because containers are intended to be fast and lightweight, images tend to be
+small.
+Congrats! You’ve now got half a clue what a Docker image is :-D Now it’s time
+to blow your mind!

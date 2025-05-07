@@ -1,0 +1,7 @@
+• Thus, the short URL is https://tinyurl.com /2TX
+Comparison of the two approaches
+Table 8-3 shows the differences of the two approaches.
+URL shortening deep dive
+As one of the core pieces of the system, we want the URL shortening flow to be logically
+simple and functional. Base 62 conversion is used in our design. We build the following
+diagram (Figure 8-7) to demonstrate the flow.

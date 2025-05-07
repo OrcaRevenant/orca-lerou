@@ -1,0 +1,94 @@
+Solutions to Chapter 17 | Moderate
+In practice, how does this work? We could pick a name and do a depth-first (or breadth-first) search to sum
+the frequencies of all the names in one component. We would have to make sure that we hit each compo-
+nent exactly once. That's easy enough to achieve: mark a node as v i s i t e d after it's discovered in the graph
+search, and only start the search for nodes where v i s i t e d is false.
+1
+HashMap<String, Integer> trulyMostPopular(HashMap<String, Integer;» names,
+2
+String[][] synonyms) {
+3
+r Create data. */
+4
+Graph graph = constructGraph(names);
+5
+connectEdges(graph, synonyms);
+6
+7
+/* Find components. */
+8
+HashMap<String, Integer;» rootNames = getTrueFrequencies(graph);
+9
+return rootNames;
+10 }
+11
+12 /* Add a l l names to graph as nodes. */
+13 Graph constructGraph(HashMap<String, Integer> names) {
+14
+Graph graph = new Graph();
+15
+for (Entry<String, Integer> entry : names.entrySetQ) {
+16
+String name = entry.getKeyO;
+17
+int frequency = entry.getValue();
+18
+graph.createNode(name, frequency);
+19
+>
+26
+return graph;
+21 >
+22
+23 /* Connect synonymous spellings. */
+24 void connectEdges(Graph graph, String[][] synonyms) {
+25
+for (StringH entry : synonyms) {
+26
+String namel = entry[0];
+27
+String name2 = entryfl];
+28
+graph.addEdge(namel,
+name2);
+29
+}
+30 >
+31
+32 /* Do DFS of each component. If a node has been visited before, then its component
+33
+* has already been computed. */
+34 HashMap<String, Integer> getTrueFrequencies(Graph graph) {
+35
+HashMapcString, Integer> rootNames = new HashMap<String, Integer>{);
+36
+for (GraphNode node : graph.getNodesQ) {
+37
+if (lnode.isVisited()) { // Already visited this component
+38
+int frequency = getComponentFrequency(node);
+39
+String name = node.getNameQ;
+40
+rootNames.put(name, frequency);
+41
+>
+42
+}
+43
+return rootNames;
+44 }
+45
+46 /* Do depth-first search to find the total frequency of this component, and mark
+47
+* each node as visited.*/
+48 int getComponentFrequency(GraphNode node) {
+49
+if (node.isVisitedQ) return 0; // Already visited
+50
+51
+node.setlsVisited(true);
+52
+int sum = node.getFrequency();
+CrackingTheCodinglnterview.com | 6th Edition
+495

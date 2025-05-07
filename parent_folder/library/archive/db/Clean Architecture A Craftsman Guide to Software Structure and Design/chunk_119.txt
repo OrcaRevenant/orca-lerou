@@ -1,0 +1,10 @@
+14
+COMPONENT COUPLING
+The next three principles deal with the relationships between components. Here
+again we will run into the tension between develop-ability and logical design.
+The forces that impinge upon the architecture of a component structure are
+technical, political, and volatile.
+THE ACYCLIC DEPENDENCIES
+PRINCIPLE
+Allow no cycles in the component dependency graph.
+Have you ever worked all day, gotten some stuff working, and then gone home,

@@ -1,0 +1,37 @@
+var re = /f../y,
+str = "foo       far       fad";
+str.match( re );        // ["foo"]
+re.lastIndex = 10;
+str.match( re );        // ["far"]
+re.lastIndex = 20;
+str.match( re );        // ["fad"]
+However, if you’re parsing a string that isn’t formatted in fixed positions like that, fig‐
+uring out what to set lastIndex to before each match is likely going to be untenable.
+There’s a saving nuance to consider here. y requires that lastIndex be in the exact
+position for your a match to occur, yes. But it doesn’t strictly require that you man‐
+ually set lastIndex.
+Instead, you can construct your expressions in such a way that they capture in each
+main match everything before and after the thing you care about, up to right before
+the next thing you’ll care to match.
+Since lastIndex will set to the next character beyond the end of a match, if you’ve
+matched everything up to that point, lastIndex will always be in the correct position
+for the y pattern to start from the next time.
+If you can’t predict the structure of the input string in a sufficiently
+patterned way like that, this technique may not be suitable and you
+may not be able to use y.
+Having structured string input is likely the most practical scenario where y will be
+capable of performing repeated matching throughout a string. Consider:
+var re = /\d+\.\s(.*?)(?:\s|$)/y
+str = "1. foo 2. bar 3. baz";
+str.match( re );        // [ "1. foo ", "foo" ]
+re.lastIndex;           // 7 -- correct position!
+str.match( re );        // [ "2. bar ", "bar" ]
+re.lastIndex;           // 14 -- correct position!
+str.match( re );        // ["3. baz", "baz"]
+This works because I knew something ahead of time about the structure of the input
+string: there is always a numeral prefix like "1. " before the desired match ("foo",
+etc.), and either a space after or the end of the string ($ anchor). So the regular
+Regular Expressions
+|
+57
+www.it-ebooks.info

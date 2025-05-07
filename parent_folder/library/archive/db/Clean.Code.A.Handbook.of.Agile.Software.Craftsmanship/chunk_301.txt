@@ -1,0 +1,47 @@
+271
+Then Make It Right
+I won’t keep you guessing. I know why (or at least I think I know why) the word
+“serial” was used. The clue is in the constants SERIAL_LOWER_BOUND and
+SERIAL_UPPER_BOUND on line 98 and line 101. An even better clue is in the comment
+that begins on line 830. This class is named SerialDate because it is implemented using a
+“serial number,” which happens to be the number of days since December 30th, 1899.
+I have two problems with this. First, the term “serial number” is not really correct.
+This may be a quibble, but the representation is more of a relative offset than a serial num-
+ber. The term “serial number” has more to do with product identiﬁcation markers than
+dates. So I don’t ﬁnd this name particularly descriptive [N1]. A more descriptive term
+might be “ordinal.”
+The second problem is more signiﬁcant. The name SerialDate implies an implementa-
+tion. This class is an abstract class. There is no need to imply anything at all about the
+implementation. Indeed, there is good reason to hide the implementation! So I ﬁnd this
+name to be at the wrong level of abstraction [N2]. In my opinion, the name of this class
+should simply be Date.
+Unfortunately, there are already too many classes in the Java library named Date, so
+this is probably not the best name to choose. Because this class is all about days, instead of
+time, I considered naming it Day, but this name is also heavily used in other places. In the
+end, I chose DayDate as the best compromise.
+From now on in this discussion I will use the term DayDate. I leave it to you to remem-
+ber that the listings you are looking at still use SerialDate.
+I understand why DayDate inherits from Comparable and Serializable. But why does it
+inherit from MonthConstants? The class MonthConstants (Listing B-3, page 372) is just a
+bunch of static ﬁnal constants that deﬁne the months. Inheriting from classes with con-
+stants is an old trick that Java programmers used so that they could avoid using expres-
+sions like MonthConstants.January, but it’s a bad idea [J2]. MonthConstants should really be
+an enum.
+public abstract class DayDate implements Comparable,
+Serializable {
+public static enum Month {
+JANUARY(1),
+FEBRUARY(2),
+MARCH(3),
+APRIL(4),
+MAY(5),
+JUNE(6),
+JULY(7),
+AUGUST(8),
+SEPTEMBER(9),
+OCTOBER(10),
+NOVEMBER(11),
+DECEMBER(12);
+Month(int index) {
+this.index = index;
+}

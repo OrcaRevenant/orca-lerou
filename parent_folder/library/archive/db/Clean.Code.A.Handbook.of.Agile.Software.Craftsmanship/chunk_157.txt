@@ -1,0 +1,38 @@
+127
+Clean Tests
+The BUILD-OPERATE-CHECK2 pattern is made obvious by the structure of these tests.
+Each of the tests is clearly split into three parts. The ﬁrst part builds up the test data, the
+second part operates on that test data, and the third part checks that the operation yielded
+the expected results.
+Notice that the vast majority of annoying detail has been eliminated. The tests get
+right to the point and use only the data types and functions that they truly need. Anyone
+who reads these tests should be able to work out what they do very quickly, without being
+misled or overwhelmed by details.
+Domain-Speciﬁc Testing Language
+The tests in Listing 9-2 demonstrate the technique of building a domain-speciﬁc language
+for your tests. Rather than using the APIs that programmers use to manipulate the sys-
+tem, we build up a set of functions and utilities that make use of those APIs and that
+make the tests more convenient to write and easier to read. These functions and utilities
+become a specialized API used by the tests. They are a testing language that program-
+mers use to help themselves to write their tests and to help those who must read those
+tests later on.
+This testing API is not designed up front; rather it evolves from the continued refac-
+toring of test code that has gotten too tainted by obfuscating detail. Just as you saw me
+refactor Listing 9-1 into Listing 9-2, so too will disciplined developers refactor their test
+code into more succinct and expressive forms.
+A Dual Standard
+In one sense the team I mentioned at the beginning of this chapter had things right. The
+code within the testing API does have a different set of engineering standards than produc-
+tion code. It must still be simple, succinct, and expressive, but it need not be as efﬁcient as
+production code. After all, it runs in a test environment, not a production environment, and
+those two environment have very different needs.
+public void testGetDataAsXml() throws Exception {
+makePageWithContent("TestPageOne", "test page");
+submitRequest("TestPageOne", "type:data");
+assertResponseIsXML();
+assertResponseContains("test page", "<Test");
+}
+2.
+http://ﬁtnesse.org/FitNesse.AcceptanceTestPatterns
+Listing 9-2 (continued)
+SerializedPageResponderTest.java (refactored)

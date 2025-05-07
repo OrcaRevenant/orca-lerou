@@ -1,0 +1,84 @@
+II | Hints for Concepts and Algorithms
+#351.
+7.10
+Should number cells, blank cells, and bomb cells be separate classes?
+#352.
+5.3
+Try to do it in linear time, a single pass, and 0 ( 1 } space.
+#353.
+9.3
+How would you detect the same page? What does this mean?
+#354,
+8.4
+You can build the remaining subsets by adding c to all the subsetsof { a , b).
+#355.
+5.7
+Try masks Oxaaaaaaaa and 0X5S555555 to select the even and odd bits. Then try
+shifting the even and odd bits around to create the right number.
+#356.
+8.7
+Approach 2: You can implement this approach by having the recursive function pass
+back the list of the strings, and then you prepend the starting character to it. Or, you can
+push down a prefix to the recursive calls.
+#357.
+6.8
+Try dropping Egg 1 at bigger intervals at the beginning and then at smaller and smaller
+intervals. The idea is to keep the sum of Egg 1 and Egg 2's drops as constant as possible.
+For each additional drop that Egg 1 takes, Egg 2 takes one fewer drop. What is the right
+interval?
+#358.
+5.4
+Get Next: We should flip the rightmost non-trailing 0. The number 1010 would become
+1110, Once we've done that, we need to flip a 1 to a 0 to make the number as small
+as possible, but bigger than the original number (1010). What do we do? How can we
+shrink the number?
+#359.
+8,1
+Try memoization as a way to optimize an inefficient recursive program.
+#360.
+8.2
+Simplify this problem a bit by first figuring out if there's a path. Then, modify your algo-
+rithm to track the path.
+#361.
+7.10
+What is the algorithm to place the bombs around the board?
+#362.
+11.1
+Look at the parameters for p r i n t f .
+#363.
+7.2
+Before coding, make a list of the objects you need and walk through the common algo-
+rithms. Picture the code. Do you have everything you need?
+#364.
+8.10
+Thinkabout thisasa graph.
+#365.
+9.3
+How do you define if two pages are the same? Is it the URLs? Is it the content? Both of
+these can be flawed. Why?
+#366.
+5.8
+First try the naive approach. Can you set a particular "pixel"?
+#367.
+6.3
+Picture a domino laying down on the board. How many black squares does it cover?
+How many white squares?
+#368.
+8.13
+Once you have a basic recursive algorithm implemented, think about if you can opti-
+mize it. Are there any repeated subproblems?
+#369.
+5.6
+Thinkabout what an XOR indicates. !f you do a X0R b, where does the result have Is?
+Where does it have 0s?
+#370.
+6.6
+Build up from this. What if there were three blue-eyed people? What if there were four
+blue-eyed people?
+#371.
+8.12
+Break this down into smaller subproblems. The queen at row 8 must beat column 1,2,
+3,4,5,6, 7, or 8. Can you print all ways of placing eight queens where a queen is at row
+Sand column 3? You then need to check all the ways of placing a queen on row 7.
+CrackingTheCodinglnterview.com | 6th Edition
+675

@@ -1,0 +1,25 @@
+Figure 11.8
+Adding a Swarm worker is a similar two-step process. Step 1 is to extract the
+join token for new workers, and step 2 is to run a docker swarm join command
+on the node you want to join as a worker.
+Run the following command on either of the managers to expose the worker join
+token.
+$ docker swarm join-token worker
+To add a worker to this swarm, run the following command:
+docker swarm join --token \
+SWMTKN-1-1dmtw...17stb-ehp8g...w738q \
+172.31.5.251:2377
+The output of the command above has been edited so that it doesn’t wrap over
+multiple lines. It gives you the exact command you need to run on nodes that
+you wish to join the Swarm as workers. The join token and IP address will be
+different in your lab.
+Copy the command and run it on “wrk1” as shown below:
+$ docker swarm join --token SWMTKN-1-1dmtw...17stb-ehp8g...w738q \
+> 172.31.5.251:2377
+This node joined a swarm as a worker.
+Run another docker node ls command from either of the Swarm managers.
+$ docker node ls
+ID                 HOSTNAME     STATUS     AVAILABILITY   MANAGER STATUS
+7xamk...ge662z *   mgr1         Ready      Active         Leader
+ailrd...ofzv1u     wrk1         Ready      Active
+i0ue4...zcjm7f     mgr2         Ready      Active         Reachable

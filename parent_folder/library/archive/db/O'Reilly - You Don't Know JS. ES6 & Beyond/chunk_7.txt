@@ -1,0 +1,43 @@
+Object.setPrototypeOf(..) Static Function                                                       162
+Object.assign(..) Static Function                                                                       163
+Math                                                                                                                                  164
+Number                                                                                                                              165
+Static Properties                                                                                                          165
+Number.isNaN(..) Static Function                                                                         166
+Number.isFinite(..) Static Function                                                                   166
+Integer-related Static Functions                                                                               167
+String                                                                                                                              168
+Unicode Functions                                                                                                     168
+String.raw(..) Static Function                                                                              169
+repeat(..) Prototype Function                                                                              169
+String Inspection Functions                                                                                     169
+Review                                                                                                                             170
+7. Meta Programming. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  171
+Function Names                                                                                                             172
+Inferences                                                                                                                    173
+Meta Properties                                                                                                              174
+Well Known Symbols                                                                                                    175
+Symbol.iterator                                                                                                       175
+Symbol.toStringTag and Symbol.hasInstance                                                   176
+Symbol.species                                                                                                         177
+Symbol.toPrimitive                                                                                                 178
+Regular Expression Symbols                                                                                    179
+Symbol.isConcatSpreadable                                                                                  180
+Symbol.unscopables                                                                                                 180
+Proxies                                                                                                                             181
+Proxy Limitations                                                                                                       184
+Revocable Proxies                                                                                                       185
+Using Proxies                                                                                                              185
+Reflect API                                                                                                                   193
+Property Ordering                                                                                                      194
+Feature Testing                                                                                                               196
+FeatureTests.io                                                                                                            198
+Tail Call Optimization (TCO)                                                                                      199
+Tail Call Rewrite                                                                                                         201
+Non-TCO Optimizations                                                                                          202
+Meta?                                                                                                                            204
+Review                                                                                                                             206
+vi
+|
+Table of Contents
+www.it-ebooks.info

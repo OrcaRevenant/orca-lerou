@@ -1,0 +1,30 @@
+Solutions to Chapter 7 ] Object-Oriented Design
+71
+return current;
+72
+>
+73
+current = current.next;
+74
+}
+75
+return null;
+76
+}
+77
+78
+/* Really naive function to map a key to an index. */
+79
+public int get!ndexForKey(K key) {
+80
+return Math,abs(key.hashCode() % a r r . s i z e O ) ;
+81
+>
+82 >
+83
+Alternatively, we could implement a similar data structure (a key->value lookup) with a binary search tree
+as the underlying d3ta structure. Retrieving an element will no longer be 0 ( 1 ) (although, technically, this
+implementation is not 0 ( 1 ) if there are many collisions), but it prevents us from creating an unnecessarily
+large array to hold items.
+CrackingTheCodinglnterview.com | 6th Edition
+3 37

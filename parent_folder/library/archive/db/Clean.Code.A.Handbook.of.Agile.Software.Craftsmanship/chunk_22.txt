@@ -1,0 +1,44 @@
+xxii
+Foreword
+This inattentiveness costs us in the end: A bad penny always shows up. Research, neither in
+industry nor in academia, humbles itself to the lowly station of keeping code clean. Back
+in my days working in the Bell Labs Software Production Research organization (Produc-
+tion, indeed!) we had some back-of-the-envelope ﬁndings that suggested that consistent
+indentation style was one of the most statistically signiﬁcant indicators of low bug density.
+We want it to be that architecture or programming language or some other high notion
+should be the cause of quality; as people whose supposed professionalism owes to the
+mastery of tools and lofty design methods, we feel insulted by the value that those factory-
+ﬂoor machines, the coders, add through the simple consistent application of an indentation
+style. To quote my own book of 17 years ago, such style distinguishes excellence from
+mere competence. The Japanese worldview understands the crucial value of the everyday
+worker and, more so, of the systems of development that owe to the simple, everyday
+actions of those workers. Quality is the result of a million selﬂess acts of care—not just of
+any great method that descends from the heavens. That these acts are simple doesn’t mean
+that they are simplistic, and it hardly means that they are easy. They are nonetheless the
+fabric of greatness and, more so, of beauty, in any human endeavor. To ignore them is not
+yet to be fully human.
+Of course, I am still an advocate of thinking at broader scope, and particularly of the
+value of architectural approaches rooted in deep domain knowledge and software usability.
+The book isn’t about that—or, at least, it isn’t obviously about that. This book has a subtler
+message whose profoundness should not be underappreciated. It ﬁts with the current saw
+of the really code-based people like Peter Sommerlad, Kevlin Henney and Giovanni
+Asproni. “The code is the design” and “Simple code” are their mantras. While we must
+take care to remember that the interface is the program, and that its structures have much
+to say about our program structure, it is crucial to continuously adopt the humble stance
+that the design lives in the code. And while rework in the manufacturing metaphor leads to
+cost, rework in design leads to value. We should view our code as the beautiful articulation
+of noble efforts of design—design as a process, not a static endpoint. It’s in the code that
+the architectural metrics of coupling and cohesion play out. If you listen to Larry Constan-
+tine describe coupling and cohesion, he speaks in terms of code—not lofty abstract con-
+cepts that one might ﬁnd in UML. Richard Gabriel advises us in his essay, “Abstraction
+Descant” that abstraction is evil. Code is anti-evil, and clean code is perhaps divine.
+Going back to my little box of Ga-Jol, I think it’s important to note that the Danish
+wisdom advises us not just to pay attention to small things, but also to be honest in small
+things. This means being honest to the code, honest to our colleagues about the state of our
+code and, most of all, being honest with ourselves about our code. Did we Do our Best to
+“leave the campground cleaner than we found it”? Did we re-factor our code before check-
+ing in? These are not peripheral concerns but concerns that lie squarely in the center of
+Agile values. It is a recommended practice in Scrum that re-factoring be part of the con-
+cept of “Done.” Neither architecture nor clean code insist on perfection, only on honesty
+and doing the best we can. To err is human; to forgive, divine. In Scrum, we make every-
+thing visible. We air our dirty laundry. We are honest about the state of our code because

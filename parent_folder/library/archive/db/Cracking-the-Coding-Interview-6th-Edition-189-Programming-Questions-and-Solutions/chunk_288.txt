@@ -1,0 +1,78 @@
+Solutions to Chapter 5 | Bit Manipulation
+Alternatively, rather than multiplying the number by two and comparing it to 1, we can compare the
+number to .5, then .25, and so on. The code below demonstrates this approach.
+1
+String printBinary2(double num) {
+2
+i f (num >= 1 || num <= 0) {
+3
+return "ERROR";
+4
+}
+5
+6
+StringSuilder binary = new S t r i n g B u i l d e r Q ;
+7
+double frac = 0.5;
+8
+binary.append(".");
+9
+while (num > 0) {
+10
+/* Setting a l i m i t on length: 32 characters */
+11
+if (binary.length() > 32) {
+12
+return "ERROR";
+13
+>
+14
+if (num >= frac) {
+15
+binary.append(1);
+16
+num -= f r a c ;
+17
+} else {
+18
+binary.append(0);
+19
+>
+20
+frac /= 2;
+21
+>
+22
+return b i n a r y . t o S t r i n g Q ;
+23 >
+Both approaches are equally good; choose the one you feel most comfortable with.
+Either way, you should make sure to prepare thorough test cases for this problem—and to actually run
+through them in your interview.
+5.3
+Flip Bit to Win: You have an integer and you can flip exactly one bit from a 0 to a 1. Write code to
+find the length of the longest sequence of 1 s you could create.
+EXAMPLE
+Input:
+1775
+( o r : 11011101111)
+Output:
+8
+0116
+SOLUTION
+We can think about each integer as being an alternating sequence of Os and 1s. Whenever a Os sequence
+has length one, we can potentially merge the adjacent Is sequences.
+Brute Force
+One approach is to convert an integer into an array that reflects the lengths oftheOs and Is sequences. For
+example, 11011101111 would be (reading from right to left) [0O,
+3,,
+1 0,
+2±J
+210].The
+subscript reflects whether the integer corresponds to a Os sequence or a 1 s sequence, but the actual solu-
+tion doesn't need this. It's a strictly alternating sequence, always starting with the Os sequence.
+Once we have this, we just walk through the array. At each Os sequence, then we consider merging the
+adjacent 1 s sequences if the Os sequence has length 1.
+1
+i n t longestSequence(int n) {
+288
+Cracking the Coding Interview, 6th Edition

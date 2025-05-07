@@ -1,0 +1,24 @@
+CHAPTER 8 TESTING STRATEGIES
+116
+U N IT TE ST S
+At the bottom of the pyramid are the unit tests. These tests are written by
+programmers, for programmers, in the programming language of the system.
+The intent of these tests is to specify the system at the lowest level. Developers
+write these tests before writing production code as a way to specify what they
+are about to write. They are executed as part of Continuous Integration to
+ensure that the intent of the programmers’ is upheld.
+Unit tests provide as close to 100% coverage as is practical. Generally this
+number should be somewhere in the 90s. And it should be true coverage as
+opposed to false tests that execute code without asserting its behavior.
+CO M PO N E NT TE ST S
+These are some of the acceptance tests mentioned in the previous chapter.
+Generally they are written against individual components of the system. The
+components of the system encapsulate the business rules, so the tests for those
+components are the acceptance tests for those business rules
+As depicted in Figure 8-2 a component test wraps a component. It passes input
+data into the component and gathers output data from it. It tests that the
+output matches the input. Any other system components are decoupled from
+the test using appropriate mocking and test-doubling techniques.
+Figure 8-2 Component acceptance test
+Component
+Acceptance test

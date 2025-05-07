@@ -1,0 +1,11 @@
+globe (Figure 14-24). People in the United States can upload videos to the North America
+upload center, and people in China can upload videos to the Asian upload center. To achieve
+this, we use CDN as upload centers.
+Speed optimization: parallelism everywhere
+Achieving low latency requires serious efforts. Another optimization is to build a loosely
+coupled system and enable high parallelism.
+Our design needs some modifications to achieve high parallelism. Let us zoom in to the flow
+of how a video is transferred from original storage to the CDN. The flow is shown in Figure
+14-25, revealing that the output depends on the input of the previous step. This dependency
+makes parallelism difficult.
+To make the system more loosely coupled, we introduced message queues as shown in Figure

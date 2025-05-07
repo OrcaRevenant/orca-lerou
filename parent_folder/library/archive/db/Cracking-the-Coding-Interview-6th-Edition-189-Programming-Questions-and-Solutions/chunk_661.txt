@@ -1,0 +1,102 @@
+XI. Code Library
+11
+public TrieModeQ {
+12
+children = new HashMapcCharacterj TrieNode>();
+13
+>
+14
+15
+/* Constructs a trie node and stores this character as the node's value.
+16
+* Initializes the list of child nodes of this node to an empty hash map. */
+17
+public TrieNode(char character) {
+18
+this();
+19
+this.character = character;
+20
+}
+21
+22
+/* Returns the character data stored in this node. */
+23
+public char getChar{) {
+24
+return character;
+25
+>
+26
+27
+/* Add this word to the trie, and recursively create the child
+28
+* nodes. *f
+29
+public void addWord(String word) {
+30
+if (word == null || word.isEmpty()) {
+31
+return;
+32
+>
+33
+34
+char firstChar = word.charAt(0);
+35
+36
+TrieNode child = getChild(firstChar);
+37
+if (child == null) {
+38
+child
+new TrieNode(firstChar);
+39
+children.put(firstChar, child);
+40
+}
+41
+42
+if (word.length() > 1) {
+43
+child.addWord(word.substring(1));
+44
+> else {
+45
+child.setTerminates(true);
+46
+>
+47
+}
+48
+49
+/* Find a child node of this node that has the char argument as its data. Return
+50
+* null if no such child node is present in the trie. */
+51
+public TrieNode getChild(char c) {
+52
+return children.get(c);
+53
+>
+54
+55
+/* Returns whether this node represents the end of a complete word. */
+56
+public boolean terminates() {
+57
+return terminates;
+58
+)
+59
+60
+/* Set whether this node is the end of a complete word.*/
+61
+public void setTerminates(boolean t) {
+62
+terminates = t;
+63
+}
+64 >
+CrackingTheCodinginterview.com | 6th Edition
+651

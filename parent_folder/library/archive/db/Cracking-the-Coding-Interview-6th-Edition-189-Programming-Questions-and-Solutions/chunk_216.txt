@@ -1,0 +1,92 @@
+Solutions to Chapter 1 ] Arrays and Strings
+18
+>
+19
+>
+20
+21
+II Check f o r zeros in the rest of the array
+22
+for ( i n t i = 1; 1 < matrix,length; i++) {
+23
+for ( i n t j = 1; j < matrix[0].length;j++) {
+24
+if ( m a t r i x [ i ] [ j ] == 0) {
+25
+m a t r i x [ i ] [ e ] = 0;
+26
+m a t r i x [ 0 ] [ j ] = 0;
+27
+>
+28
+>
+29
+>
+30
+31
+// N u l l i f y rows based on values in f i r s t column
+32
+for ( i n t i = 1; i < matrix.length; i++) {
+33
+if ( m a t r i x [ i ] [ 0 ] == 0) {
+34
+nullifyRowfmatrix,
+i ) ;
+35
+}
+36
+>
+37
+38
+II N u l l i f y columns based on values in f i r s t row
+39
+f o r ( i n t j = 1; j < matrix[0].length; j++) {
+40
+if ( m a t r i x [ 0 ] [ j ] == 0) {
+41
+nullifyColumnfmatrix,
+j ) ;
+42
+}
+43
+>
+44
+45
+II N u l l i f y f i r s t
+row
+46
+if (rowHasZero) {
+47
+nullifyRowfmatrix, 0);
+48
+>
+49
+50
+II N u l l i f y f i r s t column
+51
+if (colHasZero)
+{
+52
+nullifyColumn(matrix J
+0);
+53
+>
+54
+}
+This code has a iot of "do this for the rows, then the equivalent action for the column." In an interview, you
+could abbreviate this code by adding comments and TODOs that explain that the next chunk of code looks
+the same as the earlier code, but using rows. This would allow you to focus on the most important parts of
+the algorithm.
+1.9
+String Rotation; Assume you have a method i s S u b s t r i n g which checks if one word is a substring
+of another. Given two strings, si and s2, write code to check if s2 is a rotation of si using only one
+call to i s S u b s t r i n g (e.g.,"waterbottle"isa rotation o f ' e r b o t t l e w a t " ) .
+pg9i
+SOLUTION
+if we imagine that s2 is a rotation of s i , then we can ask what the rotation point is. For example, if you
+rotate w a t e r b o t t l e after wat, you get e r b o t t l e w a t . In a rotation, we cut si into two parts, x and y,
+and rearrange them to get s2.
+si = xy = w a t e r b o t t l e
+x = wat
+206
+Cracking t h e Coding Interview, 6th Edition

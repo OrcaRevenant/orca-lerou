@@ -1,0 +1,30 @@
+THE CODING DOJO
+91
+The asymptote of perfection is once again the goal. You repeat the exercise over
+and over again to train your brain and fingers how to move and react. As you
+practice you may discover subtle improvements and efficiencies either in your
+motions or in the solution itself.
+Practicing a suite of katas is a good way to learn hot keys and navigation
+idioms. It is also a good way to learn disciplines such as TDD and CI. But most
+importantly, it is a good way to drive common problem/solution pairs into your
+subconscious, so that you simply know how to solve them when facing them in
+real programming.
+Like any martial artist, a programmer should know several different kata and
+practice them regularly so that they don’t fade away from memory. Many kata
+are recorded at http://katas.softwarecraftsmanship.org. Others can be found at
+http://codekata.pragprog.com. Some of my favorites are:
+• The Bowling Game: http://butunclebob.com/ArticleS.UncleBob.TheBowling-
+GameKata
+• Prime Factors: http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactors-
+Kata
+• Word Wrap: http://thecleancoder.blogspot.com/2010/10/craftsman-62-dark-
+path.html
+For a real challenge, try learning a kata so well that you can set it to music.
+Doing this well is hard.7
+WA SA
+When I studied jujitsu, much of our time in the dojo was spent in pairs practicing
+our wasa. Wasa is very much like a two-man kata. The routines are precisely
+memorized and played back. One partner plays the role of the aggressor, and the
+other partner is the defender. The motions are repeated over and over again as the
+practitioners swap roles.
+7. http://katas.softwarecraftsmanship.org/?p=71

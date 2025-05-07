@@ -1,0 +1,23 @@
+Figure 9.4
+As with all consensus algorithms - more participants means more time required
+to achieve consensus. It’s like deciding where to eat - it’s always quicker and
+easier for 3 people to decide than it is for 33! With this in mind, it’s a best
+practice to have either 3 or 5 managers for HA. 7 might work, but it’s generally
+accepted that 3 or 5 is optimal. You definitely don’t want more than 7 as the time
+taken to achieve consensus will be longer.
+A final word of caution regarding manager HA. While it’s obviously a good
+practice to spread your managers across availability zones within your network,
+you need to make sure that the networks connecting them are reliable! Network
+partitions can be a royal pain in the backside! This means, at the time of writing,
+the nirvana of hosting your active production applications and infrastructure
+across multiple cloud providers such as AWS and Azure is a bit of a daydream.
+Take time to make sure your managers are connected via high speed reliable
+networks!
+Now that we’ve got our swarm built and understand the concepts of leaders and
+manager HA, let’s move on to services.
+Services
+Like we said in the Swarm primer… services are a new construct introduced
+with Docker 1.12 that only exist in swarm mode.
+They let us declare the desired state for an application service and feed that to
+Docker. For example, assume you’ve got an app that has a web front-end. You
+have an image for the web service, and testing has shown that you will need 5

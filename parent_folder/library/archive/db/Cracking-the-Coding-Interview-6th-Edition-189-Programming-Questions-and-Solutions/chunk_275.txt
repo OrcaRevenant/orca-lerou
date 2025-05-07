@@ -1,0 +1,41 @@
+Solutions to Chapter 4 | Trees and Graphs
+Look at weaveLists. It has a specific job: to weave two lists together and return a list of all possible
+weaves. The existence of a USequences is irrelevant. Focus on the task that w e a v e L i s t s has to do and
+design this algorithm.
+As you're implementing allSequences (whether you do this before or after weaveLists), trust that
+w e a v e L i s t s will do the right thing. Don't concern yourself with the particulars of how w e a v e L i s t s
+operates while implementing something that is essentially independent. Focus on what you're doing while
+you're doing it.
+In fact, this is good advice in general when you're confused during whiteboard coding. Have a good under-
+standing of what a particular function should do {"okay, this function is going to return a list of
+").You
+should verify that it's really doing what you think. But when you're not dealing with that function, focus on
+the one you are dealing with and trust that the others do the right thing. It's often too much to keep the
+implementations of multiple algorithms straight in your head.
+4.10
+Check Subtree; T1 andT2 are two very large binary trees, withTI much bigger thanT2. Create an
+algorithm to determine if T2 is a subtree o f T l .
+A tree T2 is a subtree of Tl if there exists a node n in T1 such that the subtree of n is identical to T2.
+That is, if you cut off the tree at node n, the two trees would be identical,
+pg111
+SOLUTION
+In problems like this, it's useful to attempt to solve the problem assuming that there is just a small amount
+of data. This will give us a basic idea of an approach that might work.
+The 5imple Approach
+In this smaller, simpler problem, we could consider comparing string representations of traversals of each
+tree. If T2 is a su btree of T1, then T2's traversa I shou Id be a su bstri ng of T1.1 s the reverse true? If so, should
+we use an in-order traversal or a pre-order traversal?
+An in-order traversal will definitely not work. After all, consider a scenario in which we were using binary
+search trees. A binary search tree's in-order traversal always prints out the values in sorted order. Therefore,
+two binary search trees with the same values will always have the same in-order traversals, even if their
+structure is different.
+What about a pre-order traversal? This is a bit more promising. At feast in this case we know certain things,
+like the first element in the pre-order traversal is the root node. The left and right elements will follow.
+Unfortunately, trees with different structures could still have the same pre-order traversal.
+There's a simple fix though. We can store NULL nodes in the pre-order traversal string as a special character,
+like an 'X' (We'll assume that the binary trees contain only integers.) The left tree would have the traversal
+{ 3 , 4, X} and the right tree will have the traversal { 3 , X, 4}.
+Observe that, as long as we represent the NULL nodes, the pre-order traversal of a tree is unique. That is, if
+two trees have the same pre-order traversal, then we know they are identical trees in values and structure.
+CrackingTheCodinglnterview.com | 6th Edition
+247

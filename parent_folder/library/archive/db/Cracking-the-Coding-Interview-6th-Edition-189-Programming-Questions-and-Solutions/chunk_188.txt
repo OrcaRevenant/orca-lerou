@@ -1,0 +1,90 @@
+Chapter 15 j Threads and Locks
+Synchronized Blocks
+Similarly, a block of code can be synchronized. This operates very similarly to synchronizing a method.
+1
+public class MyClass extends Thread
+{
+2
+3
+public void run() {
+4
+myObj.foo(name);
+5
+>
+6
+}
+7
+public class MyObject {
+8
+public void foo(String name) {
+9
+synchronized(this) {
+10
+11
+>
+12
+>
+13
+}
+Like synchronizing a method, only one thread per instance of MyObject can execute the code within the
+synchronized block. That means that, if t h r e a d l and thread2 have the same instance of MyObject,
+only one will be allowed to execute the code block at a time.
+Locks
+For more granular control, we can utilize a lock. A lock (or monitor) is used to synchronize access to a
+shared resource by associating the resource with the lock. A thread gets access to a shared resource by first
+acquiring the lock associated with the resource. At any given time, at most one thread can hold the lock
+and, therefore, only one thread can access the shared resource.
+A common use case for locks is when a resource is accessed from multiple places, but should be only
+accessed by one thread oft) fime.This case is demonstrated in the code below.
+1
+public class LockedATM {
+2
+private Lock lock;
+3
+private i n t balance = 100;
+4
+5
+public LockedATM() {
+6
+lock = new Reentrantlock();
+7
+>
+8
+9
+public i n t withdraw(int value) {
+10
+l o c k . l o c k Q ;
+11
+i n t temp = balance;
+12
+t r y {
+13
+Thread.sleep(100);
+14
+temp = temp - value;
+15
+Thread.sleep(100);
+16
+balance = temp;
+17
+} catch (interruptedException e) {
+}
+18
+lock.unlockC);
+19
+return temp;
+20
+>
+21
+22
+public i n t deposit(int value) {
+23
+l o c k . l o c k Q ;
+24
+i n t temp = balance;
+25
+t r y {
+26
+Thread.sleep(100);
+180
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,63 @@
+14
+Solutions to Databases
+Questions 1 through 3 refer to the following database schema:
+Apartments
+AptID
+int
+UnitNumber
+varchar(10)
+BuildingID
+int
+Buildings
+BuildingID
+int
+ComplexID
+int
+BuildingNaine varchar(100)
+Address
+varchar(see)
+Requests
+RequestID
+int
+Status
+varchar(190)
+AptID
+int
+Description varchar(see)
+Complexes
+ComplexID
+int
+ComplexName varchar(iee)
+AptTenants
+TenantID
+int
+AptID
+int
+Tenants
+TenantID
+int
+TenantName
+varchar(100)
+Note that each apartment can have multiple tenants, and each tenant can have multiple apartments. Each
+apartment belongs to one building, and each building belongs to one complex.
+14,1
+Multiple Apartments: Write a SQL query to get a list of tenants who are renting more than one
+apartment.
+pg!72
+SOLUTION
+To implement this, we can use the HAVING and GROUP BY clauses and then perform an INNER JOIN with
+Tenants.
+1
+SELECT TenantName
+2
+FROM Tenants
+3
+INNER JOIN
+4
+(SELECT TenantID FROM AptTenants GROUP BY TenantID HAVING count(*) > 1) C
+5
+ON Tenants.TenantID = C.TenantID
+Whenever you write a GROUP BY clause in an interview (or in real life), make sure that anything in the
+SELECT clause is either an aggregate function or contained within the GROUP BY clause.
+CrackingTheCodinglnterview.com 16th Edition
+4 4 1

@@ -1,0 +1,25 @@
+2. Cache DNS Resolver
+DNS Resolver is a bottleneck for crawlers because DNS requests might take time due to the
+synchronous nature of many DNS interfaces. DNS response time ranges from 10ms to
+200ms. Once a request to DNS is carried out by a crawler thread, other threads are blocked
+until the first request is completed. Maintaining our DNS cache to avoid calling DNS
+frequently is an effective technique for speed optimization. Our DNS cache keeps the domain
+name to IP address mapping and is updated periodically by cron jobs.
+3. Locality
+Distribute crawl servers geographically. When crawl servers are closer to website hosts,
+crawlers experience faster download time. Design locality applies to most of the system
+components: crawl servers, cache, queue, storage, etc.
+4. Short timeout
+Some web servers respond slowly or may not respond at all. To avoid long wait time, a
+maximal wait time is specified. If a host does not respond within a predefined time, the
+crawler will stop the job and crawl some other pages.
+Robustness
+Besides performance optimization, robustness is also an important consideration. We present
+a few approaches to improve the system robustness:
+• Consistent hashing: This helps to distribute loads among downloaders. A new
+downloader server can be added or removed using consistent hashing. Refer to Chapter 5:
+Design consistent hashing for more details.
+• Save crawl states and data: To guard against failures, crawl states and data are written to
+a storage system. A disrupted crawl can be restarted easily by loading saved states and
+data.
+• Exception handling: Errors are inevitable and common in a large-scale system. The

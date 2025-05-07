@@ -1,0 +1,42 @@
+If you write your algorithms with proper tail calls, the ES6 engine will apply TCO to
+let your code run in constant stack depth (by reusing stack frames). You get the read‐
+ability of recursion with most of the performance benefits and no limitations of run
+length.
+Meta?
+So TCO is cool, right? But what does any of this have to do with meta programming?
+Great question. You’re totally right to ask that!
+Short answer: I’m stretching the definition of “meta programming” to fit the TCO
+topic into this chapter.
+As we covered in the “Feature Testing” section earlier, you can determine at runtime
+what features an engine supports. This includes TCO, though determining it is quite
+brute force. Consider:
+"use strict";
+try {
+(function foo(x){
+if (x < 5E5) foo( x + 1 );
+})( 1 );
+TCO_ENABLED = true;
+}
+catch (err) {
+TCO_ENABLED = false;
+}
+Yuck, right?
+But how could meta programming around the TCO feature (or rather, the lack
+thereof) benefit our code? The simple answer is that you could use such a feature test
+to decide to load a version of your application’s code that uses recursion, or an alter‐
+nate one that’s been converted/transpiled to not need recursion.
+But here’s another way of looking at the problem:
+"use strict";
+function foo(x) {
+function _foo() {
+if (x > 1) {
+acc = acc + (x / 2);
+x = x - 1;
+_foo();
+}
+}
+var acc = 1;
+204
+|
+Chapter 7: Meta Programming
+www.it-ebooks.info

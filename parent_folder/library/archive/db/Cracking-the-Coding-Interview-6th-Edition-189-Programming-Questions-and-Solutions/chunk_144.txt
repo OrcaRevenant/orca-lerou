@@ -1,0 +1,70 @@
+Chapter 8 j Recursion and Dynamic Programming
+lower nodes, you have a tree that grows wide before it grows deep. (It's like doing this breadth-first rather
+than depth-first.) Sometimes this makes it easier to compute the number of nodes in the tree. All you're
+really doing is changing which nodes you expand and which ones return cached values. Try this if you're
+stuck on computing the runtime of a dynamic programming problem.
+Bottom-Up Dynamic Programming
+We can also take this approach and implement it with bottom-up dynamic programming. Think about
+doing the same things as the recursive memoized approach, but in reverse.
+First, we compute f i b ( l ) and f i b (0), which are already known from the base cases. Then we use those
+to compute f i b (2). Then we use the prior answers to compute f i b ( 3), then f i b ( 4 ) , a n d so on.
+1
+i n t f i b o n a c c i ( i n t n) {
+2
+if (n == 0) return 0;
+3
+A
+else if (n == 1) return 1;
+5
+i n t [ ] memo = new i n t [ n ] j
+6
+memo[0] = 0J
+7
+memo[l] = 1;
+8
+for ( i n t i = 2; i < nj i++) {
+9
+memo[i] = rnemofi - 1] + trtemo[i
+10
+>
+i l
+return memo[n - 1] + memo[n - 2];
+12 >
+If you really think about how this works, you only usememo[i] for memo [ i + 1 ] and memo [ i + 2 ] . You don't
+need it after that. Therefore, we can get rid of the memo table and just store a few variables.
+1
+i n t f i b o n a c c i ( i n t n) {
+2
+if (n == 0) return 0j
+3
+i n t a = 0;
+4
+i n t b = 1;
+5
+f o r ( i n t i = 2; i < nj i++) {
+6
+i n t c = a + b;
+7
+a » b;
+8
+b = c;
+9
+}
+10
+return a + b;
+11
+}
+This is basically storing the results from the last two Fibonacci values into a and b. At each iteration, we
+compute the next value (c = a + b) and then move ( b , c = a + b) into ( a , b).
+This explanation might seem like overkill for such a simple problem, but truly understanding this process
+will make more difficult problems much easier. Going through the problems in this chapter, many of which
+use dynamic programming, will help solidify your understanding.
+Additional Reading: Proof by Induction (pg 631).
+Interview Questions
+8.1
+Triple Step: A child is running up a staircase with n steps and can hop either 1 step, 2 steps, or 3
+steps at a time, implement a method to count how many possible ways the child can run up the
+stairs.
+Hin ts: #152, #178, #2 7 7, #237, #262, #359
+134
+1ÎÏ Cracking the Coding interview, 6th Edition

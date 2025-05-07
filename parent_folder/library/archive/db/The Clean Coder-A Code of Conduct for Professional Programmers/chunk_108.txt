@@ -1,0 +1,12 @@
+CHAPTER 4 CODING
+76
+than his own drive, and effective mentoring by his seniors. Therefore, once
+again, it is a matter of professional ethics for senior programmers to spend time
+taking younger programmers under their wing and mentoring them. By the
+same token, those younger programmers have a professional duty to seek out
+such mentoring from their seniors.
+B I B LI OG R APH Y
+[Martin09]: Robert C. Martin, Clean Code, Upper Saddle River, NJ: Prentice
+Hall, 2009.
+[Martin03]: Robert C. Martin, Agile Software Development: Principles, Patterns,
+and Practices, Upper Saddle River, NJ: Prentice Hall, 2003.

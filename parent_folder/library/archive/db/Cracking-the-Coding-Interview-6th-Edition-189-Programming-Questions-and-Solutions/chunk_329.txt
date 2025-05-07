@@ -1,0 +1,58 @@
+Solutions to Chapter 7 ] Object-Oriented Design
+As we solve the jigsaw puzzle (manually or algorithmically), we'll need to store the position of each piece.
+We could think about the position as absolute or relative:
+-
+Absolute Position: "This piece is located at position (12,23)."
+•
+Relative Position: "t don't know where this piece is actually located, but I know it is next to this other
+piece."
+For our solution, we will use the absolute position.
+We'll need classes to represent Puzzle, Piece, and Edge. Additionally, we'll want en urns for the different
+shapes ( i n n e r , o u t e r , f l a t ) and the orientations of the edges ( l e f t , t o p , r i g h t , bottom).
+P u z z l e will start off with a list of the pieces. When we solve the puzzle, we'll fill in an NxN s o l u t i o n
+matrix of pieces.
+P i e c e will have a hash table that maps from an orientation to the appropriate edge. Note that we might
+rotate the piece at some point, so the hash table could change. The orientation of the edges will be arbi-
+trarily assigned at first.
+Edge will have just its shape and a pointer back to its parent piece. It wilt not keep its orientation.
+A potential object-oriented design looks like the following:
+1
+public enum Orientation {
+2
+LEFT, TOP, RIGHT, BOTTOM; II Should stay in this order
+3
+4
+public Orientation getOpposite{) {
+5
+switch (this) {
+6
+case LEFT: return RIGHT;
+7
+case RIGHT: return LEFT;
+8
+case TOP: return BOTTOM;
+9
+case BOTTOM: return TOP;
+10
+default: return null;
+11
+}
+12
+>
+13 }
+14
+15 public enum Shape {
+16
+INNER, OUTER, FLAT;
+17
+18
+public Shape getOpposite() {
+19
+switch (this) {
+20
+case INNER: return OUTER;
+21
+case OUTER: return INNER;
+22
+default: return null;
+CrackingTheCodinglnterview.com | 6th Edition 3 37

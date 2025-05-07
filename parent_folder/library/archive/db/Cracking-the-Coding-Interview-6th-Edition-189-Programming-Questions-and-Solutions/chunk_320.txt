@@ -1,0 +1,67 @@
+Solutions to Chapter 7 j Object-Oriented Design
+23
+public Rank getRank() { return rank; >
+24 >
+25
+The Respondent, D i r e c t o r , and Manager ciasses are now just simple extensions of the Employee
+class,
+1
+class Director extends Employee {
+2
+public Director() {
+3
+rank = Rank.Director;
+4
+>
+5
+}
+6
+7
+class Manager extends Employee {
+8
+public Manager() {
+9
+rank = Rank.Manager;
+10
+>
+11 >
+12
+13 class Respondent extends Employee {
+14
+public Respondent() {
+15
+rank = Rank.Responder;
+16
+>
+17 >
+This is just one way of designing this problem. Note that there are many other ways that are equally good.
+This may seem like an awful lot of code to write in an interview, and it is. We've been much more thorough
+here than you would need. In a real interview, you would likely be much lighter on some of the details until
+you have time to fill them in,
+7.3
+Jukebox: Design a musical jukebox using object-oriented principles.
+pg 127
+SOLUTION
+In any object-oriented design question, you first want to start off with asking your interviewer some
+questions to clarify design constraints. Is this jukebox playing CDs? Records? MP3s? Is it a simulation on a
+computer, or is it supposed to represent a physical jukebox? Does it take money, or is it free? And if it takes
+money, which currency? And does it deliver change?
+Unfortunately, we don't have an interviewer here that we can have this dialogue with. Instead, we'll make
+some assumptions. We'll assume that the jukebox is a computer simulation that closely mirrors physical
+jukeboxes, and we'll assume that it's free.
+Now that we have that out of the way, well outline the basic system components:
+•
+Jukebox
+•
+CD
+•
+Song
+•
+Artist
+•
+Playlist
+•
+Display (displays details on the screen)
+Now, let's break this down further and think about the possible actions.
+3 1 0
+Cracking the Coding Interview, 6th Edition

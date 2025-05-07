@@ -1,0 +1,97 @@
+Solutions to Chapter 16 | Moderate
+11
+Term current = terms.get(i);
+12
+Term next = i + 1 < terms.size() ? terms.get(i + 1) : null;
+13
+14
+/* Apply the current term to "processing". */
+15
+processing = collapseTerm(processing, current);
+16
+17
+/* If next term is + or -, then this cluster is done and we should apply
+18
+* "processing" to "result". */
+19
+if (next == null |J next.getOperator() == Operator.ADO
+26
+I! next.getOperator() == Operator.SUBTRACT) {
+21
+result = applyOp(result, processing.getOperator(), processing.getNumber());
+22
+processing = null;
+23
+>
+24
+>
+25
+26
+return result;
+27 }
+28
+29 /* Collapse two terms together using the operator in secondary and the numbers
+30
+* from each. */
+31 Term collapseTerm(Term primary, Term secondary) {
+32
+if (primary == null) return secondary;
+33
+if (secondary == null) return primary;
+34
+35
+double value = applyOp(primary,getNuiriber(), secondary,getOperator(),
+36
+secondary.getNumber());
+37
+primary.setMumber(value);
+38
+return primary;
+39 >
+40
+41 double applyOp(double left, Operator op, double right) {
+42
+if (op == Operator.ADO) return left + right;
+43
+else if (op == Operator.SUBTRACT) return left - right;
+44
+else if (op == Operator.MULTlPLY) return left * right;
+45
+else if (op == Operator.DIVIDE) return left / right;
+46
+else return right;
+47 >
+48
+49 public class Term {
+50
+public enum Operator {
+51
+ADD, SUBTRACT, MULTIPLY, DIVIDE, BLANK
+52
+>
+53
+54
+private double value;
+55
+private Operator operator = Operator.BLANK;
+56
+57
+public Term(double v, Operator op) {
+58
+value = v;
+59
+operator = op;
+60
+>
+61
+62
+public double getNumber() { return value; )
+63
+public Operator getOperator() { return operator; }
+64
+public void setNumber(double v) { value = v; }
+65
+66
+/* Parses arithmetic sequence into a list of Terms. For example, 3-5*6 becomes
+492
+Cracking the Coding Interview, 6th Edition

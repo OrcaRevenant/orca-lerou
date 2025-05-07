@@ -1,0 +1,46 @@
+Solutions to Chapter 4 | Trees and Graphs
+However, this leads to a similar issue as earlier solutions. When we insert a node or a delete a node, all of the
+indices might need to be updated. This can take 0(N) time.
+Option #4 [Fast & Not Working]
+What if we knew the depth of the tree? (Since we're building our own class, we can ensure that we know
+this. It's an easy enough piece of data to track.)
+We could pick a random depth, and then traverse left/right randomly until we go to that depth. This
+wouldn't actually ensure that all nodes are equally likely to be chosen though.
+First, the tree doesn't necessarily have an equal number of nodes at each level. This means that nodes on
+levels with fewer nodes might be more likely to be chosen than nodes on a level with more nodes.
+Second, the random path we take might end up terminating before we get to the desired level.Then what?
+We could just return the last node we find, but that would mean unequal probabilities at each node.
+Option #5 [Fast & Not Working]
+We could try just a simple approach: traverse randomly down the tree. At each node:
+•
+With Yi odds, we return the current node.
+•
+With /} odds, we traverse left.
+•
+With Yi odds, we traverse right.
+This solution, like some of the others, does not distribute the probabilities evenly across the nodes. The root
+has a K probability of being selected—the same as ali the nodes in the left put together.
+Option #6 [Fast & Working]
+Rather than just continuing to brainstorm new solutions, let's see if we can fix some of the issues in the
+previous solutions. To do so, we must diagnose—deeply—the root problem in a solution.
+Let's look at Option #5. It fails because the probabilities aren't evenly distributed across the options. Can we
+fix that while keeping the basic algorithm the same?
+We can start with the root. With what probability should we return the root? Since we have N nodes, we
+must return the root node with x/h probability. (In fact, we must return each node with Yn probability.
+After all, we have N nodes and each must have equal probability. The total must be 1 (100%), therefore each
+must have Yn probability.)
+We've resolved the issue with the root. Now what about the rest of the problem? With what probability
+should we traverse left versus right? It's not 50/S0. Even in a balanced tree, the number of nodes on each
+side might not be equal. If we have more nodes on the left than the right, then we need to go left more
+often.
+Oneway to think about it is that the odds of picking something—anything—from the left must be the sum
+of each individual probability. Since each node must have probability Yu, the odds of picking something
+from the left must have probability LEFT^SIZE *
+Xt .This should therefore be the odds of going left.
+Likewise, the odds of going right should be RIGHT_SIZE * Yh •
+This means that each node must know the size of the nodes on the left and the size of the nodes on the
+right. Fortunately, our interviewer has told us that we're building this tree class from scratch. It's easy to
+keep track of this size information on inserts and deletes. We can just store a s i z e variable in each node.
+Increment s i z e on inserts and decrement it on deletes.
+CrackingTheCodinglnterview.com | 6th Edition
+247

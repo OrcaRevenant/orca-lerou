@@ -1,0 +1,78 @@
+Solutions to Chapter 17 j Hard
+7
+i n t current = Math.max(bestWith, bestwithout);
+8
+twoAway = oneAway;
+9
+oneAway = current;
+10
+>
+11
+return oneAway;
+12
+>
+This gives us the most optimal time and space possible: 0 ( n ) time and 0 ( 1 ) space.
+Why did we look backward? It's a common technique in many problems to walk backward through an array.
+However, we can walk forward if we want. This is easier for some people to think about, and harder for
+others. In this case, rather than asking "What's the best set that starts with a [ i ]?" we would ask"What's the
+best set that ends with a [ i ] ?"
+17.17 Multi Search: Given a string b and an array of smaller strings T, design a method to search b for
+each small string in T.
+pg 189
+SOLUTION
+Let's start with an example:
+T = ( " i s " , "ppi", " h i " , " s i s J \ " i " , " s s i p p i " )
+b - "mississippi"
+Note that in our example, we made sure to have some strings (like "is") that appear multiple times in b.
+Solution #1
+The naive solution is reasonably straightforward. Just search through the bigger string for each instance of
+the smaller string.
+1
+HashMapList<String, Integer> searchAll(String big, S t r i n g f ] smalls) {
+2
+HashMapList<String, Integer> lookup =
+new HashMapList<5tring, lnteger>{);
+4
+for (String small : smalls) {
+5
+ArrayListdnteger> locations = search(big, small);
+6
+lookup.put(small,
+locations);
+7
+}
+8
+return lookup;
+9
+}
+10
+11 /* Find a l l locations of the smaller string within the bigger s t r i n g . */
+12 ArrayList<Integer> search(String big, String small) {
+13
+ArrayList<Integer> locations = new ArrayList<Integer>();
+14
+f o r ( i n t 1 = 0 ; i < big.length() - small,length() + 1; i++) {
+15
+if (isSubstringAtLocation(big,
+small,
+i ) ) {
+16
+locations.add(i);
+17
+>
+18
+)
+19
+return locations;
+20 >
+21
+22 /* Check if small appears at index offset within big.
+*/
+23 boolean isSubstringAtLocation(String big. String small, i n t o f f s e t ) {
+24
+for ( i n t i = 0; i < small.length(); i++) {
+25
+if (big.charAt(offset + i)
+!= small.charAt(i)) {
+55 S
+Cracking the Coding interview, 6th Edition

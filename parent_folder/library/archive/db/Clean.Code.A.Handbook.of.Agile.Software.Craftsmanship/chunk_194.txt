@@ -1,0 +1,31 @@
+164
+Chapter 11: Systems
+Each “bean” is like one part of a nested “Russian doll,” with a domain object for a
+Bank proxied (wrapped) by a data accessor object (DAO), which is itself proxied by a
+JDBC driver data source. (See Figure 11-3.)
+The client believes it is invoking getAccounts() on a Bank object, but it is actually talk-
+ing to the outermost of a set of nested DECORATOR14 objects that extend the basic behavior
+of the Bank POJO. We could add other decorators for transactions, caching, and so forth.
+In the application, a few lines are needed to ask the DI container for the top-level
+objects in the system, as speciﬁed in the XML ﬁle.
+XmlBeanFactory bf =
+new XmlBeanFactory(new ClassPathResource("app.xml", getClass()));
+Bank bank = (Bank) bf.getBean("bank");
+Because so few lines of Spring-speciﬁc Java code are required, the application is almost
+completely decoupled from Spring, eliminating all the tight-coupling problems of systems
+like EJB2.
+Although XML can be verbose and hard to read,15 the “policy” speciﬁed in these con-
+ﬁguration ﬁles is simpler than the complicated proxy and aspect logic that is hidden from
+view and created automatically. This type of architecture is so compelling that frame-
+works like Spring led to a complete overhaul of the EJB standard for version 3. EJB3
+class="com.example.banking.model.Bank"
+p:dataAccessObject-ref="bankDataAccessObject"/>
+...
+</beans>
+Figure 11-3
+The “Russian doll” of decorators
+14. [GOF].
+15. The example can be simpliﬁed using mechanisms that exploit convention over conﬁguration and Java 5 annotations to reduce
+the amount of explicit “wiring” logic required.
+Listing 11-4 (continued)
+Spring 2.X configuration file

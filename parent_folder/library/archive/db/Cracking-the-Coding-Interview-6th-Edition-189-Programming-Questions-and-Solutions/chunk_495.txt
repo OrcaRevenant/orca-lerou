@@ -1,0 +1,96 @@
+Solutions to Chapter 14 | Databases
+30
+* integer array, then sort array. */
+31 i n t [ ] get5ortedYears(Person[] people, boolean copySirthYear) {
+32
+i n t [ ] years = new i n t [ p e o p l e . l e n g t h ] ;
+33
+f o r ( i n t i = 0; i < people.length; i++) {
+34
+y e a r s [ i ] = copyBirthYear ? p e o p l e [ i ] , b i r t h : peoplefi].death;
+35
+>
+36
+Arrays.sort(years);
+37
+return years;
+38 }
+There are some very easy things to mess up here.
+On line 13, we need to think carefully about whether this should be a less than (<) or a less than or equals
+(<=). The scenario we need to worry about is th3t you see a birth and death in the same year. (It doesn't
+matter whether the birth and death is from the same person.)
+When we see a birth and death from the same year, we want to include the birth before we include the
+death, so that we count this person as alive for that year. That is why we use a < = on line 13.
+We also need to be careful about where we put the updating of maxAlive and maxAliveYear.lt needs
+to be after the cur r e n t A l i v e + + , so that it takes into account the updated total. But it needs to be before
+b i r t h l n d e x + + , or we won't have the right year.
+This algorithm will take 0(P l o g P) time, where P is the number of people.
+More Optimal (Maybe)
+Can we optimize this further? To optimize this, we'd need to get rid of the sorting step. We're back to dealing
+with unsorted values:
+b i r t h : 12
+20
+10
+01
+10
+23
+13
+90
+83
+75
+death: 15
+90
+98
+72
+98
+82
+98
+98
+99
+94
+Earlier, we had logic that said that a birth is just adding a person and a death is just subtracting a person.
+Therefore, let's represent the data using the logic:
+01: +1
+10: +1
+10: +1
+12: +1
+13: +1
+15: -1
+20: +1
+23: +1
+72: -1
+75: +1
+82:
+83: +1
+90: +1
+90: -1
+94: - 1
+98: -1
+98: -1
+98: - 1
+98: -1
+99: - 1
+We can create an array of the years, where the value at a r r a y [ y e a r ] indicates how the population
+changed in that year. To create this array, we walk through the list of people and increment when they're
+born and decrement when they die.
+Once we have this array, we can walk through each of the years, tracking the current population as we go
+(adding the value at a r r a y [ y e a r ] each time).
+This logic is reasonably good, but we should think about it more. Does it really work?
+One edge case we should consider is when a person dies the same year that they're bom. The increment
+and decrement operations will cancel out to give 0 population change. According to the wording of the
+problem, this person should be counted as living in that year.
+In fact, the "bug" in our algorithm is broader than that. This same issue applies to all people. People who die
+in 1908 shouldn't be removed from the population count unti! 1909,
+There's
+a
+simple fix: instead
+of decrementing
+a r r a y [ d e a t h Y e a r ] ,
+we
+should
+decrement
+a r r a y [ d e a t h Y e a r + 1].
+1
+i n t maxAliveYear(Person[] people, i n t min, i n t max) {
+CrackingTheCodinglnterview.com \ 6th Edition
+415

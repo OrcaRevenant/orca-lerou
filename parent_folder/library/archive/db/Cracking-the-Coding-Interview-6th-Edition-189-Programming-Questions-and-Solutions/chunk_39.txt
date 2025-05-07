@@ -1,0 +1,46 @@
+IV | Before the Interview
+Additionally, for US positions, do nof include age, marital status, or nationality. This sort of personal informa-
+tion is not appreciated by companies, as it creates a legal liability for them.
+Beware of (Potential) Stigma
+Certain languages have stigmas associated with them. Sometimes this is because of the language them-
+selves, but often it's because of the places where this language is used. I'm not defending the stigma; I'm
+just letting you know of it,
+A few stigmas you should be aware of;
+•
+Enterprise Languages: Certain languages have a stigma associated with them, and those are often the
+ones that are used for enterprise development. Visual Basic is a good example of this. If you show your-
+self to be an expert with VB, it can cause people to assume that you're less skilled. Many of these same
+people will admit that, yes, VB.NET is actually perfectly capable of building sophisticated applications.
+But still, the kinds of applications that people tend to build with it are not very sophisticated. You wouid
+be unlikely to see a big name Silicon Valley using VB.
+In fact, the same argument (although less strong) applies to the whole .NET platform. If your primary
+focus is .NET and you're not applying for .NET roles, you'll have to do more to show that you're strong
+technically than if you were coming in with a different background.
+•
+Being Too Language Focused: When recruiters at some of the top tech companies see resumes that
+list every flavor of Java on their resume, they make negative assumptions about the caliber of candi-
+date. There is a belief in many circles that the best software engineers don't define themselves around
+a particular language. Thus, when they see a candidate seems to flaunt which specific versions of a
+language they know, recruiters will often bucket the candidate as "not our kind of person."
+Note that this does not mean that you should necessarily take this'language flaunting" off your resume.
+You need to understand what that company values. Some companies do value this.
+•
+Certifications: Certifications for software engineers can be anything from a positive, to a neutral, to
+a negative. This goes hand-in-hand with being too language focused; the companies that are biased
+against candidates with a very lengthy list of technologies tend to also be biased against certifications.
+This means that in some cases, you should actually remove this Sort of experience from your resume.
+•
+Knowing Only One or Two Languages: The more time you've spent coding, the more things you've
+built, the more languages you will have tended to work with. The assumption then, when they see a
+resume with only one language, is that you haven't experienced very many problems. They also often
+worry that candidates with only one or two languages will have trouble learning new technologies (why
+hasn't the candidate learned more things?) or wiil just feel too tied with a specific technology (poten-
+tially not using the best language for the task).
+This advice is here not just to help you work on your resume, but also to help you develop the right experi-
+ence. If your expertise isinCJf.NET, try developing some projects in Python and JavaScript. If you only know
+one or two languages, build some applications in a different language.
+Where possible, try to truly diversify. The languages in the cluster of {Python, Ruby, and JavaScript) are
+somewhat similar to each other. It's better if you can learn languages that are more different, like Python,
+C++, and Java.
+CraekingTheCodinglnterview.com [ 6th Edition
+27

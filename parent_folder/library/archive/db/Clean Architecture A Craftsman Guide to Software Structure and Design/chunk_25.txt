@@ -1,0 +1,23 @@
+I
+INTRODUCTION
+It doesn’t take a huge amount of knowledge and skill to get a program working.
+Kids in high school do it all the time. Young men and women in college start
+billion-dollar businesses based on scrabbling together a few lines of PHP or
+Ruby. Hoards of junior programmers in cube farms around the world slog
+through massive requirements documents held in huge issue tracking systems to
+get their systems to “work” by the sheer brute force of will. The code they
+produce may not be pretty; but it works. It works because getting something to
+work—once—just isn’t that hard.
+Getting it right is another matter entirely. Getting software right is hard. It takes
+knowledge and skills that most young programmers haven’t yet acquired. It
+requires thought and insight that most programmers don’t take the time to
+develop. It requires a level of discipline and dedication that most programmers
+never dreamed they’d need. Mostly, it takes a passion for the craft and the desire
+to be a professional.
+And when you get software right, something magical happens: You don’t need
+hordes of programmers to keep it working. You don’t need massive requirements
+documents and huge issue tracking systems. You don’t need global cube farms
+and 24/7 programming.
+When software is done right, it requires a fraction of the human resources to
+create and maintain. Changes are simple and rapid. Defects are few and far
+between. Effort is minimized, and functionality and flexibility are maximized.

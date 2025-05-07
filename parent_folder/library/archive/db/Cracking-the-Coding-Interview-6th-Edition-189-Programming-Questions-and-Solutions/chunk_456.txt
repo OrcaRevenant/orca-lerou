@@ -1,0 +1,70 @@
+Solutions to Chapter 14 j Databases
+CourseEnrollment
+CourselD
+int
+StudentID
+int
+Grade
+float
+Term
+int
+This database could get arbitrarily more complicated if we wanted to add in professor information, billing
+information, and other data.
+Using the Microsoft SQL Server TOP . . . PERCENT function, we might (incorrectly) first try a query like
+this:
+1
+SELECT TOP 10 PERCENT AVG(CourseEnrollfnent.Grade) AS GPA,
+2
+CourseEnrollment.StudentID
+3
+FROM CourseEnrollment
+4
+GROUP BY CourseEnrollment.StudentID
+5
+ORDER BY AVG(CourseEnrollment.Grade)
+The problem with the above code is that it will return literally the top 10% of rows, when sorted by GPA.
+Imagine a scenario in which there are 100 students, and the top 15 students all have 4,0 GPAs. The above
+function will only return 10 of those students, which is not really what we want. Incase of a tie, we want to
+include the students who tied for the top 10% -- even if this means that our honor roll includes more than
+10% of the class.
+To correct this issue, we can build something similar to this query, but instead first get the GPA cut off.
+1
+DECLARE (SGPACutOff float;
+2
+SET (SGPACUtOff = (SELECT min(GPA) as rGPAMinJ FROM (
+3
+SELECT TOP 10 PERCENT AVG(CourseEnrollment.Grade) AS GPA
+4
+FROM CourseEnrollment
+5
+GROUP 8Y CourseEnrollment.StudentID
+6
+ORDER BY GPA desc) Grades);
+Then, once we have @GPACutOff defined, selecting the students with at least this GPA is reasonably
+straightforward.
+1
+SELECT StudentMame, GPA
+2
+FROM (SELECT AVG(CourseEnrollment.Grade) AS GPA, CourseEnrollment.StudentID
+3
+FROM CourseEnrollment
+4
+GROUP BY CourseEnrollment.StudentID
+5
+HAVING AVG (CourseEnrollment. Grade) >= (SGPAC utOff) Honors
+6
+INNER 30IN Students ON Honors.StudentID = Student.StudentID
+Be very careful about what implicit assumptions you make. If you look at the above database description,
+what potentially incorrect assumption do you see? One is that each course can only be taught by one
+professor. At some schools, courses may be taught by multiple professors.
+However, you will need to make some assumptions, or you'd drive yourself crazy. Which assumptions you
+make is less important than just recognizing that you made assumptions. Incorrect assumptions, both in
+the real world and in an interview, can be dealt with as long as they are acknowledged.
+Remember, additionally, that there's a trade-off between flexibility and complexity. Creating a system in
+which a course can have multiple professors does increase the database's flexibility, but it also increases its
+complexity. If we tried to make our database flexible to every possible situation, we'd wind up with some-
+thing hopelessly complex.
+Make your design reasonably flexible, and state any other assumptions or constraints. This goes for not just
+database design, but object-oriented design and programming in general.
+4 4 6
+Cracking the Coding Interview, 6th Edition

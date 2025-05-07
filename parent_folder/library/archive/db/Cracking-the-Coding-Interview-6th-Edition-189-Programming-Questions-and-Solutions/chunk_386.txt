@@ -1,0 +1,108 @@
+Solutions to Chapter 9 j System Design and Scalability
+54 /* Merge paths where searches met at connection.
+*/
+55 LinkedList<Person> mergePaths(BFSData b f s l ,
+BFSData bfs2,
+i n t connection) {
+56
+PathNode endl = b f s l . v i s i t e d . g e t ( c o n n e c t i o n ) ; // endl -> source
+57
+PathNode end2 = b f s 2 . v i s i t e d . g e t ( c o n n e c t i o n ) ; // end2
+dest
+58
+LinkedList<Person> pathOne = e n d l . c o l l a p s e ( f a l s e ) ;
+59
+LinkedList<Person> pathTwo = end2.collapse(true); // reverse
+60
+pathTwo.removeFirst();
+// remove connection
+61
+pathOne.addAll(pathTwo); // add second path
+62
+return pathOne;
+63 >
+64
+65
+class PathNode {
+66
+p r i v a t e Person person = n u l l ;
+67
+p r i v a t e PathNode previousNode = n u l l ;
+68
+public Pathtode(Person p, PathNode previous) {
+69
+person = p;
+70
+previousNode = previous;
+71
+>
+72
+73
+public Person getPerson() { return person; }
+74
+75
+public LinkedList<Person> collapse(boolean startsWithRoot) {
+76
+LinkedList<Person> path = new LinkedList<Person>();
+77
+PathNode node = t h i s ;
+78
+while (node != n u l l ) {
+79
+if
+(startsWithRoot)
+{
+80
+path.addiast(node,person);
+81
+} else {
+82
+path.addFirst(node.person);
+83
+}
+84
+node = node.previousNode;
+85
+>
+86
+r e t u r n path;
+87
+>
+88
+}
+89
+90
+class BFSData {
+91
+public Queue<PathNode> t o V i s i t = new Linked!_ist<PathNode>();
+92
+public Ha shMap<Integer, PathNode> v i s i t e d =
+93
+new HashMap<Integer, PathNode>();
+94
+95
+public BFSData(Person root) {
+96
+PathNode sourcePath = new PathNode(root, n u l l ) ;
+97
+toVisit.add(sourcePath);
+98
+v i s i t e d , put ( r o o t . g e t l D Q ,
+sourcePath);
+99
+}
+100
+101
+public boolean isFinished() {
+102
+r e t u r n t o V i s i t . i s E m p t y ( ) ;
+103
+}
+104 }
+Many people are surprised that this is faster. Some quick math can explain why.
+Suppose every person has k friends, and node S and node D have a friend C in common.
+»
+Traditional breadth-first search from S to D: We go through roughly k + k * k nodes: each of S's k friends,
+and then each of their k friends.
+394
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,29 @@
+PROGRAMMERS VERSUS PEOPLE
+159
+So we tried one thing after another. We tried putting the references in linked
+lists. We tried leaving gaps in the array and only growing the buffer when the
+gaps filled. We tried creating linked lists of gaps. We tried all kinds of crazy ideas.
+We stood at the whiteboard in our office and drew diagrams of our data
+structures and performed calculations to predict performance. We’d get to the
+office every day with another new idea. We collaborated like fiends.
+Some of the things we tried increased performance. Some slowed it down. It
+was maddening. This was when I first discovered how hard it is to optimize
+software, and how nonintuitive the process is.
+In the end we got the time down under 15 minutes, which was very close to
+how long it took simply to read the source tape. So we were satisfied.
+PROG R AM M E R S VE R S U S PEOPLE
+We didn’t become programmers because we like working with people. As a rule
+we find interpersonal relationships messy and unpredictable. We like the clean
+and predictable behavior of the machines that we program. We are happiest
+when we are alone in a room for hours deeply focussing on some really
+interesting problem.
+OK, that’s a huge overgeneralization and there are loads of exceptions. There are
+plenty of programmers who are good at working with people and enjoy the
+challenge. But the group average still tends in the direction I stated. We,
+programmers, enjoy the mild sensory deprivation and cocoonlike immersion
+of focus.
+PROG R A M M E R S V E R S U S E M PLOY E R S
+In the seventies and eighties, while working as a programmer at Teradyne, I
+learned to be really good at debugging. I loved the challenge and would throw
+myself at problems with vigor and enthusiasm. No bug could hide long
+from me!

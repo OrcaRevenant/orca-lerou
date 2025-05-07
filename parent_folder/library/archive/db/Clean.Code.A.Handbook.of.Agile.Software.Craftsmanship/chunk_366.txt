@@ -1,0 +1,37 @@
+336
+Appendix A: Concurrency II
+• Update—Acquire connection to database and then master repository. Read from work
+in process database and then send to the master repository
+What happens when there are more users than the pool sizes? Consider each pool has
+a size of ten.
+• Ten users attempt to use create, so all ten database connections are acquired, and each
+thread is interrupted after acquiring a database connection but before acquiring a con-
+nection to the master repository.
+• Ten users attempt to use update, so all ten master repository connections are acquired,
+and each thread is interrupted after acquiring the master repository but before acquir-
+ing a database connection.
+• Now the ten “create” threads must wait to acquire a master repository connection, but
+the ten “update” threads must wait to acquire a database connection.
+• Deadlock. The system never recovers.
+This might sound like an unlikely situation, but who wants a system that freezes solid
+every other week? Who wants to debug a system with symptoms that are so difﬁcult to
+reproduce? This is the kind of problem that happens in the ﬁeld, then takes weeks to solve.
+A typical “solution” is to introduce debugging statements to ﬁnd out what is happen-
+ing. Of course, the debug statements change the code enough so that the deadlock happens
+in a different situation and takes months to again occur.4
+To really solve the problem of deadlock, we need to understand what causes it. There
+are four conditions required for deadlock to occur:
+• Mutual exclusion
+• Lock & wait
+• No preemption
+• Circular wait
+Mutual Exclusion
+Mutual exclusion occurs when multiple threads need to use the same resources and those
+resources
+• Cannot be used by multiple threads at the same time.
+• Are limited in number.
+A common example of such a resource is a database connection, a ﬁle open for write, a
+record lock, or a semaphore.
+4.
+For example, someone adds some debugging output and the problem “disappears.” The debugging code “ﬁxes” the problem
+so it remains in the system.

@@ -1,0 +1,64 @@
+Solutions to Chapter 4 | Trees and Graphs
+Once we return from 3, and complete the DFS of b's other children, then everything that must appear after
+b is in the list. Add b to the front.
+DFS(b)
+// Step 1
+DFS(h)
+II
+Step 2
+build order «
+, h
+II
+Step 3
+DFS(a)
+II
+Step 4
+DFS(e)
+II
+Step 5
+build order = . . . , e, h
+1/ Step 6
+build order =
+a, e, h
+II
+Step 7
+DFS(e) -> return
+II
+Step 3
+build order =
+b, a, e, h
+/ / Step 9
+let's mark these nodes as having been built too, just in case someone else needs to build them.
+Now what? We can start with any old node again, doing a DFS on it and then adding the node to the front
+of the build queue when the DFS is completed.
+DFS(d)
+DFS(g)
+build order =
+g, b, a, e, h
+build order -
+d, g, b, a, e, h
+DFS(f)
+DFS(c)
+build order =
+c, d, g, b, a, e, h
+build order = f, c, d, g, b, a, e, h
+In an algorithm like this, we should think about the issue of cycles. There is no possible build order if there
+is a cycle. But still, we don't want to get stuck in an infinite loop just because there's no possible solution.
+A cycle will happen if, while doing a DFS on a node, we run back into the same path. What we need there-
+fore is a signal that indicates'Tm still processing this node, so if you see the node again, we have a problem."
+What we can do for this is to mark each node as a " p a r t i a l " (or " i s v i s i t ing") state just before we start
+the DFS on it. If we see any node whose state is p a r t i a l , then we know we have a problem. When we're
+done with this node's DFS, we need to update the state.
+We also need a state to indicate "I've already processed/built this node" so we don't re-build the node. Our
+state therefore can have three options: COMPLETED, PARTIAL, and BLANK.
+The code below implements this algorithm.
+1
+Stack<Project> findBuildOrder(String[ ] projects, S t r i n g [ ] [ ] dependencies) {
+2
+Graph graph = buildGraph(projects, dependencies);
+3
+return orderProjects(graph,getNodes());
+4
+>
+CrackingTheCodinglnterview.com | 6th Edition
+247

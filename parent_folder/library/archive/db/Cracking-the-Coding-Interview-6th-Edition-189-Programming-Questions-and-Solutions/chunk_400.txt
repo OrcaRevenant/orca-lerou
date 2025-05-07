@@ -1,0 +1,31 @@
+Solutions to Chapter 9 j System Design and Scalability
+Step 3: Draw the Major Components
+The most naive system would be one that pulls bank data on each login, categorizes all the data, and then
+analyzes the user's budget. This wouldn't quite fit the requirements, though, as we want email notifications
+on particular events.
+We can do a bit better.
+With this basic architecture, the bank data is pulled at periodic times (hourly or daily). The frequency may
+depend on the behavior of the users. Less active users may have their accounts checked less frequently.
+Once new data arrives, it is stored in some list of raw, unprocessed transactions. This data is then pushed to
+the categorizer, which assigns each transaction to a category and stores these categorized transactions in
+another datastore.
+The budget analyzer pulis in the categorized transactions, updates each user's budget per category, and
+stores the user's budget.
+The frontend pulls data from both the categorized transactions datastore as well as from the budget datas-
+tore. Additionally, a user could also interact with thefrontend by changing the budget or the categorization
+of their transactions.
+Step 4: Identify the Key Issues
+We should now reflect on what the major issues here might be.
+This will be a very data-heavy system. We want it to feel snappy and responsive, though, so we'll want as
+much processing as possible to be asynchronous.
+We will almost certainly want at least one task queue, where we can queue up work that needs to be done.
+This work will include tasks such as pulling in new bank data, re-analyzing budgets, and categorizing new
+bank data. It would also include re-trying tasks that failed.
+These tasks will likely have some sort of priority associated with them, as some need to be performed more
+often than others. We want to build a task queue system that can prioritize some task types over others,
+while still ensuring that all tasks will be performed eventually. That is, we wouldn't want a low priority task
+to essentially "starve" because there are always higher priority tasks.
+One important part of the system that we haven't yet addressed wilt be the email system. We couid use a
+task to regularly crawl user's data to check if they're exceeding their budget, but that means checking every
+394
+Cracking the Coding Interview, 6th Edition

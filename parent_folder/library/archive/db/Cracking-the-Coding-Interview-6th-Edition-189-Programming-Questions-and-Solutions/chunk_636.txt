@@ -1,0 +1,82 @@
+Solutions to Chapter 17 | Hard
+59
+Document doc2 = documents.get(pair.doc2);
+60
+double union = (double) docl.sizeQ + doc2.size() - intersection;
+61
+entry.setValue(intersection / union);
+62
+>
+63
+}
+64
+65 /* HashMapList<Integer, Integer» is a HashMap that maps from Integer to
+66
+* ArrayList<Integer>. See appendix for implementation. */
+For a set of documents with sparse similarity, this will run much faster than the original naive algorithm,
+which compares all pairs of documents directly.
+Optimized (Alternative)
+There's an alternative algorithm that some candidates might come up with. It's slightly slower, but still quite
+good.
+Recall our earlier algorithm that computed the similarity between two documents by sorting them. We can
+extend this approach to multiple documents.
+Imagine we took atl of the words, tagged them by their original document, and then sorted them.The prior
+list of documents would look like this:
+\it
+3 1 5, 3^, 4 1 4, Sjj, 5 1 3, 5 1 5, 6 1 £,
+8 1 5 , 8 1 5J 9^, 9 1 5
+Now we have essentially the same approach as before. We iterate through this list of elements. For each
+sequence of identical elements, we increment the intersection counts for the corresponding pair of docu-
+ments.
+We will use an Element class to group together documents and words. When we sort the list, we will sort
+first on the word but break ties on the document ID.
+1
+class Element implements Comparable<Element> {
+2
+public i n t word, document;
+3
+public Element(int w, i n t d) {
+4
+word = w;
+5
+document = d;
+6
+}
+7
+8
+/* When we sort the words, t h i s function w i l l be used to compare the words. */
+9
+public i n t compareTo(Element e) {
+10
+if (word == e.word) {
+11
+return document - e.document;
+12
+>
+13
+return word - e.word;
+14
+}
+15
+}
+16
+17
+HashMap<DocPairj Double» computeSimilarities(
+18
+Has hflap< Integer, Document» documents) {
+19
+Arraylist<Element> elements = sortWords(documents);
+20
+HashMapcDocPair, Double» s i m i l a r i t i e s = computelntersections(elements);
+21
+adjustToSimilarities(documents,
+s i m i l a r i t i e s ) ;
+22
+return s i m i l a r i t i e s ;
+23 >
+24
+25 /* Throw a l l words i n t o one l i s t , sorting by the word and then the document. */
+26 ArrayList<Element» sortWords(HashMap<Integer, Document» docs) {
+27
+ArrayList<Element» elements = new ArrayListcElement»();
+CrackingTheCodinglnterview.com | 6th Edition

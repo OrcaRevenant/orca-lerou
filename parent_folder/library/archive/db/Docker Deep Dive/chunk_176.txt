@@ -1,0 +1,19 @@
+Figure 11.18
+The following steps walk through the high-level workflow shown in Figure
+11.18.
+1. The secret is created and posted to the Swarm
+2. It gets stored in the encrypted cluster store (all managers have access to the
+cluster store)
+3. The blue service is created and the secret is attached to it
+4. The secret is encrypted in-flight while it is delivered to the containers in the
+blue service
+5. The secret is mounted into the containers of the blue service as an
+unencrypted file at /run/secrets/. This is an in-memory tmpfs filesystem
+(this step is different on Windows Docker hosts as they do not have the
+notion of an in-memory filesystem like tmpfs)
+6. Once the container (service task) completes the in-memory filesystem is
+torn down.
+7. The red containers/service cannot access the secret.
+From the command line you can create and manage secrets with the docker
+secret sub-command, and you can attach them to services by specifying the --
+secret flag to the docker service create command.

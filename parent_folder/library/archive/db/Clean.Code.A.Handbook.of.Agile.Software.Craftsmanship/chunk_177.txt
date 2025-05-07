@@ -1,0 +1,44 @@
+147
+Organizing for Change
+Organizing for Change
+For most systems, change is continual. Every change subjects us to the risk that the
+remainder of the system no longer works as intended. In a clean system we organize our
+classes so as to reduce the risk of change.
+The Sql class in Listing 10-9 is used to generate properly formed SQL strings given
+appropriate metadata. It’s a work in progress and, as such, doesn’t yet support SQL func-
+tionality like update statements. When the time comes for the Sql class to support an
+update statement, we’ll have to “open up” this class to make modiﬁcations. The problem
+with opening a class is that it introduces risk. Any modiﬁcations to the class have the
+potential of breaking other code in the class. It must be fully retested.
+The Sql class must change when we add a new type of statement. It also must change
+when we alter the details of a single statement type—for example, if we need to modify
+the select functionality to support subselects. These two reasons to change mean that the
+Sql class violates the SRP.
+We can spot this SRP violation from a simple organizational standpoint. The method
+outline of Sql shows that there are private methods, such as selectWithCriteria, that
+appear to relate only to select statements.
+Private method behavior that applies only to a small subset of a class can be a useful
+heuristic for spotting potential areas for improvement. However, the primary spur for tak-
+ing action should be system change itself. If the Sql class is deemed logically complete,
+then we need not worry about separating the responsibilities. If we won’t need update
+functionality for the foreseeable future, then we should leave Sql alone. But as soon as we
+ﬁnd ourselves opening up a class, we should consider ﬁxing our design.
+What if we considered a solution like that in Listing 10-10? Each public interface
+method deﬁned in the previous Sql from Listing 10-9 is refactored out to its own derivative
+of the Sql class. Note that the private methods, such as valuesList, move directly where
+Listing 10-9
+A class that must be opened for change
+public class Sql {
+public Sql(String table, Column[] columns)
+public String create()
+public String insert(Object[] fields)
+public String selectAll()
+public String findByKey(String keyColumn, String keyValue)
+public String select(Column column, String pattern)
+public String select(Criteria criteria)
+public String preparedInsert()
+private String columnList(Column[] columns)
+private String valuesList(Object[] fields, final Column[] columns)
+private String selectWithCriteria(String criteria)
+private String placeholderList(Column[] columns)
+}

@@ -1,0 +1,34 @@
+187
+Testing Threaded Code
+• Make your threaded code pluggable.
+• Make your threaded code tunable.
+• Run with more threads than processors.
+• Run on different platforms.
+• Instrument your code to try and force failures.
+Treat Spurious Failures as Candidate Threading Issues
+Threaded code causes things to fail that “simply cannot fail.” Most developers do not have
+an intuitive feel for how threading interacts with other code (authors included). Bugs in
+threaded code might exhibit their symptoms once in a thousand, or a million, executions.
+Attempts to repeat the systems can be frustratingly. This often leads developers to write off
+the failure as a cosmic ray, a hardware glitch, or some other kind of “one-off.” It is best to
+assume that one-offs do not exist. The longer these “one-offs” are ignored, the more code
+is built on top of a potentially faulty approach.
+Recommendation: Do not ignore system failures as one-offs.
+Get Your Nonthreaded Code Working First
+This may seem obvious, but it doesn’t hurt to reinforce it. Make sure code works outside
+of its use in threads. Generally, this means creating POJOs that are called by your threads.
+The POJOs are not thread aware, and can therefore be tested outside of the threaded envi-
+ronment. The more of your system you can place in such POJOs, the better.
+Recommendation: Do not try to chase down nonthreading bugs and threading bugs
+at the same time. Make sure your code works outside of threads.
+Make Your Threaded Code Pluggable
+Write the concurrency-supporting code such that it can be run in several conﬁgurations:
+• One thread, several threads, varied as it executes
+• Threaded code interacts with something that can be both real or a test double.
+• Execute with test doubles that run quickly, slowly, variable.
+• Conﬁgure tests so they can run for a number of iterations.
+Recommendation: Make your thread-based code especially pluggable so that you
+can run it in various conﬁgurations.
+Make Your Threaded Code Tunable
+Getting the right balance of threads typically requires trial an error. Early on, ﬁnd ways to
+time the performance of your system under different conﬁgurations. Allow the number of

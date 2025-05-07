@@ -1,0 +1,70 @@
+Solutions to Chapter 10 | Sorting and Searching
+45
+r e t u r n lowerLeft;
+46
+}
+47
+43
+Coordinate f i n d E l e m e n t ( i n t [ ] [ ] matrix, i n t x) {
+49
+Coordinate o r i g i n = new C o o r d i n a t e d , 0 ) ;
+50
+Coordinate dest = new Coordinate(matrix.length - 1, m a t r i x [ 0 ] . l e n g t h - 1);
+51
+r e t u r n findElement(matrix, o r i g i n , dest, x ) ;
+52 >
+53
+54 public class Coordinate implements Cloneable {
+55
+public i n t row, column;
+56
+public Coordinate(int r, i n t c) {
+57
+row = r ;
+58
+column = c;
+59
+}
+60
+61
+public boolean i n b o u n d s ( i n t [ ] [ ] matrix) {
+62
+return
+row >= 0 && column >= 0 &&
+63
+row < m a t r i x . l e n g t h && column < m a t r i x [ 0 ) . l e n g t h ;
+64
+>
+65
+66
+public boolean isBefore(Coordinate p) {
+67
+return row <= p.row && column <= p.column;
+68
+>
+69
+70
+public Object clone() {
+71
+return new Coordinate(row, column);
+72
+>
+73
+74
+public void setToAverage(Coordinate min. Coordinate max) {
+75
+row = (min.row +• max.row) / 2;
+76
+column = (min.column + max.column) / 2;
+77
+)
+78
+}
+If you read all this code and thought, "there's no way I could do all this in an interview!" you're probably
+right. You couldn't. But, your performance on any problem is evaluated compared to other candidates on
+the same problem. So while you couldn't implement all this, neither could they. You are at no disadvantage
+when you get a tricky problem like this.
+You help yourself out a bit by separating code out into other methods. For example, by pulling
+p a r t i t i o n A n d S e a r c h out into its own method, you will have an easier time outlining key aspects of the
+code. You can then come back to fill in the body for p a r t i t i o n A n d S e a r c h if you have time.
+CrackingTheCodinglnterview.com | 6th Edition 397

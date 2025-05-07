@@ -1,0 +1,33 @@
+I’ve been involved in a lot of efforts where the line between the product code
+(the software) and the code that interacts with the product’s hardware (the
+firmware) is fuzzy to the point of nonexistence. For example, in the late 1990s I
+had the fun of helping redesign a communications subsystem that was
+transitioning from time-division multiplexing (TDM) to voice over IP (VOIP).
+VOIP is how things are done now, but TDM was considered the state of the art
+from the 1950s and 1960s, and was widely deployed in the 1980s and 1990s.
+Whenever we had a question for the systems engineer about how a call should
+react to a given situation, he would disappear and a little later emerge with a
+very detailed answer. “Where did he get that answer?” we asked. “From the
+current product’s code,” he’d answer. The tangled legacy code was the spec for
+the new product! The existing implementation had no separation between TDM
+and the business logic of making calls. The whole product was
+hardware/technology dependent from top to bottom and could not be untangled.
+The whole product had essentially become firmware.
+Consider another example: Command messages arrive to this system via serial
+port. Unsurprisingly, there is a message processor/dispatcher. The message
+processor knows the format of messages, is able to parse them, and can then
+dispatch the message to the code that can handle the request. None of this is
+surprising, except that the message processor/dispatcher resides in the same file
+as code that interacts with a UART2 hardware. The message processor is
+polluted with UART details. The message processor could have been software
+with a potentially long useful life, but instead it is firmware. The message
+processor is denied the opportunity to become software—and that is just not
+right!
+I’ve known and understood the need for separating software from hardware for a
+long time, but Doug’s words clarified how to use the terms software and
+firmware in relationship to each other.
+For engineers and programmers, the message is clear: Stop writing so much
+firmware and give your code a chance at a long useful life. Of course,
+demanding it won’t make it so. Let’s look at how we can keep embedded
+software architecture clean to give the software a fighting chance of having a
+long and useful life.

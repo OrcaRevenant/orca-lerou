@@ -1,0 +1,28 @@
+400
+Appendix B: org.jfree.date.SerialDate
+Listing B-11
+WeekInMonth.java (Final)
+1 package org.jfree.date;
+2
+3 public enum WeekInMonth {
+4   FIRST(1), SECOND(2), THIRD(3), FOURTH(4), LAST(0);
+5   private final int index;
+6
+7   WeekInMonth(int index) {
+8     this.index = index;
+9   }
+10
+11   public int toInt() {
+12     return index;
+13   }
+14 }
+
+401
+Appendix B: org.jfree.date.SerialDate
+Listing B-12
+WeekdayRange.java (Final)
+1 package org.jfree.date;
+2
+3 public enum WeekdayRange {
+4   LAST, NEAREST, NEXT
+5 }

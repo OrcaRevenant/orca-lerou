@@ -1,0 +1,81 @@
+IV | Hints for Additional Review Problems
+#617.
+17.17
+One solution is to insert every suffix of the larger string into the trie. For example, if the
+word is dogs, the suffixes would be dogs, ogs, gs, and s. How would this help you
+solve the problem? What is the runtime here?
+#618.
+17.22
+A breadth-first search will often be faster than a depth-first search-—not necessarily in
+the worst case, but in many cases. Why? Can you do something even faster than this?
+#619.
+17.5
+What if you just started from the beginning, counting the number of As and the number
+of Bs you've seen so far? (Try making a table of the array and the number of As and Bs
+thus far.)
+#620.
+17,10
+Note also that the majority element must be the majority element for some subarray
+and that no subarray can have multiple majority elements.
+#621.
+17.24
+Suppose I just wanted you to find the maximum submatrix starting at row rl and
+ending at row r2, how could you most efficiently do this? (See the prior hint.) If I now
+wanted you find the maximum subarray from rl to (r2+2), could you do this effi-
+ciently?
+#622.
+17,9
+Since each number is 3,5, or 7 times a previous value in the iist, we could just check all
+possible values and pick the next one that hasn't been seen yet. This will result in a lot of
+duplicated work. How can we avoid this?
+#623.
+17,13
+Can you just try all possibilities? What might that look like?
+#624.
+16.26
+Multiplication and division are higher priority operations. In an expression like 3*4 +
+5 * 9 / 2 + 3, the multiplication and division parts need to be grouped together.
+#625.
+17,14
+If you picked an arbitrary element, how long would it take you to figure out the rank of
+this element (the number of elements bigger or smaller than it)?
+#626.
+17.19
+Part 2: We're now looking for two missing numbers, which we will call a and b. The
+approach from part 1 will tell us the sum of a and b, but it won't actually tell us a and b.
+What other calculations could we do?
+#627.
+16.22
+Option #3: You could consider keeping a hash set of all the white cells. How will you be
+able to print the whole grid, though?
+#628.
+17.1
+The adding step alone would convert 1 + 1 -> 0,1 + 0-> 1,0 + 1 -> 1,0 + 0->0.Howdo
+you do this without the + sign?
+#629.
+17.21
+What role does the tallest bar in the histogram play?
+#630.
+16.25
+What data structure would be most useful for the lookups? What data structure would
+be most useful to know and maintain the order of items?
+#631.
+16.18
+Start with a brute force approach. Can you try all possibilities for a and b?
+#632.
+16.6
+What if you sorted the arrays?
+#633.
+17.11
+Can you just iterate through both arrays with two pointers? You should be able to do it
+in 0(A+B) time, where A and B are the sizes of the two arrays.
+#634.
+17,2
+You could build this algorithm recursively by swapping the nth element for any of the
+elements before it. What would this look like iteratively?
+#635.
+16,21
+What if the sum of A is 11 and the sum of Bis 8? Can there be a pair with the right differ-
+ence? Check that your solution handles this situation appropriately.
+680
+Cracking the Coding Interview, 6th Edition

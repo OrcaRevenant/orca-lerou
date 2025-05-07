@@ -1,0 +1,31 @@
+CHAPTER 10 ESTIMATION
+146
+The idea is very simple. For each member of the estimation team, deal a hand
+of cards with different numbers on them. The numbers 0 through 5 work fine,
+and make this system logically equivalent to flying fingers.
+Pick a task and discuss it. At some point the moderator asks everyone to pick a
+card. The members of the team pull out a card that matches their estimate and
+hold it up with the back facing outward so that no one else can see the value of
+the card. Then the moderator tells everyone to show their cards.
+The rest is just like flying fingers. If there is agreement, then the estimate is
+accepted. Otherwise the cards are returned to the hand, and the players
+continue to discuss the task.
+Much “science” has been dedicated to choosing the correct card values for a
+hand. Some folks have gone so far as to use cards based on a Fibonacci series.
+Others have included cards for infinity and question mark. Personally, I think
+five cards labeled 0, 1, 3, 5, 10 are sufficient.
+Affinity Estimation
+A particularly unique variation of wideband delphi was shown to me several
+years ago by Lowell Lindstrom. I’ve had quite a bit of good luck with this
+approach with various customers and teams.
+All the tasks are written onto cards, without any estimates showing. The
+estimation team stands around a table or a wall with the cards spread out
+randomly. The team members do not talk, they simply start sorting the cards
+relative to one another. Tasks that take longer are moved to the right. Smaller
+tasks move to the left.
+Any team member can move any card at any time, even if it has already been
+moved by another member. Any card moved more than h times is set aside for
+discussion.
+Eventually the silent sorting peters out and discussion can begin. Disagreements
+about the ordering of the cards are explored. There may be some quick design
+sessions or some quick hand-drawn wire frames to help gain consensus.

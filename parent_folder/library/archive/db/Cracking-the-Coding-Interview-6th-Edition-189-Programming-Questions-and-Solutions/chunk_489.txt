@@ -1,0 +1,94 @@
+Solutions to Chapter 14 | Databases
+9
+return neg;
+10 >
+11
+12 /* Subtract two numbers by negating b and adding them */
+13 i n t minus(int a, i n t b) {
+14
+return a + negate(b);
+15 >
+The negation of the value k is implemented by adding -1 k times. Observe that this will takeO(k) time.
+If optimizing is something we value here, we can try to get a to zero faster. (For this explanation, we'll
+assume that a is positive.) To do this, we can first reduce a by 1, then 2, then 4, then 8, and so on. We'll call
+this value d e l t a . We want a to reach exactly zero. When reducing a by the next d e l t a would change the
+sign of a, we reset d e l t a back to 1 and repeat the process.
+For example:
+a:
+29
+28
+26
+22
+14
+13
+11
+7
+6
+4
+0
+delta:
+-1
+-2
+-4
+-8
+-1
+-2
+-4
+-1
+-2
+-4
+The code below implements this algorithm.
+1
+i n t negate(int a) {
+2
+int neg = 0;
+3
+i n t newSign = a < 0 ? 1 : -1;
+4
+int delta = newSign;
+5
+while (a 1= 0) {
+6
+boolean differentSigns = (a + delta > 0) 1= (a > 0);
+7
+if (a + delta 1= 0 &8 differentSigns) { // If delta is too big, reset i t .
+8
+delta = newSign;
+9
+}
+10
+neg += delta;
+11
+a += delta;
+12
+delta += delta; // Double the delta
+13
+>
+14
+return neg;
+15 >
+Figuring out the runtime here takes a bit of calculation.
+Observe that reducing a by half takes 0( l o g a) work. Why? For each round of "reduce a by half" the abso-
+lute values of a and d e l t a always add up to the same number. The values of d e l t a and a will converge at
+Ai .Since d e l t a is being doubled each time, it will take 0( l o g a) steps to reach half of a.
+We do O(log a) rounds.
+1. Reducing a to jK takesO(log a)time.
+2. Reducing A to % takesO(log
+A ) time.
+3. Reducing
+to % takesO{log
+% ) time.
+... Assoon,forOflog a) rounds.
+The runtime therefore isO(log a + l o g ( A )
++
+l o g ( A )
++
+. . . ) , with 0( l o g a)termsinthe
+expression.
+Recall two rules of logs:
+•
+l o g ( x y ) = l o g x + l o g y
+•
+l o g ( % ) = l o g x -
+l o g y.
+CrackingTheCodinglnterview.com \ 6th Edition 415

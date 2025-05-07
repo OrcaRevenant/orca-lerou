@@ -1,0 +1,97 @@
+Solutions to Chapter 17 | Hard
+HashMapList<Integer, Integers wordToDocs = groupWords(documents);
+4
+HashMap<DocPair, Double> similarities = computelntersections(wordToDocs);
+5
+adjustToSimilarities(documents, similarities);
+6
+return similarities;
+7
+>
+8
+9
+t* Create hash table from each word to where it appears. */
+10 HashMapl_ist<Integer, Integer> groupWords(HashMap<Integer, Document> documents) {
+11
+HashMapList<Integer, lnteger> wordToDocs = new HashMapList<Integer, Integer>();
+12
+13
+for (Document doc : documents.values()) {
+14
+ArrayList<lnteger> words = doc,getWords();
+15
+for (int word : words) {
+16
+wordToDocs.put(word, doc.getid());
+17
+>
+18
+>
+19
+20
+return wordToDocs;
+21 }
+22
+23 /* Compute intersections of documents. Iterate through each list of documents and
+24
+* then each pair within that list, incrementing the intersection of each page. *!
+25 HashMap<DocPair, Double> computeIntersections(
+26
+HashMapListcInteger, lnteger> wordToDocs {
+27
+HashMap<DocPair, Double> similarities = new HashMap<DocPair, Double>();
+28
+Set<Integer> words = wordToDocs.keySet();
+29
+for (int word : words) {
+39
+ArrayList<Integer> docs = wordToDocs.get(word);
+31
+Collections.sort(docs);
+32
+for (int i = 0; i < docs.size(); i++) {
+33
+for (int j = i + 1; j < docs.size(); j++) {
+34
+increment(similarities, docs.get(i), docs.get(j));
+35
+>
+36
+}
+37
+}
+38
+39
+return similarities;
+40 }
+41
+42 /* Increment the intersection size of each document pair. */
+43 void increment(HashMap<DocPair, Double> similarities, int docl, int doc2) {
+44
+DocPair pair = new DocPair(docl, doc2);
+45
+if ('similarities.containsKey(pair)) {
+46
+similarities.put(pair, 1.0);
+47
+} else {
+48
+similarities.put(pair, similarities.get(pair) + 1);
+49
+}
+50 )
+51
+52 /* Adjust the intersection value to become the similarity. */
+53 void adjustToSimilarities(HashMap<Integer, Document> documents,
+54
+HashMap<DocPair, Double> similarities) {
+55
+for (Entry<DocPair, Double> entry : similarities.entrySet()) {
+56
+DocPair pair = entry.getKeyQ;
+57
+Double intersection = entry.getvalue();
+58
+Document docl = documents.get(pair.docl);
+CrackingTheCodinginterview.com | 6th Edition
+62 3

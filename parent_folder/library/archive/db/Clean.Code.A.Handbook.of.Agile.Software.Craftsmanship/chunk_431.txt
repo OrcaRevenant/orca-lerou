@@ -1,0 +1,38 @@
+404
+Appendix B: org.jfree.date.SerialDate
+Listing B-15
+SpreadsheetDateFactory.java (Final)
+1 package org.jfree.date;
+2
+3 import java.util.*;
+4
+5 public class SpreadsheetDateFactory extends DayDateFactory {
+6   public DayDate _makeDate(int ordinal) {
+7     return new SpreadsheetDate(ordinal);
+8   }
+9
+10   public DayDate _makeDate(int day, Month month, int year) {
+11     return new SpreadsheetDate(day, month, year);
+12   }
+13
+14   public DayDate _makeDate(int day, int month, int year) {
+15     return new SpreadsheetDate(day, month, year);
+16   }
+17
+18   public DayDate _makeDate(Date date) {
+19     final GregorianCalendar calendar = new GregorianCalendar();
+20     calendar.setTime(date);
+21     return new SpreadsheetDate(
+22       calendar.get(Calendar.DATE),
+23       Month.fromInt(calendar.get(Calendar.MONTH) + 1),
+24       calendar.get(Calendar.YEAR));
+25   }
+26
+27   protected int _getMinimumYear() {
+28     return SpreadsheetDate.MINIMUM_YEAR_SUPPORTED;
+29   }
+30
+31   protected int _getMaximumYear() {
+32     return SpreadsheetDate.MAXIMUM_YEAR_SUPPORTED;
+33   }
+34 }

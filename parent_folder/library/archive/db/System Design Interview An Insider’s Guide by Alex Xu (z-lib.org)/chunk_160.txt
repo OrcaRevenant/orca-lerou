@@ -1,0 +1,7 @@
+CHAPTER 12: DESIGN A CHAT SYSTEM
+In this chapter we explore the design of a chat system. Almost everyone uses a chat app.
+Figure 12-1 shows some of the most popular apps in the marketplace.
+A chat app performs different functions for different people. It is extremely important to nail
+down the exact requirements. For example, you do not want to design a system that focuses
+on group chat when the interviewer has one-on-one chat in mind. It is important to explore
+the feature requirements.

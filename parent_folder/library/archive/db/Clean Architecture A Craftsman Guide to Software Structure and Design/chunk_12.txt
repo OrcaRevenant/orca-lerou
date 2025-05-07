@@ -1,0 +1,31 @@
+Chapter 29 Clean Embedded Architecture
+App-titude Test
+The Target-Hardware Bottleneck
+Conclusion
+PART VI Details
+Chapter 30 The Database Is a Detail
+Relational Databases
+Why Are Database Systems So Prevalent?
+What If There Were No Disk?
+Details
+But What about Performance?
+Anecdote
+Conclusion
+Chapter 31 The Web Is a Detail
+The Endless Pendulum
+The Upshot
+Conclusion
+Chapter 32 Frameworks Are Details
+Framework Authors
+Asymmetric Marriage
+The Risks
+The Solution
+I Now Pronounce You …
+Conclusion
+Chapter 33 Case Study: Video Sales
+The Product
+Use Case Analysis
+Component Architecture
+Dependency Management
+Conclusion
+Chapter 34 The Missing Chapter

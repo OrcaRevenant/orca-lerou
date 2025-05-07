@@ -1,0 +1,43 @@
+140
+Chapter 10: Classes
+to look to ﬁnd things and need only understand the directly affected complexity at any
+given time. In contrast, a system with larger, multipurpose classes always hampers us by
+insisting we wade through lots of things we don’t need to know right now.
+To restate the former points for emphasis: We want our systems to be composed of
+many small classes, not a few large ones. Each small class encapsulates a single responsi-
+bility, has a single reason to change, and collaborates with a few others to achieve the
+desired system behaviors.
+Cohesion
+Classes should have a small number of instance variables. Each of the methods of a class
+should manipulate one or more of those variables. In general the more variables a method
+manipulates the more cohesive that method is to its class. A class in which each variable is
+used by each method is maximally cohesive.
+In general it is neither advisable nor possible to create such maximally cohesive
+classes; on the other hand, we would like cohesion to be high. When cohesion is high, it
+means that the methods and variables of the class are co-dependent and hang together as a
+logical whole.
+Consider the implementation of a Stack in Listing 10-4. This is a very cohesive class.
+Of the three methods only size() fails to use both the variables.
+The strategy of keeping functions small and keeping parameter lists short can some-
+times lead to a proliferation of instance variables that are used by a subset of methods.
+When this happens, it almost always means that there is at least one other class trying to
+Listing 10-4
+Stack.java A cohesive class.
+public class Stack {
+private int topOfStack = 0;
+List<Integer> elements = new LinkedList<Integer>();
+public int size() {
+return topOfStack;
+}
+public void push(int element) {
+topOfStack++;
+elements.add(element);
+}
+public int pop() throws PoppedWhenEmpty {
+if (topOfStack == 0)
+throw new PoppedWhenEmpty();
+int element = elements.get(--topOfStack);
+elements.remove(topOfStack);
+return element;
+}
+}

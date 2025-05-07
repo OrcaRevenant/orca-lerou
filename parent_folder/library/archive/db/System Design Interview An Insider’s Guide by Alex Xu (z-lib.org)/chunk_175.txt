@@ -1,0 +1,12 @@
+Online presence
+An online presence indicator is an essential feature of many chat applications. Usually, you
+can see a green dot next to a user’s profile picture or username. This section explains what
+happens behind the scenes.
+In the high-level design, presence servers are responsible for managing online status and
+communicating with clients through WebSocket. There are a few flows that will trigger
+online status change. Let us examine each of them.
+User login
+The user login flow is explained in the “Service Discovery” section. After a WebSocket
+connection is built between the client and the real-time service, user A’s online status and
+last_active_at  timestamp are saved in the KV store. Presence indicator shows the user is
+online after she logs in.

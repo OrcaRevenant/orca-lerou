@@ -1,0 +1,32 @@
+Which kinds of decisions are premature? Decisions that have nothing to do with
+the business requirements—the use cases—of the system. These include
+decisions about frameworks, databases, web servers, utility libraries, dependency
+injection, and the like. A good system architecture is one in which decisions like
+these are rendered ancillary and deferrable. A good system architecture does not
+depend on those decisions. A good system architecture allows those decisions to
+be made at the latest possible moment, without significant impact.
+A COUPLE OF SAD STORIES
+Here’s the sad story of company P, which serves as a warning about making
+premature decisions. In the 1980s the founders of P wrote a simple monolithic
+desktop application. They enjoyed a great deal of success and grew the product
+through the 1990s into a popular and successful desktop GUI application.
+But then, in the late 1990s, the web emerged as a force. Suddenly everybody had
+to have a web solution, and P was no exception. P’s customers clamored for a
+version of the product on the web. To meet this demand, the company hired a
+bunch of hotshot twenty-something Java programmers and embarked upon a
+project to webify their product.
+The Java guys had dreams of server farms dancing in their heads, so they
+adopted a rich three-tiered “architecture”1 that they could distribute through such
+farms. There would be servers for the GUI, servers for the middleware, and
+servers for the database. Of course.
+The programmers decided, very early on, that all domain objects would have
+three instantiations: one in the GUI tier, one in the middleware tier, and one in
+the database tier. Since these instantiations lived on different machines, a rich
+system of interprocessor and inter-tier communications was set up. Method
+invocations between tiers were converted to objects, serialized, and marshaled
+across the wire.
+Now imagine what it took to implement a simple feature like adding a new field
+to an existing record. That field had to be added to the classes in all three tiers,
+and to several of the inter-tier messages. Since data traveled in both directions,
+four message protocols needed to be designed. Each protocol had a sending and
+receiving side, so eight protocol handlers were required. Three executables had

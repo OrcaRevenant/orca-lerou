@@ -1,0 +1,29 @@
+PACING YOURSELF
+69
+I fixed the problem, of course, but never had the courage to turn off the
+automatic hack that inspected and fixed the counters. To this day I’m not
+convinced there wasn’t another hole.
+D E BUGG I N G TI M E
+For some reason software developers don’t think of debugging time as coding
+time. They think of debugging time as a call of nature, something that just has
+to be done. But debugging time is just as expensive to the business as coding
+time is, and therefore anything we can do to avoid or diminish it is good.
+Nowadays I spend much less time debugging than I did ten years ago. I haven’t
+measured the difference, but I believe it’s about a factor of ten. I achieved this
+truly radical reduction in debugging time by adopting the practice of Test
+Driven Development (TDD), which we’ll be discussing in another chapter.
+Whether you adopt TDD or some other discipline of equal efficacy,3 it is
+incumbent upon you as a professional to reduce your debugging time as close
+to zero as you can get. Clearly zero is an asymptotic goal, but it is the goal
+nonetheless.
+Doctors don’t like to reopen patients to fix something they did wrong. Lawyers
+don’t like to retry cases that they flubbed up. A doctor or lawyer who did that
+too often would not be considered professional. Likewise, a software developer
+who creates many bugs is acting unprofessionally.
+PAC I N G YOU R S E LF
+Software development is a marathon, not a sprint. You can’t win the race by
+trying to run as fast as you can from the outset. You win by conserving your
+resources and pacing yourself. A marathon runner takes care of her body both
+before and during the race. Professional programmers conserve their energy and
+creativity with the same care.
+3. I don’t know of any discipline that is as effective as TDD, but perhaps you do.

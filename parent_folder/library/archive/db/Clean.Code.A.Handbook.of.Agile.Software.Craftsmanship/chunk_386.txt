@@ -1,0 +1,66 @@
+358
+Appendix B: org.jfree.date.SerialDate
+537
+538     /**
+539      * Returns the number of the last day of the month, taking into account
+540      * leap years.
+541      *
+542      * @param month  the month.
+543      * @param yyyy  the year (in the range 1900 to 9999).
+544      *
+545      * @return the number of the last day of the month.
+546      */
+547     public static int lastDayOfMonth(final int month, final int yyyy) {
+548
+549         final int result = LAST_DAY_OF_MONTH[month];
+550         if (month != FEBRUARY) {
+551             return result;
+552         }
+553         else if (isLeapYear(yyyy)) {
+554             return result + 1;
+555         }
+556         else {
+557             return result;
+558         }
+559
+560     }
+561
+562     /**
+563      * Creates a new date by adding the specified number of days to the base
+564      * date.
+565      *
+566      * @param days  the number of days to add (can be negative).
+567      * @param base  the base date.
+568      *
+569      * @return a new date.
+570      */
+571     public static SerialDate addDays(final int days, final SerialDate base) {
+572
+573         final int serialDayNumber = base.toSerial() + days;
+574         return SerialDate.createInstance(serialDayNumber);
+575
+576     }
+577
+578     /**
+579      * Creates a new date by adding the specified number of months to the base
+580      * date.
+581      * <P>
+582      * If the base date is close to the end of the month, the day on the result
+583      * may be adjusted slightly:  31 May + 1 month = 30 June.
+584      *
+585      * @param months  the number of months to add (can be negative).
+586      * @param base  the base date.
+587      *
+588      * @return a new date.
+589      */
+590     public static SerialDate addMonths(final int months,
+591                                        final SerialDate base) {
+592
+593         final int yy = (12 * base.getYYYY() + base.getMonth() + months - 1)
+594                        / 12;
+595         final int mm = (12 * base.getYYYY() + base.getMonth() + months - 1)
+596                        % 12 + 1;
+597         final int dd = Math.min(
+598             base.getDayOfMonth(), SerialDate.lastDayOfMonth(mm, yy)
+Listing B-1 (continued)
+SerialDate.Java

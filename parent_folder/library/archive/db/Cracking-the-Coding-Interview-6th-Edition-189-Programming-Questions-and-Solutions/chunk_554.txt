@@ -1,0 +1,48 @@
+Solutions to Chapter 17 | Moderate
+77
+public Set<String> getNamesQ { return names; }
+78
+public String getRootName() { return rootName; >
+79
+public i n t getFrequency() { return frequency; }
+80
+public i n t size() { return names.size(); }
+81 >
+The runtime of the algorithm is a bit tricky to figure out. One way to think about it is to think about what
+the worst case is.
+For this algorithm, the worst case is where all names are equivalent—-and we have to constantly merge sets
+together. Also, for the worst case, the merging should come in the worst possible way: repeated pairwise
+merging of sets. Each merging requires copying the set's elements into an existing set and updating the
+pointers from those items. It's slowest when the sets are larger.
+if you notice the parallel with merge sort (where you have to merge single-element arrays into two-element
+arrays, and then two-element arrays into four-element arrays, until finally having a full array), you might
+guessit'sO(N l o g N),That is correct.
+If you don't notice that parallel, here's another way to think about it.
+Imagine we had the names (a, b, c,d, . .
+z). In our worst case, we'd first pair up the items into equivalence
+classes: (a, b), (c, d), (e, f), . . . , (y, z).Then, we'd merge pairs of those: (a, b, c, d), (e, f, g, h), , . , , (w, x, y,
+zJ.We'd continue doing this until we wind up with just one class.
+At each "sweep" through the list where we merge sets together, half of the items get moved into a new set.
+This takes 0(N) work per sweep. (There are fewer sets to merge, but each set has grown larger.)
+How many sweeps do we do? At each sweep, we have half as many sets as we did before. Therefore, we do
+O ( l o g N) sweeps.
+Since we're doing 0( l o g N) sweeps and 0(N) work per sweep, the total runtime is 0(N l o g N).
+This is pretty good, but let's see if we can make it even faster.
+Optimized Solution
+To optimize the old solution, we should think about what exactly makes it slow. Essentially, it's the merging
+and updating of pointers.
+So what if we just didn't do that? What if we marked that there was an equivalence relationship between
+two names, but didn't actually do anything with the information yet?
+In this case, we'd be building essentially a graph.
+c
+/
+/
+—
+<
+C ^ D a v i s ^ )
+( ^ ^ l o n J ^ )
+Now what? Visually, it seems easy enough. Each component is an equivalent set of names. We just need to
+group the names by their component, sum up their frequencies, and return a list with one arbitrarily chosen
+name from each group.
+492
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,114 @@
+Solutions to Chapter 3 j Stacks and Queues
+54
+if
+(allStacksAreFull())
+{
+55
+throw new FullStackException();
+56
+}
+57
+58
+/* If t h i s stack is f u l l ,
+expand i t . */
+59
+Stacklnfo stack = info[stackNum);
+60
+if ( s t a c k , i s F u l l ( ) )
+{
+61
+expand(stackNum);
+62
+>
+63
+64
+65
+66
+67
+68
+}
+69
+70
+/* Remove value from stack. */
+71
+public i n t pop(int stackNum) throws Exception {
+72
+Stacklnfo stack = info[stackNum];
+73
+if
+(stack.isEmptyQ)
+{
+74
+throw new EmptyStackException();
+75
+>
+76
+77
+78
+79
+80
+81
+82
+>
+83
+84
+/* Get top element of stack.*/
+85
+public i n t peek(int stackNum) {
+86
+Stacklnfo stack = info[stackNum];
+87
+return
+values[stack.lastElementlndex()];
+88
+}
+89
+/* S h i f t items in stack over by one element. If we have available capacity, then
+90
+* w e ' l l end up shrinking the stack by one element. If we don't have available
+91
+* capacity, then w e ' l l need to s h i f t the next stack over too. */
+92
+private void s h i f t f i n t stackNum) {
+93
+S y s t e m . o u t . p r i n t i n g ' / / / S h i f t i n g " + stackNum);
+94
+Stacklnfo stack = info[stackNum];
+95
+/* If t h i s stack is at i t s f u l l capacity, then you need to move the next
+* stack over by one element. This stack can now claim the freed index. */
+98
+if (stack.size >= stack.capacity) {
+99
+i n t nextStack = (stackNum + 1) % info.length;
+100
+shift(nextStack);
+101
+stack.capacity++; // claim index that next stack l o s t
+102
+)
+103
+104
+/* S h i f t a l l elements in stack over by one. */
+105
+i n t index = stack.lastCapacitylndexQ;
+106
+while (stack.isWithinstackCapacity(index)) {
+107
+values[index] = values[previouslndex(index)];
+108
+index = previouslndex(index);
+109
+}
+/* Find the index of the top element in the array + 1, and increment the
+* stack pointer */
+stack.size++;
+valuesfstack.lastElementlndexO] = value;
+/* Remove last element. */
+i n t value = values[stack.lastElementIndex()];
+values[stack.lastElementlndex()] = 0; // Clear item
+stack.size--;
+I I Shrink size
+return value;
+2 2 S
+Cracking the Coding Interview, 6th Edition

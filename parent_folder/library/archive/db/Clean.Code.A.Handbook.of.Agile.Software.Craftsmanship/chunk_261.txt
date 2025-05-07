@@ -1,0 +1,48 @@
+231
+String Arguments
+After all that work, this is a bit disappointing. The structure is a bit better, but we still
+have all those variables up at the top; there’s still a horrible type-case in setArgument; and
+all those set functions are really ugly. Not to mention all the error processing. We still
+have a lot of work ahead of us.
+I’d really like to get rid of that type-case up in setArgument [G23]. What I’d like in
+setArgument is a single call to ArgumentMarshaler.set. This means I need to push
+setIntArg, setStringArg, and setBooleanArg down into the appropriate ArgumentMarshaler
+derivatives. But there is a problem.
+If you look closely at setIntArg, you’ll notice that it uses two instance variables: args
+and currentArg. To move setIntArg down into BooleanArgumentMarshaler, I’ll have to pass
+both args and currentArgs as function arguments. That’s dirty [F1]. I’d rather pass one
+argument instead of two. Fortunately, there is a simple solution. We can convert the args
+array into a list and pass an Iterator down to the set functions. The following took me
+ten steps, passing all the tests after each. But I’ll just show you the result. You should be
+able to ﬁgure out what most of the tiny little steps were.
+public class Args {
+private String schema;
+private String[] args;
+private boolean valid = true;
+private Set<Character> unexpectedArguments = new TreeSet<Character>();
+private Map<Character, ArgumentMarshaler> marshalers =
+new HashMap<Character, ArgumentMarshaler>();
+private Set<Character> argsFound = new HashSet<Character>();
+private Iterator<String> currentArgument;
+private char errorArgumentId = '\0';
+private String errorParameter = "TILT";
+private ErrorCode errorCode = ErrorCode.OK;
+private List<String> argsList;
+private enum ErrorCode {
+OK, MISSING_STRING, MISSING_INTEGER, INVALID_INTEGER, UNEXPECTED_ARGUMENT}
+public Args(String schema, String[] args) throws ParseException {
+this.schema = schema;
+argsList = Arrays.asList(args);
+valid = parse();
+}
+} catch (NumberFormatException e) {
+throw new ArgsException();
+}
+}
+public Object get() {
+return intValue;
+}
+}
+}
+Listing 14-12 (continued)
+Args.java (After first refactoring)

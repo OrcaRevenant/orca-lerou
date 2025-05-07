@@ -1,0 +1,32 @@
+CHAPTER 9 TIME MANAGEMENT
+130
+TI M E BOXI N G AN D TO M ATO E S
+One very effective way that I’ve used to manage my time and focus is to use the
+well-known Pomodoro Technique,2 otherwise knows as tomatoes. The basic idea
+is very simple. You set a standard kitchen timer (traditionally shaped like a
+tomato) for 25 minutes. While that timer is running, you let nothing interfere
+with what you are doing. If the phone rings you answer and politely ask if you
+can call back within 25 minutes. If someone stops in to ask you a question you
+politely ask if you can get back to them within 25 minutes. Regardless of the
+interruption, you simply defer it until the timer dings. After all, few interruptions
+are so horribly urgent that they can’t wait 25 minutes!
+When the tomato timer dings you stop what you are doing immediately. You
+deal with any interruptions that occurred during the tomato. Then you take a
+break of five minutes or so. Then you set the timer for another 25 minutes and
+start the next tomato. Every fourth tomato you take a longer break of 30
+minutes or so.
+There is quite a bit written about this technique, and I urge you to read it.
+However, the description above should provide you with the gist of the technique.
+Using this technique your time is divided into tomato and non-tomato time.
+Tomato time is productive. It is within tomatoes that you get real work done.
+Time outside of tomatoes is either distractions, meetings, breaks, or other time
+that is not spent working on your tasks.
+How many tomatoes can you get done in a day? On a good day you might get 12
+or even 14 tomatoes done. On a bad day, you might only get two or three done.
+If you count them, and chart them, you’ll get a pretty quick feel for how much of
+your day you spend productive and how much you spend dealing with “stuff.”
+Some people get so comfortable with the technique that they estimate their tasks
+in tomatoes and then measure their weekly tomato velocity. But this is just icing
+on the cake. The real benefit of the Pomodoro Technique is that 25-minute
+window of productive time that you aggressively defend against all interruptions.
+2. http://www.pomodorotechnique.com/

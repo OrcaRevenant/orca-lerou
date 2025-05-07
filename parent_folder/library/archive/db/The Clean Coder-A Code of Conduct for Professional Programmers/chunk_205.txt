@@ -1,0 +1,29 @@
+CHAPTER 14 MENTORING, APPRENTICESHIP, AND CRAFTSMANSHIP
+174
+D EG R E E S O F FAI LU R E
+I once interviewed a young woman who was working on her master’s degree in
+computer science for a major university. She was applying for a summer intern
+position. I asked her to write some code with me, and she said “I don’t really
+write code.”
+Please read the previous paragraph again, and then skip over this one to the next.
+I asked her what programming courses she had taken in pursuit of her master’s
+degree. She said that she hadn’t taken any.
+Maybe you’d like to start at the beginning of the chapter just to be sure you haven’t
+fallen into some alternate universe or have just awakened from a bad dream.
+At this point you might well be asking yourself how a student in a CS master’s
+program can avoid a programming course. I wondered the same thing at the
+time. I’m still wondering today.
+Of course, that’s the most extreme of a series of disappointments I’ve had while
+interviewing graduates. Not all CS graduates are disappointing—far from it!
+However, I’ve noticed that those who aren’t have something in common: Nearly
+all of them taught themselves to program before they entered university and
+continued to teach themselves despite university.
+Now don’t get me wrong. I think it is possible to get an excellent education at a
+university. It’s just that I also think it’s possible to wiggle yourself through the
+system and come out with a diploma, and not much else.
+And there’s another problem. Even the best CS degree programs do not typically
+prepare the young graduate for what they will find in industry. This is not an
+indictment of the degree programs so much as it is the reality of nearly all disciplines.
+What you learn in school and what you find on the job are often very different things.
+M E NTO R I N G
+How do we learn how to program? Let me tell you my story about being mentored.

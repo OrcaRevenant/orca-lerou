@@ -1,0 +1,32 @@
+the system into the field.
+But software is soft.8 Features needed to be added. Bugs needed to be fixed. And
+as the installed base grew, the logistics of updating the software by burning 30
+chips per installation, and having field service people replace all 30 chips at each
+site became a nightmare.
+There were all kinds of problems. Sometimes chips would be mislabeled, or the
+labels would fall off. Sometimes the field service engineer would mistakenly
+replace the wrong chip. Sometimes the field service engineer would
+inadvertently break a pin off one of the new chips. Consequently, the field
+engineers had to carry extras of all 30 chips with them.
+Why did we have to change all 30 chips? Every time we added or removed code
+from our 30K executable, it changed the addresses in which each instruction was
+loaded. It also changed the addresses of the subroutines and functions that we
+called. So every chip was affected, no matter how trivial the change.
+One day, my boss came to me and asked me to solve that problem. He said we
+needed a way to make a change to the firmware without replacing all 30 chips
+every time. We brainstormed this issue for a while, and then embarked upon the
+“Vectorization” project. It took me three months.
+The idea was beautifully simple. We divided the 30K program into 32
+independently compilable source files, each less than 1K. At the beginning of
+each source file, we told the compiler in which address to load the resulting
+program (e.g., ORG C400 for the chip that was to be inserted into the C4
+position).
+Also at the beginning of each source file, we created a simple, fixed-size data
+structure that contained all the addresses of all the subroutines on that chip. This
+data structure was 40 bytes long, so it could hold no more than 20 addresses.
+This meant that no chip could have more than 20 subroutines.
+Next, we created a special area in RAM known as the vectors. It contained 32
+tables of 40 bytes—exactly enough RAM to hold the pointers at the start of each
+chip.
+Finally, we changed every call to every subroutine on every chip into an indirect
+call through the appropriate RAM vector.

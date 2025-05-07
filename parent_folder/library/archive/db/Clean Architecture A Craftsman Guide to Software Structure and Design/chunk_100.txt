@@ -1,0 +1,30 @@
+Source code dependencies should not refer to concrete modules. However, in
+these languages it is a bit harder to define what a concrete module is. In
+particular, it is any module in which the functions being called are implemented.
+Clearly, treating this idea as a rule is unrealistic, because software systems must
+depend on many concrete facilities. For example, the String class in Java is
+concrete, and it would be unrealistic to try to force it to be abstract. The source
+code dependency on the concrete java.lang.string cannot, and should not, be
+avoided.
+By comparison, the String class is very stable. Changes to that class are very
+rare and tightly controlled. Programmers and architects do not have to worry
+about frequent and capricious changes to String.
+For these reasons, we tend to ignore the stable background of operating system
+and platform facilities when it comes to DIP. We tolerate those concrete
+dependencies because we know we can rely on them not to change.
+It is the volatile concrete elements of our system that we want to avoid
+depending on. Those are the modules that we are actively developing, and that
+are undergoing frequent change.
+STABLE ABSTRACTIONS
+Every change to an abstract interface corresponds to a change to its concrete
+implementations. Conversely, changes to concrete implementations do not
+always, or even usually, require changes to the interfaces that they implement.
+Therefore interfaces are less volatile than implementations.
+Indeed, good software designers and architects work hard to reduce the volatility
+of interfaces. They try to find ways to add functionality to implementations
+without making changes to the interfaces. This is Software Design 101.
+The implication, then, is that stable software architectures are those that avoid
+depending on volatile concretions, and that favor the use of stable abstract
+interfaces. This implication boils down to a set of very specific coding practices:
+• Don’t refer to volatile concrete classes. Refer to abstract interfaces instead.
+This rule applies in all languages, whether statically or dynamically typed. It

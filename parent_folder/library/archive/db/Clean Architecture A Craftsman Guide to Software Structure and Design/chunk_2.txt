@@ -1,0 +1,8 @@
+Clean Architecture
+A CRAFTSMAN’S GUIDE TO SOFTWARE STRUCTURE
+AND DESIGN
+Robert C. Martin
+Boston • Columbus • Indianapolis • New York • San Francisco • Amsterdam •
+Cape Town Dubai • London • Madrid • Milan • Munich • Paris • Montreal •
+Toronto • Delhi • Mexico City São Paulo • Sydney • Hong Kong • Seoul •
+Singapore • Taipei • Tokyo

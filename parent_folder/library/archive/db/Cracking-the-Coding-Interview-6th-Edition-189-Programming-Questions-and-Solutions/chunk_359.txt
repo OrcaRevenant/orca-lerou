@@ -1,0 +1,76 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+When merged together, the lines above make P(3).
+Case: n > 0
+Generating P(n) for the general case is just a simple generalization of the above steps. We compute
+P ( n - l ) , cione the results, and then add aMto each of these cloned sets.
+The following code implements this algorithm:
+1 ArrayList<ArrayList<Integer>> getSubsets(ArrayList<Integer> set, int index) {
+2
+ArrayList<ArrayList<Integer>> allsubsets;
+If {set.sizeQ == index) { // Base case - add empty set
+4
+allsubsets = new ArrayList<ArrayList<Integer>>();
+5
+allsubsets.add(new ArrayList<Integer>()); // Empty set
+6
+> else {
+allsubsets = getSubsets(set, index + 1);
+8
+int item = set.get(index);
+9
+ArrayList<ArrayList<Integer>> moresubsets =
+10
+new ArrayList<ArrayList<Integer>>();
+11
+for (ArrayList<Integer> subset : allsubsets) {
+12
+ArrayList<Integer> newsubset = new ArrayList<Integer>();
+13
+newsubset.addAll(subset); //
+14
+newsubset.add(item);
+15
+moresubsets.add(newsubset);
+16
+>
+17
+allsubsets.addAll(moresubsets);
+18
+)
+19
+return allsubsets;
+20
+}
+This solution will be 0(n2") in time and space, which is the best we can do. For a slight optimization, we
+could also implement this algorithm iteratively.
+Solution #2: Combinatorics
+While there's nothing wrong with the above solution, there's another way to approach it.
+Recall that when we're generating a set, we have two choices for each element: (1) the element is in the set
+(the"yes" state) or (2) the element is not in the set (the"no" state).This means that each subset is a sequence
+of yeses / nos—e.g., "yes, yes, no, no, yes, no"
+This gives us 2" possible subsets. How can we iterate through all possible sequences of "yes'7"no"states for
+all elements? If each"yes"can be treated as a 1 and each "no" can be treated as a 0, then each subset can be
+represented as a binary string.
+Generating all subsets, then, really just comes down to generating all binary numbers (that is, all integers).
+We iterate through all numbers from 0 to 2" (exclusive) and translate the binary representation of the
+numbers into a set. Easy!
+1
+ArrayList<ArrayList<Integer>> getSubsets2(ArrayList<Integer> set) {
+2
+ArrayList<ArrayList<Integer>> allsubsets = new ArrayList<ArrayList<lnteger>>();
+3
+int max = 1 << set.size(); /* Compute 2nn */
+4
+for (int k = 0; k < max; k++) {
+5
+ArrayList<Integer> subset = convert!ntToSet(k, set);
+6
+allsubsets.add(subset);
+7
+>
+8
+return allsubsets;
+9
+>
+CrackingTheCodinglnterview.com [ 6th Edition
+3 S1

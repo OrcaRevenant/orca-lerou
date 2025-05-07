@@ -1,0 +1,76 @@
+Solutions to Chapter 17 j Hard
+84
+/* Middle is equal to the pivot. Move by one. */
+85
+middle++;
+86
+>
+87
+>
+88
+89
+/* Return sizes of l e f t and middle. */
+90
+return new P a r t i t i o n R e s u l t ( l e f t - s t a r t , r i g h t - l e f t + 1);
+91 >
+Notice thechange made to smallest K too. We can't simply copy all elements less than or equal to t h r e s h o l d
+into the array. Since we have duplicates, there could be many more than k elements that are less than or equal
+to t h r e s h o l d . (We also can't just say "okay, only copy k elements over." We could inadvertently fill up the
+array early on with "equal" elements, and not leave enough space for the smaller ones.)
+The solution for this is fairly simple: only copy over the smaller elements first, then fill up the array with equal
+elements at the end,
+17.15 Longest Word: Given a list of words, write a program to find the longest word made of other words
+in the list.
+pg!88
+SOLUTION
+This problem seems complex, so let's simplify it. What if we just wanted to know the longest word made of
+two other words in the list?
+We could solve this by iterating through the list, from the longest word to the shortest word. For each word,
+we would split it into all possible pairs and check if both the left and right side are contained in the list.
+The pseudocode for this would took like the following:
+1
+String getLongestWord(String[] l i s t ) {
+2
+S t r i n g [ ] array = l i s t . S o r t B y l e n g t h Q ;
+3
+/* Create map for easy lookup */
+4
+HashMap<String, Boolean> map = new HashMap<String, Boolean>;
+5
+6
+for (String s t r : array) {
+7
+map.put(str,
+t r u e ) ;
+8
+}
+9
+10
+f o r (String s : array) {
+11
+II Divide into every possible pair
+12
+f o r ( i n t 1 = 1 ; i < s . l e n g t h ( ) ; i++) {
+13
+String l e f t = s.substring(0, i ) ;
+14
+String r i g h t = s . s u b s t r i n g ( i ) ;
+15
+// Check if both sides are in the array
+16
+if (map[left] == true && map[right] == true) {
+17
+return s;
+13
+>
+19
+>
+20
+}
+21
+return s t r ;
+22 >
+This works great for when we just want to know composites of two words. But what if a word could be
+formed by any number of other words?
+55 S
+Cracking the Coding interview, 6th Edition

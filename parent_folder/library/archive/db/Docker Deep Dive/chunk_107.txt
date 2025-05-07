@@ -1,0 +1,20 @@
+Figure 8.4
+Next, the Dockerfile uses the WORKDIR instruction to set the working directory for
+the rest of the instructions in the file. This directory is relative to the image, and
+the info is added as metadata to the image config and not as a new layer.
+Then the RUN npm install instruction uses npm to install application
+dependencies listed in package.json. It runs within the context of the WORKDIR
+set in the previous instruction, and installs the dependencies as a new layer in the
+image. The image now has four layers as shown in Figure 8.5.
+Figure 8.5
+The application exposes a web service on TCP port 8080, so the Dockerfile
+documents this with the EXPOSE 8080 instruction. This is added as image
+metadata and not an image layer.
+Finally, the ENTRYPOINT instruction is used to set the main application that the
+image (container) should run. This is also added as metadata and not an image
+layer.
+Containerize the app/build the image
+Now that we have the application code and the Dockerfile, let’s build the image!
+The following command will build a new image called web:latest. The period
+(.) at the end of the command tells Docker to use the shell’s current working
+directory as the build context.

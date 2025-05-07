@@ -1,0 +1,34 @@
+time they started popping out the back end every few weeks, just as we had
+predicted. The delay had cost us nearly a year on our schedule, so we hired
+another programmer to speed the process along.
+We met our dates and our commitments. Our customer was happy. We were
+happy. Life was good.
+But we learned a good lesson: You can’t make a reusable framework until you
+first make a usable framework. Reusable frameworks require that you build them
+in concert with several reusing applications.
+CONCLUSION
+As I said at the start, this appendix is somewhat autobiographical. I’ve hit the
+high points of the projects that I felt had an architectural impact. And, of course,
+I mentioned a few episodes that were not exactly relevant to the technical
+content of this book, but were significant nonetheless.
+Of course, this was a partial history. There were many other projects that I
+worked on over the decades. I also purposely stopped this history in the early
+1990s—because I have another book to write about the events of the late 1990s.
+My hope is that you enjoyed this little trip down my memory lane; and that you
+were able to learn some things along the way.
+1. One of the stories we heard about the particular machine at ASC was that it was shipped in a large semi-
+trailer truck along with a household of furniture. On the way, the truck hit a bridge at high speed. The
+computer was fine, but it slid forward and crushed the furniture into splinters.
+2. Today we would say that it had a clock rate of 142 kHz.
+3. Imagine the mass of that disk. Imagine the kinetic energy! One day we came in and saw little metal
+shavings dropping out from the button of the cabinet. We called the maintenance man. He advised us to
+shut the unit down. When he came to repair it, he said that one of the bearings had worn out. Then he told
+us stories about how these disks, if not repaired, could tear loose from their moorings, plow through
+concrete block walls, and embed themselves into cars in the parking lot.
+4. Cathode ray tube: monochrome, green-screen, ASCII displays.
+5. The magic number 72 came from Hollerith punched cards, which held 80 characters each. The last 8
+characters were “reserved” for sequence numbers in case you dropped the deck.
+6. Yes, I understand that’s an oxymoron.
+7. They had a little clear plastic window that allowed you to see the silicon chip inside, and allowed the UV
+to erase the data.
+8. Yes, I know that when software is burned into ROM, it’s called firmware—but even firmware is really

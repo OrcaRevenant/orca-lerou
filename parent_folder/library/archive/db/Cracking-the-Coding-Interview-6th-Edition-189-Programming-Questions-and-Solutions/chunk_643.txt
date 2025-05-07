@@ -1,0 +1,37 @@
+XI, Advanced Topics
+»
+For each edge ( n , x),decrementx.inbound.Ifx,inbound == 3,appendxtoprocessNext.
+»
+Append n to order.
+6. If o r d e r contains all the nodes, then it has succeeded. Otherwise, the topological sort has failed due
+to a cycle.
+This algorithm does sometimes come up in interview questions. Your interviewer probably wouldn't expect
+you to know it offhand. However, it would be reasonable to have you derive it even if you've never seen it
+before.
+• Dijkstra's Algorithm
+In some graphs, we might want to have edges with weights. If the graph represented cities, each edge
+might represent a road and its weight might represent the travel time, in this case, we might want to ask,
+just as your GPS mapping system does, what's the shortest path from your current location to another point
+p?This is where Dijksta's algorithm comes in.
+Dijkstra's algorithm is a way to find the shortest path between two points in a weighted directed graph
+(which might have cycles). All edges must have positive values.
+Rather than just stating what Dijkstra's algorithm is, let's try to derive it. Consider the earlier described
+graph. We could find the shortest path from s to t by literally taking all possible routes using actual time.
+(Oh, and we'll need a machine to clone ourselves.)
+1. Startoffats.
+2. For each of s's outbound edges, clone ourselves and start walking. If the edge ( s , x) has weight 5, we
+should actually take 5 minutes to get there.
+3. Each time we get to a node, check if anyone's been there before. If so, then just stop. We're automatically
+not as fast as another path since someone beat us here from s. If no one has been here before, then
+clone ourselves and head out in all possible directions.
+4. The first one to get to t wins.
+This works just fine. But, of course, in the real algorithm we don't want to literally use a timer to find the
+shortest path.
+Imagine that each clone could jump immediately from one node to its adjacent nodes (regardless of the
+edge weight), but it kept a t i m e _ s o _ f ar log of how long its path would have taken if it did walk at the
+"true" speed. Additionally, only one person moves at a time, and it's always the one with the lowest t i m e _
+so_far. This is sort of how Dijkstra's algorithm works.
+Dijkstra's algorithm finds the minimum weight path from a start node s to every node on the graph.
+Consider the following graph.
+CrackingTheCodinginterview.com | 6th Edition
+639

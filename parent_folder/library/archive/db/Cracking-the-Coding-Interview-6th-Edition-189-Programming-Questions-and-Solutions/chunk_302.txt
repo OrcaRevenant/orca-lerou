@@ -1,0 +1,49 @@
+Solutions to Chapter 6 | Math and Logic Puzzles
+P(clockwise) = (y;)!
+P (counter clockwise) = {' i)3
+P (same d i r e c t i o n ) = {'!)' + (i/i J3 d y.
+The probability of collision is therefore the probability of the ants nof moving in the same direction:
+P ( c o l l i s i o n ) = 1 - P (same d i r e c t i o n ) = 1- 1, = 1;
+To generalize this to an n-vertex polygon: there are still only two ways in which the ants can move to avoid
+a collision, but there are 2" ways they can move in total. Therefore, in general, probability of collision is:
+P (clockwise) = ( A ) "
+P ( c o u n t e r ) « ( * 7 ) r
+P(same d i r e c t i o n ) = 2 i 1-;)" = (,
+: ) r " 1
+P ( c o l l i s i o n ) = 1 - P (same d i r e c t i o n ) = 1 - (' 2 ) " ' 1
+6.5
+Jugs of Water: You have a five-quart jug, a three-quart jug, and an unlimited supply of water (but
+no measuring cups). How would you come up with exactly four quarts of water? Note that the jugs
+are oddly shaped, such that filling up exactly "half" of the jug would be impossible.
+pg
+^3
+SOLUTION
+If we just piay with the jugs, we'll find that we can pour water back and forth between them as follows:
+5 Quart
+3 Quart
+Action
+S
+0
+Filled 5-quart jug.
+2
+3
+Filled 3-quart with 5-quart's contents.
+2
+0
+Dumped 3-quart.
+0
+2
+Fill 3-quart with 5-quart's contents.
+S
+2
+Filled 5-quart,
+4
+3
+Fill remainder of 3-quart with
+5-quart.
+4
+Done! We have 4 quarts.
+This question, like many puzzle questions, has a math/computer science root. If the two jug sizes are rela-
+tively prime, you can measure any value between one and the sum of the jug sizes.
+2 9 2
+300 Cracking the Coding Interview, 6th Edition

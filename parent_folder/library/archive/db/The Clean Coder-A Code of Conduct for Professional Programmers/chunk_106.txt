@@ -1,0 +1,30 @@
+CHAPTER 4 CODING
+74
+important. You can’t just slather them together and hope for the best. Rather,
+you have to carefully partition the system into small understandable units that
+have as little to do with each other as possible—and that’s hard.
+Programming is so hard, in fact, that it is beyond the capability of one person
+to do it well. No matter how skilled you are, you will certainly benefit from
+another programmer’s thoughts and ideas.
+H E LPI N G O TH E R S
+Because of this, it is the responsibility of programmers to be available to help
+each other. It is a violation of professional ethics to sequester yourself in a
+cubicle or office and refuse the queries of others. Your work is not so important
+that you cannot lend some of your time to help others. Indeed, as a professional
+you are honor bound to offer that help whenever it is needed.
+This doesn’t mean that you don’t need some alone time. Of course you do. But
+you have to be fair and polite about it. For example, you can let it be known
+that between the hours of 10 am and noon you should not be bothered, but
+from 1 pm to 3 pm your door is open.
+You should be conscious of the status of your teammates. If you see someone
+who appears to be in trouble, you should offer your help. You will likely be quite
+surprised at the profound effect your help can have. It’s not that you are so
+much smarter than the other person, it’s just that a fresh perspective can be a
+profound catalyst for solving problems.
+When you help someone, sit down and write code together. Plan to spend the
+better part of an hour or more. It may take less than that, but you don’t want to
+appear to be rushed. Resign yourself to the task and give it a solid effort. You
+will likely come away having learned more than you gave.
+B E I N G H E LPE D
+When someone offers to help you, be gracious about it. Accept the help
+gratefully and give yourself to that help. Do not protect your turf. Do not push

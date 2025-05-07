@@ -1,0 +1,8 @@
+real company that wishes to remain anonymous.
+First, let’s look at the growth of the engineering staff. I’m sure you’ll agree that
+this trend is very encouraging. Growth like that shown in Figure 1.1 must be an
+indication of significant success!
+Figure 1.1 Growth of the engineering staff
+Reproduced with permission from a slide presentation by Jason Gorman
+Now let’s look at the company’s productivity over the same time period, as
+measured by simple lines of code (Figure 1.2).

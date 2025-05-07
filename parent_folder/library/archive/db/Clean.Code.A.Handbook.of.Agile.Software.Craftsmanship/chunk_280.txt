@@ -1,0 +1,35 @@
+250
+Chapter 14: Successive Reﬁnement
+The majority of the changes to the Args class were deletions. A lot of code just got
+moved out of Args and put into ArgsException. Nice. We also moved all the
+ArgumentMarshallers into their own ﬁles. Nicer!
+Much of good software design is simply about partitioning—creating appropriate
+places to put different kinds of code. This separation of concerns makes the code much
+simpler to understand and maintain.
+Of special interest is the errorMessage method of ArgsException. Clearly it was a vio-
+lation of the SRP to put the error message formatting into Args. Args should be about the
+processing of arguments, not about the format of the error messages. However, does it
+really make sense to put the error message formatting code into ArgsException?
+Frankly, it’s a compromise. Users who don’t like the error messages supplied by
+ArgsException will have to write their own. But the convenience of having canned error
+messages already prepared for you is not insigniﬁcant.
+By now it should be clear that we are within striking distance of the ﬁnal solution that
+appeared at the start of this chapter. I’ll leave the ﬁnal transformations to you as an exercise.
+Conclusion
+It is not enough for code to work. Code that works is often badly broken. Programmers
+who satisfy themselves with merely working code are behaving unprofessionally. They
+may fear that they don’t have time to improve the structure and design of their code, but I
+disagree. Nothing has a more profound and long-term degrading effect upon a develop-
+ment project than bad code. Bad schedules can be redone, bad requirements can be rede-
+ﬁned. Bad team dynamics can be repaired. But bad code rots and ferments, becoming an
+inexorable weight that drags the team down. Time and time again I have seen teams grind
+to a crawl because, in their haste, they created a malignant morass of code that forever
+thereafter dominated their destiny.
+Of course bad code can be cleaned up. But it’s very expensive. As code rots, the mod-
+ules insinuate themselves into each other, creating lots of hidden and tangled dependen-
+cies. Finding and breaking old dependencies is a long and arduous task. On the other hand,
+keeping code clean is relatively easy. If you made a mess in a module in the morning, it is
+easy to clean it up in the afternoon. Better yet, if you made a mess ﬁve minutes ago, it’s
+very easy to clean it up right now.
+So the solution is to continuously keep your code as clean and simple as it can be.
+Never let the rot get started.

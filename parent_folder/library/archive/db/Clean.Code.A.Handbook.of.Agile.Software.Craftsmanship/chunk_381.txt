@@ -1,0 +1,66 @@
+353
+Appendix B: org.jfree.date.SerialDate
+227         switch(code) {
+228             case SUNDAY:
+229             case MONDAY:
+230             case TUESDAY:
+231             case WEDNESDAY:
+232             case THURSDAY:
+233             case FRIDAY:
+234             case SATURDAY:
+235                 return true;
+236             default:
+237                 return false;
+238         }
+239
+240     }
+241
+242     /**
+243      * Converts the supplied string to a day of the week.
+244      *
+245      * @param s  a string representing the day of the week.
+246      *
+247      * @return <code>-1</code> if the string is not convertable, the day of
+248      *         the week otherwise.
+249      */
+250     public static int stringToWeekdayCode(String s) {
+251
+252         final String[] shortWeekdayNames
+253             = DATE_FORMAT_SYMBOLS.getShortWeekdays();
+254         final String[] weekDayNames = DATE_FORMAT_SYMBOLS.getWeekdays();
+255
+256         int result = -1;
+257         s = s.trim();
+258         for (int i = 0; i < weekDayNames.length; i++) {
+259             if (s.equals(shortWeekdayNames[i])) {
+260                 result = i;
+261                 break;
+262             }
+263             if (s.equals(weekDayNames[i])) {
+264                 result = i;
+265                 break;
+266             }
+267         }
+268         return result;
+269
+270     }
+271
+272     /**
+273      * Returns a string representing the supplied day-of-the-week.
+274      * <P>
+275      * Need to find a better approach.
+276      *
+277      * @param weekday  the day of the week.
+278      *
+279      * @return a string representing the supplied day-of-the-week.
+280      */
+281     public static String weekdayCodeToString(final int weekday) {
+282
+283         final String[] weekdays = DATE_FORMAT_SYMBOLS.getWeekdays();
+284         return weekdays[weekday];
+285
+286     }
+287
+288     /**
+Listing B-1 (continued)
+SerialDate.Java

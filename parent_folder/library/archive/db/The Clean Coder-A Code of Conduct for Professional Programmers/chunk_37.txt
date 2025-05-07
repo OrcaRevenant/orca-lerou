@@ -1,0 +1,30 @@
+5
+PRE-REQUISITE INTRODUCTION
+Twelve months later I achieved that goal. I was promoted to a full-time
+programmer at ASC. I, and two of my good friends, Richard and Tim, also 19,
+worked with a team of three other programmers writing a real-time accounting
+system for a teamster’s union. The machine was a Varian 620i. It was a simple
+mini-computer similar in architecture to a PDP-8 except that it had a 16-bit
+word and two registers. The language was assembler.
+We wrote every line of code in that system. And I mean every line. We wrote the
+operating system, the interrupt heads, the IO drivers, the file system for the
+disks, the overlay swapper, and even the relocatable linker. Not to mention all
+the application code. We wrote all this in 8 months working 70 and 80 hours a
+week to meet a hellish deadline. My salary was $7,200 per year.
+We delivered that system. And then we quit.
+We quit suddenly, and with malice. You see, after all that work, and after having
+delivered a successful system, the company gave us a 2% raise. We felt cheated
+and abused. Several of us got jobs elsewhere and simply resigned.
+I, however, took a different, and very unfortunate, approach. I and a buddy
+stormed into the boss’ office and quit together rather loudly. This was
+emotionally very satisfying—for a day.
+The next day it hit me that I did not have a job. I was 19, unemployed, with no
+degree. I interviewed for a few programming positions, but those interviews did
+not go well. So I worked in my brother-in-law’s lawnmower repair shop for four
+months. Unfortunately I was a lousy lawnmower repairman. He eventually had
+to let me go. I fell into a nasty funk.
+I stayed up till 3 am every night eating pizza and watching old monster movies
+on my parents’ old black-and-white, rabbit-ear TV. Only some of the ghosts
+where characters in the movies. I stayed in bed till 1 pm because I didn’t want to
+face my dreary days. I took a calculus course at a local community college and
+failed it. I was a wreck.

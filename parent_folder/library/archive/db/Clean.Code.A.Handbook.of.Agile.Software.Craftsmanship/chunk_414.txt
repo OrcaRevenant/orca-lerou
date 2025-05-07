@@ -1,0 +1,66 @@
+386
+Appendix B: org.jfree.date.SerialDate
+249
+250     /**
+251      * Tests the equality of this date with an arbitrary object.
+252      * <P>
+253      * This method will return true ONLY if the object is an instance of the
+254      * {@link SerialDate} base class, and it represents the same day as this
+255      * {@link SpreadsheetDate}.
+256      *
+257      * @param object  the object to compare (<code>null</code> permitted).
+258      *
+259      * @return A boolean.
+260      */
+261     public boolean equals(final Object object) {
+262
+263         if (object instanceof SerialDate) {
+264             final SerialDate s = (SerialDate) object;
+265             return (s.toSerial() == this.toSerial());
+266         }
+267         else {
+268             return false;
+269         }
+270
+271     }
+272
+273     /**
+274      * Returns a hash code for this object instance.
+275      *
+276      * @return A hash code.
+277      */
+278     public int hashCode() {
+279         return toSerial();
+280     }
+281
+282     /**
+283      * Returns the difference (in days) between this date and the specified
+284      * 'other' date.
+285      *
+286      * @param other  the date being compared to.
+287      *
+288      * @return The difference (in days) between this date and the specified
+289      *         'other' date.
+290      */
+291     public int compare(final SerialDate other) {
+292         return this.serial - other.toSerial();
+293     }
+294
+295     /**
+296      * Implements the method required by the Comparable interface.
+297      *
+298      * @param other  the other object (usually another SerialDate).
+299      *
+300      * @return A negative integer, zero, or a positive integer as this object
+301      *         is less than, equal to, or greater than the specified object.
+302      */
+303     public int compareTo(final Object other) {
+304         return compare((SerialDate) other);
+305     }
+306
+307     /**
+308      * Returns true if this SerialDate represents the same date as the
+309      * specified SerialDate.
+310      *
+Listing B-5 (continued)
+SpreadsheetDate.java

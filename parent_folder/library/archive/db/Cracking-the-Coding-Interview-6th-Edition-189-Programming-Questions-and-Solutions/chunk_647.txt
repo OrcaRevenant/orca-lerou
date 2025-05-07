@@ -1,0 +1,87 @@
+XI, Advanced Topics
+char :
+d
+o
+e
+a
+r
+e
+h
+e
+a
+r
+i
+n
+g
+m
+e
+code:
+4
+15
+5
+0
+1
+18
+5
+0
+8
+S
+1
+18
+9
+14
+7
+0
+13
+5
+sum of next 3:
+24
+20
+6
+19
+24
+23
+13
+13
+14
+24
+28
+41
+30
+21
+20
+18
+If we computed these sums by doing hash{ ' d o e ' ) , then hash( 'oe ' ), then hash( 'e a ' ),and soon,
+we would still beat 0 ( s ( b - s ) ) time.
+Instead, wecomputethehashvaluesbyrecognizingthathash('oe ') = h a s h ( ' d o e ' ) - c o d e ( ' d ' )
++ c o d e ( '
+' ),This takes 0 ( b ) time to compute all the hashes.
+You might argue that, still, in the worst case this will take 0 ( s ( b - s ) ) time since many of the hash values
+could match. That's absolutely true—for this hash function.
+In practice, we would use a better rolling hash function, such as the Rabin fingerprint. This essentially treats
+a string like doe as a base 128 (or however many characters are in our alphabet) number.
+hash('doe') = code('d') * 128s + code('o') * 1281 + code('e') * 128e
+This hash function will allow us to remove the d, shift the o and e, and then add in the space,
+hash('oe ') = (hash('doe') - code('d') * 12SJ) * 128 + code('
+')
+This will considerably cut down on the number of faise matches. Using a good hash function like this will
+give us expected time complexity of 0( s + b), although the worst case isO(sb).
+Usage of this algorithm comes up fairly frequently in interviews, so it's useful to know that you can identify
+substrings in linear time.
+• AVL Trees
+An AVL tree is one of two common ways to implement tree balancing. We will only discuss insertions here,
+but you can look up deletions separately if you're interested.
+Properties
+An AVL tree stores in each node the height of the subtrees rooted at this node. Then, for any node, we can
+check if it is height balanced: that the height of the left subtree and the height of the right subtree differ by
+no more than one. This prevents situations where the tree gets too lopsided.
+b a l a n c e ( n )
+= n . l e f t . h e i g h t
+- n . r i g h t . h e i g h t
+-1 <= b a l a n c e ( n ) <= 1
+Inserts
+When you insert a node, the balance of some nodes might change to -2 or 2, Therefore, when we "unwind''
+the recursive stack, we check and fix the balance at each node. We do this through a series of rotations.
+Rotations can be either left or right rotations. The right rotation is an inverse of the left rotation.
+CrackingTheCodinginterview.com | 6th Edition
+639

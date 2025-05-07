@@ -1,0 +1,13 @@
+environment, implementing a unique ID generator is challenging. Luckily, we have already
+discussed a few solutions in “Chapter 7: Design A Unique ID Generator in Distributed
+Systems”. You can refer back to it to refresh your memory.
+URL redirecting deep dive
+Figure 8-8 shows the detailed design of the URL redirecting. As there are more reads than
+writes, <shortURL, longURL> mapping is stored in a cache to improve performance.
+The flow of URL redirecting is summarized as follows:
+1. A user clicks a short URL link: https://tinyurl.com/zn9edcu
+2. The load balancer forwards the request to web servers.
+3. If a shortURL is already in the cache, return the longURL directly.
+4. If a shortURL is not in the cache, fetch the longURL from the database. If it is not in the
+database, it is likely a user entered an invalid shortURL.
+5. The longURL is returned to the user.

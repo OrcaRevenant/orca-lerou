@@ -1,0 +1,12 @@
+31
+THE WEB IS A DETAIL
+Were you a developer in the 1990s? Do you remember how the web changed
+everything? Do you remember how we looked at our old client–server
+architectures with disdain in the face of the shiny new technology of The Web?
+Actually the web didn’t change anything. Or, at least, it shouldn’t have. The web
+is just the latest in a series of oscillations that our industry has gone through
+since the 1960s. These oscillations move back and forth between putting all the
+computer power in central servers and putting all computer power out at the
+terminals.
+We’ve seen several of these oscillations just in the last decade or so since the
+web became prominent. At first we thought all the computer power would be in

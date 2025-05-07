@@ -1,0 +1,33 @@
+hand, containers perform OS virtualization - they carve up OS resources into
+virtual versions.
+The VM tax
+Let’s build on what we just covered and drill into one of the main problems with
+the hypervisor model.
+We started out with the same physical server and requirement to run 4 business
+applications. In both models we installed either an OS or a hypervisor (a type of
+OS that is highly tuned for VMs). So far the models are almost identical. But this
+is where the similarities stop.
+The VM model then carves low-level hardware resources into VMs. Each VM
+is a software construct containing virtual CPU, virtual RAM, virtual disk etc. As
+such, every VM needs its own OS to claim, initialize and manage all of those
+virtual resources. And sadly, every OS comes with its own set of baggage and
+overheads. For example, every OS consumes a slice of CPU, a slice of RAM, a
+slice of storage etc. Most need their own licenses as well as people and
+infrastructure to patch and upgrade them. Each OS also presents a sizable attack
+surface. We often refer to all of this as the OS tax, or VM tax - every OS you
+install consumes resources!
+The container model has a single kernel running in the host OS. It’s possible to
+run tens or hundreds of containers on a single host with every container sharing
+that single OS/kernel. That means a single OS consuming CPU, RAM, and
+storage. A single OS that needs licensing. A single OS that needs upgrading and
+patching. And a single OS kernel presenting an attack surface. All in all, a single
+OS tax bill!
+That might not seem a lot in our example of a single server needing to run 4
+business applications. But when we’re talking about hundreds or thousands of
+apps (VM or containers) this can be game changing.
+Another thing to consider is that because a container isn’t a full-blown OS, it
+starts much faster than a VM. Remember, there’s no kernel inside of a container
+that needs locating, decompressing, and initializing - not to mention all of the
+hardware enumerating and initializing associated with a normal kernel bootstrap.
+None of that is needed when starting a container! The single shared kernel down
+at the OS level is already started! Net result, containers can start in less than a

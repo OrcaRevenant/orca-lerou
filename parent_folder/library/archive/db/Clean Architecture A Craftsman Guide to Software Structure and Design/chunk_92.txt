@@ -1,0 +1,28 @@
+In the early years of the object-oriented revolution, we thought of the LSP as a
+way to guide the use of inheritance, as shown in the previous sections. However,
+over the years the LSP has morphed into a broader principle of software design
+that pertains to interfaces and implementations.
+The interfaces in question can be of many forms. We might have a Java-style
+interface, implemented by several classes. Or we might have several Ruby
+classes that share the same method signatures. Or we might have a set of
+services that all respond to the same REST interface.
+In all of these situations, and more, the LSP is applicable because there are users
+who depend on well-defined interfaces, and on the substitutability of the
+implementations of those interfaces.
+The best way to understand the LSP from an architectural viewpoint is to look at
+what happens to the architecture of a system when the principle is violated.
+EXAMPLE LSP VIOLATION
+Assume that we are building an aggregator for many taxi dispatch services.
+Customers use our website to find the most appropriate taxi to use, regardless of
+taxi company. Once the customer makes a decision, our system dispatches the
+chosen taxi by using a restful service.
+Now assume that the URI for the restful dispatch service is part of the
+information contained in the driver database. Once our system has chosen a
+driver appropriate for the customer, it gets that URI from the driver record and
+then uses it to dispatch the driver.
+Suppose Driver Bob has a dispatch URI that looks like this:
+Click here to view code image
+purplecab.com/driver/Bob
+Our system will append the dispatch information onto this URI and send it with
+a PUT, as follows:
+Click here to view code image

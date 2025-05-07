@@ -1,0 +1,36 @@
+179
+Why Concurrency?
+this system is single threaded, it hits each Web site in turn, always ﬁnishing one before
+starting the next. The daily run needs to execute in less than 24 hours. However, as more
+and more Web sites are added, the time grows until it takes more than 24 hours to gather
+all the data. The single-thread involves a lot of waiting at Web sockets for I/O to complete.
+We could improve the performance by using a multithreaded algorithm that hits more than
+one Web site at a time.
+Or consider a system that handles one user at a time and requires only one second
+of time per user. This system is fairly responsive for a few users, but as the number of
+users increases, the system’s response time increases. No user wants to get in line
+behind 150 others! We could improve the response time of this system by handling
+many users concurrently.
+Or consider a system that interprets large data sets but can only give a complete solu-
+tion after processing all of them. Perhaps each data set could be processed on a different
+computer, so that many data sets are being processed in parallel.
+Myths and Misconceptions
+And so there are compelling reasons to adopt concurrency. However, as we said before,
+concurrency is hard. If you aren’t very careful, you can create some very nasty situations.
+Consider these common myths and misconceptions:
+• Concurrency always improves performance.
+Concurrency can sometimes improve performance, but only when there is a lot of wait
+time that can be shared between multiple threads or multiple processors. Neither situ-
+ation is trivial.
+• Design does not change when writing concurrent programs.
+In fact, the design of a concurrent algorithm can be remarkably different from the
+design of a single-threaded system. The decoupling of what from when usually has a
+huge effect on the structure of the system.
+• Understanding concurrency issues is not important when working with a container
+such as a Web or EJB container.
+In fact, you’d better know just what your container is doing and how to guard against
+the issues of concurrent update and deadlock described later in this chapter.
+Here are a few more balanced sound bites regarding writing concurrent software:
+• Concurrency incurs some overhead, both in performance as well as writing additional
+code.
+• Correct concurrency is complex, even for simple problems.

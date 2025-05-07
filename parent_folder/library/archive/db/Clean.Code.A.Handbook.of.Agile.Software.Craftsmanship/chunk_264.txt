@@ -1,0 +1,46 @@
+234
+Chapter 14: Successive Reﬁnement
+So now setBooleanArg is useless. If there were a set function in ArgumentMarshaler, we
+could call it directly. So it’s time to make that function! The ﬁrst step is to add the new
+abstract method to ArgumentMarshaler.
+private abstract class ArgumentMarshaler {
+public abstract void set(Iterator<String> currentArgument)
+throws ArgsException;
+public abstract void set(String s) throws ArgsException;
+public abstract Object get();
+}
+Of course this breaks all the derivatives. So let’s implement the new method in each.
+private class BooleanArgumentMarshaler extends ArgumentMarshaler {
+private boolean booleanValue = false;
+public void set(Iterator<String> currentArgument) throws ArgsException {
+booleanValue = true;
+}
+public void set(String s) {
+booleanValue = true;
+}
+public Object get() {
+return booleanValue;
+}
+}
+private class StringArgumentMarshaler extends ArgumentMarshaler {
+private String stringValue = "";
+public void set(Iterator<String> currentArgument) throws ArgsException {
+}
+public void set(String s) {
+stringValue = s;
+}
+public Object get() {
+return stringValue;
+}
+}
+private class IntegerArgumentMarshaler extends ArgumentMarshaler {
+private int intValue = 0;
+public void set(Iterator<String> currentArgument) throws ArgsException {
+}
+public void set(String s) throws ArgsException {
+try {
+intValue = Integer.parseInt(s);
+} catch (NumberFormatException e) {
+throw new ArgsException();
+}
+}

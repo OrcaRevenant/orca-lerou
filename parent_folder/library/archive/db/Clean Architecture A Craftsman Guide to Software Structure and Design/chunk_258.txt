@@ -1,0 +1,28 @@
+mechanisms to pollute the system architecture.
+RELATIONAL DATABASES
+Edgar Codd defined the principles of relational databases in 1970. By the mid-
+1980s, the relational model had grown to become the dominant form of data
+storage. There was a good reason for this popularity: The relational model is
+elegant, disciplined, and robust. It is an excellent data storage and access
+technology.
+But no matter how brilliant, useful, and mathematically sound a technology it is,
+it is still just a technology. And that means it’s a detail.
+While relational tables may be convenient for certain forms of data access, there
+is nothing architecturally significant about arranging data into rows within
+tables. The use cases of your application should neither know nor care about
+such matters. Indeed, knowledge of the tabular structure of the data should be
+restricted to the lowest-level utility functions in the outer circles of the
+architecture.
+Many data access frameworks allow database rows and tables to be passed
+around the system as objects. Allowing this is an architectural error. It couples
+the use cases, business rules, and in some cases even the UI to the relational
+structure of the data.
+WHY ARE DATABASE SYSTEMS SO
+PREVALENT?
+Why are software systems and software enterprises dominated by database
+systems? What accounts for the preeminence of Oracle, MySQL, and SQL
+Server? In a word: disks.
+The rotating magnetic disk was the mainstay of data storage for five decades.
+Several generations of programmers have known no other form of data storage.
+Disk technology has grown from huge stacks of massive platters 48 inches in
+diameter that weighed thousands of pounds and held 20 megabytes, to single

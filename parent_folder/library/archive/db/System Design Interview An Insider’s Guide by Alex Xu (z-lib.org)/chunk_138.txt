@@ -1,0 +1,8 @@
+CHAPTER 10: DESIGN A NOTIFICATION SYSTEM
+A notification system has already become a very popular feature for many applications in
+recent years. A notification alerts a user with important information like breaking news,
+product updates, events, offerings, etc. It has become an indispensable part of our daily life.
+In this chapter, you are asked to design a notification system.
+A notification is more than just mobile push notification. Three types of notification formats
+are: mobile push notification, SMS message, and Email. Figure 10-1 shows an example of
+each of these notifications.

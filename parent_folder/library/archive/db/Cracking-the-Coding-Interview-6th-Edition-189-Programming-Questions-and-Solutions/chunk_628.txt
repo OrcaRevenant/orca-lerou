@@ -1,0 +1,103 @@
+Solutions to Chapter 17 | Hard
+24
+}
+25
+}
+26
+return null;
+27 >
+The Rectangle class represents a partially or fully formed rectangle of words. The method i s P a r t i a l O k
+can be called to check if the rectangle is, thus far, a valid one (that is, all the columns are prefixes of words).
+The method isComplete serves a similar function, but checks if each of the columns makes a fuil word,
+l
+public class Rectangle {
+2
+public int height, length;
+3
+public char[][] matrix;
+4
+/* Construct an "empty" rectangule. Length is fixed, but height varies as we add
+6
+* words. */
+7
+public Rectangle(int 1) {
+8
+height = 0;
+9
+length = 1;
+10
+}
+11
+12
+/* Construct a rectangular array of letters of the specified length and height,
+13
+* and backed by the specified matrix of letters. (It is assumed that the length
+14
+* and height specified as arguments are consistent with the array argument's
+15
+* dimensions.) */
+16
+public Rectangle(int length, int height, char[][] letters) {
+17
+this.height = letters.length;
+18
+this.length = letters[0].length;
+19
+matrix = letters;
+20
+>
+21
+22
+public char getLetter (int i, int j) { return matrix[i][j); )
+23
+public String getColumn(int i) { ... >
+24
+25
+/* Check if all columns are valid. All rows are already known to be valid since
+26
+* they were added directly from dictionary. */
+27
+public boolean isComplete(int 1, int h, WordGroup groupList) {
+28
+if (height == h) {
+29
+/* check if each column is a word in the dictionary. */
+30
+for (int i = 0; i < 1; i++) {
+31
+String col = getColumn(i);
+32
+if (IgroupList.containsWord(col)) {
+33
+return false;
+34
+}
+35
+>
+36
+return true;
+37
+>
+38
+return false;
+39
+)
+40
+41
+public boolean isPartialOK(int 1, Trie trie) {
+42
+if (height == 6) return true;
+43
+for (int i = 0; i < 1; i++ ) {
+44
+String col = getColumn(i);
+45
+if (itrie,contains(col)) {
+46
+return false;
+47
+}
+48
+}
+614
+Cracking the Coding Interview, 6th Edition

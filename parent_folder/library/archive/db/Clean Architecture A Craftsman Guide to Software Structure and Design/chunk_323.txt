@@ -1,0 +1,30 @@
+They had large geographic areas to cover. In fact, the areas were so large that a
+single service area required several different offices from which to dispatch
+craftsmen. Those offices had test craftspeople who needed terminals into our
+SAC.
+You might think that this was a simple problem to solve—but remember that this
+story takes place in the early 1980s. Remote terminals were not very common.
+To make matters worse, the hardware of the SAC presumed that all the terminals
+were local. Our terminals actually sat on a proprietary, high-speed, serial bus.
+We had remote terminal capability, but it was based on modems, and in the early
+1980s modems were generally limited to 300 bits per second. Our customers
+were not happy with that slow speed.
+High-speed modems were available, but they were very expensive, and they
+needed to run on “conditioned” permanent connections. Dial-up quality was
+definitely not good enough.
+Our customers demanded a solution. Our response was DLU/DRU.
+DLU/DRU stood for “Display Local Unit” and “Display Remote Unit.” The
+DLU was a computer board that plugged into the SAC computer chassis and
+pretended to be a terminal manager board. Instead of controlling the serial bus
+for local terminals, however, it took the character stream and multiplexed it over
+a single 9600-bps conditioned modem link.
+The DRU was a box placed at the customer’s remote location. It connected to the
+other end of the 9600-bps link, and had the hardware to control the terminals on
+our proprietary serial bus. It demultiplexed the characters received from the
+9600-bps link and sent them to the appropriate local terminals.
+Strange, isn’t it? We had to engineer a solution that nowadays is so ubiquitous
+we never even think about it. But back then …
+We even had to invent our own communications protocol because, in those days,
+standard communications protocols were not open source shareware. Indeed, this
+was long before we had any kind of Internet connection.
+ARCHITECTURE

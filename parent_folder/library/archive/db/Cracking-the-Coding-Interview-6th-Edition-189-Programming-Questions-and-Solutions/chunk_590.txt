@@ -1,0 +1,105 @@
+Solutions to Chapter 17 j Hard
+i s
+>
+16
+17 Trie createTrieFromString(String s) {
+18
+Trie t r i e = new T r i e ( ) ;
+19
+for ( i n t i = 0; i < s.length(); i++) {
+20
+String s u f f i x = s.substring(i);
+21
+t r i e . i n s e r t S t r i n g ( s u f f i x ,
+i ) ;
+22
+}
+23
+return t r i e ;
+24 >
+25
+26 void subtractValue(ArrayList<Integer> locations, i n t delta) {
+27
+if (locations » n u l l )
+return;
+28
+for ( i n t i = 0; i < locations.size(); i++) {
+29
+locations.set(i, locations.get(i) - delta);
+36
+>
+31 >
+32
+33 public class Trie {
+34
+private TrieNode root = new TrieNodeO;
+35
+36
+public Trie(String s) { insertString(s, 0); }
+37
+public Trie()
+{}
+38
+39
+public ArrayList<Integer> search(String s) {
+40
+return root.search(s);
+41
+>
+42
+43
+public void insertString(String s t r , i n t location) {
+44
+r o o t . i n s e r t S t r i n g t s t r ,
+location);
+45
+>
+46
+47
+public TrieNode getRootQ {
+48
+return root;
+49
+>
+50
+}
+51
+52 public class TrieNode {
+53
+private HashMap<Character, TrieNode> children;
+54
+private ArrayListcInteger> indexes;
+55
+private char value;
+56
+57
+public TrieNodeO {
+58
+children = new HashMap<Character, TrieNode>();
+59
+indexes = new ArrayList<Integer>();
+60
+}
+61
+62
+public void insertString(String s, i n t index) {
+63
+indexes, add(index);
+64
+if (s != null 8& s.lengthQ > 0) {
+65
+value = s,charAt(0);
+66
+TrieNode child = n u l l ;
+67
+if
+(children.containsKey(value))
+{
+68
+child = children.get(value);
+69
+> else {
+70
+child = new TrieNodeO;
+55 S
+Cracking the Coding interview, 6th Edition

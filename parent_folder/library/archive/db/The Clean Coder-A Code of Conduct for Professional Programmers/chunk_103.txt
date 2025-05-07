@@ -1,0 +1,29 @@
+BEING LATE
+71
+B E I N G L AT E
+You will be late. It happens to the best of us. It happens to the most dedicated of
+us. Sometimes we just blow our estimates and wind up late.
+The trick to managing lateness is early detection and transparency. The worst
+case scenario occurs when you continue to tell everyone, up to the very end,
+that you will be on time—and then let them all down. Don’t do this. Instead,
+regularly measure your progress against your goal, and come up with three4
+fact-based end dates: best case, nominal case, and worst case. Be as honest as
+you can about all three dates. Do not incorporate hope into your estimates!
+Present all three numbers to your team and stakeholders. Update these
+numbers daily.
+H OPE
+What if these numbers show that you might miss a deadline? For example, let’s
+say that there’s a trade show in ten days, and we need to have our product there.
+But let’s also say that your three-number estimate for the feature you are
+working on is 8/12/20.
+Do not hope that you can get it all done in ten days! Hope is the project killer.
+Hope destroys schedules and ruins reputations. Hope will get you into deep
+trouble. If the trade show is in ten days, and your nominal estimate is 12, you
+are not going to make it. Make sure that the team and the stakeholders
+understand the situation, and don’t let up until there is a fall-back plan. Don’t
+let anyone else have hope.
+R U S H I N G
+What if your manager sits you down and asks you to try to make the deadline?
+What if your manager insists that you “do what it takes”? Hold to your estimates!
+Your original estimates are more accurate than any changes you make while
+4. There’s much more about this in the Estimation chapter.

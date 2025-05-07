@@ -1,0 +1,29 @@
+applications other than the starting point.
+LASER TRIM
+In 1973, I joined a company in Chicago called Teradyne Applied Systems
+(TAS). This was a division of Teradyne Inc., which was headquartered in
+Boston. Our product was a system that used relatively high-powered lasers to
+trim electronic components to very fine tolerances.
+Back in those days, manufacturers would silk-screen electronic components onto
+ceramic substrates. Those substrates were on the order of 1 inch square. The
+components were typically resistors—devices that resist the flow of current.
+The resistance of a resistor depends on a number of factors, including its
+composition and its geometry. The wider the resistor, the less resistance it has.
+Our system would position the ceramic substrate in a harness that had probes
+that made contact with the resistors. The system would measure the resistance of
+the resistors, and then use a laser to burn off parts of the resistor, making it
+thinner and thinner until it reached the desired resistance value within a tenth of
+a percent or so.
+We sold these systems to manufacturers. We also used some in-house systems to
+trim relatively small batches for small manufacturers.
+The computer was an M365. This was in the days when many companies built
+their own computers: Teradyne built the M365 and supplied it to all its divisions.
+The M365 was an enhanced version of a PDP-8—a popular minicomputer of the
+day.
+The M365 controlled the positioning table, which moved the ceramic substrates
+under the probes. It controlled the measurement system and the laser. The laser
+was positioned using X-Y mirrors that could rotate under program control. The
+computer could also control the power setting of the laser.
+The development environment of the M365 was relatively primitive. There was
+no disk. Mass storage was on tape cartridges that looked like old 8-track audio
+tape cassettes. The tapes and drives were made by Tri-Data.

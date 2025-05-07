@@ -1,0 +1,37 @@
+90
+Chapter 5: Formatting
+Dummy Scopes
+Sometimes the body of a while or for statement is a dummy, as shown below. I don’t like
+these kinds of structures and try to avoid them. When I can’t avoid them, I make sure that
+the dummy body is properly indented and surrounded by braces. I can’t tell you how
+many times I’ve been fooled by a semicolon silently sitting at the end of a while loop on
+the same line. Unless you make that semicolon visible by indenting it on it’s own line, it’s
+just too hard to see.
+while (dis.read(buf, 0, readBufferSize) != -1)
+;
+Team Rules
+The title of this section is a play on
+words. Every programmer has his own
+favorite formatting rules, but if he works
+in a team, then the team rules.
+A team of developers should agree
+upon a single formatting style, and then
+every member of that team should use
+that style. We want the software to have a
+consistent style. We don’t want it to appear to have been written by a bunch of disagreeing
+individuals.
+When I started the FitNesse project back in 2002, I sat down with the team to work
+out a coding style. This took about 10 minutes. We decided where we’d put our braces,
+what our indent size would be, how we would name classes, variables, and methods, and
+so forth. Then we encoded those rules into the code formatter of our IDE and have stuck
+with them ever since. These were not the rules that I prefer; they were rules decided by the
+team. As a member of that team I followed them when writing code in the FitNesse
+project.
+Remember, a good software system is composed of a set of documents that read
+nicely. They need to have a consistent and smooth style. The reader needs to be able to
+trust that the formatting gestures he or she has seen in one source ﬁle will mean the same
+thing in others. The last thing we want to do is add more complexity to the source code by
+writing it in a jumble of different individual styles.
+Uncle Bob’s Formatting Rules
+The rules I use personally are very simple and are illustrated by the code in Listing 5-6.
+Consider this an example of how code makes the best coding standard document.

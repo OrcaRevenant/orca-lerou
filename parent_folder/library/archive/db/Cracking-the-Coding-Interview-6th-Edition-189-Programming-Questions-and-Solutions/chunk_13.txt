@@ -1,0 +1,19 @@
+Introduction
+My Passion
+Teaching is my passion. I iove helping people understand new concepts and giving them tools to help them
+excel in their passions.
+My first official experience teaching was in college at the University of Pennsylvania, when I became a
+teaching assistant for an undergraduate computer science course during my second year. I went on to TA
+for several other courses, and I eventually launched my own computer science course there, focused on
+hands-on skills.
+As an engineer at Google, training and mentoring new engineers were some of the things I enjoyed most. I
+even used my "20% time" to teach two computer science courses at the University of Washington.
+Now, years later, I continue to teach computer science concepts, but this time with the goal of preparing
+engineers at startups for their acquisition interviews, t've seen their mistakes and struggles, and I've devel-
+oped techniques and strategies to help them combat those very issues.
+Cracking the Coding Interview, Cracking the PM Interview, Cracking the Tech Career, and CareerCup
+reflect my passion for teaching. Even now, you can often find me "hanging out "at CareerCup.com, helping
+users who stop by for assistance.
+Join us.
+GayleL. McDowell
+CrackingTheCodinglnterview.com 16th Edition VII

@@ -1,0 +1,32 @@
+10
+Sorting and Searching
+U
+nderstanding the common sorting and searching algorithms is incredibly valuable, as many sorting
+and searching problems are tweaks of the well-known algorithms. A good approach is therefore to run
+through the different sorting algorithms and see if one applies particularly well.
+For example, suppose you are asked the following question: Given a very large array of Person objects,
+sort the people in increasing order of age.
+We're given two interesting bits of knowledge here:
+1. It's a large array, so efficiency is very important.
+2. We are sorting based on ages, so we know the values are in a small range.
+By scanning through the various sorting algorithms, we might notice that bucket sort (or radix sort) would
+be a perfect candidate for this algorithm. In fact, we can make the buckets small (just 1 year each) and get
+0 ( n ) running time.
+• Common Sorting Algorithms
+Learning (or re-iearning) the common sorting algorithms is a great way to boost your performance. Of the
+five algorithms explained below. Merge Sort, Quick Sort and Bucket Sort are the most commonly used in
+interviews.
+Bubble Sort | Runtime: 0(n 2) average and worst case. Memory: 0 ( 1 ) .
+In bubble sort, we start at the beginning of the array and swap the first two elements if the first is greater
+than the second. Then, we go to the next pair, and so on, continuously making sweeps of the array until it is
+sorted, tn doing so, the smaller items slowly "bubble" up to the beginning of the list.
+Selection Sort | Runtime: 0(n 2) average and worst case. Memory; 0( 1 ) .
+Selection sort is the child's algorithm: simple, but inefficient. Find the smallest element using a linear scan
+and move it to the front (swapping it with the front element). Then, find the second smallest and move it,
+again doing a linear scan. Continue doing this until all the elements are in place.
+Merge Sort | Runtime: 0(n l o g ( n ) ) average and worst case. Memory: Depends.
+Merge sort divides the array in half, sorts each of those halves, and then merges them back together. Each
+of those halves has the same sorting algorithm applied to it. Eventually, you are merging just two single-
+element arrays. It is the "merge" part that does all the heavy lifting.
+1S 2
+Cracking the Coding Interview, 6th Edition

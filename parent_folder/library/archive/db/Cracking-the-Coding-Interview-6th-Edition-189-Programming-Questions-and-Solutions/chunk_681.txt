@@ -1,0 +1,81 @@
+II | Hints for Concepts and Algorithms
+#314.
+5.3
+Each sequence can be lengthened by merging it with an adjacent sequence (if any) or
+just flipping the immediate neighboring zero. You just need to find the best choice.
+#315.
+10.8
+Consider implementing your own bit vector class. It's a good exercise and an important
+part of this problem.
+#316.
+10.11
+You should be able to design an 0 ( n ) algorithm.
+#317.
+10.9
+A cell will be larger than all the items below it and to the right. It will be smaller than all
+cells above it and to the left. If we wanted to eliminate the most elements first, which
+element should we compare the value x to?
+#318.
+8.6
+If you're having trouble with recursion, then try trusting the recursive process more.
+Once you've figured out how to move the top two disks from tower 0 to tower 2, trust
+that you have this working. When you need to move three disks, trust that you can move
+two disks from one tower to another. Now, two disks have been moved. What do you do
+about the third?
+#319.
+6,1
+Imagine there were just three bottles and one had heavier pills. Suppose you put
+different numbers of pills from each bottle on the scale (for example, bottle 1 has 5 pills,
+bottle 2 has 2 pills, and bottle 3 has 9 pills). What would the scale show?
+#320.
+10.4
+Think about how binary search works. What will be the issue with just implementing
+binary search?
+#321.
+9.2
+Discuss how you might implement these algorithms and this system in the real world.
+What sort of optimizations might you make?
+#322.
+8.13
+Once we pick the box on the bottom, we need to pick the second box. Then the third
+box.
+#323,
+6.2
+The probability of making two out of three shots is probability(make shot 1, make shot
+2, miss shot 3) + probability(make shot 1, miss shot 2, make shot 3) + probability(miss
+shot 1, make shot 2, make shot 3) + probability(make shot 1, make shot 2, make shot 3).
+#324.
+8.11
+If you were making change, the first choice you might make is how many quarters you
+need to use.
+#325.
+11.2
+Think about issues both within the program and outside of the program (the rest of the
+system).
+#326.
+9.4
+Estimate how much space is needed for this.
+#327.
+8.14
+Look at your recursion. Do you have repeated calls anywhere? Can you memoize it?
+#328.
+5.7
+The value 1010 in binary is 10 in decimal or OxA in hex. What will a sequence of 101010...
+be in hex? That is, how do you represent an alternating sequence of Is and 0s with Is in
+the odd places? How do you do this for the reverse (1 s in the even spots)?
+#329.
+11.3
+Consider both extreme cases and more general cases.
+#330.
+10.9
+If we compare x to the center element in the matrix, we can eliminate roughly one
+quarter of the elements in the matrix.
+#331,
+8.2
+For the robot to reach the last cell, it must find a path to the second-to-last cells. For it to
+find a path to the second-to-last cells, it must find a path to the third-to-last cells.
+#332.
+10.1
+Try moving from the end of the array to the beginning.
+CrackingTheCodinglnterview.com | 6th Edition
+675

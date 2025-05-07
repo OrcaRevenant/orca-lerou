@@ -1,0 +1,36 @@
+keeping changes localized, 118
+merges, 65
+overview of, 61–63
+solutions, 66–67
+use case analysis, 299
+where to draw boundaries, 172–173
+Stability, component
+measuring, 122–123
+relationship between abstraction and, 127–130
+SAP. See SAP (Stable Abstractions Principle)
+understanding, 120–121
+Stable Abstractions Principle. See SAP (Stable Abstractions Principle)
+Stable components
+abstract components as, 125–126
+as harmless in Zone of Pain, 129
+not all components should be, 123–125
+placing high-level policies in, 126
+Stable Abstractions Principle, 126–127
+Stable Dependencies Principle. See SDP (Stable Dependencies Principle)
+Stakeholders
+scope vs. shape for cost of change, 15
+seniority of architecture over function, 18
+values provided by software systems, 14
+State
+concurrency issues from mutation, 53
+storing transactions but not, 54–55
+Static analysis tools, architecture violations, 313
+Static vs. dynamic polymorphism, 177
+Strategy pattern
+creating one-dimensional boundaries, 219
+OO approach for cross-cutting concerns, 244–245
+Streams, data
+clean architecture and, 224–226
+crossing, 226
+splitting, 227–228
+Structural coupling, testing API, 252

@@ -1,0 +1,32 @@
+ACCEPTANCE TESTS
+101
+I have worked with teams who had a different definition for the words “done”
+and “complete.” One particular team used the terms “done” and “done-done.”
+Professional developers have a single definition of done: Done means done.
+Done means all code written, all tests pass, QA and the stakeholders have
+accepted. Done.
+But how can you get this level of done-ness and still make quick progress from
+iteration to iteration? You create a set of automated tests that, when they pass,
+meet all of the above criteria! When the acceptance tests for your feature pass,
+you are done.
+Professional developers drive the definition of their requirements all the way to
+automated acceptance tests. They work with stakeholder’s and QA to ensure
+that these automated tests are a complete specification of done.
+Sam: “OK, now these log files need to be backed up.”
+Paula: “OK, how often?”
+Sam: “Daily.”
+Paula: “Right. And where do you want it saved?”
+Sam: “What do you mean?”
+Paula: “Do you want me to save it a particular sub-directory?”
+Sam: “Yes, that’d be good.”
+Paula: “What shall we call it?”
+Sam: “How about ‘backup’ ”?
+Tom (tester): “Wait, backup is too common a name. What are you really
+storing in this directory?”
+Sam: “The backups.”
+Tom: “Backups of what?”
+Sam: “The log files.”
+Paula: “But there’s only one log file.”
+Sam: “No, there are many. One for each day.”
+Tom: “You mean that there is one active log file, and many log file
+backups?”

@@ -1,0 +1,17 @@
+Step 4 - Wrap up
+In this chapter, we discussed different approaches to design a unique ID generator: multi-
+master replication, UUID, ticket server, and Twitter snowflake-like unique ID generator. We
+settle on snowflake as it supports all our use cases and is scalable in a distributed
+environment.
+If there is extra time at the end of the interview, here are a few additional talking points:
+• Clock synchronization. In our design, we assume ID generation servers have the same
+clock. This assumption might not be true when a server is running on multiple cores. The
+same challenge exists in multi-machine scenarios. Solutions to clock synchronization are
+out of the scope of this book; however, it is important to understand the problem exists.
+Network Time Protocol is the most popular solution to this problem. For interested
+readers, refer to the reference material [4].
+• Section length tuning. For example, fewer sequence numbers but more timestamp bits
+are effective for low concurrency and long-term applications.
+• High availability. Since an ID generator is a mission-critical system, it must be highly
+available.
+Congratulations on getting this far! Now give yourself a pat on the back. Good job!

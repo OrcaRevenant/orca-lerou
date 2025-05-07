@@ -1,0 +1,11 @@
+113
+8
+TESTING STR ATEGIES
+Professional developers test their code. But testing is not simply a matter of
+writing a few unit tests or a few acceptance tests. Writing these tests is a good
+thing, but it is far from sufficient. What every professional development team
+needs is a good testing strategy.
+In 1989, I was working at Rational on the first release of Rose. Every month or
+so our QA manager would call a “Bug Hunt” day. Everyone on the team, from
+programmers to managers to secretaries to database administrators, would sit
+down with Rose and try to make it fail. Prizes were awarded for various types of

@@ -1,0 +1,29 @@
+191
+Bibliography
+Learn your library and know the fundamental algorithms. Understand how some of
+the features offered by the library support solving problems similar to the fundamental
+algorithms.
+Learn how to ﬁnd regions of code that must be locked and lock them. Do not lock
+regions of code that do not need to be locked. Avoid calling one locked section from
+another. This requires a deep understanding of whether something is or is not shared. Keep
+the amount of shared objects and the scope of the sharing as narrow as possible. Change
+designs of the objects with shared data to accommodate clients rather than forcing clients
+to manage shared state.
+Issues will crop up. The ones that do not crop up early are often written off as a one-
+time occurrence. These so-called one-offs typically only happen under load or at seem-
+ingly random times. Therefore, you need to be able to run your thread-related code in
+many conﬁgurations on many platforms repeatedly and continuously. Testability, which
+comes naturally from following the Three Laws of TDD, implies some level of plug-ability,
+which offers the support necessary to run code in a wider range of conﬁgurations.
+You will greatly improve your chances of ﬁnding erroneous code if you take the time
+to instrument your code. You can either do so by hand or using some kind of automated
+technology. Invest in this early. You want to be running your thread-based code as long as
+possible before you put it into production.
+If you take a clean approach, your chances of getting it right increase drastically.
+Bibliography
+[Lea99]:  Concurrent Programming in Java: Design Principles and Patterns, 2d. ed.,
+Doug Lea, Prentice Hall, 1999.
+[PPP]:  Agile Software Development: Principles, Patterns, and Practices, Robert C. Martin,
+Prentice Hall, 2002.
+[PRAG]:  The Pragmatic Programmer, Andrew Hunt, Dave Thomas, Addison-Wesley,
+2000.

@@ -1,0 +1,86 @@
+II | Hints for Concepts and Algorithms
+#194.
+8.13
+We can sort the boxes by any dimension in descending order. This will give us a partial
+order for the boxes, in that boxes iater in the array must appear before boxes earlier in
+the array.
+#195.
+6.4
+The only way they won't collide is if all three are walking in the same direction. What's
+the probability of all three walking clockwise?
+#196.
+10.11
+Imagine the array were sorted in ascending order. Is there any way you could "fix it" to
+be sorted into alternating peaks and vaileys?
+#197,
+8,14
+The basecase is when we haveasingle value, l orO.
+#198.
+7.3
+Scope the problem first and make a list of your assumptions, it's often okay to make
+reasonable assumptions, but you need to make them explicit.
+#199.
+9.7
+The system will be write-heavy: Lots of data being imported, but it's rarely being read.
+#200.
+8.7
+Approach 1: Given a string such as be a, you can create all permutations of abed that
+have { a ,
+b,
+c} in the order bca by inserting d into each possible location: dbca,
+bdea, beda, bead. Given all permutations of abc, can you then create ail permutations
+of abed?
+#201.
+6,7
+Observe that biology hasn't changed; only the conditions under which a family stops
+having kids has changed. Each pregnancy has a 50% odds of being a boy and a 50%
+odds of being a girl.
+#202.
+5.5
+What does it mean if A & B == 0?
+#203.
+8.5
+If you wanted to count the cells in an 8x9 matrix, you could count the ceils in a 4x9
+matrix and then double it.
+#204.
+8.3
+Your brute force algorithm probably ran in 0(N) time. If you're trying to beat that
+runtime, what runtime do you think you will get to? What sorts of algorithms have that
+runtime?
+#205.
+6.10
+Solution 2:Think about trying tofigure out the bottle, digit by digit. How can you detect
+the first digit in the poisoned bottle? What about the second digit? The third digit?
+#206.
+9.8
+How will you handle generating URLs?
+#207.
+10.6
+Think about merge sort versus quicksort. Would one of them work well for this purpose?
+#208.
+9.6
+You also want to limit joins because they can be very expensive.
+#209,
+8.9
+The problem with the solution suggested by the earlier hint is that it might have dupli-
+cate values. We could eliminate this by using a hash table.
+#210.
+11.6
+Be careful about your assumptions. Who are the users? Where are they using this? It
+might seem obvious, but the real answer might be different.
+#211.
+10.9
+We can do a binary search in each row. How long will this take? How can we do better?
+#212.
+9.7
+Think about things like how you're going to get the bank data (will it be pulled or
+pushed?), what features the system will support, etc.
+#213.
+7.7
+As always, scope the problem. Are "friendships" mutual? Do status messages exist? Do
+you support group chat?
+#214.
+8.13
+Try to break it down into subproblems.
+CrackingTheCodinglnterview.com | 6th Edition
+675

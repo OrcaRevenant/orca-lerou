@@ -1,0 +1,31 @@
+Conclusion
+Chapter 4 Structured Programming
+Proof
+A Harmful Proclamation
+Functional Decomposition
+No Formal Proofs
+Science to the Rescue
+Tests
+Conclusion
+Chapter 5 Object-Oriented Programming
+Encapsulation?
+Inheritance?
+Polymorphism?
+Conclusion
+Chapter 6 Functional Programming
+Squares of Integers
+Immutability and Architecture
+Segregation of Mutability
+Event Sourcing
+Conclusion
+PART III Design Principles
+Chapter 7 SRP: The Single Responsibility Principle
+Symptom 1: Accidental Duplication
+Symptom 2: Merges
+Solutions
+Conclusion
+Chapter 8 OCP: The Open-Closed Principle
+A Thought Experiment
+Directional Control
+Information Hiding
+Conclusion

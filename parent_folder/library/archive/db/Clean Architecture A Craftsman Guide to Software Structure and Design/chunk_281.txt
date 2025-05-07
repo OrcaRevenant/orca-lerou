@@ -1,0 +1,7 @@
+Figure 34.2 Package by feature
+PORTS AND ADAPTERS
+As Uncle Bob has said, approaches such as “ports and adapters,” the “hexagonal
+architecture,” “boundaries, controllers, entities,” and so on aim to create
+architectures where business/domain-focused code is independent and separate
+from the technical implementation details such as frameworks and databases. To
+summarize, you often see such code bases being composed of an “inside”

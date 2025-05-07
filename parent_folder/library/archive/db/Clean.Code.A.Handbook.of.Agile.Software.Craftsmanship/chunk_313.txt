@@ -1,0 +1,46 @@
+283
+Then Make It Right
+That brings us to the end of DayDate. So now we’ll make one more pass over the whole
+class to see how well it ﬂows.
+First, the opening comment is long out of date, so I shortened and improved it [C2].
+Next, I moved all the remaining enums out into their own ﬁles [G12].
+Next, I moved the static variable (dateFormatSymbols) and three static methods
+(getMonthNames, isLeapYear, lastDayOfMonth) into a new class named DateUtil [G6].
+I moved the abstract methods up to the top where they belong [G24].
+I changed Month.make to Month.fromInt [N1] and did the same for all the other enums.
+I also created a toInt() accessor for all the enums and made the index ﬁeld private.
+There was some interesting duplication [G5] in plusYears and plusMonths that I was
+able to eliminate by extracting a new method named correctLastDayOfMonth, making the
+all three methods much clearer.
+I got rid of the magic number 1 [G25], replacing it with Month.JANUARY.toInt() or
+Day.SUNDAY.toInt(), as appropriate. I spent a little time with SpreadsheetDate, cleaning up
+the algorithms a bit. The end result is contained in Listing B-7, page 394, through
+Listing B-16, page 405.
+public enum DateInterval {
+OPEN {
+public boolean isIn(int d, int left, int right) {
+return d > left && d < right;
+}
+},
+CLOSED_LEFT {
+public boolean isIn(int d, int left, int right) {
+return d >= left && d < right;
+}
+},
+CLOSED_RIGHT {
+public boolean isIn(int d, int left, int right) {
+return d > left && d <= right;
+}
+},
+CLOSED {
+public boolean isIn(int d, int left, int right) {
+return d >= left && d <= right;
+}
+};
+public abstract boolean isIn(int d, int left, int right);
+}
+public boolean isInRange(DayDate d1, DayDate d2, DateInterval interval) {
+int left = Math.min(d1.getOrdinalDay(), d2.getOrdinalDay());
+int right = Math.max(d1.getOrdinalDay(), d2.getOrdinalDay());
+return interval.isIn(getOrdinalDay(), left, right);
+}

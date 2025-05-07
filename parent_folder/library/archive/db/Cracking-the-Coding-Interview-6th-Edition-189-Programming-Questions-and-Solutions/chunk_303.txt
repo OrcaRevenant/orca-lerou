@@ -1,0 +1,43 @@
+Solutions to Chapter 6 j Math and Logic Puzzles
+6.6
+Blue-Eyed Island; A bunch of people are living on an island, when a visitor comes with a strange
+order: all blue-eyed people must ieave the island as soon as possible. There will be a flight out at
+8:00pm every evening. Each person can see everyone else's eye color, but they do not know their
+own (nor is anyone allowed to tell them). Additionally, they do not know how many people have
+blue eyes, although they do know that at least one person does. How many days will it take the
+blue-eyed people to leave?
+pg 123
+SOLUTION
+Let's apply the Base Case and Build approach. Assume that there are n people on the island and c of them
+have blue eyes. We are explicitly toid that c > 0.
+Case c = 1: Exactly one person has blue eyes.
+Assuming all the people are intelligent, the blue-eyed person should took around and realize that no one
+else has blue eyes. Since he knows that at least one person has blue eyes, he must conclude that it is he who
+has biue eyes. Therefore, he would take the flight that evening.
+Case c = 2: Exactly two people have blue eyes.
+The two blue-eyed people see each other, but are unsure whether c is 1 or 2.They know, from the previous
+case, that if c = 1, the blue-eyed person would leave on the first night. Therefore, if the other blue-eyed
+person is still there, he must deduce that c = 2, which means that he himself has blue eyes. Both men would
+then leave on the second night.
+Case c > 2: The General Case.
+As we increase c, we can see that this logic continues to apply, if c = 3, then those three people will imme-
+diately know that there are either 2 or 3 people with blue eyes. If there were two people, then those two
+people would have left on the second night. So, when the others are still around after that night, each
+person would conclude that c= 3 and that they, therefore, have blue eyes too. They would leave that night.
+This same pattern extends up through any value of c. Therefore, if c men have blue eyes, it will take c nights
+for the blue-eyed men to leave. All will leave on the same night.
+6.7
+The Apocalypse: In the new post-apocalyptic world, the world queen is desperately concerned
+about the birth rate. Therefore, she decrees that all families should ensure that they have one girl or
+else they face massive fines. If all families abide by this policy—that is, they have continue to have
+children until they have one girl, at which point they immediately stop—what will the gender ratio
+of the new generation be? (Assume that the odds of someone having a boy or a girl on any given
+pregnancy is equai.) Solve this out logically and then write a computer simulation of it,
+pg 123
+SOLUTION
+If each family abides by this policy, then each family will have a sequence of zero or more boys followed by
+a single girl. That is, if"G" indicates a girl and "B" indicates a boy, the sequence of children will look like one
+of: G; BG; BBG; BBBG; BBBBG; and so on.
+We can solve this problem multiple ways.
+CrackingTheCodinglnterview.com | 6th Edition
+291

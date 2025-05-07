@@ -1,0 +1,98 @@
+Solutions to Chapter 14 j Databases
+15
+if (winner != Piece.Empty) {
+16
+return winner;
+17
+}
+18
+}
+19
+return Piece.Empty;
+28 >
+21
+22 Piece hasWon(Piece[][] board, Positionlterator iterator) {
+23
+Position f i r s t P o s i t i o n = i t e r a t o r , n e x t ( ) ;
+24
+Piece first = board[firstPosition.row][firstPosition.column];
+25
+while (iterator,hasNext()) {
+26
+Position position = iterator.next();
+27
+if (board[position.row][position.column] != first) {
+28
+return Piece.Empty;
+29
+}
+30
+}
+31
+return first;
+32 }
+33
+34 class Positionlterator implements Iterator<Position> {
+35
+private int rowlncrement, collncrement, size;
+36
+private Position current;
+37
+38
+public PositionIterator(Position p,
+i n t rowlncrement,
+39
+i n t collncrement, i n t size) {
+40
+this.rowlncrement = rowlncrement;
+41
+this.collncrement = collncrement;
+42
+this.size = size;
+43
+current = new Position(p,row - rowlncrement, p.column - collncrement);
+44
+>
+45
+46
+^Override
+47
+public boolean hasNextf) {
+48
+return current,row + rowlncrement < size 8&
+49
+current.column + collncrement < size;
+50
+}
+51
+52
+^Override
+53
+public Position next() {
+54
+current = new Positionfcurrent.row + rowlncrement,
+55
+current.column + collncrement);
+56
+return current;
+57
+>
+58 >
+59
+60 public class Position {
+61
+public int row, column;
+62
+public Position(int row, int column) {
+63
+this.row = row;
+64
+this.column = column;
+65
+}
+66
+)
+All of this is potentially overkill, but it's worth discussing the options with your interviewer. The point of this
+problem is to assess your understanding of how to code in a clean and maintainable way.
+472
+Cracking the Coding Interview, 6th Edition

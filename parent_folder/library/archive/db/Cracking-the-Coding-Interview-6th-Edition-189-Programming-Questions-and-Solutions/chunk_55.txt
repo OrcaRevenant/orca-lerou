@@ -1,0 +1,71 @@
+VII Big 0
+2
+if (n <= 1) {
+3
+return 1;
+4
+}
+5
+r e t u r n f ( n - 1) + f { n - 1 ) ;
+6
+}
+A lot of people will, for some reason, see the two calls to f and jump to 0(N J). This is completely incorrect.
+Rather than making assumptions, let's derive the runtime by walking through the code. Suppose we call
+f (4). This calls f ( 3 ) twice. Each of those calls t o f (3) calls f ( 2 ) , until we get down t o f ( 1 ) .
+fC4>
+f ( 3 )
+f ( 3 l
+f { l )
+f ( l )
+F m
+f ( i >
+>m
+f ( 2 )
+f ( i )
+f ( D
+f d )
+How many calls are in this tree? (Don't count!)
+The tree will have depth N. Each node (i.e., function call) has two children. Therefore, each level will have
+twice as many calls as the one above it. The number of nodes on each level is:
+Level
+# Nodes
+Also expressed as...
+Or...
+0
+1
+2«
+1
+2
+2 * previous level = 2
+21
+2
+4
+2 * previous level = 2 * 2' = 2*
+2 i
+3
+8
+2 * previous level = 2 * 21 = 23
+23
+4
+16
+2 * previous level = 2 * 23 = 2'
+2"
+Therefore, there will be 2°+ 21 + 2! + 23 + 2* + . . . + 2* (which is 2N+I - 1) nodes. (See "Sum of
+Powers of 2" on page 630.)
+Try to remember this pattern. When you have a recursive function that makes multiple calls, the runtime will
+often (but not always) took likeO(branches t ! e p t , 1), where branches is the number of times each recursive
+call branches. In this case, this gives us 0( 2").
+I
+As you may recall, the base of a log doesn't matter for big O since logs of different bases are
+only different by a constant factor. However, this does not apply to exponents. The base of an
+exponent does matter. Compare 2" and 8". If you expand 8", you get (2 J) n, which equals 2iTI,
+which equals 22" * 2". As you can see, 8" and 2" are different by a factor of 22n.That is very much
+not a constant factor!
+The space complexity of this algorithm will beO(N). Although we haveO(2N) nodes in the tree total, only
+0(N) exist at any given time.Therefore, we would only need to haveO(N) memory available.
+• Examples and Exercises
+Big 0 time is a difficult concept at first. However, once it "dicks," it gets fairly easy. The same patterns come
+up again and again, and the rest you can derive.
+We'll start off easy and get progressively more difficult.
+CrackingTheCodinglnterview.com | 6th Edition
+51

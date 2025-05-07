@@ -1,0 +1,33 @@
+• asinh(..) - hyperbolic arcsine
+• tanh(..) - hyperbolic tangent
+• atanh(..) - hyperbolic arctangent
+• hypot(..) - the squareroot of the sum of the squares (i.e., the generalized Pytha‐
+gorean theorem)
+Arithmetic:
+• cbrt(..) - cube root
+• clz32(..) - count leading zeros in 32-bit binary representation
+• expm1(..) - the same as exp(x) - 1
+• log2(..) - binary logarithm (log base 2)
+• log10(..) - log base 10
+• log1p(..) - the same as log(x + 1)
+• imul(..) - 32-bit integer multiplication of two numbers
+Meta:
+• sign(..) - returns the sign of the number
+• trunc(..) - returns only the integer part of a number
+• fround(..) - rounds to nearest 32-bit (single precision) floating point value
+Number
+Accurately working with numbers is very important to your program working cor‐
+rectly. ES6 adds some additional properties and functions to assist with common
+numeric operations.
+Two additions to Number are just references to the preexisting globals: Number.par
+seInt(..) and Number.parseFloat(..).
+Static Properties
+• Number.EPSILON - the minimum value between any two numbers: 2^-52 (see
+Chapter 2 of the Types & Grammar title of this series regarding using this value as
+a tolerance for imprecision in floating point arithmetic)
+• Number.MAX_SAFE_INTEGER - The highest integer that can “safely” be represented
+unambiguously in a JS number value: 2^53 - 1
+Number
+|
+165
+www.it-ebooks.info

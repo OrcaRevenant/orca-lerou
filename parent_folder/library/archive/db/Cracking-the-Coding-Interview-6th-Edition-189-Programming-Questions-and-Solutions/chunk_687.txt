@@ -1,0 +1,86 @@
+Ill | Hints for Knowledge-Based Questions
+#420.
+13.5
+Think about the underlying data structure.
+#421,
+12.7
+Think about why we use virtual methods.
+#422.
+15.4
+If every thread had to declare upfront what processes it might need, could we detect
+possible deadlocks in advance?
+#423.
+12.3
+What is the underlying data structure behind each? What are the implications of this?
+#424.
+13.5
+HashMap uses an array of linked lists. TreeMap uses a red-black tree. LinkedHashMap
+uses doubly-linked buckets. What is the implication of this?
+#425.
+13.4
+Consider the usage of primitive types. How else might they differ in terms of how you
+can use the types?
+#426.
+12.11
+Can we allocate this instead as a contiguous block of memory?
+#427,
+12.8
+This data structure can be pictured as a binary tree, but it's not necessarily. What if
+there'sa loop in the structure?
+#428.
+14.7
+You probably need a list of students, their courses, and another table building a relation-
+Ship between students and courses. Note that this is a many-to-many relationship.
+#429.
+15.6
+The keyword s y n c h r o n i z e d ensures that two threads cannot execute synchronized
+methods on the same instance at the same time.
+#430.
+13.5
+Consider how they might differ in terms of the order of iteration through the keys. Why
+might you want one option instead of the others?
+#431.
+14.3
+First try to get a list of the IDs (just the IDs) of all the relevant apartments.
+#432,
+12.10
+Imagine we have a sequential set of integers (3,4,5,...), How big does this set need to be
+to ensure that one of the numbers is divisible by 16?
+#433.
+15.5
+Why would using boolean flags to do this be a bad idea?
+#434,
+15.4
+Think about the order of requests as a graph. What does a deadlock look like within this
+graph?
+#435.
+13.6
+Object reflection allows you to get information about methods and fields in an object.
+Why might this be useful?
+#436.
+14.6
+Be particularly careful about which relationships are one-to-one vs. one-to-many vs.
+many-to-many.
+#437.
+15.3
+One idea is to just not let a philosopher hold onto a chopstick if he can't get the other
+one,
+#438.
+12,9
+Think about tracking the number of references. What will this tell us?
+#439.
+15.7
+Don't try to do anything fancy on the single-threaded problem Just get something that
+is simple and easily readable.
+#440.
+12.10
+How will we free the memory?
+#441.
+15.2
+It's okay if your solution isn't totally perfect. That might not be possible. Discuss the
+tradeoffs of your approach.
+#442.
+14.7
+Think carefully about how you handle ties when selecting the top 10%.
+CrackingTheCodinglnterview.com j 6th Edition
+677

@@ -1,0 +1,37 @@
+view8[0] = view8[1];
+view8[1] = tmp;
+view16[0];                      // 3340
+The typed array constructors have multiple signature variations. We’ve shown so far
+only passing them an existing buffer. However, that form also takes two extra param‐
+eters: byteOffset and length. In other words, you can start the typed array view at a
+location other than 0 and you can make it span less than the full length of the buffer.
+If the buffer of binary data includes data in non-uniform size/location, this technique
+can be quite useful.
+For example, consider a binary buffer that has a 2-byte number (aka “word”) at the
+beginning, followed by two 1-byte numbers, followed by a 32-bit floating point num‐
+ber. Here’s how you can access that data with multiple views on the same buffer, off‐
+sets, and lengths:
+var first = new Uint16Array( buf, 0, 2 )[0],
+second = new Uint8Array( buf, 2, 1 )[0],
+third = new Uint8Array( buf, 3, 1 )[0],
+fourth = new Float32Array( buf, 4, 4 )[0];
+Typed Array Constructors
+In addition to the (buffer,[offset, [length]]) form examined in the previous
+section, typed array constructors also support these forms:
+• [constructor](length): creates a new view over a new buffer of length bytes
+• [constructor](typedArr): creates a new view and buffer, and copies the contents
+from the typedArr view
+• [constructor](obj): creates a new view and buffer, and iterates over the array-like
+or object obj to copy its contents
+The following typed array constructors are available as of ES6:
+• Int8Array (8-bit signed integers), Uint8Array (8-bit unsigned integers)
+— Uint8ClampedArray (8-bit unsigned integers, each value clamped on setting to
+the 0-255 range)
+• Int16Array (16-bit signed integers), Uint16Array (16-bit unsigned integers)
+• Int32Array (32-bit signed integers), Uint32Array (32-bit unsigned integers)
+• Float32Array (32-bit floating point, IEEE-754)
+• Float64Array (64-bit floating point, IEEE-754)
+142
+|
+Chapter 5: Collections
+www.it-ebooks.info

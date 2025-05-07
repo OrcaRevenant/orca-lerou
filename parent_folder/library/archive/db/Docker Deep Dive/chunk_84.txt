@@ -1,0 +1,32 @@
+Docker containers - The deep dive
+The first things we’ll cover here are the fundamental differences between a
+container and a VM. It’s mainly theory at this stage, but it’s important stuff.
+Along the way We’ll point out where the container model has potential
+advantages over the VM model.
+Heads-up: As the author I’m going to say this before we go any further. A
+lot of us get passionate about the things we do and the skills we have. I
+remember big Unix people resisting the rise of Linux. You might remember
+the same. You might also remember people attempting to resist VMware
+and the VM juggernaut. In both cases “resistance was futile”. In this section
+I’m going to highlight what I consider some of the advantages the container
+model has over the VM model. But I’m guessing a lot of you will be VM
+experts with a lot invested in the VM ecosystem. And I’m guessing that one
+or two of you might want to fight me over some of the things I say. So let
+me be clear… I’m a big guy and I’d beat you down in hand-to-hand combat
+:-D Just kidding. But I’m not trying to destroy your empire or call your
+baby ugly! I’m trying to help. The whole reason for me writing this book is
+to help you get started with Docker and containers!
+Anyway, here we go.
+Containers vs VMs
+Containers and VMs both need a host to run on. This can be anything from your
+laptop, a bare metal server in your data center, all the way up to an instance the
+public cloud. In this example we’ll assume a single physical server that we need
+to run 4 business applications on.
+In the VM model, the physical server is powered on and the hypervisor boots
+(we’re skipping the BIOS and bootloader code etc.). Once the hypervisor boots it
+lays claim to all physical resources on the system such as CPU, RAM, storage,
+and NICs. The hypervisor then carves these hardware resources into virtual
+versions that look smell and feel exactly like the real thing. It then packages
+them into a software construct called a virtual machine (VM). We then take
+those VMs and install an operating system and application on each one. We said
+we had a single physical server and needed to run 4 applications, so we’d create

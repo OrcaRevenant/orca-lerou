@@ -1,0 +1,40 @@
+155
+Separate Constructing a System from Using It
+However, we now have a hard-coded dependency on MyServiceImpl and everything its
+constructor requires (which I have elided). We can’t compile without resolving these
+dependencies, even if we never actually use an object of this type at runtime!
+Testing can be a problem. If MyServiceImpl is a heavyweight object, we will need to
+make sure that an appropriate TEST DOUBLE1 or MOCK OBJECT gets assigned to the ser-
+vice ﬁeld before this method is called during unit testing. Because we have construction
+logic mixed in with normal runtime processing, we should test all execution paths (for
+example, the null test and its block). Having both of these responsibilities means that the
+method is doing more than one thing, so we are breaking the Single Responsibility Principle
+in a small way.
+Perhaps worst of all, we do not know whether MyServiceImpl is the right object in all
+cases. I implied as much in the comment. Why does the class with this method have to
+know the global context? Can we ever really know the right object to use here? Is it even
+possible for one type to be right for all possible contexts?
+One occurrence of LAZY-INITIALIZATION isn’t a serious problem, of course. However,
+there are normally many instances of little setup idioms like this in applications. Hence,
+the global setup strategy (if there is one) is scattered across the application, with little
+modularity and often signiﬁcant duplication.
+If we are diligent about building well-formed and robust systems, we should never let
+little, convenient idioms lead to modularity breakdown. The startup process of object con-
+struction and wiring is no exception. We should modularize this process separately from
+the normal runtime logic and we should make sure that we have a global, consistent strat-
+egy for resolving our major dependencies.
+Separation of Main
+One way to separate construction from use is simply to move all aspects of construction to
+main, or modules called by main, and to design the rest of the system assuming that all
+objects have been constructed and wired up appropriately. (See Figure 11-1.)
+The ﬂow of control is easy to follow. The main function builds the objects necessary
+for the system, then passes them to the application, which simply uses them. Notice the
+direction of the dependency arrows crossing the barrier between main and the application.
+They all go one direction, pointing away from main. This means that the application has no
+knowledge of main or of the construction process. It simply expects that everything has
+been built properly.
+Factories
+Sometimes, of course, we need to make the application responsible for when an object gets
+created. For example, in an order processing system the application must create the
+1.
+[Mezzaros07].

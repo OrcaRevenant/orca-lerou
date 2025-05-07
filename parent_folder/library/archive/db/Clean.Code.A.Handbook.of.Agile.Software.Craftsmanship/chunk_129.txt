@@ -1,0 +1,37 @@
+99
+The Law of Demeter
+there are frameworks and standards (e.g., “beans”) that demand that even simple data
+structures have accessors and mutators.
+Hybrids
+This confusion sometimes leads to unfortunate hybrid structures that are half object and
+half data structure. They have functions that do signiﬁcant things, and they also have either
+public variables or public accessors and mutators that, for all intents and purposes, make
+the private variables public, tempting other external functions to use those variables the
+way a procedural program would use a data structure.4
+Such hybrids make it hard to add new functions but also make it hard to add new data
+structures. They are the worst of both worlds. Avoid creating them. They are indicative of a
+muddled design whose authors are unsure of—or worse, ignorant of—whether they need
+protection from functions or types.
+Hiding Structure
+What if ctxt, options, and scratchDir are objects with real behavior? Then, because
+objects are supposed to hide their internal structure, we should not be able to navigate
+through them. How then would we get the absolute path of the scratch directory?
+ctxt.getAbsolutePathOfScratchDirectoryOption();
+or
+ctx.getScratchDirectoryOption().getAbsolutePath()
+The ﬁrst option could lead to an explosion of methods in the ctxt object. The second pre-
+sumes that getScratchDirectoryOption() returns a data structure, not an object. Neither
+option feels good.
+If ctxt is an object, we should be telling it to do something; we should not be asking it
+about its internals. So why did we want the absolute path of the scratch directory? What
+were we going to do with it? Consider this code from (many lines farther down in) the
+same module:
+String outFile = outputDir + "/" + className.replace('.', '/') + ".class";
+FileOutputStream fout = new FileOutputStream(outFile);
+BufferedOutputStream bos = new BufferedOutputStream(fout);
+The admixture of different levels of detail [G34][G6] is a bit troubling. Dots, slashes,
+ﬁle extensions, and File objects should not be so carelessly mixed together, and mixed
+with the enclosing code. Ignoring that, however, we see that the intent of getting the abso-
+lute path of the scratch directory was to create a scratch ﬁle of a given name.
+4.
+This is sometimes called Feature Envy from [Refactoring].

@@ -1,0 +1,30 @@
+There are many other stories I could tell you about this system, but it’s just too
+depressing for me to continue. Suffice it to say that many of the hard lessons of
+my software life were learned while immersed in the horrible assembler code of
+the SAC.
+C LANGUAGE
+The 8085 computer hardware that we used in the 4-Tel Micro project gave us a
+relatively low-cost computing platform for many different projects that could be
+embedded into industrial environments. We could load it up with 32K of RAM
+and another 32K of ROM, and we had an extremely flexible and powerful
+scheme for controlling peripherals. What we did not have was a flexible and
+convenient language with which to program the machine. The 8085 assembler
+was simply not fun to write code in.
+On top of that, the assembler we were using was written by our own
+programmers. It ran on our M365 computers, using the cartridge tape operating
+system described in the “Laser Trim” section.
+As fate would have it, our lead hardware engineer convinced our CEO that we
+needed a real computer. He didn’t actually know what he would do with it, but
+he had a lot of political clout. So we purchased a PDP-11/60.
+I, a lowly software developer at the time, was ecstatic. I knew precisely what I
+wanted to do with that computer. I was determined that this was going to be my
+machine.
+When the manuals arrived, many months before the delivery of the machine, I
+took them home and devoured them. By the time the computer was delivered, I
+knew how to operate both the hardware and the software at an intimate level—at
+least, as intimate as home study can make it.
+I helped to write the purchase order. In particular, I specified the disk storage
+that the new computer would have. I decided we should buy two disk drives that
+could take removable disk packs that held 25 megabytes each.9
+Fifty megabytes! The number seemed infinite! I remember walking through the
+halls of the office, late at night, cackling like the Wicked Witch of the West:

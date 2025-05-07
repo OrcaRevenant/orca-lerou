@@ -1,0 +1,31 @@
+Chapter 9 LSP: The Liskov Substitution Principle
+Guiding the Use of Inheritance
+The Square/Rectangle Problem
+LSP and Architecture
+Example LSP Violation
+Conclusion
+Chapter 10 ISP: The Interface Segregation Principle
+ISP and Language
+ISP and Architecture
+Conclusion
+Chapter 11 DIP: The Dependency Inversion Principle
+Stable Abstractions
+Factories
+Concrete Components
+Conclusion
+PART IV Component Principles
+Chapter 12 Components
+A Brief History of Components
+Relocatability
+Linkers
+Conclusion
+Chapter 13 Component Cohesion
+The Reuse/Release Equivalence Principle
+The Common Closure Principle
+The Common Reuse Principle
+The Tension Diagram for Component Cohesion
+Conclusion
+Chapter 14 Component Coupling
+The Acyclic Dependencies Principle
+Top-Down Design
+The Stable Dependencies Principle

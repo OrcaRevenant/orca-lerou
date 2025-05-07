@@ -1,0 +1,83 @@
+Solutions to Chapter 15 | Threads and Locks
+2
+for (int i = 1; i <= n; i++) {
+3
+if (i % 3 == 0 && i Si S == 0) {
+4
+System.out.println("FizzBuzz'J
+S
+> else if (i % 3 == 0) {
+6
+System.out,println("Fizz");
+7
+) else if (i % 5 == 0) {
+8
+System.out.println("Buzz");
+g
+> else {
+10
+System.out.println(i);
+11
+>
+12
+>
+13 >
+The primary thing to be careful of here is the order of the statements. If you put the check for divisibility by
+3 before the check for divisibility by 3 and 5, it won't print the right thing.
+Multithreaded
+To do this multithreaded, we want a structure that looks something like this;
+FizzBuzz Thread
+Fizz Thread
+i f i div by 3 && 5
+print
+FizzBuzz
+increment
+i
+repeat u n t i l i > n
+if i div by only 3
+print
+Fizz
+increment
+i
+repeat u n t i l i > n
+Buzz Thread
+Number Thread
+if i div by only 5
+print Buzz
+increment
+i
+repeat u n t i l i > n
+i f i not div by 3 or 5
+p r i n t
+i
+increment
+i
+repeat u n t i l i > n
+The code for this will look something like:
+1
+while (true) {
+2
+if (current > max) {
+3
+return;
+4
+}
+5
+if (/* divisibility test «/) {
+6
+System.out.println(/* print something */);
+7
+current++;
+8
+}
+9
+}
+We'll need to add some synchronization in the loop. Otherwise, the value of c u r r e n t could change
+between lines 2 -4 and lines 5 -8, and we can inadvertently exceed the intended bounds of the loop. Addi-
+tionally, incrementing is not thread-safe.
+To actually implement this concept, there are many possibilities. One possibility is to have four entirely
+separate thread classes that share a reference to the current variable (which can be wrapped in an object).
+The loop for each thread is substantially similar. They just have different target values for the divisibility
+checks, and different print vafues.
+CrackingTheCodinglrtterview.com | 6th Edition
+4 5 9

@@ -1,0 +1,9 @@
+You do not need to fully understand or even remember those streaming protocol names as
+they are low-level details that require specific domain knowledge. The important thing here is
+to understand that different streaming protocols support different video encodings and
+playback players. When we design a video streaming service, we have to choose the right
+streaming protocol to support our use cases. To learn more about streaming protocols, here is
+an excellent article [7].
+Videos are streamed from CDN directly. The edge server closest to you will deliver the
+video. Thus, there is very little latency. Figure 14-7 shows a high level of design for video
+streaming.

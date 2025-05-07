@@ -1,0 +1,29 @@
+however, sometimes look at the problem and think, “Yeah, but I might.” In that
+case, they may implement a partial boundary.
+SKIP THE LAST STEP
+One way to construct a partial boundary is to do all the work necessary to create
+independently compilable and deployable components, and then simply keep
+them together in the same component. The reciprocal interfaces are there, the
+input/output data structures are there, and everything is all set up—but we
+compile and deploy all of them as a single component.
+Obviously, this kind of partial boundary requires the same amount of code and
+preparatory design work as a full boundary. However, it does not require the
+administration of multiple components. There’s no version number tracking or
+release management burden. That difference should not be taken lightly.
+This was the early strategy behind FitNesse. The web server component of
+FitNesse was designed to be separable from the wiki and testing part of
+FitNesse. The idea was that we might want to create other web-based
+applications by using that web component. At the same, we did not want users to
+have to download two components. Recall that one of our design goals was
+“download and go.” It was our intent that users would download one jar file and
+execute it without having to hunt for other jar files, work out version
+compatibilities, and so on.
+The story of FitNesse also points out one of the dangers of this approach. Over
+time, as it became clear that there would never be a need for a separate web
+component, the separation between the web component and the wiki component
+began to weaken. Dependencies started to cross the line in the wrong direction.
+Nowadays, it would be something of a chore to re-separate them.
+ONE-DIMENSIONAL BOUNDARIES
+The full-fledged architectural boundary uses reciprocal boundary interfaces to
+maintain isolation in both directions. Maintaining separation in both directions is
+expensive both in initial setup and in ongoing maintenance.

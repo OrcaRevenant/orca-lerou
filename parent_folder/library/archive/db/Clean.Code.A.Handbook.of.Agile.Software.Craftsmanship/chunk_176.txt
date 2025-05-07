@@ -1,0 +1,45 @@
+146
+Chapter 10: Classes
+The ﬁrst thing you might notice is that the program got a lot longer. It went from a
+little over one page to nearly three pages in length. There are several reasons for this
+growth. First, the refactored program uses longer, more descriptive variable names.
+Second, the refactored program uses function and class declarations as a way to add
+commentary to the code. Third, we used whitespace and formatting techniques to keep
+the program readable.
+Notice how the program has been split into three main responsibilities. The main
+program is contained in the PrimePrinter class all by itself. Its responsibility is to handle
+the execution environment. It will change if the method of invocation changes. For
+example, if this program were converted to a SOAP service, this is the class that would
+be affected.
+The RowColumnPagePrinter knows all about how to format a list of numbers into
+pages with a certain number of rows and columns. If the formatting of the output needed
+changing, then this is the class that would be affected.
+The PrimeGenerator class knows how to generate a list prime numbers. Notice that it
+is not meant to be instantiated as an object. The class is just a useful scope in which
+its variables can be declared and kept hidden. This class will change if the algorithm for
+computing prime numbers changes.
+This was not a rewrite! We did not start over from scratch and write the program over
+again. Indeed, if you look closely at the two different programs, you’ll see that they use the
+same algorithm and mechanics to get their work done.
+The change was made by writing a test suite that veriﬁed the precise behavior of the
+ﬁrst program. Then a myriad of tiny little changes were made, one at a time. After each
+change the program was executed to ensure that the behavior had not changed. One tiny
+step after another, the ﬁrst program was cleaned up and transformed into the second.
+return true;
+}
+private static boolean
+isMultipleOfNthPrimeFactor(int candidate, int n) {
+return
+candidate == smallestOddNthMultipleNotLessThanCandidate(candidate, n);
+}
+private static int
+smallestOddNthMultipleNotLessThanCandidate(int candidate, int n) {
+int multiple = multiplesOfPrimeFactors.get(n);
+while (multiple < candidate)
+multiple += 2 * primes[n];
+multiplesOfPrimeFactors.set(n, multiple);
+return multiple;
+}
+}
+Listing 10-8 (continued)
+PrimeGenerator.java

@@ -1,0 +1,15 @@
+411
+Epilogue
+In 2005, while attending the Agile conference in Denver, Elisabeth Hedrickson1handed me
+a green wrist band similar to the kind that Lance Armstrong made so popular. This one
+said “Test Obsessed” on it. I gladly put it on and wore it proudly. Since learning TDD from
+Kent Beck in 1999, I have indeed become obsessed with test-driven development.
+But then something strange happened. I found I could not take the band off. Not
+because it was physically stuck, but because it was morally stuck. The band made an overt
+statement about my professional ethics. It was a visible indication of my committment to
+writing the best code I could write. Taking it off seemed like a betrayal of those ethics and
+of that committment.
+So it is on my wrist still. When I write code, I see it there in my peripheral vision. It is
+a constant reminder of the promise I made to myself to write clean code.
+1.
+http://www.qualitytree.com/

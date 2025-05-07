@@ -1,0 +1,51 @@
+238
+Chapter 14: Successive Reﬁnement
+else if (elementTail.equals("##"))
+marshalers.put(elementId, new DoubleArgumentMarshaler());
+else
+throw new ParseException(String.format(
+"Argument: %c has invalid format: %s.", elementId, elementTail), 0);
+}
+Next, we write the DoubleArgumentMarshaler class.
+private class DoubleArgumentMarshaler implements ArgumentMarshaler {
+private double doubleValue = 0;
+public void set(Iterator<String> currentArgument) throws ArgsException {
+String parameter = null;
+try {
+parameter = currentArgument.next();
+doubleValue = Double.parseDouble(parameter);
+} catch (NoSuchElementException e) {
+errorCode = ErrorCode.MISSING_DOUBLE;
+throw new ArgsException();
+} catch (NumberFormatException e) {
+errorParameter = parameter;
+errorCode = ErrorCode.INVALID_DOUBLE;
+throw new ArgsException();
+}
+}
+public Object get() {
+return doubleValue;
+}
+}
+This forces us to add a new ErrorCode.
+private enum ErrorCode {
+OK, MISSING_STRING, MISSING_INTEGER, INVALID_INTEGER, UNEXPECTED_ARGUMENT,
+MISSING_DOUBLE, INVALID_DOUBLE}
+And we need a getDouble function.
+public double getDouble(char arg) {
+Args.ArgumentMarshaler am = marshalers.get(arg);
+try {
+return am == null ? 0 : (Double) am.get();
+} catch (Exception e) {
+return 0.0;
+}
+}
+And all the tests pass! That was pretty painless. So now let’s make sure all the error
+processing works correctly. The next test case checks that an error is declared if an
+unparseable string is fed to a ## argument.
+public void testInvalidDouble() throws Exception {
+Args args = new Args("x##", new String[] {"-x","Forty two"});
+assertFalse(args.isValid());
+assertEquals(0, args.cardinality());
+assertFalse(args.has('x'));
+assertEquals(0, args.getInt('x'));

@@ -1,0 +1,38 @@
+Ill I Special Situations
+What happens to the team after an acquisition?
+Every situation is different. However, most of my clients have been kept together as a team, or possibly
+integrated into an existing team.
+How should you prepare your team for acquisition interviews?
+interview prep for acquisition interviews is fairly similar to typical interviews at the acquirer. The difference
+is that your company is doing this as a team and that each employee wasn't individually selected for the
+interview on their own merits.
+You're all In this together.
+Some startups I've worked with put their "real" work on hold and have their teams spend the next two or
+three weeks on interview prep.
+Obviously, that's not a choice all companies can make, but—from the perspective of wanting the acquisi-
+tion to go through—that does increase your results substantially.
+Your team should study individually, in teams of two or three, or by doing mock interviews with each other.
+If possible, use all three of these approaches.
+Some people may be less prepared than others.
+Many developers at startups might have only vaguely heard of big 0 time, binary search tree, breadth-first
+search, and other important concepts. They'll need some extra time to prepare.
+People without computer science degrees (or who earned their degrees a long time ago) should focus
+first on learning the core concepts discussed in this book, especially big 0 time (which is one of the most
+important). A good first exercise is to implement all the core data structures and algorithms from scratch.
+If the acquisition is important to your company, give these people the time they need to prepare. They'll
+need it.
+Don't wait until the last minute.
+As a startup, you might be used to taking things as they come without a ton of planning. Startups that do
+this with acquisition interviews tend not to fare well.
+Acquisition interviews often come up very suddenly. A company's CEO is chatting with an acquirer (or
+several acquirers) and conversations get increasingly serious. The acquirer mentions the possibility of inter-
+views at some point in the future. Then, all of a sudden, there's a "come in at the end of this week" message.
+If you wait until there's a firm date set for the interviews, you probably won't get much more than a couple
+of days to prepare. That might not be enough time for your engineers to learn core computer science
+concepts and practice interview questions.
+• For Interviewers
+Since writing the last edition, I've learned that a lot of interviewers are using Cracking the Coding Interview
+to learn how to interview. That wasn't really the book's Intention, but I might as well offer some guidance
+for interviews.
+CrackingTheCodinglnterview.com | 6th Edition
+19

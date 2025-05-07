@@ -1,0 +1,34 @@
+BEING A “TEAM PLAYER”
+31
+A team player is not someone who says yes all the time. Consider this scenario:
+Paula:  “Mike, I’ve got those estimates for you. The team agrees that we’ll be
+ready to give a demo in about eight weeks, give or take one week.”
+Mike:  “Paula, we’ve already scheduled the demo for six weeks from now.”
+Paula:  “Without hearing from us first? Come on Mike, you can’t push that
+on us.”
+Mike:  “It’s already done.”
+Paula:  (sigh) “OK, look, I’ll go back to the team and find out what we can
+safely deliver in six weeks, but it won’t be the whole system. There’ll
+be some features missing, and the data load will be incomplete.”
+Mike:  “Paula, the customer is expecting to see a complete demo.”
+Paula: “That’s not going to happen Mike.”
+Mike:   “Damn. OK, work up the best plan you can and let me know
+tomorrow.”
+Paula: “That I can do.”
+Mike:   “Isn’t there something you can do to bring this date in? Maybe
+there’s a way to work smarter and get creative.”
+Paula:  “We’re all pretty creative, Mike. We’ve got a good handle on the
+problem, and the date is going to be eight or nine weeks, not six.”
+Mike:  “You could work overtime.”
+Paula:  “That just makes us go slower, Mike. Remember the mess we made
+last time we mandated overtime?”
+Mike:  “Yeah, but that doesn’t have to happen this time.”
+Paula:  “It’ll be just like last time, Mike. Trust me. It’s going to be eight or
+nine weeks, not six.”
+Mike:   “OK, get me your best plan, but keep thinking about how to get it
+done in six weeks. I know you guys’ll figure out something.”
+Paula:  “No, Mike, we won’t. I’ll get you a plan for six weeks, but it will be
+missing a lot of features and data. That’s just how it’s going to be.”
+Mike:  “OK, Paula, but I bet you guys can work miracles if you try.”
+(Paula walks away shaking her head.)
+Later, in the Director’s strategy meeting …

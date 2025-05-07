@@ -1,0 +1,30 @@
+87
+SOME BACKGROUND ON PRACTICING
+TW E NT Y-TWO Z E RO S
+But things have changed since the early days of programming. Some things have
+changed a lot. Other things haven’t changed much at all.
+One of the first machines I ever wrote programs for was a PDP-8/I. This machine
+had a 1.5-microsecond cycle time. It had 4,096 12-bit words in core memory.
+It was the size of a refrigerator and consumed a significant amount of electrical
+power. It had a disk drive that could store 32K of 12-bit words, and we talked
+to it with a 10-character-per-second teletype. We thought this was a powerful
+machine, and we used it to work miracles.
+I just bought a new Macbook Pro laptop. It has a 2.8GHz dual core processor,
+8GB of RAM, a 512GB SSD, and a 17-inch 1920 ´ 1200 LED screen. I carry it in
+my backpack. It sits on my lap. It consumes less than 85 watts.
+My laptop is eight thousand times faster, has two million times more memory, has
+sixteen million times more offline storage, requires 1% of the power, takes up 1% of
+the space, and costs one twenty-fifth of the price of the PDP-8/I. Let’s do the math:
+8, 000 ´ 2, 000, 000 ´ 16, 000, 000 ´ 100 ´ 100  ´ 25 = 6.4 ´ 1022
+This number is large. We’re talking about 22 orders of magnitude! That’s how
+many angstroms there are between here and Alpha Centauri. That’s how many
+electrons there are in a silver dollar. That’s the mass of the Earth in units of
+Michael Moore. This is a big, big, number. And it’s sitting in my lap, and
+probably yours too!
+And what am I doing with this increase in power of 22 factors of ten? I’m doing
+pretty much what I was doing with that PDP-8/I. I’m writing if statements,
+while loops, and assignments.
+Oh, I’ve got better tools to write those statements with. And I have better languages
+to write those statements with. But the nature of the statements hasn’t changed in
+all that time. Code in 2010 would be recognizable to a programmer from the
+1960s. The clay that we manipulate has not changed much in those four decades.

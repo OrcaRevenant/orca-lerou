@@ -1,0 +1,29 @@
+A simple example of this approach is Clojure’s atom facility:
+Click here to view code image
+(def counter (atom 0)) ; initialize counter to 0
+(swap! counter inc) ; safely increment counter.
+In this code, the counter variable is defined as an atom. In Clojure, an atom is a
+special kind of variable whose value is allowed to mutate under very disciplined
+conditions that are enforced by the swap! function.
+The swap! function, shown in the preceding code, takes two arguments: the atom
+to be mutated, and a function that computes the new value to be stored in the
+atom. In our example code, the counter atom will be changed to the value
+computed by the inc function, which simply increments its argument.
+The strategy used by swap! is a traditional compare and swap algorithm. The
+value of counter is read and passed to inc. When inc returns, the value of
+counter is locked and compared to the value that was passed to inc. If the value
+is the same, then the value returned by inc is stored in counter and the lock is
+released. Otherwise, the lock is released, and the strategy is retried from the
+beginning.
+The atom facility is adequate for simple applications. Unfortunately, it cannot
+completely safeguard against concurrent updates and deadlocks when multiple
+dependent variables come into play. In those instances, more elaborate facilities
+can be used.
+The point is that well-structured applications will be segregated into those
+components that do not mutate variables and those that do. This kind of
+segregation is supported by the use of appropriate disciplines to protect those
+mutated variables.
+Architects would be wise to push as much processing as possible into the
+immutable components, and to drive as much code as possible out of those
+components that must allow mutation.
+EVENT SOURCING

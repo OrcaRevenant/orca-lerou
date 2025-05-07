@@ -1,0 +1,11 @@
+57
+4
+CODING
+In a previous book1 I wrote a great deal about the structure and nature of Clean Code.
+This chapter discusses the act of coding, and the context that surrounds that act.
+When I was 18 I could type reasonably well, but I had to look at the keys.
+I could not type blind. So one evening I spent a few long hours at an IBM 029
+keypunch refusing to look at my fingers as I typed a program that I had written
+on several coding forms. I examined each card after I typed it and discarded
+those that were typed wrong.
+1. [Martin09]

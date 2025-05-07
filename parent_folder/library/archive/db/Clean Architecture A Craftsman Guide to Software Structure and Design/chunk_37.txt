@@ -1,0 +1,31 @@
+metaphor is apt. Software developers often feel as if they are forced to jam
+square pegs into round holes.
+The problem, of course, is the architecture of the system. The more this
+architecture prefers one shape over another, the more likely new features will be
+harder and harder to fit into that structure. Therefore architectures should be as
+shape agnostic are practical.
+THE GREATER VALUE
+Function or architecture? Which of these two provides the greater value? Is it
+more important for the software system to work, or is it more important for the
+software system to be easy to change?
+If you ask the business managers, they’ll often say that it’s more important for
+the software system to work. Developers, in turn, often go along with this
+attitude. But it’s the wrong attitude. I can prove that it is wrong with the simple
+logical tool of examining the extremes.
+• If you give me a program that works perfectly but is impossible to change, then
+it won’t work when the requirements change, and I won’t be able to make it
+work. Therefore the program will become useless.
+• If you give me a program that does not work but is easy to change, then I can
+make it work, and keep it working as requirements change. Therefore the
+program will remain continually useful.
+You may not find this argument convincing. After all, there’s no such thing as a
+program that is impossible to change. However, there are systems that are
+practically impossible to change, because the cost of change exceeds the benefit
+of change. Many systems reach that point in some of their features or
+configurations.
+If you ask the business managers if they want to be able to make changes, they’ll
+say that of course they do, but may then qualify their answer by noting that the
+current functionality is more important than any later flexibility. In contrast, if
+the business managers ask you for a change, and your estimated costs for that
+change are unaffordably high, the business managers will likely be furious that
+you allowed the system to get to the point where the change was impractical.

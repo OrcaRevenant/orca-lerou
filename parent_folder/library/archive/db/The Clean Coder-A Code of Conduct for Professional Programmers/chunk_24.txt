@@ -1,0 +1,32 @@
+xxiv
+ACKNOWLEDGMENTS
+Tim and I learned how to program computers. This wasn’t easy to do in 1968,
+but we managed. We got books on PDP-8 assembler, Fortran, Cobol, PL/1,
+among others. We devoured them. We wrote programs that we had no hope of
+executing because we did not have access to a computer. But we wrote them
+anyway for the sheer love of it.
+Our high school started a computer science curriculum in our sophomore year.
+They hooked up an ASR-33 Teletype to a 110-baud, dial-up modem. They had
+an account on the Univac 1108 time-sharing system at the Illinois Institute of
+Technology. Tim and I immediately became the de facto operators of that
+machine. Nobody else could get near it.
+The modem was connected by picking up the telephone and dialing the
+number. When you heard the answering modem squeal, you pushed the “orig”
+button on the Teletype causing the originating modem to emit its own squeal.
+Then you hung up the phone and the data connection was established.
+The phone had a lock on the dial. Only the teachers had the key. But that didn’t
+matter, because we learned that you could dial a phone (any phone) by tapping
+out the phone number on the switch hook. I was a drummer, so I had pretty
+good timing and reflexes. I could dial that modem, with the lock in place, in less
+than 10 seconds.
+We had two Teletypes in the computer lab. One was the online machine and the
+other was an offline machine. Both were used by students to write their
+programs. The students would type their programs on the Teletypes with the
+paper tape punch engaged. Every keystroke was punched on tape. The students
+wrote their programs in IITran, a remarkably powerful interpreted language.
+Students would leave their paper tapes in a basket near the Teletypes.
+After school, Tim and I would dial up the computer (by tapping of course),
+load the tapes into the IITran batch system, and then hang up. At 10 characters
+per second, this was not a quick procedure. An hour or so later, we’d call back
+and get the printouts, again at 10 characters per second. The Teletype did not
+separate the students’ listings by ejecting pages. It just printed one after the next

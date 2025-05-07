@@ -1,0 +1,42 @@
+But what about testing for features that involve new syntax?
+You might try something like:
+try {
+a = () => {};
+ARROW_FUNCS_ENABLED = true;
+}
+catch (err) {
+ARROW_FUNCS_ENABLED = false;
+}
+Unfortunately, this doesn’t work, because our JS programs are compiled. Thus, the
+engine will choke on the () => {} syntax if it is not already supporting ES6 arrow
+functions. Having a syntax error in your program prevents it from running, which
+prevents your program from subsequently responding differently if the feature is sup‐
+ported or not.
+To meta program with feature tests around syntax-related features, we need a way to
+insulate the test from the initial compile step our program runs through. For
+instance, if we could store the code for the test in a string, then the JS engine wouldn’t
+by default try to compile the contents of that string, until we asked it to.
+Did your mind just jump to using eval(..)?
+Not so fast. See the Scope & Closures title of this series for why eval(..) is a bad idea.
+But there’s another option with less downsides: the Function(..) constructor.
+Consider:
+try {
+new Function( "( () => {} )" );
+ARROW_FUNCS_ENABLED = true;
+}
+catch (err) {
+ARROW_FUNCS_ENABLED = false;
+}
+OK, so now we’re meta programming by determining if a feature like arrow functions
+can compile in the current engine or not. You might then wonder, what would we do
+with this information?
+With existence checks for APIs, and defining fallback API polyfills, there’s a clear path
+for what to do with either test success or failure. But what can we do with the infor‐
+mation that we get from ARROW_FUNCS_ENABLED being true or false?
+Since the syntax can’t appear in a file if the engine doesn’t support that feature, you
+can’t just have different functions defined in the file with and without the syntax in
+question.
+Feature Testing
+|
+197
+www.it-ebooks.info

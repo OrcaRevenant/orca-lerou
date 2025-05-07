@@ -1,0 +1,70 @@
+Solutions to Chapter 16 | Moderate
+50
+}
+51
+}
+52
+return true;
+53 >
+This algorithm will still take0(n 2) time, but the benefit is that it can short circuit when matches fail early
+(which they usually will). The previous algorithm must go through all the work to build the string before it
+can learn that it has failed.
+16.19 Pond Sizes: You have an integer matrix representing a plot of land, where the value at that location
+represents the height above sea level. A value of zero indicates water. A pond is a region of water
+connected vertically, horizontally, or diagonally. The size of the pond is the total number of
+connected water cells. Write a method to compute the sizes of all ponds in the matrix.
+EXAMPLE
+Input:
+0 2 1 0
+0 1 0 1
+1 1 0
+1
+0 1 0 1
+Output: 2,4,1 (in any order)
+pg 184
+SOLUTION
+The first thing we can try is just walking through the array. It's easy enough to find water: when it's a zero,
+that's water.
+Given a water cell, how can we compute the amount of water nearby? If the cell is not adjacent to any zero
+cells, then the size of this pond is 1, If it is, then we need to add in the adjacent cells, plus any water cells
+adjacent to those cells. We need to, of course, be careful to not recount any cells. We can do this with a modi-
+fied breadth-first or depth-first search. Once we visit a cell, we permanently mark it as visited.
+For each cell, we need to check eight adjacent cells. We could do this by writing in lines to check up, down,
+left, right, and each of the four diagonal cells, it's even easier, though, to do this with a loop.
+1
+ArrayList<Integer> computePondSizes(int[][] land) {
+2
+ArrayList<Integer> pondSizes = new ArrayList<Integer>();
+3
+for (int r = 0; r < land.length; r++) {
+4
+for (int c = 0; c < land[r].length; c++) {
+if (land[rJ[c]
+0) { // Optional. Would return anyway.
+6
+int size = computeSize(land, r, c);
+7
+pondSizes.add{size);
+8
+>
+9
+>
+10
+>
+11
+return pondSizes;
+12 >
+13
+14 int computeSize(int[][] land, int row, int col) {
+15
+/* If out of bounds or already visited. */
+16
+if (row < 0 II col < 0 || row >= land.length fj col >= land[row].length J|
+17
+land[row][col] 1= 0) { // visited or not water
+18
+return 0;
+19
+}
+CrackingTheCodinglnterview.com | 6th Edition
+495

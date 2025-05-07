@@ -1,0 +1,35 @@
+Constantine, Larry, 29
+Control, flow of. See Flow of control
+Control structures, program, 27–28
+Control, transfer of, 22
+Controllers
+in clean architecture, 203, 205
+clean architecture scenario, 207–208
+crossing circle boundaries, 206
+Conway’s law, 149
+Copper wires, pCCU archaeology project, 352–354
+Core code, avoid frameworks in, 293
+COs (central offices), 4-TEL archaeology project, 339–340
+Coupling. See also Component coupling
+avoid allowing framework, 293
+to premature decisions, 160
+Craft Dispatch System. See CDS (Craft Dispatch System), archaeology project
+Critical Business Data, 190–191
+Critical Business Rules, 190–193
+Cross-cutting concerns
+designing services to deal with, 247
+object-oriented approach to, 244–245
+Crossing data streams, 226
+CRP (Common Reuse Principle)
+influencing composition of components, 118
+overview of, 107–108
+tension diagram, 108–110
+CRT (cathode ray tube) terminals, Union Accounting archaeology project,
+328–329
+Cycles
+breaking, 117–118
+effect of in dependency graph, 115–117
+eliminating dependency, 113–115
+weekly build issues, 112–113
+D
+D metric, distance from Main Sequence, 130–132

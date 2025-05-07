@@ -1,0 +1,30 @@
+/pno 8475551212 /noise /dropped-calls
+You get the idea. The / character started a new topic. Following the slash was a
+code, and following the code were parameters. There were thousands of codes,
+and an individual trouble ticket could have dozens of them in the description.
+Worse, since they were manually entered, they were often misspelled or
+improperly formatted. They were meant for humans to interpret, not for
+machines to process.
+Our problem was to decode these semi-free-form strings, interpret and fix any
+errors, and then turn them into voice output so we could read them to the
+repairman, up on a pole, listening with a handset. This required, among other
+things, a very flexible parsing and data representation technique. That data
+representation had to be passed through the 3DBB, which could handle only
+strings.
+And so, on an airplane, flying between customer visits, I invented a scheme that
+I called FLD: Field Labeled Data. Nowadays we would call this XML or JSON.
+The format was different, but the idea was the same. FLDs were binary trees that
+associated names with data in a recursive hierarchy. FLDs could be queried by a
+simple API, and could be translated to and from a convenient string format that
+was ideal for the 3DBB.
+So, micro-services communicating through shared memory analog of sockets
+using an XML analog—in 1985.
+There is nothing new under the Sun.
+CLEAR COMMUNICATIONS
+In 1988, a group of Teradyne employees left the company to form a startup
+named Clear Communications. I joined them a few months later. Our mission
+was to build the software for a system that would monitor the communications
+quality of T1 lines—the digital lines that carried long-distance communications
+across the country. The vision was a huge monitor with a map of the United
+States crisscrossed by T1 lines flashing red if they were degrading.
+Remember, graphical user interfaces were brand new in 1988. The Apple

@@ -1,0 +1,48 @@
+205
+Args: The Rough Draft
+case INVALID_INTEGER:
+return String.format("Argument -%c expects an integer but was '%s'.",
+errorArgumentId, errorParameter);
+case MISSING_INTEGER:
+return String.format("Could not find integer parameter for -%c.",
+errorArgumentId);
+}
+return "";
+}
+private String unexpectedArgumentMessage() {
+StringBuffer message = new StringBuffer("Argument(s) -");
+for (char c : unexpectedArguments) {
+message.append(c);
+}
+message.append(" unexpected.");
+return message.toString();
+}
+private boolean falseIfNull(Boolean b) {
+return b != null && b;
+}
+private int zeroIfNull(Integer i) {
+return i == null ? 0 : i;
+}
+private String blankIfNull(String s) {
+return s == null ? "" : s;
+}
+public String getString(char arg) {
+return blankIfNull(stringArgs.get(arg));
+}
+public int getInt(char arg) {
+return zeroIfNull(intArgs.get(arg));
+}
+public boolean getBoolean(char arg) {
+return falseIfNull(booleanArgs.get(arg));
+}
+public boolean has(char arg) {
+return argsFound.contains(arg);
+}
+public boolean isValid() {
+return valid;
+}
+private class ArgsException extends Exception {
+}
+}
+Listing 14-8 (continued)
+Args.java (first draft)

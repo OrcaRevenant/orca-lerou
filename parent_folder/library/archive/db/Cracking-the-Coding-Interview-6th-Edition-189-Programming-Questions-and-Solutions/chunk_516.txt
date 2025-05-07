@@ -1,0 +1,107 @@
+Solutions to Chapter 16 | Moderate
+7
+void getValidWords(String number, int index. String prefix,
+8
+HashSet<String> wordSet, ArrayList<String> results) {
+9
+/* If i t ' s 3 complete word, print it. */
+10
+if (index == number.lengthf) && wordSet.contains(prefix)) {
+11
+results.add(prefix);
+12
+return;
+13
+)
+14
+15
+/* Get characters that match this digit. */
+16
+char digit = number.charAt(index);
+17
+char[] letters = getT9Chars(digit);
+18
+19
+/* Go through all remaining options. */
+20
+if (letters != null) {
+21
+for (char letter : letters) {
+22
+getValidWords(number, index + 1, prefix + letter, wordSet, results);
+23
+>
+24
+>
+25 >
+26
+27 /* Return array of characters that map to this digit. */
+28 char[] getT9Chars(char digit) {
+29
+if (ICharacter.isDigit(digit)) {
+36
+return null;
+31
+}
+32
+int dig = Character.getNumericValue(digit) - Character.getNumericValue(r0J);
+33
+return t9Lettens[dig];
+34 >
+35
+36 /* Mapping of digits to letters. */
+37 char[][]
+t9Letters = {null,
+null,
+{'a',
+'b',
+'c'},
+{'d',
+'e',
+f f ' } ,
+38
+{ ' % ' ,
+' h ' ,
+< i ' } , { ' j ' ,
+' k ' ,
+' 1 ' } , { f m ' ,
+' n ' ,
+f o ' } , { ' p ' ,
+fq J,
+V J ,
+f s J ) ,
+39
+{ ' t ' ,
+' u ' ,
+r v J } ,
+{ ' w ' ,
+'x',
+'y',
+' z ' }
+40
+>;
+This algorithm runs in 0(4 N) time, where N is the length of the string. This is because we recursively branch
+four times for each call to getValidWords, and we recurse until a call stack depth of N.
+This is very, very slow on large strings.
+Optimized
+Let's return to thinking about how you would do this, if you were doing it by hand. Imagine the example of
+33835676368 (which corresponds to development). If you were doing this by hand, I bet you'd skip over
+solutions that start with f f tf [3383], as no valid words start with those characters.
+Ideally, we'd like our program to make the same sort of optimization: stop recursing down paths which will
+obviousiy fail. Specifically, if there are no words in the dictionary that start with p r e f i x , stop recursing.
+The T r i e data structure (see "Tries (Prefix Trees)" on page 105) can do this for us. Whenever we reach a
+string which is not a valid prefix, we exit.
+1
+ArrayList<String> getValidT9Words(String number, Trie trie) {
+2
+ArrayList<String> results = new ArrayList<String>();
+3
+getValidWords(number, 0,
+trie.getRoot(), results);
+4
+return results;
+5
+>
+6
+S06
+492 Cracking the Coding Interview, 6th Edition

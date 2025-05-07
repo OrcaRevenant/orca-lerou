@@ -1,0 +1,29 @@
+CHAPTER 2 SAYING NO
+36
+to amend her estimates. She said no when manipulated, cajoled, and begged.
+And, most importantly, she said no to Mike’s self-delusion and inaction. Paula
+was playing for the team. Mike needed help, and she used every means in her
+power to help him.
+TH E CO ST O F SAY I N G YE S
+Most of the time we want to say yes. Indeed, healthy teams strive to find a way
+to say yes. Manager and developers in well-run teams will negotiate with each
+other until they come to a mutually agreed upon plan of action.
+But, as we’ve seen, sometimes the only way to get to the right yes is to be
+unafraid so say no.
+Consider the following story that John Blanco posted on his blog.2 It is
+reprinted here with permission. As you read it, ask yourself when and how he
+should have said no.
+2. http://raptureinvenice.com/?p=63
+I S G OO D CO D E I M PO S S I B LE ?
+When you hit your teenage years you decide you want to be a software developer. During
+your high school years, you learn how to write software using object-oriented principles.
+When you graduate to college, you apply all the principles you’ve learned to areas such as
+artificial intelligence or 3D graphics.
+And when you hit the professional circuit, you begin your never-ending quest to write
+commercial-quality, maintainable, and “perfect” code that will stand the test of time.
+Commercial quality. Huh. That’s pretty funny.
+I consider myself lucky, I love design patterns. I like studying the theory of coding
+perfection. I have no problem starting up an hour-long discussion about why my XP
+partner’s choice of inheritance hierarchy is wrong—that HAS-A is better than IS-A in so
+many cases. But something has been bugging me lately and I am wondering something . . .
+. . . Is good code impossible in modern software development?

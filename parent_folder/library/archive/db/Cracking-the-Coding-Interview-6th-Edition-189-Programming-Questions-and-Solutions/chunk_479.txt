@@ -1,0 +1,87 @@
+Solutions to Chapter 14 | Databases
+12
+>
+13
+14
+/* Check Diagonal */
+15
+if (hasWinner(board[0][0], board[l][l], board[2][2])) {
+16
+return board[6][0];
+17
+>
+18
+19
+if (hasWinner(board[0][2], board[l][l], board[2][0])) {
+28
+return board[0][2);
+21
+}
+22
+23
+return Piece.Empty;
+24 }
+25
+26 boolean hasWinner(Piece pi. Piece p2, Piece p3) {
+27
+if (pi == Piece.Empty) {
+28
+return false;
+29
+}
+38
+return pi == p2 && p2 == p3;
+31 >
+This is an okay solution in that it's relatively easy to understand what is going on. The problem is that the
+values are hard coded, it's easy to accidentally type the wrong indices.
+Additionally, it won't be easy to scale this to an NxN board.
+Solution #4: Designing for an NxN board
+There are a number of ways to implement this on an NxN board.
+Nested For-Loops
+The most obvious way is through a series of nested foHoops.
+1
+Piece hasWon(Piece[][] board) {
+2
+int size = board.length;
+if (board[8].length 1= size) return Piece.Empty;
+4
+Piece -first;
+5
+6
+/* Check rows. */
+7
+for (int i = 0; i < size; i++) {
+8
+first = board[i][0];
+9
+if (first == Piece.Empty) continue;
+10
+for (int j = 1; j < size; j++) {
+11
+if (board[i][j] 1= first) {
+12
+break;
+13
+) else if (j == size - i) { II Last element
+14
+return first;
+15
+>
+16
+>
+17
+}
+18
+19
+/* Check columns. */
+20
+for (int i = 0; i < size; i++) {
+21
+first = board[0][i];
+22
+if (first == Piece.Empty) continue;
+23
+for (int j = 1; j < size; j++) {
+24
+if (board[j] [i] !=» first) {
+CrackingTheCodinglnterview.com \ 6th Edition 415

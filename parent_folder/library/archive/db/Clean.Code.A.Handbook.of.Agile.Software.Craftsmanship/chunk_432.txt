@@ -1,0 +1,65 @@
+405
+Appendix B: org.jfree.date.SerialDate
+Listing B-16
+SpreadsheetDate.java (Final)
+1 /* ========================================================================
+2  * JCommon : a free general purpose class library for the Java(tm) platform
+3  * ========================================================================
+4  *
+5  * (C) Copyright 2000-2005, by Object Refinery Limited and Contributors.
+6  *
+...
+52  *
+53  */
+54
+55 package org.jfree.date;
+56
+57 import static org.jfree.date.Month.FEBRUARY;
+58
+59 import java.util.*;
+60
+61 /**
+62  * Represents a date using an integer, in a similar fashion to the
+63  * implementation in Microsoft Excel.  The range of dates supported is
+64  * 1-Jan-1900 to 31-Dec-9999.
+65  * <p/>
+66  * Be aware that there is a deliberate bug in Excel that recognises the year
+67  * 1900 as a leap year when in fact it is not a leap year. You can find more
+68  * information on the Microsoft website in article Q181370:
+69  * <p/>
+70  * http://support.microsoft.com/support/kb/articles/Q181/3/70.asp
+71  * <p/>
+72  * Excel uses the convention that 1-Jan-1900 = 1.  This class uses the
+73  * convention 1-Jan-1900 = 2.
+74  * The result is that the day number in this class will be different to the
+75  * Excel figure for January and February 1900...but then Excel adds in an extra
+76  * day (29-Feb-1900 which does not actually exist!) and from that point forward
+77  * the day numbers will match.
+78  *
+79  * @author David Gilbert
+80  */
+81 public class SpreadsheetDate extends DayDate {
+82   public static final int EARLIEST_DATE_ORDINAL = 2;     // 1/1/1900
+83   public static final int LATEST_DATE_ORDINAL = 2958465; // 12/31/9999
+84   public static final int MINIMUM_YEAR_SUPPORTED = 1900;
+85   public static final int MAXIMUM_YEAR_SUPPORTED = 9999;
+86   static final int[] AGGREGATE_DAYS_TO_END_OF_PRECEDING_MONTH =
+87     {0, 0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365};
+88   static final int[] LEAP_YEAR_AGGREGATE_DAYS_TO_END_OF_PRECEDING_MONTH =
+89     {0, 0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335, 366};
+90
+91   private int ordinalDay;
+92   private int day;
+93   private Month month;
+94   private int year;
+95
+96   public SpreadsheetDate(int day, Month month, int year) {
+97     if (year < MINIMUM_YEAR_SUPPORTED || year > MAXIMUM_YEAR_SUPPORTED)
+98       throw new IllegalArgumentException(
+99         "The 'year' argument must be in range " +
+100         MINIMUM_YEAR_SUPPORTED + " to " + MAXIMUM_YEAR_SUPPORTED + ".");
+101     if (day < 1 || day > DateUtil.lastDayOfMonth(month, year))
+102       throw new IllegalArgumentException("Invalid 'day' argument.");
+103
+104     this.year = year;
+105     this.month = month;

@@ -1,0 +1,24 @@
+Windows example:
+> docker service create --name test `
+--network uber-net `
+--replicas 2 `
+microsoft\powershell:nanoserver Start-Sleep 3600
+Note: The Windows example above uses the backtick character to split
+parameters over multiple lines to make the command more readable.
+The command creates a new service called test, attaches it to the uber-net
+overlay network, and creates two containers (replicas) based on the image
+provided. In both examples we issued a sleep command to the container to keep
+them running and stop them from exiting.
+Because we’re running two containers (replicas) and the Swarm has two nodes,
+one container will run on each node.
+Verify the operation with a docker service ps command.
+$ docker service ps test
+ID          NAME    IMAGE   NODE    DESIRED STATE  CURRENT STATE
+77q...rkx   test.1  ubuntu  node1   Running        Running
+97v...pa5   test.2  ubuntu  node2   Running        Running
+When Swarm starts a container on an overlay network it automatically extends
+that network to the node the container is running on. This means that the uber-
+net network is now visible on node2.
+Congratulations! You’ve created a new overlay network spanning two nodes on
+separate physical underlay networks, and you’ve scheduled two containers on
+the network. How simple was that!

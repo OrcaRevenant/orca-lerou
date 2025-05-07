@@ -1,0 +1,72 @@
+Solutions to Chapter 17 | Moderate
+4
+/* F i l l in subset array with f i r s t part of original array */
+5
+for (int i = 0; i < m ; i++) {
+6
+subset[i] = original[i];
+7
+}
+8
+9
+/* Go through rest of original array. */
+10
+for (int i = m; i < original.length; i++) {
+11
+int k = rand(0, i ) ; II Random # between 0 and i, inclusive
+12
+i f (k < m) {
+13
+subset[k] = original[i];
+14
+}
+15
+>
+16
+17
+return subset;
+18 }
+Both solutions are, not surprisingly, very similar to the algorithm to shuffle an array
+17.4
+Missing Number: An array A contains all the integers from 0 to n, except for one number which
+is missing. In this problem, we cannot access an entire integer in A with a single operation. The
+elements of A are represented in binary, and the only operation we can use to access them is "fetch
+the jth bit of A[i]," which takes constant time. Write code to find the missing integer. Can you do it
+in O(n) time?
+pg 186
+SOLUTION
+You may have seen a very simitar sounding problem: Given a list of numbers from 0 to n, with exactly
+one number removed, find the missing number. This problem can be solved by simply adding the list of
+numbers and comparing it to the actual sum of 0 through n, which is " l n + ,X,The difference will be the
+missing number.
+We could solve this by computing the value of each number, based on its binary representation, and calcu-
+lating the sum.
+The runtime of this solution is n
+*
+l e n g t h ( n ) , when l e n g t h is the number of bits in n. Note that
+l e n g t h (n) - logjfnJ.So, the runtime is actually 0(n l o g ( n ) ) . Not quite good enough!
+So how else can we approach it?
+We can actually use a similar approach, but leverage the bit values more directly.
+Picture a list of binary numbers (the
+indicates the value that was removed):
+00000
+00100
+01000
+01100
+00001
+00101
+01001
+01101
+00010
+00110
+01010
+00111
+01011
+Removing the number above creates an imbalance of Is and Os in the least significant bit, which we'll call
+LSB^In a list of numbers from 0 to n, we would expect there to be the same number of Os as Is (ifn is odd),
+or an additional 0 if n is even. That is;
+if n % 2 == 1 then count(0s) = count(ls)
+if n % 2 == 0 then count(0s) = 1 + count(ls)
+Note that this means that count (0S) is always greater than or equal to count ( I s ) .
+CrackingTheCodinglnterview.com | 6th Edition
+533

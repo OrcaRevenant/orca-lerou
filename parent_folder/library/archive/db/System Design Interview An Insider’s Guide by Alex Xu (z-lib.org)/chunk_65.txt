@@ -1,0 +1,9 @@
+The rehashing problem
+If you have n  cache servers, a common way to balance the load is to use the following hash
+method:
+serverIndex = hash(key) % N, where N is the size of the server pool.
+Let us use an example to illustrate how it works. As shown in Table 5-1, we have 4 servers
+and 8 string keys with their hashes.
+To fetch the server where a key is stored, we perform the modular operation f(key) % 4. For
+instance, hash(key0) % 4 = 1 means a client must contact server 1 to fetch the cached data.
+Figure 5-1 shows the distribution of keys based on Table 5-1.

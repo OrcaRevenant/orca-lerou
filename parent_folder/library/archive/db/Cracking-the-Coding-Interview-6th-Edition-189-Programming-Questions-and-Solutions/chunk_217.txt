@@ -1,0 +1,32 @@
+Solutions to Chapter 1 | Arrays and Strings
+y = e r b o t t l e
+s2 = yx = e r b o t t l e w a t
+So, we need to check if there's a way to split si into x and y such that xy = si and yx = s2. Regardless of
+where the division between x and y is, we can see that yx will always be a substring of xyxy.That is, s 2 will
+always be a substring of s i s 1.
+And this is precisely how we solve the problem; simply do i s $ u b s t r i n g ( s l s l ,
+s2).
+The code below implements this algorithm.
+1
+boolean isRotation(String s i , String s2) {
+2
+i n t len = s l . l e n g t h f ) ;
+3
+/* Check that si and s2 are equal length and not empty */
+4
+if (len == s2.1ength() && len > e) {
+5
+/* Concatenate si and si within new buffer */
+6
+String s l s l = si + s i ;
+7
+return i s S u b s t r l n g ( s l s l , s2);
+8
+>
+9
+return false;
+10
+>
+The runtime of this varies based on the runtime of i s S u b s t r i n g . But if you assume that i s S u b s t r i n g
+runs in 0(A+B) time (on strings of length A and B), then the runtime of i s R o t at i o n isO(N).
+CrackingTheCodinglnterview.com | 6th Edition 199

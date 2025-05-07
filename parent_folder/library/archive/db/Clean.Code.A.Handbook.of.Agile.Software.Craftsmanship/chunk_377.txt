@@ -1,0 +1,42 @@
+349
+Appendix B
+org.jfree.date.SerialDate
+Listing B-1
+SerialDate.Java
+1 /* ========================================================================
+2  * JCommon : a free general purpose class library for the Java(tm) platform
+3  * ========================================================================
+4  *
+5  * (C) Copyright 2000-2005, by Object Refinery Limited and Contributors.
+6  *
+7  * Project Info:  http://www.jfree.org/jcommon/index.html
+8  *
+9  * This library is free software; you can redistribute it and/or modify it
+10  * under the terms of the GNU Lesser General Public License as published by
+11  * the Free Software Foundation; either version 2.1 of the License, or
+12  * (at your option) any later version.
+13  *
+14  * This library is distributed in the hope that it will be useful, but
+15  * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+16  * or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public
+17  * License for more details.
+18  *
+19  * You should have received a copy of the GNU Lesser General Public
+20  * License along with this library; if not, write to the Free Software
+21  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301,
+22  * USA.
+23  *
+24  * [Java is a trademark or registered trademark of Sun Microsystems, Inc.
+25  * in the United States and other countries.]
+26  *
+27  * ---------------
+28  * SerialDate.java
+29  * ---------------
+30  * (C) Copyright 2001-2005, by Object Refinery Limited.
+31  *
+32  * Original Author:  David Gilbert (for Object Refinery Limited);
+33  * Contributor(s):   -;
+34  *
+35  * $Id: SerialDate.java,v 1.7 2005/11/03 09:25:17 mungady Exp $
+36  *
+37  * Changes (from 11-Oct-2001)

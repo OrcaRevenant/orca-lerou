@@ -1,0 +1,82 @@
+Solutions to Chapter 17 | Hard
+17,20 Continuous Median: Numbers are randomly generated and passed to a method. Write a program
+to find and maintain the median value as new values are generated.
+pg 189
+SOLUTIONS
+One solution is to use two priority heaps: a max heap for the values below the median, and a min heap for
+the values above the median.This will divide the elements roughly in half, with the middle two elements as
+the top of the two heaps. This makes it trivial to find the median.
+What do we mean by "roughly in half," though? "Roughly" means that, if we have an odd number of values,
+one heap will have an extra value. Observe that the following is true:
+•
+IfmaxHeap. s i z e ( )
+> minHeap. s i z e ( ),maxHeap.top() will be themedian.
+•
+If maxHeap. s i z e ( )
+== minHeap. s i z e ( ) , then the average ofmaxHeap.top() and minHeap.
+t O p { ) will be the median.
+By the way in which we rebalance the heaps, we will ensure that it is always maxHeap with extra element.
+The algorithm works as follows. When a new value arrives, it is placed in the maxHeap if the value is less
+than or equal to the median, otherwise it is placed into the minHeap. The heap sizes can be equal, or the
+maxHeap may have one extra element. This constraint can easily be restored by shifting an element from
+one heap to the other. The median is available in constant time, by looking at the top element(s). Updates
+t a k e 0 ( l o g ( n ) ) time,
+1
+Comparator^ nteger> maxHeapComparatorj minHeapComparator;
+2
+PriorityQueue<Integer> maxHeap, minHeap;
+3
+4
+void addNewMumben(int randomNumber) {
+5
+/* Note: addNewNumber maintains a condition that
+* maxHeap.size() >= minHeap.size() */
+if (maxHeap.size() == minHeap.size()) {
+8
+if ((minHeap.peek() 1= n u l l ) &&
+9
+randomNumber > minHeap.peek()) {
+16
+maxHeap.offer(minHeap.poll()};
+11
+minHeap.offer(randomNumber);
+12
+} else {
+13
+maxHeap.offer(randomNumber);
+14
+>
+15
+> else {
+16
+if(randomNumber < maxHeap.peek()) {
+17
+minHeap. o f f e r (maxHeap.pollQ);
+18
+maxHeap.offer(randomNumber);
+19
+)
+20
+else {
+21
+minHeap.offer(randomNumber);
+22
+)
+23
+}
+24 >
+25
+26 double getMedian() {
+27
+/* maxHeap is always at least as big as minHeap. So if maxHeap is empty, then
+28
+* minHeap is also. */
+29
+if
+(maxHeap.isEmptyO)
+{
+30
+return 0;
+31
+>
+CrackingTheCodinglnterview.com | 6th Edition S 3 7

@@ -1,0 +1,28 @@
+also puts severe constraints on the creation of objects and generally enforces
+the use of Abstract Factories.
+• Don’t derive from volatile concrete classes. This is a corollary to the
+previous rule, but it bears special mention. In statically typed languages,
+inheritance is the strongest, and most rigid, of all the source code relationships;
+consequently, it should be used with great care. In dynamically typed
+languages, inheritance is less of a problem, but it is still a dependency—and
+caution is always the wisest choice.
+• Don’t override concrete functions. Concrete functions often require source
+code dependencies. When you override those functions, you do not eliminate
+those dependencies—indeed, you inherit them. To manage those dependencies,
+you should make the function abstract and create multiple implementations.
+• Never mention the name of anything concrete and volatile. This is really
+just a restatement of the principle itself.
+FACTORIES
+To comply with these rules, the creation of volatile concrete objects requires
+special handling. This caution is warranted because, in virtually all languages,
+the creation of an object requires a source code dependency on the concrete
+definition of that object.
+In most object-oriented languages, such as Java, we would use an Abstract
+Factory to manage this undesirable dependency.
+The diagram in Figure 11.1 shows the structure. The Application uses the
+ConcreteImpl through the Service interface. However, the Application must
+somehow create instances of the ConcreteImpl. To achieve this without creating
+a source code dependency on the ConcreteImpl, the Application calls the
+makeSvc method of the ServiceFactory interface. This method is implemented
+by the ServiceFactoryImpl class, which derives from ServiceFactory. That
+implementation instantiates the ConcreteImpl and returns it as a Service.

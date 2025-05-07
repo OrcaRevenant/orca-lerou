@@ -1,0 +1,10 @@
+Figure 29.5 Adding in an operating system
+A clean embedded architecture isolates software from the operating system,
+through an operating system abstraction layer (OSAL) (Figure 29.6). In some
+cases, implementing this layer might be as simple as changing the name of a
+function. In other cases, it might involve wrapping several functions together.
+Figure 29.6 The operating system abstraction layer
+If you have ever moved your software from one RTOS to another, you know it is
+painful. If your software depended on an OSAL instead of the OS directly, you
+would largely be writing a new OSAL that is compatible with the old OSAL.
+Which would you rather do: modify a bunch of complex existing code, or write

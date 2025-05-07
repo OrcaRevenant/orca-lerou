@@ -1,0 +1,106 @@
+Solutions to Chapter 7 ] Object-Oriented Design
+42
+if
+(lusers.containsKey(id))
+{
+43
+return f a l s e ;
+44
+}
+45
+users.remove(id);
+46
+return true;
+47
+>
+48 >
+49
+56 public class Display {
+51
+private Book activeBook;
+52
+private User activeUser;
+53
+private i n t pageNumber = 0;
+54
+55
+public void displayUser{User user) {
+56
+activeUser » user;
+57
+refreshUsernameQ;
+58
+}
+59
+60
+public void displayBook(Book book) {
+61
+pageNumber = 0;
+62
+activeBook = book;
+63
+64
+r e f r e s h T i t l e { ) ;
+65
+refreshDetailsQ;
+66
+refreshPage();
+67
+>
+68
+69
+public void turnPageForward{) {
+70
+pageNumber++;
+71
+refreshPage();
+72
+>
+73
+74
+public void turnPageBackward() {
+75
+pageNumber--;
+76
+refreshPage();
+77
+>
+78
+79
+public void refreshUsernameQ { /* updates username display */ }
+80
+public void r e f r e s h T i t l e ( ) { /* updates t i t l e display */ }
+81
+public void refreshDetailsQ { /* updates details display */
+}
+82
+public void refreshPage() { /* updated page display */ )
+83
+}
+The classes for User arid Book simply hold data and provide little true functionality.
+1
+public class Book {
+2
+private i n t bookld;
+3
+private String d e t a i l s ;
+4
+5
+public Book(int i d . String det) {
+6
+bookld = i d ;
+7
+details = det;
+8
+>
+9
+10
+public i n t getID() { return bookld;
+}
+11
+public void setID(int id) { bookld = id; >
+12
+public String getDetails() { return d e t a i l s ; }
+13
+public void setDetails(String d) { details = d; >
+CrackingTheCodinglnterview.com | 6th Edition 3 37

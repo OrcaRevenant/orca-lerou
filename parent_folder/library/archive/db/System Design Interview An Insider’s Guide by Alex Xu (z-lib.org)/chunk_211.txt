@@ -1,0 +1,7 @@
+Video transcoding architecture
+The proposed video transcoding architecture that leverages the cloud services, is shown in
+Figure 14-10.
+The architecture has six main components: preprocessor, DAG scheduler, resource manager,
+task workers, temporary storage, and encoded video as the output. Let us take a close look at
+each component.
+Preprocessor

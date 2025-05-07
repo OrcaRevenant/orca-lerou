@@ -1,0 +1,80 @@
+Solutions to Chapter 16 | Moderate
+3
+)|
+Second, we convert this into a list of populations using map.
+1
+Stream<lnteger> populations = northAmerica.map(
+2
+c -> c.getPopulationf)
+3
+);
+Third and finally, we compute the sum using reduce,
+l
+i n t population = populations.reduce(0j (a, b) -> a + b);
+This function puts it all together.
+1
+int getPopulation(List<Country> countries. String continent) {
+2
+/* Filter countries, */
+3
+Stream<Country> sublist = countries.stream().filter(
+A
+country -> { return country.getContinent().equals(continent)j}
+s
+) ;
+6
+7
+/* Convert to list of populations. */
+8
+Stream<Integer> populations = sublist.map(
+9
+c -> c.getPopulation()
+10
+);
+11
+12
+/* Sum l i s t . */
+13
+int population = populations.reduce(0, (a, b) -> a + b);
+14
+return population;
+15 >
+Alternatively, because of the nature of this specific problem, we can actually remove the f i l t e r entirely.
+The reduce operation can have logic that maps the population of countries not in the right continent to
+zero.The sum will effectively disregard countries notwithin c o n t i n e n t .
+1
+int getPopulation(List<Country> countries, String continent) {
+2
+Stream<lnteger> populations = countries.stream().map(
+3
+c -> c.getContinent().equals(continent) ? c.getPopulation() : 0);
+4
+return populations.reduce(0, (a, b) -> a + b);
+5
+}
+Lambda functions were new to Java 8, so if you don't recognize them, that's probably why. Now is a great
+time to iearn about them, though!
+13.8
+Lambda
+Random:
+Using
+Lambda
+expressions,
+write
+a
+function
+L i s t < I n t e g e r >
+g e t R a n d o m S u b s e t ( L i s t < I n t e g e r >
+l i s t ) that returns a random subset of arbitrary size. All
+subsets (including the empty set) should be equally likely to be chosen.
+pg 439
+SOLUTION
+It's tempting to approach this problem by picking a subset size from 0 to N and then generating a random
+subset of that size.
+That creates two issues:
+1. We'd have to weight those probabilities. If N > 1, there are more subsets of size N/2 than there are of
+subsets of size N (of which there is always only one).
+2. It's actually more difficult to generate a subset of a restricted size (e.g., specifically 10) than it is to
+generate a subset of any size.
+CrackingTheCodinginterview.com | 6th Edition
+439

@@ -1,0 +1,86 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+26
+(SOverride
+27
+public i n t compare(Box x, Box y ) {
+28
+r e t u r n y.height - x , h e i g h t ;
+29
+>
+30 >
+The problem in this code is that it gets very inefficient We try to find the best solution that looks like { b , j
+b^j
+. . . } even though we may have already found the best solution with b4 at the bottom. Instead of
+generating these solutions from scratch, we can cache these results using memoization.
+1
+i n t createStack(ArrayList<Box> boxes) {
+2
+C o l l e c t i o n s . s o r t { b o x e s ,
+new BoxComparator());
+3
+i n t maxHeight = 0;
+4
+i n t [ j stackMap = new i n t [ b o x e s . s i z e ( ) ] ;
+5
+f o r ( i n t i = 0; i < b o x e s . s i z e ( ) ; i++) {
+6
+i n t height = createStack(boxes,
+i,
+stackMap);
+7
+maxHeight = Math.max(maxHeight, h e i g h t ) ;
+8
+}
+9
+r e t u r n maxHeight;
+10
+)
+11
+12 i n t createStack(ArrayList<Box> boxes, i n t bottomlndex, i n t [ ] stackMap) {
+13
+if (bottomlndex < boxes.size() S& stackMapfbottomlndex] > 0) {
+14
+r e t u r n stackMap[bottomIndex];
+15
+>
+16
+17
+Box bottom = boxes.get(bottomlndex);
+18
+i n t maxHeight = 0;
+19
+f o r ( i n t i = bottomlndex + 1; i < boxes.sizeQ; i++) {
+20
+if
+(boxes.get(i).canBeAbove(bottom))
+{
+21
+i n t height = createStack(boxes, i, stackMap);
+22
+maxHeight = Math.max(height, maxHeight);
+23
+}
+24
+}
+25
+maxHeight += bottom.height;
+26
+stackMapfbottomlndex] a maxHeight;
+27
+return maxHeight;
+28 }
+Because we're only mapping from an index to a height, we can just use an integer array for our "hash table."
+Be very careful here with what each spot in the hash table represents. In this code, stackMap [ i ] repre-
+sents the tallest stack with box i at the bottom. Before pulling the value from the hash table, you have to
+ensure that box i can be placed on top of the current bottom.
+It helps to keep the line that recalls from the hash table symmetric with the one that inserts. For example, in
+this code, we recall from the hash table with b o t t o m l n d e x at the start of the method. We insert into the
+hash table with b o t t o m l n d e x at the end.
+Solution #2
+Alternatively, we can think about the recursive algorithm as making a choice, at each step, whether to put
+a particular box in the stack. (We will again sort our boxes In descending order by a dimension, such as
+height.)
+First, we choose whether or not to put box 0 in the stack. Take one recursive path with box 0 at the bottom
+and one recursive path without box 0. Return the better of the two options.
+CrackingTheCodinglnterview.com [ 6th Edition
+3 S1

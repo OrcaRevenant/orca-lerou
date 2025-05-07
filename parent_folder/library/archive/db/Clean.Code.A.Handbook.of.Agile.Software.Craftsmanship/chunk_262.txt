@@ -1,0 +1,57 @@
+232
+Chapter 14: Successive Reﬁnement
+private boolean parse() throws ParseException {
+if (schema.length() == 0 && argsList.size() == 0)
+return true;
+parseSchema();
+try {
+parseArguments();
+} catch (ArgsException e) {
+}
+return valid;
+}
+---
+private boolean parseArguments() throws ArgsException {
+for (currentArgument = argsList.iterator(); currentArgument.hasNext();) {
+String arg = currentArgument.next();
+parseArgument(arg);
+}
+return true;
+}
+---
+private void setIntArg(ArgumentMarshaler m) throws ArgsException {
+String parameter = null;
+try {
+parameter = currentArgument.next();
+m.set(parameter);
+} catch (NoSuchElementException e) {
+errorCode = ErrorCode.MISSING_INTEGER;
+throw new ArgsException();
+} catch (ArgsException e) {
+errorParameter = parameter;
+errorCode = ErrorCode.INVALID_INTEGER;
+throw e;
+}
+}
+private void setStringArg(ArgumentMarshaler m) throws ArgsException {
+try {
+m.set(currentArgument.next());
+} catch (NoSuchElementException e) {
+errorCode = ErrorCode.MISSING_STRING;
+throw new ArgsException();
+}
+}
+These were simple changes that kept all the tests passing. Now we can start moving the set
+functions down into the appropriate derivatives. First, I need to make the following change
+in setArgument:
+private boolean setArgument(char argChar) throws ArgsException {
+ArgumentMarshaler m = marshalers.get(argChar);
+if (m == null)
+return false;
+try {
+if (m instanceof BooleanArgumentMarshaler)
+setBooleanArg(m);
+else if (m instanceof StringArgumentMarshaler)
+setStringArg(m);
+else if (m instanceof IntegerArgumentMarshaler)
+setIntArg(m);

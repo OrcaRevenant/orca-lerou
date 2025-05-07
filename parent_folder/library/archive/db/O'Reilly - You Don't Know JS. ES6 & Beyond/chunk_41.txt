@@ -1,0 +1,42 @@
+// taken from: http://es-discourse.com/t/partial-default-arguments/120/7
+var defaults = {
+options: {
+remove: true,
+enable: false,
+instance: {}
+},
+log: {
+warn: true,
+error: true
+}
+};
+Now, let’s say that you have an object called config, which has some of these applied,
+but perhaps not all, and you’d like to set all the defaults into this object in the missing
+spots, but not override specific settings already present:
+var config = {
+options: {
+remove: false,
+instance: null
+}
+};
+You can of course do so manually, as probably some of you have done in the past:
+config.options = config.options || {};
+config.options.remove = (config.options.remove !== undefined) ?
+config.options.remove : defaults.options.remove;
+config.options.enable = (config.options.enable !== undefined) ?
+config.options.enable : defaults.options.enable;
+...
+Yuck.
+Others may prefer the assign-overwrite approach to this task. You might be tempted
+by the ES6 Object.assign(..) (see Chapter 6) utility to clone the properties first
+from defaults and then overwritten with the cloned properties from config, as so:
+config = Object.assign( {}, defaults, config );
+That looks way nicer, huh? But there’s a major problem! Object.assign(..) is shal‐
+low, which means when it copies defaults.options, it just copies that object refer‐
+ence, not deep cloning that object’s properties to a config.options object.
+Object.assign(..) would need to be applied (sort of “recursively”) at all levels of
+your object’s tree to get the deep cloning you’re expecting.
+30
+|
+Chapter 2: Syntax
+www.it-ebooks.info

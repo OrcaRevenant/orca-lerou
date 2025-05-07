@@ -1,0 +1,32 @@
+connections. A single pair of copper wires could carry hundreds of conversations
+in digital form.
+In response, the phone companies embarked upon the process of replacing their
+old analog central switching equipment with modern digital switches.
+Our 4-Tel product tested copper wires, not digital connections. There were still
+plenty of copper wires in a digital environment, but they were much shorter than
+before, and they were localized near the customer’s telephones. The signal
+would be carried digitally from the central office to a local distribution point,
+where it would be converted back to an analog signal and distributed to the
+customer over standard copper wires. This meant that our measurement device
+needed to be located out where the copper wires began, but our dialing device
+needed to remain at the central office. The problem was that all our COLTs
+embodied both dialing and measurement in the same device. (We could have
+saved ourselves a fortune had we recognized that obvious architectural boundary
+a few years earlier!)
+Thus we conceived of a new product architecture: the CCU/CMU (the COLT
+control unit and the COLT measurement unit). The CCU would be located at the
+central switching office, and would handle the dialing of the phone lines to be
+tested. The CMU would be located at the local distribution points, and would
+measure the copper wires that led to the customer’s phone.
+The problem was that for each CCU, there were many CMUs. The information
+about which CMU should be used for each phone number was held by the digital
+switch itself. Thus the CCU had to interrogate the digital switch to determine
+which CMU to communicate with and control.
+We promised the phone companies that we would have this new architecture
+working in time for their transition. We knew they were months, if not years
+away, so we did not feel rushed. We also knew that it would take several man-
+years to develop this new CCU/CMU hardware and software.
+THE SCHEDULE TRAP
+As time went on, we found that there were always urgent matters that required us
+to postpone development of the CCU/CMU architecture. We felt safe about this
+decision because the phone companies were consistently delaying the

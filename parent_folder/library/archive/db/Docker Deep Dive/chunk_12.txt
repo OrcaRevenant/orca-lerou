@@ -1,0 +1,29 @@
+Modern containers started in the Linux world and are the product of an immense
+amount of work from a wide variety of people over a long period of time. Just as
+one example, Google Inc. has contributed many container-related technologies to
+the Linux kernel. Without these, and other contributions, we wouldn’t have
+modern containers today.
+Some of the major technologies that enabled the massive growth of containers in
+recent years include kernel namespaces, control groups, and of course Docker.
+To re-emphasize what was said earlier - the modern container ecosystem is
+deeply indebted to the many individuals and organizations that laid the strong
+foundations that we currently build on!
+Despite all of this, containers remained complex and outside of the reach of most
+organizations. It wasn’t until Docker came along that containers were effectively
+democratized and accessible to the masses.
+* There are many operating system virtualization technologies similar to
+containers that pre-date Docker and modern containers. Some even date
+back to System/360 on the Mainframe. BSD Jails and Solaris Zones are
+some other well-known examples of Unix-type container technologies.
+However, in this section we are restricting our conversation and comments
+to modern containers that have been made popular by Docker.
+Hello Docker!
+We’ll talk about Docker in a bit more detail in the next chapter. But for now, it’s
+enough to say that Docker was the magic that made Linux containers usable for
+mere mortals. Put another way, Docker, Inc. made containers simple!
+Windows containers
+Over the past few years, Microsoft Corp. has worked extremely hard to bring
+Docker and container technologies to the Windows platform.
+At the time of writing, Windows containers are available on the Windows 10 and
+Windows Server 2016 platforms. In achieving this, Microsoft has worked closely
+with Docker, Inc.

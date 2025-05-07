@@ -1,0 +1,8 @@
+SMS message
+For SMS messages, third party SMS services like Twilio [1], Nexmo [2], and many others are
+commonly used. Most of them are commercial services.
+Email
+Although companies can set up their own email servers, many of them opt for commercial
+email services. Sendgrid [3] and Mailchimp [4] are among the most popular email services,
+which offer a better delivery rate and data analytics.
+Figure 10-6 shows the design after including all the third-party services.

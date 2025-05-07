@@ -1,0 +1,87 @@
+II | Hints for Concepts and Algorithms
+#215.
+5.1
+It's easy to create a bit mask of Osat the beginning or end. But how do you create a bit
+mask with a bunch of zeroes in the middle? Do it the easy way; Create a bit mask for the
+left side and then another one for the right side. Then you can merge those.
+#216.
+7.11
+What is the relationship between files and directories?
+#217.
+8.1
+We can compute the number of steps to 100 by the number of steps to 99, 98, and 97.
+This corresponds to the child hopping 1, 2, or 3 steps at the end. Do we add those or
+multiply them? That is: Is it f (100)
+= f ( 9 9 )
++ f ( 9 8 )
++ f (97) o r f ( 1 0 0 )
+=
+f ( 9 9 )
+* f ( 9 8 )
+* f ( 9 7 ) ?
+#218.
+6.6
+This is a logic problem, not a clever word problem. Use logic/math/algorithms to solve
+it.
+#219.
+10.11
+Try walking through a sorted array. Can you just swap elements until you have fixed the
+array?
+#220.
+11,5
+Have you considered both intended uses (writing, etc.) and unintended use? What
+about safety? You would not want a pen for children to be dangerous.
+#221.
+6.10
+Solution 2: Be very careful about edge cases. What if the third digit in the bottle number
+matches the first or second digit?
+#222.
+8.8
+Try getting the count of each character. For example, ABCAAC has 3 As, 2 Cs, and 1 B.
+#223.
+9.6
+Don't forget that a product can be listed under multiple categories.
+#224.
+8.6
+You can easily move the smallest disk from one tower to another. It's also pretty easy
+to move the smallest two disks from one tower to another. Can you move the smallest
+three disks?
+#225.
+11.6
+In a real interview, you would also want to discuss what sorts of test tools we have avail-
+able.
+#226.
+5.3
+Flipping a 0 to a 1 can merge two sequences of 1 s—but only if the two sequences are
+separated by only one 0.
+#227.
+8.5
+Think about how you might handle this for odd numbers.
+#228.
+7.8
+What class should maintain the score?
+#229.
+10.9
+If you're considering a particular column, is there a way to quickly eliminate it (in some
+cases at least)?
+#230.
+6.10
+Solution 2: You can run an additional day of testing to check digit 3 in a different way.
+But again, be very careful about edge cases here.
+#231,
+10.11
+Note that if you ensure the peaks are in place, the valleys will be, too. Therefore, your
+iteration to fix the array can skip over every other element.
+#232,
+9.8
+If you generate URLs randomly, do you need to worry about collisions (two documents
+with the same URL)? If so, how can you handle this?
+#233.
+6.8
+As a first approach, you might try something like binary search. Drop it from the 50th
+floor, then the 75th, then the 88th, and so on. The problem is that if the first egg drops
+at the 50th floor, then you'll need to start dropping the second egg starting from the 1st
+floor and going up. This could take, at worst, 50 drops (the 50th floor drop, the 1 st floor
+drop, the 2nd floor drop, and up through the 49th floor drop). Can you beat this?
+664
+Cracking the Coding interview, 6th Edition

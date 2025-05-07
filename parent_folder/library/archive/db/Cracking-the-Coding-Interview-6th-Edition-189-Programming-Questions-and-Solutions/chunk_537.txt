@@ -1,0 +1,115 @@
+Solutions to Chapter 16 | Moderate
+67
+* something like: [{BLANK,3), {SUBTRACT, 5}> {MULTIPLY, 6}],
+68
+* If improperly formatted, returns null. */
+69
+public static ArrayList<Term> parseTermSequence(String sequence) {
+70
+/* Code can be found in downloadable solutions. */
+71
+>
+72 >
+This takes 0(N) time, where N is the length of the initial string.
+Solution #2
+Alternatively, we can solve this problem using two stacks: one for numbers and one for operators.
+2 - 6 - 7 * 8 / 2 + 5
+The processing works as follows:
+*
+Each time we see a number, it gets pushed onto numberStack.
+•
+Operators get pushed onto operatorStack—as long as the operator has higher priority than the
+current top of the stack. If p r i o r i t y ( c u r r e n t O p e r a t o r )
+<=
+p r i o r i t y f o p e r a t o r S t a c k .
+t o p ( ) ) , then we "collapse" the top of the stacks:
+»
+Collapsing: pop two elements off numberStack, pop an operator off operatorStack, apply
+the operator, and push the result onto numberStack.
+»
+Priority: addition and subtraction have equal priority, which is lower than the priority of multipli-
+cation and division (also equal priority).
+This collapsing continues until the above inequality is broken, at which point c u r r e n t O p e r a t o r is
+pushed onto operatorStack,
+•
+At the very end, we collapse the stack.
+Let's see this with an example: 2 - 6- 7 * 8 / 2 + 5
+a c t i o n
+numberStack
+operatorStack
+2
+numberStack.push(2)
+2
+[empty]
+-
+o p e r a t o r S t a c k . p u s h ( - )
+2
+-
+6
+numberStack.push(6)
+6, 2
+-
+-
+collapseStacks
+[2 - 6]
+- 4
+[empty]
+o p e r a t o r S t a c k . p u s h ( - )
+- 4
+-
+7
+numberStack.push(7)
+7,
+- 4
+-
+*
+o p e r a t o r S t a c k . p u s h ( * )
+7,
+- 4
+* ,
+8
+numberStack.push(8)
+8, 7,
+-4
+*
+>
+/
+c o l l a p s e S t a c k
+[7 * 8]
+56,
+- 4
+-
+numberStack,push(/)
+56,
+-4
+/, -
+2
+numberStack.push(2)
+2, 36,
+- 4
+/, -
++
+c o l l a p s e S t a c k
+[56 / 2]
+28,
+- 4
+-
+c o l l a p s e S t a c k [ - 4 - 28]
+-32
+[empty]
+o p e r a t o r S t a c k . p u s h ( + )
+-32
++
+5
+numberStack.push( 5)
+5,
+-32
++
+c o l l a p s e S t a c k
+[ - 3 2 + 5]
+-27
+[empty]
+r e t u r n
+-27
+CrackingTheCodinglnterview.com | 6th Edition
+495

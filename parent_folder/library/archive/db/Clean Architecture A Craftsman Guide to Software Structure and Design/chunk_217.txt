@@ -1,0 +1,15 @@
+higher-level policy, such as FoundFood or FellInPit. The higher-level policy
+would then manage the state of the player (as shown in Figure 25.6). Eventually
+that policy would decide whether the player wins or loses.
+Figure 25.6 The higher-level policy manages the player
+Is this an architectural boundary? Do we need an API that separates
+MoveManagement from PlayerManagement? Well, let’s make this a bit more
+interesting and add micro-services.
+Let’s assume that we’ve got a massive multiplayer version of Hunt the Wumpus.
+MoveManagement is handled locally within the player’s computer, but
+PlayerManagement is handled by a server. PlayerManagement offers a micro-
+service API to all the connected MoveManagement components.
+The diagram in Figure 25.7 depicts this scenario in a somewhat abbreviated
+fashion. The Network elements are a bit more complex than depicted—but you
+can probably still get the idea. A full-fledged architectural boundary exists
+between MoveManagement and PlayerManagement in this case.

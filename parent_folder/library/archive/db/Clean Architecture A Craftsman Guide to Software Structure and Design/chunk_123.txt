@@ -1,0 +1,23 @@
+consider.
+When it is time to release the whole system, the process proceeds from the
+bottom up. First the Entities component is compiled, tested, and released. Then
+the same is done for Database and Interactors. These components are
+followed by Presenters, View, Controllers, and then Authorizer. Main goes
+last. This process is very clear and easy to deal with. We know how to build the
+system because we understand the dependencies between its parts.
+THE EFFECT OF A CYCLE IN THE COMPONENT
+DEPENDENCY GRAPH
+Suppose that a new requirement forces us to change one of the classes in
+Entities such that it makes use of a class in Authorizer. For example, let’s say
+that the User class in Entities uses the Permissions class in Authorizer. This
+creates a dependency cycle, as shown in Figure 14.2.
+This cycle creates some immediate problems. For example, the developers
+working on the Database component know that to release it, the component
+must be compatible with Entities. However, with the cycle in place, the
+Database component must now also be compatible with Authorizer. But
+Authorizer depends on Interactors. This makes Database much more difficult
+to release. Entities, Authorizer, and Interactors have, in effect, become one
+large component—which means that all of the developers working on any of
+those components will experience the dreaded “morning after syndrome.” They
+will be stepping all over one another because they must all use exactly the same
+release of one another’s components.

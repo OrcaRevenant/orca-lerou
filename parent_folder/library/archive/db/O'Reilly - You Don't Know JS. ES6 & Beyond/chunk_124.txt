@@ -1,0 +1,39 @@
+Of course, we can import and use both of them if we want to:
+import foo from "foo";
+import bar from "bar";
+foo( 25 );              // 11
+bar( 25 );              // 11.5
+The static loading semantics of the import statement mean that a "foo" and "bar"
+which mutually depend on each other via import will ensure that both are loaded,
+parsed, and compiled before either of them runs. So their circular dependency is stat‐
+ically resolved and this works as you’d expect.
+Module Loading
+We asserted at the beginning of this “Modules” section that the import statement uses
+a separate mechanism, provided by the hosting environment (browser, Node.js, etc.),
+to actually resolve the module specifier string into some useful instruction for finding
+and loading the desired module. That mechanism is the system Module Loader.
+The default module loader provided by the environment will interpret a module
+specifier as a URL if in the browser, and (generally) as a local file system path if on a
+server such as Node.js. The default behavior is to assume the loaded file is authored in
+the ES6 standard module format.
+Moreover, you will be able to load a module into the browser via an HTML tag, simi‐
+lar to how current script programs are loaded. At the time of this writing, it’s not fully
+clear if this tag will be <script type="module"> or <module>. ES6 doesn’t control
+that decision, but discussions in the appropriate standards bodies are already well
+along in parallel of ES6.
+Whatever the tag looks like, you can be sure that under the covers it will use the
+default loader (or a customized one you’ve pre-specified — see below).
+Just like the tag you’ll use in markup, the module loader itself is not specified by ES6.
+It is a separate, parallel standard (http://whatwg.github.io/loader/) controlled currently
+by the WHATWG browser standards group.
+At the time of this writing, the following discussions reflect the expected API design,
+but of course things are subject to change.
+Loading Modules Outside Of Modules
+One use for interacting directly with the module loader is if a non-module needs to
+load a module. Consider:
+// normal script loaded in browser via `<script>`,
+// `import` is illegal here
+Modules
+|
+113
+www.it-ebooks.info

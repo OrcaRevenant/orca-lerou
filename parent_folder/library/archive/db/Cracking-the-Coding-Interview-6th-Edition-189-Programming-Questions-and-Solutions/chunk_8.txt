@@ -1,0 +1,75 @@
+Introduction
+Chapter 3 j Stacks and Queues
+96
+Implementing a Stack
+96
+Implementing a Queue
+97
+Chapter 4 | Trees and Graphs
+100
+Types of Trees
+100
+Binary Tree Traversal
+103
+Binary Heaps (Min-Heaps and Max-Heaps)
+103
+Tries (Prefix Trees)
+105
+Graphs
+105
+Graph Search
+107
+Concepts and Algorithms
+112
+Chapter 5 j Bit Manipulation
+112
+Bit Manipulation By Hand
+112
+Bit Facts and Tricks
+112
+Two's Complement and Negative Numbers
+113
+Arithmetic vs. Logical Right Shift
+113
+Common Bit Tasks: Getting and Setting
+114
+Chapter 6 j Math and Logic Puzzles
+117
+Prime Numbers
+117
+Probability
+119
+Start Talking
+121
+Develop Rules and Patterns
+121
+Worst Case Shifting
+122
+Algorithm Approaches
+122
+Chapter 7 | Object-Oriented Design
+125
+How to Approach
+125
+Design Patterns
+126
+Chapter 81 Recursion and Dynamic Programming
+130
+How to Approach
+130
+Recursive vs. Iterative Solutions
+131
+Dynamic Programming & Memoization
+131
+Chapter 9 | System Design and Scalability
+137
+Handling the Questions
+137
+Design: Step-By-Step
+13S
+Algorithms that Scale: Step-By-Step
+139
+KeyConcepts
+140
+V I M
+Cracking the Coding Interview, 6th Edition

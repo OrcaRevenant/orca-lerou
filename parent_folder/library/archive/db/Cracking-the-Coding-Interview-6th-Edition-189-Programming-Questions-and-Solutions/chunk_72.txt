@@ -1,0 +1,59 @@
+VII j Technical Questions
+> Walking Through a Problem
+The below map/flowchart walks you through how to solve a problem. Use this in your practice. You can
+download this handout and more at CrackingTheCodinglnterview.com.
+A Problem-Solving Flowchart
+Listen
+Example
+Pay very close attention to any
+information in the problem description.
+You probably need it all for an optimal
+algorithm.
+Test
+Test in this order:
+1. Conceptual test. Walk through your code
+like you would for a detailed code review.
+2. Unusual or non-standard code.
+3. Hot spots, like arithmetic and null nodes.
+4. Small test cases. It's much faster than a big
+test case and just as effective.
+5. Special cases and edge cases.
+And when you find bugs, fix them carefully!
+Implement
+Your goal is to write beautiful code.
+Modularize your code from the
+— — -
+beginning and refactor to clean up
+anything that isn't beautiful.
+Keep talking! Your interviewer wants to
+hear how you approach the problem.
+Most examptes are too small or are special
+cases. Debug your example. Is there any
+way it's a special case? Is it big enough?
+Brute Force *«•--
+Get a brute-force solution as soon as
+possible. Don't worry about developing
+an efficient algorithm yet. State a naive
+algorithm and its runtime, then optimize
+from there. Don't code yet though!
+Optimize
+Walk through your brute force with BUD
+optimization or try some of these ideas:
+• Look for any unused info. You usually
+need all the information in a problem.
+• Solve it manually on an example, then
+reverse engineer your thought process.
+How did you solve it?
+• Solve it "incorrectly" and then think about
+why the algorithm fails. Can you fix those
+issues?
+• Make a time vs. space tradeoff. Hash
+tables are especially useful!
+WalkThrough
+-
+Now that you have an optimal solution, walk
+through your approach in detail. Make sure
+you understand each detail before you start
+coding.
+61
+Cracking the Coding Interview, 6th Edition

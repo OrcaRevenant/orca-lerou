@@ -1,0 +1,43 @@
+61
+Bad Comments
+What purpose does this comment serve? It’s certainly not more informative than the
+code. It does not justify the code, or provide intent or rationale. It is not easier to read than
+the code. Indeed, it is less precise than the code and entices the reader to accept that lack of
+precision in lieu of true understanding. It is rather like a gladhanding used-car salesman
+assuring you that you don’t need to look under the hood.
+Now consider the legion of useless and redundant javadocs in Listing 4-2 taken from
+Tomcat. These comments serve only to clutter and obscure the code. They serve no docu-
+mentary purpose at all. To make matters worse, I only showed you the ﬁrst few. There are
+many more in this module.
+Listing 4-2
+ContainerBase.java (Tomcat)
+public abstract class ContainerBase
+implements Container, Lifecycle, Pipeline,
+MBeanRegistration, Serializable {
+/**
+* The processor delay for this component.
+*/
+protected int backgroundProcessorDelay = -1;
+/**
+* The lifecycle event support for this component.
+*/
+protected LifecycleSupport lifecycle =
+new LifecycleSupport(this);
+/**
+* The container event listeners for this Container.
+*/
+protected ArrayList listeners = new ArrayList();
+/**
+* The Loader implementation with which this Container is
+* associated.
+*/
+protected Loader loader = null;
+/**
+* The Logger implementation with which this Container is
+* associated.
+*/
+protected Log logger = null;
+/**
+* Associated logger name.
+*/
+protected String logName = null;

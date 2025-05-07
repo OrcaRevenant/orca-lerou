@@ -1,0 +1,30 @@
+DOES IT BLEND ?
+169
+team should be composed of programmers, testers, and analysts. And it should
+have a project manager.
+The ratio of programmers to testers and analysts can vary greatly, but 2:1 is a
+good number. So a nicely gelled team of twelve might have seven programmers,
+two testers, two analysts, and a project manager.
+The analysts develop the requirements and write automated acceptance tests for
+them. The testers also write automated acceptance tests. The difference between
+the two is perspective. Both are writing requirements. But analysts focus on
+business value; testers focus on correctness. Analysts write the happy path cases;
+testers worry about what might go wrong, and write the failure and boundary
+cases.
+The project manager tracks the progress of the team, and makes sure the team
+understands the schedules and priorities.
+One of the team members may play a part-time role of coach, or master, with
+responsibility for defending the team’s process and disciplines. They act as the
+team conscience when the team is tempted to go off-process because of
+schedule pressure.
+Fermentation
+It takes time for a team like this to work out their differences, come to terms
+with each other, and really gel. It might take six months. It might even take a
+year. But once it happens, it’s magic. A gelled team will plan together, solve
+problems together, face issues together, and get things done.
+Once this happens, it is ludicrous to break it apart just because a project
+comes to an end. It’s best to keep that team together and just keep feeding it
+projects.
+Which Came First, the Team or the Project?
+Banks and insurance companies tried to form teams around projects. This is a
+foolish approach. The teams simply cannot gel. The individuals are only on the

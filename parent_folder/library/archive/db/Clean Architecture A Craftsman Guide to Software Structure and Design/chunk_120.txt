@@ -1,0 +1,32 @@
+only to arrive the next morning to find that your stuff no longer works? Why
+doesn’t it work? Because somebody stayed later than you and changed
+something you depend on! I call this “the morning after syndrome.”
+The “morning after syndrome” occurs in development environments where
+many developers are modifying the same source files. In relatively small projects
+with just a few developers, it isn’t too big a problem. But as the size of the
+project and the development team grow, the mornings after can get pretty
+nightmarish. It is not uncommon for weeks to go by without the team being able
+to build a stable version of the project. Instead, everyone keeps on changing and
+changing their code trying to make it work with the last changes that someone
+else made.
+Over the last several decades, two solutions to this problem have evolved, both
+of which came from the telecommunications industry. The first is “the weekly
+build,” and the second is the Acyclic Dependencies Principle (ADP).
+THE WEEKLY BUILD
+The weekly build used to be common in medium-sized projects. It works like
+this: All the developers ignore each other for the first four days of the week.
+They all work on private copies of the code, and don’t worry about integrating
+their work on a collective basis. Then, on Friday, they integrate all their changes
+and build the system.
+This approach has the wonderful advantage of allowing the developers to live in
+an isolated world for four days out of five. The disadvantage, of course, is the
+large integration penalty that is paid on Friday.
+Unfortunately, as the project grows, it becomes less feasible to finish integrating
+the project on Friday. The integration burden grows until it starts to overflow
+into Saturday. A few such Saturdays are enough to convince the developers that
+integration should really begin on Thursday—and so the start of integration
+slowly creeps toward the middle of the week.
+As the duty cycle of development versus integration decreases, the efficiency of
+the team decreases, too. Eventually this situation becomes so frustrating that the
+developers, or the project managers, declare that the schedule should be changed
+to a biweekly build. This suffices for a time, but the integration time continues to

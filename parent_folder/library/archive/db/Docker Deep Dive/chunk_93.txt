@@ -1,0 +1,37 @@
+root@9cb2d2fd1d65:/tmp# echo "DevOps FTW" > newfile
+root@9cb2d2fd1d65:/tmp#
+root@9cb2d2fd1d65:/tmp# ls -l
+total 4
+-rw-r--r-- 1 root root 14 May 23 11:22 newfile
+root@9cb2d2fd1d65:/tmp#
+root@9cb2d2fd1d65:/tmp# cat newfile
+DevOps FTW
+Press Ctrl-PQ to exit the container without killing it.
+Now use the docker container stop command to stop the container and put in
+on vacation.
+$ docker container stop percy
+percy
+You can use the container’s name or ID with the docker container stop
+command. The format is docker container stop <container-id or
+container-name>.
+Now run a docker container ls command to list all running containers.
+$ docker container ls
+CONTAINER ID   IMAGE   COMMAND   CREATED  STATUS  PORTS   NAMES
+The container is not listed in the output above because you put it in the stopped
+state with the docker container stop command. Run the same command
+again, only this time add the -a flag to show all containers including those that
+are stopped.
+$ docker container ls -a
+CNTNR ID  IMAGE          COMMAND    CREATED  STATUS      NAMES
+9cb...65  ubuntu:latest  /bin/bash  4 mins   Exited (0)  percy
+Now we can see the container showing as Exited (0). Stopping a container is
+like stopping a virtual machine. Although it’s not currently running, its entire
+configuration and contents still exist on the filesystem of the Docker host and it
+can be restarted at any time.
+Let’s use the docker container start command to bring it back from vacation.
+$ docker container start percy
+percy
+$
+$ docker container ls
+CONTAINER ID  IMAGE          COMMAND      CREATED  STATUS     NAMES
+9cb2d2fd1d65  ubuntu:latest  "/bin/bash"  4 mins   Up 3 secs  percy

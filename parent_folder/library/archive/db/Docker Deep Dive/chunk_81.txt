@@ -1,0 +1,26 @@
+Chapter summary
+In this chapter we learned about Docker images. We learned that they are like
+virtual machine templates and are used to start containers. Under the hood they
+are made up one or more read-only layers that when stacked together make up
+the overall image.
+We used the docker image pull command to pull some images into our Docker
+host’s local registry.
+We covered image naming, official and unofficial repos, layering, sharing, and
+crypto IDs.
+We finished off by looking at some of the most common commands used to
+work with images.
+In the next chapter we’ll take a similar tour of containers - the runtime cousin of
+images.
+
+7: Containers
+Now that we know a bit about images, it’s time to get into containers. As this is a
+book about Docker, we’ll be talking specifically about Docker containers.
+However, the Docker project has been hard at work implementing the image and
+container specs published by the Open Containers Initiative (OCI) at
+https://www.opencontainers.org. This means some of what you learn here will
+apply to other container runtimes that are OCI compliant.
+We’ll split this chapter into the usual three parts:
+The TLDR
+The deep dive
+The commands
+Let’s go and learn about containers!

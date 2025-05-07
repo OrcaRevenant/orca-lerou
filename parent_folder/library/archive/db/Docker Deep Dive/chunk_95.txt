@@ -1,0 +1,34 @@
+$ docker container stop percy
+percy
+$
+$ docker container rm percy
+percy
+$
+$ docker container ls -a
+CONTAINER ID    IMAGE      COMMAND    CREATED  STATUS     PORTS      NAMES
+The container is now deleted - literally wiped off the face of the planet. If it was
+a good container, it becomes a unikernel in the afterlife. If it was a naughty
+container, it becomes a dumb terminal :-D
+To summarize the lifecycle of a container… You can stop, start, pause, and
+restart a container as many times as you want. And it’ll all happen really fast.
+But the container and it’s data will always be safe. It’s not until you explicitly
+kill a container that you run any chance of losing its data. And even then, if
+you’re storing container data in a volume, that data’s going to persist even after
+the container has gone.
+Let’s quickly mention why we recommended a two-stage approach of stopping
+the container before deleting it.
+Stopping containers gracefully
+Most containers in the Linux world will run a single process. In the Windows
+world they run a few processes, but the following rules still apply.
+In our previous example the container was running the /bin/bash program.
+When you kill a running container with docker container rm <container> -f
+the container will be killed without warning. The procedure is quite violent - a
+bit like sneaking up behind the container it and shooting it in the back of the
+head. You’re literally giving the container, and the process it’s running, no
+chance to straighten its affairs before being killed.
+However, the docker container stop command is far more polite (like
+pointing a gun to the containers head and saying “you’ve got 10 seconds to say
+any final words”). It gives the process inside of the container a heads-up that it’s
+about to be stopped, giving it a chance to get things in order before the end
+comes. Once the docker stop command returns, you can then delete the
+container with docker container rm.

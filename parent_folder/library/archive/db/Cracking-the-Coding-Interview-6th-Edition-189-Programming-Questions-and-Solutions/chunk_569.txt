@@ -1,0 +1,88 @@
+Solutions to Chapter 17 | Hard
+2
+HashMapList<String, Integer> locations) {
+3
+ArrayList<lnteger> locationsl = locations.get(wordl);
+4
+ArrayList<Integer> locations2 = locations.get(word2);
+5
+return findflinDistancePair(locationsl,
+locations2);
+6
+>
+7
+8
+LocationPair findMinDistancePair(ArrayList<Integer> arrayl,
+9
+ArrayList<Integer> array2) {
+10
+if (arrayl == n u l l
+array2 == n u l l || a r r a y l . s i z e Q == 0 | |
+11
+array2.size() == 0) {
+12
+return n u l l ;
+13
+>
+14
+15
+i n t indexl = 0;
+16
+i n t index2 = 0;
+17
+LocationPair best = new LocationPair(arrayl,get(0), array2.get(0));
+18
+LocationPair current = new LocationPair(arrayl.get(0), array2.get(0));
+19
+20
+while (indexl < a r r a y l . s i z e ( ) &5 index2 < array2.size()) {
+21
+current.setLocations(arrayl.get(indexl),
+array2.get(index2));
+22
+best.updateWithMin(current);
+// If shorter,
+update values
+23
+if ( c u r r e n t . l o c a t i o n l < current.location2) •{
+24
+indexl++;
+25
+) else {
+26
+index2++;
+27
+}
+28
+}
+29
+30
+return best;
+31
+}
+32
+33 /* Precomputation.
+*/
+34 HashMapList<String, Integer> getWordLocations(String[] words) {
+35
+HashMapListcString, Integer> locations = new HashMapList<String, Integer>();
+36
+f o r ( i n t i = 0; i < words.length; i++) {
+37
+locations.put(words[i],
+i ) ;
+38
+>
+39
+return locations;
+40 >
+41
+42 /* HashMapListcString, Integer> is a HashMap that maps from Strings to
+43
+* ArrayList<lnteger>. See appendix for implementation. */
+The precomputation step of this algorithm will take 0(N) time, where N is the number of words in the
+string.
+Findi ng the closest pa ir of locations wi II ta ke 0 (A + B) time, where A is the number of occurrences of the
+first word and B is the number of occurrences of the second word.
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

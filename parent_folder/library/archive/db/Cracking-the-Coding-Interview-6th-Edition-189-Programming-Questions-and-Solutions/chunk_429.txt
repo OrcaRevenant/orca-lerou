@@ -1,0 +1,50 @@
+Solutions to Chapter 11 | Testing
+•
+Test with far more black pieces than white
+For the error cases above, we should ask our interviewer whether we want to return false or throw an excep-
+tion, and we should test accordingly.
+Testing Type #2: General Testing:
+General testing is much more expansive. Ideally, we would test every possible board, but there are far too
+many boards. We can, however, perform a reasonable coverage of different boards.
+There are 6 pieces in chess, so we can test each piece against every other piece, in every possible direction.
+This would look something like the below code:
+1
+foreach piece a:
+2
+f o r each other type of piece b (6 types + empty space)
+3
+foreach d i r e c t i o n d
+4
+Create a board with piece a.
+5
+Place piece b in d i r e c t i o n d.
+6
+Try to move - check return value.
+The key to this problem is recognizing that we can't test every possible scenario, even if we would like to.
+So, instead, we must focus on the essential areas,
+11.4
+No Test Tools: How would you load test a webpage without using any test toots?
+pg1S7
+SOLUTION
+Load testing helps to identify a web application's maximum operating capacity, as well as any bottlenecks
+that may interfere with its performance. Similarly, it can check how an application responds to variations
+in load.
+To perform toad testing, we must first identify the performance critical scenarios and the metrics which
+fulfill our performance objectives. Typical criteria include:
+•
+Response time
+•
+Throughput
+*
+Resource utilization
+*
+Maximum toad that the system can bear.
+Then, we design tests to simulate the load, taking care to measure each of these criteria.
+In the absence of formal testing tools, we can basically create our own. For example, we could simulate
+concurrent users by creating thousands of virtual users. We would write a multi-threaded program with
+thousands of threads, where each thread acts as a real-world user loading the page, Foreach user, we would
+programmatically measure response time, data I/O, etc.
+We would then analyze the results based on the data gathered during the tests and compare it with the
+accepted values.
+CrackingTheCodinglntervlew.com | 6th Edition
+419

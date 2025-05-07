@@ -1,0 +1,22 @@
+Figure 29.3 The line between software and firmware is a bit fuzzier than the line between code and
+hardware
+One of your jobs as an embedded software developer is to firm up that line. The
+name of the boundary between the software and the firmware is the hardware
+abstraction layer (HAL) (Figure 29.4). This is not a new idea: It has been in PCs
+since the days before Windows.
+Figure 29.4 The hardware abstraction layer
+The HAL exists for the software that sits on top of it, and its API should be
+tailored to that software’s needs. As an example, the firmware can store bytes
+and arrays of bytes into flash memory. In contrast, the application needs to store
+and read name/value pairs to some persistence mechanism. The software should
+not be concerned that the name/value pairs are stored in flash memory, a
+spinning disk, the cloud, or core memory. The HAL provides a service, and it
+does not reveal to the software how it does it. The flash implementation is a
+detail that should be hidden from software.
+As another example, an LED is tied to a GPIO bit. The firmware could provide
+access to the GPIO bits, where a HAL might provide Led_TurnOn(5). That is a
+pretty low-level hardware abstraction layer. Let’s consider raising the level of
+abstraction from a hardware perspective to the software/product perspective.
+What is the LED indicating? Suppose that it indicated low battery power. At
+some level, the firmware (or a board support package) could provide
+Led_TurnOn(5), while the HAL provides Indicate_LowBattery(). You can see

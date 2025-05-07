@@ -1,0 +1,69 @@
+Solutions to Chapter 14 | Databases
+2
+start try
+3
+catch
+4
+lem
+5
+finally
+6
+return from lem | returned from catch
+7
+end bar
+Look carefully at lines 3 to 5 in the output. The catch block is fully executed (including the function call in
+the r e t u r n statement), then the f i n a l l y block, and then the function actually returns.
+finalized
+The automatic garbage collector calls the f i n a l i z e {) method just before actually destroying the object.
+A class can therefore override the f i n a l i z e ( ) method from the Object class in order to define custom
+behavior during garbage collection.
+1
+protected void finalize{) throws Throwable {
+2
+/* Close open files, release resources, etc */
+3
+>
+13.4
+Generics vs. Templates: Explain the difference between templates in C++and generics in Java.
+pg 167
+SOLUTION
+Many programmers consider templates and generics to be essentially equivalent because both allow you
+to do something like L i s t < S t r i n g >. But, fioweach language does this, and why, varies significantly.
+The implementation of Java generics is rooted in an idea of "type erasure."This technique eliminates the
+parameterized types when source code is translated to the Java Virtual Machine (JVM) byte code.
+For example, suppose you have the Java code below:
+1
+Vector<String> vector = new Vector<String>();
+2
+vector.add(new String("hello"));
+3
+String str = vector.get(0);
+During compilation, this code is re-written into:
+1
+Vector vector = new Vector{);
+2
+vector.add(new String("hello"));
+3
+String str = (String) vector,get(0);
+The use of Java generics didn't really change much about our capabilities; it just made things a bit prettier.
+For this reason, Java generics are sometimes called "syntactic sugar."
+This is quite different from C++. In C++, templates are essentially a glorified macro set, with the compiler
+creating a new copy of the template code for each type. Proof of this is in the fact that an instance of
+MyClass<Foo> will not share a static variable with MyClass<Bar>. Two instances of MyClass<Foo>,
+however, will share a static variable.
+To illustrate this, consider the code below:
+1
+/*** MyClass.h ***/
+2
+templatecclass T> class Myclass {
+3
+public:
+4
+static int valj
+5
+MyClass(int v) { val = v; )
+6
+>;
+7
+CrackingTheCodinglnterview.com \ 6th Edition
+415

@@ -1,0 +1,6 @@
+CHAPTER 16: THE LEARNING CONTINUES
+Designing good systems requires years of accumulation of knowledge. One shortcut is to dive
+into real-world system architectures. Below is a collection of helpful reading materials. We
+highly recommend you pay attention to both the shared principles and the underlying
+technologies. Researching each technology and understanding what problems it solves is a
+great way to strengthen your knowledge base and refine the design process.

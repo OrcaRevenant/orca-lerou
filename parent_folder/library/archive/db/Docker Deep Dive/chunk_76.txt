@@ -1,0 +1,37 @@
+This is where image digests come to the rescue.
+Docker 1.10 introduced a new content addressable storage model. As part of this
+new model, all images now get a cryptographic content hash. For the purposes of
+this discussion, we’ll refer to this hash as the digest. Because the digest is a hash
+of the contents of the image, it is not possible to change the contents of the
+image without the digest also changing. This means digests are immutable. This
+helps avoid the problem we just talked about.
+Every time you pull an image, the docker image pull command will include
+the image’s digest as part of the return code. You can also view the digests of
+images in your Docker host’s local repository by adding the --digests flag to
+the docker image ls command. These are both shown in the following
+example.
+$ docker image pull alpine
+Using default tag: latest
+latest: Pulling from library/alpine
+e110a4a17941: Pull complete
+Digest: sha256:3dcdb92d7432d56604d...6d99b889d0626de158f73a
+Status: Downloaded newer image for alpine:latest
+$
+$ docker image ls --digests alpine
+REPOSITORY  TAG     DIGEST              IMAGE ID      CREATED       SIZE
+alpine      latest  sha256:3dcd...f73a  4e38e38c8ce0  10 weeks ago  4.8 MB
+The snipped output above shows the digest for the alpine image as -
+sha256:3dcdb92d7432d56604d...6d99b889d0626de158f73a
+Now that we know the digest of the image, we can use it when pulling the image
+again. This will ensure that we get exactly the image we expect!
+At the time of writing, there is no native Docker command that will retrieve the
+digest of an image from a remote registry such as Docker Hub. This means the
+only way to determine the digest of an image is to pull it by tag and then make a
+note of its digest. This will no doubt change in the future.
+The example below deletes the alpine:latest image from your Docker host
+and then shows how to pull it again using its digest instead of its tag.
+$ docker image rm alpine:latest
+Untagged: alpine:latest
+Untagged: alpine@sha256:c0537...7c0a7726c88e2bb7584dc96
+Deleted: sha256:02674b9cb179d...abff0c2bf5ceca5bad72cd9
+Deleted: sha256:e154057080f40...3823bab1be5b86926c6f860

@@ -1,0 +1,63 @@
+Solutions to Chapter 4 | Trees and Graphs
+36
+>
+31
+return false;
+32 >
+It may be worth discussing with your interviewer the tradeoffs between breadth-first search and depth-first
+search for this and other problems. For example, depth-first search is a bit simpler to implement since it can
+be done with simple recursion. Breadth-first search can also be useful to find the shortest path, whereas
+depth-first search may traverse one adjacent node very deeply before ever going onto the immediate
+neighbors.
+4,2
+Minimal Tree: Given a sorted (increasing order) array with unique integer elements, write an
+algorithm to create a binary search tree with minima! height.
+pg 109
+SOLUTION
+To create a tree of minimal height, we need to match the number of nodes in the left subtree to the number
+of nodes in the right subtree as much as possible.This means that we want the root to be the middle of the
+array, since this would mean that half the elements would be less than the root and half wouid be greater
+than it.
+We proceed with constructing our tree in a similar fashion. The middle of each subsection of the array
+becomes the root of the node. The left half of the array will become our left subtree, and the right half of
+the array will become the right subtree.
+One way to implement this is to use a simple r o o t , i n s e r t Node ( i n t
+v) method which inserts the
+value v through a recursive process that starts with the root node. This wilt indeed construct a tree with
+minimal height but it will not do so very efficiently. Each insertion will require traversing the tree, giving a
+total cost of 0(N l o g N)tothetree.
+Alternatively, we can cut out the extra traversals by recursively using the createMinimalBST method.
+This method is passed just a subsection of the array and returns the root of a minimal tree for that array.
+The algorithm is as follows:
+1. Insert into the tree the middle element of the array.
+2. Insert (into the left subtree) the left subarray elements.
+3. Insert (into the right subtree) the right subarray elements.
+4. Recurse.
+The code below implements this algorithm.
+1
+TreeNode createMlnimalBST(int a r r a y [ ] ) {
+2
+return createMinimalBST(array, 0, array.length - 1);
+3
+>
+4
+5
+TreeNode createMinimalBST(int a r r [ ] , i n t s t a r t , i n t end) {
+6
+if (end < s t a r t ) (
+7
+return n u l l ;
+8
+}
+9
+i n t mid = ( s t a r t + end) / 2;
+10
+TreeNode n = new TreeNode(arr[mid));
+11
+n . l e f t = createMinimalBST(arr, s t a r t , mid - 1);
+12
+n . r i g h t = createMinimalBST(arr, mid + 1, end);
+13
+return n;
+274
+Cracking the Coding Interview, 6th Edition

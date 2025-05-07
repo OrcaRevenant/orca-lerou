@@ -1,0 +1,22 @@
+microsoft/dotnet      latest      831..686d   7 hrs ago   1.65 GB
+microsoft/powershell  nanoserver  d06..5427   8 days ago  1.21 GB
+As you can see, the images you just pulled are now present in your Docker host’s
+local repository.
+Image naming
+As part of each command we had to specify which image to pull. So let’s take a
+minute to look at image naming. To do that we need a bit of background on how
+we store images.
+Image registries
+Docker images are stored in image registries. The most common registry is
+Docker Hub (https://hub.docker.com). Other registries exist, including 3rd party
+registries and secure on-premises registries. However, the Docker client is
+opinionated and defaults to using Docker Hub. We’ll be using Docker Hub for
+the rest of the book.
+Image registries contain multiple image repositories. In turn, image repositories
+can contain multiple images. That might be a bit confusing, so Figure 6.2 shows
+a picture of an image registry containing 3 repositories, and each repository
+contains one or more images.
+Figure 6.2
+Official and unofficial repositories
+Docker Hub also has the concept of official repositories and unofficial
+repositories.

@@ -1,0 +1,87 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+Implementing this is now reasonably straightforward.
+1
+i n t GRID_5IZE = 8;
+2
+3
+void placeQueens(int row, I n t e g e r [ ] columns, A r r a y L i s t < I n t e g e r [ ] > r e s u l t s ) {
+4
+if (row == GRI0_SIZE) { // Found v a l i d placement
+5
+results.add(columns.clone());
+6
+} else {
+7
+f o r ( i n t col = 0; c o l < GRID_SIZE; col++) {
+8
+if (checkValid(columns,
+row,
+c o l ) ) {
+9
+columns[row] = c o l ;
+// Place queen
+16
+placeQueens(row + 1, columns, r e s u l t s ) ;
+11
+>
+12
+}
+13
+}
+14
+}
+15
+16 /* Check if (rowl, columnl) is a v a l i d spot f o r a queen by checking if there is a
+17
+* queen in the same column or diagonal. We don't need to check it f o r queens in
+18
+* the same row because the c a l l i n g placeQueen only attempts to place one queen at
+19
+* a time. We know t h i s row is empty. */
+20 boolean checkValid(Integer[] columns, i n t rowl,
+i n t columnl) {
+21
+f o r ( i n t row2 = 0; row2 < rowl; row2++) {
+22
+i n t column2 = columns[row2];
+23
+/* Check if (row2, column2) i n v a l i d a t e s (rowl, columnl) as a
+24
+* queen spot. */
+25
+26
+I* Check if rows have a queen in the same column */
+27
+if (columnl == column2) {
+28
+r e t u r n f a l s e ;
+29
+}
+30
+31
+/* Check diagonals: if the distance between the columns equals the distance
+32
+* between the rows, then t h e y ' r e in the same diagonal. */
+33
+i n t columnDistance = Math.abs(column2 - columnl);
+34
+35
+/* rowl > row2, so no need f o r abs */
+36
+i n t rowDistance = rowl - row2;
+37
+if (columnDistance == rowDistance) {
+38
+return f a l s e ;
+39
+>
+40
+)
+41
+return t r u e ;
+42
+}
+Observe that since each row can only have one queen, we don't need to store our board as a full 8x8 matrix.
+We only need a single array where column [ r ] = c indicates that row r has a queen at column c.
+CrackingTheCodinglnterview.com [ 6th Edition
+3 S1

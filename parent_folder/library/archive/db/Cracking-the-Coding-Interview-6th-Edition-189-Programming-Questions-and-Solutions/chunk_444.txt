@@ -1,0 +1,80 @@
+Solutions to Chapter 14 | Databases
+Further detail on these keywords and methods is provided below,
+final
+The final statement has a different meaning depending on its context,
+•
+When applied to a variable (primitive): The value of the variable cannot change.
+•
+When applied to a variable (reference): The reference variable cannot point to any other object on the
+heap.
+•
+When applied to a method: The method cannot be overridden.
+•
+When applied to a class: The class cannot be subclassed.
+finally keyword
+There is an optional f i n a l l y block after the t r y block or after the catch block. Statements in the
+f i n a l l y block will always be executed, even if an exception is thrown (except if Java Virtual Machine exits
+from the t r y block). The f i n a l l y block is often used to write the clean-up code. It will be executed after
+the t r y and c a t c h blocks, but before control transfers back to its origin.
+Watch how this plays out in the example below.
+1
+public static String lem() {
+2
+System.out.println("lem");
+3
+return "return from lem";
+4
+>
+5
+6
+public Static String foo() {
+7
+int x = 0;
+8
+int y = 5;
+9
+try {
+10
+System.out . p r i n t l n ( f ' s t a r t t r y " ) J
+11
+i n t b = y / x;
+12
+System.out.println("end
+t r y " ) ;
+13
+return "returned from t r y " ;
+14
+} catch (Exception ex) {
+15
+System.out .println("catch' J);
+16
+return lem() + " j returned from catch";
+17
+) f i n a l l y {
+18
+S y s t e m . o u t . p r i n t I n ( " f i n a l l y " ) ;
+19
+}
+20 >
+21
+22 public s t a t i c void bar() |
+23
+System.out.println("start
+bar");
+24
+String v » foo();
+25
+System.out.println(v);
+26
+System.out.println("end b a r " ) ;
+27 }
+28
+29 public s t a t i c void main(String[] args) {
+30
+b a r ( ) ;
+31 }
+The output for this code is the following:
+1
+s t a r t bar
+434
+Cracking the Coding Interview, 6th Edition

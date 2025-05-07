@@ -1,0 +1,46 @@
+205
+IN DE X
+A
+Acceptance tests
+automated, 97–99
+communication and, 97
+continuous integration and,
+104–105
+definition of, 94
+developer’s role in, 100–101
+extra work and, 99
+GUIs and, 103–105
+negotiation and, 101–102
+passive aggression and, 101–102
+timing of, 99–100
+unit tests and, 102–103
+writers of, 99–100
+Adversarial roles, 20–23
+Affinity estimation, 140–141
+Ambiguity, in requirements, 92–94
+Apologies, 6
+Apprentices, 183
+Apprenticeship, 180–184
+Arguments, in meetings, 120–121
+Arrogance, 16
+Automated acceptance testing, 97–99
+Automated quality assurance, 8
+Avoidance, 125
+B
+Blind alleys, 125–126
+Bossavit, Laurent, 83
+Bowling Game, 83
+Branching, 191
+Bug counts, 197
+Business goals, 154
+C
+Caffeine, 122
+Certainty, 74
+Code
+control, 189–194
+owned, 157
+3 AM, 53–54
+worry, 54–55
+Coding Dojo, 83–87
+Collaboration, 14, 151–160
+Collective ownership, 157–158

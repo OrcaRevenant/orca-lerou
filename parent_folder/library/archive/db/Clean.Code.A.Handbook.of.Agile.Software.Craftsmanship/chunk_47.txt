@@ -1,0 +1,8 @@
+17
+2
+Meaningful Names
+by Tim Ottinger
+Introduction
+Names are everywhere in software. We name our variables, our functions, our arguments,
+classes, and packages. We name our source ﬁles and the directories that contain them. We
+name our jar ﬁles and war ﬁles and ear ﬁles. We name and name and name. Because we do

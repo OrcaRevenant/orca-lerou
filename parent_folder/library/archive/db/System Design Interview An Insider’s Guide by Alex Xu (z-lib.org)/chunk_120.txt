@@ -1,0 +1,15 @@
+CHAPTER 9: DESIGN A WEB CRAWLER
+In this chapter, we focus on web crawler design: an interesting and classic system design
+interview question.
+A web crawler is known as a robot or spider. It is widely used by search engines to discover
+new or updated content on the web. Content can be a web page, an image, a video, a PDF
+file, etc. A web crawler starts by collecting a few web pages and then follows links on those
+pages to collect new content. Figure 9-1 shows a visual example of the crawl process.
+A crawler is used for many purposes:
+• Search engine indexing: This is the most common use case.  A crawler collects web
+pages to create a local index for search engines. For example, Googlebot is the web
+crawler behind the Google search engine.
+• Web archiving: This is the process of collecting information from the web to preserve
+data for future uses. For instance, many national libraries run crawlers to archive web
+sites. Notable examples are the US Library of Congress [1] and the EU web archive [2].
+• Web mining: The explosive growth of the web presents an unprecedented opportunity for

@@ -1,0 +1,39 @@
+5
+The Total Cost of Owning a Mess
+The Grand Redesign in the Sky
+Eventually the team rebels. They inform management that they cannot continue to develop
+in this odious code base. They demand a redesign. Management does not want to expend
+the resources on a whole new redesign of the project, but they cannot deny that productiv-
+ity is terrible. Eventually they bend to the demands of the developers and authorize the
+grand redesign in the sky.
+A new tiger team is selected. Everyone wants to be on this team because it’s a green-
+ﬁeld project. They get to start over and create something truly beautiful. But only the best
+and brightest are chosen for the tiger team. Everyone else must continue to maintain the
+current system.
+Now the two teams are in a race. The tiger team must build a new system that does
+everything that the old system does. Not only that, they have to keep up with the changes
+that are continuously being made to the old system. Management will not replace the old
+system until the new system can do everything that the old system does.
+This race can go on for a very long time. I’ve seen it take 10 years. And by the time it’s
+done, the original members of the tiger team are long gone, and the current members are
+demanding that the new system be redesigned because it’s such a mess.
+If you have experienced even one small part of the story I just told, then you already
+know that spending time keeping your code clean is not just cost effective; it’s a matter of
+professional survival.
+Attitude
+Have you ever waded through a mess so grave that it took weeks to do what should have
+taken hours? Have you seen what should have been a one-line change, made instead in
+hundreds of different modules? These symptoms are all too common.
+Why does this happen to code? Why does good code rot so quickly into bad code? We
+have lots of explanations for it. We complain that the requirements changed in ways that
+thwart the original design. We bemoan the schedules that were too tight to do things right.
+We blather about stupid managers and intolerant customers and useless marketing types
+and telephone sanitizers. But the fault, dear Dilbert, is not in our stars, but in ourselves.
+We are unprofessional.
+This may be a bitter pill to swallow. How could this mess be our fault? What about the
+requirements? What about the schedule? What about the stupid managers and the useless
+marketing types? Don’t they bear some of the blame?
+No. The managers and marketers look to us for the information they need to make
+promises and commitments; and even when they don’t look to us, we should not be shy
+about telling them what we think. The users look to us to validate the way the requirements
+will ﬁt into the system. The project managers look to us to help work out the schedule. We

@@ -1,0 +1,31 @@
+HIGH STAKES
+29
+They reached the best possible outcome. They did this by saying no and then
+working out a solution that was mutually agreeable to both. They were acting
+like professionals. The conversation was a bit adversarial, and there were a few
+uncomfortable moments, but that’s to be expected when two people assertively
+pursue goals that aren’t in perfect alignment.
+WHAT ABO UT TH E WH Y ?
+Perhaps you think that Paula should have explained why the login page was
+going to take so much longer. My experience is that the why is a lot less
+important than the fact. That fact is that the login page will require two weeks.
+Why it will take two weeks is just a detail.
+Still, knowing why might help Mike to understand, and therefore to accept, the
+fact. Fair enough. And in situations where Mike has the technical expertise and
+temperament to understand, such explanations might be useful. On the other
+hand, Mike might disagree with the conclusion. Mike might decide that Paula
+was doing it all wrong. He might tell her that she doesn’t need all that testing,
+or all that reviewing, or that step 12 could be omitted. Providing too much
+detail can be an invitation for micro-management.
+H I G H STA K E S
+The most important time to say no is when the stakes are highest. The higher
+the stakes, the more valuable no becomes.
+This should be self-evident. When the cost of failure is so high that the survival
+of your company depends upon it, you must be absolutely determined to give
+your managers the best information you can. And that often means saying no.
+Don (Director of Development): “So, our current estimate for completion
+of the Golden Goose project is twelve weeks from today, with an
+uncertainty of plus or minus five weeks.”
+Charles (CEO): (sits glaring for fifteen seconds as his face reddens) “Do
+you mean to sit there and tell me that we might be seventeen weeks
+from delivery?”

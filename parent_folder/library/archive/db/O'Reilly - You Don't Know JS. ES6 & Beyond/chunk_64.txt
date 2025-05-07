@@ -1,0 +1,37 @@
+• collections / TypedArrays (see Chapter 5)
+Plain objects are not by default suitable for for..of looping. That’s
+because they don’t have a default iterator, which is intentional, not a
+mistake. However, we won’t go any further into those nuanced rea‐
+sonings here. In “Iterators” in Chapter 3, we’ll see how to define
+iterators for our own objects, which lets for..of loop over any
+object to get a set of values we define.
+Here’s how to loop over the characters in a primitive string:
+for (var c of "hello") {
+console.log( c );
+}
+// "h" "e" "l" "l" "o"
+In for (XYZ of ABC).., the XYZ clause can either be an assignment expression or a
+declaration, identical to that same clause in for and for..in loops. So you can do
+stuff like this:
+var o = {};
+for (o.a of [1,2,3]) {
+console.log( o.a );
+}
+// 1 2 3
+for ({x: o.a} of [ {x: 1}, {x: 2}, {x: 3} ]) {
+console.log( o.a );
+}
+// 1 2 3
+for..of loops can be prematurely stopped, just like other loops, with break, con
+tinue, return (if in a function), and thrown exceptions. In any of these cases, the
+iterator’s return(..) function is automatically called (if one exists) to let the iterator
+perform cleanup tasks, if necessary.
+See “Iterators” in Chapter 3 for more complete coverage on itera‐
+bles and iterators.
+Regular Expressions
+Let’s face it: regular expressions haven’t changed much in JS in a long time. So it’s a
+great thing that they’ve finally learned a couple of new tricks in ES6. We’ll briefly
+Regular Expressions
+|
+53
+www.it-ebooks.info

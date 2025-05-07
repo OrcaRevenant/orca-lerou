@@ -1,0 +1,19 @@
+housed the M365.
+The ROM boards held 12 Intel 2708 EPROM (Erasable Programmable Read-
+Only Memory) chips.6 Figure A.8 shows an example of such a chip. We loaded
+those chips with software by inserting them into special devices called PROM
+burners that were driven by our development environment. The chips could be
+erased by exposing them to high-intensity ultraviolet light.7
+My buddy CK and I translated the M365 assembly language program for the
+COLT into 8085 assembly language. This translation was done by hand and took
+us about 6 months. The end result was approximately 30K of 8085 code.
+Our development environment had 64K of RAM and no ROM, so we could
+quickly download our compiled binaries into RAM and test them.
+Once we got the program working, we switched to using the EPROMs. We
+burned 30 chips and inserted them into just the right slots in the three ROM
+boards. Each chip was labeled so we could tell which chip went into which slot.
+The 30K program was a single binary, 30K long. To burn the chips, we simply
+divided that binary image into 30 different 1K segments, and burned each
+segment onto the appropriately labeled chip.
+Figure A.8 EPROM chip
+This worked very well, and we began to mass-produce the hardware and deploy

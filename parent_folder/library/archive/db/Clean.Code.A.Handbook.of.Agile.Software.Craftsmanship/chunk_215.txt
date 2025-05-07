@@ -1,0 +1,35 @@
+185
+Keep Synchronized Sections Small
+Most concurrent problems you will likely encounter will be some variation of these
+three problems. Study these algorithms and write solutions using them on your own so
+that when you come across concurrent problems, you’ll be more prepared to solve the
+problem.
+Recommendation: Learn these basic algorithms and understand their solutions.
+Beware Dependencies Between Synchronized Methods
+Dependencies between synchronized methods cause subtle bugs in concurrent code. The
+Java language has the notion of synchronized, which protects an individual method. How-
+ever, if there is more than one synchronized method on the same shared class, then your
+system may be written incorrectly.12
+Recommendation: Avoid using more than one method on a shared object.
+There will be times when you must use more than one method on a shared object.
+When this is the case, there are three ways to make the code correct:
+• Client-Based Locking—Have the client lock the server before calling the ﬁrst
+method and make sure the lock’s extent includes code calling the last method.
+• Server-Based Locking—Within the server create a method that locks the server, calls
+all the methods, and then unlocks. Have the client call the new method.
+• Adapted Server—create an intermediary that performs the locking. This is an exam-
+ple of server-based locking, where the original server cannot be changed.
+Keep Synchronized Sections Small
+The synchronized keyword introduces a lock. All sections of code guarded by the
+same lock are guaranteed to have only one thread executing through them at any given
+time. Locks are expensive because they create delays and add overhead. So we don’t
+want to litter our code with synchronized statements. On the other hand, critical sec-
+tions13 must be guarded. So we want to design our code with as few critical sections as
+possible.
+Some naive programmers try to achieve this by making their critical sections very
+large. However, extending synchronization beyond the minimal critical section increases
+contention and degrades performance.14
+Recommendation: Keep your synchronized sections as small as possible.
+12. See “Dependencies Between Methods Can Break Concurrent Code” on page 329.
+13. A critical section is any section of code that must be protected from simultaneous use for the program to be correct.
+14. See “Increasing Throughput” on page 333.

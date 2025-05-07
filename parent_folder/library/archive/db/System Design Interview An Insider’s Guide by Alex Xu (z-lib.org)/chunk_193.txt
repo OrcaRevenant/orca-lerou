@@ -1,0 +1,13 @@
+Workers. Workers are a set of servers that perform asynchronous jobs at regular intervals.
+They build the trie data structure and store it in Trie DB.
+Trie Cache. Trie Cache is a distributed cache system that keeps trie in memory for fast read.
+It takes a weekly snapshot of the DB.
+Trie DB. Trie DB is the persistent storage. Two options are available to store the data:
+1. Document store: Since a new trie is built weekly, we can periodically take a snapshot of it,
+serialize it, and store the serialized data in the database. Document stores like MongoDB [4]
+are good fits for serialized data.
+2. Key-value store: A trie can be represented in a hash table form [4] by applying the
+following logic:
+• Every prefix in the trie is mapped to a key in a hash table.
+• Data on each trie node is mapped to a value in a hash table.
+Figure 13-10 shows the mapping between the trie and hash table.

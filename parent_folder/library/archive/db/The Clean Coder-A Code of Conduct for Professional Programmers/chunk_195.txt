@@ -1,0 +1,31 @@
+CHAPTER 12 COLLABORATION
+164
+Professional developers do not prevent others from working in the code. They
+do not build walls of ownership around code. Rather, they work with each other
+on as much of the system as they can. They learn from each other by working
+with each other on other parts of the system.
+Pairing
+Many programmers dislike the idea of pair-programming. I find this odd
+since most programmers will pair in emergencies. Why? Because it is clearly
+the most efficient way to solve the problem. It just goes back to the old adage:
+Two heads are better than one. But if pairing is the most efficient way to solve
+a problem in an emergency, why isn’t it the most efficient way to solve a
+problem period?
+I’m not going to quote studies at you, although there are some that could be
+quoted. I’m not going to tell you any anecdotes, although there are many I could
+tell. I’m not even going to tell you how much you should pair. All I’m going to
+tell you is that professionals pair. Why? Because for at least some problems it is
+the most efficient way to solve them. But that’s not the only reason.
+Professionals also pair because it is the best way to share knowledge with each
+other. Professionals don’t create knowledge silos. Rather, they learn the different
+parts of the system and business by pairing with each other. They recognize that
+although all team members have a position to play, all team members should
+also be able play another position in a pinch.
+Professionals pair because it is the best way to review code. No system should
+consist of code that hasn’t been reviewed by other programmers. There are
+many ways to conduct code reviews; most of them are horrifically inefficient.
+The most efficient and effective way to review code is to collaborate in writing it.
+C E R E B E LLU M S
+I rode the train into Chicago one morning in 2000 during the height of the dot
+com boom. As I stepped off the train onto the platform I was assaulted by a
+huge billboard hanging above the exit doors. The sign was for a well-known

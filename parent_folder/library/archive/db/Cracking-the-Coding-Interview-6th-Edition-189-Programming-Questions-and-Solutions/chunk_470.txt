@@ -1,0 +1,106 @@
+Solutions to Chapter 15 | Threads and Locks
+FizzBuzz
+Fizz
+Buzz
+Number
+current % 3 == 0
+true
+true
+false
+false
+current % 5 — 0
+true
+false
+true
+false
+to print
+FizzBuzz
+Fizz
+Buzz
+current
+For the most part, this can be handled by taking in "target "parameters and the value to print. The output for
+the Number thread needs to be overwritten, though, as it's not a simple, fixed string.
+We can implement a FizzBuzzThread class which handles most of this. A NumberThread class can
+extend FizzBuzzThread and override the p r i n t method.
+1
+Thread[] threads = {new FizzBuzzThreadftrue, true, n, "FizzSuzz"),
+2
+new FizzBuzzThreadftrue, false, n, "Fizz"),
+3
+new FizzBuzzThread(false, true, n, "Buzz"),
+4
+new NumberThread(false, false, n)};
+5
+for (Thread thread : threads) {
+6
+thread.start();
+7
+}
+a
+9
+public class FizzBuzzThread extends Thread {
+16
+private static Object lock = new Object();
+11
+protected static int current = 1;
+12
+private int max;
+13
+private boolean div3, divS;
+14
+private String toPrint;
+15
+16
+public FizzBuzzThread(boolean div3, boolean div5, int max, String toPrint) {
+17
+this.div3 = div3;
+18
+this.divS = divS;
+19
+this.max = max;
+29
+this.toPrint = toPrint;
+21
+>
+22
+23
+public void printQ {
+24
+System.out,println(toPrint);
+25
+>
+26
+27
+public void run() {
+28
+while (true) {
+29
+synchronized (lock) {
+30
+if (current > max) {
+31
+return;
+32
+}
+33
+34
+if ((current % 3 == 0) == div3 &&
+35
+(current % 5 == 0) == div5) {
+36
+print();
+37
+current++;
+38
+>
+39
+>
+40
+)
+41
+}
+42 >
+43
+44 public class NumberThread extends FizzBuzzThread {
+420
+Cracking the Coding interview, 6th Edition

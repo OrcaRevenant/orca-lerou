@@ -1,0 +1,76 @@
+Solutions to Chapter 17 j Hard
+In this case, we could apply a very similar approach, with one modification: rather than simply looking up if
+the right side is in the array, we would recursively see if we can build the right side from the other elements
+in the array.
+The code below implements this algorithm:
+1
+String printLongestWord(String a r r [ ] ) {
+2
+HashMapcString, Boolean> map = new HashMapcString, Boolean>();
+3
+for (String s t r : arr) {
+4
+map.put(str, t r u e ) ;
+5
+>
+6
+Arrays.sort(arr, new LengthComparatorQ); // Sort by length
+7
+for (String s : arr) {
+8
+if (canBuildWord(s, true, map)) {
+9
+System.out.println(s);
+10
+return s;
+n
+}
+12
+>
+13
+return
+14
+}
+15
+16 boolean canBuildWord(String s t r , boolean isOriginalWord,
+17
+HashMapcString, Boolean> map) {
+18
+if (map.containsKey(str) && 1isOriginalWord) {
+19
+return map.get(str);
+20
+>
+21
+for ( i n t i = 1; i < s t r . l e n g t h Q ; i++) {
+22
+String l e f t • s t r , s u b s t r i n g ( 0 ,
+i ) ;
+23
+String r i g h t = s t r . s u b s t r i n g ( i ) ;
+24
+if (raap.containsKey(left) && map.get(left) == true &&
+25
+canBuildWord(right, false, map)) {
+26
+return t r u e ;
+27
+>
+28
+}
+29
+map.put(str,
+f a l s e ) ;
+30
+return false;
+31 }
+Note that in this solution we have performed a small optimization. We use a dynamic programming/
+memoization approach to cache the results between calls.This way, if we repeatedly need to check if there's
+any way to build " t e s t i n g t e s t e r , " we'll only have to compute it once.
+AbooleanflagisOriginalWordisused tocomplete the aboveoptimization.The method canBuildWord
+is called for the original word and for each substring, and its first step is to check the cache for a previously
+calculated result. However, for the original words, we have a problem: map is initialized to t r u e for them,
+but we don't want to return t r u e (since a word cannot be composed solely of itself). Therefore, for the
+original word, we simply bypass this check using the i s O r i g i n a l W o r d flag.
+C rac ki n g TheCodi nginterview.com 16th Edition
+S73

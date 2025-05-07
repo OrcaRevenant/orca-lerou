@@ -1,0 +1,66 @@
+7
+Solutions to Object-Oriented Design
+7.1
+Deck of Cards: Design the data structures for a generic deck of cards. Explain how you would
+subclass the data structures to implement blackjack.
+pg 127
+SOLUTION
+First, we need to recognize that a "generic" deck of cards can mean many things. Generic could mean a
+standard deck of cards that can play a poker-like game, or it could even stretch to Uno or Baseball cards. It
+is important to ask your interviewer what she means by generic.
+Let's assume that your interviewer clarifies that the deck is a standard 52-card set, like you might see used
+in a blackjack or poker game. If so, the design might look like this:
+1
+public enum Suit {
+2
+Club (0),
+Diamond (1), Heart (2), Spade (3);
+3
+private i n t value;
+4
+private S u i t ( i n t v) { value = v; }
+5
+public i n t getValueQ { return value; >
+6
+public s t a t i c Suit getSuitFromValue(int value) { . . . }
+?
+>
+8
+9
+public class Deck <T extends Card> {
+10
+private ArrayList<T> cards; // a l l cards, dealt or not
+11
+private i n t dealtlndex = 0; // marks f i r s t undealt card
+12
+13
+public void setDeckofCards(ArrayList<T> deckOfCards) { . . . >
+14
+15
+public void shuffle() { ... }
+16
+public i n t retrtainingCardsO {
+17
+return cards.size() - dealtlndex;
+18
+>
+19
+public T [ ] dealHand(int number) { . . . >
+20
+public T dealCardO { ••• )
+21
+}
+22
+23 public abstract class Card {
+24
+private boolean available = t r u e ;
+25
+26
+/* number or face t h a t ' s on card - a number 2 through 10, or 11 for Jack, 12 for
+27
+* Queen, 13 for King, or 1 f o r Ace */
+28
+protected i n t faceValue;
+29
+protected Suit s u i t ;
+CrackingTheCodinglnterview.com 16th Edition

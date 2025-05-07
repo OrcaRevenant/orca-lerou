@@ -1,0 +1,32 @@
+Step 1 - Understand the problem and establish design scope
+System design interview questions are intentionally left open-ended. To design a well-crafted
+system, it is critical to ask clarification questions.
+Candidate: Can you give an example of how a URL shortener work?
+Interviewer: Assume URL
+https://www.systeminterview.com/q=chatsystem&c=loggedin&v=v3&l=long is the original
+URL. Your service creates an alias with shorter length: https://tinyurl.com/ y7keocwj. If you
+click the alias, it redirects you to the original URL.
+Candidate: What is the traffic volume?
+Interviewer: 100 million URLs are generated per day.
+Candidate: How long is the shortened URL?
+Interviewer: As short as possible.
+Candidate: What characters are allowed in the shortened URL?
+Interviewer: Shortened URL can be a combination of numbers (0-9) and characters (a-z, A-
+Z).
+Candidate: Can shortened URLs be deleted or updated?
+Interviewer: For simplicity, let us assume shortened URLs cannot be deleted or updated.
+Here are the basic use cases:
+1.URL shortening: given a long URL => return a much shorter URL
+2.URL redirecting: given a shorter URL => redirect to the original URL
+3.High availability, scalability, and fault tolerance considerations
+Back of the envelope estimation
+• Write operation: 100 million URLs are generated per day.
+• Write operation per second: 100 million / 24 /3600 = 1160
+• Read operation: Assuming ratio of read operation to write operation is 10:1, read
+operation per second: 1160 * 10 = 11,600
+• Assuming the URL shortener service will run for 10 years, this means we must support
+100 million * 365 * 10 = 365 billion records.
+• Assume average URL length is 100.
+• Storage requirement over 10 years: 365 billion * 100 bytes * 10 years = 365 TB
+It is important for you to walk through the assumptions and calculations with your
+interviewer so that both of you are on the same page.

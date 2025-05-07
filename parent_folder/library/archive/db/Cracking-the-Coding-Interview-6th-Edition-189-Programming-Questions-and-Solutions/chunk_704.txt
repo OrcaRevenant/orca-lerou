@@ -1,0 +1,86 @@
+IV | Hints for Additional Review Problems
+#720.
+16.23
+You can implement r a n d 7 ( ) with randS ( ) , you just can't do it deterministically (such
+that you know it wilt definitely terminate after a certain number of calls). Given this,
+write a solution that works.
+#721.
+17.23
+You should be able to do this in 0(N3) time, where N is the length of one dimension of
+the square.
+#722.
+16.11
+Consider memoization to optimize the runtime. Think carefully about what exactly you
+cache. What is the runtime? The runtime is closely related to the max size of the table.
+#723.
+16.19
+You should have an algorithm that's 0(N 2) on an NxN matrix. If your algorithm isn't,
+consider if you've miscomputedthe runtime or if your algorithm is suboptimal.
+#724.
+17.1
+You might need to do the add/carry operation more than once. Adding c a r r y to sum
+might cause new values to carry.
+#725.
+17.18
+Once you have the precomputation solution figured out, think about how you can
+reduce the space complexity. You should be able to get it down to 0(SB) time and
+0(B) space (where B is the size of the larger array and S is the size of the smaller array).
+#726.
+16.20
+We're probably going to run this algorithm many times. If we did more preprocessing, is
+there a way we could optimize this?
+#727.
+16.18
+You should be able to haveanO(n3) algorithm.
+#728.
+16.7
+Have you considered how to handle integer overflow in a - b?
+#729.
+16.5
+Each factor of 10 in n I means n I is divisible by 5 and 2,
+#730.
+16.15
+For ease and clarity in implementation, you might want to use other methods and
+classes.
+#731.
+17.18
+Another way to think about it is this: Imagine you had a list of the indices where each
+item appeared. Could you find the first possible subsequence with all the elements?
+Could you find the second?
+#732.
+16.4
+If you were designing this for an NxN board, how might your solution change?
+#733.
+16.5
+Can you count the number of factors of 5 and 2? Do you need to count both?
+#734.
+17.21
+Each bar will have water on top of it that matches the minimum of the tallest bar on the
+left and the tallest bar on the right. That is, w a t e r _ o n _ t o p [ i ]
+= m i n ( t a l l e s t _
+b a r ( 0 - > i ) ,
+t a l l e s t _ _ b a r ( i j
+n ) ) .
+#735.
+16.16
+Can you expand the middle until the earlier condition is met?
+#736.
+17.23
+When you're checking to see if a particular square is valid (all black borders), you check
+how many black pixels are above (or below) a coordinate and to the left (or right) of this
+coordinate. Can you precompute the number of black pixels above and to the left of a
+given cell?
+#737.
+16.1
+You could also try using X0R.
+#738.
+17.22
+What if you did a breadth-first search starting from both the source word and the desti-
+nation word?
+#739,
+17.13
+In real life, we would know that some paths will not lead to a word. For example, there
+are no words that start with h e l l o t h i s ism. Can we terminate early when going down
+a path that we know won't work?
+680
+Cracking the Coding Interview, 6th Edition

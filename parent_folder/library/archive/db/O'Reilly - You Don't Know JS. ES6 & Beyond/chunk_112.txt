@@ -1,0 +1,40 @@
+ES6 doesn’t actually specify or handle the mechanics of how these load requests work.
+There’s a separate notion of a Module Loader, where each hosting environment
+(browser, Node.js, etc.) provides a default Loader appropriate to the environment.
+The importing of a module uses a string value to represent where to get the module
+(URL, file path, etc), but this value is opaque in your program and only meaningful to
+the Loader itself.
+You can define your own custom Loader if you want more fine-grained control than
+the default Loader affords — which is basically none, since it’s totally hidden from
+your program’s code.
+As you can see, ES6 modules will serve the overall use-case of organizing code with
+encapsulation, controlling public APIs, and referencing dependency imports. But
+they have a very particular way of doing so, and that may or may not fit very closely
+with how you’ve already been doing modules for years.
+CommonJS
+There’s a similar, but not fully compatible, module syntax called CommonJS, which is
+familiar to those in the Node.js ecosystem.
+For lack of a more tactful way to say this, in the long run, ES6 modules essentially are
+bound to supercede all previous formats and standards for modules, even Com‐
+monJS, as they are built on syntactic support in the language. This will, in time, inevi‐
+tably win out as the superior approach, if for no other reason than ubiquity.
+We face a fairly long road to get to that point, though. There are literally hundreds of
+thousands of CommonJS style modules in the server-side JavaScript world, and ten
+times that many modules of varying format standards (UMD, AMD, ad hoc) in the
+browser world. It will take many years for the transitions to make any significant pro‐
+gress.
+In the interim, module transpilers/converters will be an absolute necessity. You might
+as well just get used to that new reality. Whether you author in regular modules,
+AMD, UMD, CommonJS, or ES6, these tools will have to parse and convert to a for‐
+mat that is suitable for whatever environment your code will run in.
+For Node.js, that probably means (for now) that the target is CommonJS. For the
+browser, it’s probably UMD or AMD. Expect lots of flux on this over the next few
+years as these tools mature and best practices emerge.
+From here on out, my best advice on modules is this: whatever format you’ve been
+religiously attached to with strong affinity, also develop an appreciation for and
+understanding of ES6 modules, such as they are, and let your other module tenden‐
+cies fade. They are the future of modules in JS, even if that reality is a bit of a ways off.
+Modules
+|
+101
+www.it-ebooks.info

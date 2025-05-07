@@ -1,0 +1,79 @@
+Solutions to Chapter 14 j Databases
+2
+/* Build population delta array.
+*/
+3
+i n t [ ] populationDeltas = getPopulationDeltas(people, rain, max);
+4
+i n t maxAliveYear = getMaxAliveYear(populationDeltas);
+5
+return maxAliveYear + min;
+6
+}
+7
+8
+!* Add b i r t h and death years to deltas array. */
+9
+i n t [ ] getPopulationDeltas(Person[] people, i n t min, i n t max) {
+16
+i n t [ ] populationDeltas - new int[max - min + 2 ] ;
+11
+for (Person person : people) {
+12
+i n t b i r t h = person.birth - min;
+13
+populationDeltas[birth]++;
+1A
+15
+i n t death = person.death - min;
+16
+populationDeltas[death + 1 ] - - ;
+17
+>
+18
+return populationDeltas;
+19
+)
+20
+21 /* Compute running sums and return index with max. */
+22 i n t getMaxAliveYear(int[] deltas) {
+23
+i n t maxAliveYear = 0;
+24
+i n t maxAlive = 0;
+25
+i n t currentlyAlive = 0;
+26
+for ( i n t year = 0; year < deltas.length; year++) {
+27
+currentlyAlive += deltas[year];
+28
+if (currentlyAlive > maxAlive) {
+29
+maxAliveYear = year;
+30
+maxAlive = c u r r e n t l y A l i v e ;
+31
+}
+32
+}
+33
+34
+return maxAliveYear;
+35 >
+This algorithm takes 0(R + P) time, where R is the range of years and P is the number of people. Although
+0(R + P) might be faster thanO(P l o g P) for many expected inputs, you cannot directly compare the
+speeds to say that one is faster than the other.
+16.11 Diving Board: You are building a diving board by placing a bunch of planks of wood end-to-end.
+There are two types of planks, one of length s h o r t e r and one of length longer. You must use
+exactly K planks of wood. Write a method to generate ail possible lengths for the diving board.
+pg 182
+SOLUTION
+One way to approach this is to think about the choices we make as we're building a diving board.This leads
+us to a recursive algorithm.
+Recursive Solution
+For a recursive solution, we can imagine ourselves building a diving board. We make K decisions, each time
+choosing which plank we will put on next. Once we've put on K planks, we have a complete diving board
+and we can add this to the list (assuming we haven't seen this length before).
+4 8 6
+Cracking the Coding Interview, 6th Edition

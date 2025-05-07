@@ -1,0 +1,43 @@
+403
+Appendix B: org.jfree.date.SerialDate
+Listing B-14
+DayDateFactory.java (Final)
+1 package org.jfree.date;
+2
+3 public abstract class DayDateFactory {
+4   private static DayDateFactory factory = new SpreadsheetDateFactory();
+5   public static void setInstance(DayDateFactory factory) {
+6     DayDateFactory.factory = factory;
+7   }
+8
+9   protected abstract DayDate _makeDate(int ordinal);
+10   protected abstract DayDate _makeDate(int day, Month month, int year);
+11   protected abstract DayDate _makeDate(int day, int month, int year);
+12   protected abstract DayDate _makeDate(java.util.Date date);
+13   protected abstract int _getMinimumYear();
+14   protected abstract int _getMaximumYear();
+15
+16   public static DayDate makeDate(int ordinal) {
+17     return factory._makeDate(ordinal);
+18   }
+19
+20   public static DayDate makeDate(int day, Month month, int year) {
+21     return factory._makeDate(day, month, year);
+22   }
+23
+24   public static DayDate makeDate(int day, int month, int year) {
+25     return factory._makeDate(day, month, year);
+26   }
+27
+28   public static DayDate makeDate(java.util.Date date) {
+29     return factory._makeDate(date);
+30   }
+31
+32   public static int getMinimumYear() {
+33     return factory._getMinimumYear();
+34   }
+35
+36   public static int getMaximumYear() {
+37     return factory._getMaximumYear();
+38   }
+39 }

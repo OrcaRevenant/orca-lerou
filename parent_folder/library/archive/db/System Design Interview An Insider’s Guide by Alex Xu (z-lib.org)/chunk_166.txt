@@ -1,0 +1,13 @@
+High-level design
+Just now we mentioned that WebSocket was chosen as the main communication protocol
+between the client and server for its bidirectional communication, it is important to note that
+everything else does not have to be WebSocket. In fact, most features (sign up, login, user
+profile, etc) of a chat application could use the traditional request/response method over
+HTTP. Let us drill in a bit and look at the high-level components of the system.
+As shown in Figure 12-7, the chat system is broken down into three major categories:
+stateless services, stateful services, and third-party integration.
+Stateless Services
+Stateless services are traditional public-facing request/response services, used to manage the
+login, signup, user profile, etc. These are common features among many websites and apps.
+Stateless services sit behind a load balancer whose job is to route requests to the correct
+services based on the request paths. These services can be monolithic or individual

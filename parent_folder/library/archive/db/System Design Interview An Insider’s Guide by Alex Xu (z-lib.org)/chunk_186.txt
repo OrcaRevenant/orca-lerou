@@ -1,0 +1,2 @@
+This is an acceptable solution when the data set is small. When it is large, accessing the
+database becomes a bottleneck. We will explore optimizations in deep dive.

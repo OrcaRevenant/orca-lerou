@@ -1,0 +1,61 @@
+XI
+Code Library
+C
+ertain patterns came up while implementing the code for this book. We've tried to generally include
+the full code for a solution with the solution, but in some cases it got quite redundant.
+This appendix provides the code for a few of the most useful chunks of code.
+All code for the book can be downloaded from CrackingTheCodinglnterview.com.
+• HashMapListcT, E>
+The HashMapList class is essentially shorthand for HashMap<T, A r r a y L i s t < E > > . It allows us to map
+from an item of type of T to an A r r a y L i s t of type E.
+For example, we might want a data structure that maps from an integer to a list of strings. Ordinarily, we'd
+have to write something like this:
+1
+HashMapcInteger, ArrayList<String>> maplist =
+2
+new HashMap<lnteger, ArrayList<String>>();
+3
+for (String s : strings) {
+4
+int key = computeValue(s);
+5
+if (!maplist.containsKey(key)) {
+6
+maplist.put(key, new ArrayList<String>());
+7
+}
+s
+maplist.get(key).add(s);
+9
+>
+Now, we can just write this:
+1
+HashMapListcInteger, String> maplist = new HashMapListcInteger, String>();
+2
+for (String s : strings) {
+3
+int key = computeValue(s);
+4
+maplist.put(key, s);
+5
+>
+It's not a big change, but it makes our code a bit simpler.
+1
+public class HashMapHst<T, E> {
+2
+private HashMapcT, ArrayList<E>> map = new HashMap<T, ArrayList<E>>().;
+3
+4
+5
+6
+7
+8
+9
+/* Insert item into list at key. */
+public void put(T key, E item) {
+map.put(key, new ArrayList<E>());
+}
+map.get(key).add(item);
+if (Imap.containsKey(key)) {
+646
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,35 @@
+Praise for The Clean Coder
+“‘Uncle Bob’ Martin definitely raises the bar with his latest book. He explains his
+expectation for a professional programmer on management interactions, time
+management, pressure, on collaboration, and on the choice of tools to use. Beyond
+TDD and ATDD, Martin explains what every programmer who considers him- or
+herself a professional not only needs to know, but also needs to follow in order to
+make the young profession of software development grow.”
+—Markus Gärtner
+Senior Software Developer
+it-agile GmbH
+www.it-agile.de
+www.shino.de
+“Some technical books inspire and teach; some delight and amuse. Rarely does a
+technical book do all four of these things. Robert Martin’s always have for me and
+The Clean Coder is no exception. Read, learn, and live the lessons in this book and
+you can accurately call yourself a software professional.”
+—George Bullock
+Senior Program Manager
+Microsoft Corp.
+“If a computer science degree had ‘required reading for after you graduate,’ this
+would be it. In the real world, your bad code doesn’t vanish when the semester’s
+over, you don’t get an A for marathon coding the night before an assignment’s due,
+and, worst of all, you have to deal with people. So, coding gurus are not necessarily
+professionals. The Clean Coder describes the journey to professionalism . . . and it
+does a remarkably entertaining job of it.”
+—Jeff Overbey
+University of Illinois at Urbana-Champaign
+“The Clean Coder is much more than a set of rules or guidelines. It contains hard-
+earned wisdom and knowledge that is normally obtained through many years of
+trial and error or by working as an apprentice to a master craftsman. If you call
+yourself a software professional, you need this book.”
+—R. L. Bogetti
+Lead System Designer
+Baxter Healthcare
+www.RLBogetti.com

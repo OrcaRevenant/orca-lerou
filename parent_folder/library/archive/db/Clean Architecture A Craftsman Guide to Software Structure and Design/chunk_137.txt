@@ -1,0 +1,30 @@
+A component that has a position deep within the Zone of Uselessness must
+contain a significant fraction of such entities. Clearly, the presence of such
+useless entities is undesirable.
+AVOIDING THE ZONES OF EXCLUSION
+It seems clear that our most volatile components should be kept as far from both
+zones of exclusion as possible. The locus of points that are maximally distant
+from each zone is the line that connects (1, 0) and (0, 1). I call this line the Main
+Sequence.2
+A component that sits on the Main Sequence is not “too abstract” for its stability,
+nor is it “too unstable” for its abstractness. It is neither useless nor particularly
+painful. It is depended on to the extent that it is abstract, and it depends on others
+to the extent that it is concrete.
+The most desirable position for a component is at one of the two endpoints of the
+Main Sequence. Good architects strive to position the majority of their
+components at those endpoints. However, in my experience, some small fraction
+of the components in a large system are neither perfectly abstract nor perfectly
+stable. Those components have the best characteristics if they are on, or close, to
+the Main Sequence.
+DISTANCE FROM THE MAIN SEQUENCE
+This leads us to our last metric. If it is desirable for components to be on, or
+close, to the Main Sequence, then we can create a metric that measures how far
+away a component is from this ideal.
+• D3: Distance. D = |A+I–1| . The range of this metric is [0, 1]. A value of 0
+indicates that the component is directly on the Main Sequence. A value of 1
+indicates that the component is as far away as possible from the Main
+Sequence.
+Given this metric, a design can be analyzed for its overall conformance to the
+Main Sequence. The D metric for each component can be calculated. Any
+component that has a D value that is not near zero can be reexamined and
+restructured.

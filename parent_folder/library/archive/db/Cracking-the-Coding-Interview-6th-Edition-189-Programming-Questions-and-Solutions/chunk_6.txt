@@ -1,0 +1,81 @@
+Introduction
+Introduction
+2
+I.
+The Interview Process
+.4
+Why?
+4
+How Questions are Selected
+6
+It's All Relative
+7
+Frequently Asked Questions
+7
+II.
+Behind the Scenes
+. .8
+The Microsoft Interview
+9
+The Amazon Interview
+10
+The Google Interview
+10
+The Apple Interview
+11
+The Facebook Interview
+. 1 2
+The Palantir Interview
+13
+III.
+Special Situations
+15
+Experienced Candidates
+15
+Testers and SDETs
+15
+Product (and Program) Management
+16
+Dev Lead and Managers
+17
+Startups
+18
+Acquisitions and Acquihires
+19
+For Interviewers
+21
+IV.
+Before the Interview
+26
+Getting the Right Experience
+26
+Writing a Great Resume
+27
+Preparation Map
+30
+V.
+Behavioral Questions
+32
+Interview Preparation Grid
+32
+KnowYour Technical Projects
+33
+Responding to Behavioral Questions
+34
+So, tell me aboutyourself.
+36
+VI.
+BigO
+38
+An Analogy
+38
+Time Complexity
+38
+Space Complexity
+40
+Drop the Constants
+41
+Drop the Non-Dominant Terms
+42
+VIM
+Cracking the Coding Interview, 6th Edition

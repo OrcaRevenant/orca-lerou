@@ -1,0 +1,15 @@
+the higher, more important, levels.
+Another way to look at this issue is to note that lower-level components should
+be plugins to the higher-level components. The component diagram in Figure
+19.3 shows this arrangement. The Encryption component knows nothing of the
+IODevices component; the IODevices component depends on the Encryption
+component.
+Figure 19.3 Lower-level components should plug in to higher-level components
+CONCLUSION
+At this point, this discussion of policies has involved a mixture of the Single
+Responsibility Principle, the Open-Closed Principle, the Common Closure
+Principle, the Dependency Inversion Principle, the Stable Dependencies
+Principle, and the Stable Abstractions Principle. Look back and see if you can
+identify where each principle was used, and why.
+1. Meilir Page-Jones called this component the “Central Transform” in his book The Practical Guide to
+Structured Systems Design, 2nd ed. (Yourdon Press, 1988).

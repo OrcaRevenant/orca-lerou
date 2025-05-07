@@ -1,0 +1,31 @@
+mean, and why is it something we would want to do? Perhaps this statement is
+intended to imply that OO makes software easier to understand because it has a
+closer relationship to the real world—but even that statement is evasive and too
+loosely defined. It does not tell us what OO is.
+Some folks fall back on three magic words to explain the nature of OO:
+encapsulation, inheritance, and polymorphism. The implication is that OO is the
+proper admixture of these three things, or at least that an OO language must
+support these three things.
+Let’s examine each of these concepts in turn.
+ENCAPSULATION?
+The reason encapsulation is cited as part of the definition of OO is that OO
+languages provide easy and effective encapsulation of data and function. As a
+result, a line can be drawn around a cohesive set of data and functions. Outside
+of that line, the data is hidden and only some of the functions are known. We see
+this concept in action as the private data members and the public member
+functions of a class.
+This idea is certainly not unique to OO. Indeed, we had perfect encapsulation in
+C. Consider this simple C program:
+Click here to view code image
+point.h
+struct Point;
+struct Point* makePoint(double x, double y);
+double distance (struct Point *p1, struct Point *p2);
+Click here to view code image
+point.c
+#include "point.h"
+#include <stdlib.h>
+#include <math.h>
+struct Point {
+double x,y;
+};

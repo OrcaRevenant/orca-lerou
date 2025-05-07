@@ -1,0 +1,19 @@
+The fanout service works as follows:
+1. Fetch friend IDs from the graph database. Graph databases are suited for managing
+friend relationship and friend recommendations. Interested readers wishing to learn more
+about this concept should refer to the reference material [2].
+2. Get friends info from the user cache. The system then filters out friends based on user
+settings. For example, if you mute someone, her posts will not show up on your news feed
+even though you are still friends. Another reason why posts may not show is that a user
+could selectively share information with specific friends or hide it from other people.
+3. Send friends list and new post ID to the message queue.
+4. Fanout workers fetch data from the message queue and store news feed data in the news
+feed cache. You can think of the news feed cache as a <post_id, user_id> mapping table.
+Whenever a new post is made, it will be appended to the news feed table as shown in
+Figure 11-6. The memory consumption can become very large if we store the entire user
+and post objects in the cache. Thus, only IDs are stored. To keep the memory size small,
+we set a configurable limit. The chance of a user scrolling through thousands of posts in
+news feed is slim. Most users are only interested in the latest content, so the cache miss
+rate is low.
+5. Store <post_id, user_id > in news feed cache. Figure 11-6 shows an example of what
+the news feed looks like in cache.

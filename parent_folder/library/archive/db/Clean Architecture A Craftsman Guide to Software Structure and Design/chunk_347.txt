@@ -1,0 +1,36 @@
+polymorphism in, 40–42
+redesigning SAC in, 347–348
+C language, archaeology project, 349–351
+C# programming language
+abstract components in, 125
+dependency inversion, 45
+using statements for dependencies, 184
+weakening encapsulation, 36–37
+C Programming Language (Kernighan & Ritchie), 351
+C4 software architecture model, 314–315
+Carew, Mike, 356
+CASE (Computer Aided Software Engineering) tool, 368
+Case study. See Video sales case study
+Cathode ray tube (CRT) terminals, Union Accounting archaeology project,
+328–329
+CCP (Common Closure Principle)
+decoupling layers, 152
+grouping policies into components, 186–187
+keeping changes localized, 118
+overview of, 105–107
+Stable Dependencies Principle and, 120
+tension diagram, 108–110
+CCU/CMU (COLT control unit/COLT measurement unit), pCCU archaeology
+project, 353–354
+CDS (Craft Dispatch System), archaeology project
+overview of, 361–363
+Central office line testers. See COLTs (central office line testers)
+Central offices (COs), 4-TEL archaeology project, 339–340
+Change, ease of software, 14–15
+Church, Alonzo, 22–23, 50
+CICS-COBOL program, aluminum die-cast archaeology project, 339
+Classes
+abstract. See Abstract classes
+Common Reuse Principle, 107–108
+DIP and, 89
+LSP use in guiding inheritance, 78

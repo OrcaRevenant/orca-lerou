@@ -1,0 +1,43 @@
+console.log(val);
+} );
+// hello... world!!
+I call this proxy first design since we interact first (primarily, entirely) with the proxy.
+We enforce some special rules on interacting with messages_proxy that aren’t
+enforced for messages itself. We only add elements if the value is a string and is also
+unique; we also lowercase the value. When retrieving values from messages_proxy,
+we filter out any punctuation in the strings.
+Alternately, we can completely invert this pattern, where the target interacts with the
+proxy instead of the proxy interacting with the target. Thus, code really only interacts
+with the main object. The easiest way to accomplish this fallback is to have the proxy
+object in the [[Prototype]] chain of the main object.
+Consider:
+var handlers = {
+get(target,key,context) {
+return function() {
+context.speak(key + "!");
+};
+}
+},
+catchall = new Proxy( {}, handlers ),
+greeter = {
+speak(who = "someone") {
+console.log( "hello", who );
+}
+};
+// setup `greeter` to fall back to `catchall`
+Object.setPrototypeOf( greeter, catchall );
+greeter.speak();                // hello someone
+greeter.speak( "world" );       // hello world
+greeter.everyone();             // hello everyone!
+We interact directly with greeter instead of catchall. When we call speak(..), it’s
+found on greeter and used directly. But when we try to access a method like every
+one(), that function doesn’t exist on person.
+The default object property behavior is to check up the [[Prototype]] chain (see the
+this & Object Prototypes title of this series), so catchall is consulted for an everyone
+property. The proxy get() handler then kicks in and returns a function that calls
+speak(..) with the name of the property being accessed ("everyone").
+I call this pattern proxy last, since the proxy is used only as a last resort.
+Proxies
+|
+187
+www.it-ebooks.info

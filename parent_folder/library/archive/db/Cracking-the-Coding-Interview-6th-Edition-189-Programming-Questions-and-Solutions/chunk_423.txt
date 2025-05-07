@@ -1,0 +1,70 @@
+Solutions to Chapter 10 | Sorting and Searching
+Suppose we want to find the rank of 24 in the tree above. We would compare 24 with the root, 20, and find
+that 24 must reside on the right.The root has 4 nodes in its left subtree, and when we include the root itself,
+this gives us five total nodes smaller than 24. We set c o u n t e r to 5.
+Then, we compare 24 with node 25 and find that 24 must be on the left. The value of c o u n t e r does not
+update, since we're not "passing over"any smaller nodes. The value of c o u n t e r is still 5.
+Next, we compare 24 with node 23, and find that 24 must be on the right. Counter gets incremented by
+just 1 (to 6), since 23 has no left nodes.
+Finally, we find 24 and we return c o u n t e r : 6,
+Recursively, the algorithm is the following:
+1
+i n t getRank(Node node,
+i n t x) {
+2
+if x is node.data,
+return node.leftSi2e()
+3
+if x is on l e f t of node, return getRank(node.left, x)
+4
+if x is on r i g h t of node, return n o d e . l e f t S i z e Q + 1 + getRank(node.right, x)
+5
+>
+The full code for this is below.
+1
+RankNode root = n u l l ;
+2
+3
+void t r a c k f i n t number) {
+4
+if (root == n u l l ) {
+5
+root = new RankNode(number);
+6
+} else {
+7
+root.insert(number);
+8
+>
+9
+>
+10
+11 i n t getRankOfNumber(int number) {
+12
+return
+root.getRank(number);
+13
+}
+14
+15
+16 public class RankNode {
+17
+public i n t l e f t _ s i z e = 0;
+18
+public RankNode l e f t ,
+r i g h t ;
+19
+public i n t data = 0;
+20
+public RankNode(int d) {
+21
+data = d;
+22
+}
+23
+24
+public void i n s e r t ( i n t d) {
+25
+if (d <= data) {
+CrackingTheCodinglnterview.com | 6th Edition
+397

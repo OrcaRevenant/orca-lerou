@@ -1,0 +1,46 @@
+257
+The JUnit Framework
+Even though the authors left this module in very good shape, the Boy Scout Rule2 tells
+us we should leave it cleaner than we found it. So, how can we improve on the original
+code in Listing 15-2?
+The ﬁrst thing I don’t care for is the f preﬁx for the member variables [N6]. Today’s
+environments make this kind of scope encoding redundant. So let’s eliminate all the f’s.
+private int contextLength;
+private String expected;
+private String actual;
+private int prefix;
+private int suffix;
+Next, we have an unencapsulated conditional at the beginning of the compact function
+[G28].
+public String compact(String message) {
+if (expected == null || actual == null || areStringsEqual())
+return Assert.format(message, expected, actual);
+findCommonPrefix();
+findCommonSuffix();
+String expected = compactString(this.expected);
+String actual = compactString(this.actual);
+return Assert.format(message, expected, actual);
+}
+This conditional should be encapsulated to make our intent clear. So let’s extract a method
+that explains it.
+public String compact(String message) {
+if (shouldNotCompact())
+return Assert.format(message, expected, actual);
+findCommonPrefix();
+findCommonSuffix();
+String expected = compactString(this.expected);
+String actual = compactString(this.actual);
+return Assert.format(message, expected, actual);
+}
+if (sfx > 0) {
+int end = Math.min(s1.length() - sfx + 1 + ctxt, s1.length());
+result = result + (s1.substring(s1.length() - sfx + 1, end) +
+(s1.length() - sfx + 1 < s1.length() - ctxt ? "..." : ""));
+}
+return result;
+}
+}
+2.
+See “The Boy Scout Rule” on page 14.
+Listing 15-3 (continued)
+ComparisonCompator.java (defactored)

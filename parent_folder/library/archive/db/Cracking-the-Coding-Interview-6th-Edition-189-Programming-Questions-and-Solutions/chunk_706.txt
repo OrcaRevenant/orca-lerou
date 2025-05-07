@@ -1,0 +1,37 @@
+XIV
+About the Author
+Gayle Laakmann McDowell has a strong background in soft-
+ware development with extensive experience on both sides of
+the hiring table.
+She has worked for Microsoft, Apple, and Google as a software
+engineer. She spent three years at Google, where she was one
+of the top interviewers and served on the hiring committee.
+She interviewed hundreds of candidates in the U.S. and abroad,
+assessed thousands of candidate interview packets for the hiring
+committee, and reviewed many more resumes.
+As a candidate, she interviewed with—and received offers from—
+twelve tech companies, including Microsoft, Google, Amazon,
+IBM, and Apple,
+Gayle founded CareerCup to enable candidates to perform at
+their best during these challenging interviews. CareerCup.com
+offers a database of thousands of interview questions from major
+companies and a forum for interview advice.
+In addition to Cracking the Coding Interview, Gayle has written
+other two books:
+•
+Cracking the Tech Career: Insider Advice on Landing a Job at Google, Microsoft, Apple, or Any Top Tech
+Company provides a broader look at the interview process for major tech companies. It offers insight
+into how anyone, from college freshmen to marketing professionals, can position themselves for a
+career at one of these companies,
+•
+Cracking the PM Interview: How to Land a Product Manager Job in Technology focuses on product
+management roles at startups and big tech companies. It offers strategies to break into these roles and
+teaches job seekers how to prepare for PM interviews.
+Through her role with CareerCup, she consults with tech companies on their hiring process, leads technical
+interview training workshops, and coaches engineers at startups for acquisition interviews.
+She holds bachelor's degree and master's degrees in computer science from the University of Pennsylvania
+and an MBA from the Wharton School.
+She lives in Palo Alto, California, with her husband, two sons, dog, and computer science books. She still
+codes daily.
+646
+Cracking the Coding Interview, 6th Edition

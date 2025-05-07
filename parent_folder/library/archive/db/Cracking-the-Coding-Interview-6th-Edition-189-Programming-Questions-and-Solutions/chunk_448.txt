@@ -1,0 +1,66 @@
+Solutions to Chapter 14 j Databases
+7
+/* Equivalent: Rectangle rectangle - new Rectangle(4,2, 3.9); V
+8
+Class[] doubleArgsClass = new Class[] {double.class, double.class);
+9
+Constructor doubleArgsConstructor =
+18
+rectangleDefinition.getConstructor(doubleArgsClass);
+11 Rectangle rectangle = (Rectangle) doubleArgsConstructor.newlnstance(doubleArgs);
+12
+13 /* Equivalent: Double area = rectangle.area(); */
+14 Method m = rectangleDefinition.getDeclaredMethodC'area");
+15 Double area = (Double) m.invoke(rectangle);
+This code does the equivalent of:
+1
+Rectangle rectangle = new Rectangle(4.2, 3.9);
+2
+Double area = rectangle.area();
+Why Is Object Reflection Useful?
+Of course, it doesn't seem very useful in the above example, but reflection can be very useful in some cases.
+Three main reasons are:
+1. It can help you observe or manipulate the runtime behavior of applications.
+2. It can help you debug or test programs, as you have direct access to methods, constructors, and fields.
+3. You can call methods by name when you don't know the method in advance. For example, we may let
+the user pass in a class name, parameters for the constructor, and a method name. We can then use this
+information to create an object and call a method. Doing these operations without reflection would
+require a complex series of if-statements, if it's possible at all.
+13.7
+Lambda Expressions: There is a class Country that has methods g e t C o n t i n e n t ( ) and
+g e t P o p u l a t i o n ( ) . Write a function i n t
+g e t P o p u l a t i o n ( L i s t < C o u n t r y >
+c o u n t r i e s ,
+S t r i n g c o n t i n e n t ) that computes the total population of a given continent, given a list of all
+countries and the name of a continent.
+pg 168
+SOLUTION
+This question really comes in two parts. First, we need to generate a list of the countries in North America.
+Then, we need to compute their total population.
+Without lambda expressions, this is fairly straightforward to do.
+1
+int getPopulation(List<Country> countries, String continent) {
+2
+int sum = 0;
+3
+for (Country c : countries) {
+4
+if (c.getContinent().equals(continent)) {
+5
+sum += c.getPopulation();
+6
+>
+7
+>
+8
+return sum;
+9
+}
+To implement this with lambda expressions, let's break this up into multiple parts.
+First, we use f i l t e r to get a list of the countries in the specified continent.
+1
+5tream<Country> northAmerica = countries. streamQ .filter(
+2
+country -> { return country,getContinent().equals(continent);)
+4 3 8
+Cracking the Coding Interview, 6th Edition

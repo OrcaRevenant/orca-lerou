@@ -1,0 +1,66 @@
+359
+Appendix B: org.jfree.date.SerialDate
+599         );
+600         return SerialDate.createInstance(dd, mm, yy);
+601
+602     }
+603
+604     /**
+605      * Creates a new date by adding the specified number of years to the base
+606      * date.
+607      *
+608      * @param years  the number of years to add (can be negative).
+609      * @param base  the base date.
+610      *
+611      * @return A new date.
+612      */
+613     public static SerialDate addYears(final int years, final SerialDate base) {
+614
+615         final int baseY = base.getYYYY();
+616         final int baseM = base.getMonth();
+617         final int baseD = base.getDayOfMonth();
+618
+619         final int targetY = baseY + years;
+620         final int targetD = Math.min(
+621             baseD, SerialDate.lastDayOfMonth(baseM, targetY)
+622         );
+623
+624         return SerialDate.createInstance(targetD, baseM, targetY);
+625
+626     }
+627
+628     /**
+629      * Returns the latest date that falls on the specified day-of-the-week and
+630      * is BEFORE the base date.
+631      *
+632      * @param targetWeekday  a code for the target day-of-the-week.
+633      * @param base  the base date.
+634      *
+635      * @return the latest date that falls on the specified day-of-the-week and
+636      *         is BEFORE the base date.
+637      */
+638     public static SerialDate getPreviousDayOfWeek(final int targetWeekday,
+639                                                   final SerialDate base) {
+640
+641         // check arguments...
+642         if (!SerialDate.isValidWeekdayCode(targetWeekday)) {
+643             throw new IllegalArgumentException(
+644                 "Invalid day-of-the-week code."
+645             );
+646         }
+647
+648         // find the date...
+649         final int adjust;
+650         final int baseDOW = base.getDayOfWeek();
+651         if (baseDOW > targetWeekday) {
+652             adjust = Math.min(0, targetWeekday - baseDOW);
+653         }
+654         else {
+655             adjust = -7 + Math.max(0, targetWeekday - baseDOW);
+656         }
+657
+658         return SerialDate.addDays(adjust, base);
+659
+660     }
+Listing B-1 (continued)
+SerialDate.Java

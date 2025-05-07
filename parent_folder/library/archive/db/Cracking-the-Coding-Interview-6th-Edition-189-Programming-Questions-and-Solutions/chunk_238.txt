@@ -1,0 +1,101 @@
+Solutions to Chapter 3 j Stacks and Queues
+18
+}
+19
+20
+/* Increment stack pointer and then update top value. */
+21
+sizes[stackNum]++;
+22
+values[indexOfTop(stackNum)] = value;
+23
+>
+24
+25
+/* Pop item from top stack. */
+26
+public i n t pop(int stackNum) {
+27
+if
+(isEmpty(stackNum))
+{
+28
+throw new EmptyStackException();
+29
+}
+30
+31
+i n t toplndex = indexOfTop(stackNum);
+32
+i n t value = values[top!ndex]; // Get top
+33
+valuesftoplndex] = 0; // Clear
+34
+sizes[stackNum]--;
+// Shrink
+35
+return value;
+36
+}
+37
+38
+/* Return top element.
+*/
+39
+public i n t peek(int stackNum) {
+40
+if (isEmpty(stackNura))
+{
+41
+throw new EmptyStackException();
+42
+}
+43
+return values[indexOfTop(stackNum)];
+44
+}
+45
+46
+/* Return if stack is empty.
+*/
+47
+public boolean isErnpty(int stackNum) {
+48
+return sizes]; stackNum] == 0;
+49
+}
+50
+51
+t* Return if stack is f u l l .
+*/
+52
+public boolean i s F u l l ( i n t stackNum) {
+53
+return sizes[stackNum] == stackCapacity;
+54
+}
+55
+56
+/* Returns index of the top of the stack.
+*/
+57
+private i n t indexOfTop(int stackNum) {
+58
+i n t o f f s e t = stackNum + stackCapacity;
+59
+i n t size = sizes[stackNum];
+50
+return offset + size - 1;
+61
+}
+62 >
+If we had additional information about the expected usages of the stacks, then we could modify this algo-
+rithm accordingly. For example, if we expected Stack 1 to have many more elements than Stack 2, we could
+allocate more space to Stack 1 and less space to Stack 2.
+Approach 2: Flexible Divisions
+A second approach is to allow the stack blocks to be flexible in size. When one stack exceeds its initial
+capacity, we grow the allowable capacity and shift elements as necessary.
+We will also design our array to be circular, such that the finai stack may start at the end of the array and
+wrap around to the beginning.
+2 2 S
+Cracking the Coding Interview, 6th Edition

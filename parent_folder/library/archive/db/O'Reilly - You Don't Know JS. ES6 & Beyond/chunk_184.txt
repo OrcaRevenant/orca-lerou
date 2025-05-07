@@ -1,0 +1,38 @@
+The name property is what you’d use for meta programming purposes, so that’s what
+we’ll focus on in this discussion.
+The confusion comes because by default, the lexical name a function has (if any) is
+also set as its name property. Actually there was no official requirement for that behav‐
+ior by the ES5 (and prior) specifications. The setting of the name property was non-
+standard but still fairly reliable. As of ES6, it has been standardized.
+If a function has a name value assigned, that’s typically the name
+used in stack traces in developer tools.
+Inferences
+But what happens to the name property if a function has no lexical name?
+As of ES6, there are now inference rules which can determine a sensible name prop‐
+erty value to assign a function even if that function doesn’t have a lexical name to use.
+Consider:
+var abc = function() {
+// ..
+};
+abc.name;               // "abc"
+Had we given the function a lexical name like abc = function def() { .. }, the
+name property would of course be "def". But in the absence of the lexical name, intui‐
+tively the "abc" name seems appropriate.
+Here are other forms which will infer a name (or not) in ES6:
+(function(){ .. });                 // name:
+(function*(){ .. });                // name:
+window.foo = function(){ .. };      // name:
+class Awesome {
+constructor() { .. }            // name: Awesome
+funny() { .. }                  // name: funny
+}
+var c = class Awesome { .. };       // name: Awesome
+var o = {
+foo() { .. },                   // name: foo
+*bar() { .. },                  // name: bar
+baz: () => { .. },              // name: baz
+bam: function(){ .. },          // name: bam
+Function Names
+|
+173
+www.it-ebooks.info

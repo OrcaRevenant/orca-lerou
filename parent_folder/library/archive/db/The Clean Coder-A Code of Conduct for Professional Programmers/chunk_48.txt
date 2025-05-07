@@ -1,0 +1,29 @@
+CHAPTER 1 PROFESSIONALISM
+16
+reading through a module and repartition it as a matter of course. They’ll
+transform a switch statement into polymorphic deployment, or collapse an
+inheritance hierarchy into a chain-of-command. In short, they treat software
+the way a sculptor treats clay—they continuously shape and mold it.
+WO R K ETH I C
+Your career is your responsibility. It is not your employer’s responsibility to
+make sure you are marketable. It is not your employer’s responsibility to train
+you, or to send you to conferences, or to buy you books. These things are your
+responsibility. Woe to the software developer who entrusts his career to his
+employer.
+Some employers are willing to buy you books and send you to training classes
+and conferences. That’s fine, they are doing you a favor. But never fall into the
+trap of thinking that this is your employer’s responsibility. If your employer
+doesn’t do these things for you, you should find a way to do them yourself.
+It is also not your employer’s responsibility to give you the time you need to
+learn. Some employers may provide that time. Some employers may even
+demand that you take the time. But again, they are doing you a favor, and you
+should be appropriately appreciative. Such favors are not something you should
+expect.
+You owe your employer a certain amount of time and effort. For the sake of
+argument, let’s use the U.S. standard of 40 hours per week. These 40 hours
+should be spent on your employer’s problems, not on your problems.
+You should plan on working 60 hours per week. The first 40 are for your
+employer. The remaining 20 are for you. During this remaining 20 hours you
+should be reading, practicing, learning, and otherwise enhancing your career.
+I can hear you thinking: “But what about my family? What about my life? Am
+I supposed to sacrifice them for my employer?”

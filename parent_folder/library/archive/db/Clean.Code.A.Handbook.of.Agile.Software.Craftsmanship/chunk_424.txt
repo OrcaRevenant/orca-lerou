@@ -1,0 +1,30 @@
+396
+Appendix B: org.jfree.date.SerialDate
+154   public boolean isBefore(DayDate other) {
+155     return getOrdinalDay() < other.getOrdinalDay();
+156   }
+157
+158   public boolean isOnOrBefore(DayDate other) {
+159     return getOrdinalDay() <= other.getOrdinalDay();
+160   }
+161
+162   public boolean isAfter(DayDate other) {
+163     return getOrdinalDay() > other.getOrdinalDay();
+164   }
+165
+166   public boolean isOnOrAfter(DayDate other) {
+167     return getOrdinalDay() >= other.getOrdinalDay();
+168   }
+169
+170   public boolean isInRange(DayDate d1, DayDate d2) {
+171     return isInRange(d1, d2, DateInterval.CLOSED);
+172   }
+173
+174   public boolean isInRange(DayDate d1, DayDate d2, DateInterval interval) {
+175     int left = Math.min(d1.getOrdinalDay(), d2.getOrdinalDay());
+176     int right = Math.max(d1.getOrdinalDay(), d2.getOrdinalDay());
+177     return interval.isIn(getOrdinalDay(), left, right);
+178   }
+179 }
+Listing B-7 (continued)
+DayDate.java (Final)

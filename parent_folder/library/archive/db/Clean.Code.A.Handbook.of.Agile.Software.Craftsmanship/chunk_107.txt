@@ -1,0 +1,22 @@
+77
+Vertical Formatting
+Junit, FitNesse, and Time and Money are composed of relatively small ﬁles. None
+are over 500 lines and most of those ﬁles are less than 200 lines. Tomcat and Ant, on the
+other hand, have some ﬁles that are several thousand lines long and close to half are over
+200 lines.
+What does that mean to us? It appears to be possible to build signiﬁcant systems
+(FitNesse is close to 50,000 lines) out of ﬁles that are typically 200 lines long, with an
+upper limit of 500. Although this should not be a hard and fast rule, it should be considered
+very desirable. Small ﬁles are usually easier to understand than large ﬁles are.
+The Newspaper Metaphor
+Think of a well-written newspaper article. You read it vertically. At the top you expect a
+headline that will tell you what the story is about and allows you to decide whether it is
+something you want to read. The ﬁrst paragraph gives you a synopsis of the whole story,
+hiding all the details while giving you the broad-brush concepts. As you continue down-
+ward, the details increase until you have all the dates, names, quotes, claims, and other
+minutia.
+We would like a source ﬁle to be like a newspaper article. The name should be simple
+but explanatory. The name, by itself, should be sufﬁcient to tell us whether we are in the
+right module or not. The topmost parts of the source ﬁle should provide the high-level
+Figure 5-1
+File length distributions LOG scale (box height = sigma)

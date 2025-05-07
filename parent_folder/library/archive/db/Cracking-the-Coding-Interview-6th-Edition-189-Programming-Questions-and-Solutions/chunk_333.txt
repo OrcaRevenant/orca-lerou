@@ -1,0 +1,75 @@
+Solutions to Chapter 7 ] Object-Oriented Design
+if one machine controlled all the user sign-ins, then we'd cut off millions of users potentially if a single
+machine lost network connectivity.
+What are the key objects and methods?
+The key objects of the system will be a concept of users, conversations, and status messages. We've imple-
+mented a UserManager class. If we were looking more at the networking aspects of the problem, or a
+different component, we might have instead dived into those objects.
+1 /* UserManager serves as a central place for core user actions. */
+1
+public class UserManager {
+2
+private static UserManager instance;
+3
+/* maps from a user id to a user */
+4
+private HashMapcInteger, User> usersByld;
+5
+6
+/* maps from an account name to a user */
+I
+private HashMapiString, User> usersByAccountName;
+S
+9
+/* maps from the user id to an online user */
+10
+private HashMap<lnteger, User> onlineUsers;
+I I
+12
+public static UserManager getlnstanceQ {
+13
+if (instance == null) instance = new UserManager();
+14
+return instance;
+15
+>
+16
+17
+public void addUser(User fromUser, String toAccountName) { ... }
+18
+public void approveAddRequest(AddRequest req) { ... }
+19
+public void rejectAddRequest(AddRequest req) { ... }
+20
+public void userSignedOn(String accountName) { ... }
+21
+public void userSignedOff(String accountName) { ... >
+22 }
+The method receivedAddRequest, in the User class, notifies User B that User A has requested
+to add him. User B approves or rejects the request (via UserManager. approveAddRequest or
+r e j e c t AddRequest), and the UserManager takes care of adding the users to each other's contact lists.
+The method sentAddRequest in the User class is called by UserManager to add an AddRequest to
+User A's list of requests. So the flow is:
+1. User A clicks "add user" on the client, and it gets sent to the server.
+2. User A calls requestAddUser(User B).
+3. This method calls UserManager .addUser.
+4. UserManager calls both User A. sentAddRequest and
+User
+B.receivedAddRequest.
+Again, this is just one way of designing these interactions. It is not the only way, or even the only "good" way.
+1
+public class User {
+2
+private int id;
+3
+private UserStatus status = null;
+4
+5
+/* maps from the other participant's user id to the chat */
+6
+private HashMapilnteger, PrivateChat> privateChats;
+7
+8
+/* list of group chats */
+CrackingTheCodinglnterview.com | 6th Edition
+3 37

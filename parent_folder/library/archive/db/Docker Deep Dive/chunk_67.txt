@@ -1,0 +1,30 @@
+As the name suggests, official repositories contain images that have been vetted
+by Docker, Inc. This means they should contain up-to-date, high-quality code,
+that is secure, well-documented, and in-line with best practices (please can I
+have an award for using five hyphens in a single sentence).
+Unofficial repositories can be like the wild-west - you should not expect them to
+be safe, well-documented or built according to best practices. That’s not saying
+everything in unofficial repositories is bad! There’s some brilliant stuff in
+unofficial repositories. You just need to be very careful before trusting code from
+them. To be honest, you should always be careful when getting software from
+the internet - even images from official repositories!
+Most of the popular operating systems and applications have their own official
+repositories on Docker Hub. They’re easy to spot because they live at the top
+level of the Docker Hub namespace. The list below contains a few of the official
+repositories, and shows their URLs that exist at the top-level of the Docker Hub
+namespace:
+nginx - https://hub.docker.com/_/nginx/
+busybox - https://hub.docker.com/_/busybox/
+redis - https://hub.docker.com/_/redis/
+mongo - https://hub.docker.com/_/mongo/
+On the other hand, my own personal images live in the wild west of unofficial
+repositories and should not be trusted! Below are some examples of images in
+my repositories:
+nigelpoulton/tu-demo
+https://hub.docker.com/r/nigelpoulton/tu-demo/
+nigelpoulton/pluralsight-docker-ci
+https://hub.docker.com/r/nigelpoulton/pluralsight-docker-ci/
+Not only are images in my repositories not vetted, not kept up-to-date, not
+secure, and not well documented… you should also notice that they don’t live at
+the top-level of the Docker Hub namespace. My repositories all live within a
+second-level namespace called nigelpoulton.

@@ -1,0 +1,14 @@
+TypedArrays provide “view"s of binary data buffers that align with various integer
+types, like 8-bit unsigned integers and 32-bit floats. The array access to binary data
+makes operations much easier to express and maintain, enabling working with com‐
+plex data like video, audio, canvas data, etc.
+Maps are key-value pairs where the key can be an object instead of just a string/prim‐
+itive. Sets are unique lists of values (of any type).
+WeakMaps are maps where the key (object) is weakly held, so that GC is free to col‐
+lect the entry if it’s the last reference to an object. WeakSets are sets where the value is
+weakly held, again so that GC can remove the entry if it’s the last reference to that
+object.
+150
+|
+Chapter 5: Collections
+www.it-ebooks.info

@@ -1,0 +1,38 @@
+Solutions to Chapter 2 | Linked Lists
+An astute reader may wonder if Fast Runner might "hop over" SlowRunner compfetely, without
+ever colliding. That's not possible. Suppose that FastRunner did hop over SlowRunner, such that
+SlowRunner is at spot i and FastRunner is at spot i + 1, In the previous step, SlowRunner would
+be at spot i - l a n d FastRunner would at spot ( ( i + 1)
+- 2), or spot i - 1. That is, they would
+have collided.
+Part 2: When Do They Collide?
+Let's assume that the linked list has a "non-looped" part of size k.
+If we apply our algorithm from part 1, when wilt FastRunner and SlowRunner collide?
+We know that for every p steps that SlowRunner takes, FastRunner has taken 2p steps. Therefore, when
+SlowRunner enters the looped portion after k steps, FastRunner has taken 2k steps total and must be
+2k - k steps, or k steps, into the looped portion. Since k might be much larger than the loop length, we
+should actually write this as mod ( k , LOOP_SIZE) steps, which we will denote asK.
+At each subsequent step, FastRunner and SlowRunner get either one step farther away or one step
+closer, depending on your perspective. That is, because we are in a circle, when A moves q steps away from
+B, it is also moving q steps closer to B.
+So now we know the following facts:
+1. SlowRunner is 0 steps into the loop.
+2. FastRunner is K steps into the loop.
+3. SlowRunner is K steps behind FastRunner.
+4. FastRunner is LOOP_SIZE - K steps behind SlowRunner.
+5. FastRunner catches up to SlowRunner at a rate of 1 step per unit of time.
+So, when do they meet? Well, if FastRunner is L00P_SIZE
+-
+K steps behind SlowRunner, and
+FastRunner catches up at a rate of 1 step per unit of time, then they meet after LOOP_SIZE - K steps.
+At this point, they will be K steps before the head of the loop. Let's call this point C o l l i s i o n S p o t .
+Part 3: How Do You Find The Start of the Loop?
+We now know that C o l l i s i o n S p o t is K nodes before the start of the loop. Because K = mod(k, LOOP_
+SIZE) (or, in other words, k = K + M * LOOP_SIZE, for any integer M), it is also correct to say that it is
+k nodes from the loop start. For example, if node N is 2 nodes into a 5 node loop, it is also correct to say that
+it is 7,12, or even 397 nodes into the loop.
+Therefore, both C o l l i s i o n S p o t and L inked ListHead are k nodes from the start of the loop.
+nl and n2 will meet here,
+three nodes from start of loop
+Î26
+Cracking t h e Coding Interview, 6th Edition

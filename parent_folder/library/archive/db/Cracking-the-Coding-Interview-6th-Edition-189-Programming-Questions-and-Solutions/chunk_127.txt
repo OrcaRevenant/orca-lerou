@@ -1,0 +1,38 @@
+6
+Math and Logic Puzzles
+S
+o-called "puzzles"(or brain teasers) are some of the most hotly debated questions, and many companies
+have policies banning them. Unfortunately, even when these questions are banned, you still may find
+yourself being asked one of them. Why? Because no one can agree on a definition of what a brainteaser is.
+The good news is that if you are asked a puzzle or brainteaser, it's likely to be a reasonably fair one. It prob-
+ably won't rely on a trick of wording, and it can almost always be logically deduced. Many have their foun-
+dations in mathematics or computer science, and almost all have solutions that can be logically deduced.
+We'll go through some common approaches for tackling these questions, as well as some of the essentia!
+knowledge.
+> Prime Numbers
+As you probably know, every positive integer can be decomposed into a product of primes. For example:
+84 = 23 * 31 * 5e * 71 * l l 0 * 13® * 170 *
+Note that many of these primes have an exponent of zero.
+Divisibility
+The prime number law stated above means that, in order for a number X to divide a number y (written
+x \ y , or mod(y, x) = 0), all primes in x's prime factorization must be in y's prime factorization. Or, more
+specifically:
+Letx = 2j0 * 3J1 * 512 * 7^ * IV *
+Let y = 2k0 * 3 k l * 5k3 * 7k3 * l l k i *
+If x\y, then for alii, ji <= k i .
+In fact, the greatest common divisor of x and y will be:
+g c d ( x , y) • 2",int:l0' kB) *
+* 5>"iii[j2, *z> *
+The least common multiple of x and y will be:
+l c m ( X j y) =
+* 3"s»cji, ki) *
+ki) #
+As a fun exercise, stop for a moment and think what would happen if you did gcd * 1cm:
+gcd * 1cm = 2mln^6,
+* 2lta>:^0, k0' * 3Bir|(31' hl> *
+*
+_ 2raln(J0' kfl> * ia*(]0, kS) * ^fflintjl, ki) + msifjl, kl) +
+- 2je + K8 * 3)1 + ki *
+= 21® * 2ka * S^1 * 3 k l *
+CrackingTtieCodingtnterview.com 16th Edition
+117

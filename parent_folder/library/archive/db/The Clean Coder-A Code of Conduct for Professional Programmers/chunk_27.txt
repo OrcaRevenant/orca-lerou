@@ -1,0 +1,18 @@
+xxvii
+ACKNOWLEDGMENTS
+Mike Hill, Eric Meade, Ron Jeffries, Kent Beck, Martin Fowler, Grady Booch,
+and an endless list of others. Thank you, one and all.
+Of course, the greatest collaborator of my life has been my lovely wife, Ann
+Marie. I married her when I was 20, three days after she turned 18. For 38 years
+she has been my steady companion, my rudder and sail, my love and my life. I
+look forward to another four decades with her.
+And now, my collaborators and scheming partners are my children. I work
+closely with my eldest daughter Angela, my lovely mother hen and intrepid
+assistant. She keeps me on the straight and narrow and never lets me forget a
+date or commitment. I scheme business plans with my son Micah, the founder
+of 8thlight.com. His head for business is far better than mine ever was. Our
+latest venture, cleancoders.com, is very exciting!
+My younger son Justin has just started working with Micah at 8th Light. My
+younger daughter Gina is a chemical engineer working for Honeywell. With
+those two, the serious scheming has just begun!
+No one in your life will teach you more than your children will. Thanks, kids!

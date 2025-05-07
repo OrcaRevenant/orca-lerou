@@ -1,0 +1,43 @@
+foo();                  // 42
+foo( 5, 6 );            // 11
+foo( 0, 42 );           // 42
+foo( 5 );               // 36
+foo( 5, undefined );    // 36 <-- `undefined` is missing
+foo( 5, null );         // 5  <-- null coerces to `0`
+foo( undefined, 6 );    // 17 <-- `undefined` is missing
+foo( null, 6 );         // 6  <-- null coerces to `0`
+Notice the results and how they imply both subtle differences and similarities to the
+earlier approaches.
+x = 11 in a function declaration is more like x !== undefined ? x : 11 than the
+much more common idiom x || 11, so you’ll need to be careful in converting your
+pre-ES6 code to this ES6 default parameter value syntax.
+Default Value Expressions
+Function default values can be more than just simple values like 31; they can be any
+valid expression, even a function call:
+function bar(val) {
+console.log( "bar called!" );
+return y + val;
+}
+function foo(x = y + 3, z = bar( x )) {
+console.log( x, z );
+}
+var y = 5;
+foo();                              // "bar called"
+// 8 13
+foo( 10 );                          // "bar called"
+// 10 15
+y = 6;
+foo( undefined, 10 );               // 9 10
+As you can see, the default value expressions are lazily evaluated, meaning they’re
+only run if and when they’re needed — that is, when a parameter’s argument is omit‐
+ted or is undefined.
+It’s a subtle detail, but the formal parameters in a function declaration are in their
+own scope — think of it as a scope bubble wrapped around just the ( .. ) of the
+function declaration — not in the function body’s scope. That means a reference to an
+identifier in a default value expression first matches the formal parameters’ scope
+before looking to an outer scope. See the Scope & Closures title of this series for more
+information.
+Default Parameter Values
+|
+17
+www.it-ebooks.info

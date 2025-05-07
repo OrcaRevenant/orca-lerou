@@ -1,0 +1,6 @@
+Power of two
+Although data volume can become enormous when dealing with distributed systems,
+calculation all boils down to the basics. To obtain correct calculations, it is critical to know
+the data volume unit using the power of 2. A byte is a sequence of 8 bits. An ASCII character
+uses one byte of memory (8 bits). Below is a table explaining the data volume unit (Table 2-
+1).

@@ -1,0 +1,21 @@
+Delete
+We have to remove hateful, violent, sexually explicit, or dangerous autocomplete
+suggestions. We add a filter layer (Figure 13-14) in front of the Trie Cache to filter out
+unwanted suggestions. Having a filter layer gives us the flexibility of removing results based
+on different filter rules. Unwanted suggestions are removed physically from the database
+asynchronically so the correct data set will be used to build trie in the next update cycle.
+Scale the storage
+Now that we have developed a system to bring autocomplete queries to users, it is time to
+solve the scalability issue when the trie grows too large to fit in one server.
+Since English is the only supported language, a naive way to shard is based on the first
+character. Here are some examples.
+• If we need two servers for storage, we can store queries starting with ‘a’ to ‘m’ on the
+first server, and ‘n’ to ‘z’ on the second server.
+• If we need three servers, we can split queries into ‘a’ to ‘i’, ‘j’ to ‘r’ and ‘s’ to ‘z’.
+Following this logic, we can split queries up to 26 servers because there are 26 alphabetic
+characters in English. Let us define sharding based on the first character as first level
+sharding. To store data beyond 26 servers, we can shard on the second or even at the third
+level. For example, data queries that start with ‘a’ can be split into 4 servers: ‘aa-ag’, ‘ah-
+an’, ‘ao-au’, and ‘av-az’.
+At the first glance this approach seems reasonable, until you realize that there are a lot more
+words that start with the letter ‘c’ than ‘x’. This creates uneven distribution.

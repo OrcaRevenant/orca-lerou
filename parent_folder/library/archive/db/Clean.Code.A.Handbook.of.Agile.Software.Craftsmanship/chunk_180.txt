@@ -1,0 +1,46 @@
+150
+Chapter 10: Classes
+We design TokyoStockExchange to implement this interface. We also make sure that the
+constructor of Portfolio takes a StockExchange reference as an argument:
+public Portfolio {
+private StockExchange exchange;
+public Portfolio(StockExchange exchange) {
+this.exchange = exchange;
+}
+// ...
+}
+Now our test can create a testable implementation of the StockExchange interface that
+emulates the TokyoStockExchange. This test implementation will ﬁx the current value for
+any symbol we use in testing. If our test demonstrates purchasing ﬁve shares of Microsoft
+for our portfolio, we code the test implementation to always return $100 per share of
+Microsoft. Our test implementation of the StockExchange interface reduces to a simple
+table lookup. We can then write a test that expects $500 for our overall portfolio value.
+public class PortfolioTest {
+private FixedStockExchangeStub exchange;
+private Portfolio portfolio;
+@Before
+protected void setUp() throws Exception {
+exchange = new FixedStockExchangeStub();
+exchange.fix("MSFT", 100);
+portfolio = new Portfolio(exchange);
+}
+@Test
+public void GivenFiveMSFTTotalShouldBe500() throws Exception {
+portfolio.add(5, "MSFT");
+Assert.assertEquals(500, portfolio.value());
+}
+}
+If a system is decoupled enough to be tested in this way, it will also be more ﬂexible
+and promote more reuse. The lack of coupling means that the elements of our system are
+better isolated from each other and from change. This isolation makes it easier to under-
+stand each element of the system.
+By minimizing coupling in this way, our classes adhere to another class design princi-
+ple known as the Dependency Inversion Principle (DIP).5 In essence, the DIP says that our
+classes should depend upon abstractions, not on concrete details.
+Instead of being dependent upon the implementation details of the TokyoStock-
+Exchange class, our Portfolio class is now dependent upon the StockExchange interface.
+The StockExchange interface represents the abstract concept of asking for the current price
+of a symbol. This abstraction isolates all of the speciﬁc details of obtaining such a price,
+including from where that price is obtained.
+5.
+[PPP].

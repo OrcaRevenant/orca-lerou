@@ -1,0 +1,30 @@
+CHAPTER 7 ACCEPTANCE TESTING
+100
+In a different office, Sam is on the phone with his customer.
+Sam: “Yes, yes, the log files will be saved.”
+Carl:  “OK, it’s vital that we never lose any logs. We need to go back
+through all those log files, even months or years later, whenever
+there’s an outage, event, or dispute.”
+Sam: “Don’t worry, I just spoke to Paula. She’ll be saving the logs into a
+directory named backup every night at midnight.”
+Carl: “OK, that sounds good.”
+I presume you’ve detected the ambiguity. The customer expects all log files to be
+saved, and Paula simply thought they wanted to save last night’s log file. When
+the customer goes looking for months’ worth of log file backups, they’ll just
+find last night’s.
+In this case both Paula and Sam dropped the ball. It is the responsibility of
+professional developers (and stakeholders) to make sure that all ambiguity is
+removed from the requirements.
+This is hard, and there’s only one way I know how to do it.
+ACC E PTAN C E TE ST S
+The term acceptance test is overloaded and overused. Some folks assume that
+these are the tests that users execute before they accept a release. Other folks
+think these are QA tests. In this chapter we will define acceptance tests as tests
+written by a collaboration of the stakeholders and the programmers in order to
+define when a requirement is done.
+TH E D E F I N ITI O N O F “D O N E ”
+One of the most common ambiguities we face as software professionals is the
+ambiguity of “done.” When a developer says he’s done with a task, what does that
+mean? Is the developer done in the sense that he’s ready to deploy the feature
+with full confidence? Or does he mean that he’s ready for QA? Or perhaps he’s
+done writing it and has gotten it to run once but hasn’t really tested it yet.

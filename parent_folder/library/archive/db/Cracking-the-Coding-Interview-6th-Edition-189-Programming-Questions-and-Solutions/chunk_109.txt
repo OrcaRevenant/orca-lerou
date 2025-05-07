@@ -1,0 +1,32 @@
+Chapter 3 | Stacks and Queues
+3.3
+Stack of Plates: Imagine a (literal) stack of plates. If the stack gets too high, it might topple.
+Therefore, in real life, we would likely start a new stack when the previous stack exceeds some
+threshold. Implement a data structure SetOfStacks that mimics this. SetOfStacks should be
+composed of several stacks and should create a new stack once the previous one exceeds capacity.
+SetOfStacks . p u s h ( ) and SetOfStacks .pop() should behave identically to a single stack
+(that is, pop( ) should return the same values as it would if there were just a single stack).
+FOLLOW UP
+Implement a function popAt( i n t i n d e x ) which performsa pop operation on a specific sub-stack.
+Hints: #64, #81
+3.4
+Queue via Stacks: Implement a MyQueue class which implements a queue using two stacks.
+Hints: #98, #114
+pg 236
+3.5
+Sort Stack: Write a program to sort a stack such that the smallest items are on the top. You can use
+an additional temporary stack, but you may not copy the elements into any other data structure
+(such as an array). The stack supports the following operations: push, pop, peek, and is Empty.
+Hints: #15, »32,043
+3.6
+Animal SheltenAn animal shelter, which holds only dogs and cats, operates on a strictly "first in, first
+out" basis. People must adopt either the "oldest" (based on arrival time) of all animals at the shelter,
+or they can select whether they would prefer a dog or a cat (and will receive the oldest animal of
+that type). They cannot select which specific animal they would like. Create the data structures to
+maintain this system and implement operations such as enqueue, dequeueAny, dequeueDog,
+and dequeueCat.You may use the built-in L i n k e d L i s t data structure.
+Hints: #22, #56, #63
+Additional Questions: Linked Lists (#2.6), Moderate Problems (#16.26), Hard Problems (#17.9).
+Hints start on page 653.
+CrackingTheCodmginterview.com j 6th Edition
+99

@@ -1,0 +1,32 @@
+Like the 8-track audio cassettes of the day, the tape was oriented in a loop. The
+drive moved the tape in only one direction—there was no rewind! If you wanted
+to position the tape at the beginning, you had to send it forward to its “load
+point.”
+The tape moved at a speed of approximately 1 foot per second. Thus, if the tape
+loop was 25 feet long, it could take as long as 25 seconds to send it to the load
+point. For this reason Tridata made cartridges in several lengths, ranging from 10
+feet to 100 feet.
+The M365 had a button on the front that would load memory with a little
+bootstrap program and execute it. This program would read the first block of
+data from the tape, and execute that. Typically this block held a loader that
+loaded the operating system that lived on the rest of the tape.
+The operating system would prompt the user for the name of a program to run.
+Those programs were stored on the tape, just after the operating system. We
+would type in the name of the program—for example, the ED-402 Editor—and
+the operating system would search the tape for that program, load it, and execute
+it.
+The console was an ASCII CRT with green phosphors, 72 characters wide5 by
+24 lines. The characters were all uppercase.
+To edit a program, you would load the ED-402 Editor, and then insert the tape
+that held your source code. You would read one tape block of that source code
+into memory, and it would be displayed on the screen. The tape block might hold
+50 lines of code. You would make your edits by moving the cursor around on the
+screen and typing in a manner similar to vi. When you were done, you would
+write that block onto a different tape, and read the next block from the source
+tape. You kept on doing this until you were done.
+There was no scrolling back to previous blocks. You edited your program in a
+straight line, from beginning to end. Going back to the beginning forced you to
+finish copying the source code onto the output tape and then start a new editing
+session on that tape. Perhaps not surprisingly, given these constraints, we printed
+our programs out on paper, marked all the edits by hand in red ink, and then
+edited our programs block by block by consulting our markups on the listing.

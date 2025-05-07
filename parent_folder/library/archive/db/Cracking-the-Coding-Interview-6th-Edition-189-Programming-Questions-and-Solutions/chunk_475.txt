@@ -1,0 +1,97 @@
+Solutions to Chapter 14 | Databases
+1
+Point intersection(Point startl, Point endl, Point start2, Point enct2) {
+2
+/* Rearranging these so that, in order of x values: start is before end and
+* point 1 is before point 2. This will make some of the later logic simpler. */
+4
+if (startl.x > endl.x) swap(startl, endl);
+5
+if (start2.x > end2.x) swap(start2, end2);
+6
+if (startl.x > start2.x) {
+7
+swap(starti, start2);
+8
+swap(endl, end2);
+9
+}
+16
+11
+/* Compute lines (including slope and y-intercept). */
+12
+Line linel = new Line(startl, endl);
+13
+Line line2 = new Line(start2, end2);
+14
+15
+!* If the lines are parallel, they intercept only if they have the same y
+16
+* intercept and start 2 is on line l.> */
+17
+if (linel.slope == line2.slope) {
+18
+if (linel.yintercept == line2.yintercept &&
+19
+isBetween(startl, start2, endl)) {
+20
+return start2;
+21
+}
+22
+return null;
+23
+>
+24
+25
+/* Get intersection coordinate. */
+26
+double x = (line2.yintercept - linel.yintercept) / (linel.slope - line2.slope);
+27
+double y = x * linel.slope + linel.yintercept;
+28
+Point intersection = new Point(x, y);
+29
+30
+/* Check if within line segment range. */
+31
+if (is8etween(startl, intersection, endl) &&
+32
+isBetween(start2, intersection, end2)) {
+33
+return intersection;
+34
+>
+35
+return null;
+36 >
+37
+38 /* Checks if middle is between start and end. */
+39 boolean isBetween(double start, double middle, double end) {
+40
+if (start > end) {
+41
+return end <= middle S& middle <= start;
+42
+} else {
+43
+return start <= middle && middle <= end;
+44
+}
+45 }
+46
+47 /* Checks if middle is between start and end. */
+48 boolean isBetween(Point start, Point middle. Point end) {
+49
+return is8etween(start.x, middle.x, end.x) &&
+50
+is8etween(start.y, middle.y, end.y);
+51 }
+52
+53 /* Swap coordinates of point one and two. */
+54 void swap(Point one, Point two) {
+55
+double x = one.x;
+56
+double y = one.y;
+CrackingTheCodinglnterview.com \ 6th Edition 415

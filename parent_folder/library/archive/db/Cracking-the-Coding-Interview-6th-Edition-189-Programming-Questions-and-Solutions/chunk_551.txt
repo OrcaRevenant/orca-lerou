@@ -1,0 +1,66 @@
+Solutions to Chapter 17 | Moderate
+17.7
+Baby Names: Each year, the government releases a list of the 10,000 most common baby names
+and their frequencies (the number of babies with that name). The only problem with this is that
+some names have multiple spellings. For example, "John" and "ion"are essentially the same name
+but would be listed separately in the list. Given two lists, one of names/frequencies and the other
+of pairs of equivalent names, write an algorithm to print a new list of the true frequency of each
+name. Note that if John and Jon are synonyms, and Jon and Johnny are synonyms, then John and
+Johnny are synonyms, (It is both transitive and symmetric.) In the final list, any name can be used
+as the "real" name.
+EXAMPLE
+Input;
+Names: John (15), Jon (12), Chris (13), Kris (4), Christopher (19)
+Synonyms: (Jon, John), (John, Johnny), (Chris, Kris), (Chris, Christopher)
+Output; John (27), Kris (36)
+pg 187
+SOLUTION
+Let's start off with a good example. We want an example with some names with multiple synonyms and
+some with none. Additionally, we want the synonym list to be diverse in which name is on the left side and
+which is on the right. For exampte, we wouldn't want Johnny to always be the name on the left side as we're
+creating the group of [John, Jonathan, Jon, and Johnny),
+This list should work fairly well.
+Name
+Count
+John
+10
+Don
+3
+Oavis
+2
+Kari
+3
+Johnny
+11
+Carlton
+8
+Carleton
+2
+Jonathan
+9
+Carrie
+5
+Name
+Alternate
+Jonathan
+John
+Jon
+Johnny
+Johnny
+John
+Kari
+Carrie
+Carleton
+Carlton
+The final list should be something like: John (33), Kari (8), Davis(2), Carleton (10).
+Solution #1
+Let's assume our baby names list is given to us as a hash table, (if not, it's easy enough to build one.)
+We can start reading pairs in from the synonyms list. As we read the pair (Jonathan, John), we can merge the
+counts for Jonathan and John together. We'll need to remember, though, that we saw this pair, because, in
+the future, we could discover that Jonathan is equivalent to something else.
+We can use a hash table (LI) that maps from a name to its "true" name. We'll also need to know, given a
+"true" name, all the names equivalent to it. This will be stored in a hash table L2. Note that L2 acts as a
+reverse lookup of LI.
+READ (Jonathan, Dohn)
+CrackingTheCodinglnterview.com | 6th Edition
+495

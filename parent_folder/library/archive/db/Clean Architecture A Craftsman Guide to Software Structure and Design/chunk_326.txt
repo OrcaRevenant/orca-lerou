@@ -1,0 +1,28 @@
+ARCHITECTURE
+I did not work on this system, but I heard about what happened. The story I am
+going to relate to you is second-hand, but for the most part, I believe it to be
+correct.
+These were the heady days of microcomputers, UNIX operating systems, C, and
+SQL databases. We were determined to use them all.
+From the many database vendors out there, we eventually chose UNIFY. UNIFY
+was a database system that worked with UNIX, which was perfect for us.
+UNIFY also supported a new technology called Embedded SQL. This technology
+allowed us to embed SQL commands, as strings, right into our C code. And so
+we did—everywhere.
+I mean, it was just so cool that you could put your SQL right into your code,
+anywhere you wanted. And where did we want to? Everywhere! And so there
+was SQL smeared throughout the body of that code.
+Of course, in those days SQL was hardly a solid standard. There were lots of
+special vendor-specific quirks. So the special SQL and special UNIFY API calls
+were also smeared throughout the code.
+This worked great! The system was a success. The craftsmen used it, and the
+telephone companies loved it. Life was all smiles.
+Then the UNIFY product we were using was cancelled.
+Oh. Oh.
+So we decided to switch to SyBase. Or was it Ingress? I don’t remember. Suffice
+it to say, we had to search through all that C code, find all the embedded SQL
+and special API calls, and replace them with corresponding gestures for the new
+vendor.
+After three months of effort or so, we gave up. We couldn’t make it work. We
+were so coupled to UNIFY that there was no serious hope of restructuring the
+code at any practical expense.

@@ -1,0 +1,84 @@
+Solutions to Chapter 17 j Hard
+17,10 Majority Element; A majority element is an element that makes up more than half of the items in
+an array. Given a positive integers array, find the majority element. If there is no majority element,
+return -1. Do this in 0(N) time and 0 ( 1 ) space.
+Input:
+1 2 5 9 5 9 5 5 5
+Output:
+5
+pg 187
+SOLUTION
+Let's start off with an example:
+3 1 7 1 3 7 3 7 1 7 7
+One thing we can notice here is that if the majority element (in this case 7) appears less often in the begin-
+ning, it must appear much more often toward the end. That's a good observation to make.
+This interview question specifically requires us to do thisinO(N) time and 0 ( 1 ) space. Nonetheless, some-
+times it can be useful to relax one of those requirements and develop an algorithm. Let's try relaxing the
+time requirement but staying firm on the 0 ( 1 ) space requirement.
+Solution #1 (Slow)
+One simple way to do this is to just iterate through the array and check each element for whether it's the
+majority element.This takes 0(N ;) time and 0 ( 1 ) space.
+1
+i n t findMajorityElement(int[] array) {
+2
+-for ( i n t x : array) {
+3
+if (validate(array,
+x)) {
+4
+return x;
+5
+>
+6
+}
+7
+return - I j
+8
+>
+9
+10 boolean v a l i d a t e ( i n t [ ] array, i n t majority) {
+11
+i n t count = 0;
+12
+f o r ( i n t n : array) {
+13
+if (n == majority) {
+14
+count++;
+15
+>
+16
+>
+17
+18
+return count > array,length / 2\
+19 >
+This does not fit the time requirements of the problem, but it is potentially a starting point. We can think
+about optimizing this.
+Solution #2 (Optimal)
+Let's think about what that algorithm did on a particular example. Is there anything we can get rid of?
+3
+1
+7
+1
+1
+7
+7
+3
+7
+7
+7
+0
+1
+2
+3
+4
+5
+6
+7
+S
+9
+10
+In the very first validation pass, we select 3 and validate it as the majority element. Several elements later,
+we've still counted just one 3 and several non-3 elements. Do we need to continue checking for 3?
+55 S Cracking the Coding interview, 6th Edition

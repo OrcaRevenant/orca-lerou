@@ -1,0 +1,31 @@
+In 1957, Dijkstra married Maria Debets. At the time, you had to state your
+profession as part of the marriage rites in the Netherlands. The Dutch authorities
+were unwilling to accept “programmer” as Dijkstra’s profession; they had never
+heard of such a profession. To satisfy them, Dijkstra settled for “theoretical
+physicist” as his job title.
+As part of deciding to make programming his career, Dijkstra conferred with his
+boss, Adriaan van Wijngaarden. Dijkstra was concerned that no one had
+identified a discipline, or science, of programming, and that he would therefore
+not be taken seriously. His boss replied that Dijkstra might very well be one of
+the people who would discover such disciplines, thereby evolving software into
+a science.
+Dijkstra started his career in the era of vacuum tubes, when computers were
+huge, fragile, slow, unreliable, and (by today’s standards) extremely limited. In
+those early years, programs were written in binary, or in very crude assembly
+language. Input took the physical form of paper tape or punched cards. The
+edit/compile/test loop was hours—if not days—long.
+It was in this primitive environment that Dijkstra made his great discoveries.
+PROOF
+The problem that Dijkstra recognized, early on, was that programming is hard,
+and that programmers don’t do it very well. A program of any complexity
+contains too many details for a human brain to manage without help.
+Overlooking just one small detail results in programs that may seem to work, but
+fail in surprising ways.
+Dijkstra’s solution was to apply the mathematical discipline of proof. His vision
+was the construction of a Euclidian hierarchy of postulates, theorems,
+corollaries, and lemmas. Dijkstra thought that programmers could use that
+hierarchy the way mathematicians do. In other words, programmers would use
+proven structures, and tie them together with code that they would then prove
+correct themselves.
+Of course, to get this going, Dijkstra realized that he would have to demonstrate
+the technique for writing basic proofs of simple algorithms. This he found to be

@@ -1,0 +1,15 @@
+Figure 10.1 The Interface Segregation Principle
+In the situation illustrated in Figure 10.1, there are several users who use the
+operations of the OPS class. Let’s assume that User1 uses only op1, User2 uses
+only op2, and User3 uses only op3.
+Now imagine that OPS is a class written in a language like Java. Clearly, in that
+case, the source code of User1 will inadvertently depend on op2 and op3, even
+though it doesn’t call them. This dependence means that a change to the source
+code of op2 in OPS will force User1 to be recompiled and redeployed, even
+though nothing that it cared about has actually changed.
+This problem can be resolved by segregating the operations into interfaces as
+shown in Figure 10.2.
+Again, if we imagine that this is implemented in a statically typed language like
+Java, then the source code of User1 will depend on U1Ops, and op1, but will not
+depend on OPS. Thus a change to OPS that User1 does not care about will not
+cause User1 to be recompiled and redeployed.

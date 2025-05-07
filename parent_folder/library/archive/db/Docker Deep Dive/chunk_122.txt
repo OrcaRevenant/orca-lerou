@@ -1,0 +1,25 @@
+wrap it in a service and deploy the service. Beneath the hood, services are a
+declarative way of setting the desired state on the cluster. For example:
+Set the number of tasks (containers) in the service
+Set the image the containers in the service will use
+Set the procedure for updating to newer versions of the image
+The configuration and state of the swarm is held in a distributed etcd database
+located on all managers in the swarm. It’s kept extremely up-to-date and is
+hosted in-memory on all manager nodes to make it fast. But the best thing about
+it is the fact that it requires zero configuration - it’s installed as part of the
+Swarm and just takes care of itself.
+Something else that’s game changing about swarm mode is its approach to
+security. TLS is so tightly integrated that it’s not possible to build a swarm
+without it. In today’s security conscious world, things like this deserve all the
+props they get! Anyway, swarm mode uses TLS to encrypt communications,
+authenticate nodes, and authorize roles. Automatic key rotation is also thrown in
+as the icing on the cake! And it all happens so smoothly that you wouldn’t even
+know it was there!
+That’s enough of a primer. Let’s get our hands dirty with some examples.
+Lab setup
+For the remainder of this chapter we’ll build the lab shown in Figure 9.2 with 6-
+nodes configured as 3 managers and 3 workers. In the examples we’ll use, each
+node is running Linux with Docker 17.05 or higher. You can build the same
+swarm on Windows, the only difference would be that you’d need to deploy
+Windows containers to it. All nodes in the lab can communicate over the
+network.

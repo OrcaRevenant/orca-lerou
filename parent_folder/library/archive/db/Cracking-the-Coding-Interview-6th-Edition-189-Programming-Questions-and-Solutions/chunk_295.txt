@@ -1,0 +1,56 @@
+Solutions to Chapter 5 j Bit Manipulation
+n -= 2cl - l;
+// Removes t r a i l i n g I s . n is now 10000000.
+n -= lj
+II Flips t r a i l i n g 0s. n is now 01111111.
+n -= 2 C 0 1 - 1;
+II Flips l a s t (cfl-1) 0s. n is now 01110000.
+This reduces mathematically to:
+next
+= n - (2=l - 1) - 1 - (2iB " 1 - 1).
+= n - 2" - 2;e ' 1 + 1
+Again, this is very easy to implement.
+1
+i n t getPrevArith(int n) {
+2
+I* . . . same calculation f o r c0 and cl as before . . . */
+3
+return n - (1 << c l ) - (1 << (c0 - 1)) + 1;
+4
+}
+Whew! Don't worry, you wouldn't be expected to get all this in an interview—at least not without a lot of
+help from the interviewer.
+5.5
+Debugger: Explain what the following code does: ((n& (n-1)) ==0).
+Pg116
+SOLUTION
+We can work backwards to solve this question.
+What does it mean if A & B == 0?
+It means that A and B never have a 1 bit in the same place. So if n & ( n - 1 ) == 0, then n and n - 1 never
+share a 1.
+What does n-1 look tike (as compared with n)?
+Try doing subtraction by hand (in base 2 or 10). What happens?
+1101011000 [base 2]
+593100 [base 10]
+1
+-
+1
+= 1101010111 [base 2]
+= 593099 [base 10]
+When you subtract 1 from a number, you look at the least significant bit. If it's a 1 you change it to 0, and you
+are done, if it's a zero, you must "borrow" from a larger bit. So, you go to increasingly larger bits, changing
+each bit from a 0 to a 1, until you find a 1. You flip that 1 to a 0 and you are done.
+Thus, n - 1 will look like n, except that n's initial 0s will be Is in n-1, and n's least significant 1 will be a 0 in
+n-1.That is:
+if
+n = abcdel000
+then n-1 = abcde0111
+So what does n & (n-1) = 0 indicate?
+n and n - 1 must have no Is in common. Given that they look like this:
+if
+n = abcdei000
+then n-1 = abcde011i
+abcde must be all 0s, which means that n must look like this: 00001000. The value n is therefore a power
+of two.
+CrackingTheCodinginterview.com | 6th Edition
+279

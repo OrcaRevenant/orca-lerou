@@ -1,0 +1,38 @@
+25
+Method Names
+Avoid Mental Mapping
+Readers shouldn’t have to mentally translate your names into other names they already
+know. This problem generally arises from a choice to use neither problem domain terms
+nor solution domain terms.
+This is a problem with single-letter variable names. Certainly a loop counter may be
+named i or j or k (though never l!) if its scope is very small and no other names can con-
+ﬂict with it. This is because those single-letter names for loop counters are traditional.
+However, in most other contexts a single-letter name is a poor choice; it’s just a place
+holder that the reader must mentally map to the actual concept. There can be no worse rea-
+son for using the name c than because a and b were already taken.
+In general programmers are pretty smart people. Smart people sometimes like to show
+off their smarts by demonstrating their mental juggling abilities. After all, if you can reli-
+ably remember that r is the lower-cased version of the url with the host and scheme
+removed, then you must clearly be very smart.
+One difference between a smart programmer and a professional programmer is that
+the professional understands that clarity is king. Professionals use their powers for good
+and write code that others can understand.
+Class Names
+Classes and objects should have noun or noun phrase names like Customer, WikiPage,
+Account, and AddressParser. Avoid words like Manager, Processor, Data, or Info in the name
+of a class. A class name should not be a verb.
+Method Names
+Methods should have verb or verb phrase names like postPayment, deletePage, or save.
+Accessors, mutators, and predicates should be named for their value and preﬁxed with get,
+set, and is according to the javabean standard.4
+string name = employee.getName();
+customer.setName("mike");
+if (paycheck.isPosted())...
+When constructors are overloaded, use static factory methods with names that
+describe the arguments. For example,
+Complex fulcrumPoint = Complex.FromRealNumber(23.0);
+is generally better than
+Complex fulcrumPoint = new Complex(23.0);
+Consider enforcing their use by making the corresponding constructors private.
+4.
+http://java.sun.com/products/javabeans/docs/spec.html

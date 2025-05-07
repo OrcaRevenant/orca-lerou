@@ -1,0 +1,89 @@
+IV j Hints for Additional Review Problems
+#568.
+17,16
+Iterative solution: If you take appointment i, you will never take appointment i + 1,
+but you will always take appointment i + 2 o r i + 3,
+#569.
+17,26
+Solution 2: Building off the earlier hint, we can ask what defines the list of documents
+with some similarity to a document like {13, 16, 21, 3). What attributes does that list
+have? How would we gather all documents like that?
+#570.
+16.22
+Option #2: Observe that nothing in the problem stipulates that the label for the coor-
+dinates must remain the same. Can you move the ant and all cells into positive coordi-
+nates? In other words, what would happen if, whenever you needed to grow the array
+in a negative direction, you relabeled alt the indices such that they were still positive?
+#571.
+16.21
+You are looking for values a and b where sumA - a + b = sumB - b + a. Do the
+math to work out what this means for a and b's values.
+#572.
+16.9
+Approach these one by one, starting with subtraction. Once you've completed one
+function, you can use it to implement the others.
+#573.
+17.6
+Start with a brute force solution.
+#574.
+16,23
+Start with a brute force solution. How many times does it call r a n d 5 ( ) in the worst
+case?
+#575.
+17.20
+Another way to think about this is: Can you maintain the bottom half of elements and
+the top half of elements?
+#576.
+16.10
+Solution 3: Be careful with the little details in this problem. Does your algorithm/code
+handle a person who dies in the same year that they are born? This person should be
+counted as one person in the population count.
+#577.
+17.26
+Solution 2: The list of documents similar to {13,16,21,3} includes all documents with a
+13,16,21, and 3. How can we efficiently find this list? Remember that we'll be doing this
+for many documents, so some precomputing can make sense.
+#578.
+17,16
+Iterative solution: Use an example and work backwards. You can easily find the optimal
+solution for the subarrays { r n } , {r^
+r n}, { r n . ; )
+• • •,
+!%,}. How would you use
+those to quickly find the optimal solution for ( r n J J
+. . . ,
+rn}?
+#579.
+17.2
+Suppose you had a method s h u f f l e that worked on decks up to n
+-
+1 elements.
+Could you use this method to implement a new s h u f f l e method that works on decks
+up to n elements?
+#580.
+17.22
+Create a mapping from a wildcard form (likeb_ll) to all words in that form. Then, when
+you want to find all words that are one edit away from b i l l , you can look up _ i l l ,
+b _ l l , b i _ l , and b i l _ in the mapping.
+#581.
+17.24
+The sum of just D will be sum(A&B&C&D) - sum(A&B) - sum(ASC) + sum(A).
+#582.
+17.17
+Can you use a trie?
+#583.
+16.21
+If we do the math, we are looking for a pair of values such that a
+-
+b = (sumA -
+SumB) / 2. The problem then reduces to looking for a pair of values with a particular
+difference.
+#584.
+17.26
+Solution 2: Try building a hash table from each word to the documents that contain this
+word.This will allow us to easily find all documents with some similarity to {13,16,21,3].
+#585.
+16.5
+How does a zero get into the result of n! ? What does it mean?
+CrackingTheCodinglnterview.com | 6th Edition
+69S

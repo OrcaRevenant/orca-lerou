@@ -1,0 +1,32 @@
+This is weak advice: Saying that something should “make sense” is just a way of
+waving your hands in the air and trying to sound authoritative. The advice is
+weak because it is hard to precisely explain the glue that holds the classes and
+modules together into a single component. Weak though the advice may be, the
+principle itself is important, because violations are easy to detect—they don’t
+“make sense.” If you violate the REP, your users will know, and they won’t be
+impressed with your architectural skills.
+The weakness of this principle is more than compensated for by the strength of
+the next two principles. Indeed, the CCP and the CRP strongly define the this
+principle, but in a negative sense.
+THE COMMON CLOSURE PRINCIPLE
+Gather into components those classes that change for the same reasons and at the same times.
+Separate into different components those classes that change at different times and for different
+reasons.
+This is the Single Responsibility Principle restated for components. Just as the
+SRP says that a class should not contain multiples reasons to change, so the
+Common Closure Principle (CCP) says that a component should not have
+multiple reasons to change.
+For most applications, maintainability is more important than reusability. If the
+code in an application must change, you would rather that all of the changes
+occur in one component, rather than being distributed across many components.1
+If changes are confined to a single component, then we need to redeploy only the
+one changed component. Other components that don’t depend on the changed
+component do not need to be revalidated or redeployed.
+The CCP prompts us to gather together in one place all the classes that are likely
+to change for the same reasons. If two classes are so tightly bound, either
+physically or conceptually, that they always change together, then they belong in
+the same component. This minimizes the workload related to releasing,
+revalidating, and redeploying the software.
+This principle is closely associated with the Open Closed Principle (OCP).
+Indeed, it is “closure” in the OCP sense of the word that the CCP addresses. The
+OCP states that classes should be closed for modification but open for extension.

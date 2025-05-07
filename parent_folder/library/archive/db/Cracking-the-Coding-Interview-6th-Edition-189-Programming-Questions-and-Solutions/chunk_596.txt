@@ -1,0 +1,279 @@
+Solutions to Chapter 17 j Hard
+value
+7
+5
+9
+0
+2
+1
+3
+5
+7
+9
+1
+1
+5
+8
+8
+9
+7
+index
+0
+i
+2
+3
+4
+S
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+next 1
+S
+s
+5
+s
+S
+S
+10 10
+10
+10
+10
+11
+X
+X
+X
+X
+X
+next S
+1
+i
+7
+7
+7
+7
+7
+7
+12
+12
+12
+12
+12
+X
+X
+X
+X
+next 9
+2
+2
+2
+9
+9
+9
+9
+9
+9
+9
+1S
+1S
+15
+15
+15
+15
+X
+The f i n d N e x t l n s t a n c e function can now just use this table to find the next occurrence, rather than
+doing a search.
+But, actually, we can make it a bit simpler. Using the table above, we can quickly compute the closure of
+each index. It's just the max of the column. If a column has an x in it, then there is no closure, at this indicates
+that there's no next occurrence of that character.
+The difference between the index and the closure is the smallest subarray starting at that index.
+value
+7
+5
+9
+0
+2
+1
+3
+5
+7
+9
+1
+1
+5
+8
+8
+9
+7
+index
+0
+1
+2
+i
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+next l
+S
+S
+S
+S
+S
+S
+10
+10
+10
+10
+10
+11
+X
+X
+X
+X
+X
+next 5
+1
+1
+7
+7
+7
+7
+7
+7
+12
+12
+12
+12
+12
+X
+X
+X
+X
+next 9
+2
+2
+2
+9
+9
+9
+9
+9
+9
+9
+IS
+IS
+1S
+15
+1S
+15
+X
+closure
+5
+S
+7
+9
+9
+9
+10
+10
+12
+12
+15
+IS
+X
+X
+X
+X
+X
+diff.
+S
+4
+5
+6
+S
+4
+4
+3
+4
+3
+5
+4
+X
+X
+X
+X
+X
+Now, all we have to do is to find the minimum distance in this table.
+1
+Range shortestSupersequence(int[] big, i n t [ ] small) {
+2
+i n t [ ] [ ] nextElements = getNextElernentsMulti(big, small);
+3
+i n t [ ] closures = getClosures(nextElements);
+4
+return getShortestClosure(closures);
+5
+}
+6
+7
+/* create table of next occurrences. */
+8
+i n t [ ] [ ] getNextElementsMulti(int[] big,
+i n t [ ] small) {
+9
+i n t [ ] [ ] nextElements = new i n t f s r a a l l . l e n g t h ] [ b i g . l e n g t h ] ;
+10
+f o r ( i n t i = 0; i < small.length; i++) {
+11
+nextElements[i] = getNextElement(big, s m a l l [ i ] ) i
+12
+}
+13
+return nextElements;
+14
+}
+15
+16 /* Do backwards sweep to get a l i s t of the next occurrence of value from each
+17
+* index. */
+18 i n t [ ] getNextElement(int[] bigArray, i n t value) {
+19
+i n t next = -1;
+20
+i n t [ ] nexts = new i n t [ b i g A r r a y . l e n g t h ] ;
+21
+for ( i n t i = bigArray.length - 1; i >= 0; i - - ) {
+22
+if ( b i g A r r a y [ i ] == value) {
+23
+next = i;
+24
+>
+25
+n e x t s [ i ] = next;
+26
+)
+27
+return nexts;
+28 }
+29
+30 /* Get closure for each index. */
+55 S
+Cracking the Coding interview, 6th Edition

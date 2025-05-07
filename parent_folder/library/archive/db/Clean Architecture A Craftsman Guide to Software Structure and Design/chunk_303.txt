@@ -1,0 +1,21 @@
+Figure A.6 Varian 620/f minicomputer
+The Minicomputer Orphanage
+Instead of trying to cram the whole system into 32K, we created an overlay
+system. Applications would be loaded from disk into a block of memory
+dedicated to overlays. They would be executed in that memory, and
+preemptively swapped back out onto disk, with their local RAM, to allow other
+programs to execute.
+Programs would get swapped into the overlay area, execute enough to fill the
+output buffers, and then get swapped out so that another program could be
+swapped in.
+Of course, when your UI runs at 30 characters per second, your programs spend
+a lot of time waiting. We had plenty of time to swap the programs in and off the
+disk to keep all of the terminals running as fast as they could go. Nobody ever
+complained of response time issues.
+We wrote a preemptive supervisor that managed the interrupts and IO. We wrote
+the applications; we wrote the disk drivers, the terminal drivers, the tape drivers,
+and everything else in that system. There was not a single bit in that system that
+we did not write. Though it was a struggle involving far too many 80-hour
+weeks, we got the beast up and running in a matter of 8 or 9 months.
+The architecture of the system was simple (Figure A.7). When an application
+was started, it would generate output until its particular terminal buffer was full.

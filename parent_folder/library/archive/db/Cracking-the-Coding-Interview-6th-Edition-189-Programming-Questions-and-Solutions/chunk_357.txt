@@ -1,0 +1,99 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+13
+return magicFast(array, s t a r t , raid - 1);
+14
+} else {
+15
+return magicFast(3rray, raid + 1, end);
+16
+>
+17
+}
+Follow Up: What if the elements are not distinct?
+If the elements are not distinct, then this algorithm fails. Consider the following array:
+-10
+-S
+2
+2
+2
+3
+4
+7
+9
+12
+13
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+When we see that A[ftiid] < mid, we cannot conclude which side the magic index is on. It could be on
+the right side, as before. Or, it could be on the left side (as it, in fact, is).
+Could it be anywhere on the left side? Not exactly. Since A [ 5 ] = 3, we know that A [ 4 ] couldn't be a magic
+index. A [ 4 ] would need to be 4 to be the magic index, b u t A [ 4 ] must be less than or equal to A [ 5 ] ,
+In fact, when we see that A [ 5 ] = 3, we'll need to recursively search the right side as before. But, to search
+the left side, we can skip a bunch of elements and only recursively search elements A [ 0 ] through A [ 3 ] ,
+A [ 3 ] is the first element that could be a magic index.
+The general pattern is that we compare midlndex and midValue for equality first. Then, if they are not
+equal, we recursively search the ieftand right sides as follows:
+•
+Left side: search indices s t a r t through Math .min( mid Index - 1, midValue).
+•
+Right side: search indicesMsth.max(midIndex + 1, midValue) through end.
+The code below implements this algorithm.
+1
+i n t magicFast(int[] array) {
+2
+return magicFast(array, 0, array.length - 1);
+3
+>
+4
+5
+i n t magicFast(int[] array, i n t s t a r t , int end) {
+6
+if (end < s t a r t ) return -1;
+7
+8
+i n t midlndex = ( s t a r t + end) / 2;
+9
+i n t midValue = array[midlndex];
+10
+if (midValue == midlndex) {
+11
+return midlndex;
+12
+}
+13
+14
+/* Search l e f t */
+15
+i n t leftlndex = M3th.min(midlndex - 1, midValue);
+16
+i n t l e f t = magicFastfarray, s t a r t , l e f t l n d e x ) ;
+17
+if ( l e f t >= 0) {
+18
+return l e f t ;
+19
+>
+20
+21
+/* Search r i g h t
+*/
+22
+i n t rightlndex = Math.max(raidlndex + 1, midValue);
+23
+i n t r i g h t = magicFast(array, rightlndex, end);
+24
+25
+return r i g h t ;
+26
+}
+CrackingTheCodinglnterview.com [ 6th Edition
+3 S1

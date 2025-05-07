@@ -1,0 +1,38 @@
+CHAPTER 11 PRESSURE
+154
+Instead, slow down. Think the problem through. Plot a course to the best
+possible outcome, and then drive towards that outcome at a reasonable and
+steady pace.
+CO M M U N I C ATE
+Let your team and your superiors know that you are in trouble. Tell them your
+best plans for getting out of trouble. Ask them for their input and guidance.
+Avoid creating surprises. Nothing makes people more angry and less rational
+than surprises. Surprises multiply the pressure by ten.
+R E LY O N YO U R D I S C I PLI N E S
+When the going gets tough, trust your disciplines. The reason you have
+disciplines is to give you guidance through times of high pressure. These are the
+times to pay special attention to all your disciplines. These are not the times to
+question or abandon them.
+Instead of looking around in a panic for something, anything, that will help
+you get done faster, become more deliberate and dedicated to following
+your chosen disciplines. If you follow TDD, then write even more tests than
+usual. If you are a merciless refactorer, then refactor even more. If you keep
+your functions small, then keep them even smaller. The only way through
+the pressure cooker is to rely on what you already know works—your
+disciplines.
+G ET H E LP
+Pair! When the heat is on, find an associate who is willing to pair program with
+you. You will get done faster, with fewer defects. Your pair partner will help
+you hold on to your disciplines and keep you from panicking. Your partner will
+spot things that you miss, will have helpful ideas, and will pick up the slack
+when you lose focus.
+
+CONCLUSION
+155
+By the same token, when you see someone else who’s under pressure, offer to
+pair with them. Help them out of the hole they are in.
+CO N C LU S I O N
+The trick to handling pressure is to avoid it when you can, and weather it when
+you can’t. You avoid it by managing commitments, following your disciplines,
+and keeping clean. You weather it by staying calm, communicating, following
+your disciplines, and getting help.

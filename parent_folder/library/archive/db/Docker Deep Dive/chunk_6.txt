@@ -1,0 +1,27 @@
+On the topic of Amazon… I’d appreciate it if you’d give the book some stars
+and a quick review. Cheers!
+Why should I read this book or care about Docker?
+Docker is here and there’s no point hiding. Developers are all over it, and IT Ops
+need to be on their game! We damn well better know how to build and support
+production-quality Dockerized apps in our business-critical production
+environments. This book will help you.
+Isn’t Docker just for developers?
+If you think Docker is just for developers then prepare to have your world
+flipped on its head!
+All the Dockerized apps that developers are churning out need somewhere to run
+and someone to manage them. If you think developers are going to do that,
+you’re dreaming. Ops will need to build and run high performance and highly
+available Docker infrastructures. If you’ve got an Ops focus and you’re not
+skilled-up on Docker, you’re in for a world of pain. But don’t stress, this book
+will skill you up!
+Should I buy the book if I’ve already watched your video
+training courses?
+If you like my video courses you’ll probably like the book. If you don’t like my
+video courses you probably won’t like the book.
+How the book is organized
+I’ve divided the book into two sections:
+The big picture stuff
+The technical stuff
+The big picture stuff covers things like - Who is Docker, Inc. What is the Docker
+(Moby) project. What is the OCI. Why do we even have containers… Not the
+coolest part of the book, but the kind of stuff that you need to know if you want a

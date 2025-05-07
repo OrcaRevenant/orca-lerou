@@ -1,0 +1,42 @@
+The Old Way
+The traditional module pattern is based on an outer function with inner variables and
+functions, and a returned “public API” with methods that have closure over the inner
+data and capabilities. It’s often expressed like this:
+function Hello(name) {
+function greeting() {
+console.log( "Hello " + name + "!" );
+}
+// public API
+return {
+greeting: greeting
+};
+}
+var me = Hello( "Kyle" );
+me.greeting();          // Hello Kyle!
+This Hello(..) module can produce multiple instances by being called subsequent
+times. Sometimes, a module is only called for as a singleton — just needs one instance
+— in which case a slight variation on the previous snippet, using an IIFE, is common:
+var me = (function Hello(name){
+function greeting() {
+console.log( "Hello " + name + "!" );
+}
+// public API
+return {
+greeting: greeting
+};
+})( "Kyle" );
+me.greeting();          // Hello Kyle!
+This pattern is tried and tested. It’s also flexible enough to have a wide assortment of
+variations for a number of different scenarios.
+One of the most common is the Asynchronous Module Definition (AMD), and
+another is the Universal Module Definition (UMD). We won’t cover the particulars of
+these patterns and techniques here, but they’re explained extensively in many places
+online.
+Moving Forward
+As of ES6, we no longer need to rely on the enclosing function and closure to provide
+us with module support. ES6 modules have first class syntactic and functional sup‐
+port.
+Modules
+|
+99
+www.it-ebooks.info

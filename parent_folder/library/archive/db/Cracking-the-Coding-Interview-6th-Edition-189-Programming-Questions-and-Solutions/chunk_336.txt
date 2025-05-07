@@ -1,0 +1,36 @@
+Solutions to Chapter 7 j Object-Oriented Design
+Q3: How do we make our server scale?
+While we designed out chat server without worrying—too much- about scalability, in real life this would
+be a concern. We'd need to split our data across many servers, which would increase our concern about
+out-of-sync data.
+Q4: How we do prevent denial of service attacks?
+Clients can push data to us—what if they try to DOS (denial of service) us? How do we prevent that?
+7.8
+Othello: Othello is played as follows: Each Othello piece is white on one side and black on the other.
+When a piece is surrounded by its opponents on both the left and right sides, or both the top and
+bottom, it is said to be captured and its color is flipped. On your turn, you must capture at least one
+of your opponent's pieces. The game ends when either user has no more valid moves. The win is
+assigned to the person with the most pieces, implement the object-oriented design for Othello.
+pg 128
+SOLUTION
+Let's start with an example. Suppose we have the following moves in an Othello game:
+1. Initialize the board with two black and two white pieces in the center. The black pieces are placed at the
+upper left hand and lower right hand corners.
+2. Play a black piece at (row 6, column 4). This flips the piece at (row S, column 4) from white to black.
+3. Play a white piece at (row 4, column 3). This flips the piece at (row 4, column 4) from black to white.
+This sequence of moves leads to the board below.
+o 0 o
+0 o
+0
+The core objects in Othello are probably the game, the board, the pieces (black or white), and the players.
+How do we represent these with elegant object-oriented design?
+Should BlackPiece and WhitePiece be classes?
+At first, we might think we want to have a BlackPiece class and a WhitePiece class, which inherit from
+an abstract Piece. However, this is probably not a great idea. Each piece may flip back and forth between
+colors frequently, so continuously destroying and creating what is really the same object is probably not
+wise, it may be better to just have a Piece class, with a flag in it representing the current color.
+Do we need separate Board and Game classes?
+Strictly speaking, it may not be necessary to have both a Game object and a Board object. Keeping the
+objects separate allows us to have a logical separation between the board [which contains just logic
+3 2 6
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,71 @@
+Solutions to Chapter 1 | Arrays and Strings
+38
+i f (x != -1) {
+39
+table[x]++;
+40
+>
+41
+}
+42
+return table;
+43
+}
+This algorithm takes 0 (N) time, where N is the length of the string.
+Solution #2
+We can't optimize the big 0 time here since any algorithm will always have to look through the entire
+string. However, we can make some smaller incremental improvements. Because this is a relatively simple
+problem, it can be worthwhile to discuss some small optimizations or at least some tweaks.
+Instead of checking the number of odd counts at the end, we can check as we go along. Then, as soon as
+we get to the end, we have our answer.
+1
+boolean isPermutationOfPalindrome(String phrase) {
+2
+i n t countOdd = 0;
+3
+in't[J table = new int[Character.getNumericValue('z J) -
+4
+Character.getNumericValue( ra J) + l ] j
+5
+f o r (char c : phrase,toCharArrayQ) {
+6
+i n t x = getCharNumber(c)j
+7
+i f (x != -1) {
+8
+table[x]++;
+9
+if ( t a b l e [ x ] % 2 == 1) {
+10
+countOdd++;
+11
+) else {
+12
+countOdd--;
+13
+}
+14
+}
+15
+>
+16
+return countOdd <= 1;
+17 >
+It's important to be very clear here that this is not necessarily more optimal. It has the same big O time and
+might even be slightly slower. We have eliminated a final iteration through the hash table, but now we have
+to run a few extra lines of code for each character in the string.
+You should discuss this with your interviewer as an alternate, but not necessarily more optimal, solution.
+Solution #3
+If you think more deeply about this problem, you might notice that we don't actually need to know the
+counts. We just need to know if the count is even or odd. Think about flipping a light on/off (that is initially
+off). If the light winds up in the o f f state, we don't know how many times we flipped it, but we do know it
+was an even count,
+Given this, we can use a single integer (as a bit vector). When we see a letter, we map it to an integer
+between 0 and 26 (assuming an English alphabet). Then we toggle the bit at that value. At the end of the
+iteration, we check that at most one bit in the integer is set to I.
+We can easily check that no bits in the integer are 1: just compare the integer to 0. There is actually a very
+elegant way to check that an integer has exactly one bit set to 1.
+Picture an integer like 00010000. We could of course shift the integer repeatedly to check that there's only
+a single 1. Alternatively, if we subtract 1 from the number, we'll get 00001111. What's notable about this
+CrackingTheCodinglnterview.com | 6th Edition
+199

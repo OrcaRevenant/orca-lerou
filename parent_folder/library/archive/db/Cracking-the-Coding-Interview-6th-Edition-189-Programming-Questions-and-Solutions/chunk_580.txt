@@ -1,0 +1,87 @@
+Solutions to Chapter 17 j Hard
+62
+Random rand = new RandomQ;
+63
+return rand.nextlnt(max + 1 - min) + min;
+64 >
+65
+66 /* Swap values at index i and j. */
+67 void swap(int[] array, i n t i, i n t ]} {
+68
+i n t t = a r r a y [ i ] ;
+69
+a r r a y [ i ] = a r r a y [ j ] ;
+76
+a r r a y [ j ] = tj
+71 >
+72
+73 /* Get largest element in array between l e f t and r i g h t indices. */
+74 i n t max(int[] array, i n t l e f t , i n t r i g h t ) {
+75
+i n t max = Integer.MIN_VALUE;
+76
+for ( i n t i = l e f t ; i <= r i g h t ; i++) {
+max = Math,max(array[i], max);
+78
+>
+79
+return max;
+80 >
+If the elements are not unique, we can tweak this algorithm slightly to accommodate this.
+Approach 4: Selection Rank Algorithm (if elements are not unique)
+The major change that needs to be made is to the p a r t it i o n function. When we partition the array around
+a pivot element, we now partition it into three chunks: less than p i v o t , equal to p i v o t , and greater than
+p i v o t .
+This requires minor tweaks to rank as well. We now compare the size of feft and middle partitions to rank.
+1
+class PartitionResult {
+2
+i n t l e f t S i z e , middleSize;
+3
+public PartitionResult(int l e f t ,
+i n t middle) {
+4
+t h i s . l e f t S i z e = l e f t ;
+this.middleSize = middle;
+6
+>
+7
+>
+8
+9
+i n t [ ] smallestK(int[] array, i n t k) {
+10
+if (k <= 0 || k > array.length) {
+11
+throw new IllegalArgumentException();
+12
+>
+13
+14
+/* Get item with rank k - 1. */
+15
+i n t threshold = rank(array, k - 1);
+16
+17
+/* Copy elements smaller than the threshold element. */
+18
+i n t [ ] smallest = new i n t [ k ] ;
+19
+i n t count = 0;
+20
+f o r ( i n t a : array) {
+21
+if (a < threshold) {
+22
+smallest[count] = a;
+23
+count++;
+24
+>
+25
+>
+26
+27
+/* If there's s t i l l room l e f t , t h i s must be for elements equal to the threshold
+55 S
+Cracking the Coding interview, 6th Edition

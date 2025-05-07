@@ -1,0 +1,28 @@
+xv
+I thought of myself as a member of the team, not above jumping in to write a
+SQL statement or doing a little pairing to get the code out the door. At the time,
+I thought of Joe the same way, as a member of the team, not above it.
+Eventually I came to realize that Joe did not share that opinion. That was a very
+sad day for me.
+It was Friday at 1:00 pm; the web site was set to go live very early the following
+Monday.
+We were done. *DONE*. Every system was go; we were ready. I had the entire
+tech team assembled for the final scrum meeting and we were ready to flip the
+switch. More than “just” the technical team, we had the business folks from
+marketing, the product owners, with us.
+We were proud. It was a good moment.
+Then Joe dropped by.
+He said something like, “Bad news. Legal doesn’t have the enrollment forms
+ready, so we can’t go live yet.”
+This was no big deal; we’d been held up by one thing or another for the length
+of the entire project and had the Batman/Robin routine down pat. I was ready,
+and my reply was essentially, “All right partner, let’s do this one more time.
+Legal is on the third floor, right?”
+Then things got weird.
+Instead of agreeing with me, Joe asked, “What are you talking about Matt?”
+I said, “You know. Our usual song and dance. We’re talking about four PDF
+files, right? That are done; legal just has to approve them? Let’s go hang out in
+their cubicles, give them the evil eye, and get this thing done!”
+Joe did not agree with my assessment, and answered, “We’ll just go live late next
+week. No big deal.”
+FOREWORD

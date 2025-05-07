@@ -1,0 +1,35 @@
+THE COST OF SAYING YES
+37
+The Typical Project Proposal
+As a full-time contract developer (and part-time), I spend my days (and nights) developing
+mobile applications for clients. And what I’ve learned over the many years I’ve been doing this
+is that the demands of client work preclude me from writing the real quality apps that I’d like.
+Before I begin, let me just say it’s not for a lack of trying. I love the topic of clean code. I
+don’t know anyone who pursues that perfect software design like I do. It’s the execution that
+I find more elusive, and not for the reason you think.
+Here, let me tell you a story.
+Towards the end of last year, a fairly well-known company put out an RFP (Request for
+Proposal) to have an app built for them. They’re a huge retailer, but for the sake of anonymity
+let’s call them Gorilla Mart. They say they need to create an iPhone presence and would like an
+app produced for them by Black Friday. The catch? It’s already November 1st. That leaves just
+under 4 weeks to create the app. Oh, and at this time Apple is still taking two weeks to approve
+apps. (Ah, the good old days.) So, wait, this app has to be written in . . . TWO WEEKS?!?!
+Yes. We have two weeks to write this app. And, unfortunately, we’ve won the bid. (In
+business, client importance matters.) This is going to happen.
+“But it’s OK,” Gorilla Mart Executive #1 says. “The app is simple. It just needs to show
+users a few products from our catalog and let them search for store locations. We
+already do it on our site. We’ll give you the graphics, too. You can probably—what’s
+the word—yeah, hardcode it!”
+Gorilla Mart Executive #2 chimes in. “And we just need a couple of coupons the user
+can show at the cash register. The app will be a throwaway. Let’s get it out the door,
+and then for Phase II we’ll do something bigger and better from scratch.”
+And then it’s happening. Despite years of constant reminders that every feature a client asks
+for will always be more complex to write than it is to explain, you go for it. You really believe
+that this time it really can be done in two weeks. Yes! We can do this! This time it’s different!
+It’s just a few graphics and a service call to get a store location. XML! No sweat. We can do
+this. I’m pumped! Let’s go!
+It takes just a day for you and reality to once again make acquaintance.
+Me: So, can you give me the info I need to call your store location web service?
+The Client: What’s a web service?
+Me: …………
+Continues

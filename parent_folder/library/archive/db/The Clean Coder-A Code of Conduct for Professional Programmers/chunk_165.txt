@@ -1,0 +1,17 @@
+CONCLUSION
+133
+Professionals fear messes far more than they fear blind alleys. They are always
+on the lookout for messes that start to grow without bound, and will expend all
+necessary effort to escape from them as early and as quickly as possible.
+Moving forward through a swamp, when you know it’s a swamp, is the worst
+kind of priority inversion. By moving forward you are lying to yourself, lying to
+your team, lying to your company, and lying to your customers. You are telling
+them that all will be well, when in fact you are heading to a shared doom.
+CO N C LU S I O N
+Software professionals are diligent in the management of their time and their
+focus. They understand the temptations of priority inversion and fight it as a
+matter of honor. They keep their options open by keeping an open mind about
+alternate solutions. They never become so vested in a solution that they can’t
+abandon it. And they are always on the lookout for growing messes, and they
+clean them as soon as they are recognized. There is no sadder sight than a team
+of software developers fruitlessly slogging through an ever-deepening bog.

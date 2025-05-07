@@ -1,0 +1,40 @@
+quest(..) function doesn’t control the outer code and so can’t force that to be the
+case. This could come back to bite you.
+Others prefer to use this to define such things:
+var controller = {
+makeRequest: function(..) {
+// ..
+this.makeRequest(..);
+}
+};
+That looks fine, and should work if you always invoke the method as controller.mak
+eRequest(..). But you now have a this binding gotcha if you do something like:
+btn.addEventListener( "click", controller.makeRequest, false );
+Of course, you can solve that by passing controller.makeRequest.bind(control
+ler) as the handler reference to bind the event to. But, yuck.
+Or what if your inner this.makeRequest(..) call needs to be made from a nested
+function? You’ll have another this binding hazard, which people will often solve with
+the hacky var self = this, such as:
+var controller = {
+makeRequest: function(..) {
+var self = this;
+btn.addEventListener( "click", function(){
+// ..
+self.makeRequest(..);
+}, false );
+}
+};
+More yuck.
+For more information on this binding rules and gotchas, see
+Chapters 1-2 of the this & Object Prototypes title of this series.
+OK, what does all this have to do with concise methods? Recall our something(..)
+method definition:
+runSomething( {
+something: function something(x,y) {
+// ..
+}
+} );
+Object Literal Extensions
+|
+35
+www.it-ebooks.info

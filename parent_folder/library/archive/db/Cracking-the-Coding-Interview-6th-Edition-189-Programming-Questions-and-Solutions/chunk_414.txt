@@ -1,0 +1,60 @@
+Solutions to Chapter 10 | Sorting and Searching
+Follow Up: What if we have only 10 MB memory?
+It's possible to find a missing integer with two passes of the data set. We can divide up the integers into
+blocks of some size (we'll discuss how to decide on a size later). Let's just assume that we divide up the
+integers into blocks of 1000, So, block 0 represents the numbers 0 through 999, block 1 represents numbers
+1000 - 1999, and so on.
+Since all the values are distinct, we know how many values we should find in each block. So, we search
+through the file and count how many values are between 0 and 999, how many are between 1000 and
+1999, and so on. If we count only 999 values in a particular range, then we know that a missing int must be
+in that range.
+In the second pass, we'll actually look for which number in that range is missing. We use the bit vector
+approach from the first part of this problem. We can ignore any number outside of this specific range.
+The question, now, is what is the appropriate block size? Let's define some variables as follows:
+•
+Let r a n g e S i z e be the size of the ranges that each block in the first pass represents.
+•
+Let a r r a y S i z e represent the number of blocks in the first pass. Note that a r r a y S i z e =
+2/Cn B esiie
+since there are 2J1 non-negative integers.
+We need to select a value for r a n g e S i z e such that the memory from the first pass (the array) and the
+second pass (the bit vector) fit.
+First Pass: The Array
+The array in the first pass can fit in 10 megabytes, or roughly 22i bytes, of memory Since each element in the
+array is an int, and an int is 4 bytes, we can hold an array of at most about 2J1 elements. So, we can deduce
+the following:
+7"
+arraySize =
+— ^ 2"
+?
+rangeSize
+2"
+rangeSize > -^rr
+rangeSize > 2,e
+Second Pass: The Bit Vector
+We need to have enough space to store r a n g e S i z e bits. Since we can fit 213 bytes in memory, we can fit
+2 i 6 bits in memory. Therefore, we can conclude the following:
+211 <= r a n g e S i z e <= 226
+These conditions give us a good amount of "wiggle room," but the nearer to the middle that we pick, the
+less memory will be used at any given time.
+The below code provides one implementation for this algorithm.
+1
+i n t findOpenNumber(String filename) throws FileNotFoundException {
+2
+i n t rangeSize = (1 « 20); // 2*20 b i t s (2A17 bytes)
+3
+4
+/* Get count of number of values w i t h i n each block,
+*/
+5
+i n t [ ] blocks = getCountPerBlockCfilenarre, rangeSize);
+6
+7
+/» Find a block with a missing value. */
+8
+i n t blocklndex = find81ockWithMissing(blockSj
+rangeSize);
+9
+if (blocklndex < 0) return -1;
+416
+Cracking the Coding Interview, 6th Edition

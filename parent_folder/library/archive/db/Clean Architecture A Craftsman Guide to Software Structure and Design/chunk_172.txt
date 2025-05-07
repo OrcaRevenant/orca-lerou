@@ -1,0 +1,20 @@
+These replacements might not be trivial. If the initial deployment of our system
+was web-based, then writing the plugin for a client-server UI could be
+challenging. It is likely that some of the communications between the business
+rules and the new UI would have to be reworked. Even so, by starting with the
+presumption of a plugin structure, we have at very least made such a change
+practical.
+THE PLUGIN ARGUMENT
+Consider the relationship between ReSharper and Visual Studio. These
+components are produced by completely different development teams in
+completely different companies. Indeed, JetBrains, the maker of ReSharper, lives
+in Russia. Microsoft, of course, resides in Redmond, Washington. It’s hard to
+imagine two development teams that are more separate.
+Which team can damage the other? Which team is immune to the other? The
+dependency structure tells the story (Figure 17.6). The source code of ReSharper
+depends on the source code of Visual Studio. Thus there is nothing that the
+ReSharper team can do to disturb the Visual Studio team. But the Visual Studio
+team could completely disable the ReSharper team if they so desired.
+Figure 17.6 ReSharper depends on Visual Studio
+That’s a deeply asymmetric relationship, and it is one that we desire to have in
+our own systems. We want certain modules to be immune to others. For

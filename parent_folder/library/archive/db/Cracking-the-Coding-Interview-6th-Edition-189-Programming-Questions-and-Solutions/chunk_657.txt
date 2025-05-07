@@ -1,0 +1,88 @@
+XI. Code Library
+10
+>
+11
+12
+/* Insert list of items at key. */
+IB
+public void put(T key, ArrayList<E> items) {
+14
+map.put(key, items);
+15
+>
+16
+17
+/* Get list of items at key. */
+18
+public Arrayl_ist<E> get(T key) {
+19
+return map.get(key);
+20
+>
+21
+22
+/* Check if hashmaplist contains key. */
+23
+public boolean containsKey(T key) {
+24
+return map.containsKey(key);
+25
+>
+26
+27
+/* Check if list at key contains value. */
+28
+public boolean containsKeyValue(T key, E value) {
+29
+ArrayList<E> list = get(key);
+30
+if (list == null) return false;
+31
+return list.contains(value);
+32
+>
+33
+34
+/* Get the list of keys. */
+35
+public Set<T> keySet() {
+36
+return map.keySetQ;
+37
+}
+38
+39
+^Override
+40
+public String toStringQ {
+41
+return map.toStringQ;
+42
+>
+43 )
+• TreeNode (Binary Search Tree)
+While it's perfectly fine—even good—to use the built-in binary tree class when possible, it's not always
+possible. In many questions, we needed access to the internals of the node or tree class (or needed to tweak
+these) and thus couldn't use the built-in libraries.
+The TreeNode class supports a variety of functionality, much of which we wouldn't necessarily want for
+every question/solution. For example, the TreeNode class tracks the parent of the node, even though we
+often don't use it (or specifically ban using it).
+For simplicity, we'd implemented this tree as storing integers for data.
+1
+public class TreeNode {
+2
+public int data;
+public TreeNode left, right, parent;
+4
+private int size = 0;
+5
+6
+public TreefJode(int d) {
+7
+data = d;
+8
+size = 1;
+9
+}
+CrackingTheCodinginterview.com | 6th Edition
+651

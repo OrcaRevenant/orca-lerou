@@ -1,0 +1,83 @@
+Solutions to Chapter 17 | Hard
+25
+II Check top and bottom border.
+26
+for (int j = 9; j < size; j++){
+27
+if (matrix[row][col+j] == 1) {
+28
+return false;
+29
+>
+30
+if (matrix[row+size-l][col+j] == 1){
+31
+return false;
+32
+>
+33
+>
+34
+35
+II Check left and right border.
+36
+for (int i = 1; i < size - 1; i++){
+37
+if (matrix[row+i][col] == i){
+38
+return false;
+39
+>
+40
+if (matrix[row+i][col+size-l] == 1) {
+41
+return false;
+42
+>
+43
+>
+44
+return true;
+45 }
+pre-processing Solution: 0(N 3)
+A large part of the slowness of the "simple" solution above is due to the fact we have to doO(N) work each
+time we want to check a potential square. By doing some pre-processing, we can cut down the time of
+isSquare to 0 ( 1 ) , The time of the whole algorithm is reduced to 0(N 3).
+If we analyze what isSquare does, we realize that all it ever needs to know is if the next squa r e S i z e
+items, on the right of as well as below particular cells, are zeros. We can pre-compute this data in a straight-
+forward, iterative fashion.
+We iterate from right to left, bottom to top. At each cell, we do the following computation:
+if A [ r ] [ c ] is white, zeros r i g h t and zeros below are 0
+else A[r][c].zerosRight = A [ r ] [ c + 1]. zerosRight + 1
+A[r][c].zerosBelow = A[r + 1][c].zerosBelow + 1
+Below is an example of these values for a potential matrix.
+(0s right, 0s below)
+Original Matrix
+0,0
+1,3
+0,0
+2,2
+1,2
+0,0
+2 , 1
+1 , 1
+0,0
+W
+B
+W
+B
+B
+W
+B
+B
+M
+Now, instead of iterating throughO(N) elements, the isSquare method just needs to check z e r o s R i g h t
+and zerosBelow for the corners.
+Our code for this algorithm is below. Note that f i n d S q u a r e and f i n d S q u a r e W i t h S i z e is equivalent,
+other than a call to p r o c e s s M a t r i x a n d working with a new data type thereafter.
+1
+public class SquareCell {
+2
+public int zerosRight = 0;
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

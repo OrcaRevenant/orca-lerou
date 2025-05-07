@@ -1,0 +1,31 @@
+COMMUNICATING REQUIREMENTS
+97
+It took us an entire day. He would describe a feature and I would implement it
+as he watched. The cycle time was five minutes or less, so there was no reason
+for him to get up and do anything else. He’d ask me to do X, and within five
+minutes I had X working.
+Often he would draw what he wanted on a scrap of paper. Some of the things
+he wanted were hard to do in ED-402, so I’d propose something else. We’d
+eventually agree on something that would work, and then I’d make it work.
+But then we’d try it and he’d change his mind. He’d say something like, “Yeah,
+that just doesn’t have the flow I’m looking for. Let’s try it a different way.”
+Hour after hour we fiddled and poked and prodded that application into shape.
+We tried one thing, then another, and then another. It became very clear to me
+that he was the sculptor, and I was the tool he was wielding.
+In the end, he got the application he was looking for but had no idea how to
+go about building the next one for himself. I, on the other hand, learned a
+powerful lesson about how customers actually discover what they need. I learned
+that their vision of the features does not often survive actual contact with the
+computer.
+PR E M ATU R E PR EC I S I O N
+Both business and programmers are tempted to fall into the trap of premature
+precision. Business people want to know exactly what they are going to get before
+they authorize a project. Developers want to know exactly what they are supposed
+to deliver before they estimate the project. Both sides want a precision that simply
+cannot be achieved, and are often willing to waste a fortune trying to attain it.
+The Uncertainty Principle
+The problem is that things appear different on paper than they do in a working
+system. When the business actually sees what they specified running in a system,
+they realize that it wasn’t what they wanted at all. Once they see the requirement
+actually running, they have a better idea of what they really want—and it’s
+usually not what they are seeing.

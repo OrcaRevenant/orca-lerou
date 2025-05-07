@@ -1,0 +1,45 @@
+$ docker container exec -it 396c8b142a85 bash
+root@396c8b142a85:/#
+root@396c8b142a85:/#
+root@396c8b142a85:/# apt-get update
+<Snip>
+root@396c8b142a85:/#
+root@396c8b142a85:/#
+root@396c8b142a85:/# apt-get install iputils-ping
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+<Snip>
+Setting up iputils-ping (3:20121221-5ubuntu2) ...
+Processing triggers for libc-bin (2.23-0ubuntu3) ...
+root@396c8b142a85:/#
+root@396c8b142a85:/#
+root@396c8b142a85:/# ping 10.0.0.4
+PING 10.0.0.4 (10.0.0.4) 56(84) bytes of data.
+64 bytes from 10.0.0.4: icmp_seq=1 ttl=64 time=1.06 ms
+64 bytes from 10.0.0.4: icmp_seq=2 ttl=64 time=1.07 ms
+64 bytes from 10.0.0.4: icmp_seq=3 ttl=64 time=1.03 ms
+64 bytes from 10.0.0.4: icmp_seq=4 ttl=64 time=1.26 ms
+^C
+root@396c8b142a85:/#
+Windows example:
+> docker container exec -it 1a4f29e5a4b6 PowerShell.exe
+Windows PowerShell
+Copyright (C) 2016 Microsoft Corporation. All rights reserved.
+PS C:\>
+PS C:\> ping 10.0.0.4
+Pinging 10.0.0.4 with 32 bytes of data:
+Reply from 10.0.0.4: bytes=32 time=1ms TTL=128
+Reply from 10.0.0.4: bytes=32 time<1ms TTL=128
+Reply from 10.0.0.4: bytes=32 time=2ms TTL=128
+Reply from 10.0.0.4: bytes=32 time=2ms TTL=12
+PS C:\>
+As shown above, the container on node1 can ping the container on node2 using
+the overlay network.
+You can also trace the route of the ping command from within the container.
+This will report only a single hop, proving that the containers are communicating
+directly over the overlay network - blissfully unaware of any underlay networks
+that are being traversed.
+For the traceroute to work on the Linux example you will need to install the
+traceroute package.
+Linux example:

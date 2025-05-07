@@ -1,0 +1,91 @@
+Solutions to Chapter 17 | Hard
+10
+if (rectangle !» null) return rectangle;
+11
+>
+12
+}
+13
+>
+14
+}
+15
+return null;
+16 }
+The makeRectangle method is called by maxRectangle and tries to build a rectangle of a specific
+length and height.
+1
+Rectangle makeRectangle(int length, int height) {
+2
+if (groupList[length-l] == null j| grouplist[height-l] == null) {
+3
+return null;
+4
+>
+5
+6
+/* Create trie for word length if we haven't yet */
+7
+if (trielist[height - 1] == null) {
+Lin!<edList<String> words = groupList[height - 1].getwords();
+9
+trieList[height - 1] = new Trie(words);
+10
+>
+n
+12
+return makePartialRectangle(length, height, new Rectangle(length));
+13 >
+The makePartialRectangle method is where the action happens. It is passed in the intended, final
+length and height, and a partially formed rectangle. If the rectangle is already of the final height, then we
+just check to see if the columns form valid, complete words, and return.
+Otherwise, we check to see if the columns form valid prefixes. If they do not, then we immediately break
+since there is no way to build a valid rectangle off of this partial one.
+But, if everything is okay so far, and ail the columns are valid prefixes of words, then we search through ail
+the words of the right length, append each to the current rectangle, and recursively try to build a rectangle
+off of {current rectangle with new word appended},
+1
+Rectangle makePartialRectangle(int 1, int h, Rectangle rectangle) {
+2
+if (rectangle.height == h) { // Check if complete rectangle
+3
+if (rectangle.isComplete(l, h, groupList[h - 1])) {
+4
+return rectangle;
+5
+}
+6
+return null;
+7
+>
+g
+9
+/* Compare columns to trie to see if potentially valid rect */
+10
+if (I rectangle.isPartialOK(l, trielist[h - 1])) {
+11
+return null;
+12
+}
+13
+14
+f* Go through all words of the right length. Add each one to the current partial
+15
+* rectangle, and attempt to build a rectangle recursively. V
+16
+for (int i = 0; i < grouplist[1-1].length(); i++) {
+17
+/* Create a new rectangle which is this rect + new word, */
+18
+Rectangle orgPlus = rectangle.append(groupList[l-l].getWord(i));
+19
+20
+/* Try to build a rectangle with this new, partial rect */
+21
+Rectangle rect • makePartialRectangle(l, h, orgPlus);
+22
+if (rect 1= null) {
+23
+return rect;
+CrackingTheCodinginterview.com | 6th Edition
+62 3

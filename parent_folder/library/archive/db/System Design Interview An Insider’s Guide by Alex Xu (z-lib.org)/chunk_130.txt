@@ -1,0 +1,25 @@
+• Queue router: It ensures that each queue (b1, b2, … bn) only contains URLs from the
+same host.
+• Mapping table: It maps each host to a queue.
+• FIFO queues b1, b2 to bn: Each queue contains URLs from the same host.
+• Queue selector: Each worker thread is mapped to a FIFO queue, and it only downloads
+URLs from that queue. The queue selection logic is done by the Queue selector.
+• Worker thread 1 to N. A worker thread downloads web pages one by one from the same
+host. A delay can be added between two download tasks.
+Priority
+A random post from a discussion forum about Apple products carries very different weight
+than posts on the Apple home page. Even though they both have the “Apple” keyword, it is
+sensible for a crawler to crawl the Apple home page first.
+We prioritize URLs based on usefulness, which can be measured by PageRank [10], website
+traffic, update frequency, etc. “Prioritizer” is the component that handles URL prioritization.
+Refer to the reference materials [5] [10] for in-depth information about this concept.
+Figure 9-7 shows the design that manages URL priority.
+
+• Prioritizer: It takes URLs as input and computes the priorities.
+• Queue f1 to fn: Each queue has an assigned priority. Queues with high priority are
+selected with higher probability.
+• Queue selector: Randomly choose a queue with a bias towards queues with higher
+priority.
+Figure 9-8 presents the URL frontier design, and it contains two modules:
+• Front queues: manage prioritization
+• Back queues: manage politeness

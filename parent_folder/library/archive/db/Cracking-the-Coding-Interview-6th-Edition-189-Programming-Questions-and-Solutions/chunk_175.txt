@@ -1,0 +1,43 @@
+13
+Java
+W
+hile Java-related questions are found throughout this book, this chapter deals with questions about
+the language and syntax. Such questions are more unusual at bigger companies, which believe more
+in testing a candidate's aptitude than a candidate's knowledge (and which have the time and resources
+to train a candidate in a particular language). However, at other companies, these pesky questions can be
+quite common.
+• How to Approach
+As these questions focus so much on knowledge, it may seem silly to talk about an approach to these prob-
+lems. After all, isn't it just about knowing the right answer?
+Yes and no. Of course, the best thing you can do to master these questions is to learn Java inside and out.
+But, if you do get stumped, you can try to tackle it with the following approach;
+1. Create an example of the scenario, and ask yourself how things should play out.
+2. Ask yourself how other languages would handle this scenario.
+3. Consider how you would design this situation if you were the language designer. What would the impli-
+cations of each choice be?
+Your interviewer may be equally—or more—impressed if you can derive the answer than if you automati-
+cally knew it. Don't try to bluff though. Tell the interviewer, "I'm not sure I can recall the answer, but let me
+see if I can figure it out. Suppose we have this code..."
+> Overloading vs. Overriding
+Overloading is a term used to describe when two methods have the same name but differ in the type or
+number of arguments,
+1
+public double computeArea(Circle c) { ... >
+2
+public double computeArea(Square s) { ... >
+Overriding, however, occurs when a method shares the same name and function signature as another
+method in its super class.
+1
+public abstract class Shape {
+2
+public void printMe() {
+3
+System.out.println("I am a shape.");
+4
+}
+5
+public abstract double computeArea();
+6
+>
+CrackingTheCodinglrtterview.com | 6th Edition
+165

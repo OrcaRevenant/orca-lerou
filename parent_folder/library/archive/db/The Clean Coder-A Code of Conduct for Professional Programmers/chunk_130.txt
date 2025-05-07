@@ -1,0 +1,30 @@
+CHAPTER 7 ACCEPTANCE TESTING
+98
+There’s a kind of observer effect, or uncertainty principle, in play. When you
+demonstrate a feature to the business, it gives them more information than they
+had before, and that new information impacts how they see the whole system.
+In the end, the more precise you make your requirements, the less relevant they
+become as the system is implemented.
+Estimation Anxiety
+Developers, too, can get caught in the precision trap. They know they must
+estimate the system and often think that this requires precision. It doesn’t.
+First, even with perfect information your estimates will have a huge variance.
+Second, the uncertainty principle makes hash out of early precision. The
+requirements will change making that precision moot.
+Professional developers understand that estimates can, and should, be made
+based on low precision requirements, and recognize that those estimates are
+estimates. To reinforce this, professional developers always include error bars
+with their estimates so that the business understands the uncertainty. (See
+Chapter 10, “Estimation.”)
+L AT E A M B I G U IT Y
+The solution to premature precision is to defer precision as long as possible.
+Professional developers don’t flesh out a requirement until they are just about
+to develop it. However, that can lead to another malady: late ambiguity.
+Often stakeholders disagree. When they do, they may find it easier to wordsmith
+their way around the disagreement rather than solve it. They will find some way
+of phrasing the requirement that they can all agree with, without actually
+resolving the dispute. I once heard Tom DeMarco say, “An ambiguity in a
+requirements document represents an argument amongst the stakeholders.”1
+Of course, it doesn’t take an argument or a disagreement to create ambiguity.
+Sometimes the stakeholders simply assume that their readers know what they mean.
+1. XP Immersion 3, May, 2000. http://c2.com/cgi/wiki?TomsTalkAtXpImmersionThree

@@ -1,0 +1,23 @@
+If we choose consistency over availability (CP system), we must block all write operations to
+n1 and n2 to avoid data inconsistency among these three servers, which makes the system
+unavailable. Bank systems usually have extremely high consistent requirements. For
+example, it is crucial for a bank system to display the most up-to-date balance info. If
+inconsistency occurs due to a network partition, the bank system returns an error before the
+inconsistency is resolved.
+However, if we choose availability over consistency (AP system), the system keeps accepting
+reads, even though it might return stale data. For writes, n1 and n2 will keep accepting writes,
+and data will be synced to n3 when the network partition is resolved.
+Choosing the right CAP guarantees that fit your use case is an important step in building a
+distributed key-value store. You can discuss this with your interviewer and design the system
+accordingly.
+System components
+In this section, we will discuss the following core components and techniques used to build a
+key-value store:
+• Data partition
+• Data replication
+• Consistency
+• Inconsistency resolution
+• Handling failures
+• System architecture diagram
+• Write path
+• Read path

@@ -1,0 +1,27 @@
+393
+Appendix B: org.jfree.date.SerialDate
+187         if (base != null) {
+188             switch (this.relative) {
+189                 case(SerialDate.PRECEDING):
+190                     result = SerialDate.getPreviousDayOfWeek(this.dayOfWeek,
+191                             base);
+192                     break;
+193                 case(SerialDate.NEAREST):
+194                     result = SerialDate.getNearestDayOfWeek(this.dayOfWeek,
+195                             base);
+196                     break;
+197                 case(SerialDate.FOLLOWING):
+198                     result = SerialDate.getFollowingDayOfWeek(this.dayOfWeek,
+199                             base);
+200                     break;
+201                 default:
+202                     break;
+203             }
+204         }
+205         return result;
+206
+207     }
+208
+209 }
+Listing B-6 (continued)
+RelativeDayOfWeekRule.java

@@ -1,0 +1,55 @@
+$ docker image pull ubuntu:latest
+latest: Pulling from library/ubuntu
+b6f892c0043b: Pull complete
+55010f332b04: Pull complete
+2955fb827c94: Pull complete
+3deef3fcbd30: Pull complete
+cf9722e506aa: Pull complete
+Digest: sha256:38245....44463c62a9848133ecb1aa8
+Status: Downloaded newer image for ubuntu:latest
+$
+$ docker image pull alpine:latest
+latest: Pulling from library/alpine
+cfc728c1c558: Pull complete
+Digest: sha256:c0537...497c0a7726c88e2bb7584dc96
+Status: Downloaded newer image for alpine:latest
+$
+$ docker image ls
+REPOSITORY   TAG     IMAGE ID        CREATED       SIZE
+ubuntu       latest  ebcd9d4fca80    3 days ago    118MB
+alpine       latest  02674b9cb179    8 days ago    3.99MB
+Windows example:
+> docker image pull microsoft/powershell:nanoserver
+nanoserver: Pulling from microsoft/powershell
+bce2fbc256ea: Pull complete
+58f68fa0ceda: Pull complete
+04083aac0446: Pull complete
+e42e2e34b3c8: Pull complete
+0c10d79c24d4: Pull complete
+715cb214dca4: Pull complete
+a4837c9c9af3: Pull complete
+2c79a32d92ed: Pull complete
+11a9edd5694f: Pull complete
+d223b37dbed9: Pull complete
+aee0b4393afb: Pull complete
+0288d4577536: Pull complete
+8055826c4f25: Pull complete
+Digest: sha256:090fe875...fdd9a8779592ea50c9d4524842
+Status: Downloaded newer image for microsoft/powershell:nanoserver
+>
+> docker image pull microsoft/dotnet:latest
+latest: Pulling from microsoft/dotnet
+bce2fbc256ea: Already exists
+4a8c367fd46d: Pull complete
+9f49060f1112: Pull complete
+0334ad7e5880: Pull complete
+ea8546db77c6: Pull complete
+710880d5cbd5: Pull complete
+d665d26d9a25: Pull complete
+caa8d44fb0b1: Pull complete
+cfd178ff221e: Pull complete
+Digest: sha256:530343cd483dc3e1...6f0378e24310bd67d2a
+Status: Downloaded newer image for microsoft/dotnet:latest
+>
+> docker image ls
+REPOSITORY            TAG         IMAGE ID    CREATED     SIZE

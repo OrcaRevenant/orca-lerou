@@ -1,0 +1,32 @@
+Testing and Architecture
+Database Gateways
+Data Mappers
+Service Listeners
+Conclusion
+Chapter 24 Partial Boundaries
+Skip the Last Step
+One-Dimensional Boundaries
+Facades
+Conclusion
+Chapter 25 Layers and Boundaries
+Hunt the Wumpus
+Clean Architecture?
+Crossing the Streams
+Splitting the Streams
+Conclusion
+Chapter 26 The Main Component
+The Ultimate Detail
+Conclusion
+Chapter 27 Services: Great and Small
+Service Architecture?
+Service Benefits?
+The Kitty Problem
+Objects to the Rescue
+Component-Based Services
+Cross-Cutting Concerns
+Conclusion
+Chapter 28 The Test Boundary
+Tests as System Components
+Design for Testability
+The Testing API
+Conclusion

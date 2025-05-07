@@ -1,0 +1,11 @@
+8
+OCP: THE OPEN-CLOSED PRINCIPLE
+The Open-Closed Principle (OCP) was coined in 1988 by Bertrand Meyer.1 It
+says:
+A software artifact should be open for extension but closed for modification.
+In other words, the behavior of a software artifact ought to be extendible,
+without having to modify that artifact.
+This, of course, is the most fundamental reason that we study software
+architecture. Clearly, if simple extensions to the requirements force massive
+changes to the software, then the architects of that software system have engaged
+in a spectacular failure.

@@ -1,0 +1,32 @@
+PROGRAMMERS VERSUS PEOPLE
+161
+dedicated to our project, and we all worked in that lab. The business partner
+was engaged and in the lab with us. Our manager, Ralph, was competent,
+focused, and in charge.
+Everything should have been great. The problem was me. I was enthusiastic
+enough about the project, and about the technology, but at the grand old age of
+24 I simply could not bring myself to care about the business or about its
+internal political structure.
+My first mistake was on my first day. I showed up without wearing a tie. I had
+worn one on my interview, and I had seen that everyone else wore ties, but I
+failed to make the connection. So on my first day, Ralph came to me and plainly
+said, “We wear ties here.”
+I can’t tell you how much I resented that. It bothered me at a deep level. I wore
+the tie everyday, and I hated it. But why? I knew what I was getting into. I knew
+the conventions they had adopted. Why would I be so upset? Because I was a
+selfish, narcissistic little twerp.
+I simply could not get to work on time. And I thought it didn’t matter. After all,
+I was doing “a good job.” And it was true, I was doing a very good job at writing
+my programs. I was easily the best technical programmer on the team. I could
+write code faster and better than the others. I could diagnose and solve
+problems quicker. I knew I was valuable. So times and dates didn’t matter much
+to me.
+The decision to fire me was made one day when I failed to show on time for a
+milestone. Apparently John had told us all that he wanted a demo of working
+features next Monday. I’m sure I knew about this, but dates and times simply
+weren’t important to me.
+We were in active development. The system was not in production. There was
+no reason to leave the system running when no one was in the lab. I must have
+been the last one to leave that Friday, and apparently I left the system in a
+nonfunctioning state. The fact that Monday was important had simply not
+stuck in my brain.

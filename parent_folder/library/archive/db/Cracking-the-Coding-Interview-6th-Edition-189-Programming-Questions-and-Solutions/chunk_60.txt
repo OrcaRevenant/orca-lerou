@@ -1,0 +1,51 @@
+VI I Big O
+What It Means
+The most straightforward way is to think about what this means. This code touches each node in the tree
+once and does a constant time amount of work with each "touch" (excluding the recursive calls).
+Therefore, the runtime will be linear in terms of the number of nodes. If there are N nodes, then the runtime
+isO(N).
+Recursive Pattern
+On page 44, we discussed a pattern for the runtime of recursive functions that have multiple branches.
+Let's try that approach here.
+We said that the runtime of a recursive function with multiple branches is typically (^branches'3*1101).
+There are two branches at each call, so we're looking at 0 (2dc*rth).
+At this point many people might assume that something went wrong since we have an exponential algo-
+rithm—that something in our logic is flawed or that we've inadvertently created an exponential time algo-
+rithm (yikesl).
+The second statement is correct. We do have an exponential time algorithm, but it's not as bad as one might
+think. Consider what variable it's exponential with respect to.
+What is depth?The tree is a balanced binary search tree. Therefore, if there are N total nodes, then depth
+is roughly l o g N.
+By the equation above, we get 0 ( 2 l c | N).
+Recall what log 2 means:
+2" = Q ~> logjQ = P
+What is 2lag N? There is a relationship between 2 and log, so we should be able to simplify this.
+LetP = 2lt>e N. By the definition of logj, we can write this as logjP = l o g ; I t This means that P = N.
+Let P = 2loeN
+-> log :P = log^N
+-> P = N
+-> 2loe N = N
+Therefore, the runtime of this code is 0(N), where N is the number of nodes.
+Example 10
+The following method checks if a number is prime by checking for divisibility on numbers less than it. It only
+needs to go up to the square root of n because if n is divisible by a number greater than its square root then
+it's divisible by something smaller than it.
+For example, while 33 is divisible by 11 (which is greater than the square root of 33), the "counterpart" to 11
+is 3 (3 * 11 = 33). 33 will have already been eliminated as a prime number by 3.
+What is the time complexity of this function?
+1
+boolean isPrime(int n) {
+2
+for (int x = 2; x * x <= n; x++) {
+3
+i f (n % x »» 6) {
+4
+return false;
+5
+>
+6
+>
+7
+return true;
+50
+SI Cracking the Coding Interview, 6th Edition

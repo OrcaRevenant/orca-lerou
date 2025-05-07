@@ -1,0 +1,72 @@
+Solutions to Chapter 9 | System Design and Scalability
+Proposal #2
+We could use a standard SQL database, and let the clients plug directly into that. This would provide the
+following benefits:
+•
+Facilitates an easy way for the clients to do query processing over the data, in case there are additional
+features we need to support. For example, we could easily and efficiently perform a query such as"return
+all stocks having an open price greater than N and a closing price less than M."
+•
+Rolling back, backing up data, and security could be provided using standard database features. We
+don't have to "reinvent the wheel," so it's easy for us to implement.
+•
+Reasonably easy for the clients to integrate into existing applications. SQL integration is a standard
+feature in software development environments.
+Whatare the disadvantages of using a SQL database?
+•
+It's much heavier weight than we really need. We don't necessarily need all the complexity of a SQL
+backend to support a feed of a few bits of information.
+•
+It's difficult for humans to be able to read it, so we'll likely need to implement an additional layer to view
+and maintain the data. This increases our implementation costs.
+•
+Security: While a SQL database offers pretty well defined security levels, we would still need to be very
+careful to not give clients access that they shouldn't have. Additionally, even if clients aren't doing
+anything "malicious," they might perform expensive and inefficient queries, and our servers would bear
+the costs of that.
+These disadvantages don't mean that we shouldn't provide SQL access. Rather, they mean that we should
+be aware of the disadvantages.
+Proposal #3
+XML is another great option for distributing the information. Our data has fixed format and fixed size:
+company_name, open, high, low, c l o s i n g p r i c e . T h e XML could look like this:
+1
+<root>
+2
+<date value=r'2008-10-12">
+3
+«company name="foo'J>
+4
+<open>l26.23</open>
+5
+<high>130.27</high>
+6
+<low>122.83</low>
+<closingPrice>127.30</closingPrice>
+8
+</company>
+9
+<company name=r'bar1J>
+10
+<open>52.73</open>
+11
+<high>60.27</high>
+12
+<low>50.29</low>
+13
+<closingPrice>54,91</closingPrice>
+14
+</company>
+15
+</date>
+16
+<date value='r2008-10-11"> . . . </date>
+17
+</root>
+The advantages of this approach include the following:
+•
+It's very easy to distribute, and it can also be easily read by both machines and humans. This is one
+reason that XML is a standard data model to share and distribute data.
+•
+Most languages have a library to perform XML parsing, so it's reasonably easy for clients to implement.
+CrackingTheCodinginterview.com | 6th Edition Î
+75

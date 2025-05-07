@@ -1,0 +1,11 @@
+Figure 7.3 The three classes do not know about each other
+The downside of this solution is that the developers now have three classes that
+they have to instantiate and track. A common solution to this dilemma is to use
+the Facade pattern (Figure 7.4).
+Figure 7.4 The Facade pattern
+The EmployeeFacade contains very little code. It is responsible for instantiating
+and delegating to the classes with the functions.
+Some developers prefer to keep the most important business rules closer to the
+data. This can be done by keeping the most important method in the original
+Employee class and then using that class as a Facade for the lesser functions
+(Figure 7.5).

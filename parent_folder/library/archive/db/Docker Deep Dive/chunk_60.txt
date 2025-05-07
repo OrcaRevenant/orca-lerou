@@ -1,0 +1,26 @@
+We mentioned earlier that containerd uses runc to create new containers. In fact,
+it forks a new instance of runc for every container it creates. However, once each
+container is created, its parent runc process exits. This means we can run
+hundreds of containers without having to run hundreds of runc instances.
+Once a container’s parent runc process exits, the associated containerd-shim
+process becomes the container’s parent process. Some of the responsibilities the
+shim performs as a container’s parent include:
+Keeping any STDIN and STDOUT streams open so that when the daemon
+is restarted, the container doesn’t terminate due to pipes being closed etc.
+Reports the container’s exit status back to the daemon.
+How it’s implemented on Linux
+On a Linux system, the components we’ve discussed are implemented as
+separate binaries as follows: - dockerd (the Docker daemon) - docker-
+containerd (containerd) - docker-containerd-shim (shim) - docker-runc
+(runc)
+You can see all of these on a Linux system by running a ps command on the
+Docker host. Obviously, some of them will only be present when the system has
+running containers.
+So what’s the point of the daemon
+With all of the execution and runtime code stripped out of the daemon you might
+be asking the question: “what is left in the daemon?”.
+Obviously, the answer to this question will change over time as more and more
+functionality is stripped out and modularized. However, at the time of writing,
+some of the major functionality that still exists in the daemon includes; image
+management, image builds, the REST API, authentication, security, core
+networking, and orchestration.

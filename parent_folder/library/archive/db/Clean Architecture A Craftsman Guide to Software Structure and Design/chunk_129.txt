@@ -1,0 +1,33 @@
+Figure 14.5 X: a stable component
+Figure 14.6 shows Y, which is a very unstable component. No other components
+depend on Y, so we say that it is irresponsible. Y also has three components that it
+depends on, so changes may come from three external sources. We say that Y is
+dependent.
+Figure 14.6 Y: a very unstable component
+STABILITY METRICS
+How can we measure the stability of a component? One way is to count the
+number of dependencies that enter and leave that component. These counts will
+allow us to calculate the positional stability of the component.
+• Fan-in: Incoming dependencies. This metric identifies the number of classes
+
+outside this component that depend on classes within the component.
+• Fan-out: Outgoing depenencies. This metric identifies the number of classes
+inside this component that depend on classes outside the component.
+• I: Instability: I = Fan-out , (Fan-in + Fan-out). This metric has the range [0, 1].
+I = 0 indicates a maximally stable component. I = 1 indicates a maximally
+unstable component.
+The Fan-in and Fan-out metrics1 are calculated by counting the number of
+classes outside the component in question that have dependencies with the
+classes inside the component in question. Consider the example in Figure 14.7.
+Figure 14.7 Our example
+Let’s say we want to calculate the stability of the component Cc. We find that
+there are three classes outside Cc that depend on classes in Cc. Thus, Fan-in = 3.
+Moreover, there is one class outside Cc that classes in Cc depend on. Thus, Fan-
+out = 1 and I = 1/4.
+In C++, these dependencies are typically represented by #include statements.
+Indeed, the I metric is easiest to calculate when you have organized your source
+code such that there is one class in each source file. In Java, the I metric can be
+calculated by counting import statements and qualified names.
+When the I metric is equal to 1, it means that no other component depends on
+this component (Fan-in = 0), and this component depends on other components
+(Fan-out > 0). This situation is as unstable as a component can get; it is

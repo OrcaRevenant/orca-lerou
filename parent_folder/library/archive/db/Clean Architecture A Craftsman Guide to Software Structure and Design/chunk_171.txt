@@ -1,0 +1,19 @@
+care.
+PLUGIN ARCHITECTURE
+Taken together, these two decisions about the database and the GUI create a kind
+of pattern for the addition of other components. That pattern is the same pattern
+that is used by systems that allow third-party plugins.
+Indeed, the history of software development technology is the story of how to
+conveniently create plugins to establish a scalable and maintainable system
+architecture. The core business rules are kept separate from, and independent of,
+those components that are either optional or that can be implemented in many
+different forms (Figure 17.5).
+Figure 17.5 Plugging in to the business rules
+Because the user interface in this design is considered to be a plugin, we have
+made it possible to plug in many different kinds of user interfaces. They could be
+web based, client/server based, SOA based, Console based, or based on any
+other kind of user interface technology.
+The same is true of the database. Since we have chosen to treat it as a plugin, we
+can replace it with any of the various SQL databases, or a NOSQL database, or a
+file system-based database, or any other kind of database technology we might
+deem necessary in the future.

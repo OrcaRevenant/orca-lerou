@@ -1,0 +1,64 @@
+3
+Solutions to Stacks and Queues
+3.1
+Three in One: Describe how you could use a single array to implement three stacks.
+pg98
+SOLUTION
+Like many problems, this one somewhat depends on how well we'd like to support these stacks. If we're
+okay with simply allocating a fixed amount of space for each stack, we can do that. This may mean though
+that one stack runs out of space, while the others are nearly empty.
+Alternatively, we can be flexible in our space allocation, but this significantly increases the complexity of
+the problem.
+Approach 1: Fixed Division
+We can divide the array in three equal parts and allow the individual stack to grow in that limited space.
+Note: We will use the notation"[" to mean inclusive of an end point and"(" to mean exclusive of an end
+point.
+•
+For stack 1, we will use [Q,
+A ) .
+•
+For stack 2, we will use [ "A ,
+2nA) •
+•
+For stack 3, we will use [ % ,
+n ) .
+The code for this solution is below.
+1
+class FixedMultiStack {
+2
+private i n t numberOfStacks = 3;
+3
+private i n t
+stackCapacity;
+4
+private i n t [ ]
+values;
+5
+private i n t [ ]
+sizes;
+6
+7
+public FixedMultiStack(int stackSize) {
+8
+stackCapacity = stackSize;
+9
+values » new int[stackSize * numberOfStacks];
+10
+sizes = new intfnumberOfStacks];
+11
+>
+12
+13
+/* Push value onto stack. */
+14
+public void push{int stackNum, i n t value) throws FullStackException {
+15
+/* Check that we have space f o r the next element */
+16
+if
+(isFull(stackNuffl))
+{
+17
+throw new FullStackException();
+CrackingTheCodinglnterview.com | 6th Edition
+227

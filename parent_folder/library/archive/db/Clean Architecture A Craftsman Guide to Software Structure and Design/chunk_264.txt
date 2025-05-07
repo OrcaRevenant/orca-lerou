@@ -1,0 +1,30 @@
+server farms, and the browsers would be stupid. Then we started putting applets
+in the browsers. But we didn’t like that, so we moved dynamic content back to
+the servers. But then we didn’t like that, so we invented Web 2.0 and moved lots
+of processing back into the browser with Ajax and JavaScript. We went so far as
+to create whole huge applications written to execute in the browsers. And now
+we’re all excited about pulling that JavaScript back into the server with Node.
+(Sigh.)
+THE ENDLESS PENDULUM
+Of course, it would be incorrect to think that those oscillations started with the
+web. Before the web, there was client–server architecture. Before that, there
+were central minicomputers with arrays of dumb terminals. Before that, there
+were mainframes with smart green-screen terminals (that were very much
+analogous to modern-day browsers). Before that, there were computer rooms and
+punched cards …
+And so the story goes. We can’t seem to figure out where we want the computer
+power. We go back and forth between centralizing it and distributing it. And, I
+imagine, those oscillations will continue for some time to come.
+When you look at it in the overall scope of IT history, the web didn’t change
+anything at all. The web was simply one of many oscillations in a struggle that
+began before most of us were born and will continue well after most of us have
+retired.
+As architects, though, we have to look at the long term. Those oscillations are
+just short-term issues that we want to push away from the central core of our
+business rules.
+Let me tell you the story of company Q. Company Q built a very popular
+personal finance system. It was a desktop app with a very useful GUI. I loved
+using it.
+Then came the web. In its next release, company Q changed the GUI to look,
+and behave, like a browser. I was thunderstruck! What marketing genius decided
+that personal finance software, running on a desktop, should have the look and

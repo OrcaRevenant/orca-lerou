@@ -1,0 +1,35 @@
+Containerizing an App - The deep dive
+The rest of this chapter will walk you through the process of containerizing a
+simple Linux-based Node.js web app. The process is the same for Windows, and
+future editions of the book will include a Windows example.
+We’ll complete the following high-level steps: - Get the app code - Inspect the
+Dockerfile - Containerize the app - Run the app - Test the app - Look a bit closer
+- Move to production with Multi-stage Builds
+Getting the application code
+The application used in this example can be cloned form GitHub:
+https://github.com/nigelpoulton/psweb.git
+Clone the sample app from GitHub.
+$ git clone https://github.com/nigelpoulton/psweb.git
+Cloning into 'psweb'...
+remote: Counting objects: 15, done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 15 (delta 2), reused 15 (delta 2), pack-reused 0
+Unpacking objects: 100% (15/15), done.
+Checking connectivity... done.
+The clone operation creates a new directory called psweb. Change directory into
+psweb and list its contents.
+$ cd psweb
+$
+$ ls -l
+total 28
+-rw-r--r-- 1 root root  341 Sep 29 16:26 app.js
+-rw-r--r-- 1 root root  216 Sep 29 16:26 circle.yml
+-rw-r--r-- 1 root root  338 Sep 29 16:26 Dockerfile
+-rw-r--r-- 1 root root  421 Sep 29 16:26 package.json
+-rw-r--r-- 1 root root  370 Sep 29 16:26 README.md
+drwxr-xr-x 2 root root 4096 Sep 29 16:26 test
+drwxr-xr-x 2 root root 4096 Sep 29 16:26 views
+This directory contains all of the application source code, as well as
+subdirectories for views and unit tests. Feel free to look at the files - the app is
+extremely simple. We won’t be using the unit tests in this chapter.
+Now that we have the app code, let’s look at its Dockerfile.

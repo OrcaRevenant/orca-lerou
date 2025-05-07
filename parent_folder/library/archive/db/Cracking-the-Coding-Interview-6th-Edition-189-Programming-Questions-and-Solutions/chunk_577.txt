@@ -1,0 +1,70 @@
+Solutions to Chapter 17 | Hard
+17.14 Smallest K: Design an algorithm to find the smallest K numbers in an array.
+pg 188
+SOLUTION
+There are a number of ways to approach this problem. We will go through three of them: sorting, max heap,
+and selection rank.
+Some of these algorithms require modifying the array. This is something you should discuss with your inter-
+viewer. Note, though, that even if modifying the original array is not acceptable, you can always clone the
+array and modify the done instead. This will not impact the overall big 0 time of any algorithm.
+Solution 1: Sorting
+We can sort the elements in ascending order and then take the first million numbers from that.
+1
+i n t [ ] smallestK(int[] array, i n t k) {
+2
+if (k <= 0 || k > array.length) {
+3
+throw new IllegalArgumentExceptionQ;
+4
+}
+5
+6
+/* Sort array.
+*/
+7
+Arrays.sort(array);
+8
+9
+/* Copy f i r s t k elements. */
+10
+i n t [ ] smallest = new i n t [ k ] ;
+11
+f o r ( i n t i = 0; i < k; i++) {
+12
+s m a l l e s t [ i ] = a r r a y [ i ] ;
+13
+>
+14
+return smallest;
+15
+}
+ThetimecomplexityisO(n
+l o g ( n ) ) .
+Solution 2: Max Heap
+We can use a max heap to solve this problem. We first create a max heap (largest element at the top) for the
+first million numbers.
+Then, we traverse through the list. On each element, if it's smaller than the root, we insert it into the heap
+and delete the largest element {which will be the root).
+At the end of the traversal, we will have a heap containing the smallest one million numbers. This algorithm
+is 0(n l o g ( m ) ) , where m is the number of values we are looking for.
+1
+i n t [ ] smallestK(int[] array, i n t k) {
+2
+if (k <= 0 || k > array.length) {
+3
+throw new IIlegalArgumentException();
+4
+>
+5
+6
+PriorityQueue<Integer> heap = getKMaxHeap(array, k ) ;
+7
+return heapToIntArray(heap);
+8
+>
+9
+10 /* Create max heap of smallest k elements. */
+11 PriorityQueue<Integer> getKMaxHeap(int[] array, i n t k) {
+12
+PriorityQueue<Integer> heap =
+CrackingTheCodinglnterview.com | 6th Edition S 3 7

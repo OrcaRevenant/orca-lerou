@@ -1,0 +1,69 @@
+11 Hints for Data Structures
+#80.
+4.8
+The f irstCommonAncestor function couid return the first common ancestor (if p
+and q are both contained in the tree), p if p is in the tree and not q, q if q is in the tree
+and not p, and n u l l otherwise.
+#81.
+3.3
+Popping an element at a specific substack will mean that some stacks aren't at full
+capacity. Is this an issue? There's no right answer, but you should think about how to
+handle this.
+#82.
+4.9
+Break this down into subproblems. Use recursion. If you had all possible sequences for
+the left subtree and the right subtree, how could you create all possible sequences for
+the entire tree?
+#83.
+2.8
+You can use two pointers, one moving twice as fast as the other. If there is a cycle, the
+two pointers will collide. They will land at the same location at the same time. Where do
+they land? Why there?
+#84.
+1.2
+There is one solution that isO(N l o g N) time. Another solution uses some space, but
+isO(N) time.
+#85.
+4.7
+Once you decide to build a node, its outgoing edge can be deleted. After you've done
+this, can you find other nodes that are free and clear to build?
+#86.
+4.5
+If every node on the left must be less than or equal to the current node, then this is really
+the same thing as saying that the biggest node on the left must be less than or equal to
+the current node.
+#87.
+4.12
+What work is duplicated in the current brute-force algorithm?
+#88.
+1,9
+We are essentially asking if there's a way of splitting the first string into two parts, x and
+y, such that the first string is xy and the second string is yx. For example, x = wat and
+y = e r b o t t l e . The first string is xy = w a t e r b o t t l e . The second string is yx =
+e r b o t t l e w a t ,
+#89.
+4.11
+Picking a random depth won't help us much. First, there's more nodes at lower depths
+than higher depths. Second, even if we re-balanced these probabilities, we could
+hit a "dead end" where we meant to pick a node at depth 5 but hit a leaf at depth 3.
+Re-balancing the probabilities is an interesting, though.
+#90.
+2.8
+If you haven't identified the pattern of where the two pointers start, try this: Use the
+linked list 1->2->3->4->5->6->7->8->9->?, where the ? links to another node. Try
+making the ? the first node (that is, the 9 points to the 1 such that the entire linked list
+is a loop). Then make the ? the node 2. Then the node 3. Then the node 4. What is the
+pattern? Can you explain why this happens?
+#91.
+4.6
+Here's one step of the logic The successor of a specific node is the leftmost node of the
+right subtree. What if there is no right subtree, though?
+#92.
+1.6
+Do the easy thing first. Compress the string, then compare the lengths.
+#93.
+2,7
+Now, you need to find where the linked lists intersect. Suppose the linked lists were the
+same length. How could you do this?
+654
+Cracking the Coding Interview, 6th Edition

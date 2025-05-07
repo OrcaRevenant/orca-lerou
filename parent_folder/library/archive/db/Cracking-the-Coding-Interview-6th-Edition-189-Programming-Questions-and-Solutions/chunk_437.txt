@@ -1,0 +1,69 @@
+Solutions to Chapter 15 | Threads and Locks
+12.7
+Virtual Base Class: Why does a destructor in base class need to be declared virtual?
+pg 164
+SOLUTION
+Let's think about why we have virtual methods to start with. Suppose we have the following code:
+1
+class Foo {
+2
+public:
+3
+void f ( ) ;
+4
+>;
+S
+6
+class Bar : public Foo {
+7
+public:
+8
+void f { ) ;
+9
+>
+10
+11 Foo * p = new Bar();
+12 P - > f ( ) ;
+Calling p - > f () will result in a call to Foo: :f ( ) . This is because p is a pointer to Foo,andf () is not virtual.
+To ensure that p - > f ( ) will invoke the most derived implementation of f (),we need to declare f {) to be
+a virtual function.
+Now, let's go back to our destructor. Destructors are used to clean up memory and resources. If Foo's
+destructor were not virtual, then Foo's destructor would be called, even when p is rea//y of type Bar.
+This is why we declare destructors to be virtual; we want to ensure that the destructor for the most derived
+class is called.
+12.8
+Copy Node: Write a method that takes a pointer to a Node structure as a parameter and returns a
+complete copy of the passed in data structure. The Node data structure contains two pointers to
+other Nodes.
+pg 164
+SOLUTION
+The algorithm will maintain a mapping from a node address in the original structure to the corresponding
+node in the new structure.This mapping will allow us to discover previously copied nodes during a tradi-
+tional depth-first traversat of the structure. Traversal often mark visited nodes—the mark can take many
+forms and does not necessarily need to be stored in the node.
+Thus, we have a simple recursive algorithm:
+1
+typedef map<Node*> Node*> NodeMap;
+2
+3
+Node * copy_recursive(Node * cur, NodeMap & nodeMap) {
+4
+if (cur == NULL) {
+5
+return NULL;
+6
+>
+7
+8
+NodeMap::iterator i = nodeMap.find(cur);
+9
+if (i
+1= nodeMap.end()) {
+10
+// we've been here before, return the copy
+11
+return i->second;
+12
+}
+CrackingTheCodinglrtterview.com | 6th Edition
+427

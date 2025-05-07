@@ -1,0 +1,30 @@
+APPRENTICESHIP
+181
+This is intense on-the-job training. The intern is surrounded by role models
+and teachers.
+Once internship has been completed each of the medical specialties requires
+three to five more years of further supervised practice and training known as
+residency. The resident gains confidence by taking on ever greater responsibilities
+while still being surrounded by, and supervised by, senior doctors.
+Many specialties require yet another one to three years of fellowship in which
+the student continues specialized training and supervised practice.
+And then they are eligible to take their exams and become board certified.
+This description of the medical profession was somewhat idealized, and
+probably wildly inaccurate. But the fact remains that when the stakes are high,
+we do not send graduates into a room, throw meat in occasionally, and expect
+good things to come out. So why do we do this in software?
+It’s true that there are relatively few deaths caused by software bugs. But there
+are significant monetary losses. Companies lose huge amounts of money due to
+the inadequate training of their software developers.
+Somehow the software development industry has gotten the idea that program-
+mers are programmers, and that once you graduate you can code. Indeed, it is not
+at all uncommon for companies to hire kids right out of school, form them into
+“teams,” and ask them to build the most critical systems. It’s insane!
+Painters don’t do this. Plumbers don’t. Electricians don’t. Hell, I don’t even
+think short-order cooks behave this way! It seems to me that companies who
+hire CS graduates ought to invest more in their training than McDonalds
+invests in their servers.
+Let’s not kid ourselves that this doesn’t matter. There’s a lot at stake. Our
+civilization runs on software. It is software that moves and manipulates the
+information that pervades our daily life. Software controls our automobile
+engines, transmissions, and brakes. It maintains our bank balances, sends us our

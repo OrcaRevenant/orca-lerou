@@ -1,0 +1,72 @@
+Solutions to Chapter 16 | Moderate
+16,14 Best Line: Given a two-dimensional graph with points on it, find a tine which passes the most
+number of points.
+pg 183
+SOLUTION
+This solution seems quite straightforward at first. And it is—sort of.
+Wejust"draw"an infinite line (that is, not a line segment) between every two points and, using a hash table,
+track which line is the most common. This will takeO(NJ) time, since there are N2 line segments.
+We will represent a line as a slope and y-intercept (as opposed to a pair of points), which allows us to easily
+check to see if the tine from ( x l , y l ) t o ( x 2 , y2) is equivalent to the line from (x3, y 3 ) t o ( x 4 ,
+y4).
+To find the most common line then, we just iterate through all lines segments, using a hash table to count
+the number of times we've seen each line. Easy enough!
+However, there's one little complication. We're defining two lines to be equal if the lines have the same slope
+and y-intercept. We are then, furthermore, hashing the lines based on these values (specifically, based on
+the slope). The problem is that floating point numbers cannot always be represented accurately in binary.
+We resolve this by checking if two floating point numbers are within an e p s i l o n value of each other.
+What does this mean for our hash table? It means that two lines with "equal" slopes may not be hashed to
+the same value. To solve this, we will round the slope down to the next epsilon and usethisflooredSlope
+as the hash key. Then, to retrieve all lines that are potentially equal, we will search the hash table at three
+spots: f l o o r e d S l o p e , f l o o r e d S l o p e - e p s i l o n , and f l o o r e d S l o p e + e p s i l o n . This will ensure
+that we've checked out all lines that might be equal.
+1
+/* Find line that goes through most number of points. */
+2
+Line findBestLine(GraphPoint[] points) (
+3
+BashMapListcDouble, Line> linesBySlope = getListOfLines(points);
+4
+return getBestLine(linesBySlope);
+5
+}
+6
+7
+/* Add each pair of points as a line to the l i s t . */
+8
+HashMapListcDouble, Line> getListOfLines(GraphPoint[] points) {
+HashMapList<Ooublej Line> linesBySlope = new HashMapList<Double, Line>();
+10
+for ( i n t i = 0; i < points.length; i++) {
+11
+for ( i n t j = i + 1; j < points.length; j++) (
+12
+Line line = new L i n e ( p o i n t s [ i ] , p o i n t s [ j ] ) ;
+13
+double key = Line.floorToNearestEpsilon(line.slope);
+14
+linesBySlope,put(key,
+l i n e ) ;
+15
+>
+16
+}
+17
+return linesBySlope;
+18
+}
+19
+20 /* Return the line with the most equivalent other lines. */
+21 Line getBestLine(HashMapList<Double, Line> linesBySlope) {
+22
+Line bestLine = n u l l ;
+23
+i n t bestCount = 0;
+24
+25
+Set<Double> slopes = linesBySlope.keySet();
+26
+27
+f o r (double slope : slopes) {
+492
+Cracking the Coding Interview, 6th Edition

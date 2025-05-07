@@ -1,0 +1,88 @@
+418
+Index
+DayDate class, running SerialDate
+as, 271
+DayDateFactory, 273–274
+dead code, 288, 292
+dead functions, 288
+deadlock, 183, 335–339
+deadly embrace. See circular wait
+debugging, finding deadlocks, 336
+decision making, optimizing, 167–168
+decisions, postponing, 168
+declarations, unaligned, 87–88
+DECORATOR objects, 164
+DECORATOR pattern, 274
+decoupled architecture, 167
+decoupling, from construction
+details, 156
+decoupling strategy, concurrency
+as, 178
+default constructor, deleting, 276
+degradation, preventing, 14
+deletions, as the majority of
+changes, 250
+density, vertical in code, 79–80
+dependencies
+finding and breaking, 250
+injecting, 157
+logical, 282
+making logical physical, 298–299
+between methods, 329–333
+between synchronized
+methods, 185
+Dependency Injection (DI), 157
+Dependency Inversion Principle (DIP),
+15, 150
+dependency magnet, 47
+dependent functions, formatting, 82–83
+derivatives
+base classes depending on, 291
+base classes knowing about, 273
+of the exception class, 48
+moving set functions into, 232,
+233–235
+pushing functionality into, 217
+description
+of a class, 138
+overloading the structure of code
+into, 310
+descriptive names
+choosing, 309–310
+using, 39–40
+design(s)
+of concurrent algorithms, 179
+minimally coupled, 167
+principles of, 15
+design patterns, 290
+details, paying attention to, 8
+DI (Dependency Injection), 157
+Dijkstra, Edsger, 48
+dining philosophers execution model,
+184–185
+DIP (Dependency Inversion Principle),
+15, 150
+dirty code. See also bad code;
+messy code
+dirty code, cleaning, 200
+dirty tests, 123
+disinformation, avoiding, 19–20
+distance, vertical in code, 80–84
+distinctions, making meaningful, 20–21
+domain-specific languages (DSLs),
+168–169
+domain-specific testing language, 127
+DoubleArgumentMarshaler class, 238
+DRY principle (Don't Repeat Yourself),
+181, 289
+DTOs (data transfer objects), 100–101, 160
+dummy scopes, 90
+duplicate if statements, 276
+duplication
+of code, 48
+in code, 289–290
+eliminating, 173–175
+focusing on, 10
+forms of, 173, 290
+reduction of, 48
+strategies for eliminating, 48

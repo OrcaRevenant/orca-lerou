@@ -1,0 +1,32 @@
+CHAPTER 14 MENTORING, APPRENTICESHIP, AND CRAFTSMANSHIP
+176
+I did not figure it all out for myself. I was mentored. Some very kind and very
+adept people (to whom I owe a huge debt of gratitude) took the time to write a
+treatise on boolean algebra that was accessible to a twelve year old. They
+connected the mathematical theory to the pragmatics of the little plastic
+computer and empowered me to make that computer do what I wanted it to do.
+I just pulled down my copy of that fateful manual. I keep it in a zip-lock bag.
+Nevertheless, the years have taken their toll by yellowing the pages and making
+them brittle. Still, the power of the words shines out of them. The elegance of
+their description of boolean algebra consumed three sparse pages. Their step-
+by-step walk-through of the equations for each of the original programs is still
+compelling. It was a work of mastery. It was a work that changed at least one
+young man’s life. Yet I doubt I’ll never know the names of the authors.
+TH E ECP-18 I N H I G H S C H OO L
+At the age of fifteen, as a freshman in high school, I liked hanging out in the
+math department. (Go figure!) One day they wheeled in a machine the size of a
+table saw. It was an educational computer made for high schools, called the
+ECP-18. Our school was getting a two-week demo.
+I stood in the background as the teachers and technicians talked. This machine
+had a 15-bit word (what’s a word?) and a 1024-word drum memory. (I knew
+what drum memory was by then, but only in concept.)
+When they powered it up, it made a whining sound reminiscent of a jet aircraft
+taking off. I guessed that was the drum spinning up. Once up to speed, it was
+relatively quiet.
+The machine was lovely. It was essentially an office desk with a marvelous
+control panel protruding from the top like the bridge of a battleship. The
+control panel was adorned with rows of lights that were also push-buttons.
+Sitting at that desk was like sitting in Captain Kirk’s chair.
+As I watched the technicians push those buttons, I noted that they lit up when
+pushed, and that you could push them again to turn them off. I also noted that there
+were other buttons they were pushing; buttons with names like deposit and run.

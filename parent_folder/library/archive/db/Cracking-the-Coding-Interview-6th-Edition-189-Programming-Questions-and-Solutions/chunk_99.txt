@@ -1,0 +1,65 @@
+Chapter 1 | Arrays and Strings
+Alternatively, we can implement the hash table with a balanced binary search tree.This gives us an 0 ( l o g N)
+lookup time.The advantage of this is potentially using less space, since we no longer allocate a large array. We
+can also iterate through the keys in order, which can be useful sometimes.
+• ArrayUst& Resizable Arrays
+In some languages, arrays {often called lists in this case) are automatically resizable. The array or list will
+grow as you append items. In other languages, like Java, arrays are fixed length. The size is defined when
+you create the array.
+When you need an array-like data structure that offers dynamic resizing, you would usually use an ArrayList.
+An ArrayListisan array that resizes itself as needed while still providing 0 ( 1 ) access. A typical implementa-
+tion is that when the array is full, the array doubles in size. Each doubling takes 0 ( n ) time, but happens so
+rarely that its amortized insertion time is still 0 ( 1 ) ,
+1
+ArrayList<String> merge(5tring[] words, Stringf] more) {
+2
+ArrayList<String> sentence = new ArrayList<String>();
+3
+for (String w : words) sentence.add(w);
+4
+for (String w : more) sentence.add(w);
+5
+return sentence;
+6
+>
+This is an essential data structure for interviews. Be sure you are comfortable with dynamically resizable
+arrays/lists in whatever language you will be working with. Note that the name of the data structure as well
+as the "resizing factor" (which is 2 in Java) can vary.
+Why is the amortized insertion runtime 0(1)?
+Suppose you have an array of size N, We can work backwards to compute how many elements we copied
+at each capacity increase. Observe that when we increase the array to K elements, the array was previously
+half that size. Therefore, we needed to copy Vi elements.
+final capacity increase
+:
+previous capacity increase:
+previous capacity increase:
+previous capacity increase:
+second capacity increase
+:
+first capacity increase
+:
+Therefore, the total number of copies to insert N elements is roughly /i
++
+/a +
+%
++
+. . ,
++ 2 +
+1, which is just less than N,
+I
+If the sum of this series isn't obvious to you, imagine this: Suppose you have a kilometer-long
+walk to the store. You walk 0,5 kilometers, and then 0.25 kilometers, and then 0.125 kilometers,
+and so on. You will never exceed one kilometer (although you'll get very close to it).
+Therefore, inserting N elements takes 0(N) work total. Each insertion is 0 ( 1 ) on average, even though
+some insertions take 0 (N) time in the worst case.
+• StringBuilder
+Imagine you were concatenating a list of strings, as shown below. What would the running time of this code
+be? For simplicity, assume that the strings are all the same length (call this x) and that there are n strings.
+n/2 elements to copy
+n/4 elements to copy
+n/8 elements to copy
+n/16 elements to copy
+2 elements to copy
+1 element to copy
+CrackingTheCodinginterview.com j 6th Edition
+91

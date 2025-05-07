@@ -1,0 +1,25 @@
+Now that we have a view of the big picture, and some of the history, let’s walk
+through the process of creating a new container.
+The most common way of starting containers is using the Docker CLI. The
+following docker container run command will start a simple new container
+based on the alpine:latest image.
+$ docker container run --name ctr1 -it alpine:latest sh
+When you type commands like this into the Docker CLI, the Docker client
+converts them into the appropriate API payload and POSTs them to the correct
+API endpoint.
+The API is implemented in the daemon. It is the same rich, versioned, REST API
+that has become a hallmark of Docker and is accepted in the industry as the de
+facto container API.
+Once the daemon receives the command to create a new container, it makes a
+call to containerd. Remember that the daemon no-longer contains any code to
+create containers!
+The daemon communicates with containerd via a CRUD-style API over gRPC.
+Despite its name, containerd cannot actually create containers. It uses runc to do
+that. It converts the required Docker image into an OCI bundle and tells runc to
+use this to create a new container.
+runc interfaces with the OS kernel to pull together all of the constructs necessary
+to create a container (in Linux these include namespaces and cgroups). The
+container process is started as a child-process of runc, and as soon as it is started
+runc will exit.
+Voila! The container is now started.
+Figure 5.4 summarises the process

@@ -1,0 +1,91 @@
+Solutions to Chapter 7 ] Object-Oriented Design
+•
+A bus can park in five large spots that are consecutive and within the same row. it cannot park in small
+spots.
+In the below implementation, we have created an abstract class V e h i c l e , from which Car, Bus, and
+M o t o r c y c l e inherit. To handle the different parking spot sizes, we have just one class ParkingSpot
+which has a member variable indicating the size.
+1
+public enum VehicleSize { Motorcycle, Compact,
+Large }
+2
+3
+public abstract class Vehicle {
+4
+protected ArrayList<ParkingSpot> parkingSpots = new ArrayList<ParkingSpot>();
+5
+protected String licensePlate;
+6
+protected int spotsNeeded;
+7
+protected VehicleSize size;
+8
+9
+public int getSpotsNeeded() { return spotsNeeded; }
+16
+public VehicleSize getSize{} { return size; }
+11
+12
+/* Park vehicle in this spot (among others, potentially) */
+13
+public void parkInSpot(ParkingSpot s) { parkingSpots.add(s); )
+14
+15
+/* Remove car from spot, and notify spot that it's gone */
+16
+public void clearSpotsQ { ... }
+17
+18
+/* Checks if the spot is big enough for the vehicle (and is available). This
+19
+* compares the SIZE only. It does not check if it has enough spots. */
+20
+public abstract boolean canFitInSpot(ParkingSpot spot);
+21 }
+22
+23 public class Bus extends Vehicle {
+24
+public Bus() {
+25
+spotsNeeded = 5;
+26
+size = VehicleSize.Large;
+27
+>
+28
+29
+/* Checks if the spot is a Large. Doesn't check num of spots */
+39
+public boolean canFitInSpot(ParkingSpot spot) { ... }
+31 }
+32
+33 public class Car extends Vehicle {
+34
+public Car() {
+35
+spotsNeeded = 1;
+36
+size = VehicleSize.Compact;
+37
+}
+38
+39
+/* Checks if the spot is a Compact or a Large. */
+40
+public boolean canFitInSpot(ParkingSpot spot) { ... }
+41 }
+42
+43 public class Motorcycle extends Vehicle {
+44
+public Motorcycle() {
+45
+spotsNeeded = 1;
+46
+size = VehicleSize.Motorcycle;
+47
+>
+48
+49
+public boolean canFitInSpot(ParkingSpot spot) { ... }
+50 }
+CrackingTheCodinglnterview.com | 6th Edition 3 37

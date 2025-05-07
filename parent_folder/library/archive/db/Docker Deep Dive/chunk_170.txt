@@ -1,0 +1,36 @@
+You can configure the certificate rotation period for the Swarm with the docker
+swarm update command. The example below changes the certificate rotation
+period to 30 days.
+$ docker swarm update --cert-expiry 720h
+Swarm updated.
+Swarm allows nodes to renew certificates early (slightly before they expire) so
+that not all nodes in the Swarm try and update their certificates at the same time.
+You can configure an external CA when creating a Swarm by passing the --
+external-ca flag to the docker swarm init command.
+The new docker swarm ca sub-command can be used to manage CA related
+configuration. Run the command with the --help flag to see a list of things it
+can do.
+$ docker swarm ca --help
+Usage:  docker swarm ca [OPTIONS]
+Manage root CA
+Options:
+--ca-cert pem-file          Path to the PEM-formatted root CA
+certificate to use for the new cluster
+--ca-key pem-file           Path to the PEM-formatted root CA
+key to use for the new cluster
+--cert-expiry duration      Validity period for node certificates
+(ns|us|ms|s|m|h) (default 2160h0m0s)
+-d, --detach                    Exit immediately instead of waiting for
+the root rotation to converge
+--external-ca external-ca   Specifications of one or more certificate
+signing endpoints
+--help                      Print usage
+-q, --quiet                     Suppress progress output
+--rotate                    Rotate the swarm CA - if no certificate
+or key are provided, new ones will be generated
+The cluster store
+The cluster store is the brains of a Swarm and is the place where cluster config
+and state are stored.
+The store is currently based on an implementation of etcd and is automatically
+configured to replicate itself to all managers in the Swarm. It is also encrypted
+by default.

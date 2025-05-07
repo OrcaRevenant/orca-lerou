@@ -1,0 +1,73 @@
+Solutions to Chapter 14 j Databases
+16.10 Living People: Given a list of people with their birth and death years, implement a method to
+compute the year with the most number of people alive. You may assume that all people were born
+between 1900 and 2000 (inclusive). If a person was alive during any portion of that year, they should
+be included in that year's count. For example, Person (birth = 1908, death = 1909) is included in the
+counts for both 1908 and 1909.
+The first thing we should do is outline what this solution will look like. The interview question hasn't speci-
+fied the exact form of input. In a real interview, we could ask the interviewer how the input is structured.
+Alternatively, you can explicitly state your (reasonable) assumptions.
+Here, we'll need to make our own assumptions. We will assume that we have an array of simple Person
+objects:
+1
+public class Person {
+2
+public int birth;
+3
+public int death;
+4
+public Person(int birthYear, int deathYear) {
+5
+birth = birthYear;
+6
+death = deathYear;
+7
+>
+8
+>
+We could have also given Person a g e t B i r t h Y e a r { ) and getDeathYear{) objects. Some would
+argue that's better style, but for compactness and clarity, we'll just keep the variables public.
+The important thing here is to actually use a Person object. This shows better style than, say, having an
+integer array for birth years and an integer array for death years (with an implicit association o f b i r t h s [ i ]
+and d e a t h s [ i ] being associated with the same person). You don't get a lot of chances to demonstrate
+great coding style, so it's valuable to take the ones you get.
+With that in mind, let's start with a brute force algorithm.
+Brute Force
+The brute force algorithm falls directly out from the wording of the problem. We need to find the year with
+the most number of people a live. Therefore, we go through each year and check how many people are alive
+in that year.
+1
+int maxAliveYear(Person[] people, int min, int max) {
+2
+int maxAlive • 0;
+3
+int maxAliveYear = ruin;
+pg 182
+SOLUTION
+4
+5
+6
+7
+3
+9
+10
+11
+12
+13
+14
+15
+16
+for (int year =• min; year <= max; year++) {
+>
+>
+for (Person person : people) {
+if (person.birth <= year && year <= person.death) {
+int alive = 0;
+alive++;
+}
+>
+if (alive > maxAlive) {
+maxAlive = alive;
+maxAliveYear = year;
+482
+Cracking the Coding Interview, 6th Edition

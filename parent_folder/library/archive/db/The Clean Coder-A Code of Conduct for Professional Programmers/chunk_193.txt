@@ -1,0 +1,30 @@
+CHAPTER 12 COLLABORATION
+162
+I came in an hour late that Monday and saw everyone gathered glumly around
+a nonfunctioning system. John asked me, “Why isn’t the system working
+today, Bob?” My answer: “I don’t know.” And I sat down to debug it. I was
+still clueless about the Monday demo, but I could tell by everyone else’s body
+language that something was wrong. Then John came over and whispered
+in my ear, “What if Stenberg had decided to visit?” Then he walked away in
+disgust.
+Stenberg was the VP in charge of automation. Nowadays we’d call him a CIO.
+The question held no meaning for me. “So what?” I thought. “The system isn’t
+in production, what’s the big deal?”
+I got my first warning letter later that day. It told me I had to change my
+attitude immediately or “quick termination will be the result.” I was
+horrified!
+I took some time to analyze my behavior and began to realize what I had been
+doing wrong. I talked with John and Ralph about it. I determined to turn
+myself and my job around.
+And I did! I stopped coming in late. I started paying attention to internal
+politics. I began to understand why John was worried about Stenberg. I began
+to see the bad situation I had put him in by not having that system running on
+Monday.
+But it was too little, too late. The die was cast. I got a second warning letter a
+month later for a trivial error that I made. I should have realized at that point
+that the letters were a formality and that the decision to terminate me had
+already been made. But I was determined to rescue the situation. So I worked
+even harder.
+The termination meeting came a few weeks later.
+I went home that day to my pregnant 22-year-old wife and had to tell her that
+I’d been fired. That’s not an experience I ever want to repeat.

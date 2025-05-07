@@ -1,0 +1,38 @@
+ret = await step2( ret );
+}
+catch (err) {
+ret = await step2Failed( err );
+}
+ret = await Promise.all( [
+step3a( ret ),
+step3b( ret ),
+step3c( ret )
+] );
+await step4( ret );
+}
+main()
+.then(
+function fulfilled(){
+// `main()` completed successfully
+},
+function rejected(reason){
+// Oops, something went wrong
+}
+);
+Instead of the function *main() { .. declaration, we declare with the async func
+tion main() { .. form. And instead of yield`ing a promise, we `await the
+promise. The call to run the function main() actually returns a promise that we can
+directly observe. That’s the equivalent to the promise that we get back from a
+run(main) call.
+Do you see the symmetry? async function is essentially syntactic sugar for the gen‐
+erators + promises + run(..) pattern; under the covers, it operates the same!
+If you’re a C# developer and this async/await looks familiar, it’s because this feature
+is directly inspired by C#’s feature. It’s nice to see language precedence informing
+convergence!
+Babel, Traceur and other transpilers already have early support for the current status
+of `async function`s, so you can start using them already. However, in the next sec‐
+tion “Caveats”, we’ll see why you perhaps shouldn’t jump on that ship quite yet.
+`async function`s
+|
+209
+www.it-ebooks.info

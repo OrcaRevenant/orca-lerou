@@ -1,0 +1,18 @@
+187
+A
+TOOLING
+In 1978, I was working at Teradyne on the telephone test system that I described
+earlier. The system was about 80KSLOC of M365 assembler. We kept the source
+code on tapes.
+The tapes were similar to those 8-track stereo tape cartridges that were so
+popular back in the ’70s. The tape was an endless loop, and the tape drive could
+only move in one direction. The cartridges came in 10', 25', 50', and 100' lengths.
+The longer the tape, the longer it took to “rewind” since the tape drive had to
+simply move it forward until it found the “load point.” A 100' tape took five
+minutes to go to load point, so we chose the lengths of our tapes judiciously.1
+1. These tapes could only be moved in one direction. So when there was a read error, there was no way for the
+tape drive to back up and read again. You had to stop what you were doing, send the tape back to the load
+point, and then start again. This happened two or three times per day. Write errors were also very common,
+and the drive had no way to detect them. So we always wrote the tapes in pairs and then checked the pairs
+when we were done. If one of the tapes was bad we immediately made a copy. If both were bad, which was
+very infrequent, we started the whole operation over. That was what life was like in the ’70s.

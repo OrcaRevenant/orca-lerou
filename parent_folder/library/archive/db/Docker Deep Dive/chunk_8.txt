@@ -1,0 +1,18 @@
+Versions of the book
+Docker is developing at a warp speed! As a result, the value of a book like this is
+inversely proportional to how old it is! Put another way, the older this book is,
+the less valuable it is. So I keep it up-to-date!
+If this seems strange… welcome to the new normal! We no-longer live in a
+world where a 5-year old book is valuable (believe me, it hurts for me to say
+that).
+Don’t worry though, your investment in this book is safe!
+If you buy the paperback copy, you get the Kindle version for dirt-cheap! The
+Kindle and Leanpub versions are always kept up-to-date. That’s the best we can
+currently do!
+Below is a list of versions:
+Version 4. This is version 4 of the book, published on 3rd October 2017.
+This version added a new chapter titled “Containerizing an app”. It also
+added content about multi-architecture images and crypto ID’s to the
+Images chapter, and some additional content to The Big Picture chapter.
+Version 3. Added The Docker Engine chapter.
+Version 2. Added Security in Docker chapter.

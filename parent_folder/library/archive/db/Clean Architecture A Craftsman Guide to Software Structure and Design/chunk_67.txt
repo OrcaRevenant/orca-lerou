@@ -1,0 +1,31 @@
+Click here to view code image
+public class Squint {
+public static void main(String args[]) {
+for (int i=0; i<25; i++)
+System.out.println(i*i);
+}
+}
+In a language like Clojure, which is a derivative of Lisp, and is functional, we
+might implement this same program as follows:
+Click here to view code image
+(println (take 25 (map (fn [x] (* x x)) (range))))
+If you don’t know Lisp, then this might look a little strange. So let me reformat it
+a bit and add some comments.
+Click here to view code image
+(println ;___________________ Print
+(take 25 ;_________________ the first 25
+(map (fn [x] (* x x)) ;__ squares
+(range)))) ;___________ of Integers
+It should be clear that println, take, map, and range are all functions. In Lisp,
+you call a function by putting it in parentheses. For example, (range) calls the
+range function.
+The expression (fn [x] (* x x)) is an anonymous function that calls the
+multiply function, passing its input argument in twice. In other words, it
+computes the square of its input.
+Looking at the whole thing again, it’s best to start with the innermost function
+call.
+• The range function returns a never-ending list of integers starting with 0.
+• This list is passed into the map function, which calls the anonymous squaring
+function on each element, producing a new never-ending list of all the squares.
+• The list of squares is passed into the take function, which returns a new list
+with only the first 25 elements.

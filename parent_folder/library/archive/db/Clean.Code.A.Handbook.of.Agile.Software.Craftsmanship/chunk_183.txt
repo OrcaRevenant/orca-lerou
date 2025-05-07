@@ -1,0 +1,7 @@
+153
+11
+Systems
+by Dr. Kevin Dean Wampler
+“Complexity kills. It sucks the life out of developers,
+it makes products difﬁcult to plan, build, and test.”
+—Ray Ozzie, CTO, Microsoft Corporation

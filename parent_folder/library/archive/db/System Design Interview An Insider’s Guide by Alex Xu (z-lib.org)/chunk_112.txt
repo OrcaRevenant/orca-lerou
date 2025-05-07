@@ -1,0 +1,18 @@
+Step 3 - Design deep dive
+Up until now, we have discussed the high-level design of URL shortening and URL
+redirecting. In this section, we dive deep into the following: data model, hash function, URL
+shortening and URL redirecting.
+Data model
+In the high-level design, everything is stored in a hash table. This is a good starting point;
+however, this approach is not feasible for real-world systems as memory resources are limited
+and expensive. A better option is to store <shortURL, longURL> mapping in a relational
+database. Figure 8-4 shows a simple database table design. The simplified version of the table
+contains 3 columns: id, shortURL, longURL.
+Hash function
+Hash function is used to hash a long URL to a short URL, also known as hashValue.
+Hash value length
+The hashValue consists of characters from [0-9, a-z, A-Z], containing 10 + 26 + 26 = 62
+possible characters. To figure out the length of hashValue, find the smallest n such that 62^n
+≥ 365 billion. The system must support up to 365 billion URLs based on the back of the
+envelope estimation. Table 8-1 shows the length of hashValue and the corresponding
+maximal number of URLs it can support.

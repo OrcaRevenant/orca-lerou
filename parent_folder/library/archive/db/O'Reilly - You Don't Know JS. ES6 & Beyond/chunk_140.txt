@@ -1,0 +1,46 @@
+}
+} );
+You can convert it to:
+function ajax(url) {
+return new Promise( function pr(resolve,reject){
+// make request, eventually call
+// either `resolve(..)` or `reject(..)`
+} );
+}
+// ..
+ajax( "http://some.url.1" )
+.then(
+function fulfilled(contents){
+// handle `contents` success
+},
+function rejected(reason){
+// handle ajax error reason
+}
+);
+Promises have a then(..) method which accepts one or two callback functions. The
+first function (if present) is treated as the handler to call if the promise is fulfilled suc‐
+cessfully. The second function (if present) is treated as the handler to call if the
+promise is rejected explicitly, or if any error/exception is caught during resolution.
+If one of the arguments is omitted or otherwise not a valid function — typically you’ll
+use null instead — a default placeholder equivalent is used. The default success call‐
+back passes its fulfillment value along and the default error callback propagates its
+rejection reason along.
+There’s a shorthand for calling then(null,handleRejection) which is catch(han
+dleRejection).
+Both then(..) and catch(..) automatically construct and return another promise
+instance, which is wired to receive the resolution from whatever the return value is
+from the original promise’s fulfillment or rejection handler (whichever is actually
+called). Consider:
+ajax( "http://some.url.1" )
+.then(
+function fulfilled(contents){
+return contents.toUpperCase();
+},
+function rejected(reason){
+return "DEFAULT VALUE";
+}
+)
+Promises
+|
+129
+www.it-ebooks.info

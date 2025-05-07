@@ -1,0 +1,27 @@
+based on how the system changes over time.
+DEPENDENCY MANAGEMENT
+The flow of control in Figure 33.2 proceeds from right to left. Input occurs at the
+controllers, and that input is processed into a result by the interactors. The
+presenters then format the results, and the views display those presentations.
+Notice that the arrows do not all flow from the right to the left. In fact, most of
+them point from left to right. This is because the architecture is following the
+Dependency Rule. All dependencies cross the boundary lines in one direction,
+and they always point toward the components containing the higher-level policy.
+Also notice that the using relationships (open arrows) point with the flow of
+control, and that the inheritance relationships (closed arrows) point against the
+flow of control. This depicts our use of the Open–Closed Principle to make sure
+that the dependencies flow in the right direction, and that changes to low-level
+details do not ripple upward to affect high-level policies.
+CONCLUSION
+The architecture diagram in Figure 33.2 includes two dimensions of separation.
+The first is the separation of actors based on the Single Responsibility Principle;
+the second is the Dependency Rule. The goal of both is to separate components
+that change for different reasons, and at different rates. The different reasons
+correspond to the actors; the different rates correspond to the different levels of
+policy.
+Once you have structured the code this way, you can mix and match how you
+want to actually deploy the system. You can group the components into
+deployable deliverables in any way that makes sense, and easily change that
+grouping when conditions change.
+1. This is my own notation for “abstract” use cases. It would have been more standard to use a UML
+stereotype such as <<abstract>>, but I don‘t find adhering to such standards very useful nowadays.

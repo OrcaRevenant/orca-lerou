@@ -1,0 +1,31 @@
+OTHER DECOUPLING MODES
+In addition to the programming language you’re using, there are often other
+ways that you can decouple your source code dependencies. With Java, you have
+module frameworks like OSGi and the new Java 9 module system. With module
+systems, when used properly, you can make a distinction between types that are
+public and types that are published. For example, you could create an Orders
+module where all of the types are marked as public, but publish only a small
+subset of those types for external consumption. It’s been a long time coming, but
+I’m enthusiastic that the Java 9 module system will give us another tool to build
+better software, and spark people’s interest in design thinking once again.
+Another option is to decouple your dependencies at the source code level, by
+splitting code across different source code trees. If we take the ports and adapters
+example, we could have three source code trees:
+• The source code for the business and domain (i.e., everything that is
+independent of technology and framework choices): OrdersService,
+OrdersServiceImpl, and Orders
+• The source code for the web: OrdersController
+• The source code for the data persistence: JdbcOrdersRepository
+The latter two source code trees have a compile-time dependency on the
+business and domain code, which itself doesn’t know anything about the web or
+the data persistence code. From an implementation perspective, you can do this
+by configuring separate modules or projects in your build tool (e.g., Maven,
+Gradle, MSBuild). Ideally you would repeat this pattern, having a separate
+source code tree for each and every component in your application. This is very
+much an idealistic solution, though, because there are real-world performance,
+complexity, and maintenance issues associated with breaking up your source
+code in this way.
+A simpler approach that some people follow for their ports and adapters code is
+to have just two source code trees:
+• Domain code (the “inside”)
+• Infrastructure code (the “outside”)

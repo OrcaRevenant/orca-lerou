@@ -1,0 +1,83 @@
+Solutions to Chapter 17 | Hard
+71
+children.put(value,
+c h i l d ) ;
+72
+>
+73
+String remainder = s . s u b s t r i n g ( l ) ;
+74
+child.insertString(remainder, index + 1);
+75
+} else {
+7 6
+children. p u t ( n u l l ) ;
+I I Terminating character
+77
+>
+78
+>
+79
+80
+public ArrayList<Integer> search(5tring s) {
+81
+if (s == n u l l || s.length() == 0) {
+82
+return indexes;
+83
+> else {
+84
+char f i r s t = s.charAt(0);
+85
+if
+(children.containsKey(first))
+{
+86
+String remainder = s . s u b s t r i n g ( l ) ;
+87
+return
+children.get(first).search(remainder);
+88
+>
+89
+>
+90
+return n u l l ;
+91
+>
+92
+93
+public boolean terminates() {
+94
+return children.containsKey( f\0 J);
+95
+>
+96
+97
+public TrieNode getChild(char c) {
+98
+return c h i l d r e n . g e t ( c ) ;
+99
+>
+100 >
+101
+102 I* HashMapListcString, Integer* is a HashMap that maps from Strings to
+103
+* ArrayList<Integer>. See appendix for implementation. *l
+It takes 0(b 2) time to create the tree and 0 ( k t ) time to search for the locations.
+I
+Reminder: k is the length of the longest string in T, b is the length of the bigger string, and t is
+the number of smaller strings within T.
+The total runtime is0(b ! + k t ) .
+Without some additional knowledge of the expected input, you cannot directly compare 0 ( b k t ) , which
+was the runtime of the prior solution, to 0 ( b ; + k t ) . If b is very large, then 0 ( b k t ) is preferable. But if
+you havea lot of smaller strings, thenO(b2 + k t ) might be better.
+Solution #3
+Alternatively, we can add all the smaller strings into a trie. For example, the strings { i ,
+i s ,
+pp,
+ms}
+would look like the trie below. The asterisk (*) hanging from a node indicates that this node completes a
+word.
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

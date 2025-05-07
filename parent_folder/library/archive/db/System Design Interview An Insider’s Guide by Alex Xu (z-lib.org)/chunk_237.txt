@@ -1,0 +1,27 @@
+• If client A is offline while a file is changed by another client, data will be saved to the
+cache. When the offline client is online again, it pulls the latest changes.
+Once a client knows a file is changed, it first requests metadata via API servers, then
+downloads blocks to construct the file. Figure 15-15 shows the detailed flow. Note, only the
+most important components are shown in the diagram due to space constraint.
+1. Notification service informs client 2 that a file is changed somewhere else.
+2. Once client 2 knows that new updates are available, it sends a request to fetch metadata.
+3. API servers call metadata DB to fetch metadata of the changes.
+4. Metadata is returned to the API servers.
+5. Client 2 gets the metadata.
+6. Once the client receives the metadata, it sends requests to block servers to download
+blocks.
+7. Block servers first download blocks from cloud storage.
+8. Cloud storage returns blocks to the block servers.
+9. Client 2 downloads all the new blocks to reconstruct the file.
+Notification service
+To maintain file consistency, any mutation of a file performed locally needs to be informed to
+other clients to reduce conflicts. Notification service is built to serve this purpose. At the
+high-level, notification service allows data to be transferred to clients as events happen. Here
+are a few options:
+• Long polling. Dropbox uses long polling [10].
+• WebSocket. WebSocket provides a persistent connection between the client and the
+server. Communication is bi-directional.
+Even though both options work well, we opt for long polling for the following two reasons:
+• Communication for notification service is not bi-directional. The server sends
+information about file changes to the client, but not vice versa.
+• WebSocket is suited for real-time bi-directional communication such as a chat app. For

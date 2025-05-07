@@ -1,0 +1,50 @@
+247
+String Arguments
+case MISSING_DOUBLE:
+return String.format("Could not find double parameter for -%c.",
+errorArgumentId);
+}
+return "";
+}
+public enum ErrorCode {
+OK, INVALID_FORMAT, UNEXPECTED_ARGUMENT, INVALID_ARGUMENT_NAME,
+MISSING_STRING,
+MISSING_INTEGER, INVALID_INTEGER,
+MISSING_DOUBLE, INVALID_DOUBLE}
+}
+Listing 14-16
+Args.java
+public class Args {
+private String schema;
+private Map<Character, ArgumentMarshaler> marshalers =
+new HashMap<Character, ArgumentMarshaler>();
+private Set<Character> argsFound = new HashSet<Character>();
+private Iterator<String> currentArgument;
+private List<String> argsList;
+public Args(String schema, String[] args) throws ArgsException {
+this.schema = schema;
+argsList = Arrays.asList(args);
+parse();
+}
+private void parse() throws ArgsException {
+parseSchema();
+parseArguments();
+}
+private boolean parseSchema() throws ArgsException {
+for (String element : schema.split(",")) {
+if (element.length() > 0) {
+parseSchemaElement(element.trim());
+}
+}
+return true;
+}
+private void parseSchemaElement(String element) throws ArgsException {
+char elementId = element.charAt(0);
+String elementTail = element.substring(1);
+validateSchemaElementId(elementId);
+if (elementTail.length() == 0)
+marshalers.put(elementId, new BooleanArgumentMarshaler());
+else if (elementTail.equals("*"))
+marshalers.put(elementId, new StringArgumentMarshaler());
+Listing 14-15 (continued)
+ArgsException.java

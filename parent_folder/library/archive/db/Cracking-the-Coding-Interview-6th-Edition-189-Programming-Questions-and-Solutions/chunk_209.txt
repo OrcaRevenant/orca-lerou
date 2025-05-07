@@ -1,0 +1,77 @@
+Solutions to Chapter 1 | Arrays and Strings
+1.5
+One Away: There are three types of edits that can be performed on strings: insert a character,
+remove a character, or replace a character. Given two strings, write a function to check if they are
+one edit (or zero edits) away.
+EXAMPLE
+p a l e ,
+p i e
+- > t r u e
+p a l e s ,
+p a l e - > t r u e
+p a l e ,
+b a l e - > t r u e
+p a l e ,
+bae -> f a l s e
+pg91
+SOLUTION
+There is a "brute force"algorithm to do this. We could check all possible strings that are one edit away by
+testing the removal of each character (and comparing), testing the replacement of each character (and
+comparing), and then testing the insertion of each possible character (and comparing).
+That would be too slow, so let's not bother with implementing it.
+This is one of those problems where it's helpful to think about the "meaning" of each of these operations.
+What does it mean for two strings to be one insertion, replacement, or removal away from each other?
+•
+Replacement: Consider two strings, such as b a l e and pale, that are one replacement away. Yes, that
+does mean that you could replace a character in b a l e to make pale. But more precisely, it means that
+they are different only in one place.
+•
+Insertion: The strings apple and a p l e are one insertion away. This means that if you compared the
+strings, they would be identical—except for a shift at some point in the strings.
+•
+Removal: The strings apple and a p l e are also one removal away, since removal is just the inverse of
+insertion.
+We can go ahead and implement this algorithm now. We'll merge the insertion and removal check into one
+step, and check the replacement step separately.
+Observe that you don't need to check the strings for insertion, removal, and replacement edits. The lengths
+of the strings will indicate which of these you need to check.
+1
+boolean oneEditAway(String f i r s t , String second) {
+2
+if ( f i r s t . l e n g t h ( ) == second.lengthQ) {
+return oneEditReplace(first,
+second);
+4
+) else if ( f i r s t . l e n g t h ( ) + 1 == second.length()) {
+5
+return o n e E d i t I n s e r t ( f i r s t , second);
+6
+} else if ( f i r s t . l e n g t h ( ) - 1 == second.length()) {
+return oneEditInsert(second,
+f i r s t ) ;
+3
+>
+9
+return false;
+10
+}
+11
+12 boolean oneEditReplace(String s i , String s2) {
+13
+boolean foundDifference = f a l s e ;
+14
+f o r ( i n t i = 0; i < s l . l e n g t h ( ) ; i++) {
+15
+if ( s l . c h a r A t ( i )
+1= s2,charAt(i)) {
+16
+if
+(foundDifference)
+{
+17
+return f a l s e ;
+18
+}
+19
+CrackingTheCodinglnterview.com | 6th Edition
+1 9 9

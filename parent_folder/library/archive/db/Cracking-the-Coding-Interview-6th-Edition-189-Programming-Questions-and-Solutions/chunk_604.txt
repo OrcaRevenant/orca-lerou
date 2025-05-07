@@ -1,0 +1,68 @@
+Solutions to Chapter 17 j Hard
+21
+22 i n t [ ] solveEquation(int r l ,
+i n t r2) {
+23
+/* axA2 + bx + c
+24
+* -->
+25
+* X = [ - b +- sqrt(b*2 - 4ac)] / 2a
+26
+* In t h i s case, it has to be a + not a - */
+27
+i n t a = 2;
+28
+i n t b = -2 * r l ;
+29
+i n t c « r l * r l - r2;
+30
+31
+double p a r t i = -1 * b;
+32
+double part2 = Math.sqrt(b*b - 4 * a * c ) ;
+33
+double part3 = 2 * a;
+34
+35
+i n t solutionX = ( i n t ) { ( p a r t i + part2) / p a r t 3 ) ;
+36
+i n t solutionY = rl - solutionX;
+37
+38
+i n t [ ] solution = {solutionX, solutionY};
+39
+return solution;
+40
+}
+You might notice that the quadratic formula usually gives us two answers (see the + or - part), yet in our
+code, we only use the (+) result. We never checked the ( - ) answer Why is that?
+The existence of the "alternate" solution doesn't mean that one is the correct solution and one is "fake," It
+meansthatthereareexactlytwovaluesforxwhichwilfcorrectiyfulfillourequation:2x2 - 2sx + ( s 2 - t )
+= 0.
+That's true. There are. What's the other one? The other value is y!
+If this doesn't immediately make sense to you, remember that x and y are interchangeable. Had we solved
+for y earlier instead of x, we would have wound up with an identical equation: 2y i - 2sy + ( s 2 - t ) =
+0. So of course y could fulfill x's equation and x could fulfill y's equation. They have the exact same equa-
+tion. Sincexand yareboth solutionstoequationsthatlookiike2[something] 2 - 2 s [ s o m e t h i n g ] +
+s 2 - t = 0, then theother s o m e t h i n g that fulfills thatequation must bey.
+Stillnot convinced? Okay,we can do some math.Let'ssaywetookthe alternate valueforx: [ - b - s q r t ( b ;
+- 4 a c ) ]
+/ 2a.What'sy?
+x + y = r,
+y = i*a - x
+= r*j - [ - b - s q r t ( b ; - 4 a c ) ] / 2 a
+= [ 2 3 * ^ + b + s q r t ( b ; - 4 a c ) ] / 2 a
+Partially plug in values for a and b, but keep the rest of the equation as-is:
+= [ 2 ( 2 ) * r 1 + ( - 2 r J + s q r t ( b J - 4 a c ) ] / 2 a
+= [2r, + s q r t ( b 2 - 4 a c ) ] / 2 a
+Recall that b = - 2 r , . Now, we wind up with this equation:
+= [ - b + s q r t ( b 2 - 4 a c ) ] / 2 a
+Therefore, if we use x = ( p a r t i + p a r t 2 )
+/ p a r t 3 , then we'll get ( p a r t i - p a r t 2 )
+/ p a r t 3
+for the value for y.
+We don't care which one we call x and which one we call y, so we can use either one. It'll work out the same
+in the end.
+55 S
+Cracking the Coding interview, 6th Edition

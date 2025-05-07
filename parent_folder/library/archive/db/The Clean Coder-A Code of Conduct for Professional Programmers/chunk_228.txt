@@ -1,0 +1,30 @@
+CONTINUOUS BUILD
+197
+manual system, you will have the knowledge you need to select the appropriate
+tool. And indeed, the appropriate choice may simply be to continue using the
+manual system.
+B UG CO U NT S
+Teams of developers certainly need a list of issues to work on. Those issues include
+new tasks and features as well as bugs. For any reasonably sized team (5 to 12
+developers) the size of that list should be in the dozens to hundreds. Not thousands.
+If you have thousands of bugs, something is wrong. If you have thousands of
+features and/or tasks, something is wrong. In general, the list of issues should be
+relatively small, and therefore manageable with a lightweight tool like a wiki,
+Lighthouse, or Tracker.
+There are some commercial tools out there that seem to be pretty good. I’ve
+seen clients use them but haven’t had the opportunity to work with them
+directly. I am not opposed to tools like this, as long as the number of issues
+remains small and manageable. When issue-tracking tools are forced to track
+thousands of issues, then the word “tracking” loses meaning. They become
+“issue dumps” (and often smell like a dump too).
+CO NTI N UO U S B U I LD
+Lately I’ve been using Jenkins as my Continuous Build engine. It’s lightweight,
+simple, and has almost no learning curve. You download it, run it, do some
+quick and simple configurations, and you are up and running. Very nice.
+My philosophy about continuous build is simple: Hook it up to your source
+code control system. Whenever anybody checks in code, it should automatically
+build and then report status to the team.
+The team must simply keep the build working at all times. If the build fails, it
+should be a “stop the presses” event and the team should meet to quickly resolve
+the issue. Under no circumstances should the failure be allowed to persist for a
+day or more.

@@ -1,0 +1,29 @@
+the implementation details. Expect the implementation details to change. The
+fewer places where code knows the details, the fewer places where code will
+have to be tracked down and modified.
+A clean embedded architecture is testable within the layers because modules
+interact through interfaces. Each interface provides that seam or substitution
+point that facilitates off-target testing.
+DRY CONDITIONAL COMPILATION DIRECTIVES
+One use of substitutability that is often overlooked relates to how embedded C
+and C++ programs handle different targets or operating systems. There is a
+tendency to use conditional compilation to turn on and off segments of code. I
+recall one especially problematic case where the statement #ifdef BOARD_V2
+was mentioned several thousand times in a telecom application.
+This repetition of code violates the Don’t Repeat Yourself (DRY) principle.5 If I
+see #ifdef BOARD_V2 once, it’s not really a problem. Six thousand times is an
+extreme problem. Conditional compilation identifying the target-hardware’s type
+is often repeated in embedded systems. But what else can we do?
+What if there is a hardware abstraction layer? The hardware type would become
+a detail hidden under the HAL. If the HAL provides a set of interfaces, instead of
+using conditional compilation, we could use the linker or some form of runtime
+binding to connect the software to the hardware.
+CONCLUSION
+People who are developing embedded software have a lot to learn from
+experiences outside of embedded software. If you are an embedded developer
+who has picked up this book, you will find a wealth of software development
+wisdom in the words and ideas.
+Letting all code become firmware is not good for your product’s long-term
+health. Being able to test only in the target hardware is not good for your
+product’s long-term health. A clean embedded architecture is good for your
+product’s long-term health.

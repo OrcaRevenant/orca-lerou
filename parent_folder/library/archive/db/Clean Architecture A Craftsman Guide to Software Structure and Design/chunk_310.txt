@@ -1,0 +1,33 @@
+computers the central office line testers (COLTs). Another M365 was placed at
+the SC; it was called the service area computer (SAC). The SAC had several
+modems that it could use to dial up the COLTs and communicate at 300 baud (30
+cps).
+At first, the COLT computers did everything, including all the console
+communication, menus, and reports. The SAC was just a simple multiplexor that
+took the output from the COLTs and put it on a screen.
+The problem with this setup was that 30 cps is really slow. The testers didn’t like
+watching the characters trickle across the screen, especially since they were only
+interested in a few key bits of data. Also, in those days, the core memory in the
+M365 was expensive, and the program was big.
+The solution was to separate the part of the software that dialed and measured
+lines from the part that analyzed the results and printed the reports. The latter
+would be moved into the SAC, and the former would remain behind in the
+COLTs. This would allow the COLT to be a smaller machine, with much less
+memory, and would greatly speed up the response at the terminal, since the
+reports would be generated in the SAC.
+The result was remarkably successful. Screen updates were very fast (once the
+appropriate COLT had been dialed), and the memory footprint of the COLTs
+shrank a lot.
+The boundary was very clean and highly decoupled. Very short packets of data
+were exchanged between the SAC and COLT. These packets were a very simple
+form of DSL, representing primitive commands like “DIAL XXXX” or
+“MEASURE.”
+The M365 was loaded from tape. Those tape drives were expensive and weren’t
+very reliable—especially in the industrial environment of a telephone central
+office. Also, the M365 was an expensive machine relative to the rest of the
+electronics within the COLT. So we embarked upon a project to replace the
+M365 with a microcomputer based on an 8085 µprocessor.
+The new computer was composed of a processor board that held the 8085, a
+RAM board that held 32K of RAM, and three ROM boards that held 12K of
+read-only memory apiece. All these boards fit into the same chassis as the
+measurement hardware, thereby eliminating the bulky extra chassis that had

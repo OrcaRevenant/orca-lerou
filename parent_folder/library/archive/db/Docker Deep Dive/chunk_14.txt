@@ -1,0 +1,12 @@
+Chapter Summary
+We used to live in a world where every time the business wanted a new
+application we had to buy a brand-new server for it. Then VMware came along
+and enabled IT departments to drive more value out of new and existing
+company IT assets. But as good as VMware and the VM model is, it’s not
+perfect. Following the success of VMware and hypervisors came a newer more
+efficient and lightweight virtualization technology called containers. But
+containers were initially hard to implement and were only found in the data
+centers of web giants that had Linux kernel engineers on staff. Then along came
+Docker Inc. and suddenly container virtualization technologies were available to
+the masses.
+Speaking of Docker… let’s go find who, what, and why Docker is!

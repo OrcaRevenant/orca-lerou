@@ -1,0 +1,90 @@
+Solutions to Chapter 4 | Trees and Graphs
+5
+6
+Stack<Project> orderProjects(ArrayList<Project> projects) {
+7
+Stack<Project> stack = new Stack<Project>();
+8
+f o r (Project project : projects) {
+9
+if ( p r o j e c t . g e t s t a t e ( ) == Project.State.BLANK) {
+ie
+if (!doDFS(projectj stack)) {
+11
+return n u l l ;
+12
+}
+13
+}
+14
+>
+15
+return stack;
+16
+}
+17
+IE
+boolean doDFS(Project project, Stack<project> stack) {
+19
+if ( p r o j e c t . g e t S t a t e ( ) == Project.State.PARTIAL) {
+20
+return f a l s e ;
+II Cycle
+21
+}
+22
+23
+if ( p r o j e c t . g e t S t a t e ( ) == Project.State.BLANK) {
+24
+project.setState(Project,State.PARTIAL);
+25
+ArrayList<Project> children
+p r o j e c t . g e t C h i l d r e n ( ) ;
+26
+f o r (Project c h i l d : children) {
+27
+if (ldoDFS(child,
+stack)) {
+28
+return f a l s e ;
+29
+}
+30
+}
+31
+project.setState(Project.State.COMPLETE);
+32
+stack.push(project);
+33
+>
+34
+return t r u e ;
+35
+}
+36
+37 I* Same as before */
+38 Graph buildGraph(String[] p r o j e c t s , S t r i n g [ ] [ ] dependencies) { . . . }
+39 public class Graph {}
+40
+41 /* Essentially equivalent to e a r l i e r s o l u t i o n , with state i n f o added and
+42
+* dependency count removed. */
+43 public class Project {
+44
+public enum State {COMPLETE, PARTIAL, BLANK};
+45
+private State state = State.BLANK;
+46
+public State getStatef) { return state; }
+47
+public void setState(State s t ) { state = s t ; )
+48
+I* Duplicate code removed f o r b r e v i t y */
+49
+}
+Like the earlier algorithm, this solution is 0(P+D) time, where P is the number of projects and D is the
+number of dependency pairs.
+By the way, this problem is called topological sort: linearly ordering the vertices in a graph such that for
+every edge ( a , b), a appears before b in the linear order.
+274
+Cracking the Coding Interview, 6th Edition

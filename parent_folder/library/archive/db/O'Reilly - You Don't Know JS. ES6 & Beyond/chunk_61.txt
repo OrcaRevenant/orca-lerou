@@ -1,0 +1,41 @@
+this.makeRequest(..);
+}, false );
+}
+};
+Lexical this in the arrow function callback in the previous snippet now points to the
+same value as in the enclosing makeRequest(..) function. In other words, => is a
+syntactic stand-in for var self = this.
+In cases where var self = this (or, alternately, a function .bind(this) call) would
+normally be helpful, => arrow functions are a nicer alternative operating on the same
+prinicple. Sounds great, right?
+Not quite so simple.
+If => replaces var self = this or .bind(this) and it helps, guess what happens if
+you use => with a this-aware function that doesn’t need var self = this to work?
+You might be able to guess that it’s going to mess things up. Yeah.
+Consider:
+var controller = {
+makeRequest: (..) => {
+// ..
+this.helper(..);
+},
+helper: (..) => {
+// ..
+}
+};
+controller.makeRequest(..);
+Even though we invoke as controller.makeRequest(..), the this.helper reference
+fails, because this here doesn’t point to controller as it normally would. Where
+does it point? It lexically inherits this from the surrounding scope. In this previous
+snippet, that’s the global scope, where this points to the global object. Ugh.
+In addition to lexical this, arrow functions also have lexical arguments — they don’t
+have their own arguments array but instead inherit from their parent — as well as lex‐
+ical super and new.target (see “Classes” in Chapter 3).
+So now we can conclude a more nuanced set of rules for when => is appropriate and
+not:
+• If you have a short, single-statement inline function expression, where the only
+statement is a return of some computed value, and that function doesn’t already
+make a this reference inside it, and there’s no self-reference (recursion, event
+50
+|
+Chapter 2: Syntax
+www.it-ebooks.info

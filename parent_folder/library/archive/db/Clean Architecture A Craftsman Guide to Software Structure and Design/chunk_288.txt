@@ -1,0 +1,9 @@
+Figure 34.6 View orders use case
+My definition of a component is slightly different: “A grouping of related
+functionality behind a nice clean interface, which resides inside an execution
+environment like an application.” This definition comes from my “C4 software
+architecture model,”7 which is a simple hierarchical way to think about the static
+structures of a software system in terms of containers, components, and classes
+(or code). It says that a software system is made up of one or more containers
+(e.g., web applications, mobile apps, stand-alone applications, databases, file
+systems), each of which contains one or more components, which in turn are

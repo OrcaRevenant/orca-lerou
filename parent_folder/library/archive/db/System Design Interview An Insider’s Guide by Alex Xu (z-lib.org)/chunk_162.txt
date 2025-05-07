@@ -1,0 +1,34 @@
+Step 2 - Propose high-level design and get buy-in
+To develop a high-quality design, we should have a basic knowledge of how clients and
+servers communicate. In a chat system, clients can be either mobile applications or web
+applications. Clients do not communicate directly with each other. Instead, each client
+connects to a chat service, which supports all the features mentioned above. Let us focus on
+fundamental operations. The chat service must support the following functions:
+• Receive messages from other clients.
+• Find the right recipients for each message and relay the message to the recipients.
+• If a recipient is not online, hold the messages for that recipient on the server until she is
+online.
+Figure 12-2 shows the relationships between clients (sender and receiver) and the chat
+service.
+When a client intends to start a chat, it connects the chats service using one or more network
+protocols. For a chat service, the choice of network protocols is important. Let us discuss this
+with the interviewer.
+Requests are initiated by the client for most client/server applications. This is also true for the
+sender side of a chat application. In Figure 12-2, when the sender sends a message to the
+receiver via the chat service, it uses the time-tested HTTP protocol, which is the most
+common web protocol. In this scenario, the client opens a HTTP connection with the chat
+service and sends the message, informing the service to send the message to the receiver. The
+keep-alive is efficient for this because the keep-alive header allows a client to maintain a
+persistent connection with the chat service. It also reduces the number of TCP handshakes.
+HTTP is a fine option on the sender side, and many popular chat applications such as
+Facebook [1] used HTTP initially to send messages.
+However, the receiver side is a bit more complicated. Since HTTP is client-initiated, it is not
+trivial to send messages from the server. Over the years, many techniques are used to
+simulate a server-initiated connection: polling, long polling, and WebSocket. Those are
+important techniques widely used in system design interviews so let us examine each of
+them.
+Polling
+As shown in Figure 12-3, polling is a technique that the client periodically asks the server if
+there are messages available. Depending on polling frequency, polling could be costly. It
+could consume precious server resources to answer a question that offers no as an answer
+most of the time.

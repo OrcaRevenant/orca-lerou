@@ -1,0 +1,15 @@
+(domain) and an “outside” (infrastructure), as suggested in Figure 34.3.
+Figure 34.3 A code base with an inside and an outside
+The “inside” region contains all of the domain concepts, whereas the “outside”
+region contains the interactions with the outside world (e.g., UIs, databases,
+third-party integrations). The major rule here is that the “outside” depends on the
+“inside”—never the other way around. Figure 34.4 shows a version of how the
+“view orders” use case might be implemented.
+The com.mycompany.myapp.domain package here is the “inside,” and the other
+packages are the “outside.” Notice how the dependencies flow toward the
+“inside.” The keen-eyed reader will notice that the OrdersRepository from
+previous diagrams has been renamed to simply be Orders. This comes from the
+world of domain-driven design, where the advice is that the naming of
+everything on the “inside” should be stated in terms of the “ubiquitous domain
+language.” To put that another way, we talk about “orders” when we’re having a
+discussion about the domain, not the “orders repository.”

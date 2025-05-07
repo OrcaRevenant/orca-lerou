@@ -1,0 +1,64 @@
+Solutions to Chapter 5 | Bit Manipulation
+So, we have our answer: ( ( n & ( n - 1 ) ) == 0) checks if n is a power of 2 (or if n is 0),
+5.6
+Conversion: Write a function to determine the number of bits you would need to flip to convert
+integer A to integer B.
+EXAMPLE
+Input:
+29 ( o r : 11101), 15 ( o r : 01111)
+Output:
+2
+pg 116
+SOLUTION
+This seemingly complex problem is actually rather straightforward. To approach this, ask yourself how you
+would figure out which bits in two numbers are different. Simple: with an XOR.
+Each 1 in the XOR represents a bit that is different between A and B. Therefore, to check the number of bits
+that are different between A and B, we simply need to count the number of bits in A" B that are 1.
+1
+i n t bitSwapRequired(int a, i n t b) {
+2
+i n t count = 0;
+3
+for ( i n t c = a * b; c != 0; c = c >> 1) {
+4
+count += c & 1;
+5
+>
+6
+return count;
+7
+}
+This code is good, but we can make it a bit better. Rather than simply shifting c repeatedly while checking
+the least significant bit, we can continuously flip the least significant bit and count how long it takes c to
+reach 0.The operation c = c & (c - 1) will clear the least significant bit in c.
+The code below utilizes this approach.
+1
+i n t bitSwapRequired(int a, i n t b) {
+2
+i n t count = 0;
+3
+f o r ( i n t c = a * b ; c l = 0 ; c = c a (c-1))
+{
+4
+count++;
+5
+}
+6
+return count;
+7
+)
+The above code is one of those bit manipulation problems that comes up sometimes in interviews. Though
+it'd be hard to come up with it on the spot if you've never seen it before, it is useful to remember the trick
+for your interviews,
+5.7
+PairwiseSwap: Write a program to swap odd and even bits in an integer with as few instructions as
+possible (e.g., bit 0 and bit 1 are swapped, bit 2 and bit 3 are swapped, and so on).
+pg 116
+SOLUTION
+Like many of the previous problems, it's useful to think about this problem in a different way. Operating on
+individual pairs of bits would be difficult, and probably not that efficient either. So how else can we think
+about this problem?
+We can approach this as operating on the odds bits first, and then the even bits. Can we take a number n
+and move the odd bits over by 1 ? Sure. We can maskallodd bits with 10101010 in binary (which is0xAA),
+288
+Cracking the Coding Interview, 6th Edition

@@ -1,0 +1,20 @@
+371
+Appendix B: org.jfree.date.SerialDate
+307         SerialDate d2 = SerialDate.addMonths(1, d1);
+308         assertEquals(30, d2.getDayOfMonth());
+309         assertEquals(6, d2.getMonth());
+310         assertEquals(2004, d2.getYYYY());
+311
+312         SerialDate d3 = SerialDate.addMonths(2, d1);
+313         assertEquals(31, d3.getDayOfMonth());
+314         assertEquals(7, d3.getMonth());
+315         assertEquals(2004, d3.getYYYY());
+316
+317         SerialDate d4 = SerialDate.addMonths(1, SerialDate.addMonths(1, d1));
+318         assertEquals(30, d4.getDayOfMonth());
+319         assertEquals(7, d4.getMonth());
+320         assertEquals(2004, d4.getYYYY());
+321     }
+322 }
+Listing B-2 (continued)
+SerialDateTest.java

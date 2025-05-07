@@ -1,0 +1,46 @@
+We didn’t need to proxy/forward [[Set]] in this example, so we
+kept things simpler. To be fully [[Prototype]] emulation compli‐
+ant, you’d want to implement a set(..) handler that searches the
+[[Prototype]] chain for a matching property and respects its
+descriptor behavior (e.g., set, writable). See the this & Object Proto‐
+types title of this series.
+In the previous snippet, obj2 is [[Prototype]] linked to obj1 by virtue of the
+Object.create(..) statement. But to create the reverse (circular) linkage, we create
+property on obj1 at the symbol location Symbol.for("[[Prototype]]") (see “Sym‐
+bols” in Chapter 2). This symbol may look sort of special/magical, but it isn’t. It just
+allows me a conveniently named hook that semantically appears related to the task
+I’m performing.
+Then, the proxy’s get(..) handler looks first to see if a requested key is on the proxy.
+If not, the operation is manually handed off to the object reference stored in the Sym
+bol.for("[[Prototype]]") location of target.
+One important plus of this pattern is that the definitions of obj1 and obj2 are mostly
+not intruded by the setting up of this circular relationship between them. Though the
+previous snippet has all the steps intertwined for brevity sake, if you look closely, the
+proxy handler logic is entirely generic (doesn’t know about obj1 or obj2 specifically).
+So, that logic could be pulled out into a simple helper that wires them up, like a set
+CircularPrototypeOf(..) for example. We’ll leave that as an exercise for the reader.
+Now that we’ve seen how we can use get(..) to emulate a [[Prototype]] link, let’s
+push the hackery a bit further. Instead of a circular [[Prototype]], what about mul‐
+tiple [[Prototype]] linkages (aka “multiple inheritance”)? This turns out to be fairly
+straightforward:
+var obj1 = {
+name: "obj-1",
+foo() {
+console.log( "obj1.foo:", this.name );
+},
+},
+obj2 = {
+name: "obj-2",
+foo() {
+console.log( "obj2.foo:", this.name );
+},
+bar() {
+console.log( "obj2.bar:", this.name );
+}
+},
+handlers = {
+get(target,key,context) {
+Proxies
+|
+191
+www.it-ebooks.info

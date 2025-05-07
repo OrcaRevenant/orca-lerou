@@ -1,0 +1,15 @@
+When n = 7, 62 ^ n = ~3.5 trillion, 3.5 trillion is more than enough to hold 365 billion URLs,
+so the length of hashValue is 7.
+We will explore two types of hash functions for a URL shortener. The first one is “hash +
+collision resolution”, and the second one is “base 62 conversion.” Let us look at them one by
+one.
+Hash + collision resolution
+To shorten a long URL, we should implement a hash function that hashes a long URL to a 7-
+character string. A straightforward solution is to use well-known hash functions like CRC32,
+MD5, or SHA-1. The following table compares the hash results after applying different hash
+functions on this URL: https://en.wikipedia.org/wiki/Systems_design.
+As shown in Table 8-2, even the shortest hash value (from CRC32) is too long (more than 7
+characters). How can we make it shorter?
+The first approach is to collect the first 7 characters of a hash value; however, this method
+can lead to hash collisions. To resolve hash collisions, we can recursively append a new
+predefined string until no more collision is discovered. This process is explained in Figure 8-

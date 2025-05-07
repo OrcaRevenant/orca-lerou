@@ -1,0 +1,86 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+We should look for a faster way.
+Often, we can optimize exponential algorithms by finding duplicate work. What work are we repeating?
+If we walk through the algorithm, we'll see that we are visiting squares multiple times. In fact, we visit
+each square many, many times. After all, we have rc squares but we're doing 0(2 r + c) work. If we were
+only visiting each square once, we would probably have an algorithm that was 0 { r c ) (unless we were
+somehow doing a lot of work during each visit).
+How does our current algorithm work? To find a path to ( r , c ) , we look for a path to an adjacent coor-
+dinate: ( r - l j C ) or ( r , c - l ) . Of course, if one of those squares is off limits, we ignore it. Then, we look
+at their adjacent coordinates: ( r - 2 , c ) , ( r - l , c - l ) , ( r - l j C - 1 ) , and ( r , c - 2 ) . The spot ( r - 1 , c - 1 )
+appears twice, which means that we're duplicating effort. Ideally, we should remember that we already
+visited ( r - 1 , c - 1 ) so that we don't waste our time.
+This is what the dynamic programming algorithm below does.
+1
+ArrayList<Point> getPath(boolean[][] maze) {
+2
+if (maze == n u l l || maze.length == 0) return n u l l ;
+3
+ArrayList<Point> path = new Arraylist<Point>();
+4
+HashSet<Point> failedPointS = new HashSet<Point>();
+if (getPath(maze, maze.length - 1, maze[0].length - 1, path, failedPoints)) {
+6
+return path;
+7
+}
+8
+return n u l l ;
+9
+}
+10
+11 boolean getPath(boolean[)[ J maze, i n t row, i n t col, Arraylist<Point> path,
+12
+HashSet<Point> failedPoints) {
+13
+/* If out of bounds or not available, r e t u r n , * /
+14
+if (col < 0 || row < 0 ||
+lmaze[row][colj) {
+15
+return false;
+16
+}
+17
+18
+Point p = new Point(row, c o l ) ;
+19
+26
+/* If we've already v i s i t e d t h i s c e l l , return.
+*/
+21
+if (failedPoints.contains(p))
+{
+22
+return f a l s e ;
+23
+>
+24
+25
+boolean isAtOrigin = (row == 0) &8 (col == 0);
+26
+27
+/* If there's a path from s t a r t to my current location, add my l o c a t i o n . * /
+28
+if (isAtOrigin || getPath(maze, row, col - 1, path, failedPoints)
+||
+29
+getPath(maze, row - 1, col, path, failedPoints)) {
+30
+path.add(p);
+31
+return true;
+32
+)
+33
+34
+failedPoints,add(p);
+// Cache result
+35
+return f a l s e ;
+36
+}
+This simple change will make our code run substantially faster. The algorithm will now take O(XY) time
+because we hit each cell just once.
+CrackingTheCodinglnterview.com [ 6th Edition
+3 S1

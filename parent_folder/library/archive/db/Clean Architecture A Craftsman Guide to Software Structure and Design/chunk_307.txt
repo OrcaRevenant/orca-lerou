@@ -1,0 +1,33 @@
+Once the program was edited, we returned to the OS and invoked the assembler.
+The assembler read the source code tape, and wrote a binary tape, while also
+producing a listing on our data products line printer.
+The tapes weren’t 100% reliable, so we always wrote two tapes at the same time.
+That way, at least one of them had a high probability of being free of errors.
+Our program was approximately 20,000 lines of code, and took nearly 30
+minutes to compile. The odds that we would get a tape read error during that
+time were roughly 1 in 10. If the assembler got a tape error, it would ring the bell
+on the console and then start printing a stream of errors on the printer. You could
+hear this maddening bell all across the lab. You could also hear the cursing of the
+poor programmer who just learned that the 30-minute compile needed to start
+over.
+The architecture of the program was typical for those days. There was a Master
+Operating Program, appropriately called “the MOP.” Its job was to manage basic
+IO functions and provide the rudiments of a console “shell.” Many of the
+divisions of Teradyne shared the MOP source code, but each had forked it for its
+own uses. Consequently, we would send source code updates around to each
+other in the form of marked-up listings that we would then integrate manually
+(and very carefully).
+A special-purpose utility layer controlled the measurement hardware, the
+positioning tables, and the laser. The boundary between this layer and the MOP
+was muddled at best. While the utility layer called the MOP, the MOP had been
+specifically modified for that layer, and often called back into it. Indeed, we
+didn’t really think of these two as separate layers. To us, it was just some code
+that we added to the MOP in a highly coupled way.
+Next came the isolation layer. This layer provided a virtual machine interface for
+the application programs, which were written in a completely different domain-
+specific data-driven language (DSL). The language had operations for moving
+the laser, moving the table, making cuts, making measurements, and so on. Our
+customers would write their laser trimming application programs in this
+language, and the isolation layer would execute them.
+This approach was not intended to create a machine-independent laser trim
+language. Indeed, the language had many idiosyncrasies that were deeply

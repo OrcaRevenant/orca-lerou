@@ -1,0 +1,90 @@
+414
+Index
+ArgsException class
+listing, 198–200
+merging exceptions into, 239–242
+argument(s)
+flag, 41
+for a function, 40
+in functions, 288
+monadic forms of, 41
+reducing, 43
+argument lists, 43
+argument objects, 43
+argument types
+adding, 200, 237
+negative impact of, 208
+ArgumentMarshaler class
+adding the skeleton of, 213–214
+birth of, 212
+ArgumentMarshaler interface, 197–198
+arrays, moving, 279
+art, of clean code, 6–7
+artificial coupling, 293
+AspectJ language, 166
+aspect-oriented programming (AOP),
+160, 163
+aspects
+in AOP, 160–161
+“first-class” support for, 166
+assert statements, 130–131
+assertEquals, 42
+assertions, using a set of, 111
+assignments, unaligned, 87–88
+atomic operation, 323–324
+attributes, 68
+authors
+of JUnit, 252
+programmers as, 13–14
+authorship statements, 55
+automated code instrumentation, 189–190
+automated suite, of unit tests, 124
+B
+bad code, 3–4. See also dirty code;
+messy code
+degrading effect of, 250
+example, 71–72
+experience of cleaning, 250
+not making up for, 55
+bad comments, 59–74
+banner, gathering functions beneath, 67
+base classes, 290, 291
+BDUF (Big Design Up Front), 167
+beans, private variables manipulated,
+100–101
+Beck, Kent, 3, 34, 71, 171, 252,
+289, 296
+behaviors, 288–289
+Big Design Up Front (BDUF), 167
+blank lines, in code, 78–79
+blocks, calling functions within, 35
+Booch,Grady, 8–9
+boolean, passing into a function, 41
+boolean arguments, 194, 288
+boolean map, deleting, 224
+boolean output, of tests, 132
+bound resources, 183, 184
+boundaries
+clean, 120
+exploring and learning, 116
+incorrect behavior at, 289
+separating known from unknown,
+118–119
+boundary condition errors, 269
+boundary conditions
+encapsulating, 304
+testing, 314
+boundary tests, easing a migration, 118
+“Bowling Game”, 312
+Boy Scout Rule, 14–15, 257
+following, 284
+satisfying, 265
+broken windows metaphor, 8
+bucket brigade, 303
+BUILD-OPERATE-CHECK pattern, 127
+builds, 287
+business logic, separating from error
+handling, 109
+bylines, 68
+byte-manipulation libraries, 161,
+162–163

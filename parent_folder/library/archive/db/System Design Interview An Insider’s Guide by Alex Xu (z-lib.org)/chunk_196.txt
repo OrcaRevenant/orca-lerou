@@ -1,0 +1,22 @@
+caches the results in the browser for 1 hour. Please note: “private” in cache-control means
+results are intended for a single user and must not be cached by a shared cache. “max-
+age=3600” means the cache is valid for 3600 seconds, aka, an hour.
+• Data sampling: For a large-scale system, logging every search query requires a lot of
+processing power and storage. Data sampling is important. For instance, only 1 out of
+every N requests is logged by the system.
+Trie operations
+Trie is a core component of the autocomplete system. Let us look at how trie operations
+(create, update, and delete) work.
+Create
+Trie is created by workers using aggregated data. The source of data is from Analytics
+Log/DB.
+Update
+There are two ways to update the trie.
+Option 1: Update the trie weekly. Once a new trie is created, the new trie replaces the old
+one.
+Option 2: Update individual trie node directly. We try to avoid this operation because it is
+slow. However, if the size of the trie is small, it is an acceptable solution. When we update a
+trie node, its ancestors all the way up to the root must be updated because ancestors store top
+queries of children. Figure 13-13 shows an example of how the update operation works. On
+the left side, the search query “beer” has the original value 10. On the right side, it is updated
+to 30. As you can see, the node and its ancestors have the “beer” value updated to 30.

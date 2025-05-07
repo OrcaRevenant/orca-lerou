@@ -1,0 +1,79 @@
+Chapter 12 j Cand C++
+10
+~Student() {
+11
+cout << "Deleting a student." << endl;
+12
+}
+13 };
+14
+15 i n t rrtain() {
+16
+Person * p = new Student();
+17
+delete p; // prints "Deleting a person."
+18
+>
+As in the earlier example, since p is a Person, the destructor for the Person class is called.This is problem-
+atic because the memory for Student may not be cleaned up.
+To fix this, we simply define the destructor for Person to be virtual.
+1
+class Person {
+2
+public:
+3
+virtual -PersonQ {
+4
+cout << "Deleting a person." << endl;
+5
+}
+6
+} ;
+7
+8
+class Student : public Person {
+9
+public:
+10
+~Student() {
+11
+cout << "Deleting a student." << endl;
+12
+}
+13
+>i
+14
+IB
+i n t main() {
+16
+Person * p = new Student();
+17
+delete p;
+18 >
+This will output the following:
+Deleting a student.
+Deleting a person.
+• Default Values
+Functions can specify default values, as shown below. Note that all default parameters must be on the right
+side of the function declaration, as there would be no other way to specify how the parameters lineup.
+1
+int func(lnt a, int b = 3) {
+2
+x = a;
+3
+y » b;
+4
+return a + b;
+5
+}
+6
+7
+w = func(4);
+8
+z = func(4, 5);
+• Operator Overloading
+Operator overloading enables us to apply operators like + to objects that would otherwise not support
+these operations. For example, if we wanted to merge two Bookshelves into one, we could overload the
++ operator as follows.
+CrackingTheCodinglnterview.com |6th Edition
+161

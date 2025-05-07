@@ -1,0 +1,31 @@
+Conclusion
+Chapter 18 Boundary Anatomy
+Boundary Crossing
+The Dreaded Monolith
+Deployment Components
+Threads
+Local Processes
+Services
+Conclusion
+Chapter 19 Policy and Level
+Level
+Conclusion
+Chapter 20 Business Rules
+Entities
+Use Cases
+Request and Response Models
+Conclusion
+Chapter 21 Screaming Architecture
+The Theme of an Architecture
+The Purpose of an Architecture
+But What About the Web?
+Frameworks Are Tools, Not Ways of Life
+Testable Architectures
+Conclusion
+Chapter 22 The Clean Architecture
+The Dependency Rule
+A Typical Scenario
+Conclusion
+Chapter 23 Presenters and Humble Objects
+The Humble Object Pattern
+Presenters and Views

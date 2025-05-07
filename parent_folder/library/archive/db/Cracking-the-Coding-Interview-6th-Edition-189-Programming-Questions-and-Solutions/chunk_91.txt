@@ -1,0 +1,44 @@
+VII j Technical Questions
+For example, recall the earlier code to convert a number from its base i (e.g., base 2 or base 16) representa-
+tion to an i n t .
+1
+int convertToBase(String number, int base) {
+2
+if (base < 2 || (base > 16 S& base 1= 16)) return -1;
+3
+i n t value = 0;
+4
+for (int i = number,length() - 1; i >= 0; i - - ) {
+5
+int digit = digitToValue(number.charAt(i));
+6
+if (digit < 0 M digit >= base) {
+7
+r e t u r n -1;
+8
+}
+9
+int exp = number.length() - 1 - i;
+10
+value += digit * Math.pow(base, exp);
+11
+>
+12
+return value;
+13 >
+In line 2, we check to see that base is valid (we assume that bases greater than 10, other than base 16, have
+no standard representation in string form). In line 6, we do another error check: making sure that each digit
+falls within the allowable range.
+Checks like these are critical in production code and, therefore, in interview code as well.
+Of course, writing these error checks can be tedious and can waste precious time in an interview. The
+important thing is to point out that you would write the checks. If the error checks are much more than a
+quick if-statement, it may be best to leave some space where the error checks would go and indicate to your
+interviewer that you'll fill them in when you're finished with the rest of the code,
+• Don't Give Up!
+1 know interview questions can be overwhelming, but that's part of what the interviewer is testing. Do you
+rise to a challenge, or do you shrink back in fear? It's important that you step up and eagerly meet a tricky
+problem head-on. After all, remember that interviews are supposed to be hard. It shouldn't be a surprise
+when you get a really tough problem.
+For extra "points," show excitement about solving hard problems.
+CrackingTheCgdinglnterview.com ] 6th Edition
+81

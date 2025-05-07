@@ -1,0 +1,40 @@
+24
+Chapter 2: Meaningful Names
+Java programmers don’t need type encoding. Objects are strongly typed, and editing
+environments have advanced such that they detect a type error long before you can run a
+compile! So nowadays HN and other forms of type encoding are simply impediments.
+They make it harder to change the name or type of a variable, function, or class. They
+make it harder to read the code. And they create the possibility that the encoding system
+will mislead the reader.
+PhoneNumber phoneString;
+// name not changed when type changed!
+Member Preﬁxes
+You also don’t need to preﬁx member variables with m_ anymore. Your classes and func-
+tions should be small enough that you don’t need them. And you should be using an edit-
+ing environment that highlights or colorizes members to make them distinct.
+public class Part {
+private String m_dsc; // The textual description
+void setName(String name) {
+m_dsc = name;
+}
+}
+_________________________________________________
+public class Part {
+String description;
+void setDescription(String description) {
+this.description = description;
+}
+}
+Besides, people quickly learn to ignore the preﬁx (or sufﬁx) to see the meaningful
+part of the name. The more we read the code, the less we see the preﬁxes. Eventually the
+preﬁxes become unseen clutter and a marker of older code.
+Interfaces and Implementations
+These are sometimes a special case for encodings. For example, say you are building an
+ABSTRACT FACTORY for the creation of shapes. This factory will be an interface and will
+be implemented by a concrete class. What should you name them? IShapeFactory and
+ShapeFactory? I prefer to leave interfaces unadorned. The preceding I, so common in
+today’s legacy wads, is a distraction at best and too much information at worst. I don’t
+want my users knowing that I’m handing them an interface. I just want them to know that
+it’s a ShapeFactory. So if I must encode either the interface or the implementation, I choose
+the implementation. Calling it ShapeFactoryImp, or even the hideous CShapeFactory, is pref-
+erable to encoding the interface.

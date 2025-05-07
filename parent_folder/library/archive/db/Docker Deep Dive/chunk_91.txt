@@ -1,0 +1,33 @@
+running process - killing the Bash shell would kill the container’s only process,
+resulting in the container also being killed. This is also true of Windows
+containers - killing the main process in the container will also kill the container.
+Press Ctrl-PQ to exit the container without terminating it. Doing this will place
+you back in the shell of your Docker host and leave the container running in the
+background. You can use the docker container ls command to view the list of
+running containers on your system.
+$ docker container ls
+CNTNR ID  IMAGE          COMMAND    CREATED  STATUS    NAMES
+302...74  ubuntu:latest  /bin/bash  6 mins   Up 6mins  sick_montalcini
+It’s important to understand that this container is still running and you can re-
+attach your terminal to it with the docker container exec command.
+$ docker container exec -it 3027eb644874 bash
+root@3027eb644874:/#
+Note: You can address a container by its name or ID. The command to re-
+attach to the Windows Nano Server PowerShell container would be docker
+container exec -it <container-name-or-ID> PowerShell.exe.
+As you can see, the shell prompt has changed back to the container. If you run
+the ps command again you will now see two Bash or PowerShell processes. This
+is because the docker container exec command created a new Bash or
+PowerShell process and attached to that. This means that typing exit from this
+shell will not terminate the container because the original Bash or PowerShell
+process will continue running. The same works for the Windows PowerShell
+container.
+Type exit to leave the container and verify it’s still running with a docker
+container ps. It is still running.
+If you are following along with the examples on your own Docker host you
+should stop and delete the container with the following two commands (you will
+need to substitute the ID of your container).
+$ docker container stop 3027eb64487
+3027eb64487
+$ docker container rm 3027eb64487
+3027eb64487

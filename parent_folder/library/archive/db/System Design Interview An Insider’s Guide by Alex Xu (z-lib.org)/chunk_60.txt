@@ -1,0 +1,14 @@
+rate limiter 2. As the web tier is stateless, clients can send requests to a different rate limiter
+as shown on the right side of Figure 4-15. If no synchronization happens, rate limiter 1 does
+not contain any data about client 2. Thus, the rate limiter cannot work properly.
+One possible solution is to use sticky sessions that allow a client to send traffic to the same
+rate limiter. This solution is not advisable because it is neither scalable nor flexible. A better
+approach is to use centralized data stores like Redis. The design is shown in Figure 4-16.
+Performance optimization
+Performance optimization is a common topic in system design interviews. We will cover two
+areas to improve.
+First, multi-data center setup is crucial for a rate limiter because latency is high for users
+located far away from the data center. Most cloud service providers build many edge server
+locations around the world. For example, as of 5/20 2020, Cloudflare has 194 geographically
+distributed edge servers [14]. Traffic is automatically routed to the closest edge server to
+reduce latency.

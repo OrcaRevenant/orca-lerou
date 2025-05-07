@@ -1,0 +1,35 @@
+How do you construct such a bit-bucket? It’s called a “buffer”, and you construct it
+most directly with the ArrayBuffer(..) constructor:
+var buf = new ArrayBuffer( 32 );
+buf.byteLength;                         // 32
+buf is now a binary buffer that is 32-bytes long (256-bits), that’s pre-initialized to all
+0’s. A buffer by itself doesn’t really allow you any interaction exception for checking
+its byteLength property.
+Several web platform features use or return array buffers, such as
+FileReader#readAsArrayBuffer(..), XMLHttpRequest#send(..),
+and ImageData (canvas data).
+But on top of this array buffer, you can then layer a “view”, which comes in the form
+of a typed array. Consider:
+var arr = new Uint16Array( buf );
+arr.length;                         // 16
+arr is a typed array of 16-bit unsigned integers mapped over the 256-bit buf buffer,
+meaning you get 16 elements.
+Endianness
+It’s very important to understand that the arr is mapped using the endian-setting
+(big-endian or little-endian) of the platform the JS is running on. This can be an issue
+if the binary data is created with one endianness but interpreted on a platform with
+the opposite endianness.
+Endian means if the low-order byte (collection of 8-bits) of a multi-byte number —
+such as the 16-bit unsigned ints we created in the earlier snippet — is on the right or
+the left of the number’s bytes.
+For example, let’s imagine the base-10 number 3085, which takes 16-bits to represent.
+If you have just one 16-bit number container, it’d be represented in binary as
+0000110000001101 (hexadecimal 0c0d) regardless of endianness.
+But if 3085 was represented with two 8-bit numbers, the endianness would signifi‐
+cantly affect its storage in memory:
+• 0000110000001101 / 0c0d (big endian)
+• 0000110100001100 / 0d0c (little endian)
+140
+|
+Chapter 5: Collections
+www.it-ebooks.info

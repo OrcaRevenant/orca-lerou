@@ -1,0 +1,33 @@
+HELP
+75
+the help away because you are under the gun. Give it thirty minutes or so. If by
+that time the person is not really helping all that much, then politely excuse
+yourself and terminate the session with thanks. Remember, just as you are
+honor bound to offer help, you are honor bound to accept help.
+Learn how to ask for help. When you are stuck, or befuddled, or just can’t wrap
+your mind around a problem, ask someone for help. If you are sitting in a team
+room, you can just sit back and say, “I need some help.” Otherwise, use yammer,
+or twitter, or email, or the phone on your desk. Call for help. Again, this is a
+matter of professional ethics. It is unprofessional to remain stuck when help is
+easily accessible.
+By this time you may be expecting me to burst into a chorus of Kumbaya while
+fuzzy bunnies leap onto the backs of unicorns and we all happily fly over
+rainbows of hope and change. No, not quite. You see, programmers tend to be
+arrogant, self-absorbed introverts. We didn’t get into this business because we
+like people. Most of us got into programming because we prefer to deeply focus
+on sterile minutia, juggle lots of concepts simultaneously, and in general prove
+to ourselves that we have brains the size of a planet, all while not having to
+interact with the messy complexities of other people.
+Yes, this is a stereotype. Yes, it is generalization with many exceptions. But the
+reality is that programmers do not tend to be collaborators.6 And yet collaboration
+is critical to effective programming. Therefore, since for many of us collaboration
+is not an instinct, we require disciplines that drive us to collaborate.
+M E NTO R I N G
+I have a whole chapter on this topic later in the book. For now let me simply say
+that the training of less experienced programmers is the responsibility of those
+who have more experience. Training courses don’t cut it. Books don’t cut it.
+Nothing can bring a young software developer to high performance quicker
+6. This is far more true of men than women. I had a wonderful conversation with @desi (Desi McAdam,
+founder of DevChix) about what motivates women programmers. I told her that when I got a program
+working, it was like slaying the great beast. She told me that for her and other women she had spoken to,
+the act of writing code was an act of nurturing creation.

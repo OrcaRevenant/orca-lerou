@@ -1,0 +1,21 @@
+Images and layers
+A Docker image is just a bunch of loosely-connected read-only layers. This is
+shown in Figure 6.3.
+Figure 6.3
+Docker takes care of stacking these layers and representing them as a single
+unified object.
+There are a few ways to see and inspect the layers that make up an image, and
+we’ve already seen one of them. Let’s take a second look at the output of the
+docker image pull ubuntu:latest command from earlier:
+$ docker image pull ubuntu:latest
+latest: Pulling from library/ubuntu
+952132ac251a: Pull complete
+82659f8f1b76: Pull complete
+c19118ca682d: Pull complete
+8296858250fe: Pull complete
+24e0251a0e2c: Pull complete
+Digest: sha256:f4691c96e6bbaa99d...28ae95a60369c506dd6e6f6ab
+Status: Downloaded newer image for ubuntu:latest
+Each line in the output above that ends with “Pull complete” represents a layer in
+the image that was pulled. As we can see, this image has 5 layers. Figure 6.4
+below shows this in picture form.

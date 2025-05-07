@@ -1,0 +1,62 @@
+Chapter 14 j Databases
+1
+/* Solution B: Wrap with aggregate function. */
+2
+SELECT nax(StudentName) as [StudentName], Students.StudentID,
+3
+count(StudentCourses.CourselD) as [Count]
+4
+FROM Students LEFT JOIN StudentCourses
+5
+ON Students.StudentID = StudentCourses.StudentID
+6
+GROUP BY Students.StudentID
+Query 2: Teacher Class Size
+Implement a query to get a list of all teachers and how many students they each teach. If a teacher teaches
+the same student in two courses, you should double count the student. Sort the list in descending order of
+the number of students a teacher teaches.
+We can construct this query step by step. First, let's get a list of Teacher IDs and how many students are
+associated with each TeacherlD. This is very similar to the earlier query.
+1
+SELECT TeacherlD, count(StudentCourses.CourselD) AS [Number]
+2
+FROM Courses INNER JOIN StudentCourses
+3
+ON Courses.CourselD = StudentCourses.CourselD
+4
+GROUP 8Y Courses.TeacherlD
+Note that this INNER JOIN will not select teachers who aren't teaching classes. We'll handle that in the
+below query when we join it with the list of all teachers.
+1
+SELECT TeacherName, isnull(StudentSize.Number, 0)
+2
+FROM Teachers LEFT JOIN
+3
+(SELECT TeacherlD, count(StudentCourses.CourselD) AS [Number]
+4
+FROM Courses INNER JOIN StudentCourses
+ON Courses.CourselD = StudentCourses.CourselD
+6
+GROUP BY Courses.TeacherlD) StudentSize
+7
+ON Teachers.TeacherlD = StudentSize.TeacherlD
+8
+ORDER BY StudentSize.Number DESC
+Note how we handled the NUL L vaiues in the SE LECT statement to convert the NULL values to zeros.
+* Small Database Design
+Additionally, you might be asked to design your own database. We'll walk you through an approach for
+this. You might notice the similarities between this approach and the approach for object-oriented design.
+Step 1: Handle Ambiguity
+Database questions often have some ambiguity, intentionally or unintentionally. Before you proceed with
+your design, you must understand exactly what you need to design.
+Imagine you are asked to design a system to represent an apartment rental agency. You will need to know
+whether this agency has multiple locations or just one. You should also discuss with your interviewer how
+general you should be. For example, it would be extremely rare for a person to rent two apartments in the
+same building. But does that mean you shouldn't be able to handle that? Maybe, maybe not. Some very rare
+conditions might be best handled through a workaround (like duplicating the person's contact information
+in the database).
+Step 2: Define the Core Objects
+Next, we should look at the core objects of our system. Each of these core objects typically translates into a
+table. In this case, our core objects might be Property, B u i l d i n g , Apartment, Tenant and Manager.
+CrackingTheCodinglnterview.com 16th Edition
+171

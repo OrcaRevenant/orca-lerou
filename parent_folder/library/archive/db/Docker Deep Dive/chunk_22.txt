@@ -1,0 +1,8 @@
+Chapter summary
+In this chapter we learned a bit about Docker, Inc. They’re a startup tech
+company out of San Francisco with an ambition to change the way we do
+software. They were arguably the first-movers and instigators of the container
+revolution. But a huge ecosystem of partners and competitors now exists.
+The Docker project is open-source and lives in the moby/moby repo on GitHub.
+The Open Container Initiative (OCI) has been instrumental in standardizing the
+container runtime format and container image format.

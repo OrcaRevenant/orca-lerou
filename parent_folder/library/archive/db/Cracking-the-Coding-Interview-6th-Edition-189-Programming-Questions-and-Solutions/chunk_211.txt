@@ -1,0 +1,80 @@
+Solutions to Chapter 1 | Arrays and Strings
+16
+/* Ensure that t h i s is the f i r s t difference found.*/
+17
+if (foundDifference)
+return f a l s e ;
+18
+foundDifference = true;
+19
+20
+if ( s i . l e n g t h ( ) == s2.1ength()) { // On replace, move shorter pointer
+21
+indexi++;
+22
+}
+23
+} else {
+24
+indexl++; // If matching, move shorter pointer
+25
+}
+26
+index2++; // Always move pointer for longer s t r i n g
+27
+>
+28
+return true;
+29
+}
+Some people might argue the first approach is better, as it is clearer and easier to follow. Others, however,
+will argue that the second approach is better, since it's more compact and doesn't duplicate code (which
+can facilitate maintainability).
+You don't necessarily need to "pick a side."You can discuss the tradeoffs with your interviewer.
+1,6
+String Compression: Implement a method to perform basic string compression using the counts
+of repeated characters. For example, the string aabcccccaaa would become a2blc5a3. If the
+"compressed "string would not become smaller than the original string, your method should return
+the original string. You can assume the string has only uppercase and lowercase letters (a - z),
+pg91
+SOLUTION
+At first glance, implementing this method seems fairly straightforward, but perhaps a bit tedious. We iterate
+through the string, copying characters to a new string and counting the repeats. At each iteration, check
+if the current character is the same as the next character. If not, add its compressed version to the result.
+How hard could it be?
+1
+String compress6ad(String s t r ) {
+2
+String compressedString = " " ;
+3
+i n t countConsecutive = 0;
+4
+for { i n t i = 0; i < s t r . l e n g t h f ) ; i++) {
+5
+countConsecutive++;
+6
+7
+/* If next character is d i f f e r e n t than current, append t h i s char to r e s u l t . * /
+8
+if (i + 1 >= S t r . l e n g t h ( )
+[| s t r . c h a r A t ( i ) != s t r . c h a r A t ( i + 1)) {
+compressedString += "" + s t r . c h a r A t ( i ) + countConsecutive;
+10
+countConsecutive = 0;
+11
+}
+12
+}
+13
+return compressedString.length() < s t r , l e n g t h ( ) ? compressedString : s t r ;
+14
+}
+This works. Is it efficient, though? Take a look at the runtime of this code.
+The runtime is 0 ( p
++
+k 2), where p is the size of the original string and k is the number of character
+sequences. For example, if the string is aabccdeeaa, then there are six character sequences. It's slow
+because string concatenation operates in 0(n z) time ( s e e S t r i n g B u i l d e r on pg 89).
+We can fix this by using a S t r i n g B u i l d e r .
+CrackingTheCodinglnterview.com | 6th Edition
+199

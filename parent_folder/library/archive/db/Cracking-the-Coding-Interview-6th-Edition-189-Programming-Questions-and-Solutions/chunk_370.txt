@@ -1,0 +1,85 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+9
+if (str.charAt(i) == *{') {
+10
+String s = insertlnside(str, i);
+11
+/* Add s to set if it's not already in there. Note: HashSet
+12
+* automatically checks for duplicates before adding, so an explicit
+13
+* check is not necessary. */
+14
+set.add(s);
+15
+>
+16
+>
+17
+set.add(,c(),J + str);
+18
+>
+19
+}
+20
+return set;
+21
+>
+22
+23 String insertlnsidefString str, int leftlndex) {
+24
+String left = str.substring(0, leftlndex + 1);
+25
+String right = str.substring(leftlndex + 1, str,length());
+26
+return left + "()" + right;
+27 >
+This works, but it's not very efficient. We waste a lot of time coming up with the duplicate strings.
+We can avoid this duplicate string issue by building the string from scratch. Under this approach, we add
+left and right parens, as long as our expression stays valid.
+On each recursive call, we have the index for a particular character in the string. We need to select either a
+left or a right paren. When can we use a left paren, and when can we use a right paren?
+1. left Paren: As iong as we haven't used up all the left parentheses, we can always insert a left paren.
+2. Right Paren: We can insert a right paren as long as it won't lead to a syntax error. When will we get a
+syntax error? We will get a syntax error if there are more right parentheses than left.
+So, we simply keep track of the number of left and right parentheses allowed. If there are left parens
+remaining, we'll insert a left paren and recurse. If there are more right parens remaining than left {i.e., if
+there are more left parens in use than right parens), then we'll insert a right paren and recurse.
+1
+void addParen(Arraylist<String> l i s t , int leftRem, i n t rightRem, char[] s t r ,
+2
+int index) {
+3
+if (leftRem < 0 \ \ rightRem < leftRem) return; 11 invalid state
+4
+if (leftRem == 0 && rightRem == 0) { /* Out of left and right parentheses */
+6
+list.add(String.copyValueOf(str));
+7
+} else {
+8
+strfindex] = '('; // Add left and recurse
+9
+addParen(list, leftRem - 1, rightRem, str, index + 1);
+10
+11
+str[index] = ')'; H Add right and recurse
+12
+addParen(list, leftRem, rightRem - 1, str, index + 1);
+13
+}
+14 }
+15
+16 Arraylist<String> generateParens(int count) {
+17
+char[] str = new char[count*2];
+IS
+ArrayList<String> list = new ArrayList<String>();
+19
+addParen(list, count, count, str, 0);
+20
+return list;
+21 }
+3
+54
+Cracking the Coding Interview, 6th Edition

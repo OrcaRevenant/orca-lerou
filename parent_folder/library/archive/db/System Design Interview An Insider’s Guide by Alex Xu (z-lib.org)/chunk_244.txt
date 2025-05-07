@@ -1,0 +1,4 @@
+A Brief History of Scaling LinkedIn: https://goo.gl/8A1Pi8
+Flickr Architecture: https://goo.gl/dWtgYa
+How We've Scaled Dropbox: https://goo.gl/NjBDtC
+The WhatsApp Architecture Facebook Bought For $19 Billion: https://bit.ly/2AHJnFn

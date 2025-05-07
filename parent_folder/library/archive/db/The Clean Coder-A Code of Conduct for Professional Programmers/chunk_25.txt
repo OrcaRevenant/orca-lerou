@@ -1,0 +1,30 @@
+xxv
+ACKNOWLEDGMENTS
+after the next, so we cut them apart using scissors, paper-clipped their input
+paper tape to their listing, and put them in the output basket.
+Tim and I were the masters and gods of that process. Even the teachers left us
+alone when we were in that room. We were doing their job, and they knew it.
+They never asked us to do it. They never told us we could. They never gave us
+the key to the phone. We just moved in, and they moved out—and they gave us
+a very long leash. To my Math teachers, Mr. McDermit, Mr. Fogel, and Mr.
+Robien: Thank you!
+Then, after all the student homework was done, we would play. We wrote
+program after program to do any number of mad and weird things. We wrote
+programs that graphed circles and parabolas in ASCII on a Teletype. We wrote
+random walk programs and random word generators. We calculated 50 factorial
+to the last digit. We spent hours and hours inventing programs to write and
+then getting them to work.
+Two years later, Tim, our compadre Richard Lloyd, and I were hired as
+programmers at ASC Tabulating in Lake Bluff, Illinois. Tim and I were 18 at the
+time. We had decided that college was a waste of time and that we should begin
+our careers immediately. It was here that we met Bill Hohri, Frank Ryder, Big
+Jim Carlin, and John Miller. They gave some youngsters the opportunity to
+learn what professional programming was all about. The experience was not all
+positive and not all negative. It was certainly educational. To all of them, and to
+Richard who catalyzed and drove much of that process: Thank you.
+After quitting and melting down at the age of 20, I did a stint as a lawn mower
+repairman working for my brother-in-law. I was so bad at it that he had to fire
+me. Thanks, Wes!
+A year or so later I wound up working at Outboard Marine Corporation. By
+this time I was married and had a baby on the way. They fired me too. Thanks,
+John, Ralph, and Tom!

@@ -1,0 +1,15 @@
+The resource manager is responsible for managing the efficiency of resource allocation. It
+contains 3 queues and a task scheduler as shown in Figure 14-17.
+• Task queue: It is a priority queue that contains tasks to be executed.
+• Worker queue: It is a priority queue that contains worker utilization info.
+• Running queue: It contains info about the currently running tasks and workers running
+the tasks.
+• Task scheduler: It picks the optimal task/worker, and instructs the chosen task worker to
+execute the job.
+The resource manager works as follows:
+• The task scheduler gets the highest priority task from the task queue.
+• The task scheduler gets the optimal task worker to run the task from the worker queue.
+• The task scheduler instructs the chosen task worker to run the task.
+• The task scheduler binds the task/worker info and puts it in the running queue.
+• The task scheduler removes the job from the running queue once the job is done.
+Task workers

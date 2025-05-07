@@ -1,0 +1,41 @@
+options: {
+remove = defaults.options.remove,
+enable = defaults.options.enable,
+instance = defaults.options.instance
+} = {},
+log: {
+warn = defaults.log.warn,
+error = defaults.log.error
+} = {}
+} = config;
+// restructure
+config = {
+options: { remove, enable, instance },
+log: { warn, error }
+};
+}
+That seems a fair bit nicer, huh?
+You could also accomplish the scope enclosure with an arrow IIFE
+instead of the general { } block and let declarations. Your
+destructuring assignments/defaults would be in the parameter list
+and your restructuring would be the return statement in the func‐
+tion body.
+The { warn, error } syntax in the restructuring part may look new to you; that’s
+called “concise properties” and we cover it in the next section!
+Object Literal Extensions
+ES6 adds a number of important convenience extensions to the humble { .. } object
+literal.
+Concise Properties
+You’re certainly familiar with declaring object literals in this form:
+var x = 2, y = 3,
+o = {
+x: x,
+y: y
+};
+If it’s always felt redundant to say x: x all over, there’s good news. If you need to
+define a property that is the same name as a lexical identifier, you can shorten it from
+x: x to x. Consider:
+32
+|
+Chapter 2: Syntax
+www.it-ebooks.info

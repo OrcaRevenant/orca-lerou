@@ -1,0 +1,50 @@
+Solutions to Chapter 12 j C and C++
+To free this memory, we cannot simply call f r e e on rowptr. We need to make sure to free not only the
+memory from the first ma H o c call, but also each subsequent call,
+1
+void my2DDealloc(int** rowptr, i n t rows) {
+for (i = 0; i < rows; i++) {
+f r e e ( r o w p t r [ i ] ) ;
+}
+free(rowptr);
+>
+Rather than allocating the memory in many different blocks (one block for each row, plus one block to
+specify where each row is located), we can allocate this in a consecutive block of memory. Conceptually, for
+a two-dimensional array with five rows and six columns, this would look like the following.
+If it seems strange to view the 2D array tike this (and it probably does), remember that this is fundamentally
+no different than the first diagram.The only difference is that the memory is in a contiguous block, so our
+first five (in thisexampfe) elements point elsewhere in the same block of memory.
+To implement this solution, we do the following.
+1
+i n t * * my2DAiloc(int rows, i n t cols) {
+2
+i n t
+i ;
+3
+i n t header - rows * s i z e o f ( i n t * ) ;
+4
+i n t data = rows * cols * s i z e o f ( l n t ) ;
+i n t * * rowptr = (int**)malloc(header + data);
+6
+if (rowptr == NULL) return NULL;
+7
+8
+i n t * buf = ( i n t * ) (rowptr + rows);
+9
+for (i = 0; i < rows; i++) {
+10
+r o w p t r [ i ] = buf + i * cols;
+11
+}
+12
+return rowptr;
+13
+}
+You should carefully observe what is happening on lines 11 through 13. If there are five rows of six columns
+each, a r r a y [ B ] will point to a r r a y [ S ] , a r r a y [ 1 ] will point to a r r a y [ 1 1 ] , and so on.
+Then, when we actually call a r r a y [ l ] [ 3 ] , the computer looks up a r r a y f l ] , which is a pointer to
+another spot in memory—specifically, a pointer to a r r a y [ 5 ] , This element is treated as its own array, and
+we then get the third (zero-indexed) element from it.
+Constructing the array in a single call to malloc has the added benefit of allowing disposal of the array
+with a single f r e e call rather than using a special function to free the remaining data blocks.
+Cracking the Coding Interview, 6th Edition

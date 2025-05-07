@@ -1,0 +1,26 @@
+runc
+As previously mentioned, runc is the reference implementation of the OCI
+container-runtime-spec. Docker, Inc. was heavily involved in defining the spec
+and developing runc.
+runc is small. It’s effectively a lightweight CLI that wraps around libcontainer. It
+has a single purpose in life - to create containers. And it’s damn good at it. And
+fast!
+We often refer to runc as a container runtime.
+You can see runc release information at:
+https://github.com/opencontainers/runc/releases
+containerd
+In order to use runc, the Docker engine needed something to act as a bridge
+between the daemon and runc. This is where containerd comes into the picture.
+containerd implements the execution logic that was pulled out of the Docker
+daemon. This logic was obviously refactored and tuned when it was re-written as
+containerd.
+It’s helpful to think of containerd as a container supervisor - the component that
+is responsible for container lifecycle operations such as; starting and stopping
+containers, pausing and un-pausing them, and destroying them.
+Like runc, containerd is small, lightweight, and designed for a single task in life
+- containerd is only interested container lifecycle operations.
+containerd was developed by Docker, Inc. and donated to the Cloud Native
+Computing Foundation (CNCF).
+You can see containerd release information at:
+https://github.com/containerd/containerd/releases
+Starting a new container (example)

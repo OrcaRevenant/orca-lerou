@@ -1,0 +1,36 @@
+The Ops Perspective
+When you install Docker, you get two major components:
+the Docker client
+the Docker daemon (sometimes called “server” or “engine”)
+The daemon implements the Docker Remote API.
+In a default Linux installation, the client talks to the daemon via a local
+IPC/Unix socket at /var/run/docker.sock. On Windows this happens via a
+named pipe at npipe:////./pipe/docker_engine. You can test that the client
+and daemon are running and can talk to each other with the docker version
+command.
+$ docker version
+Client:
+Version:      17.05.0-ce
+API version:  1.29
+Go version:   go1.7.5
+Git commit:   89658be
+Built:        Thu May  4 22:10:54 2017
+OS/Arch:      linux/amd64
+Server:
+Version:      17.05.0-ce
+API version:  1.29 (minimum version 1.12)
+Go version:   go1.7.5
+Git commit:   89658be
+Built:        Thu May  4 22:10:54 2017
+OS/Arch:      linux/amd64
+Experimental: false
+If you get a response back from the Client and Server components you should
+be good to go. If you are using Linux and get an error response from the Server
+component, try the command again with sudo in front of it: sudo docker
+version. If it works with sudo you will need to add your user account to the
+local docker group, or prefix the remainder of the commands in this chapter with
+sudo.
+Images
+A good way to think of a Docker image is as an object that contains an OS
+filesystem and an application. If you work in operations, it’s like a virtual
+machine template. A virtual machine template is essentially a stopped virtual

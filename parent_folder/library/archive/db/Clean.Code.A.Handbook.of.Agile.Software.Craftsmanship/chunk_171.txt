@@ -1,0 +1,43 @@
+141
+Classes Should Be Small!
+get out of the larger class. You should try to separate the variables and methods into two or
+more classes such that the new classes are more cohesive.
+Maintaining Cohesion Results in Many Small Classes
+Just the act of breaking large functions into smaller functions causes a proliferation of
+classes. Consider a large function with many variables declared within it. Let’s say you
+want to extract one small part of that function into a separate function. However, the code
+you want to extract uses four of the variables declared in the function. Must you pass all
+four of those variables into the new function as arguments?
+Not at all! If we promoted those four variables to instance variables of the class, then
+we could extract the code without passing any variables at all. It would be easy to break
+the function up into small pieces.
+Unfortunately, this also means that our classes lose cohesion because they accumulate
+more and more instance variables that exist solely to allow a few functions to share them.
+But wait! If there are a few functions that want to share certain variables, doesn’t that
+make them a class in their own right? Of course it does. When classes lose cohesion, split
+them!
+So breaking a large function into many smaller functions often gives us the opportu-
+nity to split several smaller classes out as well. This gives our program a much better orga-
+nization and a more transparent structure.
+As a demonstration of what I mean, let’s use a time-honored example taken from
+Knuth’s wonderful book Literate Programming.3 Listing 10-5 shows a translation into Java
+of Knuth’s PrintPrimes program. To be fair to Knuth, this is not the program as he wrote it
+but rather as it was output by his WEB tool. I’m using it because it makes a great starting
+place for breaking up a big function into many smaller functions and classes.
+3.
+[Knuth92].
+Listing 10-5
+PrintPrimes.java
+package literatePrimes;
+public class PrintPrimes {
+public static void main(String[] args) {
+final int M = 1000;
+final int RR = 50;
+final int CC = 4;
+final int WW = 10;
+final int ORDMAX = 30;
+int P[] = new int[M + 1];
+int PAGENUMBER;
+int PAGEOFFSET;
+int ROWOFFSET;
+int C;

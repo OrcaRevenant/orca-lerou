@@ -1,0 +1,20 @@
+Docker overlay networking - The deep dive
+In March 2015 Docker, Inc. acquired container networking startup Socket Plane.
+Two of the reasons behind the acquisition were to bring real networking to
+Docker, and to make container networking so simple that even developers could
+do it :-P
+They’re making great progress on both accounts.
+But hiding behind the simple networking commands are a lot of moving parts.
+The kind of stuff you need understand before doing production deployments and
+attempting to troubleshoot issues!
+The rest of this chapter will be broken into two parts:
+Part 1: we’ll build and test a Docker overlay network in swarm mode
+Part 2: We’ll explain the theory behind how it works.
+Build and test a Docker overlay network in swarm mode
+For the following examples we’ll use two Docker hosts on two separate Layer 2
+networks connected by a router as shown in Figure 10.1.
+Figure 10.1
+You can follow along with either Linux or Windows Docker hosts. Linux should
+have a 4.4 Linux kernel (newer is always better) and Windows should be
+Windows Server 2016 with the latest hotfixes installed. The examples in the
+book have been tested using Docker 17.05 on Linux and 17.03 on Windows.

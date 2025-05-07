@@ -1,0 +1,90 @@
+Solutions to Chapter 16 | Moderate
+55 >
+56
+57 /* Return priority of operator. Mapped so that:
+58
+*
+addition == subtraction < multiplication == division. */
+59 int priorityOfOperator(Operator op) {
+60
+switch (op) {
+61
+case ADD: return 1;
+62
+case SUBTRACT: return 1;
+63
+case MULTIPLY: return 2;
+64
+case DIVIDE: return 2;
+case BLANK: return 0;
+66
+}
+67
+return 0;
+68
+}
+69
+70 /* Apply operator: left [op] right. */
+71 double applyOp(double left, operator op, double right) {
+72
+if (op =>= Operator .ADD) return left + right;
+73
+else if (op == Operator,SUBTRACT) return left - right;
+74
+else if (op == Operator.MULTIPLY) return left * right;
+75
+else if (op == Operator.DIVIDE) return left t right;
+76
+else return right;
+77 >
+78
+79 /* Return the number that starts at offset. */
+80 int parseNextNumber(String seq, int offset) {
+81
+StringBuilder sb = new StringBuilder();
+82
+while (offset < seq.length() && Character.isDigit(seq.charAt(offset))) {
+83
+sb.append(seq.charAt(offset));
+84
+offset++;
+85
+)
+86
+return Integer.parselnt(sb.toStringO);
+87 }
+88
+89 /* Return the operator that occurs as offset. */
+90 Operator parseNextOperator(String sequence, int offset) {
+91
+if (offset < sequence.length()) {
+92
+char op = sequence.charAt(offset);
+93
+switch(op) {
+94
+case
+f+J: return Operator.ADD;
+95
+case
+return Operator.SUBTRACT;
+96
+case ""*': return Operator.MULTIPLY;
+97
+case '/'•. return Operator.DIVIDE;
+98
+)
+99
+}
+100
+return Operator,BLANK;
+101 )
+This code also takes O(N) time, where N is the length of the string.
+This solution involves a lot of annoying string parsing code. Remember that getting all these details out is
+not that important in an interview. In fact, your interviewer might even let you assume the expression is
+passed in pre-parsed into some sort of data structure.
+Focus on modularizing your code from the beginning and "farming out" tedious or less interesting parts of
+the code to other functions. You want to focus on getting the core compute function working. The rest of
+the details can wait!
+CrackingTheCodinglnterview.com | 6th Edition
+495

@@ -1,0 +1,78 @@
+Solutions to Chapter 17 | Hard
+59 >
+17.24 Max Submatrix: Given an NxN matrix of positive and negative integers, write code to find the
+submatrix with the largest possible sum.
+pg 190
+SOLUTION
+This problem can be approached in a variety of ways. We'll start with the brute force solution and then
+optimize the solution from there.
+Brute Force Solution: 0(N 6)
+Like many "maximizing" problems, this problem has a straightforward brute force solution. This solution
+simply iterates through all possible submatrices, computes the sum, and finds the largest.
+To iterate through all possible submatrices (with no duplicates), we simply need to iterate through all
+ordered pairs of rows, and then all ordered pairs of columns.
+This solution isO(N6), since we iterate through 0(N 4) submatrices and it takes 0(N ?) time to compute the
+area of each.
+1
+SubMatrix getMaxMatrix(int[][] matrix) {
+2
+int rowCount • matrix.length;
+3
+int columnCount = matrix[0].length;
+4
+SubMatrix best = null;
+5
+for (int rowl = 0; rowl < rowCount; rowl++) {
+6
+for (int row2 = rowl; row2 < rowCount; row2++) {
+for (int coll = 0; coll < columnCount; coll++) {
+8
+for (int col2 = coll; col2 < columnCount; col2++) {
+9
+int sum = sum(matrix, rowl, coll, row2, ccl2);
+10
+if (best == null || best.getSum() < sum) {
+11
+best = new SubMatrix(rowl, coll, row2, col2, sum);
+12
+>
+13
+>
+14
+}
+15
+>
+16
+>
+17
+return best;
+18 }
+19
+20 int sum(int[][] matrix, int rowl, int coll, int row2, int col2) {
+21
+int sum = 0;
+22
+for (int r = rowl; r <= row2; r++) {
+23
+for (int c = coll; c <= col2; C++) {
+24
+sum += matrix[r][c];
+25
+}
+26
+}
+27
+return sum;
+28 }
+29
+30 public class SubMatrix {
+31
+private int rowl, row2, coll, col2, sum;
+32
+public SubMatrix(int rl, int Cl, int r2, int c2, int sm) {
+33
+rowl = rl;
+34
+coll = cl;
+CrackingTheCodinginterview.com | 6th Edition
+62 3

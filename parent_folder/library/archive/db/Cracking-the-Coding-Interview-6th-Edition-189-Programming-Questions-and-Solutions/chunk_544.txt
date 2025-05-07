@@ -1,0 +1,103 @@
+Solutions to Chapter 17 \ Moderate
+When we remove a vafue v from the list, we'll know immediately if v is even or odd just by looking at the
+least significant bits of all the other values in the list.
+11 % 2 == 0
+count(0s) = 1 + c o u n t ( l s )
+n % 2 == 1
+count(0s) = count(ls)
+v % 2 == 0
+LSB^v) = 0
+a 0 is removed.
+count(0s) = c o u n t ( l s )
+a 0 is removed.
+count(0s) < count(ls)
+v % 2 == 1
+LSBj(v) = 1
+a 1 is removed.
+count(0s) > c o u n t ( l s )
+a 1 is removed.
+count(0s) > count(ls)
+So, if count ( 0 s ) <= c o u n t ( l s ) , then v iseven. If c o u n t ( 0 s )
+> count ( I s ) , then visodd.
+We can now remove all the evens and focus on the odds, or remove all the odds and focus on the evens.
+Okay, but how do we figure out what the next bit in v is? If v were contained in our (now smaller) list, then
+we should expect to find the following (where c o u n t , indicates the number of Os or 1 s in the second least
+significant bit):
+count ;(0s) = count 3(ls)
+OR
+count,(0s) = 1 + c o u n t f ( l s )
+As in the earlier example, we can deduce the value of the second least significant bit (LSB;) of v.
+count 2(0s) = 1 + count 2(ls)
+count s(0s) = countj(ls)
+LSB;(v) == 0
+a 0 is removed.
+count ;(0s) = count 2(ls)
+a 0 is removed.
+count ;(0s) < countj(ls)
+LSB;(v) == 1
+a 1 is removed.
+count ;(0s) > countj(ls)
+a 1 is removed.
+count 2(0s) > count 2(ls)
+Again, we have the same conclusion:
+•
+l f c o u n t 3 ( 0 s )
+<= c o u n t ; ( l s ) , t h e n LSB 2(v) = 0.
+•
+l f c o u n t ; ( 0 s )
+> c o u n t ; ( l s ) , then L S S ^ v ) = 1.
+We can repeat this process for each bit. On each iteration, we count the number ofOs and 1s in bit i to check
+if LSB. ( v ) is 0 or 1. Then, we discard the numbers where L S B ^ x )
+!= LSB^vJ.That is, if V is even, we
+discard the odd numbers, and so on.
+By the end of this process, we will have computed all bits in v. In each successive iteration, we look at n, then
+n / 2,thenn / 4, and soon, bits.Thisresults in a runtime of 0 ( N ) .
+If it helps, we can also move through this more visually. In the first iteration, we start with all the numbers:
+00800
+00100
+01000
+01100
+00001
+00101
+01001
+01101
+00010
+00110
+01010
+00111
+01011
+Since C o u n t ^ O s )
+>
+c o u n t ^ l s ) , we know that L S S ^ v )
+=
+1, Now, discard all numbers X where
+LSB,(X)
+! = LSB5(V).
+QQflQfl
+flrtl
+Qfl
+f>r\f\
+rtiirtQ
+uuuwu
+kjxj x\jxj
+u ±t?ut7
+tTirxtJt?
+00001
+00101
+01001
+01101
+QAQIfl
+QA1 1 f\
+Q 1 Q1 C\
+VtJtTXtJ
+UulIU
+UXuiu
+00111
+01011
+Now, c o u n t i e s )
+> count., ( I s ) , so we know that LSB ;(v)
+= 1. Now, discard all numbers x where
+LSB ;(x)
+1= LSB ;(v).
+5 34
+Cracking the Coding Interview, 6th Edition

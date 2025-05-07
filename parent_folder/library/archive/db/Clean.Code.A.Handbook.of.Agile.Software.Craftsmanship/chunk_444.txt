@@ -1,0 +1,90 @@
+417
+Index
+concurrent algorithms, 179
+concurrent applications, partition
+behavior, 183
+concurrent code
+breaking, 329–333
+defending from problems of, 180
+flaws hiding in, 188
+concurrent programming, 180
+Concurrent Programming in Java: Design
+Principles and Patterns, 182, 342
+concurrent programs, 178
+concurrent update problems, 341
+ConcurrentHashMap implementation, 183
+conditionals
+avoiding negative, 302
+encapsulating, 257–258, 301
+configurable data, 306
+configuration constants, 306
+consequences, warning of, 58
+consistency
+in code, 292
+of enums, 278
+in names, 40
+consistent conventions, 259
+constants
+versus enums, 308–309
+hiding, 308
+inheriting, 271, 307–308
+keeping at the appropriate level, 83
+leaving as raw numbers, 300
+not inheriting, 307–308
+passing as symbols, 276
+turning into enums, 275–276
+construction
+moving all to main, 155, 156
+separating with factory, 156
+of a system, 154
+constructor arguments, 157
+constructors, overloading, 25
+consumer threads, 184
+ConTest tool, 190, 342
+context
+adding meaningful, 27–29
+not adding gratuitous, 29–30
+providing with exceptions, 107
+continuous readers, 184
+control variables, within loop statements,
+80–81
+convenient idioms, 155
+convention(s)
+following standard, 299–300
+over configuration, 164
+structure over, 301
+using consistent, 259
+convoluted code, 175
+copyright statements, 55
+cosmic-rays. See one-offs
+CountDownLatch class, 183
+coupling. See also decoupling; temporal
+coupling; tight coupling
+artificial, 293
+hidden temporal, 302–303
+lack of, 150
+coverage patterns, testing, 314
+coverage tools, 313
+“crisp abstraction”, 8–9
+cross-cutting concerns, 160
+Cunningham, Ward, 11–12
+cuteness, in code, 26
+D
+dangling false argument, 294
+data
+abstraction, 93–95
+copies of, 181–182
+encapsulation, 181
+limiting the scope of, 181
+sets processed in parallel, 179
+types, 97, 101
+data structures. See also structure(s)
+compared to objects, 95, 97
+defined, 95
+interfaces representing, 94
+treating Active Records as, 101
+data transfer-objects (DTOs),
+100–101, 160
+database normal forms, 48
+DateInterval enum, 282–283
+DAY enumeration, 277

@@ -1,0 +1,9 @@
+then put that interface into Entities and inherit it into Authorizer. This
+inverts the dependency between Entities and Authorizer, thereby breaking
+the cycle.
+Figure 14.3 Inverting the dependency between Entities and Authorizer
+2. Create a new component that both Entities and Authorizer depend on.
+Move the class(es) that they both depend on into that new component (Figure
+14.4).
+Figure 14.4 The new component that both Entities and Authorizer depend on
+THE “JITTERS”

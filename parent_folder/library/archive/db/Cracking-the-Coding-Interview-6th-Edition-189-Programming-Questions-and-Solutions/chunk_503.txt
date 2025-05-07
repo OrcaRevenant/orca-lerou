@@ -1,0 +1,105 @@
+Solutions to Chapter 16 | Moderate
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+ArrayList<Line> lines = linesBySlope.get(slope);
+f o r (Line l i n e : lines) {
+/* count lines that are equivalent to current l i n e */
+i n t count = countEquivalentLines(linesBySlope, l i n e ) ;
+/* if better than current l i n e , replace it */
+if (count > bestCount) {
+bestLine = l i n e ;
+bestCount = count;
+bestLine.Print();
+System.out.print In(bestCount);
+>
+}
+41
+)
+42
+return bestLine;
+43 >
+44
+45 /* Check hashmap f o r lines that are equivalent. Note that we need to check one
+46
+* epsilon above and below the actual slope since we're defining two lines as
+47
+* equivalent if they're within an epsilon of each other. */
+48 i n t countEquivalentLines(HashMapList<Double, Line> UnesBySlope, Line l i n e ) {
+49
+double key = Line.floorTotJearestEpsilonfline.slope);
+50
+i n t count = count£quivalentLines(linesBySlope.get(key),
+l i n e ) ;
+51
+count +• countEquivalentLines(linesBySlope.get(key - Line.epsilon),
+l i n e ) ;
+52
+count += countEquivalentLines(linesBySlope.get(key + Line.epsilon), l i n e ) ;
+53
+return count;
+54 >
+55
+56 /* Count lines within an array of lines which are "equivalent" (slope and
+57
+* y-intercept are within an epsilon value) to a given l i n e */
+58 i n t countEquivalentLines(ArrayList<Line> l i n e s , Line l i n e ) {
+59
+if (lines == n u l l ) return 0;
+60
+61
+i n t count = 0;
+62
+for (Line parallelLine : lines) {
+63
+if
+(parallelLine.isEquivalent(line))
+{
+64
+count++;
+66
+}
+67
+return count;
+68
+}
+69
+70 public class Line {
+71
+public s t a t i c double epsilon = .0001;
+72
+public double slope, intercept;
+73
+private boolean i n f i n i t e _ s l o p e = f a l s e ;
+74
+75
+public Line(GraphPoint p, GraphPoint q) {
+76
+if (Math.abs(p.x - q.x) > epsilon) { // if x ' s are d i f f e r e n t
+77
+slope = (p.y - q.y) / (p.x - q . x ) ; // compute slope
+78
+intercept = p.y - slope * p.x; // y intercept from y=mx+b
+79
+} else {
+80
+i n f i n i t e _ s l o p e = t r u e ;
+81
+intercept = p.x; // x-intercept, since slope is i n f i n i t e
+65
+>
+82
+}
+83
+}
+CrackingTheCodinglnterview.com | 6th Edition 495

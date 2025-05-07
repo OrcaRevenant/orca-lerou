@@ -1,0 +1,43 @@
+252
+Chapter 15: JUnit Internals
+The JUnit Framework
+JUnit has had many authors, but it began with Kent Beck and Eric Gamma together on a
+plane to Atlanta. Kent wanted to learn Java, and Eric wanted to learn about Kent’s Small-
+talk testing framework. “What could be more natural to a couple of geeks in cramped
+quarters than to pull out our laptops and start coding?”1 After three hours of high-altitude
+work, they had written the basics of JUnit.
+The module we’ll look at is the clever bit of code that helps identify string compari-
+son errors. This module is called ComparisonCompactor. Given two strings that differ,
+such as ABCDE and ABXDE, it will expose the difference by generating a string such as
+<...B[X]D...>.
+I could explain it further, but the test cases do a better job. So take a look at Listing 15-1
+and you will understand the requirements of this module in depth. While you are at it,
+critique the structure of the tests. Could they be simpler or more obvious?
+1.
+JUnit Pocket Guide, Kent Beck, O’Reilly, 2004, p. 43.
+Listing 15-1
+ComparisonCompactorTest.java
+package junit.tests.framework;
+import junit.framework.ComparisonCompactor;
+import junit.framework.TestCase;
+public class ComparisonCompactorTest extends TestCase {
+public void testMessage() {
+String failure= new ComparisonCompactor(0, "b", "c").compact("a");
+assertTrue("a expected:<[b]> but was:<[c]>".equals(failure));
+}
+public void testStartSame() {
+String failure= new ComparisonCompactor(1, "ba", "bc").compact(null);
+assertEquals("expected:<b[a]> but was:<b[c]>", failure);
+}
+public void testEndSame() {
+String  failure= new ComparisonCompactor(1, "ab", "cb").compact(null);
+assertEquals("expected:<[a]b> but was:<[c]b>", failure);
+}
+public void testSame() {
+String failure= new ComparisonCompactor(1, "ab", "ab").compact(null);
+assertEquals("expected:<ab> but was:<ab>", failure);
+}
+public void testNoContextStartAndEndSame() {
+String failure= new ComparisonCompactor(0, "abc", "adc").compact(null);
+assertEquals("expected:<...[b]...> but was:<...[d]...>", failure);
+}

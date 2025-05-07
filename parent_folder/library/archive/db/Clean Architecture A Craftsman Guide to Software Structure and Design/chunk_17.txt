@@ -1,0 +1,9 @@
+Architecture is a hypothesis, that needs to be proven by implementation and measurement.
+—Tom Gilb
+To walk this path requires care and attention, thought and observation, practice
+and principle. This might at first sound slow, but it’s all in the way that you walk.
+The only way to go fast, is to go well.
+—Robert C. Martin
+Enjoy the journey.
+—Kevlin Henney
+May 2017

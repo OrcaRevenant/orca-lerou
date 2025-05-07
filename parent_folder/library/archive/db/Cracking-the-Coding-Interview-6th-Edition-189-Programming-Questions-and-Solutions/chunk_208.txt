@@ -1,0 +1,78 @@
+Solutions to Chapter 1 ] Arrays and Strings
+is that there is no overlap between the numbers (as opposed to say 00101000, which, when we subtract 1
+from, we get 00100111.) So, we can check to see that a number has exactly one 1 because if we subtract 1
+from it and then AND it with the new number, we should get 0.
+00010000 - 1 = 00001111
+00010000 & 00001111 = 0
+This leads us to our final implementation.
+1
+boolean isPermutationOfPalindrome(String phrase) {
+2
+int bitvector = createBitVector(phrase);
+3
+return bitvector == 0 || checkExactlyOneBitSet(bitVector);
+4
+>
+5
+6
+/* Create a b i t vector for the string. For each l e t t e r with value i, toggle the
+7
+* i t h b i t . */
+8
+int createBitVector(String phrase) {
+9
+i n t bitvector = 0;
+10
+for (char c : phrase.toCharArrayO) {
+11
+i n t x = getCharNumber(c);
+12
+bitvector = toggle(bitVector, x);
+13
+}
+14
+return bitVector;
+15
+}
+16
+17 /* Toggle the i t h b i t in the integer. */
+18 i n t toggle(int bitvector, i n t index) {
+19
+if (index < 0) return bitvector;
+20
+21
+i n t mask = 1 << index;
+22
+if ((bitvector & mask) == 0) {
+23
+bitvector |= mask;
+24
+> else {
+25
+bitvector 8= -mask;
+26
+>
+27
+return bitvector;
+28
+>
+29
+30 /* Check that exactly one b i t is set by subtracting one from the integer and
+31
+* ANDing it with the o r i g i n a l integer. */
+32 boolean checkExactlyOneBitSet(int bitvector) {
+33
+return (bitvector S (bitvector - 1)) == 0;
+34
+}
+Like the other solutions, this isO(N).
+it's interesting to note a solution that we did not explore. We avoided solutions along the lines of "create
+all possible permutations and check if they are palindromes." While such a solution would work, it's entirely
+infeasiblein the real world. Generating all permutations requires factorial time (which is actually worse than
+exponential time), and it is essentially infeasible to perform on strings longer than about 10-15 characters.
+I mention this (impractical) solution because a lot of candidates hear a problem like this and say, "In order
+to check if A is in group B, I must know everything that is in B and then check if one of the items equals A."
+That's not always the case, and this problem is a simple demonstration of it. You don't need to generate all
+permutations in order to check if one is a palindrome.
+Ï9S
+206 Cracking the Coding Interview, 6th Edition

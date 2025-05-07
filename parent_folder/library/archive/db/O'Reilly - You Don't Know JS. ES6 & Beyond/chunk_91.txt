@@ -1,0 +1,44 @@
+actions: []
+};
+The iterator on tasks steps through functions found in the actions array property, if
+any, and executes them one at a time, passing in whatever arguments you pass to
+next(..), and returning any return value to you in the standard IteratorResult
+object.
+Here’s how we could could use this tasks queue:
+tasks.actions.push(
+function step1(x){
+console.log( "step 1:", x );
+return x * 2;
+},
+function step2(x,y){
+console.log( "step 2:", x, y );
+return x + (y * 2);
+},
+function step3(x,y,z){
+console.log( "step 3:", x, y, z );
+return (x * y) + z;
+}
+);
+var it = tasks[Symbol.iterator]();
+it.next( 10 );          // step 1: 10
+// { value:   20, done: false }
+it.next( 20, 50 );      // step 2: 20 50
+// { value:  120, done: false }
+it.next( 20, 50, 120 ); // step 3: 20 50 120
+// { value: 1120, done: false }
+it.next();              // { done: true }
+This particular usage reinforces that iterators can be a pattern for organizing func‐
+tionality, not just data. It’s also reminiscent of what we’ll see with generators in the
+next section.
+You could even get creative and define an iterator that represents meta operations on
+a single piece of data. For example, we could define an iterator for numbers which by
+default ranges from 0 up to (or down to, for negative numbers) the number in ques‐
+tion.
+Consider:
+if (!Number.prototype[Symbol.iterator]) {
+Object.defineProperty(
+Number.prototype,
+80
+|
+Chapter 3: Organization
+www.it-ebooks.info

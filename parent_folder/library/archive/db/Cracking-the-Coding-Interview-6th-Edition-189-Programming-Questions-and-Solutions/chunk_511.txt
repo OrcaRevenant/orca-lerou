@@ -1,0 +1,89 @@
+Solutions to Chapter 16 | Moderate
+Suppose we have a pattern like aabab and we're comparing it to the string cat cat gocatgo. Once we've
+picked "cat "as the value for a to try, then the a strings are going to take up nine characters (three a strings
+with length three each). Therefore, the b strings must take up the remaining four characters, with each
+having length two. Moreover, we actually know exactly where they must occur, too. If a is cat, and the
+pattern is aabab, then b must be go.
+In other words, once we've picked a, we've picked b too. There's no need to iterate. Gathering some basic
+stats on p a t t e r n (number of as, number of bs, first occurrence of each) and iterating through values for a
+(or whichever the main string is) will be sufficient.
+1
+boolean doesMatch(String pattern, String value) {
+2
+if (pattern.length() == 0) return value.length() == 0;
+3
+4
+char mainChar = pattern,charAt(0);
+5
+char altChar = mainChar == 'a' ? 'b' : ' a ' ;
+6
+int size = value.length();
+7
+8
+int countOfMain = countOf (pattern, mainChar);
+9
+int countOfAlt = pattern.length() - countOfMain;
+10
+int firstAlt = pattern.indexOf(altChar);
+11
+int maxMainSize = size / countOfMain;
+12
+13
+for (int malnSize * 0; mainSize <= maxMainSize; mainSize++) {
+14
+int remainingLength = size - mainSize * countOfMain;
+15
+String f i r s t = value.substring(0, mainSize);
+16
+if (countOfAlt == 0 || remainingLength % countOfAlt == 0) {
+17
+int altlndex = firstAlt * mainSize;
+18
+int altSize = countOfAlt == 0 ? 0 : remainingLength / countOfAlt;
+19
+String second = countOfAlt == 0 ? "" :
+20
+value.substring(altlndexj altSize + altlndex);
+21
+22
+String cand = buildFromPatternipattern, f i r s t , second);
+23
+if (cand.equals(value)) {
+24
+return true;
+25
+)
+26
+>
+27
+)
+28
+return false;
+29
+)
+30
+31 int countOf(String pattern, char c) {
+32
+int count = 0;
+33
+for (int i = 0; i < pattern.length(); i++) {
+34
+if (pattern.charAt(i) == c) {
+35
+count++;
+36
+>
+37
+>
+38
+return count;
+39 }
+40
+41 String buildFromPattern(...) {
+/* same as before */ }
+This algorithm takes OCn2), since we iterate through O(n) possibilities for the main string and do 0(n)
+work to build and compare the strings.
+Observe that we've also cut down the possibilities for the main string that we try. if there are three instances
+of the main string, then its length cannot be any more than one third of value.
+CrackingTheCodinglnterview.com | 6th Edition
+495

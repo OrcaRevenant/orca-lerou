@@ -1,0 +1,45 @@
+79
+Vertical Formatting
+This effect is even more pronounced when you unfocus your eyes. In the ﬁrst example
+the different groupings of lines pop out at you, whereas the second example looks like a
+muddle. The difference between these two listings is a bit of vertical openness.
+Vertical Density
+If openness separates concepts, then vertical density implies close association. So lines
+of code that are tightly related should appear vertically dense. Notice how the useless
+comments in Listing 5-3 break the close association of the two instance variables.
+Listing 5-4 is much easier to read. It ﬁts in an “eye-full,” or at least it does for me. I
+can look at it and see that this is a class with two variables and a method, without having to
+move my head or eyes much. The previous listing forces me to use much more eye and
+head motion to achieve the same level of comprehension.
+Listing 5-2
+BoldWidget.java
+package fitnesse.wikitext.widgets;
+import java.util.regex.*;
+public class BoldWidget extends ParentWidget {
+public static final String REGEXP = "'''.+?'''";
+private static final Pattern pattern = Pattern.compile("'''(.+?)'''",
+Pattern.MULTILINE + Pattern.DOTALL);
+public BoldWidget(ParentWidget parent, String text) throws Exception {
+super(parent);
+Matcher match = pattern.matcher(text);
+match.find();
+addChildWidgets(match.group(1));}
+public String render() throws Exception {
+StringBuffer html = new StringBuffer("<b>");
+html.append(childHtml()).append("</b>");
+return html.toString();
+}
+}
+Listing 5-3
+public class ReporterConfig {
+/**
+* The class name of the reporter listener
+*/
+private String m_className;
+/**
+* The properties of the reporter listener
+*/
+private List<Property> m_properties = new ArrayList<Property>();
+public void addProperty(Property property) {
+m_properties.add(property);
+}

@@ -1,0 +1,18 @@
+accessed by workers, and the data size is usually small. Thus, caching metadata in memory is
+a good idea. For video or audio data, we put them in blob storage. Data in temporary storage
+is freed up once the corresponding video processing is complete.
+Encoded video
+Encoded video is the final output of the encoding pipeline. Here is an example of the output:
+funny_720p.mp4 .
+System optimizations
+At this point, you ought to have good understanding about the video uploading flow, video
+streaming flow and video transcoding. Next, we will refine the system with optimizations,
+including speed, safety, and cost-saving.
+Speed optimization: parallelize video uploading
+Uploading a video as a whole unit is inefficient. We can split a video into smaller chunks by
+GOP alignment as shown in Figure 14-22.
+This allows fast resumable uploads when the previous upload failed. The job of splitting a
+video file by GOP can be implemented by the client to improve the upload speed as shown in
+Figure 14-23.
+Speed optimization: place upload centers close to users
+Another way to improve the upload speed is by setting up multiple upload centers across the

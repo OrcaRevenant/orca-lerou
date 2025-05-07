@@ -1,0 +1,12 @@
+xxx
+• More C++ Gems
+• Extreme Programming in Practice
+• Agile Software Development: Principles, Patterns, and Practices
+• UML for Java Programmers
+• Clean Code
+A leader in the industry of software development, Martin served for three years
+as editor-in-chief of the C++ Report, and he served as the first chairman of the
+Agile Alliance.
+Robert is also the founder of Uncle Bob Consulting, LLC, and cofounder with
+his son Micah Martin of The Clean Coders LLC.
+ABOUT THE AUTHOR

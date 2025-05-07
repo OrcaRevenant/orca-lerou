@@ -1,0 +1,19 @@
+Figure 11.1 Use of the Abstract Factory pattern to manage the dependency
+The curved line in Figure 11.1 is an architectural boundary. It separates the
+abstract from the concrete. All source code dependencies cross that curved line
+pointing in the same direction, toward the abstract side.
+The curved line divides the system into two components: one abstract and the
+other concrete. The abstract component contains all the high-level business rules
+of the application. The concrete component contains all the implementation
+details that those business rules manipulate.
+Note that the flow of control crosses the curved line in the opposite direction of
+the source code dependencies. The source code dependencies are inverted
+against the flow of control—which is why we refer to this principle as
+Dependency Inversion.
+CONCRETE COMPONENTS
+The concrete component in Figure 11.1 contains a single dependency, so it
+violates the DIP. This is typical. DIP violations cannot be entirely removed, but
+they can be gathered into a small number of concrete components and kept
+separate from the rest of the system.
+Most systems will contain at least one such concrete component—often called
+main because it contains the main1 function. In the case illustrated in Figure 11.1,

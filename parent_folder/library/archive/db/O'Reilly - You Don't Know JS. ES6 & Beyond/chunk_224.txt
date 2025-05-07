@@ -1,0 +1,43 @@
+Custom Change Events
+In addition to the six built-in change event types, you can also listen for and fire cus‐
+tom change events.
+Consider:
+function observer(changes){
+for (var change of changes) {
+if (change.type == "recalc") {
+change.object.c =
+change.object.oldValue +
+change.object.a +
+change.object.b;
+}
+}
+}
+function changeObj(a,b) {
+var notifier = Object.getNotifier( obj );
+obj.a = a * 2;
+obj.b = b * 3;
+// queue up change events into a set
+notifier.notify( {
+type: "recalc",
+name: "c",
+oldValue: obj.c
+} );
+}
+var obj = { a: 1, b: 2, c: 3 };
+Object.observe(
+obj,
+observer,
+["recalc"]
+);
+changeObj( 3, 11 );
+obj.a;          // 12
+obj.b;          // 30
+obj.c;          // 3
+The change set ("recalc" custom event) has been queued for delivery to the
+observer, but not delivered yet, which is why obj.c is still 3.
+The changes are by default delivered at the end of the current event loop (see the
+Async & Performance title of this series). If you want to deliver them immediately, use
+Object.observe(..)
+|
+213
+www.it-ebooks.info

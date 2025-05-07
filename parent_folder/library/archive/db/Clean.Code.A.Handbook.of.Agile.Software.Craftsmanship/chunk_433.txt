@@ -1,0 +1,65 @@
+406
+Appendix B: org.jfree.date.SerialDate
+106     this.day = day;
+107     ordinalDay = calcOrdinal(day, month, year);
+108   }
+109
+110   public SpreadsheetDate(int day, int month, int year) {
+111     this(day, Month.fromInt(month), year);
+112   }
+113
+114   public SpreadsheetDate(int serial) {
+115     if (serial < EARLIEST_DATE_ORDINAL || serial > LATEST_DATE_ORDINAL)
+116       throw new IllegalArgumentException(
+117         "SpreadsheetDate: Serial must be in range 2 to 2958465.");
+118
+119     ordinalDay = serial;
+120     calcDayMonthYear();
+121   }
+122
+123   public int getOrdinalDay() {
+124     return ordinalDay;
+125   }
+126
+127   public int getYear() {
+128     return year;
+129   }
+130
+131   public Month getMonth() {
+132     return month;
+133   }
+134
+135   public int getDayOfMonth() {
+136     return day;
+137   }
+138
+139   protected Day getDayOfWeekForOrdinalZero() {return Day.SATURDAY;}
+140
+141   public boolean equals(Object object) {
+142     if (!(object instanceof DayDate))
+143       return false;
+144
+145     DayDate date = (DayDate) object;
+146     return date.getOrdinalDay() == getOrdinalDay();
+147   }
+148
+149   public int hashCode() {
+150     return getOrdinalDay();
+151   }
+152
+153   public int compareTo(Object other) {
+154     return daysSince((DayDate) other);
+155   }
+156
+157   private int calcOrdinal(int day, Month month, int year) {
+158     int leapDaysForYear = DateUtil.leapYearCount(year - 1);
+159     int daysUpToYear = (year - MINIMUM_YEAR_SUPPORTED) * 365 + leapDaysForYear;
+160     int daysUpToMonth = AGGREGATE_DAYS_TO_END_OF_PRECEDING_MONTH[month.toInt()];
+161     if (DateUtil.isLeapYear(year) && month.toInt() > FEBRUARY.toInt())
+162       daysUpToMonth++;
+163     int daysInMonth = day - 1;
+164     return daysUpToYear + daysUpToMonth + daysInMonth + EARLIEST_DATE_ORDINAL;
+165   }
+166
+Listing B-16 (continued)
+SpreadsheetDate.java (Final)

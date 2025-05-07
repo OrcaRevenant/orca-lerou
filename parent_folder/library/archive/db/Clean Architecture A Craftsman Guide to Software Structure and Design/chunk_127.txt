@@ -1,0 +1,31 @@
+We don’t want the addition or modification of reports to have an impact on our
+highest-level policies. Consequently, the component dependency graph is created
+and molded by architects to protect stable high-value components from volatile
+components.
+As the application continues to grow, we start to become concerned about
+creating reusable elements. At this point, the CRP begins to influence the
+composition of the components. Finally, as cycles appear, the ADP is applied
+and the component dependency graph jitters and grows.
+If we tried to design the component dependency structure before we designed
+any classes, we would likely fail rather badly. We would not know much about
+common closure, we would be unaware of any reusable elements, and we would
+almost certainly create components that produced dependency cycles. Thus the
+component dependency structure grows and evolves with the logical design of
+the system.
+THE STABLE DEPENDENCIES
+PRINCIPLE
+Depend in the direction of stability.
+Designs cannot be completely static. Some volatility is necessary if the design is
+to be maintained. By conforming to the Common Closure Principle (CCP), we
+create components that are sensitive to certain kinds of changes but immune to
+others. Some of these components are designed to be volatile. We expect them to
+change.
+Any component that we expect to be volatile should not be depended on by a
+component that is difficult to change. Otherwise, the volatile component will
+also be difficult to change.
+It is the perversity of software that a module that you have designed to be easy to
+change can be made difficult to change by someone else who simply hangs a
+dependency on it. Not a line of source code in your module need change, yet
+your module will suddenly become more challenging to change. By conforming
+to the Stable Dependencies Principle (SDP), we ensure that modules that are
+intended to be easy to change are not depended on by modules that are harder to

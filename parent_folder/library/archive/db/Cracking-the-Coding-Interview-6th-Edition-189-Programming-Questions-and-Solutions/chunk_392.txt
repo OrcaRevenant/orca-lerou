@@ -1,0 +1,94 @@
+Solutions to Chapter 9 j System Design and Scalability
+•
+A hash table allows efficient lookups of data, but it wouldn't ordinarily allow easy data purging.
+How can we get the best of both worlds? By merging the two data structures. Here's how this works:
+Just as before, we create a linked list where a node is moved to the front every time it's accessed. This way,
+the end of the linked list will always contain the stalest information.
+In addition, we have a hash table that maps from a query to the corresponding node in the linked list. This
+allows us to not only efficiently return the cached results, but also to move the appropriate node to the
+front of the list, thereby updating its "freshness."
+For illustrative purposes, abbreviated code for the cache is below. The code attachment provides the full
+code for this part. Note that in your interview, it is unlikely that you would be asked to write the full code for
+this as well as perform the design for the larger system,
+l
+public class Cache {
+2
+public s t a t i c i n t MAX^SIZE = 19;
+3
+public Node head, t a i l ;
+4
+public HashMap<String, Node> map;
+5
+public i n t size = 0;
+6
+public Cache() {
+8
+map = new HashMap<String, Node>();
+9
+}
+10
+11
+/* Moves node to f r o n t of linked l i s t */
+12
+public void moveToFront(Node node) { . . . }
+13
+public void moveToFront(String query) { . . .
+}
+14
+15
+/* Removes node from linked l i s t */
+16
+public void removeFromHnkedl_ist(Node node) { . . . }
+17
+IS
+/* Gets results from cache, and updates linked l i s t */
+19
+public S t r i n g [ ] getResults(String query) {
+20
+if
+(Imap.containsKey(query))
+return n u l l ;
+21
+22
+Node node = map,get(query);
+23
+moveToFront(node); // update freshness
+24
+return node.results;
+25
+>
+26
+27
+/* inserts results into linked l i s t and hash */
+28
+public void insertResults(String query, S t r i n g [ ] results) {
+29
+if (map.containsKey(query)) { // update values
+30
+Node node * map.get(query);
+31
+node.results - results;
+32
+moveToFront(node); // update freshness
+33
+return;
+34
+>
+35
+36
+Node node = new Node(query, r e s u l t s ) ;
+37
+moveToFront(node);
+38
+map,put(query, node);
+39
+40
+if (size > MAX3IZE) {
+41
+map.remove(tail.query);
+42
+removeFromLinkedList(tail);
+43
+>
+394
+Cracking the Coding Interview, 6th Edition

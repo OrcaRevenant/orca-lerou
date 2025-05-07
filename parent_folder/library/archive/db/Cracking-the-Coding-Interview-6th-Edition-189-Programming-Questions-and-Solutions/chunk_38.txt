@@ -1,0 +1,43 @@
+IV | Before the Interview
+Projects
+Developing the projects section on your resume is often the best way to present yourself as more experi-
+enced. This is especially true for college students or recent grads.
+The projects should include your 2 - 4 most significant projects. State what the project was and which
+languages or technologies it employed. You may also want to consider including details such as whether
+the project was an individual or a team project, and whether it was completed for a course or indepen-
+dently, These details are not required, so only include them if they make you look better. Independent
+projects are generally preferred over course projects, as it shows initiative.
+Do not add too many projects. Many candidates make the mistake of adding all 13 of their prior projects,
+cluttering their resume with small, non-impressive projects.
+So what should you build? Honestly, it doesn't matter that much. Some employers really like open source
+projects (it offers experience contributing to a large code base), while others prefer independent projects
+(it's easier to understand your personal contributions). You could build a mobile app, a web app, or almost
+anything.The most important thing is that you're building something.
+Programming Languages and Software
+Software
+Be conservative about what software you list, and understand what's appropriate for the company. Soft-
+ware like Microsoft Office can almost always be cut. Technical software like Visual Studio and Eclipse is
+somewhat more relevant, but many of the top tech companies won't even care about that. After all, is it
+really that hard to learn Visual Studio?
+Of course, it won't hurt you to list all this software. It just takes up valuable space. You need to evaluate the
+trade-off of that.
+Languages
+Should you list everything you've ever worked with, or shorten the list to just the ones that you're most
+comfortable with?
+Listing everything you've ever worked with is dangerous. Many interviewers consider anything on your
+resume to be "fair game"as far as the interview.
+One alternative is to list most of the languages you've used, but add your experience level. This approach
+is shown below:
+•
+Languages: Java (expert), C++ (proficient), JavaScript (prior experience).
+Use whatever wording ("expert" "fluent" etc.) effectively communicates your skillset.
+Some people list the number of years of experience they have with a particular language, but this can be
+really confusing. If you first learned Java 10 years ago, and have used it occasionally throughout that time,
+how many years of experience is this?
+For this reason, the number of years of experience is a poor metric for resumes. It's better to just describe
+what you mean in plain English.
+Advice for Non-Native English Speakers and Internationals
+Some companies will throw out your resume just because of a typo. Please get at least one native English
+speaker to proofread your resume.
+30
+Cracking the Coding Interview, 6th Edition

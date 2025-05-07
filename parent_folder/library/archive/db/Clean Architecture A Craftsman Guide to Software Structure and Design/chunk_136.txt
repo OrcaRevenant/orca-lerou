@@ -1,0 +1,31 @@
+Figure 14.13 Zones of exclusion
+The Zone of Pain
+Consider a component in the area of (0, 0). This is a highly stable and concrete
+component. Such a component is not desirable because it is rigid. It cannot be
+extended because it is not abstract, and it is very difficult to change because of
+its stability. Thus we do not normally expect to see well-designed components
+sitting near (0, 0). The area around (0, 0) is a zone of exclusion called the Zone
+of Pain.
+Some software entities do, in fact, fall within the Zone of Pain. An example
+would be a database schema. Database schemas are notoriously volatile,
+extremely concrete, and highly depended on. This is one reason why the
+interface between OO applications and databases is so difficult to manage, and
+why schema updates are generally painful.
+Another example of software that sits near the area of (0, 0) is a concrete utility
+library. Although such a library has an I metric of 1, it may actually be
+nonvolatile. Consider the String component, for example. Even though all the
+classes within it are concrete, it is so commonly used that changing it would
+create chaos. Therefore String is nonvolatile.
+Nonvolatile components are harmless in the (0, 0) zone since they are not likely
+to be changed. For that reason, it is only volatile software components that are
+problematic in the Zone of Pain. The more volatile a component in the Zone of
+Pain, the more “painful” it is. Indeed, we might consider volatility to be a third
+axis of the graph. With this understanding, Figure 14.13 shows only the most
+painful plane, where volatility = 1.
+The Zone of Uselessness
+Consider a component near (1, 1). This location is undesirable because it is
+maximally abstract, yet has no dependents. Such components are useless. Thus
+this area is called the Zone of Uselessness.
+The software entities that inhabit this region are a kind of detritus. They are
+often leftover abstract classes that no one ever implemented. We find them in
+systems from time to time, sitting in the code base, unused.

@@ -1,0 +1,40 @@
+TCO means there’s practically no limit to how deep the call stack can be. That trick
+slightly improves regular function calls in normal programs, but more importantly
+opens the door to using recursion for program expression even if the call stack could
+be tens of thousands of calls deep.
+We’re no longer restricted from theorizing about recursion for problem solving,
+but can actually use it in real JavaScript programs!
+As of ES6, all proper tail calls should be optimized in this way, recursion or not.
+Tail Call Rewrite
+The hitch however is that only tail calls can be optimized; non-tail calls will still work
+of course, but will cause stack frame allocation as they always did. You’ll have to be
+careful about structuring your functions with tail calls if you expect the optimizations
+to kick in.
+If you have a function that’s not written with proper tail calls, you may find the need
+to manually optimize your program by rewriting it, so that the engine will be able to
+apply TCO when running it.
+Consider:
+"use strict";
+function foo(x) {
+if (x <= 1) return 1;
+return (x / 2) + foo( x - 1 );
+}
+foo( 123456 );          // RangeError
+The call to foo(x-1) isn’t a proper tail call since its result has to be added to (x / 2)
+before `return`ing.
+However, we can reorganize this code to be eligible for TCO in an ES6 engine as:
+"use strict";
+var foo = (function(){
+function _foo(acc,x) {
+if (x <= 1) return acc;
+return _foo( (x / 2) + acc, x - 1 );
+}
+return function(x) {
+return _foo( 1, x );
+};
+})();
+foo( 123456 );          // 3810376848.5
+Tail Call Optimization (TCO)
+|
+201
+www.it-ebooks.info

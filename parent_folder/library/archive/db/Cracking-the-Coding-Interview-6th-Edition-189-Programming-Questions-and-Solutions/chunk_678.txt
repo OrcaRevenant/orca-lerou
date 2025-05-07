@@ -1,0 +1,87 @@
+II | Hints for Concepts and Algorithms
+#254.
+10.7
+To do it with less memory, can you try multiple passes?
+#255.
+8.8
+To get all permutations with 3 As, 2 Cs, and I B, you need to first pick a starting char-
+acter: A, B, or C. If it's an A, then you need all permutations with 2 As, 2 Cs, and 1 B,
+#256.
+10.5
+Try modifying binary search to handle this,
+#257.
+11.1
+There are two mistakes in this code.
+#258.
+7.4
+Does the parking lot have multiple levels? What "features" does it support? Is it paid?
+What types of vehicles?
+#259.
+9.5
+You may need to make some assumptions (in part because you don't have an inter-
+viewer here). That's okay. Make those assumptions explicit.
+#260.
+8.13
+Think about the first decision you have to make.The first decision is which box will be at
+the bottom,
+#261.
+5.5
+If A & B == 0, then it means that A and B never have a 1 at the same spot. Apply this
+to the equation in the problem.
+#262,
+8.1
+What is the runtime of this method? Think carefully. Can you optimize it?
+#263.
+10.2
+Can you leverage a standard sorting algorithm?
+#264.
+6.9
+Note: If an integer x is divisible by a, and b = x / a, then xisalso divisibleby b. Does
+this mean that all numbers have an even number of factors?
+#265.
+8.9
+Adding a left or right paren at each step will eliminate duplicates. Each substring will be
+unique at each step. Therefore, the total string will be unique.
+#266.
+10.9
+If the value x is smaller than the start of the column, then it also can't be in any columns
+to the right.
+#267.
+8.7
+Approach 1:You can create all permutations of abed by computing all permutations of
+abc and then inserting d into each possible location within those.
+#268.
+11.6
+What a re the different features and uses we would want to test?
+#269.
+5.2
+How would you get the first digit in . 893? If you multiplied by 10, you'd shift the values
+over to get 8.93. What happens if you multiply by 2?
+#270.
+9.2
+To find the connection between two nodes, would it be better to do a breadth-first
+search or depth-first search? Why?
+#271.
+7.7
+How will you know if a user signs offline?
+#272.
+8.6
+Observe that it doesn't really matter which tower is the source, destination, or buffer.
+You can do f ( 3 , X=&, Y=2,
+Z=l) by first doing f ( 2 , X=0, Y=l, Z=2) (moving
+two disks from tower 0 to tower 1, using tower 2 as a buffer), then moving disk 3 from
+tower 0 to tower 2, then doing f ( 2 , X = l , Y=2, Z=0) (moving two disks from tower
+1 to tower 2, using tower 0 as a buffer). How does this process repeat?
+#273.
+8.4
+How can you build all subsets of { a , b, c} from the subsets of { a ,
+b}?
+#274.
+9.5
+Think about how you could design this for a single machine. Would you want a hash
+table? How would that work?
+#275.
+7.1
+How, if at all, will you handle aces?
+664
+Cracking the Coding interview, 6th Edition

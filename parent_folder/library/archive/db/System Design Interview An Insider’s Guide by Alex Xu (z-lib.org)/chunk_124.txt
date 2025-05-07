@@ -1,0 +1,21 @@
+Step 2 - Propose high-level design and get buy-in
+Once the requirements are clear, we move on to the high-level design. Inspired by previous
+studies on web crawling [4] [5], we propose a high-level design as shown in Figure 9-2.
+First, we explore each design component to understand their functionalities. Then, we
+examine the crawler workflow step-by-step.
+Seed URLs
+A web crawler uses seed URLs as a starting point for the crawl process. For example, to
+crawl all web pages from a university’s website, an intuitive way to select seed URLs is to
+use the university’s domain name.
+To crawl the entire web, we need to be creative in selecting seed URLs. A good seed URL
+serves as a good starting point that a crawler can utilize to traverse as many links as possible.
+The general strategy is to divide the entire URL space into smaller ones. The first proposed
+approach is based on locality as different countries may have different popular websites.
+Another way is to choose seed URLs based on topics; for example, we can divide URL space
+into shopping, sports, healthcare, etc. Seed URL selection is an open-ended question. You are
+not expected to give the perfect answer. Just think out loud.
+URL Frontier
+Most modern web crawlers split the crawl state into two: to be downloaded and already
+downloaded. The component that stores URLs to be downloaded is called the URL Frontier.
+You can refer to this as a First-in-First-out (FIFO) queue. For detailed information about the
+URL Frontier, refer to the deep dive.

@@ -1,0 +1,25 @@
+Deleted: sha256:c8a75145fcc4e1a...4129005e461a43875a094b93412
+Untagged: alpine:latest
+Untagged: alpine@sha256:3dcdb92...313626d99b889d0626de158f73a
+Deleted: sha256:4e38e38c8ce0b8d...6225e13b0bfe8cfa2321aec4bba
+Deleted: sha256:4fe15f8d0ae69e1...eeeeebb265cd2e328e15c6a869f
+$
+$ docker image ls
+REPOSITORY     TAG    IMAGE ID    CREATED     SIZE
+Let’s remind ourselves of the major commands we use to work with Docker
+images.
+
+Images - The commands
+docker image pull is the command to download images. We pull images
+from repositories inside of remote registries. By default, images will be
+pulled from repositories on Docker Hub. This command will pull the image
+tagged as latest from the alpine repository on Docker Hub docker image
+pull alpine:latest.
+docker image ls lists all of the images stored in your Docker host’s local
+cache. To see the SHA256 digests of images add the --digests flag.
+docker image inspect is a thing of beauty! It gives you all of the glorious
+details of image - layer data and metadata.
+docker image rm is the command to delete images. This command shows
+how to delete the apline:latest image - docker image rm
+alpine:latest. You cannot delete an image that is associated with a
+container in the running (Up) or stopped (Exited) states.

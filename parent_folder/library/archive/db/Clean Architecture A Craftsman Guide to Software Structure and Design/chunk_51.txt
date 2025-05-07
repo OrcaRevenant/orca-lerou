@@ -1,0 +1,28 @@
+you bet your life that F = ma is a reliable description of the way the world
+works. Every time you take a step, you bet your health and safety that F =
+Gm1m2/r2 is correct.
+Science does not work by proving statements true, but rather by proving
+statements false. Those statements that we cannot prove false, after much effort,
+we deem to be true enough for our purposes.
+Of course, not all statements are provable. The statement “This is a lie” is neither
+true nor false. It is one of the simplest examples of a statement that is not
+provable.
+Ultimately, we can say that mathematics is the discipline of proving provable
+statements true. Science, in contrast, is the discipline of proving provable
+statements false.
+TESTS
+Dijkstra once said, “Testing shows the presence, not the absence, of bugs.” In
+other words, a program can be proven incorrect by a test, but it cannot be proven
+correct. All that tests can do, after sufficient testing effort, is allow us to deem a
+program to be correct enough for our purposes.
+The implications of this fact are stunning. Software development is not a
+mathematical endeavor, even though it seems to manipulate mathematical
+constructs. Rather, software is like a science. We show correctness by failing to
+prove incorrectness, despite our best efforts.
+Such proofs of incorrectness can be applied only to provable programs. A
+program that is not provable—due to unrestrained use of goto, for example—
+cannot be deemed correct no matter how many tests are applied to it.
+Structured programming forces us to recursively decompose a program into a set
+of small provable functions. We can then use tests to try to prove those small
+provable functions incorrect. If such tests fail to prove incorrectness, then we
+deem the functions to be correct enough for our purposes.

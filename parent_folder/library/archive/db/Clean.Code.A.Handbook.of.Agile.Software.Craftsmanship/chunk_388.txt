@@ -1,0 +1,66 @@
+360
+Appendix B: org.jfree.date.SerialDate
+661
+662     /**
+663      * Returns the earliest date that falls on the specified day-of-the-week
+664      * and is AFTER the base date.
+665      *
+666      * @param targetWeekday  a code for the target day-of-the-week.
+667      * @param base  the base date.
+668      *
+669      * @return the earliest date that falls on the specified day-of-the-week
+670      *         and is AFTER the base date.
+671      */
+672     public static SerialDate getFollowingDayOfWeek(final int targetWeekday,
+673                                                    final SerialDate base) {
+674
+675         // check arguments...
+676         if (!SerialDate.isValidWeekdayCode(targetWeekday)) {
+677             throw new IllegalArgumentException(
+678                 "Invalid day-of-the-week code."
+679             );
+680         }
+681
+682         // find the date...
+683         final int adjust;
+684         final int baseDOW = base.getDayOfWeek();
+685         if (baseDOW > targetWeekday) {
+686             adjust = 7 + Math.min(0, targetWeekday - baseDOW);
+687         }
+688         else {
+689             adjust = Math.max(0, targetWeekday - baseDOW);
+690         }
+691
+692         return SerialDate.addDays(adjust, base);
+693     }
+694
+695     /**
+696      * Returns the date that falls on the specified day-of-the-week and is
+697      * CLOSEST to the base date.
+698      *
+699      * @param targetDOW  a code for the target day-of-the-week.
+700      * @param base  the base date.
+701      *
+702      * @return the date that falls on the specified day-of-the-week and is
+703      *         CLOSEST to the base date.
+704      */
+705     public static SerialDate getNearestDayOfWeek(final int targetDOW,
+706                                                  final SerialDate base) {
+707
+708         // check arguments...
+709         if (!SerialDate.isValidWeekdayCode(targetDOW)) {
+710             throw new IllegalArgumentException(
+711                 "Invalid day-of-the-week code."
+712             );
+713         }
+714
+715         // find the date...
+716         final int baseDOW = base.getDayOfWeek();
+717         int adjust = -Math.abs(targetDOW - baseDOW);
+718         if (adjust >= 4) {
+719             adjust = 7 - adjust;
+720         }
+721         if (adjust <= -4) {
+722             adjust = 7 + adjust;
+Listing B-1 (continued)
+SerialDate.Java

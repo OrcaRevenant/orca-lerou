@@ -1,0 +1,46 @@
+$ ps -elf
+F S UID        PID  PPID    NI ADDR SZ WCHAN  TIME CMD
+4 S root         1     0     0 -  9407 -      00:00:03 /sbin/init
+1 S root         2     0     0 -     0 -      00:00:00 [kthreadd]
+1 S root         3     2     0 -     0 -      00:00:00 [ksoftirqd/0]
+1 S root         5     2   -20 -     0 -      00:00:00 [kworker/0:0H]
+1 S root         7     2     0 -     0 -      00:00:00 [rcu_sched]
+<Snip>
+0 R ubuntu   22783 22475     0 -  9021 -      00:00:00 ps -elf
+Windows example:
+> ps
+Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
+-------  ------    -----      -----     ------     --  -- -----------
+220      11     7396       7872       0.33   1732   0 amazon-ssm-agen
+84       5      908       2096       0.00   2428   3 CExecSvc
+87       5      936       1336       0.00   4716   4 CExecSvc
+203      13     3600      13132       2.53   3192   2 conhost
+210      13     3768      22948       0.08   5260   2 conhost
+257      11     1808        992       0.64    524   0 csrss
+116       8     1348        580       0.08    592   1 csrss
+85       5      532       1136       0.23   2440   3 csrss
+242      11     1848        952       0.42   2708   2 csrss
+95       5      592        980       0.00   4524   4 csrss
+137       9     7784       6776       0.05   5080   2 docker
+401      17    22744      14016      28.59   1748   0 dockerd
+307      18    13344       1628       0.17    936   1 dwm
+<SNIP>
+1888       0      128        136      37.17      4   0 System
+272      15     3372       2452       0.23   3340   2 TabTip
+72       7     1184          8       0.00   3400   2 TabTip32
+244      16     2676       3148       0.06   1880   2 taskhostw
+142       7     6172       6680       0.78   4952   3 WmiPrvSE
+148       8     5620      11028       0.77   5568   4 WmiPrvSE
+Notice how many more processes are running on your Docker host compared to
+the containers we ran.
+In a previous step you pressed Ctrl-PQ to exit from the container. Doing this
+from inside of a container will exit you from the container without killing it. You
+can see all running containers on your system using the docker container ls
+command.
+$ docker container ls
+CONTAINER ID   IMAGE          COMMAND       CREATED  STATUS    NAMES
+e2b69eeb55cb   ubuntu:latest  "/bin/bash"   7 mins   Up 7 min  vigilant_borg
+The output above shows a single running container. This is the container that you
+created earlier. The presence of your container in this output proves that it’s still
+running. You can also see that it was created 7 minutes ago and has been running
+for 7 minutes.

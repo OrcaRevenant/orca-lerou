@@ -1,0 +1,33 @@
+202
+What kinds of details do we manage?
+Do you know the difference between the two characters \n and \r? The first, \n,
+is a line feed. The second, \r, is a carriage return. What’s a carriage?
+In the ’60s and early ’70s one of the more common output devices for computers
+was a teletype. The model ASR332 was the most common.
+This device consisted of a print head that could print ten characters per second.
+The print head was composed of a little cylinder with the characters embossed
+upon it. The cylinder would rotate and elevate so that the correct character was
+facing the paper, and then a little hammer would smack the cylinder against the
+paper. There was an ink ribbon between the cylinder and the paper, and the ink
+transferred to the paper in the shape of the character.
+The print head rode on a carriage. With every character the carriage would move
+one space to the right, taking the print head with it. When the carriage got to the
+end of the 72-character line, you had to explicitly return the carriage by sending
+the carriage return characters (\r = 0 ´ 0D), otherwise the print head would
+continue to print characters in the 72nd column, turning it into a nasty black
+rectangle.
+Of course, that wasn’t sufficient. Returning the carriage did not raise the paper
+to the next line. If you returned the carriage and did not send a line-feed
+character (\n = 0 ´ 0A), then the new line would print on top of the old line.
+Therefore, for an ASR33 teletype the end-of-line sequence was “\r\n”. Actually,
+you had to be careful about that since the carriage might take more than 100ms
+to return. If you sent “\n\r” then the next character just might get printed as the
+carriage returned, thereby creating a smudged character in the middle of the
+line. To be safe, we often padded the end-of-line sequence with one or two
+rubout3 characters (0 ´   FF).
+2. http://en.wikipedia.org/wiki/ASR-33_Teletype
+3. Rubout characters were very useful for editing paper tapes. By convention, rubout characters were ignored.
+Their code, 0 ´ FF, meant that every hole on that row of the tape was punched. This meant that any char-
+acter could be converted to a rubout by overpunching it. Therefore, if you made a mistake while typing
+your  program you could backspace the punch and hit rubout, then continue typing.
+APPENDIX A TOOLING

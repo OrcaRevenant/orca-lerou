@@ -1,0 +1,40 @@
+VII j Technical Questions
+When you hear a question, get out of your chair, go to the whiteboard, and draw an example.
+There's an art to drawing an example though. You want a good example.
+Very typically, a candidate might draw something like this for an example of a binary search tree:
+This is a bad example for several reasons. First, it's too small. You will have trouble finding a pattern in such
+a small example. Second, it's not specific. A binary search tree has values. What if the numbers tell you
+something about how to approach the problem? Third, it's actually a special case. It's not just a balanced
+tree, but it's also a beautiful, perfect tree where every node other than the leaves has two children. Special
+cases can be very deceiving.
+Instead, you want to create an example that is:
+•
+Specific. It should use real numbers or strings (if applicable to the problem).
+•
+Sufficiently large. Most examples are too small, by about 50%,
+•
+Not a special case. Be careful, it's very easy to inadvertently draw a special case. If there's any way your
+example is a special case (even if you think it probably won't be a big deal), you should fix it,
+Try to make the best example you can. If it later turns out your example isn't quite right, you canandshouid
+fix it.
+3. State a Brute Force
+Once you have an example done (actually, you can switch the order of steps 2 and 3 in some problems),
+state a brute force. It's okay and expected that your initial algorithm won't be very optimal.
+Some candidates don't state the brute force because they think it's both obvious and terrible. But here's the
+thing: Even if it's obvious for you, it's not necessarily obvious for all candidates. You don't want your inter-
+viewer to think that you're struggling to see even the easy solution.
+It's okay that this initial solution is terrible. Explain what the space and time complexity is, and then dive
+into improvements.
+Despite being possibly slow, a brute force algorithm is valuable to discuss. It's a starting point for optimiza-
+tions, and it helps you wrap your head around the problem.
+Once you have a brute force algorithm, you should work on optimizing it. A few techniques that work well
+are:
+1. Look for any unused information. Did your interviewer tell you that the array was sorted? How can you
+leverage that information?
+2. Use a fresh example. Sometimes, just seeing a different example will unclog your mind or help you see
+a pattern in the problem.
+3. Solve it "incorrectly." Just like having an inefficient solution can help you find an efficient solution, having
+an incorrect solution might help you find a correct solution. For example, if you're asked to generate a
+61
+Cracking the Coding Interview, 6th Edition
+4. Optimize

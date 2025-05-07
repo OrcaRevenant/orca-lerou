@@ -1,0 +1,16 @@
+Figure 33.2 A preliminary component architecture
+Would I really break the system up into all these components, and deliver them
+as .jar or .dll files? Yes and no. I would certainly break the compile and build
+environment up this way, so that I could build independent deliverables like that.
+I would also reserve the right to combine all those deliverables into a smaller
+number of deliverables if necessary. For example, given the partitioning in
+Figure 33.2, it would be easy to combine them into five .jar files—one for
+views, presenters, interactors, controllers, and utilities, respectively. I could then
+independently deploy the components that are most likely to change
+independently of each other.
+Another possible grouping would be to put the views and presenters together
+into the same .jar file, and put the interactors, controllers, and utilities in their
+own .jar file. Still another, even more primitive, grouping would be to create
+two .jar files, with views and presenters in one file, and everything else in the
+other.
+Keeping these options open will allow us to adapt the way we deploy the system

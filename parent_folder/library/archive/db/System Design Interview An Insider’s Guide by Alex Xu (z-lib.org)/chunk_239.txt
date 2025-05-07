@@ -1,0 +1,10 @@
+bring another database server to replace the failed one.
+• Notification service failure: Every online user keeps a long poll connection with the
+notification server. Thus, each notification server is connected with many users. According
+to the Dropbox talk in 2012 [6], over 1 million connections are open per machine. If a
+server goes down, all the long poll connections are lost so clients must reconnect to a
+different server. Even though one server can keep many open connections, it cannot
+reconnect all the lost connections at once. Reconnecting with all the lost clients is a
+relatively slow process.
+• Offline backup queue failure: Queues are replicated multiple times. If one queue fails,
+consumers of the queue may need to re-subscribe to the backup queue.

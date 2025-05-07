@@ -1,0 +1,80 @@
+Solutions to Chapter 7 j Object-Oriented Design
+1
+public class Playlist {
+2
+private Song song;
+3
+private Queue<Song> queue;
+4
+public Playlist(Song song, Queue<Song> queue) {
+5
+6
+>
+7
+public Song getNextSToPlay{) {
+8
+return queue.peek();
+9
+}
+10
+public void queuellpSong(Song s) {
+11
+queue.add(s);
+12
+>
+13 >
+The classes for CD, Song, and User are all fairly straightforward. They consist mainly of member variables
+and getters and setters.
+1
+public class CD { /* data for id, artist, songs, etc */ }
+2
+3
+public class Song { /* data for id, CD (could be null), title, length, etc */ )
+4
+5
+public class User {
+6
+private String name;
+7
+public String getName() { return name; >
+8
+public void setNarre(String name) {
+this.name = name; }
+9
+public long getID() { return ID; }
+10
+public void setID(long iD) { ID = iD; >
+11
+private long ID;
+12
+public User(String name, long ID) { ... >
+13
+public User getUser() { return this; }
+14
+public static User addUser(String name, long iD) { ... >
+15
+}
+This is by no means the only "correct" implementation. The interviewer's responses to initial questions, as
+well as other constraints, will shape the design of the jukebox classes.
+7.4
+Parking Lot: Design a parking lot using object-oriented principles.
+P9 127
+SOLUTION
+The wording of this question is vague, just as it would be in an actual interview. This requires you to have
+a conversation with your interviewer about what types of vehicles it can support, whether the parking lot
+has multiple levels, and so on.
+For our purposes right now, we'll make the following assumptions. We made these specific assumptions to
+add a bit of complexity to the problem without adding too much. If you made different assumptions, that's
+totally fine.
+•
+The parking lot has multiple levels. Each level has multiple rows of spots.
+•
+The parking lot can park motorcycles, cars, and buses.
+•
+The parking lot has motorcycle spots, compact spots, and large spots.
+•
+A motorcycle can park in any spot.
+•
+A car can park in either a single compact spot or a single large spot.
+312
+Cracking the Coding Interview, 6th Edition

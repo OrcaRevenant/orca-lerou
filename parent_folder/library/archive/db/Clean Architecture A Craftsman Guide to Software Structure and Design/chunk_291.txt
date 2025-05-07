@@ -1,0 +1,16 @@
+Figure 34.7 All four architectural approaches are the same
+Moving from left to right, in the “package by layer” approach, the
+OrdersService and OrdersRepository interfaces need to be public, because
+they have inbound dependencies from classes outside of their defining package.
+In contrast, the implementation classes (OrdersServiceImpl and
+JdbcOrdersRepository) can be made more restrictive (package protected).
+Nobody needs to know about them; they are an implementation detail.
+In the “package by feature” approach, the OrdersController provides the sole
+entry point into the package, so everything else can be made package protected.
+The big caveat here is that nothing else in the code base, outside of this package,
+can access information related to orders unless they go through the controller.
+This may or may not be desirable.
+In the ports and adapters approach, the OrdersService and Orders interfaces
+have inbound dependencies from other packages, so they need to be made
+public. Again, the implementation classes can be made package protected and
+dependency injected at runtime.

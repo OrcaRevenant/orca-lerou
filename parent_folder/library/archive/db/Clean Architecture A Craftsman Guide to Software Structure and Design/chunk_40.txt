@@ -1,0 +1,6 @@
+Just remember: If architecture comes last, then the system will become ever
+more costly to develop, and eventually change will become practically
+impossible for part or all of the system. If that is allowed to happen, it means the
+software development team did not fight hard enough for what they knew was
+necessary.
+1. From a speech at Northwestern University in 1954.

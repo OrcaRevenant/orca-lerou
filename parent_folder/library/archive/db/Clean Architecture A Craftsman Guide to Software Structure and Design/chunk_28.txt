@@ -1,0 +1,29 @@
+when you look at what a real architect does.
+Consider the architect who designed my new home. Does this home have an
+architecture? Of course it does. And what is that architecture? Well, it is the
+shape of the home, the outward appearance, the elevations, and the layout of the
+spaces and rooms. But as I look through the diagrams that my architect
+produced, I see an immense number of low-level details. I see where every
+outlet, light switch, and light will be placed. I see which switches control which
+lights. I see where the furnace is placed, and the size and placement of the water
+heater and the sump pump. I see detailed depictions of how the walls, roofs, and
+foundations will be constructed.
+In short, I see all the little details that support all the high-level decisions. I also
+see that those low-level details and high-level decisions are part of the whole
+design of the house.
+And so it is with software design. The low-level details and the high-level
+structure are all part of the same whole. They form a continuous fabric that
+defines the shape of the system. You can’t have one without the other; indeed, no
+clear dividing line separates them. There is simply a continuum of decisions
+from the highest to the lowest levels.
+THE GOAL?
+And the goal of those decisions? The goal of good software design? That goal is
+nothing less than my utopian description:
+The goal of software architecture is to minimize the human resources required to build and
+maintain the required system.
+The measure of design quality is simply the measure of the effort required to
+meet the needs of the customer. If that effort is low, and stays low throughout the
+lifetime of the system, the design is good. If that effort grows with each new
+release, the design is bad. It’s as simple as that.
+CASE STUDY
+As an example, consider the following case study. It includes real data from a

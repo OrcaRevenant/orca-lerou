@@ -1,0 +1,89 @@
+Solutions to Chapter 10 | Sorting and Searching
+66
+>
+67
+68 /* Find b i t index that is 0 w i t h i n byte.
+*/
+69 i n t find2ero(byte b) {
+70
+f o r ( i n t i = 0; i < Byte.SIZE; i++) {
+71
+i n t mask = 1 << i;
+72
+if ((b & mask) == 0) {
+73
+r e t u r n
+i;
+74
+>
+75
+}
+76
+r e t u r n -1;
+77
+}
+78
+79 /* Find a zero w i t h i n the b i t vector and return the index. */
+80
+i n t f i n d Z e r o { b y t e [ ]
+bitVector)
+{
+81
+f o r ( i n t i = 0; i < b i t V e c t o r . l e n g t h ; i++) {
+82
+if ( b i t V e c t o r [ i ]
+!= ~6) { // If not a l l Is
+83
+i n t b i t l n d e x = f i n d Z e r o ( b i t V e c t o r [ i ] ) ;
+84
+r e t u r n i * Byte,SIZE + b i t l n d e x ;
+85
+>
+86
+}
+87
+r e t u r n -1;
+88 }
+What if, as a follow up question, you are asked to solve the problem with even less memory? In this case, we
+can do repeated passes using the approach from the first step. We'd first check to see how many integers
+are found within each sequence of a million elements. Then, in the second pass, we'd check how many inte-
+gers are found in each sequence of a thousand elements. Finally, in the third pass, we'd apply the bit vector.
+10.8
+Find Duplicates: You have an array with all the numbers from 1 to N, where N is at most 32,000. The
+array may have duplicate entries and you do not know what N is. With only 4 kilobytes of memory
+available, how would you print all duplicate elements in the array?
+pgl5!
+SOLUTION
+We have 4 kilobytes of memory which means we can address up to 8 * 4 * 2 i e bits. Note that 32 * 210
+bits is greater than 32000. We can create a bit vector with 32000 bits, where each bit represents one integer.
+Using this bit vector, we can then iterate through the array, flagging each element v by setting bit v to 1.
+When we come across a duplicate element, we print it.
+1
+void c h e c k D u p l i c a t e s ( i n t [ ] array) {
+2
+BitSet bs = new BitSet(32000);
+3
+f o r ( i n t i = 0; i < a r r a y . l e n g t h ; i++) {
+4
+i n t num = a r r a y [ i ] ;
+5
+i n t nutn0 = num - 1; // b i t s e t s t a r t s at 0, numbers s t a r t at 1
+6
+if
+(bs.get(num0))
+{
+7
+System.out.println(num);
+8
+) else {
+9
+bs,set(num0);
+10
+)
+l i
+)
+12 }
+13
+14 class ßitSet {
+4 1 6
+Cracking the Coding Interview, 6th Edition

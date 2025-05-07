@@ -1,0 +1,44 @@
+var handlers = {
+get() {
+throw "No such property/method!";
+},
+set() {
+throw "No such property/method!";
+}
+},
+pobj = new Proxy( {}, handlers ),
+obj = {
+a: 1,
+foo() {
+console.log( "a:", this.a );
+}
+};
+// setup `obj` to fall back to `pobj`
+Object.setPrototypeOf( obj, pobj );
+obj.a = 3;
+obj.foo();          // a: 3
+obj.b = 4;          // Error: No such property/method!
+obj.bar();          // Error: No such property/method!
+The proxy last design here is a fair bit simpler with respect to how the handlers are
+defined. Instead of needing to intercept the [[Get]] and [[Set]] operations and only
+forward them if the target property exists, we instead rely on the fact that if either
+[[Get]] or [[Set]] get to our pobj fallback, the action has already traversed the
+whole [[Prototype]] chain and not found a matching property. We are free at that
+point to unconditionally throw the error. Cool, huh?
+Proxy Hacking The [[Prototype]] Chain
+The [[Get]] operation is the primary channel by which the [[Prototype]] mecha‐
+nism is invoked. When a property is not found on the immediate object, [[Get]]
+automatically hands off the operation to the [[Prototype]] object.
+That means you can use the get(..) trap of a proxy to emulate or extend the notion
+of this [[Prototype]] mechanism.
+The first hack we’ll consider is creating two objects which are circularly linked via
+[[Prototype]] (or, at least it appears that way!). You cannot actually create a real cir‐
+cular [[Prototype]] chain, as the engine will throw an error. But a proxy can fake it!
+Consider:
+var handlers = {
+get(target,key,context) {
+if (Reflect.has( target, key )) {
+Proxies
+|
+189
+www.it-ebooks.info

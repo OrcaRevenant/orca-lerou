@@ -1,0 +1,54 @@
+Solutions to Chapter 17 j Hard
+That is, our list above would look like:
+Q36 = {3AJ
+Q56 = {5Aj, 5A4, 5A,}
+Q76 = {7A1> 7A2, 7A3, 7Aa, 7AJ
+To get the min, we only need to look at the fronts of each queue:
+y = min(Q3.head(), Q5.head(), Q7.head())
+Once we compute y, we need to insert 3y into Q3, 5y into Q5, and 7y into Q7. But, we only want to insert
+these efements if they aren't already in another list.
+Why might, for example, 3y already be somewhere in the holding queues? Well, if y was puiled from Q7,
+then that means that y = 7x, for some smaller x. If 7x is the smallest value, we must have already seen 3x.
+And what did we do when we saw 3x? We inserted 7 * 3x into Q7. Note that 7 * 3x = 3 * 7x = 3y.
+To put this another way, if we pull an element from Q7, it will look like 7 * s u f f i x , and we know we have
+already handled 3 * s u f f i x and 5 * s u f f i x . In handling 3 * s u f f i x , we inserted 7 * 3 * s u f f i x
+intoaQ7. And in handling 5 * s u f f i x , we know we inserted 7 * 5 * s u f f i x in Q7. The only value we
+haven't seen yet is 7 * 7 * suffix, so we just insert 7 * 7 * s u f f i x into Q7.
+Let's walk through this with an example to make it really clear.
+i n i t i a l i z e :
+Q3 = 3
+Q5 = 5
+Q7 = 7
+remove min = 3. insert 3*3 in Q3, 5*3 into Q5, 7*3 into Q7.
+Q3 = 3*3
+Q5 = 5, 5*3
+Q7 = 7j 7*3
+remove min = 5. 3*5 is a dup, since we already did 5*3. insert 5*5 into Q5, 7*5
+into Q7.
+Q3 = 3*3
+Q5 = 5*3, 5*5
+Q7 = 7, 7*3, 7*5.
+remove min = 7. 3*7 and 5*7 are dups, since we already did 7*3 and 7*5. insert 7*7
+into Q7.
+Q3 = 3*3
+Q5 » 5*3, 5*5
+Q7 = 7*3, 7*5, 7*7
+remove min = 3*3 = 9. insert 3*3*3 in Q3, 3*3*5 into Q5, 3*3*7 into Q7,
+Q3 = 3*3*3
+Q5 = 5*3, 5*5, 5*3*3
+Q7 = 7*3, 7*5, 7*7, 7*3*3
+remove min = 5*3 = 15. 3*(5*3) is a dup, since we already did 5*(3*3). insert
+5*5*3 in Q5, 7*5*3 into Q7.
+Q3 = 3*3*3
+Q5 = 5*5, 5*3*3, 5*5*3
+Q7 = 7*3, 7*5, 7*7, 7*3*3, 7*5*3
+remove min = 7*3 = 21. 3*f7*3) and 5*(7*3) are dups, since we already did 7*(3*3)
+and 7*(5*3). insert 7*7*3 into Q7.
+Q3 = 3*3*3
+QS = 5*5, 5*3*3, 5*5*3
+Q7 = 7*5, 7*7, 7*3*3, 7*5*3, 7*7*3
+Our pseudocode for this problem is as follows:
+1. Initialize a r r a y and queues Q3, Q5, and Q7
+55
+S
+Cracking the Coding interview, 6th Edition

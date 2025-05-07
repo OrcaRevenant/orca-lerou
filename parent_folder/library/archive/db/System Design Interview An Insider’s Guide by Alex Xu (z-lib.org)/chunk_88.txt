@@ -1,0 +1,32 @@
+is handled by server Sz, which now has D4([Sx, 2], [Sz, 1])).
+5. When another client reads D3 and D4, it discovers a conflict, which is caused by data
+item D2 being modified by both Sy and Sz. The conflict is resolved by the client and
+updated data is sent to the server. Assume the write is handled by Sx, which now has
+D5([Sx, 3], [Sy, 1], [Sz, 1]). We will explain how to detect conflict shortly.
+Using vector clocks, it is easy to tell that a version X is an ancestor (i.e. no conflict) of
+version Y if the version counters for each participant in the vector clock of Y is greater than or
+equal to the ones in version X. For example, the vector clock D([s0, 1], [s1, 1])] is an
+ancestor of D([s0, 1], [s1, 2]). Therefore, no conflict is recorded.
+Similarly, you can tell that a version X is a sibling (i.e., a conflict exists) of Y if there is any
+participant in Y's vector clock who has a counter that is less than its corresponding counter in
+X. For example, the following two vector clocks indicate there is a conflict: D([s0, 1], [s1,
+2]) and D([s0, 2], [s1, 1]).
+Even though vector clocks can resolve conflicts, there are two notable downsides. First,
+vector clocks add complexity to the client because it needs to implement conflict resolution
+logic.
+Second, the [server: version] pairs in the vector clock could grow rapidly. To fix this
+problem, we set a threshold for the length, and if it exceeds the limit, the oldest pairs are
+removed. This can lead to inefficiencies in reconciliation because the descendant relationship
+cannot be determined accurately. However, based on Dynamo paper [4], Amazon has not yet
+encountered this problem in production; therefore, it is probably an acceptable solution for
+most companies.
+Handling failures
+As with any large system at scale, failures are not only inevitable but common. Handling
+failure scenarios is very important. In this section, we first introduce techniques to detect
+failures. Then, we go over common failure resolution strategies.
+Failure detection
+In a distributed system, it is insufficient to believe that a server is down because another
+server says so. Usually, it requires at least two independent sources of information to mark a
+server down.
+As shown in Figure 6-10, all-to-all multicasting is a straightforward solution. However, this is
+inefficient when many servers are in the system.

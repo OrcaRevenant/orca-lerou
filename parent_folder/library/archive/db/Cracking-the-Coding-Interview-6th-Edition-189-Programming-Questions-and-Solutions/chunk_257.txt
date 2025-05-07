@@ -1,0 +1,40 @@
+Solutions to Chapter 4 | Trees and Graphs
+15
+if
+(!check8ST(n.right))
+return f a l s e ;
+16
+17
+return true; II A l l good!
+18 >
+We've used an I n t e g e r instead of i n t so that we can know when l a s t _ p r i n t e d has been set to a value.
+If you don't like the use of static variables, then you can tweak this code to use a wrapper class for the
+integer, as shown below.
+1
+class Wraplnt {
+2
+public i n t value;
+3
+>
+Or, if you're implementing this in C++ or another language that supports passing integers by reference,
+then you can simply do that.
+Solution #2: The Min / Max Solution
+In the second solution, we leverage the definition of the binary search tree.
+What does it mean for a tree to be a binary search tree? We know that it must, of course, satisfy the condition
+l e f t . d a t a <= c u r r e n t . d a t a < r i g h t . data for each node, but this isn't quite sufficient. Consider
+the following small tree;
+Although each node is bigger than its left node and smaller than its right node, this is clearly not a binary
+search tree since 25 is in the wrong place.
+More precisely, the condition is that all left nodes must be less than or equal to the current node, which
+must be less than all the right nodes.
+Using this thought, we can approach the problem by passing down the min and max values. As we iterate
+through the tree, we verify against progressively narrower ranges.
+Consider the following sample tree:
+We start with a range of (min = NULL, max = NULL), which the root obviously meets. (NULL indicates
+that there is no min or max.) We then branch left, checking that these nodes are within the range (min =
+NULL, max = 20). Then, we branch right, checking that the nodes are within the range (min = 20,
+max = NULL).
+We proceed through the tree with this approach. When we branch left, the max gets updated. When we
+branch right, the min gets updated. If anything fails these checks, we stop and return false.
+CrackingTheCodinglnterview.com | 6th Edition
+247

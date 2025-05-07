@@ -1,0 +1,37 @@
+WeakMaps take (only) objects as keys. Those objects are held weakly, which means if
+the object itself is GC’d, the entry in the WeakMap is also removed. This isn’t observa‐
+ble behavior, though, as the only way an object can be GC’d is if there’s no more refer‐
+ences to it, but once there are no more references to it, you have no object reference
+to check if it exists in the WeakMap.
+Otherwise, the API for WeakMap is similar, though limited:
+var m = new WeakMap();
+var x = { id: 1 },
+y = { id: 2 };
+m.set( x, "foo" );
+m.has( x );                     // true
+m.has( y );                     // false
+WeakMaps do not have a size property or clear() method, nor do they expose any
+iterators over their keys, values, or entries. So even if you unset the x reference, which
+will remove its entry from m upon GC, there is no way to tell. You’ll just have to take
+JavaScript’s word for it!
+Just like Maps, WeakMaps let you soft-associate information with an object. But they
+are particularly useful if the object is not one you completely control, such as a DOM
+element. If the object you’re using as a map key can be deleted and should be GC-able
+when it is, then a WeakMap is a more appropriate option.
+It’s important to note that a WeakMap only holds its keys weakly, not its values. Con‐
+sider:
+var m = new WeakMap();
+var x = { id: 1 },
+y = { id: 2 };
+m.set( x, y );
+x = null;                       // `x` is GC-able
+y = null;                       // `y` is not GC-able
+For this reason, WeakMaps are in my opinion better named “WeakKeyMaps”.
+Sets
+A set is an a collection of unique values (duplicates are ignored).
+The API for a set is mostly identical to map. The add(..) method takes the place of
+the set(..) method (somewhat ironically), and there is no get(..) method.
+Sets
+|
+147
+www.it-ebooks.info

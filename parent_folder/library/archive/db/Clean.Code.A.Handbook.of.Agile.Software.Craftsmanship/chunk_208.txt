@@ -1,0 +1,39 @@
+178
+Chapter 13: Concurrency
+Writing clean concurrent programs is hard—very hard. It is much easier to write code that
+executes in a single thread. It is also easy to write multithreaded code that looks ﬁne on the
+surface but is broken at a deeper level. Such code works ﬁne until the system is placed
+under stress.
+In this chapter we discuss the need for concurrent programming, and the difﬁculties
+it presents. We then present several recommendations for dealing with those difﬁculties,
+and writing clean concurrent code. Finally, we conclude with issues related to testing
+concurrent code.
+Clean Concurrency is a complex topic, worthy of a book by itself. Our strategy in this
+book is to present an overview here and provide a more detailed tutorial in “Concurrency II”
+on page 317. If you are just curious about concurrency, then this chapter will sufﬁce for you
+now. If you have a need to understand concurrency at a deeper level, then you should read
+through the tutorial as well.
+Why Concurrency?
+Concurrency is a decoupling strategy. It helps us decouple what gets done from when it
+gets done. In single-threaded applications what and when are so strongly coupled that the
+state of the entire application can often be determined by looking at the stack backtrace. A
+programmer who debugs such a system can set a breakpoint, or a sequence of breakpoints,
+and know the state of the system by which breakpoints are hit.
+Decoupling what from when can dramatically improve both the throughput and struc-
+tures of an application. From a structural point of view the application looks like many lit-
+tle collaborating computers rather than one big main loop. This can make the system easier
+to understand and offers some powerful ways to separate concerns.
+Consider, for example, the standard “Servlet” model of Web applications. These sys-
+tems run under the umbrella of a Web or EJB container that partially manages concur-
+rency for you. The servlets are executed asynchronously whenever Web requests come in.
+The servlet programmer does not have to manage all the incoming requests. In principle,
+each servlet execution lives in its own little world and is decoupled from all the other serv-
+let executions.
+Of course if it were that easy, this chapter wouldn’t be necessary. In fact, the decou-
+pling provided by Web containers is far less than perfect. Servlet programmers have to be
+very aware, and very careful, to make sure their concurrent programs are correct. Still, the
+structural beneﬁts of the servlet model are signiﬁcant.
+But structure is not the only motive for adopting concurrency. Some systems have
+response time and throughput constraints that require hand-coded concurrent solutions.
+For example, consider a single-threaded information aggregator that acquires information
+from many different Web sites and merges that information into a daily summary. Because

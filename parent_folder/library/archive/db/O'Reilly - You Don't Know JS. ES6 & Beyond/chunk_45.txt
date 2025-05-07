@@ -1,0 +1,44 @@
+function runSomething(o) {
+var x = Math.random(),
+y = Math.random();
+return o.something( x, y );
+}
+runSomething( {
+something: function something(x,y){
+if (x > y) {
+// recursively call with `x`
+// and `y` swapped
+return something( y, x );
+}
+return y - x;
+}
+} );
+This obviously silly code just generates two random numbers and subtracts the
+smaller from the bigger. But what it does isn’t the important part, rather how it’s
+defined. Let’s focus on the object literal and function definition, as we see here:
+runSomething( {
+something: function something(x,y) {
+// ..
+}
+} );
+Why do we say both something: and function something? Isn’t that redundant?
+Actually, no, both are needed for different purposes. The property something is how
+we can call o.something(..), sort of like its public name. But the second something
+is a lexical name to refer to the function from inside itself, for recursion purposes.
+Can you see why the line return something(y,x) needs the name something to refer
+to the function? There’s no lexical name for the object, such that it could have said
+return o.something(y,x) or something of that sort.
+That’s actually a pretty common practice when the object literal does have an identi‐
+fying name, such as:
+var controller = {
+makeRequest: function(..) {
+// ..
+controller.makeRequest(..);
+}
+};
+Is this a good idea? Perhaps, perhaps not. You’re assuming that the name controller
+will always point to the object in question. But it very well may not — the makeRe
+34
+|
+Chapter 2: Syntax
+www.it-ebooks.info

@@ -1,0 +1,54 @@
+Chapter 7 | Object-Oriented Design
+Step 3: Analyze Relationships
+Having more or less decided on our core objects, we now want to analyze the relationships between the
+objects. Which objects are members of which other objects? Do any objects inherit from any others? Are
+relationships many-to-many or one-to-many?
+For example, in the restaurant question, we may come up with the following design:
+•
+P a r t y should have an array of Guests.
+•
+Server and Host inherit from Employee.
+•
+Each Table has one Party, but each P a r t y may have multiple T a b l e s .
+•
+There is one Host for the Restaurant.
+Be very careful here—you can often make incorrect assumptions. For example, a single Table may have
+multiple P a r t i e s (as is common in the trendy "communal tables"at some restaurants). You should talk to
+your interviewer about how general purpose your design should be.
+Step 4: Investigate Actions
+At this point, you should have the basic outline of your object-oriented design. What remains is to consider
+the key actions that the objects will take and how they relate to each other. You may find that you have
+forgotten some objects, and you will need to update your design.
+For example, a P a r t y walks into the Restaurant, and a Guest requests a Table from the Host. The
+Host looks up the R e s e r v a t i o n and, if it exists, assigns the P a r t y to a Table. Otherwise, the P a r t y
+is added to the end of the list. When a P a r t y leaves, the Table is freed and assigned to a new P a r t y in
+the list.
+• Design Patterns
+Because interviewers are trying to test your capabilities and not your knowledge, design patterns are
+mostly beyond the scope of an interview. However, the Singleton and Factory Method design patterns are
+widely used in interviews, so we will cover them here.
+There are far more design patterns than this book could possibly discuss. A great way to improve your soft-
+ware engineering skills is to pick up a book that focuses on this area specifically.
+Be careful you don't fall into a trap of constantly trying to find the "right" design pattern for a particular
+problem. You should create the design that works for that problem. In some cases it might be an estab-
+lished pattern, but in many other cases it is not.
+Singleton Class
+The Singleton pattern ensures that a class has only one instance and ensures access to the instance through
+the application. It can be useful in cases where you have a "global" object with exactly one instance. For
+example, we may want to implement Restaurant such that it has exactly one instance of Restaurant,
+1
+public class Restaurant {
+2
+private s t a t i c Restaurant _instance = n u l l ;
+3
+protected Restaurant() { . . . }
+4
+public s t a t i c Restaurant getlnstance() {
+5
+if {_instance == n u l l ) {
+6
+_instance = new Restaurant{);
+7
+}
+126
+Cracking the Coding Interview, 6th Edition

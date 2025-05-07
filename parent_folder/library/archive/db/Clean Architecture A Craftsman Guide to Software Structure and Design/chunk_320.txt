@@ -1,0 +1,28 @@
+Our 8085 platform had no operating system. My experience with the MPS
+system of the M365, and the primitive interrupt mechanisms of the IBM System
+7, convinced me that we needed a simple task switcher for the 8085. So I
+conceived of BOSS: Basic Operating System and Scheduler.10
+The vast majority of BOSS was written in C. It provided the ability to create
+concurrent tasks. Those tasks were not preemptive—task switching did not take
+place based on interrupts. Instead, and just like with the MPS system on the
+M365, tasks were switched based on a simple polling mechanism. The polling
+happened whenever a task blocked for an event.
+The BOSS call to block a task looked like this:
+block(eventCheckFunction);
+This call suspended the current task, placed the eventCheckFunction in the
+polling list, and associated it with the newly blocked task. It then waited in the
+polling loop, calling each of the functions in the polling list until one of them
+returned true. The task associated with that function was then allowed to run.
+In other words, as I said before, it was a simple, nonpreemptive task switcher.
+This software became the basis for a vast number of projects over the following
+years. But one of the first was the pCCU.
+pCCU
+The late 1970s and early 1980s were a tumultuous time for telephone companies.
+One of the sources of that tumult was the digital revolution.
+For the preceding century, the connection between the central switching office
+and the customer’s telephone had been a pair of copper wires. These wires were
+bundled into cables that spread in a huge network across the countryside. They
+were sometimes carried on poles, and sometimes buried underground.
+Copper is a precious metal, and the phone company had tons (literally tons) of it
+covering the country. The capital investment was enormous. Much of that capital
+could be reclaimed by transporting the telephone conversation over digital

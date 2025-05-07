@@ -1,0 +1,29 @@
+This was a game changer! IT no longer needed to procure a brand new oversized
+server every time the business asked for a new application. More often than not
+they could run new apps on existing servers that were sitting around with spare
+capacity.
+All of a sudden, we could squeeze massive amounts of value out of existing
+corporate assets, such as servers, resulting in a lot more bang for the company’s
+buck.
+VMwarts
+But… and there’s always a but! As great as VMs are, they’re not perfect!
+The fact that every VM requires its own dedicated OS is a major flaw. Every OS
+consumes CPU, RAM and storage that could otherwise be used to power more
+applications. Every OS needs patching and monitoring. And in some cases,
+every OS requires a license. All of this is a waste of op-ex and cap-ex.
+The VM model has other challenges too. VMs are slow to boot and portability
+isn’t great - migrating and moving VM workloads between hypervisors and
+cloud platforms is harder than it needs to be.
+Hello Containers!
+For a long time, the big web-scale players like Google have been using container
+technologies to address these shortcomings of the VM model.
+In the container model the container is roughly analogous to the VM. The major
+difference through, is that every container does not require a full-blown OS. In
+fact, all containers on a single host share a single OS. This frees up huge
+amounts of system resources such as CPU, RAM, and storage. It also reduces
+potential licensing costs and reduces the overhead of OS patching and other
+maintenance. This results in savings on the cap-ex and op-ex fronts.
+Containers are also fast to start and ultra-portable. Moving container workloads
+from your laptop, to the cloud, and then to VMs or bare metal in your data center
+is a breeze.
+Linux containers

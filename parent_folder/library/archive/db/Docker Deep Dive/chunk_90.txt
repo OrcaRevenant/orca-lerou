@@ -1,0 +1,41 @@
+drwxr-xr-x   2 root root 4096 Apr 12 20:14 home
+drwxr-xr-x   8 root root 4096 Sep 13  2015 lib
+drwxr-xr-x   2 root root 4096 Aug 19 00:50 lib64
+drwxr-xr-x   2 root root 4096 Aug 19 00:50 media
+drwxr-xr-x   2 root root 4096 Aug 19 00:50 mnt
+drwxr-xr-x   2 root root 4096 Aug 19 00:50 opt
+dr-xr-xr-x 129 root root    0 Sep 13 00:47 proc
+drwx------   2 root root 4096 Aug 19 00:50 root
+drwxr-xr-x   6 root root 4096 Aug 26 18:50 run
+drwxr-xr-x   2 root root 4096 Aug 26 18:50 sbin
+drwxr-xr-x   2 root root 4096 Aug 19 00:50 srv
+dr-xr-xr-x  13 root root    0 Sep 13 00:47 sys
+drwxrwxrwt   2 root root 4096 Aug 19 00:50 tmp
+drwxr-xr-x  11 root root 4096 Aug 26 18:50 usr
+drwxr-xr-x  13 root root 4096 Aug 26 18:50 var
+root@3027eb644874:/#
+root@3027eb644874:/#
+root@3027eb644874:/# ping www.docker.com
+bash: ping: command not found
+root@3027eb644874:/#
+As shown in the output above, the ping utility is not included as part of the
+official Ubuntu image.
+Container processes
+When we started the Ubuntu container in the previous section we told it to run
+the Bash shell (/bin/bash). This makes the Bash shell the one and only process
+running inside of the container. You can see this by running ps -elf from
+inside the container.
+root@3027eb644874:/# ps -elf
+F S UID   PID  PPID   NI ADDR SZ WCHAN  STIME TTY     TIME      CMD
+4 S root    1     0    0 -  4558 wait   00:47 ?     00:00:00  /bin/bash
+0 R root   11     1    0 -  8604 -      00:52 ?     00:00:00  ps -elf
+Although it might look like there are two processes running in the output above,
+there aren’t. The first process in the list, with PID 1, is the Bash shell we told the
+container to run. The second process in the list is the ps -elf command we ran
+to produce the list. This is a short-lived process that has already exited by the
+time the output is displayed on the terminal. Long story short, this container is
+running a single process - /bin/bash.
+Note: Windows containers are slightly different and tend to run quite a few
+processes.
+This means that if you type exit to exit the Bash shell, the container will also
+exit (terminate). The reason for this is that a container cannot exist without a

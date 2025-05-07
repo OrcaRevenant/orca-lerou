@@ -1,0 +1,9 @@
+Figure 34.1 Package by layer
+In “Presentation Domain Data Layering,”2 Martin Fowler says that adopting
+such a layered architecture is a good way to get started. He’s not alone. Many of
+the books, tutorials, training courses, and sample code you’ll find will also point
+you down the path of creating a layered architecture. It’s a very quick way to get
+something up and running without a huge amount of complexity. The problem,
+as Martin points out, is that once your software grows in scale and complexity,
+you will quickly find that having three large buckets of code isn’t sufficient, and
+you will need to think about modularizing further.

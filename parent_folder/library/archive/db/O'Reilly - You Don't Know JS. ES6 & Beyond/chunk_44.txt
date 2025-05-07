@@ -1,0 +1,42 @@
+var x = 2, y = 3,
+o = {
+x,
+y
+};
+Concise Methods
+In a similar spirit to concise properties we just examined, functions attached to prop‐
+erties in object literals also have a concise form, for convenience.
+The old way:
+var o = {
+x: function() {
+// ..
+},
+y: function() {
+// ..
+}
+}
+And as of ES6:
+var o = {
+x() {
+// ..
+},
+y() {
+// ..
+}
+}
+While x() { .. } seems to just be shorthand for x: function()
+{ .. }, concise methods have special behaviors that their older
+counterparts don’t; specifically, the allowance for super (see
+“Object super" later in this chapter).
+Generators (see Chapter 4) also have a concise method form:
+var o = {
+*foo() { .. }
+};
+Concisely Unnamed
+While that convenience shorthand is quite attractive, there’s a subtle gotcha to be
+aware of. To illustrate, let’s examine pre-ES6 code like the following, which you might
+try to refactor to use concise methods:
+Object Literal Extensions
+|
+33
+www.it-ebooks.info

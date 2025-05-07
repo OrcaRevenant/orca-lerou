@@ -1,0 +1,46 @@
+274
+Chapter 16: Refactoring SerialDate
+This factory class replaces the createInstance methods with makeDate methods, which
+improves the names quite a bit [N1]. It defaults to a SpreadsheetDateFactory but can be
+changed at any time to use a different factory. The static methods that delegate to abstract
+methods use a combination of the SINGLETON,4 DECORATOR,5 and ABSTRACT FACTORY
+patterns that I have found to be useful.
+The SpreadsheetDateFactory looks like this.
+public static DayDate makeDate(int day, DayDate.Month month, int year) {
+return factory._makeDate(day, month, year);
+}
+public static DayDate makeDate(int day, int month, int year) {
+return factory._makeDate(day, month, year);
+}
+public static DayDate makeDate(java.util.Date date) {
+return factory._makeDate(date);
+}
+public static int getMinimumYear() {
+return factory._getMinimumYear();
+}
+public static int getMaximumYear() {
+return factory._getMaximumYear();
+}
+}
+4.
+Ibid.
+5.
+Ibid.
+public class SpreadsheetDateFactory extends DayDateFactory {
+public DayDate _makeDate(int ordinal) {
+return new SpreadsheetDate(ordinal);
+}
+public DayDate _makeDate(int day, DayDate.Month month, int year) {
+return new SpreadsheetDate(day, month, year);
+}
+public DayDate _makeDate(int day, int month, int year) {
+return new SpreadsheetDate(day, month, year);
+}
+public DayDate _makeDate(Date date) {
+final GregorianCalendar calendar = new GregorianCalendar();
+calendar.setTime(date);
+return new SpreadsheetDate(
+calendar.get(Calendar.DATE),
+DayDate.Month.make(calendar.get(Calendar.MONTH) + 1),
+calendar.get(Calendar.YEAR));
+}

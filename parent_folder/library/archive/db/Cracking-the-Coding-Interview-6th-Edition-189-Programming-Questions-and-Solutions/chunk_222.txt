@@ -1,0 +1,78 @@
+Solutions to Chapter 2 | Linked Lists
+Note that this problem cannot be solved if the node to be deleted is the last node in the linked list. That's
+okay—your interviewer wants you to point that out, and to discuss how to handle this case. You could, for
+example, consider marking the node as dummy.
+2.4
+Partition; Write code to partition a linked list around a value x, such that all nodes less than x come
+before all nodes greater than or equal tox. If x is contained within the list, the values of x only need
+to be after the elements less than x (see below). The partition element x can appear anywhere in the
+"right partition"; it does not need to appear between the left and right partitions.
+EXAMPLE
+input:
+3 -> S -> 8 -> 5 -> 10 -> 2 -> 1 [partition = 5]
+Output:
+3 -> 1 -> 2 -> 10 -> 5 -> 5 -> 8
+If this were an array, we would need to be careful about how we shifted elements. Array shifts are very
+expensive.
+However, in a linked list, the situation is much easier. Rather than shifting and swapping elements, we can
+actually create two different linked lists: one for elements less than x, and one for elements greater than or
+equal to x.
+We iterate through the linked list, inserting elements into our b e f o r e list or our a f t e r list. Once we reach
+the end of the linked list and have completed this splitting, we merge the two lists.
+This approach is mostly "stable" in that eiementsstay in their original order, other than the necessary move-
+ment around the partition. The code below implements this approach.
+1
+/• Pass in the head of the linked l i s t and the value to p a r t i t i o n around */
+2
+LinkedListNode partition(LinkedListNode node, i n t x) {
+3
+LinkedListNode beforeStart a n u l l ;
+4
+LinkedListNode beforeEnd = n u l l ;
+5
+LinkedListNode afterStart = n u l l ;
+6
+LinkedListNode afterEnd = n u l l ;
+7
+8
+/* P a r t i t i o n l i s t */
+9
+while (node 1= n u l l ) {
+10
+LinkedListNode next = node.next;
+11
+node.next = n u l l ;
+12
+if (node.data < x) {
+13
+/* Insert node into end of before l i s t */
+14
+if (beforeStart == n u l l ) {
+15
+beforeStart = node;
+16
+beforeEnd = beforeStart;
+17
+} else {
+18
+beforeEnd.next = node;
+19
+beforeEnd = node;
+pg 94
+SOLUTION
+20
+21
+22
+23
+2-1
+25
+26
+>
+} else {
+/* Insert node into end of a f t e r l i s t */
+if ( a f t e r S t a r t == n u l l ) {
+afterStart = node;
+afterEnd = a f t e r S t a r t ;
+) else {
+Î26
+Cracking the Coding Interview, 6th Edition

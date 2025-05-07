@@ -1,0 +1,29 @@
+the interfaces relatively stable. However, when it comes time to deploy the
+system, they may discover that the number of micro-services has become
+daunting; configuring the connections between them, and the timing of their
+initiation, may also turn out to be a huge source of errors.
+Had the architects considered deployment issues early on, they might have
+decided on fewer services, a hybrid of services and in-process components, and a
+more integrated means of managing the interconnections.
+OPERATION
+The impact of architecture on system operation tends to be less dramatic than the
+impact of architecture on development, deployment, and maintenance. Almost
+any operational difficulty can be resolved by throwing more hardware at the
+system without drastically impacting the software architecture.
+Indeed, we have seen this happen over and over again. Software systems that
+have inefficient architectures can often be made to work effectively simply by
+adding more storage and more servers. The fact that hardware is cheap and
+people are expensive means that architectures that impede operation are not as
+costly as architectures that impede development, deployment, and maintenance.
+This is not to say that an architecture that is well tuned to the operation of the
+system is not desirable. It is! It’s just that the cost equation leans more toward
+development, deployment, and maintenance.
+Having said that, there is another role that architecture plays in the operation of
+the system: A good software architecture communicates the operational needs of
+the system.
+Perhaps a better way to say this is that the architecture of a system makes the
+operation of the system readily apparent to the developers. Architecture should
+reveal operation. The architecture of the system should elevate the use cases, the
+features, and the required behaviors of the system to first-class entities that are
+visible landmarks for the developers. This simplifies the understanding of the
+system and, therefore, greatly aids in development and maintenance.

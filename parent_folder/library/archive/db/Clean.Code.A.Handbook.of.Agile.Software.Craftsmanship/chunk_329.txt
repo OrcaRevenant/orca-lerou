@@ -1,0 +1,41 @@
+299
+General
+This code has a logical dependency that has not been physicalized. Can you spot it? It
+is the constant PAGE_SIZE. Why should the HourlyReporter know the size of the page? Page
+size should be the responsibility of the HourlyReportFormatter.
+The fact that PAGE_SIZE is declared in HourlyReporter represents a misplaced
+responsibility [G17] that causes HourlyReporter to assume that it knows what the page size
+ought to be. Such an assumption is a logical dependency. HourlyReporter depends on the
+fact that HourlyReportFormatter can deal with page sizes of 55. If some implementation of
+HourlyReportFormatter could not deal with such sizes, then there would be an error.
+We can physicalize this dependency by creating a new method in HourlyReport-
+Formatter named getMaxPageSize(). HourlyReporter will then call that function rather than
+using the PAGE_SIZE constant.
+G23: Prefer Polymorphism to If/Else or Switch/Case
+This might seem a strange suggestion given the topic of Chapter 6. After all, in that chapter I
+make the point that switch statements are probably appropriate in the parts of the system
+where adding new functions is more likely than adding new types.
+First, most people use switch statements because it’s the obvious brute force solution,
+not because it’s the right solution for the situation. So this heuristic is here to remind us to
+consider polymorphism before using a switch.
+Second, the cases where functions are more volatile than types are relatively rare. So
+every switch statement should be suspect.
+I use the following “ONE SWITCH” rule: There may be no more than one switch state-
+ment for a given type of selection. The cases in that switch statement must create polymor-
+phic objects that take the place of other such switch statements in the rest of the system.
+G24: Follow Standard Conventions
+Every team should follow a coding standard based on common industry norms. This cod-
+ing standard should specify things like where to declare instance variables; how to name
+classes, methods, and variables; where to put braces; and so on. The team should not need
+a document to describe these conventions because their code provides the examples.
+item.tenths = e.getTenthsWorked() % 10;
+page.add(item);
+}
+public class LineItem {
+public String name;
+public int hours;
+public int tenths;
+}
+}
+Listing 17-1 (continued)
+HourlyReporter.java

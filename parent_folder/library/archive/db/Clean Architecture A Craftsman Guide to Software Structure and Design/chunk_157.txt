@@ -1,0 +1,29 @@
+You can see the pattern here. If you decouple the elements of the system that
+change for different reasons, then you can continue to add new use cases without
+interfering with old ones. If you also group the UI and database in support of
+those use cases, so that each use case uses a different aspect of the UI and
+database, then adding new use cases will be unlikely to affect older ones.
+DECOUPLING MODE
+Now think of what all that decoupling means for the second bullet: operations. If
+the different aspects of the use cases are separated, then those that must run at a
+high throughput are likely already separated from those that must run at a low
+throughput. If the UI and the database have been separated from the business
+rules, then they can run in different servers. Those that require higher bandwidth
+can be replicated in many servers.
+In short, the decoupling that we did for the sake of the use cases also helps with
+operations. However, to take advantage of the operational benefit, the
+decoupling must have the appropriate mode. To run in separate servers, the
+separated components cannot depend on being together in the same address
+space of a processor. They must be independent services, which communicate
+over a network of some kind.
+Many architects call such components “services” or “micro-services,” depending
+upon some vague notion of line count. Indeed, an architecture based on services
+is often called a service-oriented architecture.
+If that nomenclature set off some alarm bells in your mind, don’t worry. I’m not
+going to tell you that SoA is the best possible architecture, or that micro-services
+are the wave of the future. The point being made here is that sometimes we have
+to separate our components all the way to the service level.
+Remember, a good architecture leaves options open. The decoupling mode is one
+of those options.
+Before we explore that topic further, let’s look to the other two bullets.
+INDEPENDENT DEVELOP-ABILITY

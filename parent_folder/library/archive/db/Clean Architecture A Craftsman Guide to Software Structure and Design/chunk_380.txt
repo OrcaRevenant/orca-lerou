@@ -1,0 +1,34 @@
+Variables, functional language, 51
+Varian 620/f minicomputer, Union Accounting archaeology project, 331–334
+Video sales case study
+component architecture, 300–302
+conclusion, 302
+dependency management, 302
+on process/decisions of good architect, 297–298
+product, 298
+use case analysis, 298–300
+View Model, Presenters and Views, 213
+Views
+component architecture, 301
+Presenters and, 212–213
+Vignette Grande, architects registry exam, 371–372
+Visual Studio, plugin argument, 172–173
+Voice technologies, archaeology projects
+Electronic Receptionist, 359–361
+Voice Response System, 357–359
+Volatile components
+dependency graph and, 118
+design for testability, 251
+placing in volatile software, 126
+as problematic in Zone of Pain, 129
+Stable Dependencies Principle and, 120
+Von Neumann, 34
+VRS (Voice Response System), archaeology projects, 357–359, 362–363
+W
+Web
+as delivery system for your application, 197–198
+Dependency Rule for, 205
+is detail, 285–289
+Web servers
+creating testable architecture without, 198
+as option to be left open, 141, 197

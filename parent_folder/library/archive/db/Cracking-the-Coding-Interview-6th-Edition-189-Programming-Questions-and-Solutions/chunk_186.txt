@@ -1,0 +1,69 @@
+Chapter 15 j Threads and Locks
+19
+public class ExampleB {
+20
+public s t a t i c void main(String args[]) (
+21
+ThreadExample instance = new ThreadExample();
+22
+i n s t a n c e . s t a r t ( ) ;
+23
+24
+while (instance.count != 5) {
+25
+t r y {
+26
+Thread.sleep(250);
+27
+} catch (InterruptedException exc) {
+28
+exc.printStackTrace();
+29
+}
+30
+}
+31
+}
+32
+}
+This code is very similar to the first approach. The difference is that since we are extending the Thread
+class, rather than just implementing an interface, we can call s t a r t () on the instance of the class itself.
+Extending the Thread Class vs. Implementing the Runnable Interface
+When creating threads, there are two reasons why implementing the Runnable interface may be prefer-
+able to extending the Thread class:
+•
+Java does not support multiple inheritance. Therefore, extending the Thread class means that the
+subclass cannot extend any other class. A class implementing the Runnable interface will be able to
+extend another class.
+•
+A class might only be interested in being runnable, and therefore, inheriting the full overhead of the
+Thread class would be excessive.
+• Synchronization and Locks
+Threads within a given process share the same memory space, which is both a positive and a negative. It
+enables threads to share data, which can be valuable. However, it also creates the opportunity for issues
+when two threads modify a resource at the same time. Java provides synchronization in order to control
+access to shared resources.
+The keyword synchronized and the l o c k form the basis for implementing synchronized execution of
+code.
+Synchronized Methods
+Most commonly, we restrict access to shared resources through the use of the synchronized keyword.lt
+can be applied to methods and code blocks, and restricts multiple threads from executing the code simul-
+taneously on the same object.
+To clarify the last point, consider the following code:
+1
+public class MyClass extends Thread
+{
+2
+private String name;
+3
+private MyObject myObj;
+4
+public MyClass(MyObject obj, String n) {
+6
+name = n;
+7
+myOb] = obj;
+8
+}
+180
+Cracking the Coding Interview, 6th Edition

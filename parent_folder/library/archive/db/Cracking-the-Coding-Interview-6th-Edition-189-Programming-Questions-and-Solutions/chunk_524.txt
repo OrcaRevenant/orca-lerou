@@ -1,0 +1,105 @@
+Solutions to Chapter 16 | Moderate
+59
+}
+60
+61
+/* Move ant. */
+62
+public void move() {
+ant.turn(grid[ant.position.row][ant.position.column]);
+64
+flip(ant.position);
+65
+ant,move();
+66
+ensureFit(ant.position); // grow
+67
+>
+68
+69
+/* Print board. */
+70
+public String toStringO {
+71
+StringBuilder sb = new String8uilder();
+72
+for (int r = 0; r < grid.length; r++) {
+73
+for (int c = 0; c < grid[0].length; c++) {
+74
+if (r mm ant.posit ion.row && c == ant.position.column) {
+75
+sb.appendant, orientation);
+76
+) else if (grid[r][c]) {
+77
+sb.append("X");
+78
+) else {
+79
+sb,append("_");
+80
+}
+81
+>
+82
+sb.append("\n");
+83
+}
+84
+sb.append("Ant: " + ant.orientation + ". \n");
+85
+return sb.toString();
+86
+}
+87 >
+We pulled the Ant code into a separate class. The nice thing about this is that if we need to have multiple
+ants for some reason, we can easily extend the code to support this.
+1
+public class Ant {
+2
+public Position position = new Position(0j 0);
+public Orientation orientation = Orientation,right;
+4
+5
+public void turn(boolean clockwise) {
+6
+orientation = orientation.getTurn(clockwise);
+7
+>
+8
+9
+public void move() {
+10
+if (orientation == Orientation.left) {
+11
+position.column--;
+12
+} else if (orientation == Orientation.right) {
+13
+position.column++;
+14
+) else if (orientation == Orientation.up) {
+15
+position.row--;
+16
+> else if (orientation == Orientation.down) {
+17
+position.row++;
+18
+>
+19
+>
+20
+21
+public void adjustPosition(int shiftRow, int shiftColumn) (
+22
+position.row += shiftRow;
+23
+position.column += shiftColumn;
+24
+>
+"
+>
+492
+Cracking the Coding Interview, 6th Edition

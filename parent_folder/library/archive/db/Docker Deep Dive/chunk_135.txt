@@ -1,0 +1,27 @@
+$ docker service ps uber-svc
+ID        NAME          IMAGE                NODE  DESIRED   CURRENT STATE
+0v...7e5  uber-svc.1    nigelpoulton/...:v1  wrk3  Running   Running 1 min
+bh...wa0  uber-svc.2    nigelpoulton/...:v1  wrk2  Running   Running 1 min
+23...u97  uber-svc.3    nigelpoulton/...:v1  wrk2  Running   Running 1 min
+82...5y1  uber-svc.4    nigelpoulton/...:v1  mgr2  Running   Running 1 min
+c3...gny  uber-svc.5    nigelpoulton/...:v1  wrk3  Running   Running 1 min
+e6...3u0  uber-svc.6    nigelpoulton/...:v1  wrk1  Running   Running 1 min
+78...r7z  uber-svc.7    nigelpoulton/...:v1  wrk1  Running   Running 1 min
+2m...kdz  uber-svc.8    nigelpoulton/...:v1  mgr3  Running   Running 1 min
+b9...k7w  uber-svc.9    nigelpoulton/...:v1  mgr3  Running   Running 1 min
+ag...v16  uber-svc.10   nigelpoulton/...:v1  mgr2  Running   Running 1 min
+e6...dfk  uber-svc.11   nigelpoulton/...:v1  mgr1  Running   Running 1 min
+e2...k1j  uber-svc.12   nigelpoulton/...:v1  mgr1  Running   Running 1 min
+Passing the service the -p 80:80 flag will ensure that a swarm-wide mapping is
+created that maps traffic coming in to any node in the swarm on port 80 through
+to port 80 inside of any container in the service.
+Open a web browser and point it to the IP address of any of the nodes in the
+swarm on port 80 to see the app running in the service.
+Figure 9.6
+As you can see, the application is a simple voting application that will register
+votes for either “football” or “soccer”. Feel free to point your web browser to
+other nodes in the swarm. You will be able to reach the web server from any
+node in the swam because the -p 80:80 flag creates a mapping on every host.
+This is true even on nodes that are not running a task for the service - every
+node gets a mapping and can therefore redirect your request to a node that
+runs the service.

@@ -1,0 +1,71 @@
+Solutions to Chapter 7 ] Object-Oriented Design
+6
+7
+public boolean playPiece(int r, int c} {
+8
+return Game,getlnstance() .getBoardQ .placeColor(rj c, color);
+9
+}
+10
+11
+public Color getColor() { return color; }
+12 >
+A fully functioning (automated) version of this code can be found in the downloadable code attachment.
+Remember that in many problems, what you did is less important than why you did it. Your interviewer
+probably doesn't care much whether you chose to implement Game as a singleton or not, but she probably
+does care that you took the time to think about it and discuss the trade-offs.
+7.9
+Circular Array: Implement a C i r c u l a r A r r a y class that supports an array-like data structure which
+can be efficiently rotated. If possible, the class should use a generic type (also called a template), and
+should support iteration via the standard f o r (Obj o : c i r c u l a r A r r a y ) notation.
+pg 128
+SOLUTION
+This problem really has two parts to it. First, we need to implement the C i r c u l a r A r r a y class. Second, we
+need to support iteration. We will address these parts separately.
+Implementing the CircularArray class
+One way to implement the C i r c u l a r A r r a y class is to actually shift the elements each time we call
+r o t a t e ( i n t
+s h i f t R i g h t ) . Doing this is, of course, not very efficient.
+Instead, we can just create a member variable head which points to what should be conceptually viewed
+as the start of the circular array. Rather than shifting around the elements in the array, we just increment
+head by s h i f t R i g h t ,
+The code below implements this approach.
+1
+public class CircularArray<T> {
+2
+private T[] items;
+3
+private int head = 0;
+4
+5
+public CircularArray(int size) {
+6
+items = (T[]) new Object[size];
+?
+>
+8
+9
+private int convert(int index) {
+10
+if (index < 0) {
+11
+index += items.length;
+12
+>
+13
+return (head + index) % items.length;
+14
+}
+15
+16
+public void rotate(int shiftRight) {
+17
+head = convert(shiftRight);
+IE
+>
+19
+20
+public T get(int i) {
+21
+if (i < 0 || i >= items.length) {
+CrackingTheCodinglnterview.com | 6th Edition 3 37

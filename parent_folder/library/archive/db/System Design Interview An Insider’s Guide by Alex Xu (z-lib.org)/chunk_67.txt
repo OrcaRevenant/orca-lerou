@@ -1,0 +1,4 @@
+As shown in Figure 5-2, most keys are redistributed, not just the ones originally stored in the
+offline server (server 1). This means that when server 1 goes offline, most cache clients will
+connect to the wrong servers to fetch data. This causes a storm of cache misses. Consistent
+hashing is an effective technique to mitigate this problem.

@@ -1,0 +1,36 @@
+LSP and, 80
+plugin, 170–171
+in ROSE archaeology product, 368–370
+in SAC archaeology project, 345–347
+as senior to function, 18
+as software value, 14–15
+stability, 122–126
+testing, 213
+three big concerns in, 24
+value of function vs., 15–16
+in VRS archaeology project, 358–359
+Architecture archaeology projects
+4-TEL, 339–344
+aluminum die-cast monitoring, 338–339
+architects registry exam, 370–373
+by author since 1970, 325–326
+Basic Operating System and Scheduler, 351–352
+C language, 349–351
+conclusion, 373
+Craft Dispatch System, 361–367
+DLU/DRU, 354–356
+Electronic Receptionist, 359–361
+Laser Trim, 334–338
+pCCU, 352–354
+ROSE product, 368–370
+service area computer, 344–349
+Union Accounting system, 326–334
+VRS, 357–359
+Architecture, defining
+conclusion, 146
+deployment, 138
+development, 137–138
+device independence, 142–143
+junk mail example, 144–145
+keeping options open, 140–142
+maintenance, 139–140

@@ -1,0 +1,25 @@
+names in Silicon Valley venture capital. Almost all of this funding was raised
+after the company pivoted to become Docker, Inc.
+Since becoming Docker, Inc. they’ve made several small acquisitions, for
+undisclosed fees, to help grow their portfolio of products and services.
+At the time of writing, Docker, Inc. has somewhere in the region of 200-300
+employees and holds an annual conference called Dockercon. The goal of
+Dockercon is to bring together the growing container ecosystem and drive the
+adoption of Docker and container technologies.
+Throughout this book we’ll use the term “Docker, Inc.” when referring to
+Docker the company. All other uses of the term “Docker” will refer to the
+technology or the open-source project.
+Note: The word “Docker” comes from a British colloquialism meaning
+dock worker - somebody who loads and unloads ships.
+The Docker runtime and orchestration engine
+When most technologists talk about Docker, they’re referring to the Docker
+Engine.
+The Docker Engine is the infrastructure plumbing software that runs and
+orchestrates containers. If you’re a VMware admin, you can think of it as being
+similar to ESXi. In the same way that ESXi is the core hypervisor technology
+that runs virtual machines, the Docker Engine is the core container runtime that
+runs containers.
+All other Docker, Inc. and 3rd party products plug into the Docker Engine and
+build around it. Figure 2.2 shows the Docker Engine at the center. All of the
+other products in the diagram build on top of the Engine and leverage its core
+capabilities.

@@ -1,0 +1,58 @@
+Chapter 12 | CandC++
+i
+Bookshelf Bookshelf::operator+(8ookShelf Sother) { ... >
+• Pointers and References
+A pointer holds the address of a variable and can be used to perform any operation that could be directly
+done on the variable, such as accessing and modifying it.
+Two pointers can equal each other, such that changing one's value also changes the other's value (since
+they, in fact, point to the same address).
+1
+int * p = new int;
+2
+*p = 7;
+3
+int * q = p;
+4
+*p = 8;
+5
+cout << *q; // prints 8
+Note that the size of a pointer varies depending on the architecture: 32 bits on a 32-bit machine and 64
+bits on a 64-bit machine. Pay attention to this difference, as it's common for interviewers to ask exactly how
+much space a data structure takes up.
+References
+A reference is another name (an alias) for a pre-existing object and it does not have memory of its own. For
+example:
+1
+int a = 5;
+2
+int 8 b = a;
+3
+b = 7;
+4
+cout << a; II prints 7
+In line 2 above, b is a reference to a; modifying b will also modify a.
+You cannot create a reference without specifying where in memory it refers to. However, you can create a
+free-standing reference as shown below:
+1
+/* allocates memory to store 12 and makes b a reference to this
+2
+* piece of memory. */
+3
+const int & b = 12;
+Unlike pointers, references cannot be null and cannot be reassigned to another piece of memory.
+Pointer Arithmetic
+One will often see programmers perform addition on a pointer, such as what you see below:
+1
+int * p = new int[2];
+2
+p[0] = 0;
+3
+p[l] = 1;
+4
+p++;
+5
+cout << *p; // Outputs 1
+Performing p++ will skip ahead by s i z e o f ( i n t ) bytes, such that the code outputs 1. Had p been of
+different type, it would skip ahead as many bytes as the size of the data structure.
+162
+Cracking the Coding Interview, 6th Edition

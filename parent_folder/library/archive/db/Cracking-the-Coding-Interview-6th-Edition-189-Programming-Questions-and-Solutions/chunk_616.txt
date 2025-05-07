@@ -1,0 +1,99 @@
+Solutions to Chapter 17 j Hard
+To implement this approach, we've used an additional class BFSData. BFSData helps us keep things a
+bit clearer, and allows us to keep a similar framework for the two simultaneous breadth-first searches. The
+alternative is to keep passing around a bunch of separate variables.
+1
+LinkedList<String> transform(String startword, String stopword, 5tring[] words) {
+HashMapListcStringj String> wildcardToWordList = getWildcardToWordList(words);
+3
+4
+BFSData sourceData - new BFSData(startWord);
+5
+BFSData destData = new BFSData(stopWord);
+6
+while (IsourceData.isFinishedf) && !destData.isFinished()) {
+8
+/* Search out from source. */
+9
+String collision = searchLevel(wildcardToWordList, sourceData, destData);
+10
+if (collision 1= null) {
+11
+return mergePaths(sourceData, destData, collision);
+12
+>
+13
+14
+/* Search out from destination. */
+15
+collision = searchLevel(wildcardToWordtist, destData, sourceData);
+16
+if (collision != null) {
+17
+return mergePaths(sourceData, destData, collision);
+18
+}
+19
+>
+20
+21
+return null;
+22
+>
+23
+24 /* Search one level and return collision, if any. */
+25 String searchLevel(HashMapListcString, String» wildcardToWordList,
+26
+BFSData primary, BFSData secondary) {
+27
+/* We only want to search one level at a time. Count how many nodes are
+28
+* currently in the primary's level and only do that many nodes. We'll continue
+29
+* to add nodes to the end. */
+30
+int count = primary,toVisit.size();
+31
+for (int i = 0; i < count; i++) {
+32
+/* Pull out first node. */
+33
+PathNode pathNode = primary.toVisit.poll();
+34
+String word = pathNode.getWordQ;
+35
+36
+/* Check if it's already been visited. */
+37
+if (secondary.visited.containsKey(word)) {
+38
+return pathNode.getWordQ;
+39
+>
+40
+41
+/* Add friends to queue. */
+42
+ArrayList<String> words = getValidlinkedWords(word, wildcardToWordList);
+43
+for (String w : words) {
+44
+if (1 primary.visited.containsKey(w)) {
+45
+PathNode next = new PathNode(w, pathNode);
+46
+primary.visited.put(w, next);
+47
+primary.toVisit.add(next);
+48
+)
+49
+}
+50
+)
+51
+return null;
+52
+}
+53
+55 S Cracking the Coding interview, 6th Edition

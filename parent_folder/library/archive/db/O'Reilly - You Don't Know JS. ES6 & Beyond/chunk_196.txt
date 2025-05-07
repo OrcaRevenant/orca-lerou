@@ -1,0 +1,41 @@
+Revocable Proxies
+A regular proxy always traps for the target object, and cannot be modified after cre‐
+ation — as long as a reference is kept to the proxy, proxying remains possible. How‐
+ever, there may be cases where you want to create a proxy that can be used only for a
+certain period of time and then disabled. The solution is to create a revocable proxy:
+var obj = { a: 1 },
+handlers = {
+get(target,key,context) {
+// note: target === obj,
+// context === pobj
+console.log( "accessing: ", key );
+return target[key];
+}
+},
+{ proxy: pobj, revoke: prevoke } =
+Proxy.revocable( obj, handlers );
+pobj.a;
+// accessing: a
+// 1
+// later:
+prevoke();
+pobj.a;
+// TypeError
+A revocable proxy is created with Proxy.revocable(..), which is a regular function,
+not a constructor like Proxy(..). Otherwise, it takes the same two arguments: target
+and handlers.
+The return value of Proxy.revoke(..) is not the proxy itself as with new Proxy(..).
+Instead, it’s an object with two properties: proxy and revoke — we used object destruc‐
+turing (see “Destructuring” in Chapter 2) to assign these properties to pobj and pre
+voke() variables, respectively.
+Once a revocable proxy is revoked, any attempts to access it (trigger any of its traps)
+will throw a TypeError.
+Using Proxies
+The meta programming benefits of these Proxy handlers should be obvious. We can
+almost fully intercept (and thus override) the behavior of objects, meaning we can
+extend object behavior beyond core JS in some very powerful ways. We’ll look at a
+few example patterns to explore the possibilities.
+Proxies
+|
+185
+www.it-ebooks.info

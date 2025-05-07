@@ -1,0 +1,13 @@
+diagram looks like Figure 34.5.
+The dependency arrows still point downward, but the OrdersController is now
+additionally bypassing the OrdersService for some use cases. This organization
+is often called a relaxed layered architecture, as layers are allowed to skip
+around their adjacent neighbor(s). In some situations, this is the intended
+outcome—if you’re trying to follow the CQRS5 pattern, for example. In many
+other cases, bypassing the business logic layer is undesirable, especially if that
+business logic is responsible for ensuring authorized access to individual
+records, for example.
+While the new use case works, it’s perhaps not implemented in the way that we
+were expecting. I see this happen a lot with teams that I visit as a consultant, and
+it’s usually revealed when teams start to visualize what their code base really
+looks like, often for the first time.

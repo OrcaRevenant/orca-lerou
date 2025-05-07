@@ -1,0 +1,32 @@
+Did we have polymorphic behavior before OO languages? Of course we did.
+Consider this simple C copy program.
+Click here to view code image
+#include <stdio.h>
+void copy() {
+int c;
+while ((c=getchar()) != EOF)
+putchar(c);
+}
+The function getchar() reads from STDIN. But which device is STDIN? The
+putchar() function writes to STDOUT. But which device is that? These functions
+are polymorphic—their behavior depends on the type of STDIN and STDOUT.
+It’s as though STDIN and STDOUT are Java-style interfaces that have
+implementations for each device. Of course, there are no interfaces in the
+example C program—so how does the call to getchar() actually get delivered
+to the device driver that reads the character?
+The answer to that question is pretty straightforward. The UNIX operating
+system requires that every IO device driver provide five standard functions:5
+open, close, read, write, and seek. The signatures of those functions must be
+identical for every IO driver.
+The FILE data structure contains five pointers to functions. In our example, it
+might look like this:
+Click here to view code image
+struct FILE {
+void (*open)(char* name, int mode);
+void (*close)();
+int (*read)();
+void (*write)(char);
+void (*seek)(long index, int mode);
+};
+The IO driver for the console will define those functions and load up a FILE data
+structure with their addresses—something like this:

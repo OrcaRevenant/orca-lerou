@@ -1,0 +1,5 @@
+Chapter Summary
+In this chapter we saw the simplicity of creating new Docker overlay networks
+using the docker network create command. We then learned how they are
+created behind the scenes using VXLAN technology. This only scratches the
+surface of what you can do with native Docker overlay networking.

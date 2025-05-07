@@ -1,0 +1,45 @@
+273
+Then Make It Right
+EARLIEST_DATE_ORDINAL and LATEST_DATE_ORDINAL do not really belong in DayDate and
+should be moved to SpreadsheetDate [G6].
+Indeed, a search of the code shows that these variables are used only within
+SpreadsheetDate. Nothing in DayDate, nor in any other class in the JCommon framework, uses
+them. Therefore, I’ll move them down into SpreadsheetDate.
+The next variables, MINIMUM_YEAR_SUPPORTED, and MAXIMUM_YEAR_SUPPORTED (line 104
+and line 107), provide something of a dilemma. It seems clear that if DayDate is an abstract
+class that provides no foreshadowing of implementation, then it should not inform us
+about a minimum or maximum year. Again, I am tempted to move these variables down
+into SpreadsheetDate [G6]. However, a quick search of the users of these variables shows
+that one other class uses them: RelativeDayOfWeekRule (Listing B-6, page 390). We see that
+usage at line 177 and line 178 in the getDate function, where they are used to check that
+the argument to getDate is a valid year. The dilemma is that a user of an abstract class
+needs information about its implementation.
+What we need to do is provide this information without polluting DayDate itself.
+Usually, we would get implementation information from an instance of a derivative.
+However, the getDate function is not passed an instance of a DayDate. It does, however,
+return such an instance, which means that somewhere it must be creating it. Line 187
+through line 205 provide the hint. The DayDate instance is being created by one of the
+three functions, getPreviousDayOfWeek, getNearestDayOfWeek, or getFollowingDayOfWeek.
+Looking back at the DayDate listing, we see that these functions (lines 638–724) all return
+a date created by addDays (line 571), which calls createInstance (line 808), which creates
+a SpreadsheetDate! [G7].
+It’s generally a bad idea for base classes to know about their derivatives. To ﬁx this, we
+should use the ABSTRACT FACTORY3 pattern and create a DayDateFactory. This factory will
+create the instances of DayDate that we need and can also answer questions about the
+implementation, such as the maximum and minimum dates.
+3.
+[GOF].
+public abstract class DayDateFactory {
+private static DayDateFactory factory = new SpreadsheetDateFactory();
+public static void setInstance(DayDateFactory factory) {
+DayDateFactory.factory = factory;
+}
+protected abstract DayDate _makeDate(int ordinal);
+protected abstract DayDate _makeDate(int day, DayDate.Month month, int year);
+protected abstract DayDate _makeDate(int day, int month, int year);
+protected abstract DayDate _makeDate(java.util.Date date);
+protected abstract int _getMinimumYear();
+protected abstract int _getMaximumYear();
+public static DayDate makeDate(int ordinal) {
+return factory._makeDate(ordinal);
+}

@@ -1,0 +1,32 @@
+instances of the web service to handle normal daily traffic. You would translate
+this requirement into a service declaring the image the containers should use,
+and that the service should always have 5 running tasks.
+We’ll see some of the other things that can be declared as part of a service in a
+minute, but before we do that, let’s see how to create what we just described.
+We create a service with the docker service create command.
+Note: The command to create a new service is the same on Windows.
+However, the image used in the example below is a Linux image and will
+not work on Windows. You can substitute the image for a Windows web
+server image and the command will work. Remember, if you are typing
+Windows commands form a PowerShell terminal you will need to use the
+backtick (`) character to indicate continuation on the next line.
+$ docker service create --name web-fe \
+-p 8080:8080 \
+--replicas 5 \
+nigelpoulton/pluralsight-docker-ci
+z7ovearqmruwk0u2vc5o7ql0p
+Let’s review that command and output.
+We used docker service create to tell Docker we are declaring a new service,
+and we used the --name flag to name the service web-fe. We told Docker to map
+port 8080 on every node in the swarm to 8080 inside of each container (task) in
+the service. Next, we used the --replicas flag to tell Docker that there should
+always be 5 tasks/containers in the service. Finally, we told Docker which image
+to use for all tasks and containers - it’s important to understand that all tasks in a
+service use the same image and config!
+After we hit Return, the manager acting as leader instantiated 5 tasks across the
+swarm - remember that managers also act as workers. Each worker or manager
+then pulled the image and started a container from it running on port 8080. The
+swarm leader also ensured a copy of the service’s desired state was replicated to
+every manager in the swarm.
+But this isn’t the end. All services are constantly monitored by the swarm - the
+swarm runs a reconciliation loop that constantly compares the actual state of the

@@ -1,0 +1,68 @@
+Solutions to Chapter 17 | Hard
+48
+for (int i = 0; i < w.lengthQ; i++) {
+49
+String worcf = w. substring(0, i) + "_" + w.substring(i + 1);
+50
+words.add(word);
+51
+>
+52
+return words;
+53 }
+54
+55 /* Return words that are one edit away, */
+56 ArrayList<String> getValidLinkedWords(String word,
+57
+HashMapListcString, String> wildcardToWords) {
+58
+ArrayList<String> wildcards = getWildcardRoots(word);
+59
+ArrayList<String> linkedWords = new ArrayList<String>();
+60
+for (String wildcard : wildcards) {
+61
+ArrayList<String> words = wildcardToWords.get(wildcard);
+62
+for (String linkedWord : words) {
+63
+if (UinkedWord.equals(word)) {
+64
+linkedWords.add(linkedWord);
+65
+>
+66
+>
+67
+>
+68
+return linkedWords;
+69 >
+70
+71 /* HashMapUst<Stringj String> is a HashMap that maps from Strings to
+72
+* ArrayUst<String>. See appendix for implementation. *f
+This will work, but we can still make it faster.
+One optimization is to switch from depth-first search to breadth-first search. If there are zero paths or one
+path, the algorithms are equivalent speeds. However, if there are multiple paths, breadth-first search may
+run faster.
+Breadth-first search finds the shortest path between two nodes, whereas depth-first search finds any path.
+This means that depth-first search might take a very long, windy path in order to find a connection when,
+in fact, the nodes were quite close.
+Optimal Solution
+As noted earlier, we can optimize this using breadth-first search. Is this as fast as we can make it? Not quite.
+Imagine that the path between two nodes has length 4. With breadth-first search, we will visit about 1S4
+nodes to find them.
+Breadth-first search spans out very quickly.
+Instead, what if we searched out from the source and destination nodes simultaneously? In this case, the
+breadth-first searches would collide after each had done about two levels each.
+•
+Nodes travelled to from source: 152
+•
+Nodes travelled to from destination: 15J
+•
+Total nodes: 152 + 152
+This is much better than the traditional breadth-first search.
+We will need to track the path that we've travelled at each node.
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

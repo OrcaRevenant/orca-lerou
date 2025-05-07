@@ -1,0 +1,79 @@
+Solutions to Chapter 4 | Trees and Graphs
+8
+9
+while (current.sizeQ > 0) {
+10
+result.add(current); it Add previous level
+11
+LinkedList<TreeNode> parents = current; II Go to next level
+12
+current = new LinkedList<TreeNode>();
+13
+f o r (TreeNode parent : parents) {
+14
+/* V i s i t the children */
+15
+if ( p a r e n t . l e f t ! = n u l l ) {
+16
+current. adcf( parent. l e f t ) ;
+17
+>
+18
+if (parent.right
+!= n u l l ) {
+19
+current,add(parent.right);
+20
+}
+21
+>
+22
+>
+23
+return r e s u l t ;
+24
+)
+One might ask which of these solutions is more efficient. Both run in 0(N) time, but what about the space
+efficiency? At first, we might want to claim that the second solution is more space efficient.
+In a sense, that's correct. The first solution uses 0( l o g N) recursive calls (in a balanced tree), each of which
+adds a new level to the stack. The second solution, which is iterative, does not require this extra space.
+However, both solutions require returning 0(N) data.The extra 0( l o g N) space usage from the recursive
+implementation is dwarfed by the 0 (N) data that must be returned. So while the first solution may actually
+use more data, they are equally efficient when it comes to "big 0."
+4.4
+Check Balanced: implement a function to check if a binary tree is balanced. For the purposes of
+this question, a balanced tree is defined to be a tree such that the heights of the two subtrees of any
+node never differ by more than one.
+pg 110
+SOLUTION
+In this question, we've been fortunate enough to be told exactly what balanced means: that for each node,
+the two subtrees differ in height by no more than one. We can implement a solution based on this defini-
+tion. We can simply recurse through the entire tree, and for each node, compute the heights of each subtree.
+1
+i n t getHeight(TreeNode root) {
+2
+if (root == n u l l ) return -1; // Base case
+return Math.max(getHeight(root.left), getHeight(root.right)) + 1;
+4
+>
+5
+6
+boolean is6alanced(TreeNode root) {
+7
+if (root == n u l l ) return t r u e ; // Base case
+8
+9
+i n t heightDiff = g e t H e i g h t ( r o o t . l e f t ) - g e t H e i g h t ( r o o t . r i g h t ) ;
+10
+if (Math.abs(heightDiff) > 1) {
+11
+return f a l s e ;
+12
+} else { II Recurse
+13
+return isBalanced(root.left) && isBalanced(root.right);
+14
+>
+15 >
+Ï 4 4
+Cracking the Coding Interview, 6th Edition

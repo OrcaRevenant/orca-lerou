@@ -1,0 +1,110 @@
+Solutions to Chapter 8 | Recursion and Dynamic Programming
+c o u n t E v a l ( 0 A 0 & 0 A l | t r u e )
+=
+c o u n t E v a l ( 0 A 0 8 0 A l | l where paren around char 1,
+t r u e )
++ c o u n t E v a l ( 0 A 0 8 0 A l | l where paren around char
+t r u e )
++ c o u n t E v a l ( 0 A 0 8 0 A l | l where paren around char 5,
+t r u e )
++ c o u n t E v a l ( 0 A 0 8 0 A l | l where paren around char 7,
+t r u e )
+Now what? Let's look at just one of those expressions—the paren around char 3. This gives us ( 0 A 0 ) & ( 0 A 1 ) .
+In order to make that expression true, both the left and right sides must be true. So:
+l e f t = " 0 A 0 "
+r i g h t
+= " 0 A l | l "
+c o u n t E v a l ( l e f t 8 r i g h t , t r u e ) = c o u n t E v a l f l e f t , t r u e )
+* c o u n t E v a l ( r i g h t , t r u e )
+The reason we multiply the results of the left and right sides is that each result from the two sides can be
+paired up with each other to form a unique combination.
+Each of those terms can now be decomposed into smaller problems in a similar process.
+What happens when we have an
+(OR)? Or an "a" (XOR)?
+If it's an OR, then either the left or the right side must be true—or both.
+c o u n t E v a l ( l e f t
+|
+r i g h t , t r u e ) = c o u n t E v a l ( l e f t , t r u e )
+* c o u n t E v a l ( r i g h t , f a l s e )
++ c o u n t E v a l ( l e f t ,
+f a l s e )
+* c o u n t £ v a l ( r i g h t , t r u e )
++ c o u n t E v a l ( l e f t , t r u e )
+* c o u n t E v a l ( r i g h t , t r u e )
+If it's an XOR, then the left or the right side can be true, but not both.
+c o u n t E v a l ( l e f t
+A r i g h t ,
+t r u e ) = c o u n t E v a l ( l e f t , t r u e )
+* c o u n t E v a l ( r i g h t , f a l s e )
++ c o u n t E v a l ( l e f t ,
+f a l s e ) * c o u n t E v a l ( r i g h t , t r u e )
+What if we were trying to make the result f a l s e instead? We can switch up the logic from above:
+c o u n t E v a l ( l e f t 5 r i g h t , f a l s e ) = c o u n t E v a l ( l e f t , t r u e )
+* c o u n t E v a l ( r i g h t ,
+f a l s e )
++ c o u n t E v a l ( l e f t , f a l s e ) * c o u n t E v a l ( r i g h t ,
+t r u e )
++ c o u n t E v a l ( l e f t ,
+f a l s e ) * c o u n t E v a l ( r i g h t ,
+f a l s e )
+c o u n t E v a l ( l e f t
+| r i g h t , f a l s e ) = c o u n t E v a l ( l e f t , f a l s e ) * c o u n t E v a l ( r i g h t ,
+f a l s e )
+c o u n t E v a l ( l e f t
+A r i g h t ,
+f a l s e ) = c o u n t E v a l ( l e f t , f a l s e ) * c o u n t E v a l ( r i g h t ,
+f a l s e )
++ c o u n t E v a l ( l e f t , t r u e )
+* c o u n t E v a l ( r i g h t ,
+t r u e )
+Alternatively, we can just use the same logic from above and subtract it out from the total number of ways
+of evaluating the expression.
+t o t a l E v a l ( l e f t ) = c o u n t £ v a l ( l e f t ,
+t r u e ) + c o u n t E v a l { l e f t ,
+f a l s e )
+t o t a l E v a l ( r i g h t ) = c o u n t E v a l ( r i g h t , t r u e ) + c o u n t E v a l ( r i g h t , f a l s e )
+t o t a l E v a l ( e x p r e s s i o n )
+= t o t a l E v a l ( l e f t )
+* t o t a l E v a l ( r i g h t )
+c o u n t E v a l ( e x p r e s s i o n ,
+f a l s e ) = t o t a l E v a l ( e x p r e s s i o n )
+- c o u n t E v a l ( e x p r e s s i o n , t r u e )
+This makes the code a bit more concise.
+1
+i n t c o u n t E v a l ( S t r i n g s,
+boolean r e s u l t ) {
+2
+if ( s . l e n g t h ( ) == 0)
+r e t u r n 0;
+if ( s . l e n g t h ( ) == i) r e t u r n s t r i n g T o B o o l ( s ) == r e s u l t ? 1 : 0;
+4
+5
+i n t ways = 0;
+6
+f o r ( i n t i = 1; i < s . l e n g t h ( ) ; i += 2) {
+7
+char c = s . c h a r A t ( i ) ;
+8
+S t r i n g l e f t = s . s u b s t r i n g ( 0 ,
+i ) ;
+9
+S t r i n g n i g h t = s . s u b s t r i n g » + 1,
+s . l e n g t h ( ) ) ;
+10
+1 1
+/ * Evaluate each s i d e f o r each r e s u l t .
+* /
+12
+i n t
+l e f t T r u e = c o u n t E v a l ( l e f t ,
+t r u e ) ;
+13
+i n t
+l e f t F a l s e = c o u n t E v a l ( l e f t ,
+f a l s e ) ;
+14
+i n t
+r i g h t T r u e = c o u n t E v a l ( r i g h t ,
+t r u e ) ;
+CrackingTheCodinglnterview.com [ 6th Edition
+3 S1

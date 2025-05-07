@@ -1,0 +1,65 @@
+380
+Appendix B: org.jfree.date.SerialDate
+375     assertEquals(d(21, APRIL, 2006), getNearestDayOfWeek(FRIDAY, d(21, APRIL, 2006)));
+376     assertEquals(d(21, APRIL, 2006), getNearestDayOfWeek(FRIDAY, d(22, APRIL, 2006)));
+377
+378 //    assertEquals(d(15, APRIL, 2006), getNearestDayOfWeek(SATURDAY, d(16, APRIL, 2006)));
+379 //    assertEquals(d(15, APRIL, 2006), getNearestDayOfWeek(SATURDAY, d(17, APRIL, 2006)));
+380 //    assertEquals(d(15, APRIL, 2006), getNearestDayOfWeek(SATURDAY, d(18, APRIL, 2006)));
+381 //    assertEquals(d(22, APRIL, 2006), getNearestDayOfWeek(SATURDAY, d(19, APRIL, 2006)));
+382 //    assertEquals(d(22, APRIL, 2006), getNearestDayOfWeek(SATURDAY, d(20, APRIL, 2006)));
+383 //    assertEquals(d(22, APRIL, 2006), getNearestDayOfWeek(SATURDAY, d(21, APRIL, 2006)));
+384     assertEquals(d(22, APRIL, 2006), getNearestDayOfWeek(SATURDAY, d(22, APRIL, 2006)));
+385
+386     try {
+387       getNearestDayOfWeek(-1, d(1, JANUARY, 2006));
+388       fail("Invalid day of week code should throw exception");
+389     } catch (IllegalArgumentException e) {
+390     }
+391   }
+392
+393   public void testEndOfCurrentMonth() throws Exception {
+394     SerialDate d = SerialDate.createInstance(2);
+395     assertEquals(d(31, JANUARY, 2006), d.getEndOfCurrentMonth(d(1, JANUARY, 2006)));
+396     assertEquals(d(28, FEBRUARY, 2006), d.getEndOfCurrentMonth(d(1, FEBRUARY, 2006)));
+397     assertEquals(d(31, MARCH, 2006), d.getEndOfCurrentMonth(d(1, MARCH, 2006)));
+398     assertEquals(d(30, APRIL, 2006), d.getEndOfCurrentMonth(d(1, APRIL, 2006)));
+399     assertEquals(d(31, MAY, 2006), d.getEndOfCurrentMonth(d(1, MAY, 2006)));
+400     assertEquals(d(30, JUNE, 2006), d.getEndOfCurrentMonth(d(1, JUNE, 2006)));
+401     assertEquals(d(31, JULY, 2006), d.getEndOfCurrentMonth(d(1, JULY, 2006)));
+402     assertEquals(d(31, AUGUST, 2006), d.getEndOfCurrentMonth(d(1, AUGUST, 2006)));
+403     assertEquals(d(30, SEPTEMBER, 2006), d.getEndOfCurrentMonth(d(1, SEPTEMBER, 2006)));
+404     assertEquals(d(31, OCTOBER, 2006), d.getEndOfCurrentMonth(d(1, OCTOBER, 2006)));
+405     assertEquals(d(30, NOVEMBER, 2006), d.getEndOfCurrentMonth(d(1, NOVEMBER, 2006)));
+406     assertEquals(d(31, DECEMBER, 2006), d.getEndOfCurrentMonth(d(1, DECEMBER, 2006)));
+407     assertEquals(d(29, FEBRUARY, 2008), d.getEndOfCurrentMonth(d(1, FEBRUARY, 2008)));
+408   }
+409
+410   public void testWeekInMonthToString() throws Exception {
+411     assertEquals("First",weekInMonthToString(FIRST_WEEK_IN_MONTH));
+412     assertEquals("Second",weekInMonthToString(SECOND_WEEK_IN_MONTH));
+413     assertEquals("Third",weekInMonthToString(THIRD_WEEK_IN_MONTH));
+414     assertEquals("Fourth",weekInMonthToString(FOURTH_WEEK_IN_MONTH));
+415     assertEquals("Last",weekInMonthToString(LAST_WEEK_IN_MONTH));
+416
+417 //todo    try {
+418 //      weekInMonthToString(-1);
+419 //      fail("Invalid week code should throw exception");
+420 //    } catch (IllegalArgumentException e) {
+421 //    }
+422   }
+423
+424   public void testRelativeToString() throws Exception {
+425     assertEquals("Preceding",relativeToString(PRECEDING));
+426     assertEquals("Nearest",relativeToString(NEAREST));
+427     assertEquals("Following",relativeToString(FOLLOWING));
+428
+429 //todo    try {
+430 //      relativeToString(-1000);
+431 //      fail("Invalid relative code should throw exception");
+432 //    } catch (IllegalArgumentException e) {
+433 //    }
+434   }
+435
+Listing B-4 (continued)
+BobsSerialDateTest.java

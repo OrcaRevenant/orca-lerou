@@ -1,0 +1,36 @@
+That’s it! You’ve just created a brand-new overlay network that is available to all
+hosts in the swarm and has its control plane encrypted with TLS! If you want to
+encrypt the data plane you can just add the -o encrypted flag to the command.
+You can list all networks on each node with the docker network ls command.
+$ docker network ls
+NETWORK ID      NAME              DRIVER     SCOPE
+ddac4ff813b7    bridge            bridge     local
+389a7e7e8607    docker_gwbridge   bridge     local
+a09f7e6b2ac6    host              host       local
+ehw16ycy980s    ingress           overlay    swarm
+2b26c11d3469    none              null       local
+c740ydi1lm89    uber-net          overlay    swarm
+The output will look more like this on a Windows server:
+NETWORK ID      NAME             DRIVER      SCOPE
+8iltzv6sbtgc    ingress          overlay     swarm
+6545b2a61b6f    nat              nat         local
+96d0d737c2ee    none             null        local
+nil5ouh44qco    uber-net         overlay     swarm
+The network we created is at the bottom of the list called uber-net. The other
+networks were automatically created when Docker was installed and when we
+created the swarm. We’re only interested in the uber-net overlay network.
+If you run the docker network ls command on node2 you’ll notice that it can’t
+see the uber-net network. This is because new overlay networks are only made
+available to worker nodes that are running containers attached to the overlay.
+This reduces the scope of the network gossip protocol and helps with scalability.
+Attach a service to the overlay network
+Let’s create a new Docker service and attach it to the uber-net overlay network.
+We’ll create the service with two replicas (containers) so that one runs on node1
+and the other runs on node2. This will automatically extend the uber-net
+overlay to node2
+Run the following commands from node1.
+Linux example:
+$ docker service create --name test \
+--network uber-net \
+--replicas 2 \
+ubuntu sleep infinity

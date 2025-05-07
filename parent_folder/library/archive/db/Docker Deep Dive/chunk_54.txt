@@ -1,0 +1,18 @@
+Docker Engine - The Deep Dive
+When Docker was first released, the Docker engine had two major components:
+The Docker daemon (hereafter referred to as just “the daemon”)
+LXC
+The Docker daemon was a monolithic binary. It contains all of the code for the
+Docker client, the Docker API, the container runtime, image builds, and much
+more.
+The LXC component provided the daemon with access to the fundamental
+building-blocks of containers such as kernel namespaces and control groups
+(cgroups).
+The interaction between the daemon, LXC and the OS is shown in Figure 5.2.
+Figure 5.2
+Getting rid of LXC
+The reliance on LXC was an issue from the start.
+First up, LXC is Linux-specific. This was a problem for a project that had
+aspirations of being multi-platform.
+Second up, being reliant on an external tool for something so core to the project
+was a huge risk that could hinder development.

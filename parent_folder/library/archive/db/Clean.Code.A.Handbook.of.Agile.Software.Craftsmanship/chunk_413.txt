@@ -1,0 +1,66 @@
+385
+Appendix B: org.jfree.date.SerialDate
+187     /**
+188      * Returns the serial number for the date, where 1 January 1900 = 2
+189      * (this corresponds, almost, to the numbering system used in Microsoft
+190      * Excel for Windows and Lotus 1-2-3).
+191      *
+192      * @return The serial number of this date.
+193      */
+194     public int toSerial() {
+195         return this.serial;
+196     }
+197
+198     /**
+199      * Returns a <code>java.util.Date</code> equivalent to this date.
+200      *
+201      * @return The date.
+202      */
+203     public Date toDate() {
+204         final Calendar calendar = Calendar.getInstance();
+205         calendar.set(getYYYY(), getMonth() - 1, getDayOfMonth(), 0, 0, 0);
+206         return calendar.getTime();
+207     }
+208
+209     /**
+210      * Returns the year (assume a valid range of 1900 to 9999).
+211      *
+212      * @return The year.
+213      */
+214     public int getYYYY() {
+215         return this.year;
+216     }
+217
+218     /**
+219      * Returns the month (January = 1, February = 2, March = 3).
+220      *
+221      * @return The month of the year.
+222      */
+223     public int getMonth() {
+224         return this.month;
+225     }
+226
+227     /**
+228      * Returns the day of the month.
+229      *
+230      * @return The day of the month.
+231      */
+232     public int getDayOfMonth() {
+233         return this.day;
+234     }
+235
+236     /**
+237      * Returns a code representing the day of the week.
+238      * <P>
+239      * The codes are defined in the {@link SerialDate} class as:
+240      * <code>SUNDAY</code>, <code>MONDAY</code>, <code>TUESDAY</code>,
+241      * <code>WEDNESDAY</code>, <code>THURSDAY</code>, <code>FRIDAY</code>, and
+242      * <code>SATURDAY</code>.
+243      *
+244      * @return A code representing the day of the week.
+245      */
+246     public int getDayOfWeek() {
+247         return (this.serial + 6) % 7 + 1;
+248     }
+Listing B-5 (continued)
+SpreadsheetDate.java

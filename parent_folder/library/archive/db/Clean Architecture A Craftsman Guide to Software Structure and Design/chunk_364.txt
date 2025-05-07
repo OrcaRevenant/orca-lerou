@@ -1,0 +1,36 @@
+clean architecture and, 223–226
+Hunt the Wumpus adventure game, 222–223
+Laser Trim, archaeology project
+4-TEL project, 339
+overview of, 334–338
+Layered architecture
+package by layer code organization, 304–306
+relaxed, 311–312
+why it is considered bad, 310–311
+Layers
+approach to code organization, 304–306
+clean architecture using, 202–203
+decoupling, 151–152
+duplication of, 155
+eliminating target-hardware bottleneck, 262–263
+independent developability, 154
+Layers and boundaries
+clean architecture, 223–226
+conclusion, 228
+crossing streams, 226
+Hunt the Wumpus adventure game, 222–223
+overview of, 221–222
+splitting streams, 227–228
+Leiningen tool, module management, 104
+Level
+hierarchy of protection and, 74
+policy and, 184–187
+Libraries
+location of source code, 97–98
+relocatable binaries, 99–100
+Life cycle, architecture supports system, 137
+Linkers, separating from loaders, 100–102
+Liskov, Barbara, 78
+Liskov Substitution Principle (LSP). See LSP (Liskov Substitution Principle)
+LISP langauge, functional programming, 23
+Lisp language, squares of integers example, 50–51

@@ -1,0 +1,34 @@
+CHAPTER 2 SAYING NO
+28
+Mike, on the other hand, just accepted the date without question, as though his
+own objectives didn’t matter. One wonders if he’s not going to simply report
+back to his boss that the customer demo will have to be postponed because of
+Paula. That kind of passive-aggressive behavior is morally reprehensible.
+In all these cases neither party has pursued a common acceptable goal. Neither
+party has been looking for the best possible outcome. Let’s try this.
+Mike:  “Paula, I need the login page done by tomorrow.”
+Paula: “No, Mike, that’s a two-week job.”
+Mike:  “Two weeks? The architects estimated it at three days and it’s
+already been five!”
+Paula:  “The architects were wrong, Mike. They did their estimates before
+product marketing got hold of the requirements. I’ve got at least
+ten more days of work to do on this. Didn’t you see my updated
+estimate on the wiki?”
+Mike:  (looking stern and trembling with frustration) “This isn’t acceptable
+Paula. Customers are coming for a demo tomorrow, and I’ve got to
+show them the login page working.”
+Paula:  “What part of the login page do you need working by
+tomorrow?”
+Mike:  “I need the login page! I need to be able to log in.”
+Paula:  “Mike, I can give you a mock-up of the login page that will let you
+log in. I’ve got that working now. It won’t actually check your
+username and password, and it won’t email a forgotten password to
+you. It won’t have the company news banner “Times-squaring”
+around the top of it, and the help button and hover text won’t
+work. It won’t store a cookie to remember you for next time, and it
+won’t put any permission restrictions on you. But you’ll be able to
+log in. Will that do?”
+Mike: “I’ll be able to log in?”
+Paula: “Yes, you’ll be able to log in.”
+Mike:  “That’s great Paula, you’re a life saver!” (walks away pumping the
+air and saying “Yes!”)

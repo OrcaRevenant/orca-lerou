@@ -1,0 +1,18 @@
+EISENHOWER’S MATRIX
+Consider President Dwight D. Eisenhower’s matrix of importance versus
+urgency (Figure 2.1). Of this matrix, Eisenhower said:
+I have two kinds of problems, the urgent and the important. The urgent are not important, and the
+important are never urgent.1
+Figure 2.1 Eisenhower matrix
+There is a great deal of truth to this old adage. Those things that are urgent are
+rarely of great importance, and those things that are important are seldom of
+great urgency.
+The first value of software—behavior—is urgent but not always particularly
+important.
+The second value of software—architecture—is important but never particularly
+urgent.
+Of course, some things are both urgent and important. Other things are not
+urgent and not important. Ultimately, we can arrange these four couplets into
+priorities:
+1. Urgent and important
+2. Not urgent and important

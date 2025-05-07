@@ -1,0 +1,40 @@
+CONTENTS
+xii
+Chapter 14
+Mentoring, Apprenticeship, and Craftsmanship
+173
+Degrees of Failure
+174
+Mentoring
+174
+Apprenticeship
+180
+Craftsmanship
+184
+Conclusion
+185
+Appendix A
+Tooling
+187
+Tools
+189
+Source Code Control
+189
+IDE/Editor
+194
+Issue Tracking
+196
+Continuous Build
+197
+Unit Testing Tools
+198
+Component Testing Tools
+199
+Integration Testing Tools
+200
+UML/MDA
+201
+Conclusion
+204
+Index
+205

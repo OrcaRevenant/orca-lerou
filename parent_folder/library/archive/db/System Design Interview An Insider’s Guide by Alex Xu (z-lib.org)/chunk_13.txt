@@ -1,0 +1,10 @@
+Let us take a look at the design:
+• A user gets the IP address of the load balancer from DNS.
+• A user connects the load balancer with this IP address.
+• The HTTP request is routed to either Server 1 or Server 2.
+• A web server reads user data from a slave database.
+• A web server routes any data-modifying operations to the master database. This includes
+write, update, and delete operations.
+Now, you have a solid understanding of the web and data tiers, it is time to improve the
+load/response time. This can be done by adding a cache layer and shifting static content
+(JavaScript/CSS/image/video files) to the content delivery network (CDN).

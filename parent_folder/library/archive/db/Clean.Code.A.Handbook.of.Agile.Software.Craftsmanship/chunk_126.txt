@@ -1,0 +1,45 @@
+96
+Chapter 6: Objects and Data Structures
+Object-oriented programmers might wrinkle their noses at this and complain that it
+is procedural—and they’d be right. But the sneer may not be warranted. Consider what
+would happen if a perimeter() function were added to Geometry. The shape classes would
+be unaffected! Any other classes that depended upon the shapes would also be unaffected!
+On the other hand, if I add a new shape, I must change all the functions in Geometry to
+deal with it. Again, read that over. Notice that the two conditions are diametrically
+opposed.
+Now consider the object-oriented solution in Listing 6-6. Here the area() method is
+polymorphic. No Geometry class is necessary. So if I add a new shape, none of the existing
+functions are affected, but if I add a new function all of the shapes must be changed!1
+else if (shape instanceof Rectangle) {
+Rectangle r = (Rectangle)shape;
+return r.height * r.width;
+}
+else if (shape instanceof Circle) {
+Circle c = (Circle)shape;
+return PI * c.radius * c.radius;
+}
+throw new NoSuchShapeException();
+}
+}
+Listing 6-6
+Polymorphic Shapes
+public class Square implements Shape {
+private Point topLeft;
+private double side;
+public double area() {
+return side*side;
+}
+}
+public class Rectangle implements Shape {
+private Point topLeft;
+private double height;
+private double width;
+public double area() {
+return height * width;
+}
+}
+1.
+There are ways around this that are well known to experienced object-oriented designers: VISITOR, or dual-dispatch, for
+example. But these techniques carry costs of their own and generally return the structure to that of a procedural program.
+Listing 6-5 (continued)
+Procedural Shape

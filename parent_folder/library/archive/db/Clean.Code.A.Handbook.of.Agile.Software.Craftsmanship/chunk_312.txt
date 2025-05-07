@@ -1,0 +1,42 @@
+282
+Chapter 16: Refactoring SerialDate
+We have ﬁnally made it to the abstract methods of this abstract class. And the ﬁrst one
+is as appropriate as they come: toSerial (lines 838–844). Back on page 279 I had changed
+the name to toOrdinal. Having looked at it in this context, I decided the name should be
+changed to getOrdinalDay.
+The next abstract method is toDate (lines 838–844). It converts a DayDate to a
+java.util.Date. Why is this method abstract? If we look at its implementation in
+SpreadsheetDate (lines 198–207, Listing B-5, page 382), we see that it doesn’t depend on
+anything in the implementation of that class [G6]. So I pushed it up.
+The getYYYY, getMonth, and getDayOfMonth methods are nicely abstract. However, the
+getDayOfWeek method is another one that should be pulled up from SpreadSheetDate
+because it doesn’t depend on anything that can’t be found in DayDate [G6]. Or does it?
+If you look carefully (line 247, Listing B-5, page 382), you’ll see that the algorithm
+implicitly depends on the origin of the ordinal day (in other words, the day of the week of
+day 0). So even though this function has no physical dependencies that couldn’t be moved
+to DayDate, it does have a logical dependency.
+Logical dependencies like this bother me [G22]. If something logical depends on
+the implementation, then something physical should too. Also, it seems to me that the
+algorithm itself could be generic with a much smaller portion of it dependent on the
+implementation [G6].
+So I created an abstract method in DayDate named getDayOfWeekForOrdinalZero and
+implemented it in SpreadsheetDate to return Day.SATURDAY. Then I moved the getDayOfWeek
+method up to DayDate and changed it to call getOrdinalDay and getDayOfWeekForOrdinal-
+Zero.
+As a side note, look carefully at the comment on line 895 through line 899. Was this
+repetition really necessary? As usual, I deleted this comment along with all the others.
+The next method is compare (lines 902–913). Again, this method is inappropriately
+abstract [G6], so I pulled the implementation up into DayDate. Also, the name does not
+communicate enough [N1]. This method actually returns the difference in days since the
+argument. So I changed the name to daysSince. Also, I noted that there weren’t any tests
+for this method, so I wrote them.
+The next six functions (lines 915–980) are all abstract methods that should be imple-
+mented in DayDate. So I pulled them all up from SpreadsheetDate.
+The last function, isInRange (lines 982–995) also needs to be pulled up and refac-
+tored. The switch statement is a bit ugly [G23] and can be replaced by moving the cases
+into the DateInterval enum.
+public Day getDayOfWeek() {
+Day startingDay = getDayOfWeekForOrdinalZero();
+int startingOffset = startingDay.index - Day.SUNDAY.index;
+return Day.make((getOrdinalDay() + startingOffset) % 7 + 1);
+}

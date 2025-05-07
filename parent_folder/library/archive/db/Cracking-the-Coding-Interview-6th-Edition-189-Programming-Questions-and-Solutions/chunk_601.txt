@@ -1,0 +1,50 @@
+Solutions to Chapter 17 | Hard
+68
+>
+69
+70
+return new Range(bestRangeMin, bestRangeMax);
+71 >
+We're going through B elements in g e t S h o r t e s t C l o s u r e , and each time pass in the for loop will take
+0 ( l o g S) time (the time to insert/remove from theheapJ.Thisalgorithm will therefore take 0 (B l o g S)
+time in the worst case.
+17.19 Missing Two: You are given an array with all the numbers from 1 to N appearing exactly once,
+except for one number that is missing. How can you find the missing number in 0(N) time and
+0 ( 1 ) space? What if there were two numbers missing?
+pg 189
+SOLUTIONS
+Let's start with the first part: find a missing number in 0(N) time and 0 ( 1 ) space.
+Part 1: Find One Missing Number
+We have a very constrained problem here. We can't store all the values (that would take 0(N) space) and
+yet, somehow, we need to have a "record" of them such that we can identify the missing number.
+This suggests that we need to do some sort of computation with the values. What characteristics does this
+computation need to have?
+•
+Unique. If this computation gives the same result on two arrays (which fit the description in the
+problem), then those arrays must be equivalent (same missing number). That is, the result of the compu-
+tation must uniquely correspond to the specific array and missing number.
+•
+Reversible. We need some way of getting from the result of the calculation to the missing number.
+•
+Constant Time: The calculation can be slow, but it must be constant time per element in the array.
+•
+Constant Space: The calculation can require additional memory, but it must be 0 ( 1 ) memory.
+The "unique" requirement is the most interesting—and the most challenging. What calculations can be
+performed on a set of numbers such that the missing number will be discoverable?
+There are actually a number of possibilities.
+We could do something with prime numbers. For example, for each value x in the array, we multiply
+r e s u l t by thexth prime. We would then get some value that is indeed unique (since two different sets of
+primes can't have the same product).
+Is this reversible? Yes. We could take r e s u l t and divide it by each prime number: 2,3, S, 7, and so on. When
+we get a non-integer for the i t h prime, then we know i was missing from our array.
+Is it constant time and space, though? Only if we had a way of getting the i t h prime number in 0 ( 1 ) time
+and 0( 1) space. We don't have that.
+What other calculations could we do? We don't even need to do ail this prime number stuff. Why not just
+multiply all the numbers together?
+•
+Unique? Yes. Picture 1 * 2 * 3 * . . . *n. Now, imagine crossing off one number. This will give us a different
+result than if we crossed off any other number.
+•
+Constant time and space? Yes.
+CrackingTheCodinglnterview.com | 6th Edition
+S 3 7

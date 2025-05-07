@@ -1,0 +1,13 @@
+Figure A.5 ASR35 teletype
+Joe Mabel, with permission
+In 1971, when I was 18 years old, ASC hired me and two of my geeky friends to
+replace the whole union accounting system with one that was based on a Varian
+620/f minicomputer (Figure A.6). The computer was cheap. We were cheap. So
+it seemed like a good deal for ASC.
+The Varian machine had a 16-bit bus and 32K * 16 core memory. It had a cycle
+time of about 1 microsecond. It was much more powerful than the Datanet 30. It
+used IBM’s wildly successful 2314 disk technology, allowing us to store 30
+megabytes on platters that were only 14 inches in diameter and could not
+explode through concrete block walls!
+Of course, we still had no operating system. No file system. No high-level
+language. All we had was an assembler. But we made do.

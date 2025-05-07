@@ -1,0 +1,30 @@
+Special Situations
+There are many paths that lead someone to this book. Perhaps you have more experience but have never
+done this sort of interview. Perhaps you're a tester or a PM. Or perhaps you're actually using this book to
+teach yourseif how to interview better. Here's a fittle something for all these "special situations."
+• Experienced Candidates
+Some people assume that the algorithm-style questions you see in this book are only for recent grads.
+That's not entirely true.
+More experienced engineers might see slightly less focus on algorithm questions—but only slightly
+If a company asks algorithm questions to inexperienced candidates, they tend to ask them to experienced
+candidates too. Rightly or wrongly, they feel that the skills demonstrated in these questions are important
+for all developers.
+Some interviewers might hold experience candidates to a somewhat lower standard. After all, it's been
+years since these candidates took an algorithms class. They're out of practice.
+Others though hold experienced candidates to a higher standard, reasoning that the more years of experi-
+ence allow a candidate to have seen many more types of problems.
+On average, it balances out.
+The exception to this rule is system design and architecture questions, as well as questions about your
+resume. Typically, students don't study much system architecture, so experience with such challenges
+would only come professionally. Your performance in such interview questions would be evaluated with
+respect to your experience level. However, students and recent graduates are still asked these questions
+and should be prepared to solve them as welt as they can.
+Additionally, experienced candidates will be expected to give a more in-depth, impressive response to
+questions like, "What was the hardest bug you've faced?" You have more experience, and your response to
+these questions should show it.
+• Testers and SDETs
+SDETs (software design engineers in test) write code, but to test features instead of build features. As such,
+they have to be great coders and great testers. Double the prep work!
+If you're applying for an SDET role, take the following approach:
+CrackingTheCodinglnterview.com | 6th Edition
+I S

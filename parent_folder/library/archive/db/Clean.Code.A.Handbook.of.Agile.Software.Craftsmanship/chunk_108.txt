@@ -1,0 +1,40 @@
+78
+Chapter 5: Formatting
+concepts and algorithms. Detail should increase as we move downward, until at the end
+we ﬁnd the lowest level functions and details in the source ﬁle.
+A newspaper is composed of many articles; most are very small. Some are a bit larger.
+Very few contain as much text as a page can hold. This makes the newspaper usable. If the
+newspaper were just one long story containing a disorganized agglomeration of facts,
+dates, and names, then we simply would not read it.
+Vertical Openness Between Concepts
+Nearly all code is read left to right and top to bottom. Each line represents an expression or
+a clause, and each group of lines represents a complete thought. Those thoughts should be
+separated from each other with blank lines.
+Consider, for example, Listing 5-1. There are blank lines that separate the package
+declaration, the import(s), and each of the functions. This extremely simple rule has a pro-
+found effect on the visual layout of the code. Each blank line is a visual cue that identiﬁes
+a new and separate concept. As you scan down the listing, your eye is drawn to the ﬁrst
+line that follows a blank line.
+Taking those blank lines out, as in Listing 5-2, has a remarkably obscuring effect on the
+readability of the code.
+Listing 5-1
+BoldWidget.java
+package fitnesse.wikitext.widgets;
+import java.util.regex.*;
+public class BoldWidget extends ParentWidget {
+public static final String REGEXP = "'''.+?'''";
+private static final Pattern pattern = Pattern.compile("'''(.+?)'''",
+Pattern.MULTILINE + Pattern.DOTALL
+);
+public BoldWidget(ParentWidget parent, String text) throws Exception {
+super(parent);
+Matcher match = pattern.matcher(text);
+match.find();
+addChildWidgets(match.group(1));
+}
+public String render() throws Exception {
+StringBuffer html = new StringBuffer("<b>");
+html.append(childHtml()).append("</b>");
+return html.toString();
+}
+}

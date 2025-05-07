@@ -1,0 +1,43 @@
+212
+Chapter 14: Successive Reﬁnement
+You can see that this is starting to get out of hand. It’s still not horrible, but the mess is
+certainly starting to grow. It’s a pile, but it’s not festering quite yet. It took the addition of
+the integer argument type to get this pile really fermenting and festering.
+So I Stopped
+I had at least two more argument types to add, and I could tell that they would make things
+much worse. If I bulldozed my way forward, I could probably get them to work, but I’d
+leave behind a mess that was too large to ﬁx. If the structure of this code was ever going to
+be maintainable, now was the time to ﬁx it.
+So I stopped adding features and started refactoring. Having just added the String and
+integer arguments, I knew that each argument type required new code in three major
+places. First, each argument type required some way to parse its schema element in order
+to select the HashMap for that type. Next, each argument type needed to be parsed in the
+command-line strings and converted to its true type. Finally, each argument type needed a
+getXXX method so that it could be returned to the caller as its true type.
+Many different types, all with similar methods—that sounds like a class to me. And so
+the ArgumentMarshaler concept was born.
+On Incrementalism
+One of the best ways to ruin a program is to make massive changes to its structure in the name of
+improvement. Some programs never recover from such “improvements.” The problem is that
+it’s very hard to get the program working the same way it worked before the “improvement.”
+public boolean getBoolean(char arg) {
+return falseIfNull(booleanArgs.get(arg));
+}
+private boolean falseIfNull(Boolean b) {
+return b == null ? false : b;
+}
+public String getString(char arg) {
+return blankIfNull(stringArgs.get(arg));
+}
+private String blankIfNull(String s) {
+return s == null ? "" : s;
+}
+public boolean has(char arg) {
+return argsFound.contains(arg);
+}
+public boolean isValid() {
+return valid;
+}
+}
+Listing 14-10 (continued)
+Args.java (Boolean and String)

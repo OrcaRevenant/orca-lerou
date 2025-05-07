@@ -1,0 +1,25 @@
+This is a simple and easy way to get detailed information about known
+vulnerabilities in your software.
+Docker Trusted Registry (DTR), which is an on-premises Docker registry
+included as part of Docker Enterprise Edition, provides the same capabilities and
+gives you control over how and when image scans are performed. For example,
+DTR lets you decide if images should be automatically scanned as soon as they
+are pushed, or if scans should only be triggered manually. It also allows you to
+manually upload CVE database updates - this is ideal for situations where your
+DTR infrastructure is air-gapped from the internet and cannot automatically sync
+updates.
+Signing and verifying images with Docker Content Trust
+Docker Content Trust (DCT) makes it simple and easy to verify the integrity and
+the publisher of images that you download. This is especially important when
+pulling images over untrusted networks such as the internet.
+At a high level, DCT allows developers to sign their images when they are
+pushed to Docker Hub or Docker Trusted Registry. It will also automatically
+verify images when they are pulled. This high-level process is shown in Figure
+11.13
+Figure 11.13
+DCT can also provide important context. This includes things like; whether or
+not an image has been signed for use in a production environment, or whether an
+image has been superseded by a newer version and is therefore stale.
+At the time of writing, the context offerings of DTC are in their infancy and
+quite complex to configure. As and when it matures and becomes more stable it
+will be included in an update to the book.

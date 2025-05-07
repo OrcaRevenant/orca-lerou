@@ -1,0 +1,42 @@
+9
+The Total Cost of Owning a Mess
+the reader that “Aha! Of course!” as the issues and tensions are resolved in the revelation
+of an obvious solution.
+I ﬁnd Grady’s use of the phrase “crisp abstraction” to be a fascinating oxymoron!
+After all the word “crisp” is nearly a synonym for “concrete.” My MacBook’s dictionary
+holds the following deﬁnition of “crisp”: briskly decisive and matter-of-fact, without hesi-
+tation or unnecessary detail. Despite this seeming juxtaposition of meaning, the words
+carry a powerful message. Our code should be matter-of-fact as opposed to speculative.
+It should contain only what is necessary. Our readers should perceive us to have been
+decisive.
+“Big” Dave Thomas, founder
+of OTI, godfather of the
+Eclipse strategy
+Clean code can be read, and enhanced by a
+developer other than its original author. It has
+unit and acceptance tests. It has meaningful
+names. It provides one way rather than many
+ways for doing one thing. It has minimal depen-
+dencies, which are explicitly deﬁned, and pro-
+vides a clear and minimal API. Code should be
+literate since depending on the language, not all
+necessary information can be expressed clearly
+in code alone.
+Big Dave shares Grady’s desire for readabil-
+ity, but with an important twist. Dave asserts that
+clean code makes it easy for other people to enhance it. This may seem obvious, but it can-
+not be overemphasized. There is, after all, a difference between code that is easy to read
+and code that is easy to change.
+Dave ties cleanliness to tests! Ten years ago this would have raised a lot of eyebrows.
+But the discipline of Test Driven Development has made a profound impact upon our
+industry and has become one of our most fundamental disciplines. Dave is right. Code,
+without tests, is not clean. No matter how elegant it is, no matter how readable and acces-
+sible, if it hath not tests, it be unclean.
+Dave uses the word minimal twice. Apparently he values code that is small, rather
+than code that is large. Indeed, this has been a common refrain throughout software litera-
+ture since its inception. Smaller is better.
+Dave also says that code should be literate. This is a soft reference to Knuth’s literate
+programming.4 The upshot is that the code should be composed in such a form as to make
+it readable by humans.
+4.
+[Knuth92].

@@ -1,0 +1,11 @@
+1
+WHAT IS DESIGN AND
+ARCHITECTURE?
+There has been a lot of confusion about design and architecture over the years.
+What is design? What is architecture? What are the differences between the two?
+One of the goals of this book is to cut through all that confusion and to define,
+once and for all, what design and architecture are. For starters, I’ll assert that
+there is no difference between them. None at all.
+The word “architecture” is often used in the context of something at a high level
+that is divorced from the lower-level details, whereas “design” more often seems
+to imply structures and decisions at a lower level. But this usage is nonsensical

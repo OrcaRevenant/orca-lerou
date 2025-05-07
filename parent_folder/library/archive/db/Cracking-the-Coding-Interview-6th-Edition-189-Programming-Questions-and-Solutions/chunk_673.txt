@@ -1,0 +1,81 @@
+II | Hints for Concepts and Algorithms
+#156.
+6.8
+#157.
+6.4
+#158.
+9.6
+#159.
+5.3
+#160.
+6.7
+#161.
+8.8
+#162.
+9.7
+#163.
+6.10
+#164.
+11.5
+#165.
+9.8
+#166.
+8.5
+#167.
+5.2
+#168.
+8.14
+#169.
+5.1
+#170.
+8.3
+#171.
+6.7
+#172.
+6,9
+#173.
+5.2
+#174.
+8.9
+#175.
+5.4
+This is really an algorithm problem, and you should approach it as such. Come up with
+a brute force, compute the worst-case number of drops, then try to optimize that.
+In what cases will they not collide?
+We've assumed that the rest of the eCommerce system is already handled, and we just
+need to deal with the analytics part of sales rank. We can get notified somehow when a
+purchase occurs.
+Start with a brute force solution. Can you try all possibilities?
+Think about writing each family as a sequence of Bsand Gs.
+You could handle this by just checking to see if there are duplicates before printing
+them (or adding them to a list). You can do this with a hash table. In what case might this
+be okay? In what case might it not be a very good solution?
+Will this application be write-heavy or read-heavy?
+Solution 1: There is a relatively simple approach that works in 28 days, in the worst case.
+There are better approaches though.
+Consider the scenario of a pen for children. What does this mean? What are the different
+use cases?
+Scope the problem well. What will and won't you tackle as part of this system?
+Think about multiplying 8 by 9 as counting the number of cells in a matrix with width 8
+and height 9.
+In a number like . 893 (in base 10), what does each digit signify? What then does each
+digit in . 10010 signify in base 2?
+We can think about each possibility as each place where we can put parentheses. This
+means around each operator, such that the expression is split at the operator. What is
+the base case?
+To clear the bits, create a "bit mask" that looks like a series of Is, then 0s, then Is.
+Start with a brute force algorithm.
+You can attempt this mathematically, although the math is pretty difficult. You might
+find it easier to estimate it up to families of, say, 6 children.This won't give you a good
+mathematical proof, but it might point you in the right direction of what the answer
+might be.
+In which cases would a door be left open at the end of the process?
+A number such as .893 (in base 10) indicates 8 * 1 0 1 + 9 * 10 ; + 3 * 10
+Translate this system into base 2.
+Suppose we had ail valid ways of writing two pairs of parentheses. How could we use
+this to get all valid ways of writing three pairs?
+Get Next: Picture a binary number—something with a bunch of Is and Os spread out
+throughout the number. Suppose you flip a 1 to a Oand aOtoa 1. In what case will the
+number get bigger? In what case will it get smaller?
+CrackingTheCodinglnterview.com | 6th Edition
+675

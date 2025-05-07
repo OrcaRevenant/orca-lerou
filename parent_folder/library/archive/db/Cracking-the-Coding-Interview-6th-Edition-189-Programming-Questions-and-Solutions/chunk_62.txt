@@ -1,0 +1,47 @@
+VI I Big O
+How many times does permutation get called in its base case?
+If we were to generate a permutation, then we woutd need to pick characters for each "slot," Suppose we
+had 7 characters in the string. In the first slot, we have 7 choices. Once we pick the letter there, we have 6
+choices for the next slot, (Note that this is 6 choices for each of the 7 choices earlier.) Then 5 choices for the
+next slot,and soon.
+Therefore, the total number of options is 7 * 6 * 5 * 4 * 3 * 2 * 1, which is also expressed as 7! (7 factorial).
+This tells us that there are n! permutations. Therefore, p e r m u t a t i o n is called n I times in its base case
+(when p r e f i x is the full permutation).
+H o w many times does permutation get called before its base case?
+But, of course, we also need to consider how many times lines 9 through 12 are hit. Picture a large call tree
+representing all the calls. There are n I leaves, as shown above. Each leaf is attached to a path of length n.
+Therefore, we know there will be no more than n * n! nodes {function calls) in this tree.
+How long does each function call take?
+Executing line 7 takes 0 ( n ) time since each character needs to be printed.
+Line 10 and line 11 will also take 0 ( n ) time combined, due to the string concatenation. Observe that the
+sum of the lengths of rem, p r e f i x , and s t r . c h a r A t ( i) will always be n.
+Each node in our call tree therefore corresponds to 0 ( n ) work.
+What is the total runtime?
+Since we are calling p e r m u t a t i o n 0( n * n ! ) times (as an upper bound), and each one takes 0 ( n ) time,
+the totai runtime will not exceed 0(n J * n ! ).
+Through more complex mathematics, we can derive a tighter runtime equation (though not necessarily a
+nice closed-form expression). This would almost certainly be beyond the scope of any normal interview.
+Example 13
+The following code computes the Nth Fibonacci number.
+1
+i n t f i b ( i n t n) {
+2
+if (n <= 0) return 0;
+3
+else if (n == 1) return 1;
+4
+r e t u r n f i b ( n - 1) + f i b ( n - 2 ) ;
+5
+}
+We can use the earlier pattern we'd established for recursive calls: 0(branches a ? i l t h).
+There are 2 branches per call, and we go as deep as N, therefore the runtime isO(2 N).
+I
+Through some very complicated math, we can actually get a tighter runtime. The time is indeed
+exponential, but it's actually closer to 0 ( 1 . 6 " ) . The reason that it's not exactly 0(2 N) is that, at
+the bottom of the call stack, there is sometimes only one call. It turns out that a lot of the nodes
+are at the bottom (as is true in most trees), so this single versus double call actually makes a big
+difference. Saying 0 ( 2 " ) would suffice for the scope of an interview, though (and is still techni-
+cally correct, if you read the note about big theta on page 39). You might get "bonus points" if
+you can recognize that it'll actually be less than that.
+SI
+Cracking the Coding Interview, 6th Edition

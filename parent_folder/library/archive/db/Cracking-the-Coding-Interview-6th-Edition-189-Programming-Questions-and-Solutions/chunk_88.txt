@@ -1,0 +1,57 @@
+VII j Technical Questions
+constant factor might get dropped when you compute the big 0 time, but in real life, it can very much
+matter.
+•
+Simple: If you can do something in 10 lines instead of 100, you should. Code should be as quick as
+possible for a developer to write.
+*
+Readable: A different developer should be able to read your code and understand what it does and
+how it does it. Readable code has comments where necessary, but it implements things in an easily
+understandable way. That means that your fancy code that does a bunch of complex bit shifting is not
+necessarily good code.
+*
+Maintainable: Code should be reasonably adaptable to changes during the life cycle of a product and
+should be easy to maintain by other developers, as well as the initial developer.
+Striving for these aspects requires a balancing act. For example, it's often advisable to sacrifice some degree
+of efficiency to make code more maintainable, and vice versa.
+You should think about these elements as you code during an interview. The following aspects of code are
+more specific ways to demonstrate the earlier list.
+Use Data Structures Generously
+Suppose you were asked to write a function to add two simple mathematical expressions which are of
+the form Ax3 + Bxb +
+. . .
+(where the coefficients and exponents can be any positive or negative real
+number). That is, the expression is a sequence of terms, where each term is simply a constant times an
+exponent. The interviewer also adds that she doesn't want you to have to do string parsing, so you can use
+whatever data structure you'd like to hold the expressions.
+There are a number of different ways you can implement this.
+Bad Implementation
+A bad implementation would be to store the expression as a single array of doubles, where the kth element
+corresponds to the coefficient of the xk term in the expression. This structure is problematic because it
+could not support expressions with negative or non-integer exponents. It would also require an array of
+1000 elements to store just the expression x1Me.
+1
+int[] suitt(double[] exprl, double[] expr2) {
+2
+3
+}
+Less Bad Implementation
+A slightly less bad implementation would be to store the expression as a set of two arrays, c o e f f i c i e n t s
+and exponents. Under this approach, the terms of the expression are stored in any order, but "matched"
+such that the i t h term of the expression is represented by c o e f f i c i e n t s [ i ]
+*
+x
+e),,,oneinsI1!>
+Under this implementation, if c o e f f i c i e n t s [ p ]
+= k and exponents [ p ]
+= m, then the pth term is
+kx"\ Although this doesn't have the same limitations as the earlier solution, it's still very messy. You need
+to keep track of two arrays for just one expression. Expressions could have "undefined" values if the arrays
+were of different lengths. And returning an expression is annoying because you need to return two arrays.
+1
+??? sum(double[] c o e f f s l , doublet] exponl, doublet] coeffs2, doublet] expon2) {
+2
+3
+>
+61
+Cracking the Coding Interview, 6th Edition

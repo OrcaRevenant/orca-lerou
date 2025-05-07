@@ -1,0 +1,38 @@
+Step 3 - Design deep dive
+In the high-level design, the entire system is broken down in two parts: video uploading flow
+and video streaming flow. In this section, we will refine both flows with important
+optimizations and introduce error handling mechanisms.
+Video transcoding
+When you record a video, the device (usually a phone or camera) gives the video file a
+certain format. If you want the video to be played smoothly on other devices, the video must
+be encoded into compatible bitrates and formats. Bitrate is the rate at which bits are processed
+over time. A higher bitrate generally means higher video quality. High bitrate streams need
+more processing power and fast internet speed.
+Video transcoding is important for the following reasons:
+• Raw video consumes large amounts of storage space. An hour-long high definition video
+recorded at 60 frames per second can take up a few hundred GB of space.
+• Many devices and browsers only support certain types of video formats. Thus, it is
+important to encode a video to different formats for compatibility reasons.
+• To ensure users watch high-quality videos while maintaining smooth playback, it is a
+good idea to deliver higher resolution video to users who have high network bandwidth
+and lower resolution video to users who have low bandwidth.
+• Network conditions can change, especially on mobile devices. To ensure a video is
+played continuously, switching video quality automatically or manually based on network
+conditions is essential for smooth user experience.
+Many types of encoding formats are available; however, most of them contain two parts:
+• Container: This is like a basket that contains the video file, audio, and metadata. You can
+tell the container format by the file extension, such as .avi, .mov, or .mp4.
+• Codecs: These are compression and decompression algorithms aim to reduce the video
+size while preserving the video quality. The most used video codecs are H.264, VP9, and
+HEVC.
+Directed acyclic graph (DAG) model
+Transcoding a video is computationally expensive and time-consuming. Besides, different
+content creators may have different video processing requirements. For instance, some
+content creators require watermarks on top of their videos, some provide thumbnail images
+themselves, and some upload high definition videos, whereas others do not.
+To support different video processing pipelines and maintain high parallelism, it is important
+to add some level of abstraction and let client programmers define what tasks to execute. For
+example, Facebook’s streaming video engine uses a directed acyclic graph (DAG)
+programming model, which defines tasks in stages so they can be executed sequentially or
+parallelly [8]. In our design, we adopt a similar DAG model to achieve flexibility and
+parallelism. Figure 14-8 represents a DAG for video transcoding.

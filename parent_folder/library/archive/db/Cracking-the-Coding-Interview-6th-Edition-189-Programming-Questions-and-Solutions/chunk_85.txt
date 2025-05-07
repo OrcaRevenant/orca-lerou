@@ -1,0 +1,44 @@
+VII j Technical Questions
+•
+Operates in 0(N) time (probably). We'll probably want to at feast match the current best runtime, and
+we know we can't beat it.
+•
+Uses the fact that the arrays are sorted.
+Our best algorithm that doesn't use extra space was the binary search one. Let's think about optimizing
+that. We can try walking through the algorithm.
+1. Do a binary search in B for A [ 0 ] = 13. Not found.
+2, Do a binary sesrch In B for A [ 1 ] = 27. Not found.
+3. Do a binary sesrch in B for A [ 2 ] = 35. Found at B[ 1]
+4. Do a binary search in B for A [ 3 ] = 40. Found at B[ 5]
+5.
+6.
+Do a binary search in B for A [ 4 ] = 49, Not found.
+Think about BUD. The bottleneck is the searching. Is there anything unnecessary or duplicated?
+It's unnecessary that A [ 3 ]
+= 40 searched over ail of B. We know that we just found 35 at B [ l ] , so 40
+certainly won't be before 35.
+Each binary search should start where the last one left off.
+In fact, we don't need to do a binary search at ali now. We can just do a linear search. As long as the linear
+search in B is just picking up where the last one left off, we know that we're going to be operating in linear
+time.
+1. Do a linear search in B for A [ 0 ] = 13. Start at B [ 0 ] = 17. Stop at B[0] = 17. Not found
+2, Do a linear search in B for A [ 1] = 27. Start at B [ 0 ] = 17. Stop at B [ l ]
+= 35. Not found
+3. Do a lines r search in B for A [ 2] = 35. Start 3t B [ l ]
+= 35. Stop at B [ l ]
+= 35. Found.
+4. Do a linear search in B for A[ 3] = 40. Start at B [ 2 ] = 39. Stop at B[3] = 40. Found.
+5. Do 3 linear search in B for A [ 4 ] = 49. Start at B [ 3 ] = 40. Stop at B [ 4 ]
+= 55. Found.
+This algorithm is very similar to merging two sorted arrays. It operates in O(M) time and 0 ( 1 ) space.
+We have now reached the BCR and have minimal space. We know that we cannot do better,
+I
+This is another way we can use BCR. If you ever reach the BCR and have 0 ( 1 ) additional space,
+then you know that you C3n't optimize the big 0 time or space.
+Best Conceivable Runtime is not a "real"algorithm concept, in that you won't find it in algorithm textbooks.
+But I have found it personally very useful, when solving problems myself, as well as while coaching people
+through problems.
+If you're struggling to grasp it, make sure you understand big O time first (page 38). You need to master
+it. Once you do, figuring out the BCR of a problem should take literally seconds.
+CrackingTheCgdinglnterview.com ] 6th Edition
+81

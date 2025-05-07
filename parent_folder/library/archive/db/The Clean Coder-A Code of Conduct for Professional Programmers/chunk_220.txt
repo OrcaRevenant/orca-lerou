@@ -1,0 +1,29 @@
+189
+SOURCE CODE CONTROL
+There were three of us, and each of us had our own color of pin, so it was easy
+for us to know who had which files checked out. And since we all worked in the
+same lab and talked to each other all the time, we held the status of the board in
+our heads. So usually the board was redundant, and we often didn’t use it.
+TOO L S
+Today software developers have a wide array of tools to choose from. Most
+aren’t worth getting involved with, but there are a few that every software
+developer must be conversant with. This chapter describes my current personal
+toolkit. I have not done a complete survey of all the other tools out there, so
+this should not be considered a comprehensive review. This is just what I use.
+S OU RC E CO D E CO NTRO L
+When it comes to source code control, the open source tools are usually your
+best option. Why? Because they are written by developers, for developers. The
+open source tools are what developers write for themselves when they need
+something that works.
+There are quite a few expensive, commercial, “enterprise” version control
+systems available. I find that these are not sold to developers so much as they
+are sold to managers, executives, and “tool groups.” Their list of features is
+impressive and compelling. Unfortunately, they often don’t have the features
+that developers actually need. The chief among those is speed.
+A N “E NTE R PR I S E ” S O U RC E CO NTRO L SYSTE M
+It may be that your company has invested a small fortune in an “enterprise”
+source code control system. If so, my condolences. It’s probably politically
+inappropriate for you to go around telling everyone, “Uncle Bob says not to use
+it.” However, there is an easy solution.
+You can check your source code into the “enterprise” system at the end of each
+iteration (once every two weeks or so) and use one of the open source systems

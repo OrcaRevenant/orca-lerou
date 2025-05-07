@@ -1,0 +1,12 @@
+29
+CLEAN EMBEDDED ARCHITECTURE
+By James Grenning
+A while ago I read an article entitled “The Growing Importance of Sustaining
+Software for the DoD”1 on Doug Schmidt’s blog. Doug made the following
+claim:
+“Although software does not wear out, firmware and hardware become obsolete, thereby
+requiring software modifications.”
+It was a clarifying moment for me. Doug mentioned two terms that I would have
+thought to be obvious—but maybe not. Software is this thing that can have a
+long useful life, but firmware will become obsolete as hardware evolves. If you
+have spent any time in embedded systems development, you know the hardware

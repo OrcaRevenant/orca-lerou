@@ -1,0 +1,7 @@
+The Clean Coder
+A CODE OF CONDUCT FOR
+PROFESSIONAL PROGRAMMERS
+Robert C. Martin
+Upper Saddle River, NJ • Boston • Indianapolis • San Francisco
+New York • Toronto • Montreal • London • Munich • Paris • Madrid
+Capetown • Sydney • Tokyo • Singapore • Mexico City

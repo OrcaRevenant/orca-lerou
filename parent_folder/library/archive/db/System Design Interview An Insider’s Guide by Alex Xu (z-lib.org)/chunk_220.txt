@@ -1,0 +1,17 @@
+• Split video error: if older versions of clients cannot split videos by GOP alignment, the
+entire video is passed to the server. The job of splitting videos is done on the server-side.
+• Transcoding error: retry.
+• Preprocessor error: regenerate DAG diagram.
+• DAG scheduler error: reschedule a task.
+• Resource manager queue down: use a replica.
+• Task worker down: retry the task on a new worker.
+• API server down: API servers are stateless so requests will be directed to a different API
+server.
+• Metadata cache server down: data is replicated multiple times. If one node goes down,
+you can still access other nodes to fetch data. We can bring up a new cache server to
+replace the dead one.
+• Metadata DB server down:
+• Master is down. If the master is down, promote one of the slaves to act as the new
+master.
+• Slave is down. If a slave goes down, you can use another slave for reads and bring
+up another database server to replace the dead one.

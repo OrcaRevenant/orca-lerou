@@ -1,0 +1,27 @@
+CONCLUSION
+111
+source code control system. Every time someone commits a module, the CI
+system should kick off a build, and then run all the tests in the system. The
+results of that run should be emailed to everyone on the team.
+Stop the Presses
+It is very important to keep the CI tests running at all times. They should never
+fail. If they fail, then the whole team should stop what they are doing and focus
+on getting the broken tests to pass again. A broken build in the CI system
+should be viewed as an emergency, a “stop the presses” event.
+I have consulted for teams that failed to take broken tests seriously. They were
+“too busy” to fix the broken tests so they set them aside, promising to fix them
+later. In one case the team actually took the broken tests out of the build because
+it was so inconvenient to see them fail. Later, after releasing to the customer,
+they realized that they had forgotten to put those tests back into the build. They
+learned this because an angry customer was calling them with bug reports.
+CO N C LU S I O N
+Communication about details is hard. This is especially true for programmers
+and stakeholders communicating about the details of an application. It is too
+easy for each party to wave their hands and assume that the other party
+understands. All too often both parties agree that they understand and leave
+with completely different ideas.
+The only way I know of to effectively eliminate communication errors between
+programmers and stakeholders is to write automated acceptance tests. These
+tests are so formal that they execute. They are completely unambiguous, and
+they cannot get out of sync with the application. They are the perfect
+requirements document.

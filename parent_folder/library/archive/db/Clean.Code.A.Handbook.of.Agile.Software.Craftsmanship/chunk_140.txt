@@ -1,0 +1,44 @@
+110
+Chapter 7: Error Handling
+Can we make the code that simple? It turns out that we can. We can change the
+ExpenseReportDAO so that it always returns a MealExpense object. If there are no meal
+expenses, it returns a MealExpense object that returns the per diem as its total:
+public class PerDiemMealExpenses implements MealExpenses {
+public int getTotal() {
+// return the per diem default
+}
+}
+This is called the SPECIAL CASE PATTERN [Fowler]. You create a class or conﬁgure an
+object so that it handles a special case for you. When you do, the client code doesn’t have
+to deal with exceptional behavior. That behavior is encapsulated in the special case object.
+Don’t Return Null
+I think that any discussion about error handling should include mention of the things we
+do that invite errors. The ﬁrst on the list is returning null. I can’t begin to count the number
+of applications I’ve seen in which nearly every other line was a check for null. Here is
+some example code:
+public void registerItem(Item item) {
+if (item != null) {
+ItemRegistry registry = peristentStore.getItemRegistry();
+if (registry != null) {
+Item existing = registry.getItem(item.getID());
+if (existing.getBillingPeriod().hasRetailOwner()) {
+existing.register(item);
+}
+}
+}
+}
+If you work in a code base with code like this, it might not look all that bad to you, but it is
+bad! When we return null, we are essentially creating work for ourselves and foisting
+problems upon our callers. All it takes is one missing null check to send an application
+spinning out of control.
+Did you notice the fact that there wasn’t a null check in the second line of that nested
+if statement? What would have happened at runtime if persistentStore were null? We
+would have had a NullPointerException at runtime, and either someone is catching
+NullPointerException at the top level or they are not. Either way it’s bad. What exactly
+should you do in response to a NullPointerException thrown from the depths of your appli-
+cation?
+It’s easy to say that the problem with the code above is that it is missing a null check,
+but in actuality, the problem is that it has too many. If you are tempted to return null from
+a method, consider throwing an exception or returning a SPECIAL CASE object instead. If
+you are calling a null-returning method from a third-party API, consider wrapping that
+method with a method that either throws an exception or returns a special case object.

@@ -1,0 +1,71 @@
+Solutions to Chapter 10 | Sorting and Searching
+10.4
+Sorted Search, No Size; You are given an array-like data structure Li s t y which lacks a size
+method. It does, however, have an e l e m e n t At ( i ) method that returns the element at index i in
+0 ( 1 ) time. If i is beyond the bounds of the data structure, it returns -1. (For this reason, the data
+structure only supports positive integers.) Given a L i s t y which contains sorted, positive integers,
+find the index at which an element x occurs. If x occurs multiple times, you may return any index.
+pg '50
+SOLUTION
+Our first thought here should be binary search. The problem is that binary search requires us knowing the
+length of the list, so that we can compare it to the midpoint. We don't have that here.
+Could we compute the length? Yes!
+We know that e l e m e n t At will return -1 when i is too large. We can therefore just try bigger and bigger
+values until we exceed the size of the list.
+But how much bigger? If we just went through the list linearly—1, then 2, then 3, then 4, and so on—we'd
+wind up with a linear time algorithm. We probably want something faster than this. Otherwise, why would
+the interviewer have specified the list is sorted?
+It's better to back off exponentially. Try 1, then 2, then 4, then 8, then 16, and so on. This ensures that, if the
+list has length n, we'll find the length in at most 0( l o g n) time.
+W h y O ( l o g
+n)? Imagine we start with pointer q at q
+=
+1. At each iteration, this pointer q
+doubles, until q is bigger than the length n. How many times can q double in size before it's
+bigger than n?Or, in other words, for what value of k does 2k = n?This expression is equal when
+k = l o g n, as this is precisely what l o g means. Therefore, it will take 0( l o g n) steps to find
+the length.
+Once we find the length, we just perform a (mostly) normal binary search. I say "mostly" because we need
+to make one small tweak. If the mid point is -1, we need to treat this as a "too big" value and search left. This
+is on line 16 below.
+There's one more little tweak. Recall that the way we figure out the length is by calling e l e m e n t A t and
+comparing it to -1. If, in the process, the element is bigger than the value x (the one we're searching for),
+we'll jump over to the binary search part early.
+1
+i n t search(Listy l i s t ,
+i n t value) {
+2
+i n t index = 1;
+3
+while ( l i s t . e l e m e n t A t ( i n d e x ) 1= -1 8& l i s t . e l e m e n t A t ( i n d e x ) < value) {
+4
+index *= 2;
+5
+}
+6
+return b i n a r y 5 e a r c h ( l i s t , value,
+index / 2, index);
+7
+}
+8
+9
+i n t binarySearch(Listy l i s t ,
+i n t value,
+i n t low, i n t high) {
+10
+i n t mid;
+11
+12
+while (low <= high) {
+13
+mid = (low + high) / 2;
+14
+i n t middle = l i s t . e l e m e n t A t ( m i d ) ;
+15
+if (middle > value || middle == -1) {
+16
+high = mid - 1;
+17
+) else if (middle < value) {
+416
+Cracking the Coding Interview, 6th Edition

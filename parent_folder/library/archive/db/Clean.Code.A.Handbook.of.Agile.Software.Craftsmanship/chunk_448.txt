@@ -1,0 +1,87 @@
+421
+Index
+global setup strategy, 155
+“God class”, 136–137
+good comments, 55–59
+goto statements, avoiding, 48, 49
+grand redesign, 5
+gratuitous context, 29–30
+H
+hand-coded instrumentation, 189
+HashTable, 328–329
+headers. See comment headers; function
+headers
+heuristics
+cross references of, 286, 409
+general, 288–307
+listing of, 285–314
+hidden temporal coupling, 259, 302–303
+hidden things, in a function, 44
+hiding
+implementation, 94
+structures, 99
+hierarchy of scopes, 88
+HN. See Hungarian Notation
+horizontal alignment, of code, 87–88
+horizontal formatting, 85–90
+horizontal white space, 86
+HTML, in source code, 69
+Hungarian Notation (HN), 23–24, 295
+Hunt, Andy, 8, 289
+hybrid structures, 99
+I
+if statements
+duplicate, 276
+eliminating, 262
+if-else chain
+appearing again and again, 290
+eliminating, 233
+ignored tests, 313
+implementation
+duplication of, 173
+encoding, 24
+exposing, 94
+hiding, 94
+wrapping an abstraction, 11
+Implementation Patterns, 3, 296
+implicity, of code, 18
+import lists
+avoiding long, 307
+shortening in SerialDate, 270
+imports, as hard dependencies, 307
+imprecision, in code, 301
+inaccurate comments, 54
+inappropriate information, in
+comments, 286
+inappropriate static methods, 296
+include method, 48
+inconsistency, in code, 292
+inconsistent spellings, 20
+incrementalism, 212–214
+indent level, of a function, 35
+indentation, of code, 88–89
+indentation rules, 89
+independent tests, 132
+information
+inappropriate, 286
+too much, 70, 291–292
+informative comments, 56
+inheritance hierarchy, 308
+inobvious connection, between a comment
+and code, 70
+input arguments, 41
+instance variables
+in classes, 140
+declaring, 81
+hiding the declaration of, 81–82
+passing as function
+arguments, 231
+proliferation of, 140
+instrumented classes, 342
+insufficient tests, 313
+integer argument(s)
+defining, 194
+integrating, 224–225
+integer argument functionality,
+moving into ArgumentMarshaler,
+215–216

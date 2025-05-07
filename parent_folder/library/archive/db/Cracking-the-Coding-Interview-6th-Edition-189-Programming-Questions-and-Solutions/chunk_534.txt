@@ -1,0 +1,82 @@
+Solutions to Chapter 536 | Moderate
+49
+LinkedListNode node = map.get(key);
+50
+removeFromLinkedList(node);
+51
+map.reniove(key);
+52
+return true;
+53
+>
+54
+55
+/* Put key, value pair in cache. Removes old value -for key if necessary. Inserts
+56
+* pair into linked l i s t and hash table.*/
+57
+public void setKeyValue(int key, String value) {
+58
+/* Remove if already there. */
+59
+removeKey(key);
+60
+61
+/* If full, remove least recently used item from cache. */
+62
+if (map.size{) >= maxCacheSize && listTail != null) {
+63
+removeKey(listTail.key);
+64
+>
+65
+66
+/* Insert new node. */
+67
+LinkedListNode node = new LinkedListNode(key, value);
+68
+insertAtfrontOfLinkedList(node);
+69
+map.put(key, node);
+70
+>
+71
+72
+private static class LinkedListNode {
+73
+private LinkedListNode next, prev;
+74
+public int key;
+75
+public String value;
+76
+public LinkedListNode(int k, String v) {
+77
+key = k;
+78
+value = v;
+79
+>
+80
+>
+81 }
+Note that we've chosen to make LinkedListNode an inner class of Cache, since no other classes should
+need access to this class and really should only exist within the scope of Cache,
+16.26 CalculatonGiven an arithmetic equation consisting of positive integers, +,-, *and/ (no parentheses),
+compute the result.
+EXAMPLE
+Input:
+2*3+5/6*3+15
+Output:
+23.5
+pgl85
+SOLUTION
+The first thing we should realize is that the dumb thing—just applying each operator left to right—won't
+work. Multiplication and division are considered "higher priority" operations, which means that they have
+to happen before addition.
+For example, if you have the simple expression 3+6*2, the multiplication must be performed first, and then
+the addition, if you just processed the equation left to right, you would end up with the incorrect resuit,
+18, rather than the correct one, 15. You know all of this, of course, but it's worth really spelling out what it
+means.
+492
+Cracking the Coding Interview, 6th Edition

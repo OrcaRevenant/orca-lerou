@@ -1,0 +1,27 @@
+Figure 2.4
+The OCI is a relatively new governance council responsible for standardizing the
+most fundamental components of container infrastructure such as image format
+and container runtime (don’t worry if these terms are new to you, we’ll cover
+them in the book).
+It’s also true that no discussion of the OCI is complete without mentioning a bit
+of history. And as with all accounts of history, the version you get depends on
+who’s doing the talking. So, this is the version of history according to Nigel :-D
+From day one, use of Docker has grown like crazy. More and more people used
+it in more and more ways for more and more things. So, it was inevitable that
+somebody was going to get frustrated. This is normal and healthy.
+The TLDR of this history according to Nigel is that a company called CoreOS
+didn’t like the way Docker did certain things. So they did something about it!
+They created a new open standard called appc that defined things like image
+format and container runtime. They also created an implementation of the spec
+called rkt (pronounced “rocket”).
+This put the container ecosystem in an awkward position with two competing
+standards.
+Getting back to the story though, this threatened to fracture the ecosystem and
+present users and customers with a dilemma. While competition is usually a
+good thing, competing standards is usually not. They cause confusion and
+slowdown user adoption. Not good for anybody.
+With this in mind, everybody did their best to act like adults and came together
+to form the OCI - a lightweight agile council to govern container standards.
+At the time of writing, the OCI has published two specifications (standards) -
+The image-spec
+The runtime-spec

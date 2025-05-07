@@ -1,0 +1,109 @@
+Solutions to Chapter 7 j Object-Oriented Design
+15
+private ArrayList<LinkedListNode<K, V>> arr;
+16
+public Basher(int capacity) {
+17
+/* Create list of linked lists at a particular size. Fill list with null
+IE
+* values, as it's the only way to make the array the desired size. */
+19
+arr = new ArrayList<LinkedListNode<K, V>>();
+20
+arr.ensureCapacity(capacity); // Optional optimization
+21
+for (int i = 0; i < capacity; i++) {
+22
+arr.add(null);
+23
+}
+24
+>
+25
+26
+/* Insert key and value into hash table. */
+27
+public void put(K key, V value) {
+28
+LinkedListNodecK, V> node = getNodeForKey(key);
+29
+if (node != null) { // Already there
+30
+node.value = value; // just update the value.
+31
+return;
+32
+}
+33
+34
+node • new LinkedListNodecK, V>(key, value);
+35
+int index m getlndexForKey(key);
+36
+if (arr.get(index) != null) {
+37
+node.next = arr.get(index);
+38
+node.next.prev = node;
+39
+}
+40
+arr.set(index, node);
+41
+>
+42
+43
+/* Remove node for key. V
+44
+public void remove(K key) {
+45
+LinkedListNodecK, V> node = getNodeForKey(key);
+46
+if (node.prev != null) {
+47
+node.prev.next = node.next;
+48
+) else {
+49
+/* Removing head - update. */
+50
+int hashKey = getlndexForKey(key);
+51
+arr.set(hashKey, node.next);
+52
+>
+53
+54
+if (node.next != null) {
+55
+node.next.prev = node.prev;
+56
+>
+57
+>
+58
+59
+/* Get value for key. */
+60
+public V get(K key) {
+61
+LinkedListNode<K, V> node = getNodeForKey(key);
+62
+return node == null ? null : node.value;
+63
+}
+64
+65
+/* Get linked list node associated with a given key. */
+66
+private LinkedListNodecK, V> getNodeForKey(K key) {
+67
+int index = getlndexForKey(key);
+68
+LinkedListNodecK, V> current = anr.get(index);
+69
+while (current != null) {
+79
+if (current.key == key) {
+340
+Cracking the Coding Interview, 6th Edition

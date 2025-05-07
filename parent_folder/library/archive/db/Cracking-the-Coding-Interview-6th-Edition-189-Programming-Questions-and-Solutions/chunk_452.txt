@@ -1,0 +1,61 @@
+Solutions to Chapter 14 | Databases
+14.2
+Open Requests: Write a SQL query to get a fist of all buildings and the number of open requests
+(Requests in which s t a t u s equals'Open').
+pg173
+SOLUTION
+This problem uses a straightforward join of Requests and Apartments to get a list of building IDs and
+the number of open requests. Once we have this list, we join it again with the B u i l d i n g s table.
+1
+SELECT BuildingName, ISNULL(Count, 0) as 'Count'
+2
+FROM Buildings
+3
+LEFT JOIN
+4
+(SELECT Apartments.BuildinglD, count{*) as 'Count'
+5
+FROM Requests INNER JOIN Apartments
+6
+ON Requests.AptID = Apartments.AptID
+7
+WHERE Requests.Status = 'Open'
+8
+GROUP BY ApartmentS.BuildinglD) ReqCounts
+9
+ON ReqCounts.BuildinglD = Buildings.BuildinglD
+Queries like this that utilize sub-queries should be thoroughly tested, even whencodingbyhand.lt may be
+useful to test the inner part of the query first, and then test the outer part.
+14.3
+Close All Requests: Building #11 is undergoing a major renovation. Implement a query to close all
+requests from apartments in this building.
+pg173
+SOLUTION
+UPDATE queries, like SELECT queries, can have WHERE clauses. To implement this query, we get a list of all
+apartment IDs within building #11 and the list of update requests from those apartments.
+1
+UPDATE Requests
+2
+SET Status = 'Closed'
+3
+WHERE AptIO IN (SELECT AptID FROM Apartments WHERE BuildinglD = 11)
+14.4
+Joins: What are the different types of joins? Please explain how they differ and why certain types
+are better in certain situations.
+pgm
+SOLUTION
+JOIN is used to combine the results of two tables. To perform a 30IN, each of the tables must have at
+least one field that will be used to find matching records from the other table. The join type defines which
+records will go into the result set.
+Let's take for example two tables: one table lists the "regular" beverages, and another lists the calorie-free
+beverages. Each table has two fields: the beverage name and its product code. The "code"field will be used
+to perform the record matching.
+Regular Beverages:
+Name
+Code
+Budweiser
+BUDWEISER
+Coca-Cola
+COCACOLA
+4 4 2
+Cracking the Coding Interview, 6th Edition

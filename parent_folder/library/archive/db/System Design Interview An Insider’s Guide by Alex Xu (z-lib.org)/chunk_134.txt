@@ -1,0 +1,23 @@
+crawler must handle exceptions gracefully without crashing the system.
+• Data validation: This is an important measure to prevent system errors.
+Extensibility
+As almost every system evolves, one of the design goals is to make the system flexible
+enough to support new content types. The crawler can be extended by plugging in new
+modules. Figure 9-10 shows how to add new modules.
+• PNG Downloader module is plugged-in to download PNG files.
+• Web Monitor module is added to monitor the web and prevent copyright and trademark
+infringements.
+Detect and avoid problematic content
+This section discusses the detection and prevention of redundant, meaningless, or harmful
+content.
+1. Redundant content
+As discussed previously, nearly 30% of the web pages are duplicates. Hashes or checksums
+help to detect duplication [11].
+2. Spider traps
+A spider trap is a web page that causes a crawler in an infinite loop. For instance, an infinite
+deep directory structure is listed as follows:
+www.spidertrapexample.com/foo/bar/foo/bar/foo/bar/…
+Such spider traps can be avoided by setting a maximal length for URLs. However, no one-
+size-fits-all solution exists to detect spider traps. Websites containing spider traps are easy to
+identify due to an unusually large number of web pages discovered on such websites. It is
+hard to develop automatic algorithms to avoid spider traps; however, a user can manually

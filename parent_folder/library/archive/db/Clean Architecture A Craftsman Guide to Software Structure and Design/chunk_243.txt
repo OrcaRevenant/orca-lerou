@@ -1,0 +1,38 @@
+void Get_Next_Measurement(void) { ... }
+void Zero_Sensor_1(void) { ... }
+void Zero_Sensor_2(void) { ... }
+void Dev_Control(char Activation) { ... }
+char Load_FLASH_Setup(void) { ... }
+void Save_FLASH_Setup(void) { ... }
+void Store_DataSet(void) { ... }
+float bytes2float(char bytes[4]) { ... }
+void Recall_DataSet(void) { ... }
+void Sensor_init(void) { ... }
+void uC_Sleep(void) { ... }
+That list of functions is in the order I found them in the source file. Now I’ll
+separate them and group them by concern:
+• Functions that have domain logic
+Click here to view code image
+float calc_RPM(void) { ... }
+void Do_Average(void) { ... }
+void Get_Next_Measurement(void) { ... }
+void Zero_Sensor_1(void) { ... }
+void Zero_Sensor_2(void) { ... }
+• Functions that set up the hardware platform
+Click here to view code image
+ISR(TIMER1_vect) { ... }*
+ISR(INT2_vect) { ... }
+void uC_Sleep(void) { ... }
+Functions that react to the on off button press
+void btn_Handler(void) { ... }
+void Dev_Control(char Activation) { ... }
+A Function that can get A/D input readings from the hardware
+static char Read_RawData(void) { ... }
+• Functions that store values to the persistent storage
+Click here to view code image
+char Load_FLASH_Setup(void) { ... }
+void Save_FLASH_Setup(void) { ... }
+void Store_DataSet(void) { ... }
+float bytes2float(char bytes[4]) { ... }
+void Recall_DataSet(void) { ... }
+• Function that does not do what its name implies

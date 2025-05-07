@@ -1,0 +1,68 @@
+Hints for Concepts and Algorithms
+#137.
+5.1
+Break this into parts. Focus first on clearing the appropriate bits.
+#138.
+8.9
+Try the Base Case and Build approach.
+#139.
+6.9
+Given a specific door x, on which rounds will it be toggled (open or closed)?
+#140.
+11.5
+What does the interviewer mean by a pen? There are a lot of different types of pens.
+Make a list of potential questions you would want to ask.
+#141.
+7.11
+This is not as complicated as it sounds. Start by making a list of the key objects in the
+system, then think about how they interact.
+#142.
+9.6
+First, start with making some assumptions. What do and don't you have to build?
+#143.
+5.2
+To wrap your head around the problem, try thinking about how you'd do it for integers,
+#144.
+8.6
+Try the Base Case and Build approach,
+#145.
+5.7
+Swapping each pair means moving the even bits to the left and the odd bits to the right.
+Can you break this problem into parts?
+#146.
+6.10
+Solution 1: Start with a simple approach. Can you just divide up the bottles into groups?
+Remember that you can't re-use a test strip once it is positive, but you can reuse it as
+long as it's negative.
+#147.
+5.4
+Get Next: Start with a brute force solution for each.
+#148.
+8.14
+Can we just try all possibilities? What would this look like?
+#149.
+6.5
+Play around with the jugs of water, pouring water back and forth, and see if you can
+measure anything other than 3 quarts or 5 quarts. That's a start.
+#150.
+8.7
+Approach 1: Suppose you had ail permutations of abc. How can you use that to get all
+permutations of abed?
+#151.
+5.5
+Reverse engineer this, starting from the outermost layer to the innermost layer.
+#152.
+8,1
+Approach this from the top down. What is the very last hop the child made?
+#153.
+7.1
+Note that a "card deck" is very broad. You might want to think about a reasonable scope
+to the problem.
+#154.
+6.7
+Observe that each family will have exactly one girl.
+#155.
+8.13
+Will sorting the boxes help in any way?
+646
+Cracking the Coding Interview, 6th Edition

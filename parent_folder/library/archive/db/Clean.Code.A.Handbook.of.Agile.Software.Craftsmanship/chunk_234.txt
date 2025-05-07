@@ -1,0 +1,51 @@
+204
+Chapter 14: Successive Reﬁnement
+throw new ArgsException();
+} catch (NumberFormatException e) {
+valid = false;
+errorArgumentId = argChar;
+errorParameter = parameter;
+errorCode = ErrorCode.INVALID_INTEGER;
+throw new ArgsException();
+}
+}
+private void setStringArg(char argChar) throws ArgsException {
+currentArgument++;
+try {
+stringArgs.put(argChar, args[currentArgument]);
+} catch (ArrayIndexOutOfBoundsException e) {
+valid = false;
+errorArgumentId = argChar;
+errorCode = ErrorCode.MISSING_STRING;
+throw new ArgsException();
+}
+}
+private boolean isStringArg(char argChar) {
+return stringArgs.containsKey(argChar);
+}
+private void setBooleanArg(char argChar, boolean value) {
+booleanArgs.put(argChar, value);
+}
+private boolean isBooleanArg(char argChar) {
+return booleanArgs.containsKey(argChar);
+}
+public int cardinality() {
+return argsFound.size();
+}
+public String usage() {
+if (schema.length() > 0)
+return "-[" + schema + "]";
+else
+return "";
+}
+public String errorMessage() throws Exception {
+switch (errorCode) {
+case OK:
+throw new Exception("TILT: Should not get here.");
+case UNEXPECTED_ARGUMENT:
+return unexpectedArgumentMessage();
+case MISSING_STRING:
+return String.format("Could not find string parameter for -%c.",
+errorArgumentId);
+Listing 14-8 (continued)
+Args.java (first draft)

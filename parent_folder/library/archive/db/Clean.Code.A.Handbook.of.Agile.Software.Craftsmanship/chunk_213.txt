@@ -1,0 +1,44 @@
+183
+Know Your Execution Models
+ConcurrentHashMap implementation performs better than HashMap in nearly all situations. It
+also allows for simultaneous concurrent reads and writes, and it has methods supporting
+common composite operations that are otherwise not thread safe. If Java 5 is the deploy-
+ment environment, start with ConcurrentHashMap.
+There are several other kinds of classes added to support advanced concurrency
+design. Here are a few examples:
+Recommendation: Review the classes available to you. In the case of Java, become
+familiar with java.util.concurrent, java.util.concurrent.atomic, java.util.concurrent.locks.
+Know Your Execution Models
+There are several different ways to partition behavior in a concurrent application. To dis-
+cuss them we need to understand some basic deﬁnitions.
+Given these deﬁnitions, we can now discuss the various execution models used in
+concurrent programming.
+ReentrantLock
+A lock that can be acquired in one method and released in another.
+Semaphore
+An implementation of the classic semaphore, a lock with a count.
+CountDownLatch
+A lock that waits for a number of events before releasing all
+threads waiting on it. This allows all threads to have a fair chance
+of starting at about the same time.
+Bound Resources
+Resources of a ﬁxed size or number used in a concurrent environ-
+ment. Examples include database connections and ﬁxed-size read/
+write buffers.
+Mutual Exclusion
+Only one thread can access shared data or a shared resource at a
+time.
+Starvation
+One thread or a group of threads is prohibited from proceeding
+for an excessively long time or forever. For example, always let-
+ting fast-running threads through ﬁrst could starve out longer run-
+ning threads if there is no end to the fast-running threads.
+Deadlock
+Two or more threads waiting for each other to ﬁnish. Each thread
+has a resource that the other thread requires and neither can ﬁnish
+until it gets the other resource.
+Livelock
+Threads in lockstep, each trying to do work but ﬁnding another
+“in the way.” Due to resonance, threads continue trying to
+make progress but are unable to for an excessively long time—
+or forever.

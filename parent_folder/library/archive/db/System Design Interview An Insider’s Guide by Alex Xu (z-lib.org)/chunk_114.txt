@@ -1,0 +1,16 @@
+5.
+This method can eliminate collision; however, it is expensive to query the database to check
+if a shortURL exists for every request. A technique called bloom filters [2] can improve
+performance. A bloom filter is a space-efficient probabilistic technique to test if an element is
+a member of a set. Refer to the reference material [2] for more details.
+Base 62 conversion
+Base conversion is another approach commonly used for URL shorteners. Base conversion
+helps to convert the same number between its different number representation systems. Base
+62 conversion is used as there are 62 possible characters for hashValue. Let us use an
+example to explain how the conversion works: convert 1115710 to base 62 representation
+(1115710 represents 11157 in a base 10 system).
+• From its name, base 62 is a way of using 62 characters for encoding. The mappings are:
+0-0, ..., 9-9, 10-a, 11-b, ..., 35-z, 36-A, ..., 61-Z, where ‘a’ stands for 10, ‘Z’ stands for 61,
+etc.
+• 1115710 = 2 x 622 + 55 x 621 + 59 x 620 = [2, 55, 59] -> [2, T, X] in base 62
+representation. Figure 8-6 shows the conversation process.

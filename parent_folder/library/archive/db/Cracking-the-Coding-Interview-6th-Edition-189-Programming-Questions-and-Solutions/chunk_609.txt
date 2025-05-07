@@ -1,0 +1,103 @@
+Solutions to Chapter 17 | Hard
+We've chosen to use a HistogramData object to store this extra information, but we could afso use a
+two-dimensional array.
+1
+i n t computeHistogramVolume(intn histogram) {
+2
+i n t s t a r t = 0;
+3
+i n t end = histogram.length - 1;
+5
+HistogramData[] data = createHistogramData(histogram);
+6
+7
+i n t max = data[0].getRightMaxIndex(); // Get overall max
+8
+i n t leftVolume =
+subgraphVolumefdata, s t a r t , max, t r u e ) ;
+9
+i n t rightVolume = subgraphVolume(data, max, end, f a l s e ) ;
+10
+11
+return leftVolume + rightVolume;
+12
+>
+13
+14 HistogramData[] createHistogramData(int[] histo) {
+15
+HistogramData[] histogram = new HistogramData[histo.length];
+16
+f o r ( i n t i = 0; i < histo.length; i++) {
+17
+histogramfi] » new HistogramData(histo[i]);
+18
+)
+19
+20
+/* Set l e f t max index. %
+21
+i n t maxlndex = 0;
+22
+for ( i n t i = 0; i < histo.length; i++) {
+23
+if (histo[max!ndex] < h i s t o [ i ] ) {
+24
+maxlndex = i;
+25
+>
+26
+histogram[i].setLeftMaxlndex(maxlndex);
+27
+>
+28
+29
+/* Set r i g h t max index. */
+30
+maxlndex = histogram,length - 1;
+31
+f o r ( i n t i = histogram.length - 1; i >= 0; i - - ) {
+32
+if (histo[maxIndex] < h i s t o [ i ] ) {
+33
+maxlndex = i;
+34
+>
+35
+histogram[i]. setRightfiaxIndex(maxIndex);
+36
+}
+37
+38
+return histogram;
+39
+}
+40
+41 /* Compute the volume of a subgraph of the histogram, one max is at either s t a r t
+42
+* or end (depending on i s L e f t ) . Find second t a l l e s t , then compute volume between
+43
+* t a l l e s t and second t a l l e s t . Then compute volume of subgraph. */
+44 i n t subgraphVolume(HistogramData[] histogram, i n t s t a r t , i n t end,
+45
+boolean i s L e f t ) {
+46
+if ( s t a r t >= end) return 0;
+47
+i n t sum = 0;
+48
+if
+( i s L e f t )
+{
+49
+i n t max = histogram[end - 1).getLeftMaxIndex();
+50
+sum += borderedVolume(histogram, max, end);
+51
+sum += subgraphVolume(histogram, s t a r t , max, i s L e f t ) ;
+52
+} else {
+53
+i n t max = histogram[start + 1].getRightMaxlndex();
+54
+sum += borderedVolume(histogram, s t a r t , max);
+CrackingTheCodinglnterview.com | 6th Edition S 3 7

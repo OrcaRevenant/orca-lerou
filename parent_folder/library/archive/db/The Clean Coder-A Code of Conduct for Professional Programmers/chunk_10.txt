@@ -1,0 +1,68 @@
+CONTENTS
+x
+Chapter 3
+Saying Yes
+45
+A Language of Commitment
+47
+Learning How to Say “Yes”
+52
+Conclusion
+56
+Chapter 4
+Coding
+57
+Preparedness
+58
+The Flow Zone
+62
+Writer’s Block
+64
+Debugging
+66
+Pacing Yourself
+69
+Being Late
+71
+Help
+73
+Bibliography
+76
+Chapter 5
+Test Driven Development
+77
+The Jury Is In
+79
+The Three Laws of TDD
+79
+What TDD Is Not
+83
+Bibliography
+84
+Chapter 6
+Practicing
+85
+Some Background on Practicing
+86
+The Coding Dojo
+89
+Broadening Your Experience
+93
+Conclusion
+94
+Bibliography
+94
+Chapter 7
+Acceptance Testing
+95
+Communicating Requirements
+95
+Acceptance Tests
+100
+Conclusion
+111
+Chapter 8
+Testing Strategies
+113
+QA Should Find Nothing
+114

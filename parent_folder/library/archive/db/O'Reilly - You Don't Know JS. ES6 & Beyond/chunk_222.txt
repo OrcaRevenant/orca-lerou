@@ -1,0 +1,37 @@
+}
+);
+This request(..) that I’ve conceived is somewhat like the fetch(..) utility that’s
+recently been proposed for inclusion into the web platform. So the concern is, what
+happens if you want to use the pr value to somehow indicate that you want to cancel
+a long running Ajax request, for example?
+Promises are not cancelable (at the time of writing, anyway). In my opinion, as well as
+many others, they never should be (see the Async & Performance title of this series).
+And even if a promise did have a cancel() method on it, does that necessarily mean
+that calling pr.cancel() should actually propagate a cancelation signal all the way
+back up the promise chain to the async function?
+Several possible resolutions to this debate have surfaced:
+• `async function`s won’t be cancelable at all (status quo)
+• a “cancel token” can be passed to an async function at call time
+• return value changes to a cancelable-promise type that’s added
+• return value changes to something else non-promise (e.g., observable, or control
+token with promise and cancel capabilities)
+At the time of this writing, `async function`s return regular promises, so it’s less likely
+that the return value will entirely change. But it’s too early to tell where things will
+land. Keep an eye on this discussion.
+Object.observe(..)
+One of the holy grails of front-end web development is data binding — listening for
+updates to a data object and syncing the DOM representation of that data. Most JS
+frameworks provide some mechanism for these sorts of operations.
+It appears likely that post ES6, we’ll see support added directly to the language, via a
+utility called Object.observe(..). Essentially, the idea is that you can set up a lis‐
+tener to observe an object’s changes, and have a callback called any time a change
+occurs. You can then update the DOM accordingly, for instance.
+There are six types of changes that you can observe:
+• add
+• update
+• delete
+• reconfigure
+Object.observe(..)
+|
+211
+www.it-ebooks.info

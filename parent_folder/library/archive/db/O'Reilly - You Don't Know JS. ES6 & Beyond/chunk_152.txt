@@ -1,0 +1,46 @@
+If you received the bits of 3085 as 0000110100001100 from a little-endian system, but
+you layered a view on top of it in a big-endian system, you’d instead see value 3340
+(base-10) and 0d0c (base-16).
+Little endian is the most common representation on the web these days, but there are
+definitely browsers where that’s not true. It’s important that you understand the
+endianness of both the producer and consumer of a chunk of binary data.
+From MDN, here’s a quick way to test the endianness of your JavaScript:
+var littleEndian = (function() {
+var buffer = new ArrayBuffer( 2 );
+new DataView( buffer ).setInt16( 0, 256, true );
+return new Int16Array( buffer )[0] === 256;
+})();
+littleEndian will be true or false; for most browsers, it should return true. This
+test uses DataView(..), which allows more low-level, fine-grained control over
+accessing (setting/getting) the bits from the view you layer over the buffer. The third
+parameter of the setInt16(..) method in the previous snippet is for telling the Data
+View what endianness you’re wanting it to use for that operation.
+Do not confuse endianness of underlying binary storage in array
+buffers with how a given number is represented when exposed in a
+JS
+program.
+For
+example,
+(3085).toString(2)
+returns
+"110000001101", which with an assumed leading four "0"’s
+appears to be the big-endian representation. In fact, this represen‐
+tation is based on a single 16-bit view, not a view of two 8-bit bytes.
+The DataView test above is the best way to determine endianness
+for your JS environment.
+Multiple Views
+A single buffer can have multiple views attached to it, such as:
+var buf = new ArrayBuffer( 2 );
+var view8 = new Uint8Array( buf );
+var view16 = new Uint16Array( buf );
+view16[0] = 3085;
+view8[0];                       // 13
+view8[1];                       // 12
+view8[0].toString( 16 );        // "d"
+view8[1].toString( 16 );        // "c"
+// swap (as if endian!)
+var tmp = view8[0];
+Typed Arrays
+|
+141
+www.it-ebooks.info

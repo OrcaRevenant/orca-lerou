@@ -1,0 +1,31 @@
+clients would send us magnetic tapes with unit records containing the names and
+addresses of their customers, and we would write programs that printed nice
+personalized advertisements.
+You know the kind:
+Hello Mr. Martin,
+Congratulations!
+We chose YOU from everyone else who lives on Witchwood Lane to participate
+in our new fantastic one-time-only offering…
+The clients would send us huge rolls of form letters with all the words except the
+name and address, and any other element they wanted us to print. We wrote
+programs that extracted the names, addresses, and other elements from the
+magnetic tape, and printed those elements exactly where they needed to appear
+on the forms.
+These rolls of form letters weighed 500 pounds and contained thousands of
+letters. Clients would send us hundreds of these rolls. We would print each one
+individually.
+At first, we had an IBM 360 doing the printing on its sole line printer. We could
+print a few thousand letters per shift. Unfortunately, this tied up a very expensive
+machine for a very long time. In those days, IBM 360s rented for tens of
+thousands of dollars per month.
+So we told the operating system to use magnetic tape instead of the line printer.
+Our programs didn’t care, because they had been written to use the IO
+abstractions of the operating system.
+The 360 could pump out a full tape in 10 minutes or so—enough to print several
+rolls of form letters. The tapes were taken outside of the computer room and
+mounted on tape drives connected to offline printers. We had five of them, and
+we ran those five printers 24 hours per day, seven days per week, printing
+hundreds of thousands of pieces of junk mail every week.
+The value of device independence was enormous! We could write our programs
+without knowing or caring which device would be used. We could test those
+programs using the local line printer connected to the computer. Then we could

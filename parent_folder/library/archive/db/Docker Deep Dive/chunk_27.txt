@@ -1,0 +1,35 @@
+Figure 3.2
+If you already have the Windows Containers feature enabled it will only take a
+few seconds to make the switch. Once the switch has been made the output to
+the docker version command will look like this.
+C:\> docker version
+Client:
+Version:      17.05.0-ce
+API version:  1.29
+Go version:   go1.7.5
+Git commit:   89658be
+Built:        Thu May  4 21:43:09 2017
+OS/Arch:      windows/amd64
+Server:
+Version:      17.05.0-ce
+API version:  1.29 (minimum version 1.12)
+Go version:   go1.7.5
+Git commit:   89658be
+Built:        Thu May  4 21:43:09 2017
+OS/Arch:      windows/amd64
+Experimental: true
+Notice that the Server version is now showing as windows/amd64. This means
+the daemon is now running natively on the Windows kernel and will therefore
+only run Windows containers.
+Also note that the system above is now running the experimental version of
+Docker (Experimental: true). As previously mentioned, Docker for Windows
+has a stable and an edge channel. The example above is from a Windows 10
+machine running the edge channel. The Windows containers feature of the edge
+channel is currently an experimental feature.
+You can check which channel you are running with the dockercli -Version
+command. The dockercli command is located in C:\Program
+Files\Docker\Docker.
+C:\> dockercli -Version
+Docker for Windows
+Version: 17.05.0-ce-win11 (12053)
+Channel: edge

@@ -1,0 +1,8 @@
+285
+17
+Smells and Heuristics
+In his wonderful book Refactoring,1 Martin Fowler identiﬁed many different “Code
+Smells.” The list that follows includes many of Martin’s smells and adds many more of my
+own. It also includes other pearls and heuristics that I use to practice my trade.
+1.
+[Refactoring].

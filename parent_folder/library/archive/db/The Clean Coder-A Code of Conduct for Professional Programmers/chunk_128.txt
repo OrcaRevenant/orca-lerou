@@ -1,0 +1,32 @@
+CHAPTER 7 ACCEPTANCE TESTING
+96
+In 1979, while working at Teradyne, I had a visit from Tom, the manager of
+installation and field service. He asked me to show him how to use the ED-402
+text editor to create a simple trouble-ticket system.
+ED-402 was a proprietary editor written for the M365 computer, which was
+Teradyne’s PDP-8 clone. As a text editor it was very powerful. It had a built-in
+scripting language that we used for all kinds of simple text applications.
+Tom was not a programmer. But the application he had in mind was simple, so
+he thought I could teach him quickly and then he could write the application
+himself. In my naivete I thought the same thing. After all, the scripting language
+was little more than a macro language for the editing commands, with very
+rudimentary decision and looping constructs.
+So we sat down together and I asked him what he wanted his application to do.
+He started with the initial entry screen. I showed him how to create a text file
+that would hold the script statements and how to type the symbolic
+representation of the edit commands into that script. But when I looked into
+his eyes, there was nothing looking back. My explanation simply made no sense
+to him at all.
+This was the first time I had encountered this. For me it was a simple thing to
+represent editor commands symbolically. For example, to represent a control-B
+command (the command that puts the cursor at the beginning of the current
+line) you simply typed ^B into the script file. But this made no sense to Tom. He
+couldn’t make the leap from editing a file to editing a file that edited a file.
+Tom wasn’t dumb. I think he simply realized that this was going to be a lot
+more involved than he initially thought, and he didn’t want to invest the time
+and mental energy necessary to learn something so hideously convoluted as
+using an editor to command an editor.
+So bit by bit I found myself implementing this application while he sat there
+and watched. Within the first twenty minutes it was clear that his emphasis had
+changed from learning how to do it himself to making sure that what I did was
+what he wanted.

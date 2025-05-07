@@ -1,0 +1,17 @@
+9: Swarm Mode
+Now that we know how to install Docker, pull images, and work with containers,
+the next thing we need is a way to work with it all at scale. That’s where
+orchestration and swarm mode comes into the picture.
+As usual, we’ll take a three-stage approach with a high-level explanation at the
+top, followed by a longer section with all the detail and some examples, and
+we’ll finish things up with a list of the main commands we learned.
+The examples and outputs in this chapter will be from a Linux-based Swarm.
+However, all commands and features also work with Docker on Windows.
+Note: If you are following along with Windows in a PowerShell terminal
+and listing command options over multiple lines, you will need to indicate
+continuation on the next line with backticks (`).
+We’ll split this chapter into the usual three parts:
+The TLDR
+The deep dive
+The commands
+Let’s go build a swarm!

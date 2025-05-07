@@ -1,0 +1,32 @@
+CHAPTER 3 SAYING YES
+46
+You all know what ER is. ER is one of those horrible machines that answers the
+phone at companies and asks you all kinds of brain-dead questions that you
+need to answer by pressing buttons. (“For English, press 1.”)
+Our ER would answer the phone for a company and ask you to dial the name of
+the person you wanted. It would ask you to pronounce your name, and then it
+would call the person in question. It would announce the call and ask whether
+it should be accepted. If so, it would connect the call and drop off.
+You could tell ER where you were. You could give it several phone numbers to
+try. So if you were in someone else’s office, ER could find you. If you were at
+home, ER could find you. If you were in a different city, ER could find you.
+And, in the end, if ER could not find you, it would take a message. That’s where
+the voice mail came in.
+Oddly enough, Teradyne could not figure out how to sell ER. The project ran
+out of budget and was morphed into something we knew how to sell—CDS,
+The Craft Dispatch System, for dispatching telephone repairmen to their next
+job. And Teradyne also dropped the patent without telling us. (!) The current
+patent holder filed three months after we did. (!!)1
+Long after the morphing of ER into CDS, but long before I found out that the
+patent had been dropped. I waited in a tree for the CEO of the company. We
+had a big oak tree outside the front of the building. I climbed it and waited for
+his Jaguar to pull in. I met him at the door and asked for a few minutes. He
+obliged.
+I told him we really needed to start up the ER project again. I told him I was
+sure it could make money. He surprised me by saying, “OK Bob, work up a
+plan. Show me how I can make money. If you do, and I believe it, I’ll start up
+ER again.”
+I hadn’t expected that. I had expected him to say, “You’re right Bob. I’m going to
+start that project up again, and I’m going to figure out how to make money at
+1. Not that the patent was worth any money to me. I had sold it to Teradyne for $1, as per my employment
+contract (and I didn’t get the dollar).

@@ -1,0 +1,30 @@
+THE FLOW ZONE
+63
+M U S I C
+At Teradyne, in the late ’70s, I had a private office. I was the system administrator
+of our PDP 11/60, and so I was one of the few programmers allowed to have a
+private terminal. That terminal was a VT100 running at 9600 baud and connected
+to the PDP 11 with 80 feet of RS232 cable that I had strung over the ceiling tiles
+from my office to the computer room.
+I had a stereo system in my office. It was an old turntable, amp, and floor
+speakers. I had a significant collection of vinyl, including Led Zeppelin, Pink
+Floyd, and … . Well, you get the picture.
+I used to crank that stereo and then write code. I thought it helped my
+concentration. But I was wrong.
+One day I went back into a module that I had been editing while listening to the
+opening sequence of The Wall. The comments in that code contained lyrics
+from the piece, and editorial notations about dive bombers and crying babies.
+That’s when it hit me. As a reader of the code, I was learning more about the
+music collection of the author (me) than I was learning about the problem that
+the code was trying to solve.
+I realized that I simply don’t code well while listening to music. The music does
+not help me focus. Indeed, the act of listening to music seems to consume some
+vital resource that my mind needs in order to write clean and well-designed code.
+Maybe it doesn’t work that way for you. Maybe music helps you write code. I
+know lots of people who code while wearing earphones. I accept that the music
+may help them, but I am also suspicious that what’s really happening is that the
+music is helping them enter the Zone.
+I NTE R RU PTI O N S
+Visualize yourself as you are coding at your workstation. How do you respond
+when someone asks you a question? Do you snap at them? Do you glare? Does your
+body-language tell them to go away because you are busy? In short, are you rude?

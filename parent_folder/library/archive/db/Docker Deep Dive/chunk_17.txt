@@ -1,0 +1,21 @@
+Figure 2.2
+The Docker Engine can be downloaded from the Docker website or built from
+source from GitHub. It’s available on Linux and Windows, with open-source and
+commercially supported offerings.
+At the time of writing there two main editions:
+Enterprise Edition (EE)
+Community Edition (CE)
+The Enterprise Edition and the Community Edition both have a stable release
+channel with quarterly releases. Each Community Edition will be supported for 4
+months and each Enterprise Edition will be supported for 12 months.
+The Community Edition has an additional monthly release via an edge channel.
+Starting from Q1 2017 Docker version numbers follow the YY.MM-xx
+versioning scheme similar to Ubuntu and other projects. For example, the first
+release of the Community Edition in June 2017 will be 17.06.0-ce.
+Note: Prior to Q1 2017, Docker version numbers followed the major.minor
+versioning scheme. The last version prior to the new version scheme as
+Docker 1.13.x.
+The Docker open-source project (Moby)
+The term “Docker” is also used to refer to the open-source Docker project. This
+is the set of tools that get combined into things like the Docker daemon and
+client you can download and install from docker.com. However, the project was

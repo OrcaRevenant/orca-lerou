@@ -1,0 +1,18 @@
+All you need to do to enable DCT on a Docker host is export and environment
+variable called DOCKER_CONTENT_TRUST with a value of 1.
+$ export DOCKER_CONTENT_TRUST=1
+In the real world you may want to make this a more permanent feature of your
+system.
+If you are using Docker Universal Control Plane (part of Docker Enterprise
+Edition) you need to set the Only run signed images checkbox as shown in
+Figure 11.14. This will force all nodes in the UCP cluster to only work with
+signed images.
+Figure 11.14
+You can see from Figure 11.14 that Universal Control Plane takes DCT one step
+further by giving the option to list security principals that are required to sign an
+image before it can be used. For example, you might have a corporate policy that
+all images used in production need to be signed by the secops team.
+Once DCT has been enabled you will no longer be able to pull and work with
+unsigned images. Figure 11.15 shows the errors you will get if you attempt to
+pull an unsigned image using the Docker CLI and the Universal Control Plane
+web UI (both examples are attempting to pull an image tagged as “unsigned”)

@@ -1,0 +1,43 @@
+139
+Classes Should Be Small!
+The seemingly small SuperDashboard class in Listing 10-2 has two reasons to change.
+First, it tracks version information that would seemingly need to be updated every time the
+software gets shipped. Second, it manages Java Swing components (it is a derivative of
+JFrame, the Swing representation of a top-level GUI window). No doubt we’ll want to
+update the version number if we change any of the Swing code, but the converse isn’t nec-
+essarily true: We might change the version information based on changes to other code in
+the system.
+Trying to identify responsibilities (reasons to change) often helps us recognize and
+create better abstractions in our code. We can easily extract all three SuperDashboard
+methods that deal with version information into a separate class named Version. (See
+Listing 10-3.) The Version class is a construct that has a high potential for reuse in other
+applications!
+SRP is one of the more important concept in OO design. It’s also one of the simpler
+concepts to understand and adhere to. Yet oddly, SRP is often the most abused class design
+principle. We regularly encounter classes that do far too many things. Why?
+Getting software to work and making software clean are two very different activities.
+Most of us have limited room in our heads, so we focus on getting our code to work more
+than organization and cleanliness. This is wholly appropriate. Maintaining a separation of
+concerns is just as important in our programming activities as it is in our programs.
+The problem is that too many of us think that we are done once the program works.
+We fail to switch to the other concern of organization and cleanliness. We move on to the
+next problem rather than going back and breaking the overstuffed classes into decoupled
+units with single responsibilities.
+At the same time, many developers fear that a large number of small, single-purpose
+classes makes it more difﬁcult to understand the bigger picture. They are concerned that
+they must navigate from class to class in order to ﬁgure out how a larger piece of work gets
+accomplished.
+However, a system with many small classes has no more moving parts than a system
+with a few large classes. There is just as much to learn in the system with a few large
+classes. So the question is: Do you want your tools organized into toolboxes with many
+small drawers each containing well-deﬁned and well-labeled components? Or do you want
+a few drawers that you just toss everything into?
+Every sizable system will contain a large amount of logic and complexity. The pri-
+mary goal in managing such complexity is to organize it so that a developer knows where
+Listing 10-3
+A single-responsibility class
+public class Version {
+public int getMajorVersionNumber()
+public int getMinorVersionNumber()
+public int getBuildNumber()
+}

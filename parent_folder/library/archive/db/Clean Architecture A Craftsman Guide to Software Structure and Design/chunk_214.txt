@@ -1,0 +1,26 @@
+Figure 25.3 The revised diagram
+The diagram in Figure 25.3 has gotten a little complicated, but should contain no
+surprises. The dashed outlines indicate abstract components that define an API
+that is implemented by the components above or below them. For example, the
+Language API is implemented by English and Spanish.
+GameRules communicates with Language through an API that GameRules defines
+and Language implements. Language communicates with TextDelivery using an
+API that Language defines but TextDelivery implements. The API is defined
+and owned by the user, rather than by the implementer.
+If we were to look inside GameRules, we would find polymorphic Boundary
+interfaces used by the code inside GameRules and implemented by the code
+inside the Language component. We would also find polymorphic Boundary
+interfaces used by Language and implemented by code inside GameRules.
+If we were to look inside of Language, we would find the same thing:
+Polymorphic Boundary interfaces implemented by the code inside
+TextDelivery, and polymorphic Boundary interfaces used by TextDelivery and
+implemented by Language.
+In each case, the API defined by those Boundary interfaces is owned by the
+upstream component.
+The variations, such as English, SMS, and CloudData, are provided by
+polymorphic interfaces defined in the abstract API component, and implemented
+by the concrete components that serve them. For example, we would expect
+polymorphic interfaces defined in Language to be implemented by English and
+Spanish.
+We can simplify this diagram by eliminating all the variations and focusing on
+just the API components. Figure 25.4 shows this diagram.

@@ -1,0 +1,42 @@
+var s1 = "e\u0301\u0330";
+console.log( s1 );              // "ḛ́"
+s1.normalize().length;          // 2
+The further you go down this rabbit hole, the more you realize that there it’s difficult
+to get one precise definition for “length”. What we see visually rendered as a single
+character — more precisely called a grapheme — doesn’t always strictly relate to a sin‐
+gle “character” in the program processing sense.
+If you want to see just how deep this rabbit hole goes, check out the
+“Grapheme
+Cluster
+Boundaries”
+algorithm
+(http://
+www.Unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries).
+Character Positioning
+In addition to length complications, what does it actually mean to ask, “what is the
+character as position 2?” The naive pre-ES6 JavaScript answer comes from
+charAt(..), which will not respect the atomicity of an astral character, nor will it
+take into account combining marks.
+Consider:
+var s1 = "abc\u0301d",
+s2 = "ab\u0107d",
+s3 = "ab\u{1d49e}d";
+console.log( s1 );              // "abćd"
+console.log( s2 );              // "abćd"
+console.log( s3 );              // "ab𝒞d"
+s1.charAt( 2 );                 // "c"
+s2.charAt( 2 );                 // "ć"
+s3.charAt( 2 );                 // "" <-- unprintable surrogate
+s3.charAt( 3 );                 // "" <-- unprintable surrogate
+So, is ES6 giving us a Unicode-aware verison of charAt(..)? Unfortunately, no. At
+the time of this writing, there’s a proposal for such a utility that’s under consideration
+for post-ES6.
+But with what we explored in the previous section (and of course with the limitations
+noted thereof!), we can hack an ES6 answer:
+var s1 = "abc\u0301d",
+s2 = "ab\u0107d",
+s3 = "ab\u{1d49e}d";
+Unicode
+|
+65
+www.it-ebooks.info

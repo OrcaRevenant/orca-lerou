@@ -1,0 +1,75 @@
+VII j Technical Questions
+Data Structures
+Algorithms
+Concepts
+Linked Lists
+Breadth-First Search
+Bit Manipulation
+Trees, Tries, & Graphs
+Depth-First Search
+Memory (Stack vs. Heap)
+Stacks & Queues
+Binary Search
+Recursion
+Heaps
+Merge Sort
+Dynamic Programming
+Vectors/ArrayLists
+Quick Sort
+Big 0 Time & Space
+Hash Tables
+For each of these topics, make sure you understand how to use and implement them and, where applicable,
+the space and time complexity.
+Practicing implementing the data structures and algorithm (on paper, and then on a computer) is also a
+great exercise. It will help you learn how the internals of the data structures work, which is important for
+many interviews.
+I
+Did you miss that paragraph above? It's important. If you don't feel very, very comfortable with
+each of the data structures and algorithms listed, practice implementing them from scratch.
+In particular, hash tables are an extremely important topic. Make sure you are very comfortable with this
+data structure.
+Powers of 2 Table
+The table below is useful for many questions involving scalability or any sort of memory limitation. Memo-
+rizing this table isn't strictly required, but it can be useful. You should at least be comfortable deriving it.
+Power of 2
+Exact Value (X)
+Approx. Value
+X Bytes into MB,
+GB, etc.
+7
+128
+8
+256
+10
+1024
+1 thousand
+1 KB
+16
+65,536
+64 KB
+20
+1,048,576
+1 million
+1 MB
+30
+1,073,741,824
+1 billion
+1 GS
+32
+4,294,967,296
+4 GB
+40
+1,099,511,627,776
+1 trillion
+1 TB
+For example, you could use this table to quickly compute that a bit vector mapping every 32-bit integer to
+a boolean value could fit in memory on a typical machine. There are 2i2 such integers. Because each integer
+takes one bit in this bit vector, we need 2
+12
+bits (or
+bytes) to store this mapping. That's about half a giga-
+byte of memory, which can beeasify held in memory on a typical machine.
+If you are doing a phone screen with a web-based company, it may be useful to have this table in front of
+you.
+CrackingTheCgdinglnterview.com ] 6th Edition
+81

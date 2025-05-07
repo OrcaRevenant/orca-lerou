@@ -1,0 +1,41 @@
+The second something here provides a super convenient lexical identifier that will
+always point to the function itself, giving us the perfect reference for recursion, event
+binding/unbinding, etc — no messing around with this or trying to use an untrusta‐
+ble object reference.
+Great!
+So, now we try to refactor that function reference to this ES6 concise method form:
+runSomething( {
+something(x,y) {
+if (x > y) {
+return something( y, x );
+}
+return y - x;
+}
+} );
+Seems fine at first glance, except this code will break. The return something(..) call
+will not find a something identifier, so you’ll get a ReferenceError. Oops. But why?
+The above ES6 snippet is interpreted as meaning:
+runSomething( {
+something: function(x,y) {
+if (x > y) {
+return something( y, x );
+}
+return y - x;
+}
+} );
+Look closely. Do you see the problem? The concise method definition implies some
+thing: function(x,y). See how the second something we were relying on has been
+omitted? In other words, concise methods imply anonymous function expressions.
+Yeah, yuck.
+You may be tempted to think that => arrow functions are a good
+solution here, but they’re equally insufficient, as they’re also anony‐
+mous function expressions. We’ll cover them in “Arrow Functions”
+later in this chapter.
+The partially redeeming news is that our something(x,y) concise method won’t be
+totally anonymous. See Chapter 7 “Function Names” for information about ES6 func‐
+tion name inference rules. That won’t help us for our recursion, but it helps with
+debugging at least.
+36
+|
+Chapter 2: Syntax
+www.it-ebooks.info

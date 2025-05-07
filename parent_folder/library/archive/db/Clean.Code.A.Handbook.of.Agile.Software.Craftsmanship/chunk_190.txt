@@ -1,0 +1,42 @@
+160
+Chapter 11: Systems
+I haven’t shown the corresponding LocalHome interface, essentially a factory used to
+create objects, nor any of the possible Bank ﬁnder (query) methods you might add.
+Finally, you had to write one or more XML deployment descriptors that specify the
+object-relational mapping details to a persistence store, the desired transactional behavior,
+security constraints, and so on.
+The business logic is tightly coupled to the EJB2 application “container.” You must
+subclass container types and you must provide many lifecycle methods that are required
+by the container.
+Because of this coupling to the heavyweight container, isolated unit testing is difﬁcult.
+It is necessary to mock out the container, which is hard, or waste a lot of time deploying
+EJBs and tests to a real server. Reuse outside of the EJB2 architecture is effectively impos-
+sible, due to the tight coupling.
+Finally, even object-oriented programming is undermined. One bean cannot inherit
+from another bean. Notice the logic for adding a new account. It is common in EJB2 beans
+to deﬁne “data transfer objects” (DTOs) that are essentially “structs” with no behavior.
+This usually leads to redundant types holding essentially the same data, and it requires
+boilerplate code to copy data from one object to another.
+Cross-Cutting Concerns
+The EJB2 architecture comes close to true separation of concerns in some areas. For
+example, the desired transactional, security, and some of the persistence behaviors are
+declared in the deployment descriptors, independently of the source code.
+Note that concerns like persistence tend to cut across the natural object boundaries of
+a domain. You want to persist all your objects using generally the same strategy, for exam-
+ple, using a particular DBMS6 versus ﬂat ﬁles, following certain naming conventions for
+tables and columns, using consistent transactional semantics, and so on.
+In principle, you can reason about your persistence strategy in a modular, encapsulated
+way.Yet, in practice, you have to spread essentially the same code that implements the persis-
+tence strategy across many objects. We use the term cross-cutting concerns for concerns like
+these. Again, the persistence framework might be modular and our domain logic, in isola-
+tion, might be modular. The problem is the ﬁne-grained intersection of these domains.
+In fact, the way the EJB architecture handled persistence, security, and transactions,
+“anticipated” aspect-oriented programming (AOP),7 which is a general-purpose approach
+to restoring modularity for cross-cutting concerns.
+In AOP, modular constructs called aspects specify which points in the system should
+have their behavior modiﬁed in some consistent way to support a particular concern. This
+speciﬁcation is done using a succinct declarative or programmatic mechanism.
+6.
+Database management system.
+7.
+See [AOSD] for general information on aspects and [AspectJ]] and [Colyer] for AspectJ-speciﬁc information.

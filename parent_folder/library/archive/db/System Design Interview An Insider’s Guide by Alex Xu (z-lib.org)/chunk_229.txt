@@ -1,0 +1,17 @@
+evenly distributed traffic, and if a web server goes down, it will redistribute the traffic.
+• Web servers: After a load balancer is added, more web servers can be added/removed
+easily, depending on the traffic load.
+• Metadata database: Move the database out of the server to avoid single point of failure.
+In the meantime, set up data replication and sharding to meet the availability and
+scalability requirements.
+• File storage: Amazon S3 is used for file storage. To ensure availability and durability,
+files are replicated in two separate geographical regions.
+After applying the above improvements, you have successfully decoupled web servers,
+metadata database, and file storage from a single server. The updated design is shown in
+Figure 15-7.
+Sync conflicts
+For a large storage system like Google Drive, sync conflicts happen from time to time. When
+two users modify the same file or folder at the same time, a conflict happens. How can we
+resolve the conflict? Here is our strategy: the first version that gets processed wins, and the
+version that gets processed later receives a conflict. Figure 15-8 shows an example of a sync
+conflict.

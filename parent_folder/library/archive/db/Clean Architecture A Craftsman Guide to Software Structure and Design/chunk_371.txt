@@ -1,0 +1,34 @@
+decreasing, increasing cost of code, 5–7
+signature of a mess, 8–9
+Programming languages
+abstract components in, 125–126
+components, 96
+dynamically typed, 88
+ISP and, 85
+statically typed, 87
+variables in functional languages, 51
+Programming paradigms
+functional programming. See Functional programming
+history of, 19–20
+object-oriented programming. See Object-oriented programming
+overview of, 21–24
+structured programming. See Structured programming
+Proof
+discipline of, 27–28
+structured programming lacking, 30–31
+Proxies, using with frameworks, 293
+Public types
+misuse of, 315–316
+vs. types that are published in modules, 319
+Python
+DIP and, 88
+ISP and, 85
+R
+Race conditions
+due to mutable variables, 52
+protecting against concurrent updates and, 53
+RAM
+4-TEL archaeology project, 341, 343–344
+replacing disks, 280–281
+Rational (company), 367, 368
+RDBMS (relational database management systems), 279–283

@@ -1,0 +1,32 @@
+CHAPTER 5 TEST DRIVEN DEVELOPMENT
+82
+even less likely because the code gets simpler. And the code base steadily
+improves instead of the normal rotting that our industry has become used to.
+What professional programmer would allow the rotting to continue?
+Documentation
+Have you ever used a third-party framework? Often the third party will send
+you a nicely formatted manual written by tech writers. The typical manual
+employs 27 eight-by-ten color glossy photographs with circles and arrows and a
+paragraph on the back of each one explaining how to configure, deploy,
+manipulate, and otherwise use that framework. At the back, in the appendix,
+there’s often an ugly little section that contains all the code examples.
+Where’s the first place you go in that manual? If you are a programmer, you go
+to the code examples. You go to the code because you know the code will tell
+you the truth. The 27 eight-by-ten color glossy photographs with circles and
+arrows and a paragraph on the back might be pretty, but if you want to know
+how to use code you need to read code.
+Each of the unit tests you write when you follow the three laws is an example,
+written in code, describing how the system should be used. If you follow the
+three laws, then there will be a unit test that describes how to create every object
+in the system, every way that those objects can be created. There will be a unit
+test that describes how to call every function in the system every way that those
+functions can meaningfully be called. For anything you need to know how to
+do, there will be a unit test that describes it in detail.
+The unit tests are documents. They describe the lowest-level design of the
+system. They are unambiguous, accurate, written in a language that the
+audience understands, and are so formal that they execute. They are the best
+kind of low-level documentation that can exist. What professional would not
+provide such documentation?
+Design
+When you follow the three laws and write your tests first, you are faced with a
+dilemma. Often you know exactly what code you want to write, but the three

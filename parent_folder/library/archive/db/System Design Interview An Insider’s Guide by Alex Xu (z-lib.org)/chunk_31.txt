@@ -1,0 +1,9 @@
+CHAPTER 2: BACK-OF-THE-ENVELOPE ESTIMATION
+In a system design interview, sometimes you are asked to estimate system capacity or
+performance requirements using a back-of-the-envelope estimation. According to Jeff Dean,
+Google Senior Fellow, “back-of-the-envelope calculations are estimates you create using a
+combination of thought experiments and common performance numbers to get a good feel for
+which designs will meet your requirements” [1].
+You need to have a good sense of scalability basics to effectively carry out back-of-the-
+envelope estimation. The following concepts should be well understood: power of two [2],
+latency numbers every programmer should know, and availability numbers.

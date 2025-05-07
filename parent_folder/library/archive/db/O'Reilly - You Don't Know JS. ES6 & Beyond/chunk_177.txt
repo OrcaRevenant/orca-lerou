@@ -1,0 +1,33 @@
+• Number.MIN_SAFE_INTEGER - The lowest integer that can “safely” be represented
+unambiguously in a JS number value: -(2^53 - 1) or (-2)^53 + 1.
+See Chapter 2 of the Types & Grammar title of this series for more
+information about “safe” integers.
+Number.isNaN(..) Static Function
+The standard global isNaN(..) utility has been broken since its inception, in that it
+returns true for things that are not numbers, not just for the actual NaN value,
+because it coerces the argument to a number type (which can falsely result in a NaN).
+ES6 adds a fixed utility Number.isNaN(..) that works as it should:
+var a = NaN, b = "NaN", c = 42;
+isNaN( a );                         // true
+isNaN( b );                         // true -- oops!
+isNaN( c );                         // false
+Number.isNaN( a );                  // true
+Number.isNaN( b );                  // false -- fixed!
+Number.isNaN( c );                  // false
+Number.isFinite(..) Static Function
+There’s a temptation to look at a function name like isFinite(..) and assume it’s
+simply “not infinite”. That’s not quite correct, though. There’s more nuance to this
+new ES6 utility. Consider:
+var a = NaN, b = Infinity, c = 42;
+Number.isFinite( a );               // false
+Number.isFinite( b );               // false
+Number.isFinite( c );               // true
+The standard global isFinite(..) coerces its argument, but Number.isFinite(..)
+omits the coercive behavior:
+var a = "42";
+isFinite( a );                      // true
+Number.isFinite( a );               // false
+166
+|
+Chapter 6: API Additions
+www.it-ebooks.info

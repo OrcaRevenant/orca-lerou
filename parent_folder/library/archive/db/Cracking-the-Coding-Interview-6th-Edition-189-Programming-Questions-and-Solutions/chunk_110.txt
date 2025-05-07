@@ -1,0 +1,44 @@
+4
+Trees and Graphs
+M
+any interviewees find tree and graph problems to be some of the trickiest. Searching a tree is more
+complicated than searching in a linearly organized data structure such as an array or linked list. Addi-
+tionally, the worst case and average case time may vary wildly, and we must evaluate both aspects of any
+algorithm. Fluency in implementing a tree or graph from scratch will prove essential.
+Because most people are more familiar with trees than graphs (and they're a bit simpler), we'll discuss trees
+first. This is a bit out of order though, as a tree is actually a type of graph.
+I
+Note: Some of the terms in this chapter can vary slightly across different textbooks and other
+sources. If you're used to a different definition, that's fine. Make sure to clear up any ambiguity
+with your interviewer.
+• Types of Trees
+A nice way to understand a tree is with a recursive explanation, A tree is a data structure composed of
+nodes,
+•
+Each tree has a root node, (Actually, this isn't strictly necessary in graph theory, but it's usually how we
+use trees in programming, and especially programming interviews.)
+•
+The root node has 2ero or more child nodes.
+•
+Each child node has zero or more child nodes, and so on.
+The tree cannot contain cycles. The nodes mayor may not be in a particular order, they could have any data
+type as values, and they may or may not have links back to their parent nodes.
+A very simple class definition for Node is:
+1
+class Node {
+2
+public String name;
+3
+public Node[] children;
+4
+}
+You might also have a Tree class to wrap this node. For the purposes of interview questions, we typically
+do not use a T r e e class. You can if you feel it makes your code simpler or better, but it rarely does.
+1
+class Tree {
+2
+public Node r o o t ;
+3
+>
+ÎOO
+Cracking the Coding Interview, 6th Edition

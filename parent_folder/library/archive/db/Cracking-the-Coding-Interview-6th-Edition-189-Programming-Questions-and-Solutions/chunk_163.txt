@@ -1,0 +1,39 @@
+Chapter 11 | Testing
+Demonstrating these aspects will show that you will be a valuable member of the testing team.
+• Testing a Real World Object
+Some candidates are surprised to be asked questions like how to test a pen. After all, you should be testing
+software, right? Maybe, but these "real world" questions are stilt very common. Let's walk through this with
+an example.
+Question: How would you test a paperclip?
+Step 1: Who will use it? And why?
+You need to discuss with your interviewer who is using the product and for what purpose. The answer may
+not be what you think. The answer coufd be "by teachers, to hoid papers together,"or it could be "by artists,
+to bend into the shape of animal." Or, it could be both. The answer to this question will shape how you
+handle the remaining questions.
+Step 2: What are the use cases?
+It will be useful for you to make a list of the use cases. In this case, the use case might be simply fastening
+paper together in a non-damaging (to the paper) way.
+For other questions, there might be multiple use cases, it might be, for example, that the product needs to
+be abie to send and receive content, or write and erase, and so on.
+Step 3: What are the bounds of use?
+The bounds of use might mean holding up to thirty sheets of paper in a single usage without permanent
+damage (e.g., bending), and thirty to fifty sheets with minimal permanent bending.
+The bounds also extend to environmental factors as well. For example, should the paperclip work during
+very warm temperatures (90-110 degrees Fahrenheit)? What about extreme cold?
+Step 4: What are the stress / failure conditions?
+No product is fail-proof, so analyzing failure conditions needs to be part of your testing. A good discussion
+to have with your interviewer is about when it's acceptable (or even necessary) for the product to fail, and
+what failure should mean.
+For example, if you were testing a laundry machine, you might decide that the machine should be able to
+handle at least 30 shirts or pants. Loading 30-45 pieces of clothing may result in minor failure, such as the
+clothing being inadequately cleaned. At more than 45 pieces of clothing, extreme failure might be accept-
+able. However, extreme failure in this case should probably mean the machine never turning on the water.
+It should certainly not mean a flood or a fire.
+Step 5: How would you perform the testing?
+In some cases, it might also be relevant to discuss the details of performing the testing. For example, if you
+need to make sure a chair can withstand normal usage for five years, you probably can't actually place it in a
+home and wait five years. Instead, you'd need to define what "normal" usage is (How many "sits" per year on
+the seat? What about the armrest?). Then, in addition to doing some manual testing, you would likely want
+a machine to automate some of the usage.
+CrackingTheCodinglnterview.com 16th Edition
+15)

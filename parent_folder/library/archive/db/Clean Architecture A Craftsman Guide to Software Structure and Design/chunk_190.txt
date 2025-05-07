@@ -1,0 +1,29 @@
+Inversion Principle. High-level concepts, such as Entities, know nothing of
+lower-level concepts, such as use cases. Instead, the lower-level use cases know
+about the higher-level Entities.
+Why are Entities high level and use cases lower level? Because use cases are
+specific to a single application and, therefore, are closer to the inputs and outputs
+of that system. Entities are generalizations that can be used in many different
+applications, so they are farther from the inputs and outputs of the system. Use
+cases depend on Entities; Entities do not depend on use cases.
+REQUEST AND RESPONSE MODELS
+Use cases expect input data, and they produce output data. However, a well-
+formed use case object should have no inkling about the way that data is
+communicated to the user, or to any other component. We certainly don’t want
+the code within the use case class to know about HTML or SQL!
+The use case class accepts simple request data structures for its input, and returns
+simple response data structures as its output. These data structures are not
+dependent on anything. They do not derive from standard framework interfaces
+such as HttpRequest and HttpResponse. They know nothing of the web, nor do
+they share any of the trappings of whatever user interface might be in place.
+This lack of dependencies is critical. If the request and response models are not
+independent, then the use cases that depend on them will be indirectly bound to
+whatever dependencies the models carry with them.
+You might be tempted to have these data structures contain references to Entity
+objects. You might think this makes sense because the Entities and the
+request/response models share so much data. Avoid this temptation! The purpose
+of these two objects is very different. Over time they will change for very
+different reasons, so tying them together in any way violates the Common
+Closure and Single Responsibility Principles. The result would be lots of tramp
+data, and lots of conditionals in your code.
+CONCLUSION

@@ -1,0 +1,27 @@
+1: Containers from 30,000 feet
+Containers are definitely a thing.
+In this chapter we’ll get into things like; why do we have containers, what do
+they do for us, and where can we use them.
+The bad old days
+Applications run businesses. If applications break, businesses suffer and
+sometimes go away. These statements get truer every day!
+Most applications run on servers. And in the past, we could only run one
+application per server. The open-systems world of Windows and Linux just
+didn’t have the technologies to safely and securely run multiple applications on
+the same server.
+So, the story usually went something like this… Every time the business needed
+a new application, IT would go out and buy a new server. And most of the time
+nobody knew the performance requirements of the new application! This meant
+IT had to make guesses when choosing the model and size of servers to buy.
+As a result, IT did the only thing it could do - it bought big fast servers with lots
+of resiliency. After all, the last thing anyone wanted - including the business -
+was under-powered servers. Under-powered servers might be unable to execute
+transactions, which might result in lost customers and lost revenue. So, IT
+usually bought bigger servers than were actually needed. This resulted in huge
+numbers of servers operating as low as 5-10% of their potential capacity. A
+tragic waste of company capital and resources!
+Hello VMware!
+Amid all of this, VMware, Inc. gave the world a gift - the virtual machine (VM).
+And almost overnight the world changed into a much better place! We finally
+had a technology that would let us safely and securely run multiple business
+applications on a single server.

@@ -1,0 +1,16 @@
+II | Behind the Scenes
+Definitely Prepare:
+Palantir values hiring brilliant engineers. Many candidates report that Palantir's questions were harder than
+those they saw at Google and other top companies. This doesn't necessarily mean it's harder to get an offer
+{although it certainly can); it just means interviewers prefer more challenging questions. If you're inter-
+viewing with Palantir, you should learn your core data structures and algorithms inside and out. Then, focus
+on preparing with the hardest algorithm questions.
+Brush up on system design too if you're interviewing for a backend role. This is an important part of the
+process.
+What's Unique:
+A coding challenge is a common part of Palantir's process. Although you'll be at your computer and can
+look up materia! as needed, don't walk into this unprepared. The questions can be extremely challenging
+and the efficiency of your algorithm wilt be evaluated. Thorough interview preparation will help you here.
+You can also practice coding challenges online at HackerRank.com.
+14
+Cracking the Coding interview, 6th Edition

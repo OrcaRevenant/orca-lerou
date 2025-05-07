@@ -1,0 +1,40 @@
+23
+Avoid Encodings
+[N5]. If a variable or constant might be seen or used in multiple places in a body of code,
+it is imperative to give it a search-friendly name. Once again compare
+for (int j=0; j<34; j++) {
+s += (t[j]*4)/5;
+}
+to
+int realDaysPerIdealDay = 4;
+const int WORK_DAYS_PER_WEEK = 5;
+int sum = 0;
+for (int j=0; j < NUMBER_OF_TASKS; j++) {
+int realTaskDays = taskEstimate[j] * realDaysPerIdealDay;
+int realTaskWeeks = (realdays / WORK_DAYS_PER_WEEK);
+sum += realTaskWeeks;
+}
+Note that sum, above, is not a particularly useful name but at least is searchable. The
+intentionally named code makes for a longer function, but consider how much easier it
+will be to ﬁnd WORK_DAYS_PER_WEEK than to ﬁnd all the places where 5 was used and ﬁlter
+the list down to just the instances with the intended meaning.
+Avoid Encodings
+We have enough encodings to deal with without adding more to our burden. Encoding
+type or scope information into names simply adds an extra burden of deciphering. It
+hardly seems reasonable to require each new employee to learn yet another encoding “lan-
+guage” in addition to learning the (usually considerable) body of code that they’ll be work-
+ing in. It is an unnecessary mental burden when trying to solve a problem. Encoded names
+are seldom pronounceable and are easy to mis-type.
+Hungarian Notation
+In days of old, when we worked in name-length-challenged languages, we violated this
+rule out of necessity, and with regret. Fortran forced encodings by making the ﬁrst letter a
+code for the type. Early versions of BASIC allowed only a letter plus one digit. Hungarian
+Notation (HN) took this to a whole new level.
+HN was considered to be pretty important back in the Windows C API, when every-
+thing was an integer handle or a long pointer or a void pointer, or one of several implemen-
+tations of “string” (with different uses and attributes). The compiler did not check types in
+those days, so the programmers needed a crutch to help them remember the types.
+In modern languages we have much richer type systems, and the compilers remember
+and enforce the types. What’s more, there is a trend toward smaller classes and shorter
+functions so that people can usually see the point of declaration of each variable they’re
+using.

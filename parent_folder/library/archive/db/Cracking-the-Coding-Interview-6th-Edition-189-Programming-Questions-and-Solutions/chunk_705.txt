@@ -1,0 +1,37 @@
+IV j Hints for Additional Review Problems
+#740.
+16.1T
+There's an alternate, clever {and very fast) solution. You can actually do this in linear time
+without recursion. How?
+#741.
+17.18
+Consider using a heap.
+#742.
+17.21
+You should be able to solve this inO(N) time and 0(N) space.
+#743.
+17.17
+Alternatively, you could insert each of the smaller strings into the trie. How would this
+help you solve the problem? What is the runtime?
+#744.
+16.20
+With preprocessing, we can actually get the lookup time down to 0 ( 1 ) .
+#745.
+16.5
+Have you considered that 25 actually accounts for two factors of 5?
+#746.
+16.16
+You should be able to solve this inO(N) time.
+#747.
+16.11
+Think about it this way. You are picking K planks and there are two different types. All
+choices with 10 of the first type and 4 of the second type will have the same sum. Can
+you just iterate through all possible choices?
+#748.
+17,25
+Can you use a trie to terminate early when a rectangle looks invalid?
+#749.
+17.13
+For early termination, try a trie.
+CrackingTheCodinglnterview.com | 6th Edition
+69S

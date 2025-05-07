@@ -1,0 +1,73 @@
+Solutions to Chapter 17 | Hard
+19 }
+What would this algorithm look like iterative!)*? Let's think about it. All it does is moving through the array
+and, for each element i, swapping a r r a y [ i ] with a random element between 9 and i, inclusive.
+This is actually a very clean algorithm to implement iterativeiy:
+1
+void s h u f f l e A r r a y I t e r a t i v e l y ( i n t [ ] cards) {
+2
+for (int i = 0; i < cards.length; 1++) {
+3
+Int k = rand(0, i ) ;
+4
+int temp = cards[k];
+5
+cardsfk] = cardsfi];
+6
+cards[i] = temp;
+7
+}
+8
+>
+The iterative approach is usually how we see this algorithm written,
+17.3
+Random Set: Write a method to randomly generate a set of m integers from an array of size n. Each
+element must have equal probability of being chosen.
+pg 186
+SOLUTION
+Like the prior problem which was similar, {problem 17.2 on page 531), we can look at this problem recur-
+sively using the Base Case and Build approach.
+Suppose we have an algorithm that can pull a random set of m elements from an array of size n - 1. How
+can we use this algorithm to pull a random set of m elements from an array of size n?
+We can first pull a random set of size m from the first n -
+1 elements. Then, we just need to decide if
+a r r a y [ n ] should be inserted into our subset (which would require pulling out a random element from it).
+An easy way to do this is to pick a random number k from 0 through n. If k < m, then insert a r r a y [ n ] into
+subset [ k ] . This will both "fairly" (i.e., with proportional probability) insert a r r a y [ n ] into the subset and
+"fairly" remove a random element from the subset.
+The pseudocode for this recursive algorithm would look like this:
+1
+i n t [ ] pickMRecursively(int[] o r i g i n a l , i n t m, int i) {
+2
+if (1 + 1 == m) { II Base case
+I* return f i r s t m elements of original *l
+4
+} else if (i + l > m) {
+5
+int[] subset = pickMRecursively(original, m, i - 1);
+6
+int k =
+random value between 0 and 1, inclusive
+7
+i f (k < m) {
+8
+subsetfk] = originalfi];
+9
+>
+10
+return subset;
+11
+>
+12
+return n u l l ;
+13 )
+This is even cleaner to write iterativeiy. In this approach, we initialize an array subset to be the first m
+elements in original.Then, we iterate through the array, starting at element m, inserting a r r a y [ i] into
+the subset at (random) position k whenever k < m.
+1
+irt[] pickMIteratively(int[] original, int m) {
+2
+i n t [ ] subset = new int[m];
+3
+5 3 2
+Cracking the Coding Interview, 6th Edition

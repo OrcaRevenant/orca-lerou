@@ -1,0 +1,30 @@
+The Moby project, and the wider Docker movement is huge and gaining
+momentum. It has thousands of GitHub pull requests, tens of thousands of
+Dockerized projects, not to mention the billions of image pulls from Docker
+Hub. The project literally is taking the industry by storm!
+Be under no illusions, Docker is being used!
+The container ecosystem
+One of the core philosophies at Docker, Inc. is often referred to as Batteries
+included but removable.
+This is a way of saying you can swap out a lot of the native Docker stuff and
+replace it with stuff from 3rd parties. A good example of this is the networking
+stack. The core Docker product ships with built-in networking. But the
+networking stack is pluggable meaning you can rip out the native Docker
+networking and replace it with something else from a 3rd party. Plenty of people
+do that.
+In the early days it was common for 3rd party plugins to be better than the native
+offerings that shipped with Docker. However, this presented some business
+model challenges for Docker, Inc. After all, Docker, Inc. has to turn a profit at
+some point to be a viable long-term business. As a result, the batteries that are
+included are getting better and better. This is causing tension and raising levels
+competition within the ecosystem.
+To cut a long story short, the native Docker batteries are still removable, there’s
+just less and less reason to need to remove them.
+Despite this, the container ecosystem is flourishing with a healthy balance of co-
+operation and competition. You’ll often hear people use terms like co-opetition
+(a balance of co-operation and competition) and frenemy (a mix of a friend and
+an enemy) when talking about the container ecosystem. This is great! Healthy
+competition is the mother of innovation!
+The Open Container Initiative (OCI)
+No discussion of Docker and the container ecosystem is complete without
+mentioning the Open Containers Initiative - OCI.

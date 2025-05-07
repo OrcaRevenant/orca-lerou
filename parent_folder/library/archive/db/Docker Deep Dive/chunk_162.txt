@@ -1,0 +1,19 @@
+Docker uses seccomp, in filter mode, to limit the syscalls a container can make
+to the host’s kernel.
+As per the Docker security philosophy, all new containers get a default seccomp
+profile configured with sensible defaults. This is intended to provide moderate
+security without impacting application compatibility.
+As always, you can customize seccomp profiles and you can pass a flag to
+Docker so that containers can be started without a seccomp profile.
+Final thoughts on the Linux security technologies
+Docker supports most of the important Linux security technologies and ships
+with sensible defaults that add security but aren’t too restrictive.
+Figure 11.5
+Some of these technologies can be complicated to customize as they can require
+deep knowledge of how they work and how the Linux kernel works. Hopefully
+they will get simpler to configure in the future, but for now, the default
+configurations that ship with Docker are a good place to start.
+Docker platform security technologies
+In this section of the chapter we’ll take a look at some of the major security
+technologies offered by the Docker platform.
+Security in Swarm Mode

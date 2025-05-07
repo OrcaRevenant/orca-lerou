@@ -1,0 +1,34 @@
+287
+Environment
+C4: Poorly Written Comment
+A comment worth writing is worth writing well. If you are going to write a comment,
+take the time to make sure it is the best comment you can write. Choose your words
+carefully. Use correct grammar and punctuation. Don’t ramble. Don’t state the obvious.
+Be brief.
+C5: Commented-Out Code
+It makes me crazy to see stretches of code that are commented out. Who knows how old it
+is? Who knows whether or not it’s meaningful? Yet no one will delete it because everyone
+assumes someone else needs it or has plans for it.
+That code sits there and rots, getting less and less relevant with every passing day. It
+calls functions that no longer exist. It uses variables whose names have changed. It follows
+conventions that are long obsolete. It pollutes the modules that contain it and distracts the
+people who try to read it. Commented-out code is an abomination.
+When you see commented-out code, delete it! Don’t worry, the source code control
+system still remembers it. If anyone really needs it, he or she can go back and check out a
+previous version. Don’t suffer commented-out code to survive.
+Environment
+E1: Build Requires More Than One Step
+Building a project should be a single trivial operation. You should not have to check many
+little pieces out from source code control. You should not need a sequence of arcane com-
+mands or context dependent scripts in order to build the individual elements. You should
+not have to search near and far for all the various little extra JARs, XML ﬁles, and other
+artifacts that the system requires. You should be able to check out the system with one sim-
+ple command and then issue one other simple command to build it.
+svn get mySystem
+cd mySystem
+ant all
+E2: Tests Require More Than One Step
+You should be able to run all the unit tests with just one command. In the best case you
+can run all the tests by clicking on one button in your IDE. In the worst case you should
+be able to issue a single simple command in a shell. Being able to run all the tests is so
+fundamental and so important that it should be quick, easy, and obvious to do.

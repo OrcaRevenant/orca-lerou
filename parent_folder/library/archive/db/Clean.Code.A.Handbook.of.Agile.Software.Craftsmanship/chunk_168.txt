@@ -1,0 +1,44 @@
+138
+Chapter 10: Classes
+But what if SuperDashboard contained only the methods shown in Listing 10-2?
+Five methods isn’t too much, is it? In this case it is because despite its small number
+of methods, SuperDashboard has too many responsibilities.
+The name of a class should describe what responsibilities it fulﬁlls. In fact, naming
+is probably the ﬁrst way of helping determine class size. If we cannot derive a concise
+name for a class, then it’s likely too large. The more ambiguous the class name, the more
+likely it has too many responsibilities. For example, class names including weasel words
+like Processor or
+Manager or
+Super often hint at unfortunate aggregation of
+responsibilities.
+We should also be able to write a brief description of the class in about 25 words,
+without using the words “if,” “and,” “or,” or “but.” How would we describe the
+SuperDashboard? “The SuperDashboard provides access to the component that last held the
+focus, and it also allows us to track the version and build numbers.” The ﬁrst “and” is a
+hint that SuperDashboard has too many responsibilities.
+The Single Responsibility Principle
+The Single Responsibility Principle (SRP)2 states that a class or module should have one,
+and only one, reason to change. This principle gives us both a deﬁnition of responsibility,
+and a guidelines for class size. Classes should have one responsibility—one reason to
+change.
+public void setAçowDragging(boolean allowDragging)
+public boolean allowDragging()
+public boolean isCustomizing()
+public void setTitle(String title)
+public IdeMenuBar getIdeMenuBar()
+public void showHelper(MetaObject metaObject, String propertyName)
+// ... many non-public methods follow ...
+}
+Listing 10-2
+Small Enough?
+public class SuperDashboard extends JFrame implements MetaDataUser
+public Component getLastFocusedComponent()
+public void setLastFocused(Component lastFocused)
+public int getMajorVersionNumber()
+public int getMinorVersionNumber()
+public int getBuildNumber()
+}
+2.
+You can read much more about this principle in [PPP].
+Listing 10-1 (continued)
+Too Many Responsibilities

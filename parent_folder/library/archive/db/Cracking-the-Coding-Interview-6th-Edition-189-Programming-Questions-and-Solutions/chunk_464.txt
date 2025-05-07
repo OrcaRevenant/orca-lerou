@@ -1,0 +1,108 @@
+Solutions to Chapter 15 | Threads and Locks
+16
+return instance;
+17
+>
+18
+19
+public boolean hasCycle(HashMap<Integer, Boolean> touchedNodes,
+20
+int[] resourcesInOrder) {
+21
+/* check for a cycle */
+22
+for (int resource : resourcesInOrder) {
+23
+if (touchedNodes.get(resource) == false) {
+24
+LockNode n = locks[resource];
+25
+if (n.hasCycle(touchedNodes)) {
+26
+return true;
+27
+>
+28
+>
+29
+>
+30
+return false;
+31
+}
+32
+33
+/* To prevent deadlocks, force the processes to declare upfront what order they
+34
+* will need the locks in. Verify that this order does not create a deadlock (a
+35
+* cycle in a directed graph) */
+36
+public boolean declare(int ownerld, int[] resourcesInOrder) {
+37
+HashMapcInteger, Boolean> touchedNodes = new HashMapcInteger, Boolean>();
+38
+39
+/* add nodes to graph */
+40
+int index = 1;
+41
+touchedNodes.put(resourcesInOrder[0], false);
+42
+for (index = 1; index < resourcesInOrder.length; index++) {
+43
+LockNode prev = locks[resourcesInOrder[index - i]];
+44
+LockNode curr = locks[resources!nOrder[index]];
+45
+prev.joinTo(curr);
+46
+touchedNodes.put(resourcesInOrder[index], false);
+47
+>
+48
+49
+/* if we created a cycle, destroy this resource list and return false */
+50
+if (hasCycle(touchedNodes, resourcesInOrder)} {
+51
+for (int j = 1; j < resourcesInOrder.length; j++) {
+52
+LockNode p = locks[resources!nOrder[j - 1]];
+53
+LockNode c = locks[resourcesln0rder[j]];
+54
+p.remove(c);
+55
+>
+56
+return false;
+57
+>
+58
+59
+/* No cycles detected. Save the order that was declared, so that we can
+60
+* verify that the process is really calling the locks in the order it said
+61
+* it would. */.
+62
+LinkedList<LockNode> list = new LinkedList<LockNode>();
+63
+for (int i = 0; i < resourcesInOrder.length; i++) {
+64
+LockNode resource = locks[resourcesInOrder[i]];
+65
+list.add(resource);
+66
+}
+67
+lockOrder.put(ownerld, list);
+68
+69
+return true;
+70
+)
+71
+420
+Cracking the Coding interview, 6th Edition

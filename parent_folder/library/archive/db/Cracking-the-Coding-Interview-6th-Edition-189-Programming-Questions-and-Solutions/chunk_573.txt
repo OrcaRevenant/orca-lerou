@@ -1,0 +1,65 @@
+Solutions to Chapter 17 | Hard
+37
+BiNode convert(BiNode root) {
+33
+BiNode head « convertToCircular(root);
+39
+head.nodel.node2 = n u l l ;
+40
+head.nodel = n u l l ;
+41
+return head;
+42 >
+Observe that we have moved the main parts of the code into c o n v e r t T o C i r c u l a r . The c o n v e r t
+method calls this method to get the head of the circular linked list, and then breaks the circular connection.
+The approach takes 0(N) time, since each node is only touched an average of once (or, more accurately,
+0 ( 1 ) times),
+17.13 Re-Space: Oh, no! You have accidentally removed all spaces, punctuation, and capitalization in a
+lengthy document. A sentence like "I
+r e s e t
+the
+computer.
+It
+s t i l l
+d i d n ' t
+b o o t ! "
+became " i r e s e t t h e c o m p u t e r i t s t i l l d i d n t boot". You'll deal with the punctuation and capi-
+talization later; right now you need to re-insert the spaces. Most of the words are in a dictionary but
+a few are not. Given a dictionary (a list of strings) and the document (a string), design an algorithm
+to unconcatenate the document in a way that minimizes the number of unrecognized characters.
+EXAMPLE
+Input:
+j e s s l o o k e d j u s t l i k e t i r a h e r b r o t h e r
+Output: j e s s
+looked j u s t
+l i k e t i m her b r o t h e r (7 unrecognized characters)
+pg 188
+SOLUTION
+Some interviewers like to cut to the chase and give you the specific problems. Others, though, like to give
+you a lot of unnecessary context, like this problem has. It's useful in such cases to boil down the problem to
+what it's really all about.
+In this case, the problem is really about finding a way to break up a string into separate words such that as
+few characters as possible are "left out"of the parsing.
+Note that we do not attempt to "understand" the string. We could just as well parse "thisisawesome"to
+be " t h i s is a we some" as we could " t h i s is awesome,"
+Brute Force
+The key to this problem is finding a way to define the solution (that is, parsed string) in terms of its subprob-
+lems. One way to do this is recursing through the string.
+The very first choice we make is where to insert the first space. After the first character? Second character?
+Third character?
+Let's imagine this in terms of a string like t h i s i s m i k e s f a v o r i t e f o o d . What is the first space we insert?
+•
+if we insert a space after t, this gives us one invalid character.
+•
+After th is two invalid characters.
+•
+After t h i is three invalid characters,
+•
+At t h i s we have a complete word. This isiero invalid characters.
+•
+At t h i s i is five invalid characters.
+•
+...and so on.
+CrackingTheCodinglnterview.com | 6th Edition
+S
+3 7

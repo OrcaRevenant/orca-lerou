@@ -1,0 +1,38 @@
+inline template literals that can be re-rendered. However, that’s not at all the right way
+to think about this feature.
+So, before we go on, I’m renaming to what it should have been called: Interpolated
+String Literals.
+You’re already well aware of declaring string literals with " or ' delimiters, and you
+also know that these are not smart strings (as some languages have), where the con‐
+tents would be parsed for interpolation expressions.
+However, ES6 introduces a new type of string literal, using the \` back-tick as the
+delimiter. These string literals do allow basic string interpolation expressions to be
+embedded, which are then automatically parsed and evaluated.
+Here’s the old pre-ES6 way:
+var name = "Kyle";
+var greeting = "Hello " + name + "!";
+console.log( greeting );            // "Hello Kyle!"
+console.log( typeof greeting );     // "string"
+Now, consider the new ES6 way:
+var name = "Kyle";
+var greeting = `Hello ${name}!`;
+console.log( greeting );            // "Hello Kyle!"
+console.log( typeof greeting );     // "string"
+As you can see, we used the \..\`` around a series of characters, which are interpreted
+as a string literal, but any expressions of the form ${..} are parsed and evaluated
+inline immediately. The fancy term for such parsing and evaluating is interpolation
+(much more accurate than templating).
+The result of the interpolated string literal expression is just a plain ol’ normal string,
+assigned to the greeting variable.
+typeof greeting == "string" illustrates why it’s important not to
+think of these entities as special template values, since you cannot
+assign the unevaluated form of the literal to something and reuse it.
+The \..\`` string literal is more like an IIFE in the sense that it’s
+automatically evaluated inline. The result of a \..\`` string literal is,
+simply, just a string.
+One really nice benefit of interpolated string literals is they are allowed to split across
+multiple lines:
+Template Literals
+|
+41
+www.it-ebooks.info

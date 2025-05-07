@@ -1,0 +1,50 @@
+68
+Chapter 4: Comments
+Attributions and Bylines
+/* Added by Rick */
+Source code control systems are very good at remembering who added what, when.
+There is no need to pollute the code with little bylines. You might think that such com-
+ments would be useful in order to help others know who to talk to about the code. But the
+reality is that they tend to stay around for years and years, getting less and less accurate
+and relevant.
+Again, the source code control system is a better place for this kind of information.
+Commented-Out Code
+Few practices are as odious as commenting-out code. Don’t do this!
+InputStreamResponse response = new InputStreamResponse();
+response.setBody(formatter.getResultStream(), formatter.getByteCount());
+//
+InputStream resultsStream = formatter.getResultStream();
+//
+StreamReader reader = new StreamReader(resultsStream);
+//
+response.setContent(reader.read(formatter.getByteCount()));
+Others who see that commented-out code won’t have the courage to delete it. They’ll think
+it is there for a reason and is too important to delete. So commented-out code gathers like
+dregs at the bottom of a bad bottle of wine.
+Consider this from apache commons:
+this.bytePos = writeBytes(pngIdBytes, 0);
+//hdrPos = bytePos;
+writeHeader();
+writeResolution();
+//dataPos = bytePos;
+if (writeImageData()) {
+writeEnd();
+this.pngBytes = resizeByteArray(this.pngBytes, this.maxPos);
+}
+while ((line = in.readLine()) != null) {
+lineCount++;
+charCount += line.length();
+String words[] = line.split("\\W");
+wordCount += words.length;
+} //while
+System.out.println("wordCount = " + wordCount);
+System.out.println("lineCount = " + lineCount);
+System.out.println("charCount = " + charCount);
+} // try
+catch (IOException e) {
+System.err.println("Error:" + e.getMessage());
+} //catch
+} //main
+}
+Listing 4-6 (continued)
+wc.java

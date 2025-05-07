@@ -1,0 +1,40 @@
+Chapter 12 j C and C++
+12.4
+Virtual Functions: How do virtual functions work in C++?
+Hints: #463
+12.5
+Shallow vs. Deep Copy: What is the difference between deep copy and shallow copy? Explain how
+you would use each.
+Hints: if 44 5
+12.6
+Volatile: What is the significance of the keyword "volatile" in C?
+Hints: #456
+12.7
+Virtual Base Class: Why does a destructor in base class need to be declared v i r t u a l ?
+Hints; #421, #460
+12.8
+Copy Node; Write a method that takes a pointer to a Node structure as a parameter and returns a
+complete copy of the passed in data structure. The Node data structure contains two pointers to
+other Nodes.
+Hints: #427, #462
+12.9
+Smart Pointer: Write a smart pointer class. A smart pointer is a data type, usually implemented with
+templates, that simulates a pointer while also providing automatic garbage collection. It automati-
+cally counts the number of references to a Smart P o i n t er<T*> object and frees the object of type
+T when the reference count hits zero.
+Hints: #402, #438, #453
+12.10 Malloc: Write an aligned malloc and free function that supports allocating memory such that the
+memory address returned is divisible by a specific power of two.
+EXAMPLE
+a l i g n j n a l l o c (1000,128) will return a memory address that is a multiple of 128 and that points
+to memory of size 1000 bytes.
+a l i g n e d _ f r e e ( ) will free memory allocated by a l i g n j u a l l o c .
+Hints: #413, if432, #440
+12.11 2D Alloc: Write a function in C called riy2DAlloc which allocates a two-dimensional array. Mini-
+mize the number of calls to malloc and make sure that the memory is accessible by the notation
+a r r [ i ] [ j ] .
+Hints: #406, #418, #426
+Additional Questions: Linked Lists (#2.6), Testing (#11.1), Java (#13.4), Threads and Locks (#15.3).
+Hints start on page 676.
+î 6 4
+Cracking the Coding interview, 6th Edition

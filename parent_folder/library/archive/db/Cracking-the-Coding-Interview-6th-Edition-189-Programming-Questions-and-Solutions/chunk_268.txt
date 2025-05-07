@@ -1,0 +1,75 @@
+Solutions to Chapter 4 | Trees and Graphs
+Observe that we don't need to re-check the entire subtree. As we move from a node x to its parent y, all the
+nodes under x have already been checked for q. Therefore, we only need to check the new nodes "uncov-
+ered" which will be the nodes under x's sibling.
+For example, suppose we're looking for the first common ancestor of node p = 7 and node q = 17.
+When we go to p . p a r e n t
+(5), we uncover the subtree rooted at 3, We therefore need to search this
+subtree for q.
+Next, we go to node 10, uncovering the subtree rooted at 15. We check this subtree for node 17 and—
+voi la—there it is.
+To implement this, we can just traverse upwards from p, storing the p a r e n t and the s i b l i n g node in
+a variable. (The s i b l i n g node is always a child of p a r e n t and refers to the newly uncovered subtree.)
+At each iteration, s i b l i n g gets set to the old parent's sibling node and parent gets set to p a r e n t .
+parent.
+1
+TreeNode commonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+2
+/* Check if either node is not in the t r e e , or if one covers the other. */
+3
+if {!covers(root, p)
+j|
+!covers(root, q)) {
+A
+return n u l l ;
+5
+> else if (covers(p., q)) {
+6
+return p;
+7
+} else if (covers(q,
+p)) {
+8
+return qj
+9
+>
+10
+11
+/* Traverse upwards u n t i l you f i n d a node that covers q. *!
+12
+TreeNode s i b l i n g = g e t s i b l i n g ( p ) ;
+13
+TreeNode parent = p.parent;
+14
+while ( l c o v e r s ( s i b l i n g , q)) {
+15
+s i b l i n g = getSibling(parent);
+16
+parent = parent.parent;
+17
+>
+18
+return parent;
+19 >
+20
+21 boolean covers(TreeNode root, TreeNode p) {
+22
+if (root == n u l l ) return f a l s e ;
+23
+if (root == p) return true;
+24
+return c o v e r s ( r o o t . l e f t , p) jj covers(root.right, p);
+25 >
+26
+27 TreeNode getSit)ling(TreeNode node) {
+28
+if (node == n u l l || node.parent == n u l l ) {
+29
+return n u l l ;
+30
+)
+31
+32
+TreeNode parent = node.parent;
+274
+Cracking the Coding Interview, 6th Edition

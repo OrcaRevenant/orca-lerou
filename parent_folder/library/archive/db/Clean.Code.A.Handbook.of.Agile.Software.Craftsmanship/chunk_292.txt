@@ -1,0 +1,46 @@
+262
+Chapter 15: JUnit Internals
+We replaced the +1s in computeCommonSuffix with a -1 in charFromEnd, where it makes
+perfect sense, and two <= operators in suffixOverlapsPrefix, where they also make perfect
+sense. This allowed us to change the name of suffixIndex to suffixLength, greatly enhanc-
+ing the readability of the code.
+There is a problem however. As I was eliminating the +1s, I noticed the following line
+in compactString:
+if (suffixLength > 0)
+Take a look at it in Listing 15-4. By rights, because suffixLength is now one less than it
+used to be, I should change the > operator to a >= operator. But that makes no sense. It
+makes sense now! This means that it didn’t use to make sense and was probably a bug.
+Well, not quite a bug. Upon further analysis we see that the if statement now prevents a
+zero length sufﬁx from being appended. Before we made the change, the if statement was
+nonfunctional because suffixIndex could never be less than one!
+This calls into question both if statements in compactString! It looks as though they
+could both be eliminated. So let’s comment them out and run the tests. They passed! So
+let’s restructure compactString to eliminate the extraneous if statements and make the
+function much simpler [G9].
+private String compactString(String source) {
+return
+computeCommonPrefix() +
+DELTA_START +
+source.substring(prefixLength, source.length() - suffixLength) +
+DELTA_END +
+computeCommonSuffix();
+}
+This is much better! Now we see that the compactString function is simply composing the
+fragments together. We can probably make this even clearer. Indeed, there are lots of little
+if (suffixLength > 0)
+result = result + computeCommonSuffix();
+return result;
+}
+...
+private String computeCommonSuffix() {
+int end = Math.min(expected.length() - suffixLength +
+contextLength, expected.length()
+);
+return
+expected.substring(expected.length() - suffixLength, end) +
+(expected.length() - suffixLength <
+expected.length() - contextLength ?
+ELLIPSIS : "");
+}
+Listing 15-4 (continued)
+ComparisonCompactor.java (interim)

@@ -1,0 +1,40 @@
+1. Point your browser to www.docker.com and click Get Docker from the top
+of the page. This will open a dropdown menu.
+2. Choose Mac from under the Desktop section.
+3. Click Download from Docker Store.
+4. Click one of the Get Docker download links.
+There are various stable and edge versions available. The edge version contains
+newer features but may not be stable.
+A Docker.dmg installation package will be downloaded.
+1. Launch the Docker.dmg file that you downloaded in the previous step. You
+will be asked to drag and drop the Moby Dock whale image into the
+Applications folder.
+2. Open your Applications folder (it may open automatically) and double-
+click the Docker application icon to Start it. You may be asked to confirm
+the action because the application was downloaded from the internet.
+3. Enter your password so that the installer can create components, such as
+networking, that require elevated privileges.
+4. The Docker daemon will now start.
+An animated whale icon will appear in the status bar at the top of your
+screen while the daemon starts. Once Docker has successfully started the
+whale will stop being animated. You can click the whale icon and perform
+basic actions such as restarting the daemon, checking for updates, and
+opening the UI.
+Now that Docker for Mac is installed you can open a terminal window and run
+some regular Docker commands. Try the commands listed below.
+$ docker version
+Client:
+Version:      17.05.0-ce
+API version:  1.29
+Go version:   go1.7.5
+Git commit:   89658be
+Built:        Thu May 4 21:43:09 2017
+OS/Arch:      darwin/amd64
+Server:
+Version:      17.05.0-ce
+API version:  1.29 (minimum version 1.12)
+Go version:   go1.7.5
+Git commit:   89658be
+Built:        Thu May 4 21:43:09 2017
+OS/Arch:      linux/amd64
+Experimental: true

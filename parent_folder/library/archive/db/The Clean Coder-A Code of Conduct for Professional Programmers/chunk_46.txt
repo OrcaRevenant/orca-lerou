@@ -1,0 +1,29 @@
+CHAPTER 1 PROFESSIONALISM
+14
+This is a discipline known as Test Driven Development (TDD), which we will
+say more about in a later chapter.
+Automated QA
+The entire QA procedure for FitNesse is the execution of the unit and acceptance
+tests. If those tests pass, I ship. This means my QA procedure takes about three
+minutes, and I can execute it on a whim.
+Now, it’s true that nobody dies if there is a bug in FitNesse. Nobody loses millions
+of dollars either. On the other hand, FitNesse has many thousands of users, and a
+very small bug list.
+Certainly some systems are so mission-critical that a short automated test is
+insufficient to determine readiness for deployment. On the other hand, you as a
+developer need a relatively quick and reliable mechanism to know that the code you
+have written works and does not interfere with the rest of the system. So, at the very
+least, your automated tests should tell you that the system is very likely to pass QA.
+D O N O HAR M TO STR UCTU R E
+The true professional knows that delivering function at the expense of structure
+is a fool’s errand. It is the structure of your code that allows it to be flexible. If
+you compromise the structure, you compromise the future.
+The fundamental assumption underlying all software projects is that software is
+easy to change. If you violate this assumption by creating inflexible structures,
+then you undercut the economic model that the entire industry is based on.
+In short: You must be able to make changes without exorbitant costs.
+Unfortunately, all too many projects become mired in a tar pit of poor structure.
+Tasks that used to take days begin to take weeks, and then months. Management,
+desperate to recapture lost momentum, hires more developers to speed things
+up. But these developers simply add to the morass, deepening the structural
+damage and raising the impediment.

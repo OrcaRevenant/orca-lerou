@@ -1,0 +1,71 @@
+IV
+Hints for Additional Review Problems
+#465.
+16,3
+Think about what you're going to design for.
+#466.
+16.12
+Consider a recursive or tree-like approach.
+#467,
+17.1
+Walk through binary addition by hand (slowly!} and try to really understand what is
+happening.
+#468.
+16,13
+Draw a square and a bunch of lines that cut it in half. Where are those lines located?
+#469.
+17.24
+Start with a brute force solution.
+#470.
+17.14
+There are actually several approaches. Brainstorm these. It's okay to start off with a naive
+approach.
+#471,
+16,20
+Consider recursion.
+#472.
+16.3
+Will ail lines intercept? What determines if two lines intercept?
+#473.
+16.7
+Let k be 1 if a
+> b and 0 otherwise. If you were given k, could you return the max
+(without a comparison or if-else logic}?
+#474.
+16.22
+The tricky bit is handling an infinite grid. What are your options?
+#475.
+17.15
+Try simplifying this problem: What if you just needed to know the longest word made
+up of two other words in the list?
+#476.
+16.10
+Solution 1:Can you count the number of people alive in each year?
+#477.
+17.25
+Start by grouping the dictionary by the word lengths, since you know each column has
+to be the same length and each row has to be the same length.
+#478.
+17.7
+Discuss the naive approach: merging names together when they are synonyms. How
+would you identify transitive relationships? A == B, A == C, and C == D implies A
+== D == B == C.
+#479.
+16.13
+Any straight line that cuts a square in half goes through the center of the square. How
+then can you find a line that cuts two squares in half?
+#480.
+17.17
+Start with a brute force solution. What is the runtime?
+#481.
+16,22
+Option #1: Do you actually need an infinite grid? Read the problem again. Do you know
+the max size of the grid?
+#482.
+16.16
+Would it help to know the longest sorted sequences at the beginning and end?
+#483.
+17.2
+Try approaching this problem recursively.
+CrackingTfieCodinglnterview.com 16th Edition
+6 2 9
