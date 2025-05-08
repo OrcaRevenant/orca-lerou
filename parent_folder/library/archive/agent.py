@@ -2,9 +2,9 @@ import os
 from pathlib import Path
 from tqdm import tqdm
 from google.adk.agents import Agent
-from extractor import extract_text_from_pdf, get_pdf_files
-from chuncker import process_file
-from embedder import build_faiss_index, load_chunks_from_dir
+from .extractor import extract_text_from_pdf, get_pdf_files
+from .chuncker import process_file
+from .embedder import build_faiss_index, load_chunks_from_dir
 import faiss
 import pickle
 from sentence_transformers import SentenceTransformer
@@ -104,12 +104,15 @@ def search_chunks(query: str, index: faiss.IndexFlatL2, chunks: List[str], k: in
     distances, indices = index.search(query_embedding, k)
     return [chunks[i] for i in indices[0]]
 
-def interactive_search():
+def interactive_search(query: str) -> List[str]:
     """
     Interactive search for the top k chunks.
 
     Args:
-        None
+        query (str): The query to search for.
+
+    Returns:
+        List[str]: The top k chunks.
     """
 
     current_dir = Path(__file__).parent
@@ -122,15 +125,16 @@ def interactive_search():
     index, chunks = load_faiss_index(index_path, mapping_path)
     print("✅ Search index loaded!")
 
-    while True:
-        user_query = input("\nAsk something about the books (type 'exit' to quit): ")
-        if user_query.lower() in ("exit", "quit"):
-            break
+    return search_chunks(query, index, chunks, k=10)
 
-        results = search_chunks(user_query, index, chunks, k=5)
-        print("\n🔍 Top matching chunks:\n")
-        for i, res in enumerate(results):
-            print(f"--- Chunk {i+1} ---\n{res[:500]}...\n")  # Limit preview length
+    # while True:
+    #     user_query = input("\nAsk something about the books (type 'exit' to quit): ")
+    #     if user_query.lower() in ("exit", "quit"):
+    #         break
+
+    #     print("\n🔍 Top matching chunks:\n")
+    #     for i, res in enumerate(results):
+    #         print(f"--- Chunk {i+1} ---\n{res[:500]}...\n")  # Limit preview length
 
 # if __name__ == "__main__":
 #     # Run the pipeline first
@@ -140,3 +144,10 @@ def interactive_search():
 #     interactive_search()
 
 
+root_agent = Agent(
+    name="utility_agent",
+    model="gemini-2.0-flash",
+    description="A helpful agent that can search for books and return the top k chunks.",
+    instruction="You are a helpful agent that can search for books and return the top k chunks.",
+    tools=[interactive_search],
+)

@@ -3,7 +3,7 @@ import tiktoken
 from typing import List
 import os
 from pathlib import Path
-from hash_utils import check_file_hash
+from .hash_utils import check_file_hash
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 tokenizer = tiktoken.encoding_for_model("gpt-3.5-turbo")

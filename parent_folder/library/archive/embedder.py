@@ -3,7 +3,7 @@ import os
 import pickle
 from sentence_transformers import SentenceTransformer
 from tqdm import tqdm
-from hash_utils import check_file_hash
+from .hash_utils import check_file_hash
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 

@@ -2,7 +2,6 @@ import fitz  # PyMuPDF
 import re
 import os
 from pathlib import Path
-from hash_utils import check_file_hash
 
 def extract_text_from_pdf(pdf_path: str) -> str:
     """
